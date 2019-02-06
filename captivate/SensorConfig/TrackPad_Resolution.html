@@ -1,0 +1,43 @@
+<!-- Captivate Description HTML -->
+<!-- Desired_Resolution Tuning Parameter -->
+
+<html>
+    <body>
+		<B>Desired Resolution</B>
+		<P>
+		
+		The desired resolution parameters specifies the resolution of the position that is calculated by the trackpad processing algorithm.
+		The trackpad is a two-dimensional sensor that reports back an x-position and y-position.  When selecting a resolution, the value
+		reported back for the position will be in the range of 0 to (resolution-1).  For example, if a resolution of 1000 is selected, the
+		values will range from 0 to 999 (1000 total points of interest).
+		
+		<P>
+		<img src="visualizer_images/TrackPad_Resolution.png">
+		<P>
+		
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		While resolutions up to 16-bit are supported by the algorithm, the default resolution is 1000 points.  Select a resolution that
+		is appropriate for the application.
+
+		<P>
+		<B>Range of Valid Values for the Desired Resolution Parameter</B>
+		<BR>
+		The desired resolution may be set from 2 to 65535.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Desired_Resolution parameters corresponds to the
+		<i><b>ui16Resolution_X</b></i> 
+		and 
+		<i><b>ui16Resolution_Y</b></i> 
+		members of the
+		<i><b>tTrackPadSensorParams</b></i>
+		types in the CapTIvate Touch Library.
+		<BR>		
+		
+    </body>
+</html>

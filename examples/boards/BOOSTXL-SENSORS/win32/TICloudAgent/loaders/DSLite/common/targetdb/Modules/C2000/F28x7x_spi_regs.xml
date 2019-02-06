@@ -1,0 +1,301 @@
+<module id="SPI_REGS" HW_revision="">
+  <register id="SPICCR" width="16" page="1" offset="0x0" internal="0" description="SPI Configuration Control Register">
+    <bitfield id="SPICHAR" description="SPI Character Length Control Bits" begin="3" end="0" width="4" rwaccess="R/W"/>
+    <bitfield id="SPILBK" description="SPI Loopback Mode Select" begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SPI Loopback mode disabled"/>
+      <bitenum id="__1" value="1" description="SPI Loopback mode enabled, SIMO/SOMI lines connected internally"/>
+    </bitfield>
+    <bitfield id="CLKPOLARITY" description="SPI Shift Clock Polarity" begin="6" end="6" width="1" rwaccess="R">
+      <bitenum id="__0" value="0" description="SPI Data is output on rising edge and input on falling edge."/>
+      <bitenum id="__1" value="1" description="SPI Data is output on falling edge and input on rising edge."/>
+    </bitfield>
+    <bitfield id="SPISWRESET" description="SPI Software Reset" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SPI operating flags are set to the reset condition."/>
+      <bitenum id="__1" value="1" description="SPI is ready to transmit or receive the next character."/>
+    </bitfield>
+  </register>
+  <register id="SPICTL" width="16" page="1" offset="0x1" internal="0" description="SPI Operation Control Register">
+    <bitfield id="SPIINTENA" description="SPI Interupt Enable" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disables the interrupt."/>
+      <bitenum id="__1" value="1" description="Enables the interrupt."/>
+    </bitfield>
+    <bitfield id="TALK" description="Master/Slave Transmit Enable" begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disables transmission:[[br]]- Slave mode operation: If not prev"/>
+      <bitenum id="__1" value="1" description="Enables transmission For the 4-pin option, ensure to enable the"/>
+    </bitfield>
+    <bitfield id="MASTER_SLAVE" description="SPI Network Mode Control" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SPI is configured as a slave."/>
+      <bitenum id="__1" value="1" description="SPI is configured as a master."/>
+    </bitfield>
+    <bitfield id="CLK_PHASE" description="SPI Clock Phase" begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Normal SPI clocking scheme, depending on the CLOCK POLARITY bit"/>
+      <bitenum id="__1" value="1" description="SPICLK signal delayed by one half-cycle"/>
+    </bitfield>
+    <bitfield id="OVERRUNINTENA" description="Overrun Interrupt Enable" begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable RECEIVER OVERRUN interrupts."/>
+      <bitenum id="__1" value="1" description="Enable RECEIVER_OVERRUN interrupts."/>
+    </bitfield>
+  </register>
+  <register id="SPISTS" width="16" page="1" offset="0x2" internal="0" description="SPI Status Register">
+    <bitfield id="BUFFULL_FLAG" description="SPI Transmit Buffer Full Flag" begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit buffer is not full."/>
+      <bitenum id="__1" value="1" description="Transmit buffer is full."/>
+    </bitfield>
+    <bitfield id="INT_FLAG" description="SPI Interrupt Flag" begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No full words have been received or transmitted."/>
+      <bitenum id="__1" value="1" description="Indicates that the SPI has completed sending or receiving the l"/>
+    </bitfield>
+    <bitfield id="OVERRUN_FLAG" description="SPI Receiver Overrun Flag" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="A receive overrun condition has not occurred."/>
+      <bitenum id="__1" value="1" description="The last received character has been overwritten and therefore "/>
+    </bitfield>
+  </register>
+  <register id="SPIBRR" width="16" page="1" offset="0x4" internal="0" description="SPI Baud Rate Register">
+    <bitfield id="SPI_BIT_RATE" description="SPI Bit Rate Control" begin="6" end="0" width="7" rwaccess="R/W">
+      <bitenum id="__3" value="3" description="SPI Baud Rate = LSPCLK/4"/>
+      <bitenum id="__4" value="4" description="SPI Baud Rate = LSPCLK/5"/>
+      <bitenum id="__5" value="5" description="SPI Baud Rate = LSPCLK/6"/>
+      <bitenum id="__6" value="6" description="SPI Baud Rate = LSPCLK/7"/>
+      <bitenum id="__7" value="7" description="SPI Baud Rate = LSPCLK/8"/>
+      <bitenum id="__8" value="8" description="SPI Baud Rate = LSPCLK/9"/>
+      <bitenum id="__9" value="9" description="SPI Baud Rate = LSPCLK/10"/>
+      <bitenum id="__16" value="10" description="SPI Baud Rate = LSPCLK/11"/>
+      <bitenum id="__17" value="11" description="SPI Baud Rate = LSPCLK/12"/>
+      <bitenum id="__18" value="12" description="SPI Baud Rate = LSPCLK/13"/>
+      <bitenum id="__19" value="13" description="SPI Baud Rate = LSPCLK/14"/>
+      <bitenum id="__20" value="14" description="SPI Baud Rate = LSPCLK/15"/>
+      <bitenum id="__21" value="15" description="SPI Baud Rate = LSPCLK/16"/>
+      <bitenum id="__22" value="16" description="SPI Baud Rate = LSPCLK/17"/>
+      <bitenum id="__23" value="17" description="SPI Baud Rate = LSPCLK/18"/>
+      <bitenum id="__24" value="18" description="SPI Baud Rate = LSPCLK/19"/>
+      <bitenum id="__25" value="19" description="SPI Baud Rate = LSPCLK/20"/>
+      <bitenum id="__32" value="20" description="SPI Baud Rate = LSPCLK/21"/>
+      <bitenum id="__33" value="21" description="SPI Baud Rate = LSPCLK/22"/>
+      <bitenum id="__34" value="22" description="SPI Baud Rate = LSPCLK/23"/>
+      <bitenum id="__35" value="23" description="SPI Baud Rate = LSPCLK/24"/>
+      <bitenum id="__36" value="24" description="SPI Baud Rate = LSPCLK/25"/>
+      <bitenum id="__37" value="25" description="SPI Baud Rate = LSPCLK/26"/>
+      <bitenum id="__38" value="26" description="SPI Baud Rate = LSPCLK/27"/>
+      <bitenum id="__39" value="27" description="SPI Baud Rate = LSPCLK/28"/>
+      <bitenum id="__40" value="28" description="SPI Baud Rate = LSPCLK/29"/>
+      <bitenum id="__41" value="29" description="SPI Baud Rate = LSPCLK/30"/>
+      <bitenum id="__48" value="30" description="SPI Baud Rate = LSPCLK/31"/>
+      <bitenum id="__49" value="31" description="SPI Baud Rate = LSPCLK/32"/>
+      <bitenum id="__50" value="32" description="SPI Baud Rate = LSPCLK/33"/>
+      <bitenum id="__51" value="33" description="SPI Baud Rate = LSPCLK/34"/>
+      <bitenum id="__52" value="34" description="SPI Baud Rate = LSPCLK/35"/>
+      <bitenum id="__53" value="35" description="SPI Baud Rate = LSPCLK/36"/>
+      <bitenum id="__54" value="36" description="SPI Baud Rate = LSPCLK/37"/>
+      <bitenum id="__55" value="37" description="SPI Baud Rate = LSPCLK/38"/>
+      <bitenum id="__56" value="38" description="SPI Baud Rate = LSPCLK/39"/>
+      <bitenum id="__57" value="39" description="SPI Baud Rate = LSPCLK/40"/>
+      <bitenum id="__64" value="40" description="SPI Baud Rate = LSPCLK/41"/>
+      <bitenum id="__65" value="41" description="SPI Baud Rate = LSPCLK/42"/>
+      <bitenum id="__66" value="42" description="SPI Baud Rate = LSPCLK/43"/>
+      <bitenum id="__67" value="43" description="SPI Baud Rate = LSPCLK/44"/>
+      <bitenum id="__68" value="44" description="SPI Baud Rate = LSPCLK/45"/>
+      <bitenum id="__69" value="45" description="SPI Baud Rate = LSPCLK/46"/>
+      <bitenum id="__70" value="46" description="SPI Baud Rate = LSPCLK/47"/>
+      <bitenum id="__71" value="47" description="SPI Baud Rate = LSPCLK/48"/>
+      <bitenum id="__72" value="48" description="SPI Baud Rate = LSPCLK/49"/>
+      <bitenum id="__73" value="49" description="SPI Baud Rate = LSPCLK/50"/>
+      <bitenum id="__80" value="50" description="SPI Baud Rate = LSPCLK/51"/>
+      <bitenum id="__81" value="51" description="SPI Baud Rate = LSPCLK/52"/>
+      <bitenum id="__82" value="52" description="SPI Baud Rate = LSPCLK/53"/>
+      <bitenum id="__83" value="53" description="SPI Baud Rate = LSPCLK/54"/>
+      <bitenum id="__84" value="54" description="SPI Baud Rate = LSPCLK/55"/>
+      <bitenum id="__85" value="55" description="SPI Baud Rate = LSPCLK/56"/>
+      <bitenum id="__86" value="56" description="SPI Baud Rate = LSPCLK/57"/>
+      <bitenum id="__87" value="57" description="SPI Baud Rate = LSPCLK/58"/>
+      <bitenum id="__88" value="58" description="SPI Baud Rate = LSPCLK/59"/>
+      <bitenum id="__89" value="59" description="SPI Baud Rate = LSPCLK/60"/>
+      <bitenum id="__96" value="60" description="SPI Baud Rate = LSPCLK/61"/>
+      <bitenum id="__97" value="61" description="SPI Baud Rate = LSPCLK/62"/>
+      <bitenum id="__98" value="62" description="SPI Baud Rate = LSPCLK/63"/>
+      <bitenum id="__99" value="63" description="SPI Baud Rate = LSPCLK/64"/>
+      <bitenum id="__100" value="64" description="SPI Baud Rate = LSPCLK/65"/>
+      <bitenum id="__101" value="65" description="SPI Baud Rate = LSPCLK/66"/>
+      <bitenum id="__102" value="66" description="SPI Baud Rate = LSPCLK/67"/>
+      <bitenum id="__103" value="67" description="SPI Baud Rate = LSPCLK/68"/>
+      <bitenum id="__104" value="68" description="SPI Baud Rate = LSPCLK/69"/>
+      <bitenum id="__105" value="69" description="SPI Baud Rate = LSPCLK/70"/>
+      <bitenum id="__112" value="70" description="SPI Baud Rate = LSPCLK/71"/>
+      <bitenum id="__113" value="71" description="SPI Baud Rate = LSPCLK/72"/>
+      <bitenum id="__114" value="72" description="SPI Baud Rate = LSPCLK/73"/>
+      <bitenum id="__115" value="73" description="SPI Baud Rate = LSPCLK/74"/>
+      <bitenum id="__116" value="74" description="SPI Baud Rate = LSPCLK/75"/>
+      <bitenum id="__117" value="75" description="SPI Baud Rate = LSPCLK/76"/>
+      <bitenum id="__118" value="76" description="SPI Baud Rate = LSPCLK/77"/>
+      <bitenum id="__119" value="77" description="SPI Baud Rate = LSPCLK/78"/>
+      <bitenum id="__120" value="78" description="SPI Baud Rate = LSPCLK/79"/>
+      <bitenum id="__121" value="79" description="SPI Baud Rate = LSPCLK/80"/>
+      <bitenum id="__128" value="80" description="SPI Baud Rate = LSPCLK/81"/>
+      <bitenum id="__129" value="81" description="SPI Baud Rate = LSPCLK/82"/>
+      <bitenum id="__130" value="82" description="SPI Baud Rate = LSPCLK/83"/>
+      <bitenum id="__131" value="83" description="SPI Baud Rate = LSPCLK/84"/>
+      <bitenum id="__132" value="84" description="SPI Baud Rate = LSPCLK/85"/>
+      <bitenum id="__133" value="85" description="SPI Baud Rate = LSPCLK/86"/>
+      <bitenum id="__134" value="86" description="SPI Baud Rate = LSPCLK/87"/>
+      <bitenum id="__135" value="87" description="SPI Baud Rate = LSPCLK/88"/>
+      <bitenum id="__136" value="88" description="SPI Baud Rate = LSPCLK/89"/>
+      <bitenum id="__137" value="89" description="SPI Baud Rate = LSPCLK/90"/>
+      <bitenum id="__144" value="90" description="SPI Baud Rate = LSPCLK/91"/>
+      <bitenum id="__145" value="91" description="SPI Baud Rate = LSPCLK/92"/>
+      <bitenum id="__146" value="92" description="SPI Baud Rate = LSPCLK/93"/>
+      <bitenum id="__147" value="93" description="SPI Baud Rate = LSPCLK/94"/>
+      <bitenum id="__148" value="94" description="SPI Baud Rate = LSPCLK/95"/>
+      <bitenum id="__149" value="95" description="SPI Baud Rate = LSPCLK/96"/>
+      <bitenum id="__150" value="96" description="SPI Baud Rate = LSPCLK/97"/>
+      <bitenum id="__151" value="97" description="SPI Baud Rate = LSPCLK/98"/>
+      <bitenum id="__152" value="98" description="SPI Baud Rate = LSPCLK/99"/>
+      <bitenum id="__153" value="99" description="SPI Baud Rate = LSPCLK/100"/>
+      <bitenum id="__256" value="100" description="SPI Baud Rate = LSPCLK/101"/>
+      <bitenum id="__257" value="101" description="SPI Baud Rate = LSPCLK/102"/>
+      <bitenum id="__258" value="102" description="SPI Baud Rate = LSPCLK/103"/>
+      <bitenum id="__259" value="103" description="SPI Baud Rate = LSPCLK/104"/>
+      <bitenum id="__260" value="104" description="SPI Baud Rate = LSPCLK/105"/>
+      <bitenum id="__261" value="105" description="SPI Baud Rate = LSPCLK/106"/>
+      <bitenum id="__262" value="106" description="SPI Baud Rate = LSPCLK/107"/>
+      <bitenum id="__263" value="107" description="SPI Baud Rate = LSPCLK/108"/>
+      <bitenum id="__264" value="108" description="SPI Baud Rate = LSPCLK/109"/>
+      <bitenum id="__265" value="109" description="SPI Baud Rate = LSPCLK/110"/>
+      <bitenum id="__272" value="110" description="SPI Baud Rate = LSPCLK/111"/>
+      <bitenum id="__273" value="111" description="SPI Baud Rate = LSPCLK/112"/>
+      <bitenum id="__274" value="112" description="SPI Baud Rate = LSPCLK/113"/>
+      <bitenum id="__275" value="113" description="SPI Baud Rate = LSPCLK/114"/>
+      <bitenum id="__276" value="114" description="SPI Baud Rate = LSPCLK/115"/>
+      <bitenum id="__277" value="115" description="SPI Baud Rate = LSPCLK/116"/>
+      <bitenum id="__278" value="116" description="SPI Baud Rate = LSPCLK/117"/>
+      <bitenum id="__279" value="117" description="SPI Baud Rate = LSPCLK/118"/>
+      <bitenum id="__280" value="118" description="SPI Baud Rate = LSPCLK/119"/>
+      <bitenum id="__281" value="119" description="SPI Baud Rate = LSPCLK/120"/>
+      <bitenum id="__288" value="120" description="SPI Baud Rate = LSPCLK/121"/>
+      <bitenum id="__289" value="121" description="SPI Baud Rate = LSPCLK/122"/>
+      <bitenum id="__290" value="122" description="SPI Baud Rate = LSPCLK/123"/>
+      <bitenum id="__291" value="123" description="SPI Baud Rate = LSPCLK/124"/>
+      <bitenum id="__292" value="124" description="SPI Baud Rate = LSPCLK/125"/>
+      <bitenum id="__293" value="125" description="SPI Baud Rate = LSPCLK/126"/>
+      <bitenum id="__294" value="126" description="SPI Baud Rate = LSPCLK/127"/>
+      <bitenum id="__295" value="127" description="SPI Baud Rate = LSPCLK/128"/>
+    </bitfield>
+  </register>
+  <register id="SPIRXEMU" width="16" page="1" offset="0x6" internal="0" description="SPI Emulation Buffer Register">
+    <bitfield id="ERXBn" description="Emulation Buffer Received Data" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SPIRXBUF" width="16" page="1" offset="0x7" internal="0" description="SPI Serial Input Buffer Register">
+    <bitfield id="RXBn" description="Received Data" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SPITXBUF" width="16" page="1" offset="0x8" internal="0" description="SPI Serial Output Buffer Register">
+    <bitfield id="TXBn" description="Transmit Data Buffer" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SPIDAT" width="16" page="1" offset="0x9" internal="0" description="SPI Serial Data Register">
+    <bitfield id="SDATn" description="Serial Data Shift Register" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SPIFFTX" width="16" page="1" offset="0xa" internal="0" description="SPI FIFO Transmit Register">
+    <bitfield id="TXFFIL" description="TXFIFO Interrupt Level" begin="4" end="0" width="5" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="A TX FIFO interrupt request is generated when there are no word"/>
+      <bitenum id="__1" value="1" description="A TX FIFO interrupt request is generated when there is 1 word o"/>
+      <bitenum id="__2" value="2" description="A TX FIFO interrupt request is generated when there are 2 words"/>
+      <bitenum id="__3" value="3" description="A TX FIFO interrupt request is generated when there are 3 words"/>
+      <bitenum id="__4" value="4" description="A TX FIFO interrupt request is generated when there are 4 words"/>
+      <bitenum id="__49" value="31" description="Reserved."/>
+    </bitfield>
+    <bitfield id="TXFFIENA" description="TXFIFO Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="TX FIFO interrupt based on TXFFIL match (less than or equal to)"/>
+      <bitenum id="__1" value="1" description="TX FIFO interrupt based on TXFFIL match (less than or equal to)"/>
+    </bitfield>
+    <bitfield id="TXFFINTCLR" description="TXFIFO Interrupt Clear" begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 has no effect on TXFIFINT flag bit, Bit reads back a ze"/>
+      <bitenum id="__1" value="1" description="Write 1 to clear SPIFFTX[TXFFINT] flag."/>
+    </bitfield>
+    <bitfield id="TXFFINT" description="TXFIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="TXFIFO interrupt has not occurred, This is a read-only bit."/>
+      <bitenum id="__1" value="1" description="TXFIFO interrupt has occurred, This is a read-only bit."/>
+    </bitfield>
+    <bitfield id="TXFFST" description="Transmit FIFO Status" begin="12" end="8" width="5" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit FIFO is empty."/>
+      <bitenum id="__1" value="1" description="Transmit FIFO has 1 word."/>
+      <bitenum id="__2" value="2" description="Transmit FIFO has 2 words."/>
+      <bitenum id="__3" value="3" description="Transmit FIFO has 3 words."/>
+      <bitenum id="__4" value="4" description="Transmit FIFO has 4 words, which is the maximum."/>
+    </bitfield>
+    <bitfield id="TXFIFO" description="TXFIFO Reset" begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 to reset the FIFO pointer to zero, and hold in reset."/>
+      <bitenum id="__1" value="1" description="Release transmit FIFO from reset."/>
+    </bitfield>
+    <bitfield id="SPIFFENA" description="FIFO Enhancements Enable" begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SPI FIFO enhancements are disabled."/>
+      <bitenum id="__1" value="1" description="SPI FIFO enhancements are enabled."/>
+    </bitfield>
+    <bitfield id="SPIRST" description="SPI Reset" begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 to reset the SPI transmit and receive channels"/>
+      <bitenum id="__1" value="1" description="SPI FIFO can resume transmit or receive"/>
+    </bitfield>
+  </register>
+  <register id="SPIFFRX" width="16" page="1" offset="0xb" internal="0" description="SPI FIFO Receive Register">
+    <bitfield id="RXFFIL" description="RXFIFO Interrupt Level" begin="4" end="0" width="5" rwaccess="R/W">
+      <bitenum id="__1" value="1" description="A RX FIFO interrupt request is generated when there is 1 or mor"/>
+      <bitenum id="__2" value="2" description="A RX FIFO interrupt request is generated when there are 2 or mo"/>
+      <bitenum id="__3" value="3" description="A RX FIFO interrupt request is generated when there are 3 or mo"/>
+      <bitenum id="__4" value="4" description="A RX FIFO interrupt request is generated when there are 4 words"/>
+    </bitfield>
+    <bitfield id="RXFFIENA" description="RXFIFO Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="RX FIFO interrupt based on RXFFIL match (greater than or equal "/>
+      <bitenum id="__1" value="1" description="RX FIFO interrupt based on RXFFIL match (greater than or equal "/>
+    </bitfield>
+    <bitfield id="RXFFINTCLR" description="RXFIFO Interupt Clear" begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 has no effect on RXFIFINT flag bit, Bit reads back a ze"/>
+      <bitenum id="__1" value="1" description="Write 1 to clear SPIFFRX[RXFFINT] flag"/>
+    </bitfield>
+    <bitfield id="RXFFINT" description="RXFIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="RXFIFO interrupt has not occurred. This is a read-only bit."/>
+      <bitenum id="__1" value="1" description="RXFIFO interrupt has occurred. This is a read-only bit."/>
+    </bitfield>
+    <bitfield id="RXFFST" description="Receive FIFO Status" begin="12" end="8" width="5" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive FIFO is empty."/>
+      <bitenum id="__1" value="1" description="Receive FIFO has 1 word."/>
+      <bitenum id="__2" value="2" description="Receive FIFO has 2 words."/>
+      <bitenum id="__3" value="3" description="Receive FIFO has 3 words."/>
+      <bitenum id="__4" value="4" description="Receive FIFO has 4 words, which is the maximum."/>
+    </bitfield>
+    <bitfield id="RXFIFORESET" description="RXFIFO Reset" begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 to reset the FIFO pointer to zero, and hold in reset."/>
+      <bitenum id="__1" value="1" description="Re-enable receive FIFO operation."/>
+    </bitfield>
+    <bitfield id="RXFFOVFCLR" description="Receive FIFO Overflow Clear" begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 does not affect RXFFOVF flag bit, Bit reads back a zero."/>
+      <bitenum id="__1" value="1" description="Write 1 to clear SPIFFRX[RXFFOVF]."/>
+    </bitfield>
+    <bitfield id="RXFFOVF" description="Receive FIFO Overflow Flag" begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive FIFO has not overflowed. This is a read-only bit."/>
+      <bitenum id="__1" value="1" description="Receive FIFO has overflowed, read-only bit"/>
+    </bitfield>
+  </register>
+  <register id="SPIFFCT" width="16" page="1" offset="0xc" internal="0" description="SPI FIFO Control Register">
+    <bitfield id="TXDLY" description="FIFO Transmit Delay Bits" begin="7" end="0" width="8" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The next word in the TX FIFO buffer is transferred to SPITXBUF "/>
+      <bitenum id="__1" value="1" description="The next word in the TX FIFO buffer is transferred to SPITXBUF1"/>
+      <bitenum id="__2" value="2" description="The next word in the TX FIFO buffer is transferred to SPITXBUF "/>
+      <bitenum id="__597" value="255" description="The next word in the TX FIFO buffer is transferred to SPITXBUF "/>
+    </bitfield>
+  </register>
+  <register id="SPIPRI" width="16" page="1" offset="0xf" internal="0" description="SPI Priority Control Register">
+    <bitfield id="TRIWIRE" description="3-wire mode select bit" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Normal 4-wire SPI mode."/>
+      <bitenum id="__1" value="1" description="3-wire SPI mode enabled"/>
+    </bitfield>
+    <bitfield id="STEINV" description="SPISTE inversion bit" begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SPISTEn is active low (normal)"/>
+      <bitenum id="__1" value="1" description="SPISTE is active high (inverted)"/>
+    </bitfield>
+    <bitfield id="FREE" description="Free emulation mode" begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Emulation mode is selected by the SOFT bit"/>
+      <bitenum id="__1" value="1" description="Free run, continue SPI operation regardless of suspend or when "/>
+    </bitfield>
+    <bitfield id="SOFT" description="Soft emulation mode" begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmission stops after midway in the bit stream while TSUSPEN"/>
+      <bitenum id="__1" value="1" description="If the emulation suspend occurs before the start of a transmiss"/>
+    </bitfield>
+    <bitfield id="PRIORITY" description="Interrupt priority select" begin="6" end="6" width="1" rwaccess="R/W"/>
+  </register>
+</module>

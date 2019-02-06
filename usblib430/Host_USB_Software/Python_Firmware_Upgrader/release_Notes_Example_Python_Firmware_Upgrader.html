@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- --COPYRIGHT--,BSD
+* Copyright (c) 2012, Texas Instruments Incorporated
+* All rights reserved.
+* * Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions
+* are met:
+* * * Redistributions of source code must retain the above copyright
+* notice, this list of conditions and the following disclaimer.
+* * * Redistributions in binary form must reproduce the above copyright
+* notice, this list of conditions and the following disclaimer in the
+* documentation and/or other materials provided with the distribution.
+* * * Neither the name of Texas Instruments Incorporated nor the names of
+* its contributors may be used to endorse or promote products derived
+* from this software without specific prior written permission.
+* * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+* AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+* THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+* PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+* CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+* EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+* PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+* OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+* WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+* OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+* EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+* --/COPYRIGHT-- -->
+
+<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><!-- /* * Copyright 2007 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ -->
+
+
+
+<title>MSP430 Example Firmware Updater</title><!-- For now, we use the doxygen style sheet --><link href="docs/html/doxygen.css" rel="stylesheet" type="text/css"></head>
+<body>
+<table width="100%">
+<tbody>
+<tr>
+<td bgcolor="black" width="1"><a href="http://www.ti.com"><img src="doc/tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+<td bgcolor="red"><img src="doc/titagline.gif"></td>
+</tr>
+</tbody>
+</table>
+<h1>MSP430&nbsp; USB Firmware Updater</h1>
+<h2>Release Notes&nbsp;</h2>
+Document Revision: 032017.03<br>
+<br>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+<p>The MSP430 USB Firmware Updater is an example application that
+may
+be used as-is or as a starting point for building your own firmware
+updater. &nbsp;It is written in Python and consists of a graphical
+user
+interface and an existing <a href="http://pypi.python.org/pypi/python-msp430-tools">command
+line interface</a>
+called python-msp430-tools written by Chris Liechti. &nbsp;
+&nbsp;Care
+has been taken to keep python-msp430-tools and the GUI independent.
+&nbsp;As long as no drastic changes are made to the
+python-msp430-tools command line
+interface the GUI should work with
+updated&nbsp;python-msp430-tools. &nbsp;This Firmware updater should work with all 5xx/6xx devices with a USB connection. </p>
+<h2><a name="Introduction" id="Introduction">Requirements</a></h2>
+<p>Linux: &nbsp;Python (2.6+) with tkinter (most likely
+already installed)</p>
+<p>Windows: <a href="http://www.python.org/getit/windows/">Python
+(2.6+)</a>, <a href="http://pypi.python.org/pypi/pywinusb/0.3.1">pwinusb-0.3.1</a>,&nbsp;<span style="text-decoration: underline;"></span><a href="http://pypi.python.org/pypi/distribute"><span style="text-decoration: underline;">Python distribute</span></a></p>Mac: XCODE,&nbsp;cython-0.22, cython-hidapi, Python (2.7.9+) <br><span style="text-decoration: underline;"><br></span>This document is divided into the following sections:
+<ul>
+<li><a href="#Documentation">Documentation</a></li>
+<li><a href="#Whats_New">What's New</a></li>
+<li><a href="#Installation">Installation and Usage</a></li>
+<li><a href="#Host_Support">Host Support</a></li>
+<li><a href="#Dependencies">Dependencies</a></li>
+<li><a href="#Device_Support">Device Support</a></li>
+<li><a href="#Validation">Validation Information</a></li>
+<li><a href="release_notes.html#Upgrade">Upgrade
+and
+Compatibility Information</a></li>
+<li><a href="#Known_Issues">Known Issues</a></li>
+<li><a href="#Versioning">Versioning</a></li>
+<li><a href="#Technical_Support">Technical Support
+and Product Updates</a></li>
+</ul>
+<h2><a name="Documentation" id="Documentation">Documentation</a></h2>
+<li style="margin-left: 40px;"><a href="python-msp430-tools/README.txt">MSP430 Tools Overview<br>
+</a></li>
+<li style="margin-left: 40px;"><a href="python-msp430-tools%5Cdoc%5C_build%5Chtml/index.html">python-msp430-tools
+command line documentation <br>
+</a></li>
+<h2><a name="Whats_New" id="Whats_New">What's
+New</a></h2>
+
+<ul><li>Updated with&nbsp;RAM_BSL.00.08.08.39.txt image file</li>
+</ul>
+<p>The MSP430&nbsp; USB Firmware Updater contains the
+following components. </p>
+<table style="height: 160px; width: 666px;" border="1">
+<tbody>
+<tr>
+<td>python-msp430-tools</td>
+<td>Command line MSP430 Tools</td>
+</tr>
+<tr>
+<td>License_Manifest</td>
+<td>MSP430&nbsp; USB Firmware Updater license and
+manifest<br>
+</td>
+</tr>
+<tr>
+<td>*.txt </td>
+<td>HID Demo, Blink Demo, and CDC Demo titext files</td>
+</tr>
+<tr>
+<td>TargetGUI.py</td>
+<td>GUI Version of &nbsp;MSP430&nbsp; USB Firmware
+Updater</td>
+</tr><tr><td>Python_Firmware_UpgraderGUI.exe</td><td>GUI executable</td></tr>
+</tbody>
+</table>
+<br>
+<h2><a name="Installation" id="Installation">Installation
+and Usage</a></h2>
+<p class="MsoNormal" style="margin: 5pt 0in;">This
+is installed as part
+of the MSP430 USB stack installation. &nbsp;The Python Firware Upgrader
+tool can be run either by double clicking on the
+Python_Firmware_UpgraderGUI.exe file (Windows only) or from the command
+line. &nbsp; When running from the command line,
+additional software
+packages are required&nbsp;for Windows. See below.</p>
+<ul>
+<li><a href="http://www.python.org/getit/windows/">Python
+(2.6+)</a></li><ul><li>Add the python installed location to Class Path in the environment variables&nbsp;</li></ul>
+<li><a href="http://pypi.python.org/pypi/distribute"><span style="text-decoration: underline;">Python distribute</span></a></li>
+<ul>
+<li>Untar/Unzip anywhere on your system</li>
+<li>In command window, navigate to python distribute
+directory and run the following install command</li>
+</ul>
+</ul>
+<div style="margin-left: 120px;">python setup.py install <span style="text-decoration: underline;"></span><a href="http://pypi.python.org/pypi/distribute"><span style="text-decoration: underline;"></span></a></div>
+<ul>
+<li><a href="http://pypi.python.org/pypi/pywinusb/0.3.1">&nbsp;pwinusb-0.3.1</a></li>
+<ul>
+<li>Unzip anywhere on your system</li>
+<li>In command window, navigate to pywinusb-0.3.1 directory
+and run the following install command</li>
+</ul>
+</ul>
+<div style="margin-left: 120px;">python setup.py install <span style="text-decoration: underline;"></span><a href="http://pypi.python.org/pypi/distribute"><span style="text-decoration: underline;"></span></a></div>
+<ul><ul><li>&nbsp;If
+&nbsp;/pwinusb-0.3.1/pywinusb folder is not installed
+in&nbsp;&nbsp;/python/ Lib/site-packages, copy and paste the folder to
+this location</li></ul></ul><p class="MsoNormal" style="margin: 5pt 0in;">To install the packages required for the tool to run on Mac:</p><ul><li>Python(2.7.9+)</li></ul><ul><li>Cython-0.22</li><ul><li>In command window, navigate to Cython directory and run the following command:</li></ul></ul>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;python setup.py install<br><br><ul><li>Cython-hidapi</li><ul><li>In command window, navigate to Cython hidapi directory and run the following commands:</li></ul></ul>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;python setup-mac.py build<br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;sudo python setup-mac.py install<br><p class="MsoNormal" style="margin: 5pt 0in;">To
+run this
+from Linux or Mac, sudo or root is required as it needs to write to a raw HID
+device. &nbsp; Example invocations:</p>
+<br>
+<table style="width: 815pt; margin-left: 4.65pt; border-collapse: collapse;" class="MsoNormalTable" border="5" cellpadding="0" cellspacing="0" width="1087">
+<tbody>
+<tr style="height: 12.75pt;">
+<td style="padding: 0in 5.4pt; width: 235pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="313">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">Windows (After
+installing Python and pwinusb)<o:p></o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 79pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="105">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;</o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 501pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="668">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;All
+examples are in </o:p></span><span style="font-size: 10pt; font-family: Arial;">a command
+window &nbsp;from the&nbsp;</span><span style="font-size: 10pt; font-family: Arial;"><o:p>
+MSP430_USB_Firmware_Upgrader directory&nbsp;</o:p></span><span style="font-size: 10pt; font-family: Arial;"></span></p>
+</td>
+</tr>
+<tr style="height: 12.75pt;">
+<td style="padding: 0in 5.4pt; width: 235pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="313">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;</o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 79pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="105">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">GUI<o:p></o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 501pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="668">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"></span><span style="font-size: 10pt; font-family: Arial;">set
+PYTHONPATH=.\python-msp430-tools&amp; python</span><span style="font-size: 10pt; font-family: Arial;">
+TargetGUI.py&nbsp;<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style="height: 12.75pt;">
+<td style="padding: 0in 5.4pt; width: 235pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="313">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;</o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 79pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="105"><!--StartFragment -->
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">Command Line<o:p></o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 501pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="668"><!--StartFragment -->
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">set
+PYTHONPATH=.\python-msp430-tools&amp;&nbsp;</span><span style="font-size: 10pt; font-family: Arial;">python -m
+msp430.bsl5.hid_1 -e -v -P ./5529_LED_Blink.txt</span></p>
+</td>
+</tr>
+<tr style="height: 12.75pt;">
+<td style="padding: 0in 5.4pt; width: 235pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="313"><!--StartFragment -->
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">Linux and Mac<o:p></o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 79pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="105">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;</o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 501pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="668">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;</o:p></span><span style="font-size: 10pt; font-family: Arial;"><o:p>All
+examples are in </o:p></span><span style="font-size: 10pt; font-family: Arial;">an xterm
+window &nbsp;from the&nbsp;</span><span style="font-size: 10pt; font-family: Arial;"><o:p>
+MSP430_USB_Firmware_Upgrader directory&nbsp;</o:p></span></p>
+</td>
+</tr>
+<tr style="height: 12.75pt;">
+<td style="padding: 0in 5.4pt; width: 235pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="313">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;</o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 79pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="105"><!--StartFragment -->
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">GUI<o:p></o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 501pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="668"><!--StartFragment -->
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">sudo
+PYTHONPATH=./python-msp430-tools python TargetGUI.py<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style="height: 12.75pt;">
+<td style="padding: 0in 5.4pt; width: 235pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="313">
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;"><o:p>&nbsp;</o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 79pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="105"><!--StartFragment -->
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">Command Line<o:p></o:p></span></p>
+</td>
+<td style="padding: 0in 5.4pt; width: 501pt; height: 12.75pt;" nowrap="nowrap" valign="bottom" width="668"><!--StartFragment -->
+<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">sudo
+PYTHONPATH=./python-msp430-tools python -m msp430.bsl5.hid_1 -e -v -P
+./5529_LED_Blink.txt<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h2><a name="Upgrade_Info" id="Host_Support">Upgrade
+Information</a></h2>
+<p>Initial version, no upgrade information
+but&nbsp;python-msp430-tools may be upgraded by unzipping the zip
+file while in the &nbsp;MSP430_USB_Firmware_Upgrader directory.</p>
+<h2><a name="Host_Support" id="Host_Support">Host
+Support</a></h2>
+<p>This release supports installation and development on
+Microsoft Windows 7 and Windows 10 Workstations,&nbsp;Ubuntu Linux 11.04+, Mac OSX Yosemite 10.10.1+</p>
+<h2><a name="Dependencies" id="Dependencies">Dependencies</a></h2>
+Python 2.6+, and pwinusb for Windows<br>Python 2.7.9+,&nbsp;cython, cython-hidapi for Mac
+<h2><a name="Device_Support" id="Device_Support">Device
+Support</a></h2>
+This release supports the Texas Instruments MSP430
+&nbsp;device family.<br>
+<h2><a name="Validation" id="Validation">Validation
+Information</a></h2>
+<p>All functionality for this release has been tested on Windows 7 32
+and 64 bits, Windows 10,&nbsp; Ubuntu 11.04 and 14.04, and Mac OSX Yosemite 10.10.1 with a
+MSP430F5529 Experimenter's Board and a Target Board with a MSP430F6638.
+<br>
+</p>
+<h2><a name="Examples" id="Examples">Examples</a></h2>
+<span style="font-size: 10pt; font-family: Arial;">Blinkie
+example:<br>
+</span>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">Linux and Mac</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">sudo
+PYTHONPATH=./python-msp430-tools python -m msp430.bsl5.hid_1 -e -v -P
+./5529_LED_Blink.txt</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">Windows</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">set
+PYTHONPATH=.\python-msp430-tools&amp; python -m msp430.bsl5.hid_1 -e
+-v -P ./5529_LED_Blink.txt</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<span style="font-size: 10pt; font-family: Arial;"><br>
+HID Example (This may be used with the HID Demo):<br>
+</span>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">Linux and Mac</span><br>
+</div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">sudo
+PYTHONPATH=./python-msp430-tools python -m msp430.bsl5.hid_1 -e -v -P
+./5529_HID_echo.txt</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">Windows</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">set
+PYTHONPATH=.\python-msp430-tools&amp; python -m msp430.bsl5.hid_1 -e
+-v -P ./</span><span style="font-size: 10pt; font-family: Arial;">5529_HID_echo</span><span style="font-size: 10pt; font-family: Arial;">.txt</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<span style="font-size: 10pt; font-family: Arial;"></span><span style="font-size: 10pt; font-family: Arial;"><br>
+CDC Example (Note Windows will detect a new CDC device and try to find
+a driver)<br>
+</span>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">Linux and Mac</span><br>
+</div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">sudo
+PYTHONPATH=./python-msp430-tools python -m msp430.bsl5.hid_1 -e -v -P
+./5529_CDC_echo.txt</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">Windows</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<div style="margin-left: 40px;"><span style="font-size: 10pt; font-family: Arial;">set
+PYTHONPATH=.\python-msp430-tools&amp; python -m msp430.bsl5.hid_1 -e
+-v -P ./</span><span style="font-size: 10pt; font-family: Arial;">5529_CDC_echo</span><span style="font-size: 10pt; font-family: Arial;">.txt</span><br>
+<span style="font-size: 10pt; font-family: Arial;"></span></div>
+<span style="font-size: 10pt; font-family: Arial;"></span>
+<h2><a name="Known_Issues" id="Known_Issues">Known
+Issues</a></h2>1) The Python Firmware Upgrader tool &nbsp;currently does not have the
+capability to recover from an interrupted firmware upgrade process
+(ex. when USB cable is pulled during upgrade) where the vector table might become corrupted. &nbsp;If this is of
+concern, use the Visual Studio based MSP430 USB Firmware Upgrader Tool.
+<br>2) Hid.py filename in the msp430-python-tools directory conflicted
+with the hid.py filename in&nbsp;cython-hidapi module during a calls to
+import hid. &nbsp;In order to resolve this conflict, hid.py has been
+re-named to hid_1.py and the original hid.py included as
+hid_original.py in the msp430-python-tools directory.<br>3) On Mac, the user will see a brief flash of&nbsp;progress bar when&nbsp;BSL upgrade is done using command line. &nbsp; &nbsp;<br>
+<h3>Outstanding Defects</h3>
+None Found<br>
+<hr><br>
+<h2><a name="Versioning" id="Versioning">Versioning</a></h2>
+<p>This is build 3_10_00_00 of&nbsp; MSP430 Firmware Updater</p>
+<h2><small><small><a name="Technical_Support" id="Technical_Support">Technical
+Support and Product Updates</a></small></small></h2>
+<h2><small><small>Support</small></small></h2>
+<ul>
+<li><small><small>For questions and support, please
+visit <a href="http://support.ti.com/">support.ti.com</a>.</small></small></li>
+<li><small><small>or e-mail us directly at&nbsp;<font face="Times New Roman" size="3"><span style="font-size: 12pt;"><a title="mailto:msp430ware@list.ti.com" href="mailto:msp430ware@list.ti.com">msp430ware@list.ti.com.</a><o:p></o:p></span></font></small></small></li>
+</ul>
+<h2><small><small>Additional Resources</small></small></h2>
+<small><small>For more information, visit <a href="http://www.ti.com">www.ti.com</a>.
+</small></small>
+</body></html>

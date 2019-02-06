@@ -1,0 +1,17 @@
+<projectSpec>
+  <project compilerBuildOptions="-O3 -I${PROJECT_ROOT}/driverlib/MSP430F5xx_6xx -I${PROJECT_ROOT} -I${PROJECT_ROOT}/GrLib/grlib -I${PROJECT_ROOT}/GrLib/fonts --advice:power=&quot;none&quot; --gcc" device="MSP430F5438A" name="MSP-EXP430F5438_Grlib_Example">
+	<file action="copy" path="../main.c" targetDirectory="." />
+	<file action="copy" path="../system_pre_init.c" targetDirectory="." />
+	<file action="copy" path="../LcdDriver/Hitachi138x110_HD66753.c" targetDirectory="LcdDriver" />
+	<file action="copy" path="../LcdDriver/Hitachi138x110_HD66753.h" targetDirectory="LcdDriver" />
+	<file action="copy" path="../LcdDriver/HAL_MSP_EXP430F5438_HITACHI138x110_HD66753.c" targetDirectory="LcdDriver" />
+	<file action="copy" path="../LcdDriver/HAL_MSP_EXP430F5438_HITACHI138x110_HD66753.h" targetDirectory="LcdDriver" />
+	<file action="copy" path="../images/" />
+	<file action="copy" path="../../../src/grlib/" targetDirectory="GrLib/" />
+	<file action="copy" path="../../../src/fonts/" targetDirectory="GrLib/" />
+	<file action="copy" path="../../../driverlib/MSP430F5xx_6xx/" targetDirectory="driverlib/" />
+    <file action="copy" path="../../../driverlib/MSP430F5xx_6xx/deprecated/" targetDirectory="driverlib/MSP430F5xx_6xx/" />
+    <file action="copy" path="../../../driverlib/MSP430F5xx_6xx/deprecated/CCS/" targetDirectory="driverlib/MSP430F5xx_6xx/deprecated/" />
+    <file action="copy" path="../../../driverlib/MSP430F5xx_6xx/inc/" targetDirectory="driverlib/MSP430F5xx_6xx/" />
+  </project>
+</projectSpec>

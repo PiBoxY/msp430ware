@@ -1,0 +1,217 @@
+<!--
+`ti-tile-base` provides common properties and methods shared by all tiles.
+  You should not use this in your project directly.
+
+
+@group Instrument Tiles
+@element ti-tile-analoggauge
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base-text.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="ti-tile-properties.html">
+
+<polymer-element name="ti-tile-base"  >
+    <script>
+        Polymer ('ti-tile-base',
+                {
+                    // hide the following from bindings in designer
+                    /**
+                     * Controls whether or not scroll bars, both horizontal and/or vertical, are added to this container
+                     * automatically when child widgets are positioned outside of this continers boundaries.  Use this
+                     * to create scrollable container.
+                     *
+                     * @attribute _autoScroll
+                     * @type string
+                     * @default inherit
+                     */
+                    _autoScroll: false,
+                    _titleFontColor: '#555555',
+                    _titleFontWeight: 'bold',
+                    _titleFontSize: 'medium',
+                    _iconColor: '#c0c0c0',
+                    _resizeCornerColor: '#222222',
+                    _pinIcon: 'lock',
+                    _arrowStyle: '',
+                    publish: {
+                        /**
+                         * elevation controls the drop shadow depth behind the tiles
+                         *
+                         * @attribute elevation
+                         * @type number
+                         * @default 2
+                         */
+                        elevation: 2,
+                        /**
+                         * Controls the visible state of the tile.
+                         *
+                         * @attribute visible
+                         * @type boolean
+                         * @default true
+                         */
+                        visible: true,
+                        /**
+                         * Controls the non-visible state of the tile.  This is the opposite of the
+                         * visible attribute.  If the visible attribute is bound to a target variable,
+                         * you can use this attribute to hide the tile until the visible binding has
+                         * been evaluated.
+                         *
+                         * @attribute nonvisible
+                         * @type boolean
+                         * @default false
+                         */
+                        nonvisible: false
+                    },
+                    /**
+                     * Set the z-depth of the shadow. This should be used after element
+                     * creation instead of setting the z property directly.
+                     *
+                     * @method elevationChanged
+                     * @param {number} oldValue,newValue
+                     */
+                    elevationChanged: function(oldValue,newValue){
+                        if (oldValue !== newValue) {
+                            this.$['shadow-bottom'].classList.remove('paper-shadow-bottom-z-' + oldValue);
+                            this.$['shadow-bottom'].classList.add('paper-shadow-bottom-z-' + newValue);
+                            this.$['shadow-top'].classList.remove('paper-shadow-top-z-' + oldValue);
+                            this.$['shadow-top'].classList.add('paper-shadow-top-z-' + newValue);
+                        }
+                    },
+                    _autoScrollChanged : function()
+                    {
+                        this.style.overflow = this._autoScroll == true ? "auto" : "initial";
+                    },
+                    getElement : function()
+                    {
+                        return this;
+                    },
+                    _inDesigner: function(){
+                        var result = false;
+                        if ((window.parent)&&(window.parent.document) && (window.parent.document.querySelector('#designer'))){
+                            result = true;
+                        }
+                        return result;
+                    },
+                    applyPropertyBinding: function (event, detail) {
+                        var designer = null;
+                        if ((window.parent)&&(window.parent.document)){
+                            designer = window.parent.document.querySelector('#designer');
+                        }
+                        if (designer) {
+                            this.designer.applyPropertyBinding(
+                                    detail.obj, detail.name, detail.path);
+                        }
+                    },
+                    pinChanged: function(){
+                        if (this.hasAttribute('pin')) {
+                            this._pinIcon = "lock";
+                            if (this.parentElement){
+                                if (this.parentElement.hasAttribute('layout')){
+                                    this._arrowStyle = "";
+                                } else {
+                                    this._arrowStyle = "display:none";
+                                }
+                            }
+                            if ((this.$) &&  (this.$.pinIcon)) {
+                                this.$.pinIcon.title = "click to unpin (enable dragging)";
+                            }
+                        } else {
+                            this._pinIcon = "lock-open";
+                            this._arrowStyle = "display:none";
+                            if ((this.$) &&  (this.$.pinIcon)) {
+                                this.$.pinIcon.title = "click to pin (disable dragging)";
+                            }
+                        }
+                    },
+                    domReady: function(){
+                        this.pinChanged();
+                    },
+                    togglePin: function(event) {
+                        // remove any pin attributes from the selected items
+                        if (this.attributes.getNamedItem('pin') !== null) {
+                            this.removeAttribute('pin');
+                        } else {
+                            this.setAttribute('pin', "");
+                        }
+                        this.pinChanged();
+                    },
+                    editProperties: function(event){
+                        console.log('request to edit container received');
+                        if (this.id === 'helpButtonInfo'){
+                            this.$.propertiesDialog.selected = this.offsetParent;
+                        } else {
+                            this.$.propertiesDialog.selected = this;
+                        }
+                        this.$.propertiesDialog.toggle();
+                    },
+                    moveLeft: function(event){
+                        if ((window.parent) && (window.parent.document)) {
+                            window.parent.document.dispatchEvent(new CustomEvent("ti-tile-moveleft", {"detail": this.id}));
+                        }
+                    },
+                    moveRight: function(event){
+                        if ((window.parent) && (window.parent.document)) {
+                            window.parent.document.dispatchEvent(new CustomEvent("ti-tile-moveright", {"detail": this.id}));
+                        }
+                    },
+                    updateVisibility : function()
+                    {
+                        if ((!this._inDesigner())||(this.id === 'helpButtonInfo')) {
+                                var show = this.visible !== false && this.visible !== "false";
+                                var element = this.getElement();
+                                if (element) {
+                                    element.style.display = show ? "" : "none";
+                                }
+                                this.style.visibility = show ? "visible" : "hidden";
+                            }
+                    },
+                    visibleChanged : function()
+                    {
+                        if (this.nonvisible === this.visible)
+                        {
+                            this.nonvisible = !this.visible;
+                            this.updateVisibility();
+                        }
+                    },
+                    nonvisibleChanged : function()
+                    {
+                        if (this.nonvisible === this.visible)
+                        {
+                            this.visible = !this.nonvisible;
+                            this.updateVisibility();
+                        }
+                    }
+                });
+    </script>
+</polymer-element>

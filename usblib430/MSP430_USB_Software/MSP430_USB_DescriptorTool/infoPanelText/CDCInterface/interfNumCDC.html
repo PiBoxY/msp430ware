@@ -1,0 +1,18 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Interface Number CDC</h1>
+        <p>Associated descriptor fields:  <span class="attribute">bInterfaceNumber</span> (in the Interface Descriptor)</p>
+        <p>Take note of this read-only value and pass it as the "intfNum" parameter in CDC API calls to select this interface, as opposed to others.  The Tool also generates constants in descriptors.h reflecting this value; for example, CDC0_INTFNUM, CDC1_INTFNUM, etc.</p>  
+        <p>For example:  USBCDC_sendData(buffer, data, CDC1_INTFNUM);</p> 
+        <p>If two or more CDC interfaces are used, these values index them on the MSP430 application side.  The host maps them using COM port numbers.  But these indices need to be mapped to each other, for the application and host to communicate.  The host application can solve this by reading the interface strings assigned to each CDC interface (assigned using the field below).  The host application can poll through all available CDC interfaces on the host, searching for interface strings it expects to see in the target device.</p>
+    </body>
+</html>

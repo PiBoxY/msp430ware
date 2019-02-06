@@ -1,0 +1,17 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP430F5xx_6xx -I${PROJECT_ROOT}/ -I${PROJECT_ROOT}/USB_config --advice:power=&quot;none&quot; --code_model=large --data_model=large" 
+             device="MSP430F5529"
+             name="OutOfBox_EmulStorageKeyboard"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../USB_API/" />
+        <file action="copy" path="../USB_app/" />
+        <file action="copy" path="../USB_config/" />
+        <file action="copy" path="../hal.c" />
+        <file action="copy" path="../hal.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+        <file action="copy" path="../system_pre_init.c" />
+        <buildVariable name="ORIGINAL_PROJECT_ROOT" scope="project" type="dir" value="." />
+    </project>
+</projectSpec>

@@ -1,0 +1,58 @@
+var jsonInfo = [
+	{
+		"MCU"    : "MSP430",
+		"Device" : "MSP430F44x",
+		"Filter" : "MSP430F44\\d"
+	}
+];
+
+var jsonObjC = [
+	{"SourcePreview" : "fet440_1.c",                 "Description" : "Software Toggle P5.1"},
+	{"SourcePreview" : "fet440_adc12_01.c",          "Description" : "ADC12, Sample A0, Set P5.1 if A0 > 0.5*AVcc"},
+	{"SourcePreview" : "fet440_adc12_02.c",          "Description" : "ADC12, Single Conversion on Single Channel"},
+	{"SourcePreview" : "fet440_adc12_03.c",          "Description" : "ADC12, Using an External Reference"},
+	{"SourcePreview" : "fet440_adc12_04.c",          "Description" : "ADC12, Extend Sampling Period with SHT Bits"},
+	{"SourcePreview" : "fet440_adc12_05.c",          "Description" : "ADC12, Using the Internal Reference"},
+	{"SourcePreview" : "fet440_adc12_06.c",          "Description" : "ADC12, Repeated Sequence of Conversions"},
+	{"SourcePreview" : "fet440_adc12_07.c",          "Description" : "ADC12, Repeated Single Channel Conversions"},
+	{"SourcePreview" : "fet440_adc12_08.c",          "Description" : "ADC12, Using 10 External Channels for Conversion"},
+	{"SourcePreview" : "fet440_adc12_09.c",          "Description" : "ADC12, Sequence of Conversions (non-repeated)"},
+	{"SourcePreview" : "fet440_adc12_10.c",          "Description" : "ADC12, Using the Temperature Sensor"},
+	{"SourcePreview" : "fet440_adc12_11.c",          "Description" : "ADC12, Sample A10 Temp and Convert to oC, TA1 Trigger"},
+	{"SourcePreview" : "fet440_bt_01.c",             "Description" : "Basic Timer, Toggle P5.1 Inside ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_bt_02.c",             "Description" : "Basic Timer, Toggle P5.1 Inside ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_clks_02.c",           "Description" : "FLL+, Output 32kHz Xtal + HF Xtal + Internal DCO"},
+	{"SourcePreview" : "fet440_fll_01.c",            "Description" : "FLL+, Runs Internal DCO at 2.45MHz"},
+	{"SourcePreview" : "fet440_fll_02.c",            "Description" : "FLL+, Runs Internal DCO at 8MHz"},
+	{"SourcePreview" : "fet440_lcd_01.c",            "Description" : "LCD, Display \"6543210\" on STK/EVK LCD"},
+	{"SourcePreview" : "fet440_lcd_02.c",            "Description" : "LCD, Displays Numbers on a Static LCD"},
+	{"SourcePreview" : "fet440_lcd_03.c",            "Description" : "LCD, Displays Numbers on a 4-Mux LCD"},
+	{"SourcePreview" : "fet440_LFxtal_nmi.c",        "Description" : "LFXT1 Oscillator Fault Detection"},
+	{"SourcePreview" : "fet440_lpm3.c",              "Description" : "FLL+, LPM3 Using Basic Timer ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_spi0_016x.c",         "Description" : "USART0, SPI Interface with HC165/164 Shift Registers"},
+	{"SourcePreview" : "fet440_svs_01.c",            "Description" : "SVS, POR @ 2.5V Vcc"},
+	{"SourcePreview" : "fet440_ta_01.c",             "Description" : "Timer_A, Toggle P5.1, CCR0 Cont. Mode ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_ta_02.c",             "Description" : "Timer_A, Toggle P5.1, CCR0 Up Mode ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_ta_03.c",             "Description" : "Timer_A, Toggle P5.1, Overflow ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_ta_04.c",             "Description" : "Timer_A, Toggle P5.1, Overflow ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_ta_05.c",             "Description" : "Timer_A, Toggle P5.1, CCR0 Up Mode ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_ta_16.c",             "Description" : "Timer_A, PWM TA1-2 Up Mode, DCO SMCLK"},
+	{"SourcePreview" : "fet440_ta_17.c",             "Description" : "Timer_A, PWM TA1-2 Up Mode, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_tb_01.c",             "Description" : "Timer_B, Toggle P5.1, CCR0 Cont. Mode ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_tb_02.c",             "Description" : "Timer_B, Toggle P5.1, CCR0 Up Mode ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_tb_03.c",             "Description" : "Timer_B, Toggle P5.1, Overflow ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_tb_04.c",             "Description" : "Timer_B, Toggle P5.1, Overflow ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_tb_05.c",             "Description" : "Timer_B, Toggle P5.1, CCR0 Up Mode ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_tb_10.c",             "Description" : "Timer_B, PWM TB1-6 Up Mode, DCO SMCLK"},
+	{"SourcePreview" : "fet440_tb_11.c",             "Description" : "Timer_B, PWM TB1-6 Up Mode, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_uart01_0115k.c",      "Description" : "USART0, 115200 UART Echo ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_uart01_02400.c",      "Description" : "USART0, 2400 UART Ultra-low Pwr Echo ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_uart01_09600.c",      "Description" : "USART0, 9600 UART Echo ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_uart01_19200.c",      "Description" : "USART0, 19200 UART Echo ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_uart02_19200.c",      "Description" : "USART0, 19200 UART Ultra-low Pwr Echo ISR, 32kHz ACLK"},
+	{"SourcePreview" : "fet440_uart11_19200.c",      "Description" : "USART1, 19200 UART Echo ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_uart11_38400.c",      "Description" : "USART1, 38400 UART Echo ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_wdt_01.c",            "Description" : "WDT, Toggle P5.1, Interval Overflow ISR, DCO SMCLK"},
+	{"SourcePreview" : "fet440_wdt_02.c",            "Description" : "WDT, Toggle P5.1, Interval Overflow ISR, 32kHz ACLK"}
+];
+

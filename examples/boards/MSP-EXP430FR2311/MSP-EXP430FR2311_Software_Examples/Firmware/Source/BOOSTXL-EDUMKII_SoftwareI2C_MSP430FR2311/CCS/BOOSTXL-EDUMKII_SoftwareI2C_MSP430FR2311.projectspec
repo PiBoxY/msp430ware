@@ -1,0 +1,15 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx -I${PROJECT_ROOT}/iqmathlib/include"
+             device="MSP430FR2311"
+             name="BOOSTXL-EDUMKII_SoftwareI2C_MSP430FR2311"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../iqmathlib" />
+        <file action="copy" path="../MSP430_SWI2C_Master.c" />
+        <file action="copy" path="../MSP430_SWI2C_Master.h" />
+        <file action="copy" path="../opt3001.c" />
+        <file action="copy" path="../opt3001.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+    </project>
+</projectSpec>

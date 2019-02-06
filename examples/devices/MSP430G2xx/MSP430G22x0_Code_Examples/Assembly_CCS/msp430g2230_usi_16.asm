@@ -1,0 +1,345 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;******************************************************************************
+;  MSP430G2230 Demo - I2C Master Transmitter / Reciever, Repeated Start
+;
+;  Description: I2C Master communicates with I2C Slave using
+;  the USI. Master data should increment from 0x55 with each transmitted byte
+;  and Master determines the number of bytes transmitted and recieved, set by
+;  the Number_of_TX_Bytes and Number_of_RX_bytes values. These values will
+;  determine how many bytes are Txed then RXed with repeated starts in-between.
+;  LED off for address or data Ack; LED on for address or data NAck.
+;  ACLK = VLO, MCLK = SMCLK = Calibrated 1MHz
+;
+;
+;  ***THIS IS THE MASTER CODE***
+;
+;                  Slave                      Master
+;          (msp430g2230_usi_15.c)
+;               MSP430G2230                MSP430G2230
+;             -----------------          -----------------
+;         /|\|              XIN|-    /|\|              XIN|-
+;          | |                 |      | |                 |
+;          --|RST          XOUT|-     --|RST          XOUT|-
+;            |                 |        |                 |
+;      LED <-|P1.2             |        |                 |
+;            |                 |        |             P1.2|-> LED
+;            |         SDA/P1.7|------->|P1.6/SDA         |
+;            |         SCL/P1.6|<-------|P1.7/SCL         |
+;
+;  Note: internal pull-ups are used in this example for SDA & SCL
+;
+;  B. Finch
+;  Texas Instruments, Inc
+;  May 2012
+;  Built with CCS Version: 5.2.0.00069
+;******************************************************************************
+
+I2CState    .equ    R4
+MST_Data    .equ    R5
+slav_add    .equ    R6
+Bytecount   .equ    R7
+Transmit    .equ    R8
+repeated_start  .equ    R9
+number_of_bytes .equ    R10
+
+number_of_TX_bytes  .set 2                  ; How many bytes do you want to TX?
+number_of_RX_bytes  .set 3                  ; How many bytes do you want to RX?
+
+ .cdecls C,LIST,"msp430.h"
+;-------------------------------------------------------------------------------
+            .def    RESET                   ; Export program entry-point to
+                                            ; make it known to linker.
+;-------------------------------------------------------------------------------
+            .global _main
+            .text                           ; Assemble to Flash memory
+;-------------------------------------------------------------------------------
+_main
+RESET       mov.w   #0x27C,SP               ; Initialize stackpointer
+            mov.w   #WDTPW+WDTHOLD,&WDTCTL  ; Stop WDT
+            mov.b   #0x1B,&P1REN            ; Terminate unavailable Port1 pins 
+            bis.b   #LFXT1S_2,&BCSCTL3      ; Select VLO as low freqency clock
+
+            cmp.b   #0xFF,&CALBC1_1MHZ      ; Check calibration constant
+            jne     Load                    ; if not erased, load.             
+Trap        jmp     Trap                    ; if erased do not load, trap CPU!
+
+Load        clr.w   MST_Data
+            clr.w   I2CState
+            clr.w   Bytecount
+            clr.w   Transmit
+            clr.w   repeated_start
+            clr.w   number_of_bytes
+            clr.b   &DCOCTL                 ; Select lowest DCOx and MODx settings
+            mov.b   &CALBC1_1MHZ,&BCSCTL1   ; Set Range
+            mov.b   &CALDCO_1MHZ,&DCOCTL    ; Set DCO step + modulation
+            mov.b   #0x55,MST_Data          ; Variable for transmitted data
+            mov.b   #0x90,slav_add
+
+            bis.b   #0xC0,&P1OUT            ; P1.6 and P1.7 Pullups
+            bis.b   #0xC0,&P1REN            ; P1.6 and P1.7 Pullups
+            bis.b   #BIT2+BIT5+BIT6+BIT7,&P1DIR ; Available P1.x pins: outputs
+
+loop        clr.b   Bytecount
+            call    #Master_RPT
+            jmp     loop
+
+;******************************************************
+USI_ISR
+; USI interrupt service routine
+; Data Transmit : state 0 -> 2 -> 4 -> 10 -> 12 -> 14
+; Data Recieve  : state 0 -> 2 -> 4 -> 6 -> 8 -> 14
+;******************************************************
+            add.w   I2CState,PC             ; I2C State Machine
+            jmp     STATE0
+            jmp     STATE2
+            jmp     STATE4
+            jmp     STATE6
+            jmp     STATE8
+            jmp     STATE10
+            jmp     STATE12
+            jmp     STATE14
+
+STATE0      ; Generate Start Condition & send address to slave
+            bis.b   #BIT2,&P1OUT            ; LED on: sequence start
+            clr.b   Bytecount
+            clr.b   &USISRL                 ; Generate Start Condition...
+            bis.b   #USIGE+USIOE,&USICTL0
+            bic.b   #USIGE,&USICTL0
+            cmp.b   #0x01,Transmit
+            jne     Rcv
+            mov.b   #0x90,&USISRL           ; Address is 0x48 << 1 bit + 0 (rw)
+            jmp     state0_end
+Rcv         mov.b   #0x91,&USISRL           ; 0x91 is 0x48 << 1 bit + 1 for Read
+state0_end  mov.b   &USICNT,R11
+            and.b   #0xE0,R11
+            add.b   #0x8,R11
+            mov.b   R11,&USICNT
+            mov.b   #2,I2CState             ; next state: rcv address (N)Ack
+            jmp     exit
+STATE2      ; Receive Address Ack/Nack bit
+            bic.b   #USIOE,&USICTL0         ; SDA = input
+            bis.b   #0x01,&USICNT           ; Bit counter=1, receive (N)Ack bit
+            mov.b   #4,I2CState             ; Go to next state: check (N)Ack
+            jmp     exit
+STATE4      ; Process Address Ack/Nack & handle data TX
+            cmp.b   #1,Transmit
+            jne     Tzero4
+            bis.b   #USIOE,&USICTL0         ; SDA = output
+            cmp.b   #0x01,&USISRL           ; If Nack received...
+            jne     Ack4_1
+            clr.b   USISRL
+            bis.b   #0x01,&USICNT           ; Bit counter=1, SCL high, SDA low
+            mov.b   #14,I2CState            ; Go to next state: generate Stop
+            bis.b   #BIT2,&P1OUT            ; Turn on LED: error
+            jmp     exit
+Ack4_1      mov.b   MST_Data,&USISRL        ; Load data byte
+            inc.b   MST_Data
+            bis.b   #0x08,&USICNT           ; Bit counter = 8, start TX
+            mov.b   #10,I2CState            ; next state: receive data (N)Ack
+            inc.b   Bytecount
+            bic.b   #BIT2,&P1OUT            ; Turn off LED
+            jmp     exit
+Tzero4      cmp.b   #0x01,&USISRL           ; If Nack received...
+            jne     Ack4_2
+            bis.b   #USIOE,&USICTL0
+            clr.b   &USISRL
+            bis.b   #0x01,&USICNT           ; Bit counter= 1, SCL high, SDA low
+            mov.b   #8,I2CState             ; Go to next state: generate Stop
+            bis.b   #BIT2,&P1OUT            ; Turn on LED: error
+            jmp     exit
+Ack4_2      call    #Data_RX
+            jmp     exit
+STATE6      ; Send Data Ack/Nack bit
+            bis.b   #USIOE,&USICTL0         ; SDA = output
+            mov.b   number_of_bytes,R13
+            dec.b   R13
+            cmp.w   R13,Bytecount
+            jn      NotLast                 
+            mov.b   #0xFF,&USISRL           ; Last byte. Send NAck
+            bis.b   #BIT2,&P1OUT            ; LED on: end of comm
+            mov.b   #8,I2CState             ; Stop condition
+            jmp     end_6
+NotLast     clr.b   &USISRL                 ; Send Ack
+            bic.b   #BIT2,&P1OUT            ; LED off
+            mov.b   #4,I2CState             ; Go to next state: data/rcv again
+            inc.b   Bytecount
+end_6       bis.b   #0x01,&USICNT           ; Bit counter = 1, send (N)Ack bit
+            jmp     exit
+STATE8      ; Prep Stop Condition
+            bis.b   #USIOE,&USICTL0         ; SDA = output
+            clr.b   &USISRL
+            bis.b   #0x01,&USICNT           ; Bit counter= 1, SCL high, SDA low
+            mov.b   #14,I2CState            ; Go to next state: generate stop
+            jmp     exit
+STATE10     ; Receive Data Ack/Nack bit
+            bic.b   #USIOE,&USICTL0         ; SDA = input
+            bis.b   #0x01,&USICNT           ; Bit counter=1, receive (N)Ack bit
+            mov.b   #12,I2CState            ; Go to next state: check (N)Ack
+            jmp     exit
+STATE12     ; Process Data Ack/Nack & send Stop
+            bis.b   #USIOE,&USICTL0
+            cmp.w   number_of_bytes,Bytecount   ; Last byte
+            jne     TX_byte
+            cmp.b   #0x01,repeated_start
+            jne     No_Rpt
+            mov.b   #0xFF,&USISRL           ; This will prevent stop condition
+            bis.b   #USIOE,&USICTL0         ; SDA = output
+            mov.b   #14,I2CState            ; Go to next state: generate Stop
+            bis.b   #0x01,&USICNT           ; set count=1 to trigger next state
+            jmp     exit
+No_Rpt      clr.b   USISRL
+            mov.b   #14,&USISRL             ; Go to next state: generate Stop
+            bis.b   #BIT2,&P1OUT
+            bis.b   #0x01,&USICNT           ; set count=1 to trigger next state
+            jmp     exit
+TX_byte     bic.b   #BIT2,&P1OUT            ; Turn off LED
+            call    #Data_TX
+            jmp     exit
+STATE14     ; Generate Stop Condition
+            mov.b   #0xFF,&USISRL           ; USISRL = 1 to release SDA
+            bis.b   #USIGE,&USICTL0         ; Transparent latch enabled
+            bic.b   #USIGE+USIOE,&USICTL0   ; Latch/SDA output disabled
+            clr.b   I2CState                ; Reset state machine for next xmt
+            bic.w   #LPM0,0(SP)             ; Exit active CPU for next transfer
+
+exit        bic.b   #USIIFG,&USICTL1        ; Clear pending flag
+            reti
+
+;-------------------------------------------------------------------------------
+Data_TX
+;-------------------------------------------------------------------------------
+            mov.b   MST_Data,&USISRL        ; Load data byte
+            inc.b   MST_Data
+            bis.b   #0x08,&USICNT           ; Bit counter = 8, start TX
+            mov.b   #10,I2CState            ; next state: receive data (N)Ack
+            inc.b   Bytecount
+            ret
+
+;-------------------------------------------------------------------------------
+Data_RX
+;-------------------------------------------------------------------------------
+            bic.b   #USIOE,&USICTL0         ; SDA = input --> redundant
+            bis.b   #0x08,&USICNT           ; Bit counter = 8, RX data
+            mov.b   #6,I2CState             ; Next state: Test data and (N)Ack
+            bic.b   #BIT2,&P1OUT            ; LED off
+            ret
+
+;-------------------------------------------------------------------------------
+Setup_USI_Master_TX
+;-------------------------------------------------------------------------------
+            bic.b   #GIE,SR                 ; Disable interrupts
+            mov.b   #1,Transmit
+            bis.b   #USIPE6+USIPE7+USIMST+USISWRST,&USICTL0 ; Ports/USI mode setup
+            bis.b   #USII2C+USIIE,&USICTL1  ; Enable I2C mode & USI interrupt
+            bis.b   #USIDIV_7+USISSEL_2+USICKPL,&USICKCTL ; SCL = SMCLK/128
+            bis.b   #USIIFGCC,&USICNT       ; Disable automatic clear control
+            bic.b   #USISWRST,&USICTL0      ; Enable USI
+            bic.b   #USIIFG,&USICTL1        ; Clear pending flag
+            bis.b   #GIE,SR                 ; Enable interrupts
+            ret
+
+;-------------------------------------------------------------------------------
+Setup_USI_Master_RX
+;-------------------------------------------------------------------------------
+            bic.b   #GIE,SR                 ; Disable interrupts
+            mov.b   #0,Transmit
+            bis.b   #USIPE6+USIPE7+USIMST+USISWRST,&USICTL0 ; Ports/USI mode setup
+            bis.b   #USII2C+USIIE,&USICTL1  ; Enable I2C mode & USI interrupt
+            bis.b   #USIDIV_7+USISSEL_2+USICKPL,&USICKCTL ; SCL = SMCLK/128
+            bis.b   #USIIFGCC,&USICNT       ; Disable automatic clear control
+            bic.b   #USISWRST,&USICTL0      ; Enable USI
+            bic.b   #USIIFG,&USICTL1        ; Clear pending flag
+            bis.b   #GIE,SR                 ; Enable interrupts
+            ret
+
+;-------------------------------------------------------------------------------
+Master_Transmit
+;-------------------------------------------------------------------------------
+            mov.b   #number_of_TX_bytes,number_of_bytes
+            call    #Setup_USI_Master_TX
+            bis.b   #USIIFG,&USICTL1        ; Set flag and start communication
+            bis.b   #LPM0,SR                ; CPU off, await USI interrupt
+            call    #Delay
+            ret
+
+;-------------------------------------------------------------------------------
+Master_Recieve
+;-------------------------------------------------------------------------------
+            mov.b   #number_of_RX_bytes,number_of_bytes
+            call    #Setup_USI_Master_RX
+            bis.b   #USIIFG,&USICTL1        ; Set flag and start communication
+            bis.b   #LPM0,SR                ; CPU off, await USI interrupt
+            call    #Delay
+            ret
+
+;-------------------------------------------------------------------------------
+Master_RPT
+;-------------------------------------------------------------------------------
+            mov.b   #1,repeated_start
+            call    #Master_Transmit
+            nop
+            call    #Master_Recieve
+            nop
+            clr.b   repeated_start
+            ret
+
+;-------------------------------------------------------------------------------
+Delay
+;-------------------------------------------------------------------------------
+            mov.w   #5000,R15               ; Dummy delay between communication cycles
+delay_loop  dec     R15
+            jnz     delay_loop      
+            ret
+
+;-------------------------------------------------------------------------------
+;           Interrupt Vectors
+;-------------------------------------------------------------------------------
+            .sect   ".reset"                ; POR, ext. Reset
+            .short  RESET
+            .sect   USI_VECTOR              ; USI
+            .short  USI_ISR
+            .end
+

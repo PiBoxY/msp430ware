@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<descTool>
+	<toolOptions>
+		<!-- 0= false, 1 = true -->
+		<runGUI>1</runGUI>
+		<workspace>default</workspace>
+		<projectName>test</projectName>
+	</toolOptions>
+	<toolConfig>
+		<treeConfig>
+			<!-- 0 = MSP430F5xx/F6xx, 1 = MSP432xx -->
+			<MSP mcuFam="0">
+				<mspConfig>
+					<!-- 0= not selected, 1 = selected -->
+					<disableXtalOnSus>1</disableXtalOnSus>
+					<!-- 
+						0 = 1.5 MHz
+						1 = 1.6 MHz
+						2 = 1.7778 MHz
+						3 = 1.8432 MHz
+						4 = 1.8461 MHz
+						5 = 1.92 MHz
+						6 = 2.0 MHz
+						7 = 2.4 MHz
+						8 = 2.66667 MHz
+						9 = 3.0 MHz
+						10 = 3.2 MHz
+						11 = 3.5556 MHz
+						12 = 3.579546 MHz
+						13 = 3.84 MHz
+						14 = 4 MHz
+						15 = 4.1739 MHz
+						16 = 4.1943 MHz
+						17 = 4.332 MHz
+						18 = 4.3636 MHz
+						19 = 4.5 MHz
+						20 = 4.8 MHz
+						21 = 5.33 MHz
+						22 = 5.76 MHz
+						23 = 6.0 MHz
+						24 = 6.4 MHz
+						25 = 7.2 MHz
+						26 = 7.68 MHz
+						27 = 8.0 MHz
+						28 = 9.0 MHz
+						29 = 9.6 MHz
+						30 = 10.66 MHz
+						31 = 12.0 MHz
+						32 = 12.8 MHz
+						33 = 14.4 MHz
+						34 = 16.0 MHz
+						35 = 16.9344 MHz
+						36 = 16.94118 MHz
+						37 = 18.0 MHz
+						38 = 19.2 MHz
+						39 = 24.0 MHz
+						40 = 25.6 MHz
+						41 = 26.0 MHz
+						42 = 32 MHz  -->
+					<XT2OscFreq>14</XT2OscFreq>
+					<!-- 0 = NO_DMA
+						 1 = DMA_CHANNEL0
+						 2 = DMA_CHANNEL1
+						 3 = DMA_CHANNEL2
+						 4 = DMA_CHANNEL3
+						 5 = DMA_CHANNEL4
+						 6 = DMA_CHANNEL5
+						 7 = DMA_CHANNEL6
+						 8 = DMA_CHANNEL7  -->
+					<DMAChannel>1</DMAChannel>
+					<!-- 0= not selected, 1 = selected -->
+					<bypassXT2>0</bypassXT2>
+					<!-- 0= not selected, 1 = selected -->
+					<useSYSBIOS>0</useSYSBIOS>
+					<!-- 0= not selected, 1 = selected -->
+					<driveVBUSfromExtSupp>0</driveVBUSfromExtSupp>
+				</mspConfig>
+				<USBDevice>
+						<deviceProp>
+							<!-- For hex prefix with "0x", otherwise is processed as decimal-->
+							<vid>0x2047</vid>
+							<!-- For hex prefix with "0x", otherwise is processed as decimal-->
+							<pid>0x</pid>
+							<vndStr>Texas Instruments</vndStr>
+							<prodStr>MSP430-USB Example</prodStr>
+							<!-- For hex prefix with "0x", otherwise is processed as decimal-->
+							<devRelNum>0x200</devRelNum>
+							<!-- 0= not selected, 1 = selected -->
+							<useSerNum>1</useSerNum>
+						</deviceProp>
+						<config>
+							<configParam>
+								<!-- 0= not selected, 1 = selected -->
+								<selfPowered>0</selfPowered>
+								<!-- 0= not selected, 1 = selected -->
+								<remWkupSup>0</remWkupSup>
+								<!-- 0  = 500 mA , 1  = 498 mA, 2  = 496 mA,
+									 3  =  494 mA , 4  = 492 mA, 5  = 490 mA,
+									 6  =  488 mA , 7  = 486 mA, 8  = 484 mA,
+									 9  =  482 mA , 10 = 480 mA, 11 = 478 mA,
+									 12  = 476 mA , 13 = 474 mA, 14 = 472 mA,
+									 15  = 470 mA , 16 = 468 mA, 17 = 466 mA,
+									 18  = 464 mA , 19 = 462 mA, 20 = 460 mA,
+									 21  = 458 mA , 22 = 456 mA, 23 = 454 mA,
+									 24  = 452 mA , 25 = 450 mA, 26 = 448 mA,
+									 27  = 446 mA , 28 = 444 mA, 29 = 442 mA,
+									 30  = 440 mA , 31 = 438 mA, 32 = 436 mA,
+									 33  = 434 mA , 34 = 432 mA, 35 = 430 mA,
+									 36  = 428 mA , 37 = 426 mA, 38 = 424 mA,
+									 39  = 422 mA , 40 = 420 mA, 41 = 418 mA,
+									 42  = 416 mA , 43 = 414 mA, 44 = 412 mA,
+									 45  = 410 mA , 46 = 408 mA, 47 = 406 mA,
+									 48  = 404 mA , 49 = 402 mA, 50 = 400 mA,
+                                                                         51  = 398 mA , 52 = 396 mA, 53 = 394 mA,
+									 54  = 392 mA , 55 = 390 mA,
+									 56  = 388 mA , 57 = 386 mA, 58  = 384 mA,
+									 59  = 382 mA , 60 = 380 mA, 61 = 378 mA,
+									 62  = 376 mA , 63 = 374 mA, 64 = 372 mA,
+									 65  = 370 mA , 66 = 368 mA, 67 = 366 mA,
+									 68  = 364 mA , 69 = 362 mA, 70 = 360 mA,
+									 71  = 358 mA , 72 = 356 mA, 73 = 354 mA,
+									 74  = 352 mA , 75 = 350 mA, 76 = 348 mA,
+									 77  = 346 mA , 78 = 344 mA, 79 = 342 mA,
+									 80  = 340 mA , 81 = 338 mA, 82 = 336 mA,
+									 83  = 334 mA , 84 = 332 mA, 85 = 330 mA,
+									 86  = 328 mA , 87 = 326 mA, 88 = 324 mA,
+									 89  = 322 mA , 90 = 320 mA, 91 = 318 mA,
+									 92  = 316 mA , 93 = 314 mA, 94 = 312 mA,
+									 95  = 310 mA , 96 = 308 mA, 97 = 306 mA,
+									 98  = 304 mA , 99 = 302 mA, 100 = 300 mA,
+                                                                         101  = 298 mA, 102  = 296 mA,
+									 103  = 294 mA , 104 = 292 mA, 105 = 290 mA,
+									 106  = 288 mA , 107 = 286 mA, 108 = 284 mA,
+									 109  = 282 mA , 110 = 280 mA, 111 = 278 mA,
+									 112  = 276 mA , 113 = 274 mA, 114 = 272 mA,
+									 115  = 270 mA , 116 = 268 mA, 117 = 266 mA,
+									 118  = 264 mA , 119 = 262 mA, 120 = 260 mA,
+									 121  = 258 mA , 122 = 256 mA, 123 = 254 mA,
+									 124  = 252 mA , 125 = 250 mA, 126 = 248 mA,
+									 127  = 246 mA , 128 = 244 mA, 129 = 242 mA,
+									 130  = 240 mA , 131 = 238 mA, 132 = 236 mA,
+									 133  = 234 mA , 134 = 232 mA, 135 = 230 mA,
+									 136  = 228 mA , 137 = 226 mA, 138 = 224 mA,
+									 139  = 222 mA , 140 = 220 mA, 141 = 218 mA,
+									 142  = 216 mA , 143 = 214 mA, 144 = 212 mA,
+									 145  = 210 mA , 146 = 208 mA, 147 = 206 mA,
+									 148  = 204 mA , 149 = 202 mA, 150 = 200 mA,
+                                                                         151  = 198 mA , 152 = 196 mA,
+									 153  = 194 mA , 154 = 192 mA, 155 = 190 mA,
+									 156  = 188 mA , 157 = 186 mA, 158 = 184 mA,									 159  = 182 mA , 160 = 180 mA, 161 = 178 mA,
+									 162  = 176 mA , 163 = 174 mA, 164 = 172 mA,
+									 165  = 170 mA , 166 = 168 mA, 167 = 166 mA,
+									 168  = 164 mA , 169 = 162 mA, 170 = 160 mA,
+									 171  = 158 mA , 172 = 156 mA, 173 = 154 mA,
+									 174  = 152 mA , 175 = 150 mA, 176 = 148 mA,
+									 177  = 146 mA , 178 = 144 mA, 179 = 142 mA,
+									 180  = 140 mA , 181 = 138 mA, 182 = 136 mA,
+									 183  = 134 mA , 184 = 132 mA, 185 = 130 mA,
+									 186  = 128 mA , 187 = 126 mA, 188 = 124 mA,
+									 189  = 122 mA , 190 = 120 mA, 191 = 118 mA,
+									 192  = 116 mA , 193 = 114 mA, 194 = 112 mA,
+									 195  = 110 mA , 196 = 108 mA, 197 = 106 mA,
+									 198  = 104 mA , 199 = 102 mA, 200 = 100 mA,
+                                                                         201  = 98 mA, 202  = 96 mA,
+									 203  =  94 mA , 204  = 92 mA, 205  = 90 mA,
+									 206  =  88 mA , 207  = 86 mA, 208  = 84 mA,
+									 209  =  82 mA , 210 = 80 mA, 211 = 78 mA,
+									 212  = 76 mA , 213 = 74 mA, 214 = 72 mA,
+									 215  = 70 mA , 216 = 68 mA, 217 = 66 mA,
+									 218  = 64 mA , 219 = 62 mA, 220 = 60 mA,
+									 221  = 58 mA , 222 = 56 mA, 223 = 54 mA,
+									 224  = 52 mA , 225 = 50 mA, 226 = 48 mA,
+									 227  = 46 mA , 228 = 44 mA, 229 = 42 mA,
+									 230  = 40 mA , 231 = 38 mA, 232 = 36 mA,
+									 233  = 34 mA , 234 = 32 mA, 235 = 30 mA,
+									 236  = 28 mA , 237 = 26 mA, 238 = 24 mA,
+									 239  = 22 mA , 240 = 20 mA, 241 = 18 mA,
+									 242  = 16 mA , 243 = 14 mA, 244 = 12 mA,
+									 245  = 10 mA , 246 =  8 mA, 247 =  6 mA,
+									 248  =  4 mA , 249 =  2 mA, 250 =  0 mA -->
+								<maxPowDrain>200</maxPowDrain>
+								<configStr>MSP USB</configStr>
+							</configParam>
+							<interfaces>
+							</interfaces>
+						</config>
+				</USBDevice>
+			</MSP>
+		</treeConfig>
+	</toolConfig>
+	<!-- 0= don't generate, 1 = generate -->
+	<codeGeneration generate="0" generateINF="1" generateXML="0" />
+</descTool>

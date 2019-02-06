@@ -1,0 +1,37 @@
+Change Log:
+	v2.5 
+	- PDF button downloads User Guide from Web.  User Guide removed from intaller to reduce file size
+	- BSD License added to installer
+	- Added Sofware Manifest to installer
+	- Added Drivers directory and driver files to source code package
+	- Code cleanup
+
+	v2.4.3
+	- Added the software manifest and the license header to all source files (excluding the files with the troll tech header)
+	- Temperature in the graph window will now be displayed in celsius or fahrenheit depending on the settings
+	- Removed the background from the graph window
+	- Changed to BSD License Agreement, Licesnse added to each file
+
+	v2.4.2
+	- Initial release, based on eZ430-RF2480 Sensor Monitor Source Code
+	- Reademe.txt created to guide through source code setup process
+	- Added Graph Window 
+	- Added Console Window
+	- New GUI graphics and layout
+	- Added User Guide to GUI
+	- Added support for node color change when running on battery 
+	- Added TX counter when on battery power
+
+Known Issues:
+	- Main window: Access point bubble may drift to off the screen to the upper left after program runs for a few minutes.
+	- Main window: Nodes don't rearrange after detecting node drop-off/timeout
+	- Main window:  There is clipping against the central node by the arrows when the access point blinks
+	- Main widow: After 8 nodes join the network, program will occasioanlly crash.
+	- Console window:  The log always stays keeps the last line hidden (under the bottom of the text box, showing the second to last data)
+	- Console window: Occasionally, an "@" character will be included in the datastream.  
+
+Feature Requests:
+	- Main window: Shadows should be alpha blended onto the background, instead of using a solid color.
+	- Main window: Replace the stop button with a refresh button.  
+	- Real Time Node Data window: Units not visible on legend or axis
+	- Real Time Node Data window: Add auto-adjusting scale.

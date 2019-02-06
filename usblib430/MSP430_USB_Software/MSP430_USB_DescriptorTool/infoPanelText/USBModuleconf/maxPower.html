@@ -1,0 +1,18 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Max power drawn from the host</h1>
+        <p>Associated descriptor fields:  <span class="attribute">bMaxPower</span> (in the Configuration Descriptor)</p>
+        <p>This is the maximum power (current) the device will draw from the host via VBUS, at its peak.  The device should not use more current than reported by this field.  The host generally uses this information for budgeting purposes; for example, if the total current draw reported by all attached devices is 2A, and the host only has 1.5A available, it may not allow the last device to enumerate.  </p>
+        <p>This field can be non-zero even if the "self-powered" box is checked above; this is because a device might draw some of its power from a local source and some from VBUS.</p>
+    </body>
+</html>

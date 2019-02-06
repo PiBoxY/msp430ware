@@ -1,0 +1,9 @@
+\form#0:$\alpha$
+\form#1:$rotation_{max}$
+\form#2:\[sampleRate_{min} = 2*\frac{360}{\alpha}*rotation_{max}\]
+\form#3:$(\mu Sec)$
+\form#4:\[v(t) = 1.5*cos(\omega t)*e^{-\delta t}+1.5\]
+\form#5:$R_{max}$
+\form#6:$\mu H$
+\form#7:$\Omega$
+\form#8:$\mu Sec$

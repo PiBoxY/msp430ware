@@ -1,0 +1,136 @@
+<projectSpec>
+  <project
+		configurations="SINGLE_TONE,MULTI_TONE"
+		compilerBuildOptions=" 
+			-Ooff
+			-I${PROJECT_ROOT}
+			-I${PROJECT_ROOT}/ussSWLib/USS_HAL
+			-I${PROJECT_ROOT}/ussSWLib/source
+			-I${USSSWLIB_ROOT}/include
+			--advice:power=&quot;none&quot; 
+			--data_model=large 
+			--large_memory_model
+			--define=_MPU_ENABLE
+			--define=__EVM430_ID__=0x43
+			--define=__EVM430_VER__=0x20
+			--define=__AFE_EXT_3v3__
+			--define= __MSP430FR6043__"
+		device="MSP430FR6043" 
+		linkerBuildOptions="
+			--heap_size=160 
+			--stack_size=512 
+		    -l ${IQMATHLIB_ROOT}/libraries/CCS/MPY32/5xx_6xx/QmathLib.a 
+			-l ${IQMATHLIB_ROOT}/libraries/CCS/MPY32/5xx_6xx/IQmathLib.a" 
+		linkerCommandFile="lnk_msp430fr6043.cmd"
+		name="FR6043_USSSWLib_template_example">
+	
+	<!-- BUILD VARIABLES -->	
+    <buildVariable 
+		name="IQMATHLIB_ROOT" 
+		scope="project" 
+		type="dir" 
+		value="../../../lib/IQMathLibrary" />
+	<buildVariable 
+		name="USSSWLIB_ROOT" 
+		scope="project" 
+		type="dir" 
+		value="../../.." />	
+	
+	<!-- Project configuration specific options -->	
+	<configuration 
+		name="SINGLE_TONE" 
+		compilerBuildOptions="--define=USS_PULSE_MODE=0" />
+	<configuration 
+		name="MULTI_TONE" 
+		compilerBuildOptions="--define=USS_PULSE_MODE=2" />
+	
+	<!-- Project file configuration -->
+	<file 
+		action="copy" 
+		path="../main.c" 
+		targetDirectory="." />
+	<file 
+		action="copy" 
+	    path="../system_pre_init.c" 
+		targetDirectory="." />
+	
+	<!-- Project USS libraries configuration -->
+	<file 
+		action="copy" 
+	    path="../USS_Config" 
+		targetDirectory="." />
+		
+	<file 
+		action="link" 
+		path="../../../include/ussSwLib.h" 
+		targetDirectory="ussSWLib" />
+			
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/USS_HAL/" 
+		targetDirectory="ussSWLib/" />	
+		
+    <file 
+		action="link" 
+		path="../../../lib/USS/CCS/USS_SW_CCS.a" 
+		targetDirectory="ussSWLib/lib/" />
+		
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/common/" 
+		targetDirectory="ussSWLib/source/" />
+		
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/ussSwLibAppDebug.c" 
+		targetDirectory="ussSWLib/source/" />
+		
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/ussSwLibCalibration.c" 
+		targetDirectory="ussSWLib/source/" />
+		
+		
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/ussSwLibCalibration.h" 
+		targetDirectory="ussSWLib/source/" />
+		
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/ussSwLibConfiguration.c" 
+		targetDirectory="ussSWLib/source/" />
+		
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/ussSwLibISR.c" 
+		targetDirectory="ussSWLib/source/" />
+		
+	<file 
+		action="copy" 
+		path="../../../lib/USS/source/ussSwLibMeasurement.c" 
+		targetDirectory="ussSWLib/source/" />		
+		
+	<!-- Project external libraries configuration -->		
+    <file 
+		action="link" 
+		path="../../../include/QmathLib.h" 
+		targetDirectory="QMathLib" />
+		
+    <file 
+		action="link" 
+		path="../../../lib/IQMathLibrary/libraries/CCS/MPY32/5xx_6xx/QmathLib.a" 
+		targetDirectory="QMathLib" />
+		
+    <file 
+		action="link" 
+		path="../../../include/IQmathLib.h" 
+		targetDirectory="IQMathLib" />
+		
+    <file 
+		action="link" 
+		path="../../../lib/IQMathLibrary/libraries/CCS/MPY32/5xx_6xx/IQmathLib.a" 
+		targetDirectory="IQMathLib" />
+	
+  </project>
+</projectSpec>

@@ -1,0 +1,14 @@
+{
+    "widgetBindings": [
+        {
+            "propertyName": "value",
+            "serverBindName": "uart.light.lux",
+            "widgetId": "ti_widget_gauge11"
+        },
+        {
+            "propertyName": "value",
+            "serverBindName": "uart.ir_temp.obj_temp",
+            "widgetId": "ti_widget_thermometer1"
+        }
+    ]
+}

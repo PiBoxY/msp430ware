@@ -1,0 +1,30 @@
+<projectSpec>
+    <project
+        compilerBuildOptions="-I${PROJECT_ROOT} -I${PROJECT_ROOT}/jsmn -I${PROJECT_ROOT}/iqmathlib/include -I${PROJECT_ROOT}/fram-utilities/ctpl -I${PROJECT_ROOT}/fram-utilities/nvs -I${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx --advice:power=&quot;all&quot; -g --code_model=small --data_model=small -O3 --opt_for_speed=0 --define=CTPL_STACK_SIZE=160 --define=RECEIVE_JSON"
+        device="MSP430FR2433"
+        linkerBuildOptions="-l${PROJECT_ROOT}/iqmathlib/libraries/CCS/MPY32/5xx_6xx/QmathLib_CCS_MPY32_5xx_6xx_CPUX_small_code_small_data.lib"
+        name="OutOfBox_MSP430FR2433"
+        enableHexTool="true"
+        hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../fram-utilities/ctpl/peripherals" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/ctpl/ctpl.c" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/ctpl/ctpl.h" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/ctpl/ctpl_benchmark.h" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/ctpl/ctpl_copy.h" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/ctpl/ctpl_low_level.asm" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/ctpl/ctpl_low_level.h" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/ctpl/ctpl_low_level_macros.asm" targetDirectory="fram-utilities/ctpl"/>
+        <file action="copy" path="../fram-utilities/nvs" targetDirectory="fram-utilities"/>
+        <file action="copy" path="../iqmathlib/include" targetDirectory="iqmathlib"/>
+        <file action="copy" path="../iqmathlib/libraries/CCS" targetDirectory="iqmathlib/libraries"/>
+        <file action="copy" path="../jsmn/" />
+        <file action="copy" path="../ctpl_msp430fr2433.c" />
+        <file action="copy" path="../ctpl_pre_init.c" />
+        <file action="copy" path="../FRAMLogMode.c" />
+        <file action="copy" path="../FRAMLogMode.h" />
+        <file action="copy" path="../LiveTempMode.c" />
+        <file action="copy" path="../LiveTempMode.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+    </project>
+</projectSpec>

@@ -1,0 +1,17 @@
+<projectSpec>
+  <project 
+  compilerBuildOptions="--gcc -I${PROJECT_ROOT} -I${PROJECT_ROOT}/ctslib --advice:power=&quot;none&quot;" 
+   device="MSP430G2553"
+   name="TouchProTool_Demo_Bit_Banging"
+  >
+    <file action="copy" path="../main.c" />
+    <file action="copy" path="../structure.c" />
+    <file action="copy" path="../structure.h" />
+    <file action="copy" path="interrupts.c" />
+    <file action="copy" path="../../../ctslib/CTS_HAL.c" targetDirectory="ctslib" />
+    <file action="copy" path="../../../ctslib/CTS_HAL.h" targetDirectory="ctslib" />
+    <file action="copy" path="../../../ctslib/CTS_Layer.c" targetDirectory="ctslib" />
+    <file action="copy" path="../../../ctslib/CTS_Layer.h" targetDirectory="ctslib" />
+  </project>
+</projectSpec>
+

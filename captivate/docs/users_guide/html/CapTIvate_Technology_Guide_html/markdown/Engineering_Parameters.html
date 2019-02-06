@@ -1,0 +1,69 @@
+<!-- Captivate Description HTML -->
+<!-- Engineering Parameters -->
+
+<html>
+	<body>
+		<B>Engineering Parameters:</B>
+		<BR>
+		<B>Coarse Gain, Fine Gain, and Offset Subtraction</B>
+		<P>
+		
+		The coarse gain ratio, fine gain ratio, and offset subtraction are engineering controls for advanced users during the 
+		development process.  These parameters exist to provide visibility into the behaviour of the runtime
+		calibration algorithm.
+		
+		<P>
+		The primary controls for adjusting sensitivity and resolution are the Conversion_Count and
+		Conversion_Gain parameters.  At runtime, these two parameters are inputs to the calibration algorithm,
+		which adjusts the peripheral control knobs: coarse gain, fine gain, and offset subtraction- to achieve
+		the requested performance for each element in each sensor.  The configuration for each element is stored in
+		a structure that get associated with each element.  It is important to note that these values are recalculated
+		after every device reset, and may differ depending on where a system is used.
+		If the runtime re-calibration feature is enabled, any time an element's LTA drifts out of range due to environmental drift
+		the sensor will be re-calibrated to regain the desired sensitivity.
+		
+		These parameters are provided for development.  Note that any values set here will not persist after the target device is reset
+		or the sensor is recalibrated.
+		
+		<P>
+		<B>Coarse Gain Ratio</B><BR>
+		The coarse gain ratio applies a coarse scaling factor to the relationship between the external capacitor being
+		measured and the internal sample capacitor.
+		
+		<P>
+		<B>Fine Gain Ratio</B><BR>
+		The fine gain ratio applies a fine scaling factor to the relationship between the external capacitor being
+		measured and the internal sample capacitor.
+		
+		<P>
+		<B>Offset Subtraction</B><BR>
+		The offset subtraction applies a capacitive DC offset, reducing the component of the measurement that is associated
+		with parasitic capacitance.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Coarse_Gain_Ratio parameter corresponds to the
+		<i><b>ui8CoarseGainRatio</b></i>
+		member of the
+		<i><b>tCaptivateElementTuning</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+		The Fine_Gain_Ratio parameter corresponds to the
+		<i><b>ui8FineGainRatio</b></i>
+		member of the
+		<i><b>tCaptivateElementTuning</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+		The Offset_Subtraction parameter corresponds to the
+		<i><b>ui16OffsetTap</b></i>
+		member of the
+		<i><b>tCaptivateElementTuning</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

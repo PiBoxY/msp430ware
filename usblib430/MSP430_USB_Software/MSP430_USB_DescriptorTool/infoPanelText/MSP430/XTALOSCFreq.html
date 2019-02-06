@@ -1,0 +1,40 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>XT2 Oscillator Frequency</h1>
+		<p>The XT2 frequencies of 4MHz, 8MHz, 12MHz, 16MHz and 24MHz are detected automatically by the USB stack.  </p>
+		<p> Frequencies other than the once listed above need to be manually set (see Programmer’s guide, Programmers_Guide_MSP430_USB_API.pdf for detailed steps) </p>
+        <p>The API enables the XT2 oscillator when USB is active, and optionally disables it during USB suspend.  It uses XT2 as a reference to the USB PLL.</p>
+        <p>XT2 needs one of these applied to it:</p>
+        <ul>
+            <li>
+                a crystal/resonator (minimum of 4MHz)
+            </li>
+            <li>
+                a clock signal from elsewhere on the board, via XT2's "bypass" mode (minimum of 1.5MHz)
+            </li>
+        </ul>
+        <p>Many input frequencies are possible, allowing cost reduction:</p>
+        <ul>
+            <li>
+                maybe the clock is available elsewhere on the board, saving the cost of the crystal. 
+            </li>
+            <li>
+                maybe another device on the board can use the MSP430's clock, saving the cost of the crystal. 
+            </li>
+            <li>
+                a crystal can be chosen based on the lowest cost.  
+            </li>
+        </ul>
+        
+    </body>
+</html>

@@ -1,0 +1,96 @@
+FAQ
+===
+
+Design Kit
+----------
+
+Does the kit arrive pre-programmed?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Yes, the target is programmed to work with the CAPTIVATE\_BSWP panel and the design center loaded with the CAPTIVATE-BSWP project which is the `out-of-box experience <ch_workshop.html>`__.
+
+How do I verify that the EVM is working?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Verify the green LED (Power Good) is on and the green LED (USB Enumeration) is blinking.
+-  Verify the red LED (LED4) on the programmer is blinking (indicates sensor data is being sent to the design center)
+
+   -  Note: After power is first applied, it may take a couple of seconds before the red LED begins to blink. During this time, the CapTIvate™ Software Library automatic sensor calibration is being performed.
+   -  If red LED is not blinking:
+
+      -  Verify all communications jumpers P1 are in place on the CAPTIVATE-FR2633 MCU PCB
+      -  Verify the MSP430FR2633 has been programmed with the correct demonstration firmware
+
+How can I increase the sensitivity or range of the proximity sensor in the out-of-box experience demo?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Link to `out-of-box experience <ch_workshop.html>`__
+
+-  The default Conversion Control settings of the proximity sensor are `Conversion Count <ch_glossary.html#conversion-count>`__ = 800, `Conversion Gain <ch_glossary.html#conversion-gain>`__ = 100, this the minimum possible value for the Conversion Gain, and the frequency divider is f/4. There a lot of different means available to increase the sensitivity of the proximity sensor, and the following descriptions are just a few examples.
+-  Increase the Conversion Gain settings of the proximity sensor.
+
+   -  First, in order to gain some more insight, the `Features <ch_designcenter.html#features>`__ should be set to advanced.
+   -  One method of increasing the sensitivity is to apply more Parasitic offset. The parasitic offset level, shown in the Conversion\_Control tab, has a maximum setting of 255. By increasing the Conversion Count value you will see the sensitivity and the parasitic offset level increase. Verify that Conversion Count value has not been increased beyond a value that results in the maximum parasitic offset level and that the noise is acceptable.
+
+-  Increase the Conversion Gain settings of the proximity sensor and then the Conversion Count.
+
+   -  As in the previous example, in order to gain some more insight, the `Features <ch_designcenter.html#features>`__ should be set to advanced.
+   -  Another method of increasing the sensitivity is to apply more Parasitic offset in the context of more overall gain.
+
+      -  Increase the Conversion Gain until the coarse gain ratio is 5 or 6.
+      -  Increase the Conversion Count until the desired sensitivity or range is achieved. Verify that this uses both a lower parasitic offset level and that the noise is acceptable.
+
+CapTIvate™ Technology Design Center
+-----------------------------------
+
+Can I download code from the Design Center?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No, the Design Center does not download firmware to the target. The Design Center will generate source code, and projects, that can be imported into CCS or IAR. Once this code is loaded onto the target communications are available to adjust various parameters and monitor performance.
+
+What does the 'No connected HID devices' pop-up window mean?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  If you are also running the target application in an IDE, ensure the IDE debugger is not paused
+-  Attempt to reset the HID connection.
+-  Set the target connection status in the Design Center to "disconnected"
+-  Unplug the USB cable from PC and reconnect.
+-  Set the target connection status in the Design Center to "connected"
+
+Why is the target data display slow?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Attempting to display too many graphs in the GUI can cause the display refresh time to increase. Try closing some of the display windows.
+
+When do I need to generate a project from the design center and load onto the target?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can generate a project for either CCS or IAR at any time, however, it is recommended to generate a project once after the sensors and the MCU have been placed as described in `Generate source code <ch_designcenter.html#generate-source-code>`__.
+
+What does updating a project from the design center do?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Updating a project from the design center updates the CAPT\_UserConfig.c and CAPT\_UserConfig.h files only.
+
+Where can I find the example demo project source code files?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The CapTIvate™ demo project source file locations are described `here <ch_evm.html#example-project-locations>`__.
+
+Why is the CapTIvate™ Design Center window not visible when I launch the GUI?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When running on Windows, it is possible that Windows will attempt to draw the CapTIvate™ Design Center display on a monitor/display that is no longer connected. This most commonly occurs in multi-monitor configurations or after a computer has been connected to a TV or projector. If the CapTIvate Design Center appears in the Windows task tray, but does not appear on the screen when selected, try the following steps: Select the CapTIvate™ Design Center in the Windows task bar. Then, press and hold the Windows key followed by the left or right arrow key to snap the window onto the connected display. The CapTIvate™ Design Center window should appear.
+
+CapTIvate™ Technology
+---------------------
+
+Why does sensitivity decrease as I increase the Conversion Gain?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Increasing the `Conversion Gain <ch_glossary.html#conversion-gain>`__ without increasing the `Conversion Count <ch_glossary.html#conversion-count>`__ will effectively reduce the amount of parasitic offset compensation being applied. In other words, the change in capacitance will be relative to a larger portion of the base parasitic capacitance.
+
+Why is the scan rate slower than I specify?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are many possible causes related to a slow scan rate, many of which are not related to the CapTIvate technology. One possible related issue is the selection of Conversion Count value that is not realizable and the Runtime Recalibration Enable is selected. This is easily seen in any of the data analysis tabs when the actual conversion result is less than 7/8th of the Conversion Count. In this state the library will automatically rerun the calibration routine after each measurement in an attempt to resolve the difference between the conversion result and the Conversion Count to 0. The increase in scan time is actually the addition of the recalibration with each measurement. Adjust the conversion time to a lower achievable level.

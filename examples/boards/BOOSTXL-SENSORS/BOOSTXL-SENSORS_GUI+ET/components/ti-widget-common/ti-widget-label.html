@@ -1,0 +1,106 @@
+<!--
+`ti-widget-label` is a bindable version of the <label> html element.
+
+Example:
+
+    <ti-widget-label label="my text"></ti-widget-label>
+
+See demo for a full working example of how to use this component.
+
+@group TI Widgets
+@element ti-widget-label
+@extends ti-widget-base-text
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="ti-widget-base-label.html">
+<polymer-element name="ti-widget-label" extends="ti-widget-base-label" >
+
+    <template>
+        <style>
+            :host {
+                display: inline;
+                background-color: transparent;
+                text-decoration: inherit;
+            }
+            #label {
+                display: inherit;
+                white-space: nowrap;
+                text-decoration: inherit;
+                font-weight: inherit;
+                
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;   
+            }
+
+        </style>
+    <label id="label" class="label-content">{{label}}</label>
+    </template>
+    <script>
+        Polymer ('ti-widget-label', 
+        {
+            publish: {
+                /**
+                 * Provides the text to display for the label.
+                 *
+                 * @attribute label
+                 * @type string
+                 */
+                label: "Label Text"
+            },
+             
+            /**
+            * Controls the whether text is allowed to wrap around to a new line or not.
+            *
+            * @attribute wrap
+            * @type boolean 
+            * @default false
+            */
+              
+			disabled: undefined,  // hide the disabled property since it doesn't do anything in this case.
+            
+            getElement : function()
+            {
+                if (this.$){
+                    return this.$.label;
+                } else {
+                    console.log('getElement: this.$ is undefined');
+                    return null;
+                }
+            }
+        });
+    </script>
+</polymer-element>

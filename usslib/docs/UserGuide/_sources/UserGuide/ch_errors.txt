@@ -1,0 +1,294 @@
+Error Handling
+==============
+
+Error Information
+-----------------
+
+**Error Tab**
+
+The error tab will appear when the target notifies Design Center that errors were detected. Once errors stop coming in, the user can elect to close the error tab; it will reappear if more errors are detected.
+
+The source of these errors is divided into eight different categories: are SAPH, HSPLL, SDHS, UUPS, Stop Error, Algorithm, ISTOP, Calibration, and Generic. Each of these corresponds to an existing USS Software Library category of errors.
+
+Errors may be cleared from the screen one at a time by right-clicking on an error row and selecting Delete, or all cleared at once by right clicking on an error and selecting Delete All.
+
+Error Management
+----------------
+
+.. figure:: images/example_errors.PNG
+   :alt: Example Errors
+
+   Example Errors
+
+The errors created in the tab will contain a category and an error description. Each of these will correspond to an existing enum in the USS Software library.
+
+The most common error is "No signal detected in up and downstream channel". This error usually has one of two root causes:
+
+-  The strength of the signal being read into the USS algorithm with the current configuration is too low to use
+
+-  The meter is currently disconnected
+
+Other errors may appear that correspond directly to one parameter. For example, in the above error screen, an incorrect settling time was entered into the USS XTAL Settling Count parameter and an invalid Start PPG Count value was entered into the Start PPG Count parameter.
+
+Full Application Error List
+---------------------------
+
++------------+--------------------------------------------------------------+
+| Error ID   | Error Description                                            |
++============+==============================================================+
+| 1          | Pattern option not supported                                 |
++------------+--------------------------------------------------------------+
+| 2          | F1 frequency outside of supported range                      |
++------------+--------------------------------------------------------------+
+| 3          | F2 frequency outside of supported range                      |
++------------+--------------------------------------------------------------+
+| 4          | Gap between pulses and ADC capture outside supported range   |
++------------+--------------------------------------------------------------+
+| 5          | Invalid number of pulses                                     |
++------------+--------------------------------------------------------------+
+| 6          | Gap between UPS and DNS outside supported range              |
++------------+--------------------------------------------------------------+
+| 7          | Gap between UPS0 and UPS1 outside supported range            |
++------------+--------------------------------------------------------------+
+| 8          | Invalid Gain Control value                                   |
++------------+--------------------------------------------------------------+
+| 9          | Invalid Meter constant                                       |
++------------+--------------------------------------------------------------+
+| 10         | Invalid application type                                     |
++------------+--------------------------------------------------------------+
+| 20         | USSXT value is not supported                                 |
++------------+--------------------------------------------------------------+
+| 21         | Signal Sampling Frequency outside supported range            |
++------------+--------------------------------------------------------------+
+| 22         | Invalid Over Sampling Rate                                   |
++------------+--------------------------------------------------------------+
+| 23         | Invalid PLL Frequency (Signal Sampling Frequency x OSR)      |
++------------+--------------------------------------------------------------+
+| 24         | Delta TOF offset outside supported range                     |
++------------+--------------------------------------------------------------+
+| 25         | Abs TOF additional delay outside supported range             |
++------------+--------------------------------------------------------------+
+| 26         | Capture Duration outside supported range                     |
++------------+--------------------------------------------------------------+
+| 27         | Invalid algorithm option                                     |
++------------+--------------------------------------------------------------+
+| 28         | Envelope Crossing Threshold outside supported range          |
++------------+--------------------------------------------------------------+
+| 29         | Start PPG Count outside supported range                      |
++------------+--------------------------------------------------------------+
+| 30         | Turn on ADC Count outside supported range                    |
++------------+--------------------------------------------------------------+
+| 31         | Start PGA and IN Bias Count outside supported range          |
++------------+--------------------------------------------------------------+
+| 32         | USS XTAL Settling Count outside supported range              |
++------------+--------------------------------------------------------------+
+| 33         | Negative Range Delta TOF outside supported range             |
++------------+--------------------------------------------------------------+
+| 34         | Positive Range Delta TOF outside supported range             |
++------------+--------------------------------------------------------------+
+| 35         | Search Range Abs TOF outside supported range                 |
++------------+--------------------------------------------------------------+
+| 36         | Positive Range Abs TOF outside supported range               |
++------------+--------------------------------------------------------------+
+| 37         | Invalid Param1 value                                         |
++------------+--------------------------------------------------------------+
+| 38         | Invalid Param2 value                                         |
++------------+--------------------------------------------------------------+
+| 39         | Invalid Param3 value                                         |
++------------+--------------------------------------------------------------+
+| 40         | Invalid Param4 value                                         |
++------------+--------------------------------------------------------------+
+| 41         | Invalid Param5 value                                         |
++------------+--------------------------------------------------------------+
+| 42         | Invalid Param6 value                                         |
++------------+--------------------------------------------------------------+
+| 43         | Invalid Param7 value                                         |
++------------+--------------------------------------------------------------+
+| 44         | Invalid Param8 value                                         |
++------------+--------------------------------------------------------------+
+| 45         | Invalid Param9 value                                         |
++------------+--------------------------------------------------------------+
+| 46         | Invalid Param10 value                                        |
++------------+--------------------------------------------------------------+
+| 47         | External Amplifier Count outside supported range             |
++------------+--------------------------------------------------------------+
+| 63         | Unexpected Reset: PMMSWBOR                                   |
++------------+--------------------------------------------------------------+
+| 64         | Unexpected Reset: LPMx.5 wakeup                              |
++------------+--------------------------------------------------------------+
+| 65         | Unexpected Reset: Security violation                         |
++------------+--------------------------------------------------------------+
+| 67         | Unexpected Reset: SVSHIFG                                    |
++------------+--------------------------------------------------------------+
+| 70         | Unexpected Reset: PMMSWPOR                                   |
++------------+--------------------------------------------------------------+
+| 71         | Unexpected Reset: watchdog time-out                          |
++------------+--------------------------------------------------------------+
+| 72         | Unexpected Reset: password violation                         |
++------------+--------------------------------------------------------------+
+| 73         | Unexpected Reset: password violation                         |
++------------+--------------------------------------------------------------+
+| 74         | Unexpected Reset: Uncorrectable FRAM bit error detection     |
++------------+--------------------------------------------------------------+
+| 75         | Unexpected Reset: Peripheral area fetch                      |
++------------+--------------------------------------------------------------+
+| 76         | Unexpected Reset: PMM password violation                     |
++------------+--------------------------------------------------------------+
+| 77         | Unexpected Reset: MPU password violation                     |
++------------+--------------------------------------------------------------+
+| 78         | Unexpected Reset: CS password violation                      |
++------------+--------------------------------------------------------------+
+| 79         | Unexpected Reset: IPE memory segment violation               |
++------------+--------------------------------------------------------------+
+| 81         | Unexpected Reset: MPU segment 1 memory violation             |
++------------+--------------------------------------------------------------+
+| 82         | Unexpected Reset: MPU segment 2 memory violation             |
++------------+--------------------------------------------------------------+
+| 83         | Unexpected Reset: MPU segment 3 memory violation             |
++------------+--------------------------------------------------------------+
+| 255        | Other undefined error                                        |
++------------+--------------------------------------------------------------+
+
+Full Library Error List
+-----------------------
+
++------------+---------------+-------------------------------------------------------------------------------------+
+| Error ID   | Error Type    | Description                                                                         |
++============+===============+=====================================================================================+
+| 1          | SAPH          | SAPH low Phase Period is invalid                                                    |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 2          | SAPH          | SAPH high phase period is invalid                                                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 3          | SAPH          | SAPH number of excitation pulses is invalid                                         |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 4          | SAPH          | SAPH number of stop pulses is invalid                                               |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 5          | SAPH          | Unable to update SAPH during an active conversion                                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 6          | SAPH          | Invalid start PPG count value                                                       |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 7          | SAPH          | Turn on ADC Count value is invalid or less than 40 usec                             |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 8          | SAPH          | Start ADC Sampling Count is invalid                                                 |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 9          | SAPH          | Restart capture count is invalid                                                    |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 10         | SAPH          | Capture time out count is invalid                                                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 11         | SAPH          | Start PGA and INBias Count is invalid                                               |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 12         | SAPH          | Bias impedance value is invalid                                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 13         | SAPH          | Rx Charge Pump value is invalid                                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 14         | SAPH          | Pulse Generation parameters are invalid                                             |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 21         | HSPLL         | Input frequency for HSPLL module is invalid                                         |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 22         | HSPLL         | The output frequency of the HSPLL is invalid                                        |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 23         | HSPLL         | An error occurred while locking the PLL                                             |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 24         | HSPLL         | HSPLL detected that the PLL has unlocked                                            |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 26         | HSPLL         | Attempted to update HSPLL during an active conversion                               |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 27         | HSPLL         | Actual HSPLL frequency exceeded tolerance from expected frequency                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 28         | HSPLL         | Invalid USS crystal settling time                                                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 41         | SDHS          | High or low SDHS threshold values were exceeded                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 43         | SDHS          | SDHS conversion overflow error                                                      |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 44         | SDHS          | SDHS sample size is invalid                                                         |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 45         | SDHS          | Attempted to update SDHS during an active conversion                                |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 46         | SDHS          | Conversion reached low threshold during runtime                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 47         | SDHS          | Conversion reached high threshold during runtime                                    |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 48         | SDHS          | Max sample size returned                                                            |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 61         | UUPS          | Attempted to update UUPS during an active conversion                                |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 62         | UUPS          | UUPS power up time out detected                                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 63         | UUPS          | UUPS power up error detected                                                        |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 64         | UUPS          | UUPS power down error detected                                                      |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 81         | UUPS          | Data error triggered during sequence                                                |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 82         | UUPS          | ASQ time out occurred                                                               |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 101        | Stop Error    | USS ongoing measurement was stopped                                                 |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 102        | Stop Error    | USS sequence was stopped by debugger                                                |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 121        | Algorithm     | USS parameter check failed                                                          |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 122        | Algorithm     | No problems were encountered while running the algorithms                           |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 123        | Algorithm     | An error was encountered while running the algorithms                               |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 124        | Algorithm     | Invalid Absolute TOF Interval selected                                              |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 125        | Algorithm     | No signal detected in UPS channel                                                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 126        | Algorithm     | No signal detected in up and downstream channel                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 127        | Algorithm     | No signal detected in DNS channel                                                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 128        | Algorithm     | Upstream/downstream captures accumulated                                            |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 129        | Algorithm     | Clock Relative Error is outside the valid range                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 130        | Algorithm     | Filter length is greater than 20                                                    |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 131        | Algorithm     | Binary pattern does not fit in memory reserved by user                              |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 132        | Algorithm     | Invalid absTof compution option selected                                            |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 133        | Algorithm     | Invalid USS\_Meter\_Configuration configuration                                     |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 134        | Algorithm     | The minimum volume flow rate falls outside the lowest alpha min calibration point   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 142        | Algorithm     | User attempted to update configuration during an active conversion                  |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 161        | ISTOP         | Invalid conversion data -- conversion was interrupted                               |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 171        | Calibration   | Successfully calibrated DAC                                                         |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 172        | Calibration   | Error calibrating DAC                                                               |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 173        | Calibration   | Error calibrating gain                                                              |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 174        | Calibration   | Error during Abs ToF and DToF offset calculation                                    |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 175        | Calibration   | Signal gain calibration timed out                                                   |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 176        | Calibration   | Signal gain calibration failed to settle                                            |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 177        | Calibration   | Successfully calibrated signal gain                                                 |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 178        | Calibration   | Timeout occurred during DAC calibration                                             |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 179        | Calibration   | Error during Abs ToF and DToF calculation                                           |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 240        | Generic       | ACLK failed to settle or clear oscillation flag in expected timeout period          |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 241        | Generic       | Functionality from Silicon rev B or later is attempted in a Rev A silicon           |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 254        | Generic       | USS module attempted to update while busy flag was set                              |
++------------+---------------+-------------------------------------------------------------------------------------+
+| 255        | Generic       | Unknown error occurred                                                              |
++------------+---------------+-------------------------------------------------------------------------------------+
+
+More Information
+----------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

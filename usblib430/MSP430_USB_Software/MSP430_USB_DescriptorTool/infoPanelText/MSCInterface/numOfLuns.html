@@ -1,0 +1,22 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Number of LUNs</h1>
+        <p>Associated constant in the API stacks:  <span class="attribute">MSC_MAX_LUN_NUMBER.</span> (Not reported in the USB descriptors.)</p>
+        <p>This is the number of "logical units" contained in this USB device.  A single MSC interface can contain multiple logical units, each of which the host OS mounts as a separate volume.  For example, if two LUNs are fully implemented, then in Windows, two drives will be seen in "My Computer". </p>
+        <p>Adding this MSC interface only enables USB enumeration.  The host will then attempt to enumerate each LUN the MSC interface says it has.  To do this, the application must:</p>
+        <ul>
+            <li>Process buffer operation for this LUN (handle READ/WRITE commands from the host)</li>
+            <li>Call USBMSC_updateMediaInfo() during initialization, and whenever the media changes, to tell the about this LUN's medium status</li>
+        </ul>
+    </body>
+</html>

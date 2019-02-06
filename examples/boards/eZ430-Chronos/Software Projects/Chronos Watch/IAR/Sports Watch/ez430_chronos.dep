@@ -1,0 +1,3820 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>729402738</fileChecksum>
+  <configuration>
+    <name>433MHz - Limited IAR KickStart (Other regions)</name>
+    <outputs>
+      <file>$PROJ_DIR$\bluerobin\bm.h</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\alarm.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\altitude.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\user.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\main.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\stopwatch.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\temperature.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\as.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\test.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\clock.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\ez430_chronos.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\float.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stddef.h</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\acceleration.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\date.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\rfsimpliciti.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\bluerobin.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\battery.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\menu.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\rfbsl.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\bmp_as.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\rfsimpliciti.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\stopwatch.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\cma_ps.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Exe\ez430_chronos_433MHz.d43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\user.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\bmp_ps.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\test.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\temperature.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\cma_as.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\as.r43</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\bmp_as.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\rfbsl.r43</file>
+      <file>$PROJ_DIR$\driver\adc12.h</file>
+      <file>$PROJ_DIR$\driver\as.c</file>
+      <file>$PROJ_DIR$\driver\as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_as.c</file>
+      <file>$PROJ_DIR$\driver\bmp_as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.c</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.h</file>
+      <file>$PROJ_DIR$\driver\buzzer.h</file>
+      <file>$PROJ_DIR$\driver\cma_as.c</file>
+      <file>$PROJ_DIR$\driver\cma_as.h</file>
+      <file>$PROJ_DIR$\driver\cma_ps.c</file>
+      <file>$PROJ_DIR$\driver\cma_ps.h</file>
+      <file>$PROJ_DIR$\driver\display.h</file>
+      <file>$PROJ_DIR$\simpliciti\simpliciti.h</file>
+      <file>$PROJ_DIR$\change_record.txt</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\cma_ps.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\bmp_ps.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\cma_as.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\altitude.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\bluerobin.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\battery.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\alarm.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\clock.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\acceleration.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\ps.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\date.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\menu.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\433MHz - Limited IAR KickStart (Other regions)\Obj\ps.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\cc430x613x.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\driver\ports.h</file>
+      <file>$PROJ_DIR$\driver\ps.c</file>
+      <file>$PROJ_DIR$\driver\ps.h</file>
+      <file>$PROJ_DIR$\driver\timer.h</file>
+      <file>$PROJ_DIR$\include\project.h</file>
+      <file>$PROJ_DIR$\logic\acceleration.c</file>
+      <file>$PROJ_DIR$\logic\acceleration.h</file>
+      <file>$PROJ_DIR$\logic\alarm.c</file>
+      <file>$PROJ_DIR$\logic\alarm.h</file>
+      <file>$PROJ_DIR$\logic\altitude.c</file>
+      <file>$PROJ_DIR$\logic\altitude.h</file>
+      <file>$PROJ_DIR$\logic\battery.c</file>
+      <file>$PROJ_DIR$\logic\battery.h</file>
+      <file>$PROJ_DIR$\logic\bluerobin.c</file>
+      <file>$PROJ_DIR$\logic\clock.c</file>
+      <file>$PROJ_DIR$\logic\clock.h</file>
+      <file>$PROJ_DIR$\logic\date.c</file>
+      <file>$PROJ_DIR$\logic\menu.c</file>
+      <file>$PROJ_DIR$\logic\menu.h</file>
+      <file>$PROJ_DIR$\logic\rfbsl.c</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.c</file>
+      <file>$PROJ_DIR$\logic\stopwatch.c</file>
+      <file>$PROJ_DIR$\logic\temperature.c</file>
+      <file>$PROJ_DIR$\logic\test.c</file>
+      <file>$PROJ_DIR$\logic\user.c</file>
+      <file>$PROJ_DIR$\logic\user.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 41 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 52 43 41 78 51</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 45 77 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 57</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 52 48 41 78 51</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 50 77 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 4</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 69</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 77 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\acceleration.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 51 43 48 41 81 52 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\alarm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 51 46 75 83 90 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\altitude.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 58</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 85 51 77 45 50 75 78 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\battery.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 16 13 67 68 15 71 37 70 12 11 14 51 75 39 93 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\bluerobin.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\clock.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 62</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\date.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfbsl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfsimpliciti.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\stopwatch.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\temperature.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\user.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>433MHz - Unrestricted IAR Workbench (Other regions)</name>
+    <outputs>
+      <file>$PROJ_DIR$\bluerobin\bm.h</file>
+      <file>$PROJ_DIR$\driver\adc12.c</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_security.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\mrfi.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_mgmt.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\mrfi.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\alarm.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_freq.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_freq.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_api.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_mgmt.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_frame.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\alarm.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\altitude.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\battery.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\altitude.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bsp.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\menu.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bsp.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\ports.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\menu.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\float.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stddef.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\ports.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\clock.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\clock.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\stopwatch.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\rfsimpliciti.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\rfsimpliciti.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\stopwatch.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\battery.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bluerobin.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bluerobin.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_frame.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_join.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_ioctl.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_ioctl.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_join.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_ping.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_link.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_link.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\temperature.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\acceleration.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\temperature.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\acceleration.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\adc12.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Exe\ez430_chronos_433MHz.d43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\user.r43</file>
+      <file>$PROJ_DIR$\simpliciti\Components\bsp\bsp.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_frame.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\mrfi\mrfi.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_api.c</file>
+      <file>$PROJ_DIR$\driver\adc12.h</file>
+      <file>$PROJ_DIR$\driver\as.c</file>
+      <file>$PROJ_DIR$\driver\as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_as.c</file>
+      <file>$PROJ_DIR$\driver\bmp_as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.c</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.h</file>
+      <file>$PROJ_DIR$\driver\buzzer.c</file>
+      <file>$PROJ_DIR$\driver\buzzer.h</file>
+      <file>$PROJ_DIR$\driver\cma_as.c</file>
+      <file>$PROJ_DIR$\driver\cma_as.h</file>
+      <file>$PROJ_DIR$\driver\cma_ps.c</file>
+      <file>$PROJ_DIR$\driver\cma_ps.h</file>
+      <file>$PROJ_DIR$\driver\display.c</file>
+      <file>$PROJ_DIR$\driver\display.h</file>
+      <file>$PROJ_DIR$\driver\pmm.c</file>
+      <file>$PROJ_DIR$\driver\pmm.h</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_globals.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_QMgmt.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_freq.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ioctl.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_join.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_link.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_mgmt.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ping.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_security.c</file>
+      <file>$PROJ_DIR$\simpliciti\simpliciti.h</file>
+      <file>$PROJ_DIR$\change_record.txt</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\cc430x613x.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\user.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\ps.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\ps.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\adc12.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\rf1a.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\radio.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\radio.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\timer.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\main.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\date.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\rf1a.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\timer.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\rfbsl.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\rfbsl.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\date.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\test.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\test.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_QMgmt.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_globals.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_globals.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_QMgmt.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\as.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bmp_as.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\as.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bmp_as.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_api.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\main_ED_BM.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\main_ED_BM.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bmp_ps.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\bmp_ps.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\display.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\buzzer.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\buzzer.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\cma_as.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\cma_as.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\cma_ps.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\display.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\pmm.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_ping.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\pmm.r43</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\cma_ps.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\nwk_security.pbi</file>
+      <file>$PROJ_DIR$\433MHz - Unrestricted IAR Workbench (Other regions)\Obj\ez430_chronos.pbd</file>
+      <file>$PROJ_DIR$\driver\ports.c</file>
+      <file>$PROJ_DIR$\driver\ports.h</file>
+      <file>$PROJ_DIR$\driver\ps.c</file>
+      <file>$PROJ_DIR$\driver\ps.h</file>
+      <file>$PROJ_DIR$\driver\radio.c</file>
+      <file>$PROJ_DIR$\driver\rf1a.c</file>
+      <file>$PROJ_DIR$\driver\rf1a.h</file>
+      <file>$PROJ_DIR$\driver\timer.c</file>
+      <file>$PROJ_DIR$\driver\timer.h</file>
+      <file>$PROJ_DIR$\include\project.h</file>
+      <file>$PROJ_DIR$\logic\acceleration.c</file>
+      <file>$PROJ_DIR$\logic\alarm.c</file>
+      <file>$PROJ_DIR$\logic\alarm.h</file>
+      <file>$PROJ_DIR$\logic\altitude.c</file>
+      <file>$PROJ_DIR$\logic\altitude.h</file>
+      <file>$PROJ_DIR$\logic\battery.c</file>
+      <file>$PROJ_DIR$\logic\bluerobin.c</file>
+      <file>$PROJ_DIR$\logic\bluerobin.h</file>
+      <file>$PROJ_DIR$\logic\clock.c</file>
+      <file>$PROJ_DIR$\logic\clock.h</file>
+      <file>$PROJ_DIR$\logic\date.c</file>
+      <file>$PROJ_DIR$\logic\date.h</file>
+      <file>$PROJ_DIR$\logic\menu.c</file>
+      <file>$PROJ_DIR$\logic\rfbsl.c</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.c</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.h</file>
+      <file>$PROJ_DIR$\logic\stopwatch.c</file>
+      <file>$PROJ_DIR$\logic\stopwatch.h</file>
+      <file>$PROJ_DIR$\logic\temperature.c</file>
+      <file>$PROJ_DIR$\logic\temperature.h</file>
+      <file>$PROJ_DIR$\logic\test.c</file>
+      <file>$PROJ_DIR$\logic\user.c</file>
+      <file>$PROJ_DIR$\logic\user.h</file>
+      <file>$PROJ_DIR$\simpliciti\Applications\application\End Device\main_ED_BM.c</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 53</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\adc12.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 60 149</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\bsp\bsp.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_frame.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\mrfi\mrfi.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_api.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 123</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 119</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 121</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 62 149</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 120</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 122</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 86 64 62 149 74</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 126</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 127</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 66 144 149</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\buzzer.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 129</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 130</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 68 149 74 153</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 132</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 131</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 86 70 62 149 74</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 133</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 138</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 72 144 149</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\display.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 128</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 134</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 91 74 160 173 162 168 170</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\pmm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 137</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 135</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 95 94 96 76</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_globals.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 117</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 116</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_QMgmt.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 115</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 118</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_freq.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ioctl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_join.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_link.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_mgmt.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ping.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 136</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_security.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 139</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 105</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 107</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ports.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 142 68 64 70 62 66 72 144 149 74 160 153 166 86 155 168</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 99</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 98</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 144 149</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\radio.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 103</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 102</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 147 149 166 158</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\rf1a.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 101</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 108</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150 95 94 96 0 26 23 89 90 25 93 27 92 22 21 24 147</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\timer.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 109</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 104</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\acceleration.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 49</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\alarm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\altitude.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 13</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\battery.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\bluerobin.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\clock.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\date.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 112</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 106</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfbsl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 111</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 110</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfsimpliciti.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\stopwatch.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\temperature.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 114</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 113</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\user.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 97</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Applications\application\End Device\main_ED_BM.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 124</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 125</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>868MHz - Limited IAR KickStart (Europe)</name>
+    <outputs>
+      <file>$PROJ_DIR$\bluerobin\bm.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\float.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stddef.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\bluerobin\BlueRobin_RX_API.h</file>
+      <file>$PROJ_DIR$\driver\adc12.h</file>
+      <file>$PROJ_DIR$\driver\as.c</file>
+      <file>$PROJ_DIR$\driver\as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_as.c</file>
+      <file>$PROJ_DIR$\driver\bmp_as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.c</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.h</file>
+      <file>$PROJ_DIR$\driver\buzzer.h</file>
+      <file>$PROJ_DIR$\driver\cma_as.c</file>
+      <file>$PROJ_DIR$\driver\cma_as.h</file>
+      <file>$PROJ_DIR$\driver\cma_ps.c</file>
+      <file>$PROJ_DIR$\driver\cma_ps.h</file>
+      <file>$PROJ_DIR$\driver\display.h</file>
+      <file>$PROJ_DIR$\simpliciti\simpliciti.h</file>
+      <file>$PROJ_DIR$\change_record.txt</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\cc430x613x.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\clock.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\bluerobin.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\bmp_as.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\date.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\battery.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\ps.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\bmp_ps.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\bmp_as.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\user.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\bmp_ps.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\temperature.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\stopwatch.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\menu.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\test.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\bluerobin.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\rfbsl.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\as.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\as.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\date.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\alarm.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\rfsimpliciti.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\clock.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\altitude.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\cma_ps.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\acceleration.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\cma_as.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Exe\ez430_chronos_868MHz.d43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\ps.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\acceleration.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\rfsimpliciti.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\rfbsl.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\test.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\temperature.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\user.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\stopwatch.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\main.r43</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\cma_as.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\altitude.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\battery.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\menu.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\alarm.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\cma_ps.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Limited IAR KickStart (Europe)\Obj\ez430_chronos.pbd</file>
+      <file>$PROJ_DIR$\driver\ports.h</file>
+      <file>$PROJ_DIR$\driver\ps.c</file>
+      <file>$PROJ_DIR$\driver\ps.h</file>
+      <file>$PROJ_DIR$\driver\radio.h</file>
+      <file>$PROJ_DIR$\driver\rf1a.h</file>
+      <file>$PROJ_DIR$\driver\timer.h</file>
+      <file>$PROJ_DIR$\include\project.h</file>
+      <file>$PROJ_DIR$\logic\acceleration.c</file>
+      <file>$PROJ_DIR$\logic\acceleration.h</file>
+      <file>$PROJ_DIR$\logic\alarm.c</file>
+      <file>$PROJ_DIR$\logic\alarm.h</file>
+      <file>$PROJ_DIR$\logic\altitude.c</file>
+      <file>$PROJ_DIR$\logic\altitude.h</file>
+      <file>$PROJ_DIR$\logic\battery.c</file>
+      <file>$PROJ_DIR$\logic\battery.h</file>
+      <file>$PROJ_DIR$\logic\bluerobin.c</file>
+      <file>$PROJ_DIR$\logic\bluerobin.h</file>
+      <file>$PROJ_DIR$\logic\clock.c</file>
+      <file>$PROJ_DIR$\logic\clock.h</file>
+      <file>$PROJ_DIR$\logic\date.c</file>
+      <file>$PROJ_DIR$\logic\date.h</file>
+      <file>$PROJ_DIR$\logic\menu.c</file>
+      <file>$PROJ_DIR$\logic\menu.h</file>
+      <file>$PROJ_DIR$\logic\rfbsl.c</file>
+      <file>$PROJ_DIR$\logic\rfbsl.h</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.c</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.h</file>
+      <file>$PROJ_DIR$\logic\stopwatch.c</file>
+      <file>$PROJ_DIR$\logic\stopwatch.h</file>
+      <file>$PROJ_DIR$\logic\temperature.c</file>
+      <file>$PROJ_DIR$\logic\temperature.h</file>
+      <file>$PROJ_DIR$\logic\test.c</file>
+      <file>$PROJ_DIR$\logic\user.c</file>
+      <file>$PROJ_DIR$\logic\user.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 11 82</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 22 13 11 82 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 15 79 82</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 22 18 11 82 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 20 79 82</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 69</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 79 82</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\acceleration.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 57</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 13 18 11 85 22 110</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\alarm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 16 77 87 95 110</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\altitude.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 55</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 71</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 89 21 79 15 20 77 82 110</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\battery.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 37</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 72</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 77 9 99 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\bluerobin.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 80 77 82 81 8 93 103 110</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\clock.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 77 21 82 99 95 110 93 97</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\date.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 51</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 77 97 110</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 99 110 95 97 87 105 107 89 91 93 103 85 101</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfbsl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 77 101 93 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfsimpliciti.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 53</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 62</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 21 13 18 11 79 77 82 80 85 103 93 22 95 97 87 107 89</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\stopwatch.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 44</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 68</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 31 30 32 0 6 3 25 26 5 29 7 28 2 1 4 27 105 77 21 82 99</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\temperature.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\user.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 41</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 67</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>868MHz - Unrestricted IAR Workbench (Europe)</name>
+    <outputs>
+      <file>$PROJ_DIR$\bluerobin\bm.h</file>
+      <file>$PROJ_DIR$\driver\adc12.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\float.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stddef.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\simpliciti\Components\bsp\bsp.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_frame.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\mrfi\mrfi.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_api.c</file>
+      <file>$PROJ_DIR$\driver\adc12.h</file>
+      <file>$PROJ_DIR$\driver\as.c</file>
+      <file>$PROJ_DIR$\driver\as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_as.c</file>
+      <file>$PROJ_DIR$\driver\bmp_as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.c</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.h</file>
+      <file>$PROJ_DIR$\driver\buzzer.c</file>
+      <file>$PROJ_DIR$\driver\buzzer.h</file>
+      <file>$PROJ_DIR$\driver\cma_as.c</file>
+      <file>$PROJ_DIR$\driver\cma_ps.c</file>
+      <file>$PROJ_DIR$\driver\display.c</file>
+      <file>$PROJ_DIR$\driver\display.h</file>
+      <file>$PROJ_DIR$\driver\pmm.c</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_freq.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\altitude.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\clock.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\cma_ps.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\mrfi.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_QMgmt.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_frame.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bmp_ps.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_globals.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\cma_as.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\display.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_mgmt.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\alarm.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\adc12.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\menu.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\cma_ps.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\battery.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\ports.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\buzzer.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bmp_as.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\battery.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\acceleration.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_globals.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\clock.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\rfsimpliciti.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\cma_as.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bmp_ps.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\radio.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\display.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\ps.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\alarm.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\test.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\rfbsl.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\date.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\stopwatch.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\timer.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\as.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\rf1a.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bluerobin.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\ez430_chronos.pbd</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\temperature.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\temperature.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\acceleration.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_freq.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\radio.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_api.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_link.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_ping.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_join.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bsp.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_QMgmt.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\date.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\pmm.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\rfbsl.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_frame.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_ioctl.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\menu.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\rfsimpliciti.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Exe\ez430_chronos_868MHz.d43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_ioctl.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\main_ED_BM.pbi</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_globals.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_QMgmt.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_freq.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ioctl.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_join.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_link.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_mgmt.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ping.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_security.c</file>
+      <file>$PROJ_DIR$\simpliciti\simpliciti.h</file>
+      <file>$PROJ_DIR$\change_record.txt</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\cc430x613x.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\user.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_join.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\pmm.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\test.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\main_ED_BM.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\user.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\altitude.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_ping.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\mrfi.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\adc12.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_security.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\main.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\ps.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bsp.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_mgmt.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bmp_as.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\rf1a.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\stopwatch.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\buzzer.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_api.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\timer.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_security.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\nwk_link.r43</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\bluerobin.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\ports.pbi</file>
+      <file>$PROJ_DIR$\868MHz - Unrestricted IAR Workbench (Europe)\Obj\as.pbi</file>
+      <file>$PROJ_DIR$\driver\ports.c</file>
+      <file>$PROJ_DIR$\driver\ps.c</file>
+      <file>$PROJ_DIR$\driver\ps.h</file>
+      <file>$PROJ_DIR$\driver\radio.c</file>
+      <file>$PROJ_DIR$\driver\rf1a.c</file>
+      <file>$PROJ_DIR$\driver\timer.c</file>
+      <file>$PROJ_DIR$\driver\timer.h</file>
+      <file>$PROJ_DIR$\include\project.h</file>
+      <file>$PROJ_DIR$\logic\acceleration.c</file>
+      <file>$PROJ_DIR$\logic\alarm.c</file>
+      <file>$PROJ_DIR$\logic\alarm.h</file>
+      <file>$PROJ_DIR$\logic\altitude.c</file>
+      <file>$PROJ_DIR$\logic\battery.c</file>
+      <file>$PROJ_DIR$\logic\bluerobin.c</file>
+      <file>$PROJ_DIR$\logic\clock.c</file>
+      <file>$PROJ_DIR$\logic\date.c</file>
+      <file>$PROJ_DIR$\logic\menu.c</file>
+      <file>$PROJ_DIR$\logic\rfbsl.c</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.c</file>
+      <file>$PROJ_DIR$\logic\stopwatch.c</file>
+      <file>$PROJ_DIR$\logic\temperature.c</file>
+      <file>$PROJ_DIR$\logic\test.c</file>
+      <file>$PROJ_DIR$\logic\user.c</file>
+      <file>$PROJ_DIR$\simpliciti\Applications\application\End Device\main_ED_BM.c</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 89</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\adc12.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 120</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 144 109 108 110 0 7 4 104 105 6 107 8 106 3 2 5 14 143</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\bsp\bsp.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 124</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_frame.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 85</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\mrfi\mrfi.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 119</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 84</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_api.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 130</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 66</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 136</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 144 109 108 110 0 7 4 104 105 6 107 8 106 3 2 5 16 143</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 49</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 126</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 144 109 108 110 0 7 4 104 105 6 107 8 106 3 2 5 101 18 16 143 26</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 144 109 108 110 0 7 4 104 105 6 107 8 106 3 2 5 20 139 143</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\buzzer.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 129</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 144 109 108 110 0 7 4 104 105 6 107 8 106 3 2 5 22 143 26 147</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 55</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\display.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\pmm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 113</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_globals.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_QMgmt.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 80</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_freq.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 73</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ioctl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 90</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 86</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_join.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 112</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 78</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_link.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 133</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_mgmt.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 41</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 125</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ping.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 118</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 77</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_security.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 121</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 132</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 122</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ports.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 135</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 59</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 123</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\radio.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 57</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\rf1a.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 67</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 127</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\timer.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 65</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 131</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\acceleration.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 72</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\alarm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\altitude.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 117</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\battery.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\bluerobin.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 68</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 134</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\clock.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 53</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\date.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 63</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 44</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 87</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfbsl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 62</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfsimpliciti.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 88</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\stopwatch.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 64</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 128</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\temperature.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 71</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 61</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 114</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\user.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 116</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 111</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Applications\application\End Device\main_ED_BM.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 115</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 91</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>915MHz - Limited IAR KickStart (USA)</name>
+    <outputs>
+      <file>$PROJ_DIR$\bluerobin\bm.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\float.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stddef.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\driver\adc12.h</file>
+      <file>$PROJ_DIR$\driver\as.c</file>
+      <file>$PROJ_DIR$\driver\as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_as.c</file>
+      <file>$PROJ_DIR$\driver\bmp_as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.c</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.h</file>
+      <file>$PROJ_DIR$\driver\buzzer.h</file>
+      <file>$PROJ_DIR$\driver\cma_as.c</file>
+      <file>$PROJ_DIR$\driver\cma_as.h</file>
+      <file>$PROJ_DIR$\driver\cma_ps.c</file>
+      <file>$PROJ_DIR$\driver\cma_ps.h</file>
+      <file>$PROJ_DIR$\driver\display.h</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\bmp_ps.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Exe\ez430_chronos_915MHz.d43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\altitude.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\as.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\as.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\bmp_as.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\ps.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\bluerobin.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\acceleration.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\stopwatch.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\battery.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\rfsimpliciti.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\temperature.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\acceleration.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\cma_ps.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\altitude.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\battery.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\date.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\menu.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\bluerobin.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\rfbsl.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\alarm.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\clock.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\rfsimpliciti.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\stopwatch.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\test.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\main.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\user.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\cma_as.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\bmp_as.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\temperature.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\bmp_ps.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\cma_ps.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\ps.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\alarm.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\ez430_chronos.pbd</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\date.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\clock.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\menu.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\rfbsl.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\cma_as.r43</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\test.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\user.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Limited IAR KickStart (USA)\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\simpliciti\simpliciti.h</file>
+      <file>$PROJ_DIR$\change_record.txt</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\cc430x613x.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\driver\ports.h</file>
+      <file>$PROJ_DIR$\driver\ps.c</file>
+      <file>$PROJ_DIR$\driver\ps.h</file>
+      <file>$PROJ_DIR$\driver\timer.h</file>
+      <file>$PROJ_DIR$\include\project.h</file>
+      <file>$PROJ_DIR$\logic\acceleration.c</file>
+      <file>$PROJ_DIR$\logic\acceleration.h</file>
+      <file>$PROJ_DIR$\logic\alarm.c</file>
+      <file>$PROJ_DIR$\logic\alarm.h</file>
+      <file>$PROJ_DIR$\logic\altitude.c</file>
+      <file>$PROJ_DIR$\logic\altitude.h</file>
+      <file>$PROJ_DIR$\logic\battery.c</file>
+      <file>$PROJ_DIR$\logic\battery.h</file>
+      <file>$PROJ_DIR$\logic\bluerobin.c</file>
+      <file>$PROJ_DIR$\logic\clock.c</file>
+      <file>$PROJ_DIR$\logic\clock.h</file>
+      <file>$PROJ_DIR$\logic\date.c</file>
+      <file>$PROJ_DIR$\logic\menu.c</file>
+      <file>$PROJ_DIR$\logic\menu.h</file>
+      <file>$PROJ_DIR$\logic\rfbsl.c</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.c</file>
+      <file>$PROJ_DIR$\logic\stopwatch.c</file>
+      <file>$PROJ_DIR$\logic\temperature.c</file>
+      <file>$PROJ_DIR$\logic\test.c</file>
+      <file>$PROJ_DIR$\logic\user.c</file>
+      <file>$PROJ_DIR$\logic\user.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 10 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 65 12 10 78 20</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 14 77 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 61</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 65 17 10 78 20</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 53</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 19 77 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 54</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 77 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\acceleration.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 20 12 17 10 81 65 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\alarm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 20 15 75 83 90 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\altitude.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 85 20 77 14 19 75 78 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\battery.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 73 72 74 0 6 3 68 69 5 71 7 70 2 1 4 20 75 8 93 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\bluerobin.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\clock.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 58</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\date.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 57</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 39</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfbsl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 41</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfsimpliciti.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\stopwatch.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\temperature.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 62</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\user.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>915MHz - Unrestricted IAR Workbench (USA)</name>
+    <outputs>
+      <file>$PROJ_DIR$\bluerobin\bm.h</file>
+      <file>$PROJ_DIR$\driver\adc12.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\float.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stddef.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\simpliciti\Components\bsp\bsp.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_frame.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\mrfi\mrfi.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_api.c</file>
+      <file>$PROJ_DIR$\driver\adc12.h</file>
+      <file>$PROJ_DIR$\driver\as.c</file>
+      <file>$PROJ_DIR$\driver\as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_as.c</file>
+      <file>$PROJ_DIR$\driver\bmp_as.h</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.c</file>
+      <file>$PROJ_DIR$\driver\bmp_ps.h</file>
+      <file>$PROJ_DIR$\driver\buzzer.c</file>
+      <file>$PROJ_DIR$\driver\buzzer.h</file>
+      <file>$PROJ_DIR$\driver\cma_as.c</file>
+      <file>$PROJ_DIR$\driver\cma_as.h</file>
+      <file>$PROJ_DIR$\driver\cma_ps.c</file>
+      <file>$PROJ_DIR$\driver\cma_ps.h</file>
+      <file>$PROJ_DIR$\driver\display.c</file>
+      <file>$PROJ_DIR$\driver\display.h</file>
+      <file>$PROJ_DIR$\driver\pmm.c</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\rfsimpliciti.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_ping.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_link.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_mgmt.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bmp_ps.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\as.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\cma_as.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_link.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\cma_ps.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\main_ED_BM.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\buzzer.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\user.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bmp_as.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\temperature.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\test.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\adc12.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\rfbsl.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bsp.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\stopwatch.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\ps.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\timer.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\display.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\altitude.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\clock.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_globals.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\rf1a.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\alarm.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\ports.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bluerobin.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\menu.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_freq.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\radio.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\acceleration.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\pmm.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\battery.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\date.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_api.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\mrfi.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_mgmt.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_frame.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_ping.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_join.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_ioctl.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_freq.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_QMgmt.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_security.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_globals.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_QMgmt.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\rf1a.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\user.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bsp.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_frame.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_ioctl.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_api.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\acceleration.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\temperature.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\menu.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_join.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\stopwatch.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\main.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\main_ED_BM.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\radio.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\rfsimpliciti.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\timer.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\alarm.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\ps.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\date.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\mrfi.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\battery.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\rfbsl.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\altitude.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bluerobin.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\test.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bmp_as.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\adc12.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\as.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\bmp_ps.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\clock.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\display.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\buzzer.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\cma_as.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\pmm.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\cma_ps.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\ports.r43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\nwk_security.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Exe\ez430_chronos_915MHz.d43</file>
+      <file>$PROJ_DIR$\915MHz - Unrestricted IAR Workbench (USA)\Obj\ez430_chronos.pbd</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_globals.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk\nwk_QMgmt.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_freq.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ioctl.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_join.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_link.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_mgmt.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ping.c</file>
+      <file>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_security.c</file>
+      <file>$PROJ_DIR$\simpliciti\simpliciti.h</file>
+      <file>$PROJ_DIR$\change_record.txt</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\cc430x613x.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\driver\ports.c</file>
+      <file>$PROJ_DIR$\driver\ps.c</file>
+      <file>$PROJ_DIR$\driver\ps.h</file>
+      <file>$PROJ_DIR$\driver\radio.c</file>
+      <file>$PROJ_DIR$\driver\rf1a.c</file>
+      <file>$PROJ_DIR$\driver\timer.c</file>
+      <file>$PROJ_DIR$\driver\timer.h</file>
+      <file>$PROJ_DIR$\include\project.h</file>
+      <file>$PROJ_DIR$\logic\acceleration.c</file>
+      <file>$PROJ_DIR$\logic\alarm.c</file>
+      <file>$PROJ_DIR$\logic\alarm.h</file>
+      <file>$PROJ_DIR$\logic\altitude.c</file>
+      <file>$PROJ_DIR$\logic\battery.c</file>
+      <file>$PROJ_DIR$\logic\bluerobin.c</file>
+      <file>$PROJ_DIR$\logic\clock.c</file>
+      <file>$PROJ_DIR$\logic\date.c</file>
+      <file>$PROJ_DIR$\logic\menu.c</file>
+      <file>$PROJ_DIR$\logic\rfbsl.c</file>
+      <file>$PROJ_DIR$\logic\rfsimpliciti.c</file>
+      <file>$PROJ_DIR$\logic\stopwatch.c</file>
+      <file>$PROJ_DIR$\logic\temperature.c</file>
+      <file>$PROJ_DIR$\logic\test.c</file>
+      <file>$PROJ_DIR$\logic\user.c</file>
+      <file>$PROJ_DIR$\simpliciti\Applications\application\End Device\main_ED_BM.c</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 118</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\adc12.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 106</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 146 137 136 138 0 7 4 132 133 6 135 8 134 3 2 5 14 145</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\bsp\bsp.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 47</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_frame.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\mrfi\mrfi.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 99</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 67</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 91</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 68</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_api.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 84</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 107</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 146 137 136 138 0 7 4 132 133 6 135 8 134 3 2 5 16 145</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 105</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 146 137 136 138 0 7 4 132 133 6 135 8 134 3 2 5 129 18 16 145 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\bmp_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 108</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 146 137 136 138 0 7 4 132 133 6 135 8 134 3 2 5 20 141 145</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\buzzer.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 111</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 146 137 136 138 0 7 4 132 133 6 135 8 134 3 2 5 22 145 28 149</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_as.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 112</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 146 137 136 138 0 7 4 132 133 6 135 8 134 3 2 5 129 24 16 145 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\cma_ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 114</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 146 137 136 138 0 7 4 132 133 6 135 8 134 3 2 5 26 141 145</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\display.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 110</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\pmm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 113</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_globals.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 77</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 54</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk\nwk_QMgmt.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 78</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_freq.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ioctl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 83</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_join.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 88</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 72</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_link.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 37</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_mgmt.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 69</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_ping.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 71</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Components\nwk_applications\nwk_security.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 76</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 116</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 90</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 117</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ports.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 115</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 57</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\ps.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 97</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\radio.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\rf1a.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 79</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\driver\timer.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 95</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\acceleration.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 85</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 62</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\alarm.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 96</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\altitude.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 102</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\battery.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 100</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\bluerobin.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 103</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 58</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\clock.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 109</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 53</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\date.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 98</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 87</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfbsl.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 101</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\rfsimpliciti.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 94</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\stopwatch.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 89</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\temperature.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 86</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 104</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\logic\user.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 80</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\simpliciti\Applications\application\End Device\main_ED_BM.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 92</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

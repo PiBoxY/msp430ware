@@ -1,0 +1,6 @@
+Sensor, Electrode, MCU Pin, Package Pin
+modeKeypadSensor,RX00,CAP0.0,12
+modeKeypadSensor,RX01,CAP1.0,16
+modeKeypadSensor,RX02,CAP2.0,21
+modeKeypadSensor,TX00,CAP2.1,22
+modeKeypadSensor,RX03,CAP3.0,25

@@ -1,0 +1,149 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;*******************************************************************************
+;  MSP430F530x Demo - ADC10, DMA Sample A1-0 32x, AVcc, Repeat Seq, DCO
+;
+;  Description: Use DMA to sample A1/A0 repeat sequence 32x(64 total samples)
+;  with reference to AVcc.  Software sets ADC10SC to trigger sample burst.
+;  In Mainloop MSP430 waits in LPM0 to save power until ADC10 conversion
+;  complete, DMA_ISR will force exit from LPM0 in Mainloop.
+;  ADC10 internal oscillator times sample period (16x) and conversion (13x).
+;  DMA transfers conversion code to ADC_Result.  
+;
+;               MSP430F530x
+;            -----------------
+;        /|\|              XIN|-
+;         | |                 |
+;         --|RST          XOUT|-
+;           |                 |
+;       >---|P6.1/A1          |
+;       >---|P6.0/A0          |
+;
+;
+;  K. Chen
+;  Texas Instruments Inc.
+;  March 2012
+;  Built with IAR Embedded Workbench Version: 5.40.3 
+;*******************************************************************************
+
+#include <msp430.h>
+
+ADC_Result  EQU  0x1c00
+   
+;-------------------------------------------------------------------------------
+            RSEG    CSTACK                  ; Define stack segment
+;-------------------------------------------------------------------------------
+            RSEG    CODE                    ; Assemble to Flash memory
+;-------------------------------------------------------------------------------
+RESET       mov.w   #SFE(CSTACK),SP         ; Initialize stackpointer
+StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop WDT
+
+; Configure ADC10; pulse sample mode, s/w trigger, rpt seq of channels
+SetupADC10  mov.w   #ADC10SHT_2 | ADC10ON | ADC10MSC,&ADC10CTL0 
+                                            ; 16ADCclks, ADC on
+            mov.w   #ADC10SHP | ADC10CONSEQ_3,&ADC10CTL1   
+                                            ; Sampling timer, rpt seq of ch         
+            mov.w   #ADC10RES,&ADC10CTL2    ; 10-bit conversion results
+            mov.w   #ADC10INCH_1,&ADC10MCTL0; AVCC ref, A0, A1(EOS)
+            
+; Configure DMA (ADC10IFG trigger)
+            mov.w   #DMA0TSEL_24,&DMACTL0   ; ADC10IFG trigger
+            movx.a  #ADC10MEM0,&DMA0SA      ; Source single address           
+            mov.w   #0x02,&DMA0SZ           ; 2x32 conversions
+            mov.w   #DMADT_4 | DMADSTINCR_3 | DMAEN | DMAIE,&DMA0CTL
+                                            ; Rpt, inc dest, word access,
+                                            ; enable int after seq of convs
+        
+while_loop1 clr.w   R5                      ; Clear the array index
+for_loop    rla.w   R5                      ; Index*4 -> indirect offset
+            rla.w   R5                      ;
+            mov.w   #ADC_Result,R6          ;
+            add.w   R5,R6                   ;
+            movx.a  R6,&DMA0DA              ; Update destination array address
+            rra.w   R5                      ; Indirect offset/4 -> index
+            rra.w   R5                      ;
+while_loop2 bit.w   #ADC10BUSY,&ADC10CTL1   ; Wait if ADC10 core is active
+            jnz     while_loop2             ;
+            bis.w   #ADC10ENC | ADC10SC,&ADC10CTL0
+                                            ; Sampling and conversion ready
+            bis.w   #LPM0|GIE,SR            ; LPM0, DMA0_ISR will force exit
+            inc.w   R5                      ; Increment array index
+            cmp.w   #32,R5                  ; Is array index < 32 ?
+            jnc     for_loop                ;
+            
+            mov.w   #0x681,R15              ; Delay between conversions
+delay       add.w   #0xFFFF,R15             ;
+            jc      delay                   ; 
+            nop                             ; BREAKPOINT; check ADC_Result
+            jmp     while_loop1             ; 
+                                                            
+;-------------------------------------------------------------------------------
+DMA_ISR;
+;-------------------------------------------------------------------------------
+            add.w   &DMAIV,PC               ; Add offset to PC
+            reti                            ; Vector 0:  No interrupt
+            jmp     DMA0_HND                ; Vector 2:  DMA0IFG
+            reti                            ; Vector 4:  DMA1IFG
+            reti                            ; Vector 6:  DMA2IFG
+            reti                            ; Vector 8:  Reserved
+            reti                            ; Vector 10: Reserved               
+            reti                            ; Vector 12: Reserved
+            reti                            ; Vector 14: Reserved
+            reti                            ; Vector 16: Reserved
+                        
+DMA0_HND
+; sequence of conversions complete             
+            bic.w   #ADC10ENC,&ADC10CTL0    ; Clear interrupt flag 
+            bic.w   #LPM0,0(SP)             ; exit LPM
+            reti
+            
+;-------------------------------------------------------------------------------
+            COMMON  INTVEC                  ; Interrupt Vectors
+;-------------------------------------------------------------------------------
+            ORG     DMA_VECTOR              ; DMA Vector
+            DW      DMA_ISR                 ;
+            ORG     RESET_VECTOR            ; POR, ext. Reset
+            DW      RESET
+            END 

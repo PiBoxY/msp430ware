@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Library Calibrations Routines &mdash; MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation" href="../index.html"/>
+        <link rel="next" title="Enabling High Water Flow applications" href="HighFlow.html"/>
+        <link rel="prev" title="Code Examples" href="CodeExamples.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MSP Ultrasonic Sensing Library Users Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02_20_00_16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Whats_supported.html">What is supported by the library?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Understanding.html">Understanding the Ultrasonic Sensing Solution Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CodeExamples.html">Code Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Library Calibrations Routines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hspll-frequency-verification-test-configuration">HSPLL Frequency Verification Test Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage-assumption">Usage assumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hspll-frequency-verification-test-benchmark">HSPLL Frequency Verification Test Benchmark</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HighFlow.html">Enabling High Water Flow applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VFRCalib.html">Volume Flow Rate Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InterpLUT.html">Generating Interpolation Correction Look-up table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimLib.html">Using the memory optimized libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BestPract.html">USS SW Library best practices</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MSP Ultrasonic Sensing Library Users Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Library Calibrations Routines</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="library-calibrations-routines">
+<h1>Library Calibrations Routines<a class="headerlink" href="#library-calibrations-routines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hspll-frequency-verification-test-configuration">
+<h2>HSPLL Frequency Verification Test Configuration<a class="headerlink" href="#hspll-frequency-verification-test-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The library allows user&#8217;s to compensate Absolute Time of Flight (AbsToF) and Delta Time of Flight (DToF) calculation due to USS XTAL frequency drift via <code class="docutils literal"><span class="pre">USS_Algorithms_User_Configuration.clockRelativeError</span></code> parameter.</p>
+<p>It is highly recommended to use <code class="docutils literal"><span class="pre">USS_verifyHSPLLFrequency</span></code> API to configure <code class="docutils literal"><span class="pre">USS_Algorithms_User_Configuration.clockRelativeError</span></code>. The flow chart below shows the implementation for USS_verifyHSPLLFrequency API.</p>
+<div class="figure" id="id1">
+<img alt="Clock Calibration" src="../_images/Clock_Calibration.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Clock Calibration</span></p>
+</div>
+<p>The default configuration parameters for this test are shown below. User&#8217;s can modify these parameters to increase test accuracy or reduce test duration. These parameters are available in <em>&lt;USS_LIB_DIR&gt;/lib/USS/source/ussSwLibCalibration.h</em></p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="n">used</span> <span class="k">for</span> <span class="n">averaging</span> <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="p">(</span><span class="n">RESONATOR_CALIB_ITERATION_COUNT</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">If</span> <span class="n">RESONATOR_CALIB_ITERATION_COUNT</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="n">used</span> <span class="k">for</span>
+<span class="o">//</span> <span class="n">averaging</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="o">//</span> <span class="n">If</span> <span class="n">RESONATOR_CALIB_ITERATION_COUNT</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="n">used</span> <span class="k">for</span>
+<span class="o">//</span> <span class="n">averaging</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">//</span>
+<span class="o">//</span> <span class="n">Minimum</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="o">//</span> <span class="n">Maximum</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c1">#define RESONATOR_CALIB_ITERATION_COUNT             2</span>
+
+<span class="o">//</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">ACLK</span> <span class="n">cycles</span> <span class="n">to</span> <span class="n">monitor</span> <span class="n">SAPH</span> <span class="n">ASQCLK</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">Minimum</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">//</span> <span class="n">Maximum</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="c1">#define RESONATOR_CALIB_MONITORING_ACLK             550</span>
+</pre></div>
+</div>
+<div class="section" id="usage-assumption">
+<h3>Usage assumption<a class="headerlink" href="#usage-assumption" title="Permalink to this headline">¶</a></h3>
+<p><strong>IMPORTANT:</strong></p>
+<p>During HSPLL frequency monitoring the application must ensure that no application level interrupts are triggered during the monitoring window otherwise HSPLL frequency calculation accuracy might be impacted.</p>
+</div>
+<div class="section" id="hspll-frequency-verification-test-benchmark">
+<h3>HSPLL Frequency Verification Test Benchmark<a class="headerlink" href="#hspll-frequency-verification-test-benchmark" title="Permalink to this headline">¶</a></h3>
+<p>The table below shows the expected error bound, typical current consumption and test duration for various test configurations. Test duration were obtained using CCSv8.0 using optimization level -O3. Reducing the application optimization level will result in a longer test duration.</p>
+<table border="1" class="docutils">
+    <tr>
+        <th rowspan="2">Configuration</th>
+        <th colspan="3">MCLK=8 MHz</th>
+        <th colspan="3">MCLK=16 MHz</th>
+    </tr>
+    <tr>
+        <th>Error bound</th>
+        <th>Typical current consumption (&mu;A)</th>
+        <th>Typical Test duration (ms)</th>
+        <th>Error bound</th>
+        <th>Typical current consumption (&mu;A)</th>
+        <th>Typical test duration(ms)</th>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                RESONATOR_CALIB_ITERATION_COUNT == 2<br/>
+                RESONATOR_CALIB_MONITORING_ACLK == 550<br/>
+            </code>
+        </td>
+        <td><1.86e-5</td>
+        <td>26.05</td>
+        <td>68.18</td>
+        <td><9.31e-6</td>
+        <td>31.39</td>
+        <td>67.84</td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                RESONATOR_CALIB_ITERATION_COUNT == 0<br/>
+                RESONATOR_CALIB_MONITORING_ACLK == 550<br/>
+            </code>
+        </td>
+        <td><7.45e-5</td>
+        <td>7.01</td>
+        <td>17.41</td>
+        <td><3.72e-5</td>
+        <td>8.41</td>
+        <td>17.19</td>
+    </tr>
+</table></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="HighFlow.html" class="btn btn-neutral float-right" title="Enabling High Water Flow applications" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CodeExamples.html" class="btn btn-neutral" title="Code Examples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02_20_00_16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

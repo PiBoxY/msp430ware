@@ -1,0 +1,226 @@
+<project>
+    <shortName>gcruntime</shortName>
+    <fullName>GUI Composer Runtime</fullName>
+    <version>2.0.2</version>
+    <!-- <readmeFile>C:/git/designer/installer/gcr_readme.txt</readmeFile>
+    <licenseFile>C:/git/designer/installer/gcr_license.txt</licenseFile>
+    <htmlLicenseFile>C:/git/designer/installer/gcr_license.html</htmlLicenseFile> -->
+    <componentList>
+        <component>
+            <name>default</name>
+            <description>Default Component</description>
+            <canBeEdited>1</canBeEdited>
+            <selected>1</selected>
+            <show>1</show>
+            <folderList>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfiles</name>
+                    <platforms>all</platforms>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>Uninstall</comment>
+                            <exec>${realinstalldir}/${uninstallerName}</exec>
+                            <icon></icon>
+                            <name>Uninstall ${product_fullname}</name>
+                            <path>${realinstalldir}</path>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec>${realinstalldir}/${uninstallerName}.exe</windowsExec>
+                            <windowsExecArgs></windowsExecArgs>
+                            <windowsIcon></windowsIcon>
+                            <windowsPath>${realinstalldir}</windowsPath>
+                        </shortcut>
+                    </shortcutList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${realinstalldir}</destination>
+                    <name>node_modules</name>
+                    <platforms>all</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>${builddir}/node_modules</origin>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${realinstalldir}</destination>
+                    <name>programfileslinux</name>
+                    <platforms>linux</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>${builddir}/linux</origin>
+                            <onPackingFilterList>
+                                <fileNameFilter logic="does_not_match" pattern=".*/src/.*"/>
+                                <fileNameFilter logic="does_not_match" pattern=".*/examples/.*"/>
+                                <fileNameFilter logic="does_not_match" pattern=".*/test/.*"/>
+                            </onPackingFilterList>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${realinstalldir}</destination>
+                    <name>programfileswindows</name>
+                    <platforms>windows</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>${builddir}/win32</origin>
+                            <onPackingFilterList>
+                                <!-- <fileNameFilter logic="does_not_match" pattern=".*/src/.*"/>
+                                <fileNameFilter logic="does_not_match" pattern=".*/examples/.*"/>
+                                <fileNameFilter logic="does_not_match" pattern=".*/test/.*"/> -->
+</onPackingFilterList>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${realinstalldir}</destination>
+                    <name>programfilesosx</name>
+                    <platforms>osx</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>${builddir}/mac</origin>
+                            <onPackingFilterList>
+                                <fileNameFilter logic="does_not_match" pattern=".*/src/.*"/>
+                                <fileNameFilter logic="does_not_match" pattern=".*/examples/.*"/>
+                                <fileNameFilter logic="does_not_match" pattern=".*/test/.*"/>
+                            </onPackingFilterList>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>version_info</description>
+                    <destination>${realinstalldir}</destination>
+                    <name>versioninfo</name>
+                    <platforms>all</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>${builddir}/version.xml</origin>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+            </folderList>
+
+            <!-- <startMenuShortcutList>
+                <startMenuShortcut>
+                    <comment>Uninstall ${product_fullname}</comment>
+                    <name>Uninstall ${product_fullname}</name>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}/${uninstallerName}.exe</windowsExec>
+                    <windowsExecArgs></windowsExecArgs>
+                    <windowsIcon></windowsIcon>
+                    <windowsPath>${installdir}/</windowsPath>
+                </startMenuShortcut>
+            </startMenuShortcutList> -->
+        </component>
+    </componentList>
+
+    <!-- Prebuild Actions -->
+    <preBuildActionList>
+        <setInstallerVariable>
+            <name>builddir</name>
+            <value>C:\git\ti-guicomposer-designer</value>
+            <ruleList>
+                <platformTest>
+                    <type>windows</type>
+                </platformTest>
+            </ruleList>
+        </setInstallerVariable>
+    </preBuildActionList>
+    <postInstallationActionList>
+        <setInstallerVariable>
+            <name>bitness</name>
+            <value>86</value>
+            <ruleList>
+                <platformTest>
+                    <type>windows-x86</type>
+                </platformTest>
+            </ruleList>
+        </setInstallerVariable>
+        <setInstallerVariable>
+            <name>bitness</name>
+            <value>64</value>
+            <ruleList>
+                <platformTest>
+                    <type>windows-x64</type>
+                </platformTest>
+            </ruleList>
+        </setInstallerVariable>
+        <showProgressDialog>
+            <title>Installing drivers... </title>
+            <actionList>
+                <runProgram>
+                    <abortOnError>0</abortOnError>
+                    <program>${realinstalldir}/win32/TICloudAgent/drivers/EZ430UART_${bitness}.bat</program>
+                    <programArguments></programArguments>
+                    <showMessageOnError>0</showMessageOnError>
+                    <workingDirectory>${realinstalldir}/win32/TICloudAgent/drivers</workingDirectory>
+                    <ruleList>
+                        <fileExists path="${realinstalldir}/win32/TICloudAgent/drivers/EZ430UART_${bitness}.bat"/>
+                    </ruleList>
+                </runProgram>
+                <runProgram>
+                    <abortOnError>0</abortOnError>
+                    <program>${realinstalldir}/win32/TICloudAgent/drivers/xds110_drivers_${bitness}.bat</program>
+                    <programArguments></programArguments>
+                    <showMessageOnError>0</showMessageOnError>
+                    <workingDirectory>${realinstalldir}/win32/TICloudAgent/drivers</workingDirectory>
+                    <ruleList>
+                        <fileExists path="${realinstalldir}/win32/TICloudAgent/drivers/xds110_drivers_${bitness}.bat"/>
+                    </ruleList>
+                </runProgram>
+                <runProgram>
+                    <abortOnError>0</abortOnError>
+                    <program>${realinstalldir}/win32/TICloudAgent/drivers/USB_CDC_${bitness}.bat</program>
+                    <programArguments></programArguments>
+                    <showMessageOnError>0</showMessageOnError>
+                    <workingDirectory>${realinstalldir}/win32/TICloudAgent/drivers</workingDirectory>
+                    <ruleList>
+                        <fileExists path="${realinstalldir}/win32/TICloudAgent/drivers/USB_CDC_${bitness}.bat"/>
+                    </ruleList>
+                </runProgram>
+            </actionList>
+        </showProgressDialog>
+    </postInstallationActionList>
+    <compressionAlgorithm>lzma-ultra</compressionAlgorithm>
+    <enableRollback>0</enableRollback>
+    <enableTimestamp>1</enableTimestamp>
+    <startMenuGroupName></startMenuGroupName>
+    <uninstallerDirectory>${realinstalldir}/</uninstallerDirectory>
+    <uninstallerName>uninstall_GUIComposerRuntime</uninstallerName>
+    <vendor>Texas Instruments</vendor>
+    <parameterList>
+        <directoryParameter>
+            <name>installdir</name>
+            <description>Installer.Parameter.installdir.description</description>
+            <explanation>Installer.Parameter.installdir.explanation</explanation>
+            <value></value>
+            <default>${platform_install_prefix}/${project.vendor}/guicomposer</default>
+            <allowEmptyValue>0</allowEmptyValue>
+            <cliOptionName>prefix</cliOptionName>
+            <mustBeWritable>1</mustBeWritable>
+            <mustExist>0</mustExist>
+            <width>40</width>
+        </directoryParameter>
+        <directoryParameter>
+            <name>realinstalldir</name>
+            <description>Installer.Parameter.installdir.description</description>
+            <explanation>Installer.Parameter.installdir.explanation</explanation>
+            <value></value>
+            <default>${user_home_directory}/guicomposer/workspace</default>
+            <allowEmptyValue>0</allowEmptyValue>
+            <cliOptionName>workspace</cliOptionName>
+            <mustBeWritable>1</mustBeWritable>
+            <mustExist>0</mustExist>
+            <width>40</width>
+        </directoryParameter>
+    </parameterList>
+</project>
+

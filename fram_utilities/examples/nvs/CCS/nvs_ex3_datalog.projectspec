@@ -1,0 +1,6 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/fram-utilities/nvs --printf_support=full --diag_suppress=10420" device="MSP430FR5969" linkerBuildOptions="--stack_size=160 --heap_size=320" name="nvs_ex3_datalog">
+	<file action="copy" path="../nvs_ex3_datalog.c" targetDirectory="." />
+	<file action="copy" path="../../../src/nvs" targetDirectory="fram-utilities" />
+  </project>
+</projectSpec>

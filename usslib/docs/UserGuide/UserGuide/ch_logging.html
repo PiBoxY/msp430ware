@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Logging &mdash; Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation" href="../index.html"/>
+        <link rel="next" title="Configuration" href="ch_config.html"/>
+        <link rel="prev" title="System Requirements" href="ch_sysreqs.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Ultrasonic Sensing Design Center User Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02.20.00.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_sysreqs.html">System Requirements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#logging-information">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_plotting.html">Waveform Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_adc.html">ADC Captures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_freqsweep.html">Frequency Sweep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_debug_graph.html">Debug Waveform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_calibration.html">Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_errors.html">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_protocol.html">Communication Protocol Spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Ultrasonic Sensing Design Center User Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Logging</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="logging">
+<h1>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="logging-information">
+<h2>Logging Information<a class="headerlink" href="#logging-information" title="Permalink to this headline">¶</a></h2>
+<p><strong>Automatic Logging</strong></p>
+<p>Automatic logging functionality exists for the waveform information contained in the Configuration, Waveforms, Debug Waveforms, and ADC Capture tabs.</p>
+<p>This option can be enabled by clicking the Options menu at the top, then selecting Logging, and enabling &#8220;Automatically Log Data&#8221;.</p>
+<div class="figure" id="id1">
+<img alt="Enable Automatic Logging" src="../_images/auto_log.PNG" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Enable Automatic Logging</span></p>
+</div>
+<p>Once this option is selected, incoming data will automatically be divided into files in four automatically-created folders. The location for these folders will default to a USS directory created in your home folder upon installation, at ~home/USS_VERSION/USSWorkspace/USS_Project/logs.</p>
+<div class="figure" id="id2">
+<img alt="Log Locations" src="../_images/log_location.PNG" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Log Locations</span></p>
+</div>
+<p>The location of these four folders can be modified by disabling logging, choosing a new location in the menu under Options → Logging, then reenabling Automatic Logging.</p>
+<p>When automatic logging is enabled, all incoming Configuration, Waveform/Debug Plot, and single ADC capture information will be appended to timestamped log files in these folders.</p>
+<p><strong>Error Logging</strong></p>
+<p>USS Design Center maintains an error log in the above-described home directory, at ~home/USS_VERSION/USS.log.</p>
+<p>This log can be helpful for viewing continuous ADC capture HID drop rates or other types of runtime errors.</p>
+<p><strong>Alternative</strong></p>
+<p>By default, automatic logging is disabled. With automatic logging disabled, the user can save these logs by using the corresponding &#8220;Save Waveforms&#8221; or &#8220;Save Capture&#8221; buttons on the Waveform graphs and ADC capture graphs. Incoming configuration command data can only be logged via Automatic Logging.</p>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For more information on the application, and available evaluation kits, see the <a class="reference external" href="http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER">download page</a>.</li>
+<li>For technical support, email the <a class="reference external" href="mailto:msp-uss-gui-support&#37;&#52;&#48;list&#46;ti&#46;com">USS GUI support team</a> or visit the <a class="reference external" href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP430 E2E forum</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_config.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_sysreqs.html" class="btn btn-neutral" title="System Requirements" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02.20.00.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

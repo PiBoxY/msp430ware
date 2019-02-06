@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\nvs_ex1_odometer\nvs_ex1_odometer.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\nvs_ex2_config\nvs_ex2_config.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\nvs_ex3_datalog\nvs_ex3_datalog.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\nvs_ex4_blackbox\nvs_ex4_blackbox.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

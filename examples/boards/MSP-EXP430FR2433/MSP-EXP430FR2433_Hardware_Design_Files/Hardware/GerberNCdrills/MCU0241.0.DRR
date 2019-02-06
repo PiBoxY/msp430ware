@@ -1,0 +1,23 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: MSP-EXP430FR2433_PCB.PcbDoc   7/14/2017  4:30:43 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : MCU0241.0-RoundHoles.TXT
+ASCII SlotHoles File : MCU0241.0-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      8mil (0.2mm)                                              Round             3         PTH        0.09inch (2.20mm)
+T2      12mil (0.305mm)                                           Round             304       PTH        46.64inch (1184.75mm)
+T3      16mil (0.406mm)                                           Round             3         PTH        1.32inch (33.64mm)
+T4      20mil (0.5mm)                                             Slot              2         PTH        0.84inch (21.22mm)
+T5      24mil (0.6mm)                                             Slot              2         PTH        0.68inch (17.23mm)
+T6      40mil (1.016mm)                                           Round             36        PTH        10.08inch (256.10mm)
+T7      40mil (1.02mm)                                            Round             22        PTH        4.50inch (114.30mm)
+T8      35mil (0.9mm)                                             Round             6         NPTH       3.57inch (90.75mm)
+T9      125mil (3.175mm)                                          Round             4         NPTH       7.62inch (193.56mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              382
+
+Total Processing Time (hh:mm:ss) : 00:00:00

@@ -1,0 +1,25 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: MCU021_V1.0_MSP-EXP430G2ET_PCB.PcbDoc   12/15/2017  9:15:00 AM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : MSP-EXP430G2ET_1.0-RoundHoles.TXT
+ASCII SlotHoles File : MSP-EXP430G2ET_1.0-SlotHoles.TXT
+EIA File   : MSP-EXP430G2ET_1.0.DRL
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      8mil (0.2mm)                                              Round             22        PTH        2.79inch (70.98mm)
+T2      12mil (0.3mm)                                             Round             438       PTH        54.93inch (1395.24mm)
+T3      24mil (0.6mm)                                             Slot              2         PTH        0.68inch (17.23mm)
+T4      32mil (0.8mm)                                             Round             20        PTH        2.30inch (58.42mm)
+T5      40mil (1.016mm)                                           Round             30        PTH        6.26inch (159.05mm)
+T6      40mil (1.02mm)                                            Round             22        PTH        5.50inch (139.70mm)
+T7      35mil (0.9mm)                                             Round             4         NPTH       2.34inch (59.53mm)
+T8      39mil (0.991mm)                                           Round             3         NPTH       0.38inch (9.72mm)
+T9      118mil (3mm)            +/-0mil (0mm)                     Round             2         NPTH       2.10inch (53.34mm)
+T10     125mil (3.175mm)                                          Round             4         NPTH       7.78inch (197.62mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              547
+
+Total Processing Time (hh:mm:ss) : 00:00:00

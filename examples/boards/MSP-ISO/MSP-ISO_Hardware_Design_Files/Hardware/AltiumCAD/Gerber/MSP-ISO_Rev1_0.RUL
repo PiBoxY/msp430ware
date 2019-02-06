@@ -1,0 +1,13 @@
+DRC Rules Export File for PCB: C:\GIT\Isolation_Insertion\pcb\Addon_Board_v6\MSP-ISO_Rev1_0.PcbDoc
+RuleKind=Width|RuleName=Width_Power|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance_Keepouts|Scope=Board|Minimum=0.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_MountingHoles|Scope=Board|Minimum=40.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_Poly|Scope=Board|Minimum=25.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge|Scope=Board|Minimum=75.00
+RuleKind=Clearance|RuleName=Clearance_Poly|Scope=Board|Minimum=25.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.87
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=6.00
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=2.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing_ThermalPadVias|Scope=Board|Minimum=5.91
+RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing|Scope=Board|Minimum=9.00

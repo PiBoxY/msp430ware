@@ -1,0 +1,224 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;******************************************************************************
+;   MSP430F673x Demo - RTC_C, LPM3.5, & alarm
+;
+;   Description: The RTC_C module is used to set the time, start RTC operation,
+;   and read the time from the respective RTC registers. Software will set the
+;   original time to 11:59:45 am on Friday October 7, 2011. Then the RTC will
+;   be activated through software, and an alarm will be created for the next
+;   minute (12:00:00 pm). The device will then enter LPM3.5 awaiting
+;   the event interrupt. Upon being woken up by the event, the LED on the board
+;   will be set.
+;
+;   NOTE: To ensure that LPM3.5 is entered properly, you would need to use an
+;   external power supply.
+;
+;  * An external watch crystal on XIN XOUT is required for ACLK *
+;   ACLK = 32.768kHz, MCLK = SMCLK = default DCO~1MHz
+;
+;                MSP430F673x
+;             -----------------
+;         /|\|              XIN|-
+;          | |                 | 32kHz
+;          --|RST          XOUT|-
+;            |                 |
+;            |             P1.0|--> LED
+;
+;   W. Goh
+;   Texas Instruments Inc.
+;   January 2012
+;   Built with CCS Version: 5.1.0 and IAR Embedded Workbench Version: 5.40.1
+;******************************************************************************
+            .cdecls C,LIST,"msp430.h"
+;-------------------------------------------------------------------------------
+            .def    RESET                   ; Export program entry-point to
+                                            ; make it known to linker.
+Seconds     .equ    R5
+Minutes     .equ    R6
+Hours       .equ    R7
+;-------------------------------------------------------------------------------
+            .global _main
+;-------------------------------------------------------------------------------
+_main
+RESET       mov.w   #0x3C00,SP              ; Initialize stackpointer
+            mov.w   #WDTPW | WDTHOLD,&WDTCTL  ; Stop WDT
+            cmp.w   #SYSRSTIV_LPM5WU,SYSRSTIV ; was reset due to LPM wakeup?
+            jne     Mainloop
+            calla   #WkUpLPM35              ; Wakeup/reinit
+            bis.b   #BIT0,&P1DIR            ; Ensure P1.0 output
+            cmp.w   #0x12,Hours
+            jne     LEDoff                  ; if Time != 12:00:00, blink fast
+            cmp.w   #0x00,Minutes
+            jne     LEDoff                  ; if Time != 12:00:00, blink fast
+            cmp.w   #0x00,Seconds
+            jne     LEDoff                  ; if Time != 12:00:00, blink fast
+            jmp     LEDon                   ; if Time = 12:00:00, turn on LED
+
+LEDoff      mov.w   #10000,R15
+BlinkF      dec.w   R15
+            jnz     BlinkF
+            xor.b   #BIT0,&P1OUT
+            jmp     LEDoff                  ; Again
+LEDon       bis.b   #BIT0,&P1OUT
+            jmp     LEDon                   ; Again
+
+Mainloop    mov.b   #0x00,&P1OUT            ; Port configuration
+            mov.b   #0x00,&P2OUT
+            mov.b   #0x00,&P3OUT
+            mov.b   #0x00,&P4OUT
+            mov.b   #0x00,&P5OUT
+            mov.b   #0x00,&P6OUT
+            mov.b   #0x00,&P7OUT
+            mov.b   #0x00,&P8OUT
+            mov.b   #0x00,&P9OUT
+            mov.w   #0x00,&PJOUT
+            mov.b   #0xFF,&P1DIR
+            mov.b   #0xFF,&P2DIR
+            mov.b   #0xFF,&P3DIR
+            mov.b   #0xFF,&P4DIR
+            mov.b   #0xFF,&P5DIR
+            mov.b   #0xFF,&P6DIR
+            mov.b   #0xFF,&P7DIR
+            mov.b   #0xFF,&P8DIR
+            mov.b   #0xFF,&P9DIR
+            mov.w   #0xFF,&PJDIR
+
+XT1Onb      bic.w   #XT1OFF,&UCSCTL6        ; XT1 On
+            bis.w   #XCAP_3,UCSCTL6         ; Internal load cap
+XT1Chkb     bic.w   #XT2OFFG | XT1LFOFFG | DCOFFG,&UCSCTL7
+                                            ; Clear XT1,XT2,DCO fault flags
+            bic.w   #OFIFG,&SFRIFG1         ; Clear fault flags
+            bit.w   #OFIFG,&SFRIFG1         ; Test oscilator fault flag
+            jnz     XT1Chkb                 ; If set, attempt to clear again
+                                            ; If clear, continue
+
+            mov.b   #RTCKEY_H,&RTCCTL0_H    ; Unlock RTC_C module
+            bis.b   #RTCTEVIE,&RTCCTL0_L    ; Enable RTC time event interrupt
+            bis.b   #RTCBCD |RTCTEV_0 | RTCHOLD,&RTCCTL1
+                                            ; BCD mode, RTC hold, Set RTCTEV for 1 minute alarm
+                                            ; event interrupt
+
+            mov.w   #0x2011,&RTCYEAR        ; Year = 0x2011
+            mov.b   #0x10,&RTCMON           ; Month = 0x10 = October
+            mov.b   #0x07,&RTCDAY           ; Day = 0x07 = 7th
+            mov.b   #0x05,&RTCDOW           ; Day of week = 0x05 = Friday
+            mov.b   #0x11,&RTCHOUR          ; Hour = 0x11
+            mov.b   #0x59,&RTCMIN           ; Minute = 0x59
+            mov.b   #0x45,&RTCSEC           ; Seconds = 0x45
+
+            bic.b   #RTCHOLD,&RTCCTL1       ; Start RTC calendar mode
+            mov.b   #0x00,&RTCCTL0_H        ; Lock RTC_C module
+
+            bis.w   #XT1OFF,&UCSCTL6        ; Turn XT1 Off for entry into LPM3.5
+
+            mov.b   #PMMPW_H,&PMMCTL0_H     ; Open PMM
+            bis.b   #PMMREGOFF,&PMMCTL0_L   ; Turn off PMMREG
+            bis.w   #LPM4 | GIE,SR          ; Enter LPM3.5
+            nop
+
+            ; Code should NOT get here. This means that LPM3.5 was not properly entered.
+            ; Ensure that an external power supply was ued. Or else JTAG will put the CPU
+            ; in LPM0 mode.
+
+            ; Stop the RTC
+            mov.b   #RTCKEY_H,&RTCCTL0_H    ; Unlock RTC_C module
+            bis.b   #RTCHOLD,&RTCCTL1       ; RTC hold
+            mov.b   #0x00,&RTCCTL0_H        ; Lock RTC_C module
+
+BadEntry    mov.w   #65500,R15
+BlinkS      dec.w   R15
+            jnz     BlinkS
+            xor.b   #BIT0,&P1OUT
+            jmp     BadEntry                ; Again
+            nop                             ; for debugger
+;------------------------------------------------------------------------------
+WkUpLPM35 ;   Reinit Device after waking up from LPM3.5
+;------------------------------------------------------------------------------
+            mov.b   #PMMPW_H,&PMMCTL0_H     ; open PMM
+            bic.w   #LOCKIO,&PM5CTL0        ; Lear LOCKBAK and enable ports
+            clr.b   &PMMCTL0_H              ; close PMM
+
+            bis.b   #0x01,&P1DIR            ; Configure P1.0 as GPIO output
+
+            ; Reconfig/start RTC and save Time
+            mov.b   #RTCKEY_H,&RTCCTL0_H    ; Unlock RTC_C module
+            bis.b   #RTCBCD | RTCHOLD,&RTCCTL1; RTC hold
+            mov.b   #0x00,&RTCCTL0_H        ; Lock RTC_C module
+
+            mov.b   RTCSEC,Seconds
+            mov.b   RTCMIN,Minutes
+            mov.b   RTCHOUR,Hours
+            mov.b   #RTCKEY_H,&RTCCTL0_H    ; Unlock RTC_C module
+            bic.b   #RTCHOLD,&RTCCTL1       ; Unhold RTC_C module
+            mov.b   #0x00,&RTCCTL0_H        ; Lock RTC_C module
+            reta
+;------------------------------------------------------------------------------
+RTC_ISR ;   RTC Interrupt Service Routine
+;------------------------------------------------------------------------------
+            add.w   &RTCIV,PC
+            reti                            ; Vector  0: No interrupt
+            reti                            ; Vector  2: RTCOFIFG
+            reti                            ; Vector  4: RTCRDYIFG
+            jmp     RTCEvIfg                ; Vector  6: RTCEVIFG
+            reti                            ; Vector  8: RTCAIFG
+            reti                            ; Vector 10: RT0PSIFG
+            reti                            ; Vector 12: RT1PSIFG
+            reti                            ; Vector 14: Reserved
+            reti                            ; Vector 16: Reserved
+RTCEvIfg    mov.b   #PMMPW_H,&PMMCTL0_H     ; open PMM
+            bic.w   #LOCKIO,&PM5CTL0        ; Lear LOCKBAK and enable ports
+            clr.b   &PMMCTL0_H              ; close PMM
+            bic.w   #LPM4,0(SP)             ; Wakeup from LPM3.5
+            nop
+            reti
+;-------------------------------------------------------------------------------
+            ; Interrupt Vectors
+;-------------------------------------------------------------------------------
+            .sect   RESET_VECTOR            ; POR, ext. Reset
+            .short  RESET
+            .sect   RTC_VECTOR              ; RTC Interrupt Vector
+            .short  RTC_ISR
+            .end

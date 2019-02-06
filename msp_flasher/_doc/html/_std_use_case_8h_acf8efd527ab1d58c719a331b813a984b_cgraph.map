@@ -1,0 +1,9 @@
+<map id="StdUseCase_InterfaceInit" name="StdUseCase_InterfaceInit">
+<area shape="rect" id="node2" href="$_std_use_case_8h.html#a46d8d3f398f950c6d4c29fccee1e7070" title="This function logs messages and prints them to the console. " alt="" coords="900,107,993,133"/>
+<area shape="rect" id="node3" href="$_std_use_case_8cpp.html#ac11bf111b9a4fa3f60bab37fe0f472d9" title="Exit the Flasher routine, close the logfile. " alt="" coords="498,157,623,184"/>
+<area shape="rect" id="node6" href="$_std_use_case_8cpp.html#ab06ad4cf27f2d38614fee9e9c670d6f4" title="This function scans for all connected USB FETs and stores the respective COM port and the status of t..." alt="" coords="241,107,400,133"/>
+<area shape="rect" id="node7" href="$_std_use_case_8cpp.html#a48d0d535523623681b0c69b703f27a8e" title="This function is of type MSP430_FET_NOTIFY_FUNC and generates system messages to inform the user of t..." alt="" coords="468,5,653,32"/>
+<area shape="rect" id="node8" href="$_std_use_case_8cpp.html#a2a68108478db7b89241ca1eb5d0014f4" title="This function reads out the debugger hardware version. " alt="" coords="221,208,420,235"/>
+<area shape="rect" id="node4" href="$_std_use_case_8cpp.html#a62cd59b5bab747a6574843a42e18e0d8" title="Trigger VCC on and/or apply hard reset via RST/NMI (if specified in sOpt) and disconnect from the dev..." alt="" coords="701,208,836,235"/>
+<area shape="rect" id="node5" href="$_std_use_case_8cpp.html#a3c7974343a33a0806e8fb53104550cc9" title="Start the program execution. " alt="" coords="884,233,1009,260"/>
+</map>

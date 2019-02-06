@@ -1,0 +1,14 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT} -I${PROJECT_ROOT}/CTSLibrary -I${PROJECT_ROOT}/driverlib/MSP432P4xx" device="Cortex M.MSP432P401R" name="TouchProTool_Demo_UART_MSP432">
+
+    <file action="copy" path="../TouchProTool_Demo_UART.c" openOnCreation="true" />
+	<file action="copy" path="../TouchProTool_Demo_UART.h" />
+    <file action="copy" path="../structure.c" />
+    <file action="copy" path="../structure.h" />
+	<file action="copy" path="msp432_startup_ccs.c" overwriteExisting="true"/>
+	<file action="copy" path="../driverlib" excludeFromBuild="true" />
+	<file action="copy" path="../driverlib/MSP432P4xx/ccs/msp432p4xx_driverlib.lib" />
+
+    <file action="copy" path="../CTSLibrary" />
+  </project>
+</projectSpec>

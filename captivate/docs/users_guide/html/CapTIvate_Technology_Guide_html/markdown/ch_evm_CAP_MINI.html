@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>EVM430-CAPMINI &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="Workshop (Getting Started)" href="ch_workshop.html"/>
+        <link rel="prev" title="BOOSTXL-CAPKEYPAD Development Kit" href="ch_evm_boostxl_capkeypad.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_basics.html">Capacitive Sensing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_device.html">Device Family</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm.html">MSP-CAPT-FR2633 Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_boostxl_capkeypad.html">BOOSTXL-CAPKEYPAD Development Kit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EVM430-CAPMINI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-devices">Key Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-included">What&#8217;s Included</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kit-contents">Kit Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emv430-capmini-software-examples">EMV430-CAPMINI Software Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-box-experience">Out-of-Box Experience</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#required-tools">Required Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-hardware-setup">Step 1: Hardware Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-running-the-out-of-box-demo">Step 2: Running the Out-of-Box Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-using-captivate-design-center">Step 3: Using CapTIvate Design Center</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mechanical-design">Mechanical Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jumpers-and-connectors">Jumpers and connectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#power-supply-select-jumper">Power supply select jumper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#captivate-hid-bridge-interface">CapTIvate HID Bridge Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#msp430fr2512-debug-port">MSP430FR2512 Debug Port</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#software-example">Software Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-project-locations">Example Project Locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evm430-capmini-out-of-box-software-example">EVM430-CAPMINI Out-of-Box Software Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schematics">Schematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layout">Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_workshop.html">Workshop (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>EVM430-CAPMINI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="evm430-capmini">
+<h1>EVM430-CAPMINI<a class="headerlink" href="#evm430-capmini" title="Permalink to this headline">¶</a></h1>
+<p>The EVM430-CAPMINI is an easy-to-use evaluation board for the MSP430FR2512 capacitive-touch-sensing microcontroller. It demonstrates the key features of CapTIvate technology such as ultra-low power and ease of use. Onboard CapTIvate HID bridge tool support real time tuning with <a class="reference external" href="http://www.ti.com/tool/MSPCAPTDSNCTR">CapTIvate Design Center</a>. The board includes 4 touch buttons and 4 LEDs for creating a simple user interface. It also provides a buzzer for advanced application. The board can be powered by USB cable as well as onboard CR1632 coin battery which enabling stand-alone demonstration.</p>
+<p>This chapter of the CapTIvate Technology Guide contains the following sections:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="ch_evm_CAP_MINI.html#overview">Overview</a></li>
+<li><a class="reference external" href="ch_evm_CAP_MINI.html#getting-started">Getting Started</a></li>
+<li><a class="reference external" href="ch_evm_CAP_MINI.html#hardware">Hardware</a></li>
+<li><a class="reference external" href="ch_evm_CAP_MINI.html#software-examples">Software Examples</a></li>
+<li><a class="reference external" href="ch_evm_CAP_MINI.html#schematics">Schematics</a></li>
+<li><a class="reference external" href="ch_evm_CAP_MINI.html#layout">Layout</a></li>
+</ol>
+<p>To order a EVM430-CAPMINI, visit the <a class="reference external" href="http://www.ti.com/tool/evm430-capmini">tool folder</a>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Out of the box, the EVM430-CAPMINI powers up as a 4-key touch-to-sound demo. User can play the C, E, G, and B notes through the on-board speaker by tapping the corresponding capacitive touch buttons. A corresponding RED led above the button also show the status of the keypad. If user want to play notes D, F, and A, simply touch both buttons below the desired note. Sensor data streaming is enabled out of the box to the CapTIvate Design Center via the UART interface. The EVM430-CAPMINI may also be programmed and debugged via the Spy-Bi-Wire programming connector and the use of MSP-FET or ez-FET on Launchpad.</p>
+<div class="figure" id="id1">
+<img alt="EVM430-CAPMINI" src="../_images/Photo_Top.png" />
+<p class="caption"><span class="caption-number">Fig. 318 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<div class="section" id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Permalink to this headline">¶</a></h3>
+<p>The EVM430-CAPMINI has the following key features:</p>
+<ul class="simple">
+<li>Four capacitive touch sensing buttons<ul>
+<li>Features the MSP430FR2512 MCU</li>
+<li>Supports single and multi-touch</li>
+<li>LEDs to indicate a touch event</li>
+</ul>
+</li>
+<li>On-board audio feedback<ul>
+<li>Plays unique tone for each button/pair</li>
+</ul>
+</li>
+<li>Two power options for touch evaluation<ul>
+<li>CR1632 battery holder for portable operation</li>
+<li>USB port for operating without battery</li>
+</ul>
+</li>
+<li>Dedicated HID serial communications bridge<ul>
+<li>No need to install HID drivers</li>
+<li>Supports I2C and UART</li>
+</ul>
+</li>
+</ul>
+<div class="figure" id="id2">
+<img alt="EVM430-CAPMINI" src="../_images/Key_Features.png" />
+<p class="caption"><span class="caption-number">Fig. 319 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+</div>
+<div class="section" id="key-devices">
+<h3>Key Devices<a class="headerlink" href="#key-devices" title="Permalink to this headline">¶</a></h3>
+<p>The EVM430-CAPMINI features the following integrated circuit devices:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ti.com/product/msp430fr2512">MSP430FR2512</a> ultra-low-power MCU with noise-tolerant CapTIvate technology</li>
+</ul>
+</div>
+<div class="section" id="what-s-included">
+<h3>What&#8217;s Included<a class="headerlink" href="#what-s-included" title="Permalink to this headline">¶</a></h3>
+<p>The EVM430-CAPMINI comes with the following hardware and software:</p>
+<div class="section" id="kit-contents">
+<h4>Kit Contents<a class="headerlink" href="#kit-contents" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>1 <em>EVM430-CAPMINI</em> evaluation board</li>
+<li>1 Micro USB cable</li>
+<li>1 Quick start guide</li>
+</ul>
+</div>
+<div class="section" id="emv430-capmini-software-examples">
+<h4>EMV430-CAPMINI Software Examples<a class="headerlink" href="#emv430-capmini-software-examples" title="Permalink to this headline">¶</a></h4>
+<p>The following software example is available to run on the MSP430FR2512 MCU on the EVM430-CAPMINI:</p>
+<ul class="simple">
+<li><strong>EVM430-CAPMINI</strong> out-of-box demonstration (pre-programmed on a new EVM430-CAPMINI)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>This section outlines how to get started with the kit.</p>
+<div class="section" id="out-of-box-experience">
+<h3>Out-of-Box Experience<a class="headerlink" href="#out-of-box-experience" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="required-tools">
+<h4>Required Tools<a class="headerlink" href="#required-tools" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>The latest CapTIvate Design Center PC GUI Tool must be installed on a host PC, Mac, or Linux machine</li>
+<li>A EVM430-CAPMINI evaluation board programmed with the EVM430-CAPMINI-Demo firmware example</li>
+<li>A micro-USB cable is required to connect the EVM430-CAPMINI to the host PC</li>
+<li>A CR1632 battery to power the board using battery (Optional)</li>
+</ul>
+<p><strong>Assumptions</strong> This guide assumes that CapTIvate Design Center is already installed on the host PC. For installation instructions, see the <a class="reference external" href="ch_designcenter.html#software-examples">CapTIvate Design Center chapter</a>.</p>
+</div>
+</div>
+<div class="section" id="step-1-hardware-setup">
+<h3>Step 1: Hardware Setup<a class="headerlink" href="#step-1-hardware-setup" title="Permalink to this headline">¶</a></h3>
+<p>EVM430-CAPMINI was designed to accommodate various powering methods, including through the USB HID Bridge as well as onboard CR1632 coin battery. The jumper J2 is used to choose the power supply. Connect GND on jumper J3 if choose USB power supply.</p>
+<div class="figure" id="id3">
+<img alt="EVM430-CAPMINI" src="../_images/Step1_Power_Supply.png" />
+<p class="caption"><span class="caption-number">Fig. 320 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+</div>
+<div class="section" id="step-2-running-the-out-of-box-demo">
+<h3>Step 2: Running the Out-of-Box Demo<a class="headerlink" href="#step-2-running-the-out-of-box-demo" title="Permalink to this headline">¶</a></h3>
+<p>By default after power up, EVM430-CAPMINI development kit enters wake-on-proximity mode. All the LEDs on the board are off. In this state, CPU stays in low power mode 4 with the hardware state machine actively scanning the touch sensor at 10Hz until a button is touched. The overall system average power consumption is only 4 uA.</p>
+<p>Touch the buttons on the board will wake up the CPU, the LED will be on while the touch detection is true. At the same time the speaker will play a unique tone for each button. With the combination key the board can play C,D,E,F,G,A,B.</p>
+<div class="figure" id="id4">
+<img alt="EVM430-CAPMINI" src="../_images/Step2_Running_OOB.png" />
+<p class="caption"><span class="caption-number">Fig. 321 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p>After removing the finger away from the board, all the LEDs are off. The EVM430-CAPMINI evaluation kit will enter wake-on-proximity mode in 10 seconds.</p>
+</div>
+<div class="section" id="step-3-using-captivate-design-center">
+<h3>Step 3: Using CapTIvate Design Center<a class="headerlink" href="#step-3-using-captivate-design-center" title="Permalink to this headline">¶</a></h3>
+<p>Connect the EVM430-CAPMINI to a host computer with a micro-USB cable. Connect TXD RXD on jumper J3. Open CapTIvate Design Center on the host computer.</p>
+<div class="figure" id="id5">
+<img alt="EVM430-CAPMINI" src="../_images/Step3_CDC_ICON.png" />
+<p class="caption"><span class="caption-number">Fig. 322 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p><em>Select File -&gt; Project Open from the menu bar. Then select the EVM430-CAPMINI-Demo project folder, and select Open.</em></p>
+<div class="figure" id="id6">
+<img alt="EVM430-CAPMINI" src="../_images/Step3_CDC_Project_Open.png" />
+<p class="caption"><span class="caption-number">Fig. 323 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p>When the project opens, the design canvas should match the image below. There are two objects in this design:</p>
+<ol class="arabic simple">
+<li>MSP430FR2512IRHL controller</li>
+<li>keypadSensor button group</li>
+</ol>
+<p>With the EVM430-CAPMINI connected to the host computer via USB, select Communications -&gt; Connect from the menu bar in CapTIvate Design Center to enable target communications. At this point, when you touch a button, the button status is reflected in the CapTIvate Design Center.</p>
+<div class="figure" id="id7">
+<img alt="EVM430-CAPMINI" src="../_images/Step3_CDC_CAPMINI.png" />
+<p class="caption"><span class="caption-number">Fig. 324 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p>*Note that during wake-on-touch mode MSP430FR2512 is in sleep mode, and the communication with the CapTIvate Design Center is also stopped.</p>
+<p>Open the keypadSensor customizer by double-clicking the keypadSensor icon on the canvas. The Channel Bar Chart view will open by default. Touch any of the keys on the EVM430-CAPMINI to view the response in the customizer. All sensors on the EVM430-CAPMINI are self capacitance sensors. This means that touching a sensor increase the capacitance of the electrode, causing the conversion result (in charge transfer counts) to decrease. The capture below shows the response on button 1 when it is pressed. The default Channel Bar Chart tab is ideal for examining threshold levels.</p>
+<div class="figure" id="id8">
+<img alt="EVM430-CAPMINI" src="../_images/Step3_CDC_CAPMINI_BarChart.png" />
+<p class="caption"><span class="caption-number">Fig. 325 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p>To view a histogram of a touch, switch to the Channel Oscilloscope Plot. The oscilloscope plot is ideal for examining filter performance and noise immunity.</p>
+<div class="figure" id="id9">
+<img alt="EVM430-CAPMINI" src="../_images/Step3_CDC_CAPMINI_Oscilloscope.png" />
+<p class="caption"><span class="caption-number">Fig. 326 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p>To view and tune the sensor performance, switch to the Conversion-Control and Tuning panel. Modify the desired parameters then click &#8220;Apply&#8221;. The new parameters will apply to the board immediately and saved in FRAM as well.</p>
+<div class="figure" id="id10">
+<img alt="EVM430-CAPMINI" src="../_images/Step3_CDC_CAPMINI_Tuning.png" />
+<p class="caption"><span class="caption-number">Fig. 327 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>The EVM430-CAPMINI hardware contains many jumpers and connectors to enable various use-cases. This section describes hardware configuration.</p>
+<div class="section" id="mechanical-design">
+<h3>Mechanical Design<a class="headerlink" href="#mechanical-design" title="Permalink to this headline">¶</a></h3>
+<p>The EVM430-CAPMINI is a 2-layer, 1.6mm thick FR4 printed circuit board and it consists of 2 parts: CapTIvate HID Bridge and CAPMINI touch panel.</p>
+<p>CapTIvate HID Bridge is a tool which provides UART and IIC communication interfaces between CapTIvate MCUs and CapTIvate Design Center. For more details, refer to <a class="reference external" href="ch_evm.html#captivate-pgmr-programmer-pcb-overview">CapTIvate HID Bridge chapter</a>.</p>
+<p>CAPMINI panel is a touch sensor panel with a 2mm acrylic overlay material bonded to the PCB using 3M 467MP adhesive. The 2mm overlay represents a typical product overlay thickness. LED illumination is provided from the bottom side of the board through LED through holes in the PCB. Speaker and CR1632 coin battery holder are also provided from the bottom side of the board.</p>
+</div>
+<div class="section" id="jumpers-and-connectors">
+<h3>Jumpers and connectors<a class="headerlink" href="#jumpers-and-connectors" title="Permalink to this headline">¶</a></h3>
+<p>The EVM430-CAPMINI has jumpers for CAPMINI panel power supply selection and connectors for HID bridge interfaces.</p>
+<div class="section" id="power-supply-select-jumper">
+<h4>Power supply select jumper<a class="headerlink" href="#power-supply-select-jumper" title="Permalink to this headline">¶</a></h4>
+<p>The CAPMINI can be powered by a replaceable 3V lithium coin cell or via the micro-USB connector.</p>
+<p>User can select between power operations by placing the on-board selection jumper J2 vertically for battery operation, or horizontally for micro-USB operation, as noted by the diagram to the right of the jumper.</p>
+<p>Note that if user choose USB power supply, GND signal on jumper J3 should be connected.</p>
+<div class="figure" id="id11">
+<img alt="EVM430-CAPMINI" src="../_images/CAPMINI_PowerJumper.png" />
+<p class="caption"><span class="caption-number">Fig. 328 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+</div>
+<div class="section" id="captivate-hid-bridge-interface">
+<h4>CapTIvate HID Bridge Interface<a class="headerlink" href="#captivate-hid-bridge-interface" title="Permalink to this headline">¶</a></h4>
+<p>CapTIvate HID Bridge tool provides two kinds of interfaces to user, UART and I2C.</p>
+<div class="figure" id="id12">
+<img alt="EVM430-CAPMINI" src="../_images/CAPMINI_HIDInterface.png" />
+<p class="caption"><span class="caption-number">Fig. 329 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p>With this HID bridge user can connect CAPMINI panel directly to the CapTIvate Design Center software by connecting TXD and RXD signals on jumper J3.</p>
+<div class="figure" id="id13">
+<img alt="EVM430-CAPMINI" src="../_images/CAPMINI_HID_UART.png" />
+<p class="caption"><span class="caption-number">Fig. 330 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+<p>User can also connect own CapTIvate MCU boards to these interfaces and use it’s HID bridge communications.</p>
+</div>
+<div class="section" id="msp430fr2512-debug-port">
+<h4>MSP430FR2512 Debug Port<a class="headerlink" href="#msp430fr2512-debug-port" title="Permalink to this headline">¶</a></h4>
+<p>To create user&#8217;s own code or demo, use the on-board Spy-bi-wire debug port.</p>
+<div class="figure" id="id14">
+<img alt="EVM430-CAPMINI" src="../_images/CAPMINI_SBW.png" />
+<p class="caption"><span class="caption-number">Fig. 331 </span><span class="caption-text">EVM430-CAPMINI</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="software-example">
+<h2>Software Example<a class="headerlink" href="#software-example" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the software example which is available for the EVM430-CAPMINI. The EVM430-CAPMINI ships pre-programmed with the example software.</p>
+<div class="section" id="example-project-locations">
+<h3>Example Project Locations<a class="headerlink" href="#example-project-locations" title="Permalink to this headline">¶</a></h3>
+<p>During the CapTIvate™ Design Center installation process, example CapTIvate Design Center projects and EVM430-CAPMINI MSP430FR2512 firmware projects are placed in the user’s home directory under “CaptivateDesignCenter/CaptivateDesignCenterWorkspace”. On Windows operating system, this would be:</p>
+<p><em>C:/Users/USERNAME/CapTIvateDesignCenter_X_XX_XX_XX/CapTIvateDesignCenterWorkspace/EVM430-CAPMINI</em></p>
+</div>
+<div class="section" id="evm430-capmini-out-of-box-software-example">
+<h3>EVM430-CAPMINI Out-of-Box Software Example<a class="headerlink" href="#evm430-capmini-out-of-box-software-example" title="Permalink to this headline">¶</a></h3>
+<p>The EVM430-CAPMINI project is the out-of-box demonstration software project. This is the software that comes pre-programmed from TI on the EVM430-CAPMINI. It is also the software that enables the LED indication and speaker features.</p>
+<p>This software example enables the following key out-of-box functionality:</p>
+<ul class="simple">
+<li>A 4-key numeric keypad sensor</li>
+<li>LED and speaker indication when touch the key</li>
+<li>Wake-on-proximiy mode to achieve 4uA stand by power consumption</li>
+<li>Real time save tuning parameters to on-chip FRAM</li>
+<li>Bi-directional UART communication with the CapTIvate Design Center using the CapTIvate communications library</li>
+</ul>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm_CAP_MINI.html#Step-2:-Running-the-Out-of-Box-Demo">running an example project</a> and open the EVM430-CAPMINI project.</p>
+</div>
+</div>
+<div class="section" id="schematics">
+<h2>Schematics<a class="headerlink" href="#schematics" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id15">
+<img alt="BOOSTXL-CAPKEYPAD Schematic" src="../_images/schematic.png" />
+<p class="caption"><span class="caption-number">Fig. 332 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Schematic</span></p>
+</div>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id16">
+<img alt="BOOSTXL-CAPKEYPAD Layout" src="../_images/layout_top.png" />
+<p class="caption"><span class="caption-number">Fig. 333 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Layout</span></p>
+</div>
+<div class="figure" id="id17">
+<img alt="BOOSTXL-CAPKEYPAD Layout" src="../_images/layout_bottom.png" />
+<p class="caption"><span class="caption-number">Fig. 334 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Layout</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_workshop.html" class="btn btn-neutral float-right" title="Workshop (Getting Started)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_evm_boostxl_capkeypad.html" class="btn btn-neutral" title="BOOSTXL-CAPKEYPAD Development Kit" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

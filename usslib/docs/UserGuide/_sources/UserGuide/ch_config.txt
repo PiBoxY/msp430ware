@@ -1,0 +1,1369 @@
+Configuration
+=============
+
+The configuration panel provides options to specify the values of several Ultrasonic Sensing Library parameters, then communicate those values to the target.
+
+Each parameter has a defined range to ensure that the values are in line with the library's specifications. Attempts to change the fields to a value outside the range will be reverted back to the previous value.
+
+HW Meter Configuration
+----------------------
+
+The Meter hardware configuration enables selection of the board, MSP430 device and execution mode (as shown below). It can be accessed in the GUI via the Options->Meter Options (Alt + O).
+
+.. figure:: images/config_meter_options.PNG
+   :alt: Meter Options
+
+   Meter Options
+
+Currently there are 3 boards supported. The devices supported for each board are described below:
+
+-  EVM430-FR6043 - defaults device MSP430FR6043
+-  EVM430-FR6047 - defaults device MSP430FR6047
+-  Custom-PCB - allows the user to select a device from the supported devices
+
+**Supported Devices**
+
+.. raw:: html
+
+   <html>
+   <table border="1" class="docutils">
+   <tr>
+   <th>Device</th>
+   <th>Execution Mode</th>
+   </tr>
+   <tr>
+   <td>MSP430FR5041</td>
+   <td>Gas or Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR5043</td>
+   <td>Gas or Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR50431</td>
+   <td>Gas or Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR6041</td>
+   <td>Gas or Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR6043</td>
+   <td>Gas or Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR60431</td>
+   <td>Gas or Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR6045</td>
+   <td>Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR6047</td>
+   <td>Water</td>
+   </tr>
+   <tr>
+   <td>MSP430FR60471</td>
+   <td>Water</td>
+   </tr>
+   </table>
+   </html>
+
+**Connecting**
+
+If not already connected to the target, connect via either the Communications - Connect dropdown, or press F1. The connection status at the bottom left corner of the GUI should display the current connection target and platform.
+
+Water Meter Configuration
+-------------------------
+
+This section covers the hardware and parameter configuration for water mode.
+
+Parameters Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Selecting Parameters**
+
+Change between general parameters and advanced parameters by clicking on the respective tab at the top of the configuration panel.
+
+.. figure:: images/adv_param_panel.PNG
+   :alt: Parameter Options
+
+   Parameter Options
+
+The complete range of parameters, a description, and their ranges is shown below.
+
+.. raw:: html
+
+   <html>
+   <table border="1" class="docutils">
+   <tr>
+   <th>GUI Parameter</th>
+   <th>Description</th>
+   <th>Default</th>
+   <th>Water Min</th>
+   <th>Water Max</th>
+   </tr>
+   <tr>
+   <td>F1</td>
+   <td>Pulse Output Frequency 1</td>
+   <td>1000</td>
+   <td>772</td>
+   <td>2,500</td>
+   </tr>
+   <tr>
+   <td>F2</td>
+   <td>Pulse Output Frequency 2 (not used for water metering)</td>
+   <td>1,000</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   </tr>
+   <tr>
+   <td>Gap between Pulse Start and ADC Capture (us)</td>
+   <td>Time in microseconds from PPG pulse to ADC start</td>
+   <td>60</td>
+   <td>3</td>
+   <td>9,000</td>
+   </tr>
+   <tr>
+   <td>Number of Pulses</td>
+   <td>Number of excitation pulses</td>
+   <td>25</td>
+   <td>0</td>
+   <td>63</td>
+   </tr>
+   <tr>
+   <td>UPS and DNS Gap (us)</td>
+   <td>Time between ADC captures in a sequence in microseconds</td>
+   <td>3,000</td>
+   <td>100</td>
+   <td>16,000</td>
+   </tr>
+   <tr>
+   <td>UPS0 and UPS1 Gap (ms)</td>
+   <td>Time between ADC captures in a single channel in milliseconds</td>
+   <td>1,000</td>
+   <td>20</td>
+   <td>2,000</td>
+   </tr>
+   <tr>
+   <td>GUI Based Gain Control <b><sup>1</sup></b></td>
+   <td>PGA gain value to apply to register</td>
+   <td>1.0 db</td>
+   <td>-6.5 db</td>
+   <td>30.8 db</td>
+   </tr>
+   <tr>
+   <td>Meter Constant</td>
+   <td>Volume scale factor - varies by meter, must be calculated</td>
+   <td>12,742,000</td>
+   <td>0</td>
+   <td>22,742,000</td>
+   </tr>
+   <tr>
+   <td>Units</td>
+   <td>Select units to be in Liters per Hour (l/h) or Gallons per Minute (G/m)</td>
+   <td>l/h</td>
+   <td>-</td>
+   <td>-</td>
+   </tr>
+   <tr>
+   <td>Volume Flow Rate Calibration Ranges</td>
+   <td>Number of volume flow rate calibration ranges</td>
+   <td>1</td>
+   <td>1</td>
+   <td>16</td>
+   </tr>
+   <tr>
+   <td>USSXT (kHz)</td>
+   <td>External crystal frequency in kHz</td>
+   <td>8,000</td>
+   <td>4,000</td>
+   <td>8,000</td>
+   </tr>
+   <tr>
+   <td>ADC Sampling Frequency</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   </tr>
+   <tr>
+   <td>Signal Sampling Frequency (kHz) <b><sup>1</sup></b></td>
+   <td>Signal Sampling Frequency in kHz</td>
+   <td>4,000</td>
+   <td>425</td>
+   <td>8,000</td>
+   </tr>
+   <tr>
+   <td>ADC Over Sampling <b><sup>1</sup></b></td>
+   <td>Over-sampling rate of the ADC</td>
+   <td>20</td>
+   <td>10</td>
+   <td>160</td>
+   </tr>
+   <tr>
+   <td>Delta TOF Offset (ps)</td>
+   <td>Amount to offset the Delta Time of Flight in picoseconds</td>
+   <td>0</td>
+   <td>-10,000</td>
+   <td>10,000</td>
+   </tr>
+   <tr>
+   <td>Abs TOF Additional Delay (ns)</td>
+   <td>Amount to offset the Absolute Time of Flight in nanoseconds</td>
+   <td>0</td>
+   <td>-1,000,000</td>
+   <td>1,000,000</td>
+   </tr>
+   <tr>
+   <td>Capture Duration (us)</td>
+   <td>Duration of samples in microseconds</td>
+   <td>40</td>
+   <td>1</td>
+   <td>100</td>
+   </tr>
+   <tr>
+   <td>Interpolation Correction Table Size <b><sup>2</sup></b></td>
+   <td>Interpolation Correction Table Size used for Lobe Algorithm</td>
+   <td>256</td>
+   <td>Disabled</td>
+   <td>1024</td>
+   </tr>
+   <tr>
+   <td>Algorithm Option</td>
+   <td>Algorithm Option</td>
+   <td>Lobe</td>
+   <td>Lobe</td>
+   <td>Lobe</td>
+   </tr>
+   <tr>
+   <td>ULP Bias Delay</td>
+   <td>Delay Bias</td>
+   <td>3</td>
+   <td>0</td>
+   <td>3</td>
+   </tr>
+   <tr>
+   <td>Start PPG Count (ns)</td>
+   <td>Time to start the PPG pulse trigger in nanoseconds</td>
+   <td>10,000</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>Turn on ADC Count (ns)</td>
+   <td>Time to turn on the ADC in nanoseconds </td>
+   <td>5,000</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>Start PGA and IN Bias Count (ns)</td>
+   <td>Time to turn the PGA and Input Biasing on</td>
+   <td>0</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>User Param #6</td>
+   <td>N/A</td>
+   <td>0</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>USS XTAL Settling Count (us)</td>
+   <td>External Crystal settling time in microseconds</td>
+   <td>120</td>
+   <td>120 (ceramic resonators), 5000 (crystals)</td>
+   <td>120 (ceramic resonators), 5000 (crystals)</td>
+   </tr>
+   <tr>
+   <td>Envelope Crossing Threshold</td>
+   <td>Envelope crossing threshold</td>
+   <td>11</td>
+   <td>1</td>
+   <td>100</td>
+   </tr>
+   <tr>
+   <td>Search Range</td>
+   <td>AbsTOF Search Range</td>
+   <td>3</td>
+   <td>0</td>
+   <td>Number of Pulses</td>
+   </tr>
+   <tr>
+   <td>User Param #10</td>
+   <td>N/A</td>
+   <td>0</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   </table>
+   <b>Note<sup>1</sup></b> : The valid values between the minimum and the maximum values do not include all the values.
+
+   <b>Note<sup>2</sup></b> : For more information on the generation of the interpolation look-up table refer to: 
+   </html>
+
+`link <../../LibUsersGuide/markdown/InterpLUT.html>`__.
+
+Code Generation
+~~~~~~~~~~~~~~~
+
+This section explains how each #define in the USS\_userConfig.h are generated by Design Center. For each row in the table below, parameters in the first column are referenced in the Water Code Generation column as (P1,P2,...). The advanced parameters in the second column are referenced in the Water Code Generation column as (AP1,AP2,...).
+
+.. raw:: html
+
+   <html>
+   <table border="1" class="docutils">
+   <tr>
+   <th>Parameter Name <br> <i>(P1,P2...)</i></td>
+   <th>Advanced Parameter Name <br> <i>(AP1,AP2...)</i></td>
+   <th>#define Tag</td>
+   <th>Water Code Generation</td>
+   </tr>
+   <tr>
+   <td>F1</td>
+   <td></td>
+   <td>USS_F1_FREQ</td>
+   <td><i>P1</i> * 1000</td>
+   </tr>
+   <tr>
+   <td>F2</td>
+   <td></td>
+   <td>USS_F2_FREQ</td>
+   <td>0</td>
+   </tr>
+   <tr>
+   <td>Pulse Mode</td>
+   <td></td>
+   <td>USS_PULSE_MODE</td>
+   <td>if <i>P1</i> = Single Tone <br>
+   <b>USS_PULSE_MODE_SINGLE_TONE</b> <br>
+   if <i>P1</i> = Dual Tone <br> 
+   <b>USS_PULSE_MODE_DUAL_TONE</b> <br>
+   if <i>P1</i> = F1 to F2 Sweep <br>
+   <b>USS_PULSE_MODE_MULTI_TONE</b> </td>
+   </tr>
+   <tr>
+   <td>Gap between pulse start and ADC capture (us)</td>
+   <td>Start PPG Count (ns)</td>
+   <td>USS_ADC_SAMP_COUNT_SEC</td>
+   <td>(<i>P1</i> /10<sup>6</sup>)+
+   (<i>AP1</i> /10<sup>9</sup>)</td>
+   </tr>
+   <tr>
+   <td>Number of Pulses</td>
+   <td></td>
+   <td>USS_NUM_OF_EXCITATION_PULSES_F1</td>
+   <td><i>P1</i></td>
+   </tr>
+   <tr>
+   <td>Number of Pulses, Pulse Mode</td>
+   <td></td>
+   <td>USS_NUM_OF_EXCITATION_PULSES_F2</td>
+   <td>0</td>
+   </tr>
+   <tr>
+   <td>Number of Pulses,Pulse Mode</td>
+   <td></td>
+   <td>USS_NUM_OF_TRILL_PULSES</td>
+   <td>0</td>
+   </tr>
+   <tr>
+   <td>UPS and DNS Gap (us)</td>
+   <td></td>
+   <td>USS_RESTART_CAP_COUNT_SEC</td>
+   <td><i>P1</i> /10<sup>6</sup></td>
+   </tr>
+   <tr>
+   <td>GUI Based Gain Control</td>
+   <td></td>
+   <td>USS_GAIN_RANGE</td>
+   <td>if <i>P1</i> >= 0 (e.g. X.Y db) <br>
+   <b>USS_Capture_Gain_Range_X_Y</b> <br>
+   if <i>P1</i> < 0 (e.g. -X.Y db) <br>
+   <b>USS_Capture_Gain_Range_minus_X_Y</b> </td>
+   </tr>
+   <tr>
+   <td>Meter Constant</td>
+   <td></td>
+   <td>USS_VOLUME_SCALE_FACTOR</td>
+   <td><i>P1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>USSXT (kHz) <b><sup>1</sup></b></td>
+   <td>USS_PLL_XTAL_IN_KHZ</td>
+   <td>if <i>P1</i> = 4000<br>
+   <b>USS_HSPLL_input_clock_freq_4_KHz</b> <br>
+   if <i>P1</i> = 8000<br>
+   <b>USS_HSPLL_input_clock_freq_8_KHz</b> </td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Signal Sampling Frequency (kHz), 
+   ADC Over Sampling Rate</td>
+   <td>USS_HSPLL_FREQ_IN_MHZ</td>
+   <td><i>AP1</i> * <i>AP2</i> / 10<sup>3</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>ADC Over Sampling Rate</td>
+   <td>USS_OVER_SAMPLE_RATE</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Delta TOF Offset (ps)</td>
+   <td>USS_ALG_DCOFFSET</td>
+   <td><i>AP1</i> / 10<sup>12</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Abs TOF Additional Delay (ns)</td>
+   <td>USS_ALG_ADC_ADDITIONAL_CAP_DLY</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Capture Duration (us)</td>
+   <td>USS_CAPTURE_DURATION_USEC</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Interpolation Correction Table Size</td>
+   <td>USS_ENABLE_ABSTOF_LOBE_OFFSET_CORRECTION</td>
+   <td>if <i>AP1</i> = Disabled<br><b>false</b><br>
+   else<br>
+   <b>true<b></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Algorithm Option</td>
+   <td>USS_ALG_ABS_TOF_COMPUTATION_MODE</td>
+   <td><b>USS_ALG_ABS_TOF_COMPUTATION_MODE_</b><<i>AP1</i>>
+   (in capital letters e.g. Lobe = LOBE)</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>ULP Bias Delay, Start PGA and IN Bias Count (ns)</td>
+   <td>USS_ULP_BIAS_DELAY</td>
+   <td>
+   if<i>AP1</i> = 1 <br>
+   <b>USS_measurement_ULP_bias_delay_100_usec</b> <br>
+   else if <i>AP1</i> = 2 <br>
+   <b>USS_measurement_ULP_bias_delay_200_usec</b> <br>
+   else if <i>AP1</i> = 3 <br>
+   <b>USS_measurement_ULP_bias_delay_300_usec</b> <br>
+   else <br>
+   <b>USS_measurement_ULP_bias_delay_no_delay</b>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Start PPG Count (ns)</td>
+   <td>USS_START_CAPTURE_SEC</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Turn On ADC Count (ns)</td>
+   <td>USS_TURN_ON_ADC_COUNT_SEC</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Start PGA and IN Bias Count (ns)</td>
+   <td>USS_PGA_IN_BIAS_COUNT_SEC</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>USS XTAL Settling Count (us)</td>
+   <td>USS_HSPLL_USSXTAL_SETTLING_USEC</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Envelope Crossing Threshold</td>
+   <td>USS_ALG_ABS_TOF_HILB_CROSS_THRESHOLD</td>
+   <td><i>AP1</i> / 100</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Envelope Crossing Threshold</td>
+   <td>USS_ALG_RATIO_OF_TRACK_LOBE</td>
+   <td><i>AP1</i> / 100</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Search Range</td>
+   <td>USS_ALG_ABS_TOF_SEARCH_RANGE</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td></td>
+   <td>USS_MEASUREMENT_TURN_ON_EXTERNAL_AMP_SEC</td>
+   <td>0</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td></td>
+   <td>USS_ALG_VOLUME_RATE_COMPUTATION_MODE</td>
+   <td><b>USS_ALG_VOLUME_RATE_COMPUTATION_OPTION_GENERIC</b></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td></td>
+   <td>USS_ENABLE_VFR_METER_CALIB</td>
+   <td>if "Waveform Tab -> Adv Calibration Table" is selected <br>
+   <b>true</b> <br>
+   else<br>
+   <b>false</b></td>
+   </tr>
+   </table>
+   </html>
+
+Gas Meter Configuration
+-----------------------
+
+This section covers the hardware and parameter configuration for gas mode.
+
+Parameters Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Selecting Parameters**
+
+Change between general parameters and advanced parameters by clicking on the respective tab at the top of the configuration panel.
+
+.. figure:: images/adv_param_panel.PNG
+   :alt: Parameter Options
+
+   Parameter Options
+
+The complete range of parameters, a description, and their ranges is shown below.
+
+.. raw:: html
+
+   <html>
+   <table border="1" class="docutils">
+   <tr>
+   <th>GUI Parameter</th>
+   <th>Description</th>
+   <th>Default</th>
+   <th>Gas Min</th>
+   <th>Gas Max</th>
+   </tr>
+   <tr>
+   <td>F1</td>
+   <td>Pulse Output Frequency 1</td>
+   <td>170</td>
+   <td>80</td>
+   <td>550</td>
+   </tr>
+   <tr>
+   <td>F2</td>
+   <td>Pulse Output Frequency 2</td>
+   <td>240</td>
+   <td>80</td>
+   <td>630</td>
+   </tr>
+   <tr>
+   <td>Gap between Pulse Start and ADC Capture (us)</td>
+   <td>Time in microseconds from PPG pulse to ADC start</td>
+   <td>170</td>
+   <td>0</td>
+   <td>16,383</td>
+   </tr>
+   <tr>
+   <td>Number of Pulses</td>
+   <td>Number of excitation pulses</td>
+   <td>24</td>
+   <td>0</td>
+   <td>60</td>
+   </tr>
+   <tr>
+   <td>UPS and DNS Gap (us)</td>
+   <td>Time between ADC captures in a sequence in microseconds</td>
+   <td>8,000</td>
+   <td>0</td>
+   <td>16,384</td>
+   </tr>
+   <tr>
+   <td>UPS0 and UPS1 Gap (ms)</td>
+   <td>Time between ADC captures in a single channel in milliseconds</td>
+   <td>150</td>
+   <td>0</td>
+   <td>16,384</td>
+   </tr>
+   <tr>
+   <td>GUI Based Gain Control <b><sup>1</sup></b></td>
+   <td>PGA gain value to apply to register</td>
+   <td>1.0 db</td>
+   <td>-6.5 db</td>
+   <td>30.8 db</td>
+   </tr>
+   <tr>
+   <td>Meter Constant</td>
+   <td>Volume scale factor - varies by meter, must be calculated</td>
+   <td>61</td>
+   <td>0</td>
+   <td>22,742,000</td>
+   </tr>
+   <tr>
+   <td>Units</td>
+   <td>Select units to be in Liters per Hour (l/h) or Gallons per Minute (G/m)</td>
+   <td>l/h</td>
+   <td>-</td>
+   <td>-</td>
+   </tr>
+   <tr>
+   <td>Volume Flow Rate Calibration Ranges</td>
+   <td>Number of volume flow rate calibration ranges</td>
+   <td>1</td>
+   <td>1</td>
+   <td>16</td>
+   </tr>
+   <tr>
+   <td>USSXT (kHz) <b><sup>1</sup></b></td>
+   <td>External crystal frequency in kHz</td>
+   <td>8,000</td>
+   <td>4,000</td>
+   <td>8,000</td>
+   </tr>
+   <tr>
+   <td>ADC Sampling Frequency</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   </tr>
+   <tr>
+   <td>Signal Sampling Frequency (kHz) <b><sup>1</sup></b></td>
+   <td>Signal Sampling Frequency in kHz</td>
+   <td>1,000</td>
+   <td>425</td>
+   <td>8,000</td>
+   </tr>
+   <tr>
+   <td>ADC Over Sampling <b><sup>1</sup></b></td>
+   <td>Over-sampling rate of the ADC</td>
+   <td>80</td>
+   <td>10</td>
+   <td>160</td>
+   </tr>
+   <tr>
+   <td>Delta TOF Offset (ps)</td>
+   <td>Amount to offset the Delta Time of Flight in picoseconds</td>
+   <td>0</td>
+   <td>-10,000</td>
+   <td>10,000</td>
+   </tr>
+   <tr>
+   <td>Abs TOF Additional Delay (ns)</td>
+   <td>Amount to offset the Absolute Time of Flight in nanoseconds</td>
+   <td>0</td>
+   <td>-1,000,000</td>
+   <td>1,000,000</td>
+   </tr>
+   <tr>
+   <td>Capture Duration (us)</td>
+   <td>Duration of samples in microseconds</td>
+   <td>300</td>
+   <td>0</td>
+   <td>100,000</td>
+   </tr>
+   <tr>
+   <td>Interpolation Correction Table Size</td>
+   <td>Interpolation Correction Table Size used for Lobe Algorithm</td>
+   <td>Disabled</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   </tr>
+   <tr>
+   <td>Algorithm Option</td>
+   <td>Algorithm Option</td>
+   <td>3</td>
+   <td>3 (Hilbert Wide)</td>
+   <td>3 (Hilbert Wide)</td>
+   </tr>
+   <tr>
+   <td>Envelope Crossing Threshold</td>
+   <td>Envelope crossing threshold</td>
+   <td>50</td>
+   <td>1</td>
+   <td>100</td>
+   </tr>
+   <tr>
+   <td>Start PPG Count (ns)</td>
+   <td>Time to start the PPG pulse trigger in nanoseconds</td>
+   <td>200,000</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>Turn on ADC Count (ns)</td>
+   <td>Time to turn on the ADC in nanoseconds </td>
+   <td>20,000</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>Start PGA and IN Bias Count (ns)</td>
+   <td>Time to turn the PGA and Input Biasing on</td>
+   <td>200,000</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>USS XTAL Settling Count (us)</td>
+   <td>External Crystal settling time in microseconds</td>
+   <td>120</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>External Amplifier Count (ns)</td>
+   <td>External Amplifier Count in nanoseconds</td>
+   <td>10,000</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   <tr>
+   <td>User Param #8</td>
+   <td>128 = Disables Additional Trill Pulses<br>
+   384 = Enables Additional Trill Pulses<br>
+   Other values = Reserved</td>
+   <td>384</td>
+   <td>128</td>
+   <td>384</td>
+   </tr>
+   <tr>
+   <td>Search Range</td>
+   <td>AbsTOF Search Range</td>
+   <td>8</td>
+   <td>0</td>
+   <td>Number of Pulses</td>
+   </tr>
+   <tr>
+   <td>User Param #10</td>
+   <td>N/A</td>
+   <td>0</td>
+   <td>-2,000,000,000</td>
+   <td>2,000,000,000</td>
+   </tr>
+   </table>
+   <b>Note<sup>1</sup></b> : The valid values between the minimum and the maximum values do not include all the values. 
+   <br/><br/>
+   </html>
+
+Code Generation
+~~~~~~~~~~~~~~~
+
+This section explains how each #define in the USS\_userConfig.h are generated by Design Center. For each row in the table below, parameters in the first column are referenced in the Water Code Generation column as (P1,P2,...). The advanced parameters in the second column are referenced in the Water Code Generation column as (AP1,AP2,...).
+
+.. raw:: html
+
+   <html>
+   <table border="1" class="docutils">
+   <tr>
+   <th>Parameter Name <br> <i>(P1,P2...)</i></td>
+   <th>Advanced Parameter Name <br> <i>(AP1,AP2...)</i></td>
+   <th>#define Tag</td>
+   <th>Gas Code Generation</td>
+   </tr>
+   <tr>
+   <td>F1</td>
+   <td></td>
+   <td>USS_F1_FREQ</td>
+   <td><i>P1</i> * 1000</td>
+   </tr>
+   <tr>
+   <td>F2</td>
+   <td></td>
+   <td>USS_F2_FREQ</td>
+   <td><i>P1</i> * 1000</td>
+   </tr>
+   <tr>
+   <td>Pulse Mode</td>
+   <td></td>
+   <td>USS_PULSE_MODE</td>
+   <td>if <i>P1</i> = Single Tone <br>
+   <b>USS_PULSE_MODE_SINGLE_TONE</b> <br>
+   if <i>P1</i> = Dual Tone <br> 
+   <b>USS_PULSE_MODE_DUAL_TONE</b> <br>
+   if <i>P1</i> = F1 to F2 Sweep <br>
+   <b>USS_PULSE_MODE_MULTI_TONE</b> </td>
+   </tr>
+   <tr>
+   <td>Gap between pulse start and ADC capture (us)</td>
+   <td>Start PPG Count (ns)</td>
+   <td>USS_ADC_SAMP_COUNT_SEC</td>
+   <td>(<i>P1</i> /10<sup>6</sup>)+
+   (<i>AP1</i> /10<sup>9</sup>)</td>
+   </tr>
+   <tr>
+   <td>Number of Pulses</td>
+   <td></td>
+   <td>USS_NUM_OF_EXCITATION_PULSES_F1</td>
+   <td><i>P1</i></td>
+   </tr>
+   <tr>
+   <td>Number of Pulses, Pulse Mode</td>
+   <td></td>
+   <td>USS_NUM_OF_EXCITATION_PULSES_F2</td>
+   <td>if (<i>P2</i> = Single Tone) or (<i>P2</i> = F1 to F2 Sweep) <br>
+   <b>0</b> <br>
+   if <i>P2</i> = Dual Tone <br> 
+   <b><i>P1</i></b> <br></td>
+   </tr>
+   <tr>
+   <td>Number of Pulses,Pulse Mode</td>
+   <td></td>
+   <td>USS_NUM_OF_TRILL_PULSES</td>
+   <td>if (<i>P2</i> = Single Tone) or (<i>P2</i> = Dual Tone) <br>
+   <b>0</b> <br>
+   if <i>P2</i> = F1 to F2 Sweep <br> 
+   <b><i>P1</i> / 2</b> <br></td>
+   </tr>
+   <tr>
+   <td>UPS and DNS Gap (us)</td>
+   <td></td>
+   <td>USS_RESTART_CAP_COUNT_SEC</td>
+   <td><i>P1</i> /10<sup>6</sup></td>
+   </tr>
+   <tr>
+   <td>GUI Based Gain Control</td>
+   <td></td>
+   <td>USS_GAIN_RANGE</td>
+   <td>if <i>P1</i> >= 0 (e.g. X.Y db) <br>
+   <b>USS_Capture_Gain_Range_X_Y</b> <br>
+   if <i>P1</i> < 0 (e.g. -X.Y db) <br>
+   <b>USS_Capture_Gain_Range_minus_X_Y</b> </td>
+   </tr>
+   <tr>
+   <td>Meter Constant</td>
+   <td></td>
+   <td>USS_VOLUME_SCALE_FACTOR</td>
+   <td><i>P1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>USSXT (kHz) <b><sup>1</sup></b></td>
+   <td>USS_PLL_XTAL_IN_KHZ</td>
+   <td>if <i>P1</i> = 4000<br>
+   <b>USS_HSPLL_input_clock_freq_4_KHz</b> <br>
+   if <i>P1</i> = 8000<br>
+   <b>USS_HSPLL_input_clock_freq_8_KHz</b> </td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Signal Sampling Frequency (kHz), 
+   ADC Over Sampling Rate</td>
+   <td>USS_HSPLL_FREQ_IN_MHZ</td>
+   <td><i>AP1</i> * <i>AP2</i> / 10<sup>3</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>ADC Over Sampling Rate</td>
+   <td>USS_OVER_SAMPLE_RATE</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Delta TOF Offset (ps)</td>
+   <td>USS_ALG_DCOFFSET</td>
+   <td><i>AP1</i> / 10<sup>12</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Abs TOF Additional Delay (ns)</td>
+   <td>USS_ALG_ADC_ADDITIONAL_CAP_DLY</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Capture Duration (us)</td>
+   <td>USS_CAPTURE_DURATION_USEC</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Interpolation Correction Table Size</td>
+   <td>USS_ENABLE_ABSTOF_LOBE_OFFSET_CORRECTION</td>
+   <td>if <i>AP1</i> = Disabled<br><b>false</b><br>
+   else<br>
+   <b>true<b></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Algorithm Option</td>
+   <td>USS_ALG_ABS_TOF_COMPUTATION_MODE</td>
+   <td><b>USS_ALG_ABS_TOF_COMPUTATION_MODE_</b><<i>AP1</i>>
+   (in capital letters e.g. Lobe = LOBE)</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Start PGA and IN Bias Count (ns)</td>
+   <td>USS_ULP_BIAS_DELAY</td>
+   <td>
+   if<i>AP1</i> = 0 <br>
+   <b>USS_measurement_ULP_bias_delay_200_usec</b> <br>
+   else <br>
+   <b>USS_measurement_ULP_bias_delay_no_delay</b>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Start PPG Count (ns)</td>
+   <td>USS_START_CAPTURE_SEC</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Turn On ADC Count (ns)</td>
+   <td>USS_TURN_ON_ADC_COUNT_SEC</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Start PGA and IN Bias Count (ns)</td>
+   <td>USS_PGA_IN_BIAS_COUNT_SEC</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>USS XTAL Settling Count (us)</td>
+   <td>USS_HSPLL_USSXTAL_SETTLING_USEC</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Envelope Crossing Threshold</td>
+   <td>USS_ALG_ABS_TOF_HILB_CROSS_THRESHOLD</td>
+   <td><i>AP1</i> / 100</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Envelope Crossing Threshold</td>
+   <td>USS_ALG_RATIO_OF_TRACK_LOBE</td>
+   <td>0.5</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>Search Range</td>
+   <td>USS_ALG_ABS_TOF_SEARCH_RANGE</td>
+   <td><i>AP1</i></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td>External Amplifier Count</td>
+   <td>USS_MEASUREMENT_TURN_ON_EXTERNAL_AMP_SEC</td>
+   <td><i>AP1</i> / 10<sup>9</sup></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td></td>
+   <td>USS_ALG_VOLUME_RATE_COMPUTATION_MODE</td>
+   <td><b>USS_ALG_VOLUME_RATE_COMPUTATION_OPTION_GAS</b></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td></td>
+   <td>USS_ENABLE_VFR_METER_CALIB</td>
+   <td>if "Waveform Tab -> Adv Calibration Table" is selected <br>
+   <b>true</b> <br>
+   else<br>
+   <b>false</b></td>
+   </tr>
+   </table>
+   </html>
+
+Parameter vs Demo Application
+-----------------------------
+
+This sections includes how each parameter impacts software modules and the supported algorithms in the demo application.
+
+.. raw:: html
+
+   <html>
+   <table border="1" class="docutils">
+   <tr>
+   <th rowspan="2">Parameter Name</th>
+   <th rowspan="2">Advanced <br>Parameter Name</th>
+   <th colspan="3">Software Modules</th>
+   <th colspan="4">Algorithms<br>(Lobe=A1, Hilbert=A2, <br>Lobe-Wide=A3,Hilbert-Wide=A4)</th>
+   </tr>
+
+   <tr>
+     <td>HW</td>
+     <td>LIB</td>
+     <td>APP</td>
+     <td>A1</td>
+     <td>A2</td>
+     <td>A3</td>
+     <td>A4</td>
+   </tr>
+   <tr>
+   <td align="center">F1</td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">F2</td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">Pulse Mode</td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   </tr>
+   <tr>
+   <td align="center">Gap between pulse start and ADC Capture</td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">Number of Pulses</td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">UPS and DNS Gap (us)</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">UPS0 to UPS1 Gap (ms)</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">GUI Based Gain Control</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">Meter Constant</td>
+   <td></td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td align="center">Volume Flow Rate Calibration Ranges</td>
+   <td></td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">USSXT (kHz)</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">ADC Sampling Frequency (kHz)</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Signal Sampling Frequency (kHz)</td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">ADC Over Sampling Rate</td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Delta TOF Offset (ps)</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Abs TOF Additional Delay (ns)</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Capture Duration (us)</td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Interpolation Correction Table Size</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Algorithm Option</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">ULP Bias Delay (water only)</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Start PPG Count (ns)</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Turn on ADC Count (ns)</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Start PGA and IN Bias Count (ns)</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">USS XTAL Settling Count (us)</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Envelope Crossing Threshold</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td>&#10004</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">Search Range</td>
+   <td></td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   <td>&#10004</td>
+   </tr>
+   <tr>
+   <td></td>
+   <td align="center">External Amplifier (ns) (gas only)</td>
+   <td>&#10004</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   </table>
+   <br/><br/>
+   </html>
+
+Updating the Target
+-------------------
+
+.. figure:: images/config_options.PNG
+   :alt: Configuration Options
+
+   Configuration Options
+
+**Requesting an update**
+
+After changing configuration, update the target by clicking "Request Update". This sets each enabled parameter on the target to the currently selected GUI value. A popup box will appear at the end of the transmission indicating either a successful or unsuccessful update.
+
+If the update was unsuccessful, please validate that the current parameter range is correct and check the error tab if present; the error tab will always appear if an error is reported from the target.
+
+Common reasons for a configuration to be rejected are that it would produce very low signal strength, an incorrect transmission frequency, or that it would produce an incorrect base algorithm configuration (incorrect settling time, etc).
+
+**Saving Configurations**
+
+Save the current configuration (values of each parameter) or load saved configurations by using the "Save Configuration" or "Load Configuration" buttons. The location of the configuration file will default to a USS directory created in your home folder upon installation, at ~home/USS\_VERSION/USSWorkspace/USS\_Project/config. Saving the configuration will also save the automatic logging state and location. Additionally, the GUI will automatically save the configuration upon exit and reload the exit configuration when launched.
+
+**Reset the configuration**
+
+Clicking the "Reset Values" button will reset all parameters to the default install values for that meter mode.
+
+**Header File Generation**
+
+USS GUI 1.70+ supports generation of header files for USS-enabled devices. The location for these header files (USS\_userConfig.h, USS\_meterVFRCalib.h and USS\_intrplCorrLUT.h) will default to a USS directory created in your home folder upon installation, at ~home/USS\_VERSION/USSWorkspace/USS\_Project/headers. The header files will be generated with the appropriate parameters contained in the current GUI configuration filled out for use importing to the user application. This allows for easy configuration of IDE projects with the same configurations used when tuning in the GUI.
+
+**Note** The parameters shown below from the **Parameter Configuration** require the user to regenerate the header file and recompile the code:
+
+-  Pulse Mode (Single Tone, Dual Tone, ...)
+-  Volume Flow Rate Calibration Ranges
+-  USSXT (kHz)
+-  Interpolation Correction Table Size
+-  Algorithm Option
+
+**User Parameters**
+
+The USS Design Center provides six user-reserved parameters on the GUI. These allow the user to implement a target-side handler for these commands and integrate their own configuration options to be controlled from the Design Center.
+
+More information on the structure of the HID packets exists in the USS Software Library documentation set.
+
+Timing Diagram
+--------------
+
+.. figure:: images/timing_diagram.PNG
+   :alt: Interactive Timing Diagram
+
+   Interactive Timing Diagram
+
+The interactive timing diagram provides a way to visualize the number of excitation pulses, UPS0 to UPS1 gap, and UPS and DNS gap. Additionally, users can configure the number of pulses and UPS and DNS gap by clicking and dragging the white (pulses) and green (UPS and DNS gap) boxes to the left or right to increase or decrease the current value.
+
+Currently, the USS library implementation does not reflect the timing diagram perfectly. The current library implementation has the UPS0 to UPS1 gap implemented as the **end of the last excitation pulse in Channel 1 to the beginning of the next excitation pulse series in Channel 0**. Future implementations of the USS library will match the displayed timing diagram, where the UPS0 to UPS1 gap is from the beginning of an excitation series to the beginning of the next excitation series in the same channel.
+
+More Information
+----------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

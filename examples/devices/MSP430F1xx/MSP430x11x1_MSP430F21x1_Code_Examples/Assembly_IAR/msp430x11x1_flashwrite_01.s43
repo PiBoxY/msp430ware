@@ -1,0 +1,116 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;*****************************************************************************
+;   MSP430x11x1 Demo - Flash In-System Programming, Copy SegA to SegB
+;
+;   Description: This program first erases flash seg A, then it increments all
+;   values in seg A, then it erases seg B, then copies seg A to seg B.
+;   Assumed MCLK 550kHz - 900kHz.
+;   //* Set Breakpoint in the Mainloop to avoid Stressing Flash *//
+;
+;                MSP430F1121
+;             -----------------
+;         /|\|              XIN|-
+;          | |                 |
+;          --|RST          XOUT|-
+;            |                 |
+;
+#define     value   R4
+;
+;   M. Buccini
+;   Texas Instruments Inc.
+;   Feb 2005
+;   Built with IAR Embedded Workbench Version: 3.21A
+;*****************************************************************************
+#include <msp430.h>
+;------------------------------------------------------------------------------
+            ORG     0F000h                  ; Program Start
+;------------------------------------------------------------------------------
+RESET       mov.w   #300h,SP                ; Initialize stackpointer
+StopWDT     mov.w   #WDTPW+WDTHOLD,&WDTCTL  ; Stop WDT
+            clr.b   value                   ; value = value to write to flash
+                                            ;				          							
+Mainloop    call    #Write_SegA             ; Copy value to segment A
+            inc.b   value                   ;
+            call    #CopyA2B                ;
+            jmp     Mainloop                ; Repeat,SET BREAKPOINT HERE
+                                            ;
+;------------------------------------------------------------------------------
+Write_SegA ;Input = value, holds value to write to Seg A, R5 used as working reg.
+;------------------------------------------------------------------------------
+            mov.w   #01080h,R5              ;
+Timing      mov.w   #FWKEY+FSSEL0+FN0,&FCTL2  ; *Timing generator = MCLK/2
+Erase_SegA  mov.w   #FWKEY,&FCTL3           ; Lock = 0
+            mov.w   #FWKEY+ERASE,&FCTL1     ; Erase bit = 1
+            mov.w   #0,&01080h              ; Dummy write to SegA to erase
+Prog_SegA   mov.w   #FWKEY+WRT,&FCTL1       ; Write bit = 1
+Prog_L1     mov.b   value,0(R5)             ;
+            inc.w   R5                      ;
+            cmp.w   #01100h,R5              ;
+            jne     Prog_L1                 ;
+            mov.w   #FWKEY+LOCK,&FCTL3      ; Lock = 1
+            ret                             ;
+                                            ;
+;------------------------------------------------------------------------------
+CopyA2B    ;Copy Seg A to Seg B, R5 used as working reg.
+;------------------------------------------------------------------------------
+            mov.w   #FWKEY+FSSEL0+FN1,&FCTL2  ; *Timing generator = MCLK/3
+Erase_SegB  mov.w   #FWKEY,&FCTL3           ; Lock = 0
+            mov.w   #FWKEY+ERASE,&FCTL1     ; Erase bit = 1
+            mov.w   #0,&01000h              ; Dummy write to SegB to erase
+            mov.w   #01080h,R5              ; R5 = First byte in Seg A
+Prog_SegB   mov.w   #FWKEY+WRT,&FCTL1       ; Write bit = 1
+Prog_L2     mov.b   @R5+,-129(R5)           ; Copy Seg A to Seg B
+            cmp.w   #01100h,R5              ;
+            jne     Prog_L2                 ;
+            mov.w   #FWKEY+LOCK,&FCTL3      ; Lock = 1
+            ret
+
+;-----------------------------------------------------------------------------
+;           Interrupt Vectors
+;-----------------------------------------------------------------------------
+            ORG     0FFFEh                  ; MSP430 RESET Vector
+            DW      RESET                   ;
+            END

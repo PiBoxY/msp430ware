@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+<project>
+    <path>$WS_DIR$\M1_FileSystemEmulation/IAR/M1_FileSystemEmulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\M4_DoubleBuffering/IAR/M4_DoubleBuffering.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\M3_MultipleLUN/IAR/M3_MultipleLUN.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\M2_SDCardReader/IAR/M2_SDCardReader.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\M5_CDROM/IAR/M5_CDROM.ewp</path>
+  </project>
+  
+  <batchBuild/>
+</workspace>
+

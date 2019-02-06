@@ -1,0 +1,19 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>XT2 in BYPASS Mode</h1>
+        <p>Associated constant in the API stacks:  <span class="attribute">USB_XT2_BYPASS_MODE</span>.  (Not reported in the USB descriptors.) </p>
+        <p><span class="suggestion">Suggested default:</span>  leave it unchecked, and allow the on-board XT2 crystal to provide the signal source. </p>  
+        <p>Some devices support XT2 bypass operation with external clock inputs that reside on a different external supply domain.  The API enables the XT2 oscillator to be placed in Bypass mode when external clock signal is preferred. </p> 
+        <p>If this box is checked, the API will set the XT2 crystal in BYPASS mode and external signals can be passed in via the XT2IN pin.  If the box is not checked and the selected device has the second crystal oscillator, XT2, it will be used as the signal source. </p>
+    </body>
+</html>

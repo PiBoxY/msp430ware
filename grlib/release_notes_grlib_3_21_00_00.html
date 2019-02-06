@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+		<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+		<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><!-- /* * Copyright 2007 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ -->
+		<title>MSP Graphics Library</title><!-- For now, we use the doxygen style sheet --><link href="doc/grlib/html/doxygen.css" rel="stylesheet" type="text/css"></head>
+<body>
+		<table width="100%">
+			<tbody>
+				<tr>
+					<td bgcolor="black" width="1"><a href="http://www.ti.com"><img src="doc/grlib/html/tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+					<td bgcolor="red"><img src="doc/grlib/html/titagline.gif"></td>
+				</tr>
+			</tbody>
+		</table>
+		<h1>MSP Graphics Library &nbsp;3.21.00.00</h1>
+		<h2>Release Notes&nbsp;</h2>
+		<p>Document Revision: 021516.1804</p>
+		<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+		<p>This is the MSP430 Graphics Library.</p>
+		<p>Graphics library provides an easy way to display text, graphics, and images on various LCD displays.</p>
+		<p>It also provides templates for adding new displays.</p>
+		<p>This document is divided into the following sections:</p>
+		<ul>
+			<li><a href="#Documentation">Documentation</a></li>
+			<li><a href="#Whats_New">What's New</a></li>
+			<li><a href="#Revision_History">Revision History</a><br>
+			</li><li><a href="#Installation%20and%20Usage">Installation and Usage</a></li>
+			<li><a href="#Host_Support">Host Support</a></li>
+			<li><a href="#Dependencies">Dependencies</a></li>
+			<li><a href="#Device_Support">Device Support</a></li>
+			<li><a href="#Validation">Validation Information</a></li>
+			<li><a href="#Upgrade">Upgrade and Compatibility Information</a></li>
+			<li><a href="#Examples">Examples</a></li>
+			<li><a href="#Known_Issues">Known Issues</a></li>
+			<li><a href="#Versioning">Versioning</a></li>
+			<li><a href="#Technical_Support">Technical Support and Product Updates</a></li>
+		</ul>
+		<h2><a name="Documentation" id="Documentation">Documentation</a></h2>
+		<ul>
+			<li style="margin-left: 40px;"><a href="doc/grlib/html/index.html">Graphics Library API Index</a></li>
+			<li style="margin-left: 40px;"><a href="doc/grlib/MSP_Graphics_Library-3_21_00_00.pdf">Graphics Library Users Guide</a></li>
+		</ul>
+		<h2><a name="Whats_New" id="Whats_New">What's New</a></h2>
+		<span style="font-weight: bold;">3.21.00.00<br></span>
+		<br><ul>
+			<li>This version of &nbsp; grlib has been updated to be compliant with the CMSIS-Core standard header files for MSP432<span style="color: rgb(38, 38, 38); font-family: arial,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 16px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; display: inline ! important; float: none;"></span></li><li>Refer to <a href="http://www.ti.com/MSP432CMSIS">http://www.ti.com/MSP432CMSIS</a>&nbsp; for detailed changes, conversion guide and background information</li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">The base address/module instance name in MSP432 code examples&nbsp;have been changed from {PERIPHERAL_NAME}_MODULE to </span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">{PERIPHERAL_NAME}_BASE per the new device header file definitions. For example TIMER_A0_MODULE to TIMER_A0_BASE</span></li><li>The driverlib code examples have been updated with the following new files per each IDE requirement</li><ul><li>system_msp432p401r.c</li></ul><ul><li>startup_msp432p401r_ccs.c</li><li>startup_msp432p401r_ewarm.c<br></li></ul>
+		</ul><h2><a name="Revision_History" id="Revision_History">Revision History</a></h2>
+		<span style="font-weight: bold;">2.01.00.01<br></span>
+<ul><li>Added Mac OSX and Linux support for Image Reformer. </li></ul><br><span style="font-weight: bold;">2.00.00.17:<br></span>
+<ul><li>Added new APIs that are compliant with&nbsp;Texas Instruments new coding 
+guidelines. </li></ul>
+<ul><li>
+<p>Added support to draw: 
+</p><ul><li>Buttons 
+</li><li>Image Buttons 
+</li><li>Radio Buttons 
+</li><li>Check Boxes 
+<p></p>
+<p>Please refer to the updated example projects which have been updated to use 
+the new buttons APIs. </p></li></ul></li></ul>
+<ul><li>Added three new examples: 
+<ul><li>MSP-EXP432P401R_GrlibExample 
+<ul><li>This example showcases grlib on MSP-EXP432P401R + BOOSTXL-K350SVG-S1 
+Boosterpack </li></ul>
+</li><li>
+</li><li>MSP-EXP430F5529LP_GrLibExample 
+<ul><li>This example showcases grlib on MSP-EXP430F5529LP + BOOSTXL-K350SVG-S1 
+Boosterpack </li></ul>
+</li><li>
+</li><li>MSP-EXP430FR4133_Grlib_Example 
+<ul><li>This example showcases grlib on MSP-EXP430FR4133 + 430BOOST-SHARP96 
+Boosterpack </li></ul></li></ul>
+</li><li>Grlib can now be built in DRIVERLIB_LEAGACY_MODE </li></ul><br><span style="font-weight: bold;">1.20.03.05:<br></span>
+		<ul>
+			<li>Updated driverlib to version 1_80_00_18</li>
+			<li>Grlib can now be built in DRIVERLIB_LEAGACY_MODE</li>
+		</ul>
+		<span style="font-weight: bold;">1.20.02.04:<br></span>
+		<ul>
+			<li>Updated MSP-EXP430FR5969_Grlib_Example and MSP-EXP430G2_Grlib_Example example projects</li>
+				<ul>
+					<li>Splited driver file "Sharp96x96.c" and "Sharp96x96.h" in LCD specific functionality and device specific functionality</li>
+					<ul>
+						<li>All fucntionality related to Sharp96x96 LCD are contained in "Sharp96x96.c" and "Sharp96x96.h"</li>
+						<li>All device specific fucntionality  are contained in "HAL_MSP-EXP430xxx_Sharp96x96.c" and "HAL_MSP-EXP430xxx_Sharp96x96.h"</li>
+					</ul>
+				</ul>
+		</ul>
+		<span style="font-weight: bold;">1.20.01.01:<br></span>
+		<ul>
+			<li>Converted GRLib Source Code to use C99 data types.</li>
+			<li>Removed IAR project binaries from:
+				<ul>
+					<li>Empty_Project_MSP430FR5xx_6xx_Grlib_Example</li>
+					<li>Empty_Project_MSP430FR57xx_Grlib_Example</li>
+					<li>MSP-EXP430F5659_Grlib_Example</li>
+				</ul>
+			</li>
+		</ul>
+		<span style="font-weight: bold;">1.20.00.09:<br></span>
+		<ul>
+			<li>Added MSP-EXP430G2_Grlib_Example</li>
+			<li>CCS project uses projectspec file which allows copying files to workspace instead of linking files</li>
+			<li>Updated
+MSP-EXP430FR5969 example to disable the GPIO power-on default
+high-impedance mode to activate previously configured port settings</li>
+			<li>MSP430 Image Reformer Tool is not included in Graphics Library standalone version</li>
+			<li>MSP430 Image Reformer con be launch for CCS TI Resource Explorer</li>
+			<li>Removed device specific pin definition on LCD driver files for generic pin definition contained in lcddriver header file.</li>
+			<li>Removed unecessary removed unnecessary commented out code</li>
+			<li>Fixed improper SPI communication closeout on Sharp LCD drivers</li>
+			<li>Remove extra pin initialization from Sharp LCD Initialization routine</li>
+			<li>Fixed Byte reversal function for MSP-EXP430FR5969</li>
+		</ul>
+		<span style="font-weight: bold;">1.10.00.00:<br></span>
+		<ul>
+			<li>Fixed MSP-EXP430FR5969 to accomodate hardware changes on Sharp96x96 Boosterpack</li>
+			<li>Implemented bit revesal function on assembly for sharp lcds</li>
+			<li>Created empty project examples for MSP430F5xx_6xx, MSP430FR57xx, MSP430FR5xx_6xx using driverlib.</li>
+		</ul>
+
+		<h2><a name="Installation and USage" id="Installation and Usage">Installation and Usage</a></h2>
+		<p class="MsoNormal" style="margin: 5pt 0in;">
+		</p><p>Core library is installed as part of MSPware Driver Library or can be download as a stand alone library.</p>
+		<p>Graphical Image Reformer Tool may be found <a href="">here</a>. 
+		</p><p>Graphical
+Image Reformer Tool allows you to convert an image to 2, 4, 8, 16, 256
+bits per pixel and resize an image to fit on your particular display. </p>
+		<p>The Graphics Library contains the following components. </p>
+		<table style="width: 666px; height: 160px;" border="1">
+			<tbody>
+				<tr>
+					<td>doc</td>
+					<td>API Guide and Users Guide</td>
+				</tr>
+				<tr>
+					<td>drivers</td>
+					<td>MSP430 Peripheral Driver Library peripheral specific code examples</td>
+				</tr>
+				<tr>
+					<td>html </td>
+					<td>Graphics Library documentation</td>
+				</tr>
+				<tr>
+					<td>LCD_Drivers</td>
+					<td>LCD Driver files and templates</td>
+				</tr>
+				<tr>
+					<td>MSP-EXP432P401R_GrlibExample_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP432P401R</td>
+				</tr>
+				<tr>
+					<td>MSP-EXP430G2_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP430G2553</td>
+				</tr>
+				<tr>
+					<td>MSP-EXP430FR5969_Grlib_Example </td>
+					<td>Graphics Library Example Code for MSP430FR5969</td>
+				</tr>
+				<tr>
+					<td>MSP-EXP430FR4133_Grlib_Example </td>
+					<td>Graphics Library Example Code for MSP430FR4133</td>
+				</tr>
+				<tr>
+					<td>MSP-EXP430F5438_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP430F5438</td>
+				</tr>
+				<tr>
+					<td>MSP-EXP430F5529_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP430F5529</td>
+				</tr>
+				<tr>
+					<td>MSP-EXP430F5529LP_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP430F5529 Launchpad + BOOSTXL-K350SVG-S1 </td>
+				</tr>
+				<tr>
+					<td>Empty_Project_MSP430F5xx_6xx_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP430F5xx_6xx using driverlib API calls</td>
+				</tr>
+				<tr>
+					<td>Empty_Project_MSP430FR5xx_6xx_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP430FR5xx_6xx using driverlib API calls</td>
+				</tr>
+				<tr>
+					<td>Empty_Project_MSP430F57xx_6xx_Grlib_Example</td>
+					<td>Graphics Library Example Code for MSP430F57xx using driverlib API calls</td>
+				</tr>
+				<tr>
+					<td>Empty_Project_No_Driverlib_Grlib_Example</td>
+					<td>Graphics Library Example Code not using driverlib API calls</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2><a name="Upgrade_Info" id="Upgrade_Info">Upgrade Information</a></h2>
+		<p>N/A</p>
+		<h2><a name="Host_Support" id="Host_Support">Host Support</a></h2>
+		<p>This release supports installation and development on Microsoft Windows XP Workstations.</p>
+		<h2><a name="Dependencies" id="Dependencies">Dependencies</a></h2>
+		<ul>
+			<li>MSP430 Graphics Library Dependencies:</li>
+				<ul>
+					<li>CCS5.4+</li>
+					<li>IAR 5.40+</li>
+				</ul><br><br>
+			<li>MSP430 Graphics Library Examples Dependencies:</li>
+				<ul><br>
+					<li>CCS5.4+ and IAR5.40+</li>
+						<ul>
+							<li>MSP-EXP430G2_Grlib_Example</li>
+							<li>MSP-EXP430F5438_Grlib_Example</li>
+							<li>MSP-EXP430F5529_Grlib_Example</li>
+							<li>MSP-EXP430F5529LP_Grlib_Example</li>
+							<li>Empty_Project_MSP430F5xx_6xx_Grlib_Example</li>
+							<li>Empty_Project_No_Driverlib_Grlib_Example</li>
+						</ul><br>
+					<li>CCS5.4+ and IAR5.51+</li>
+						<ul>
+							<li>MSP-EXP430F5659_Grlib_Example</li>
+						</ul><br>
+					<li>CCS5.5+ and IAR5.60+</li>
+						<ul>
+							<li>MSP-EXP430FR5969_Grlib_Example </li>
+							<li>Empty_Project_MSP430FR5xx_6xx_Grlib_Example</li>
+							<li>Empty_Project_MSP430FR57xx_Grlib_Example</li>
+							<li>MSP-EXP430FR4133_Grlib_Example</li>
+						</ul>
+					<li>CCS6.1+ and IAR Embedded Workbench for ARM 7.20</li>
+						<ul>
+							<li>MSP-EXP432P401R_GrlibExample</li>
+						</ul>	
+				</ul>
+		</ul>		
+		<h2><a name="Device_Support" id="Device_Support">Device
+		Support</a></h2>
+		This release supports the Texas Instruments MSP430
+		&nbsp;device family.<br>
+		<h2><a name="Validation" id="Validation">Validation
+		Information</a></h2>
+		<p>This release is a GA version.
+		</p>
+		<h2><a name="Upgrade" id="Upgrade">Upgrade and Compatibility Information</a></h2>
+		N/A<br>
+		<br>
+		<h2><a name="Exmaples" id="Exmaples">Examples</a></h2>
+		<p>The examples may be built with either IAR or CCS. To build the examples navigate to <a href="examples/grlib/">example folder</a>, select a project and
+		click the .eww project files for IAR or import the .projectspec file for CCS.<br>
+		</p>
+		<p>Current supported eperimenters boards are found in the <a href="#Device_Support">Device Support</a> section of the release notes.</p>
+
+
+		<h2><a name="Known_Issues" id="Known_Issues">Known Issues</a></h2>
+		<h3>Outstanding Defects</h3>
+		<br>
+		<table class="bz_buglist" style="color: rgb(0, 0, 0); font-family: Helvetica,Arial,Geneva; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;" cellpadding="4" cellspacing="0" width="100%">
+		<tbody>
+		<tr id="b1317" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_odd" style="background-color: rgb(240, 240, 240); color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1317</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">do not force black and
+		white in palette</span></td>
+		</tr>
+		<tr id="b1638" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_even" style="background-color: white; color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1638</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">1BPP Edge Detection Option</span></td>
+		</tr>
+		<tr id="b1649" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_odd" style="background-color: rgb(240, 240, 240); color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1649</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">Display Image size in flash</span></td>
+		</tr>
+		<tr id="b1863" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_even" style="background-color: white; color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1863</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">Open/Save File Path Memory</span></td>
+		</tr>
+		<tr id="b1867" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_odd" style="background-color: rgb(240, 240, 240); color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1867</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">Use Chris' 8BPP algorithm
+		instead of stock Java algorithm</span></td>
+		</tr>
+		<tr id="b1885" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_even" style="background-color: white; color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1885</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">Add blurring filter before
+		image conversion into c-string</span></td>
+		</tr>
+		<tr id="b1886" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_odd" style="background-color: rgb(240, 240, 240); color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1886</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">Additional DCT option for
+		better image compression</span></td>
+		</tr>
+		<tr id="b1887" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_even" style="background-color: white; color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1887</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">Change compression options
+		from compressed or not, to table of 3 compression options</span></td>
+		</tr>
+		<tr id="b1888" class="bz_bugitem bz_enhancement bz_--- bz_CONFIRMED bz_row_odd" style="background-color: rgb(204, 204, 255); color: rgb(102, 102, 102);">
+		<td class="first-child bz_id_column" style="font-family: Verdana,sans-serif; font-size: small; padding-left: 20px;"><span style="color: rgb(102, 51, 102);">1888</span></td>
+		<td class="bz_short_desc_column" style="font-family: Verdana,sans-serif; font-size: small;"><span style="color: rgb(102, 51, 102);">Add Loading screen to GUI
+		during image generation</span></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3><br>
+		</h3>
+		<br>
+		<hr><br>
+		<h2><a name="Versioning" id="Versioning">Versioning</a></h2>
+		<p>This is build 3.21.00.00 of&nbsp; MSP430 Graphics Library</p>
+		<h2><a name="Technical_Support" id="Technical_Support">Technical Support and Product Updates</a></h2>
+		<h2>Support</h2>
+		<ul>
+			<li>Please visit the <a href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP430 E2E forum</a> for driver library support.<br></li>
+			<li>For other questions and support, please visit <a href="http://support.ti.com/">support.ti.com</a>.</li>
+			<li>E-Mail us directly at&nbsp;<font size="3"><big><big><span style="font-size: 12pt;"><a title="mailto:msp430ware@list.ti.com" href="mailto:msp430ware@list.ti.com">msp430ware@list.ti.com.</a></span></big></big></font><font face="Times New Roman" size="3"><span style="font-size: 12pt;"><o:p></o:p></span></font></li>
+		</ul>
+		<h2>Additional Resources</h2>
+		<p>For more information, visit <a href="http://www.ti.com">www.ti.com</a>.</p>
+	</body></html>

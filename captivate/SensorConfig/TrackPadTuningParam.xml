@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TuningParams>
+    <TrackPad_Filter_Type>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Filters.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <valueMap>
+            <map name="Static" value="0" />
+            <map name="Dynamic" value="1" />
+        </valueMap>
+        <cmd>0x66</cmd>
+    </TrackPad_Filter_Type>
+
+    <TrackPad_Filter_Beta>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Filters.html</description_file>
+        <default>80</default>
+        <min>0</min>
+        <max>255</max>
+        <cmd>0x61</cmd>
+    </TrackPad_Filter_Beta>
+
+    <TrackPad_Filter_Enable>
+        <classification>sensor</classification>
+        <type>boolean</type>
+		<description_file>TrackPad_Filters.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <cmd>0x60</cmd>
+    </TrackPad_Filter_Enable>
+
+    <Dynamic_Beta_Top_Speed>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Filters.html</description_file>
+        <default>150</default>
+        <min>0</min>
+        <max>65535</max>
+        <cmd>0x63</cmd>
+    </Dynamic_Beta_Top_Speed>
+
+    <Dynamic_Beta_Bottom_Speed>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Filters.html</description_file>
+        <default>10</default>
+        <min>0</min>
+        <max>65535</max>
+        <cmd>0x64</cmd>
+    </Dynamic_Beta_Bottom_Speed>
+
+    <Dynamic_Filter_Lower_Beta>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Filters.html</description_file>
+        <default>10</default>
+        <min>0</min>
+        <max>255</max>
+        <cmd>0x65</cmd>
+    </Dynamic_Filter_Lower_Beta>
+
+    <Desired_Resolution_X_Axis>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Resolution.html</description_file>
+        <default>1000</default>
+        <min>2</min>
+        <max>65534</max>
+        <cmd>0x67</cmd>
+    </Desired_Resolution_X_Axis>
+
+    <Desired_Resolution_Y_Axis>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Resolution.html</description_file>
+        <default>1000</default>
+        <min>2</min>
+        <max>65534</max>
+        <cmd>0x68</cmd>
+    </Desired_Resolution_Y_Axis>
+
+    <Upper_Trim_X_Axis>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Trim.html</description_file>
+        <default>1000</default>
+        <min>0</min>
+        <max>65535</max>
+        <cmd>0x6A</cmd>
+    </Upper_Trim_X_Axis>
+
+    <Lower_Trim_X_Axis>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Trim.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>65535</max>
+        <cmd>0x69</cmd>
+    </Lower_Trim_X_Axis>
+
+    <Upper_Trim_Y_Axis>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Trim.html</description_file>
+        <default>1000</default>
+        <min>0</min>
+        <max>65535</max>
+        <cmd>0x6C</cmd>
+    </Upper_Trim_Y_Axis>
+
+    <Lower_Trim_Y_Axis>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>TrackPad_Trim.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>65535</max>
+        <cmd>0x6B</cmd>
+    </Lower_Trim_Y_Axis>
+	
+    <Tap_Time_Min_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Tap_Parameters.html</description_file>
+		<default>4</default>
+        <min>1</min>
+        <max>65535</max>
+        <cmd>0x70</cmd>
+        <group>TrackPad Gestures</group>
+    </Tap_Time_Min_Threshold>
+
+    <Tap_Time_Max_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Tap_Parameters.html</description_file>
+		<default>16</default>
+        <min>1</min>
+        <max>65535</max>
+        <cmd>0x71</cmd>
+        <group>TrackPad Gestures</group>
+    </Tap_Time_Max_Threshold>
+
+    <Double_Tap_Time_Max_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Tap_Parameters.html</description_file>
+		<default>20</default>
+        <min>1</min>
+        <max>65535</max>
+        <cmd>0x73</cmd>
+        <group>TrackPad Gestures</group>
+    </Double_Tap_Time_Max_Threshold>
+
+    <Tap_Hold_Time_Min_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Tap_Parameters.html</description_file>
+		<default>40</default>
+        <min>1</min>
+        <max>65535</max>
+        <cmd>0x74</cmd>
+        <group>TrackPad Gestures</group>
+    </Tap_Hold_Time_Min_Threshold>
+
+    <Swipe_Time_Max_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Swipe_Parameters.html</description_file>
+		<default>30</default>
+        <min>1</min>
+        <max>65535</max>
+        <cmd>0x72</cmd>
+        <group>TrackPad Gestures</group>
+    </Swipe_Time_Max_Threshold>
+
+    <Swipe_Distance_Min_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>TrackPad_Swipe_Parameters.html</description_file>
+        <default>150</default>
+        <min>1</min>
+        <max>65535</max>
+        <cmd>0x75</cmd>
+        <group>TrackPad Gestures</group>
+    </Swipe_Distance_Min_Threshold>
+	    
+</TuningParams>
+

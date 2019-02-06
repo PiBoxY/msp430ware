@@ -1,0 +1,23 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Product ID</h1>
+        <p>Associated descriptor field:  <span class="attribute">idProduct</span> (in the Device Descriptor) </p>
+        <p>The PID is a 16-bit value assigned by the entity that owns the Vendor ID (VID).  Enter the value in the format 0xnnnn, where nnnn is a four-digit hex number.</p>
+        <p>If your company already has a VID, then someone in the company likely maintains a list of valid PIDs within that VID space.  </p>
+        <p>When shipping your device as a product, be sure the PID is unique; the host will use the VID/PID combination to identify this product from all other USB products it may encounter.  Specifically, it may cache information from the device's USB descriptors, indexed by VID/PID.  If distributing a USB product to end users, a non-unique VID/PID can lead to driver conflicts on their PC's. </p>
+        <p>Even in your own development, you need to be aware of this.  If you enumerate a USB device, change its descriptors without changing the VID/PID, and then re-enumerate the device on the same USB host, the host may get confused.</p>
+        <p>TI-MSP430 has allocated a range of PIDs within its own VID space (0x2047), that you can use during development or for experimentation: &nbsp;
+VID:  0x2047&nbsp;
+PID:  somewhere in the range of 0x03DF-0x03FD. </p>
+    </body>
+</html>

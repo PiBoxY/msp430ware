@@ -1,0 +1,227 @@
+################################################################################
+#                                                                              #
+#      IAR Universal Linker V5.4.1.30                                          #
+#                                                                              #
+#           Link time     =  30/Aug/2013  15:38:01                             #
+#           Target CPU    =  MSP430                                            #
+#           List file     =  C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\List\HID4BSL.map                    #
+#           Output file 1 =  C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Exe\HID4BSL.txt                     #
+#                            Format: msp430_txt                                #
+#           Output file 2 =  C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Exe\HID4BSL.d43                     #
+#                            Format: debug                                     #
+#                            UBROF version 10.0.6                              #
+#           Command line  =  C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\BSL430_API.r43                  #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\BSL430_Command_Interpreter.r43  #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\BSL430_USB_PI.r43               #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\UsbApi.r43                      #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\UsbHidReq.r43                   #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\UsbIsr.r43                      #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\cstartup.r43                    #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\descriptors.r43                 #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\hal_UCS.r43                     #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Obj\usb.r43                         #
+#                            -o                                                #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\Exe\HID4BSL.d43                     #
+#                            -l                                                #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\Debug\List\HID4BSL.map                    #
+#                            -xsni                                             #
+#                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
+#                            rkbench 6.4_2\430\LIB\"                           #
+#                            -f                                                #
+#                            C:\ClearCase\msp430f5509_VCORE_FIX\msp430f5509_VC #
+#                            ORE_FIX\CONFIG\lnk430F5509_RAM_AREA.xcl           #
+#                            (-cmsp430                                         #
+#                            -Z(CONST)BSL430_VERSION_VENDOR=2500-2500          #
+#                            -Z(CONST)BSL430_VERSION_CI=2501-2501              #
+#                            -Z(CONST)BSL430_VERSION_API=2502-2502             #
+#                            -Z(CONST)BSL430_VERSION_PI=2503-2503              #
+#                            -Z(DATA)DATA16_I,DATA16_Z,DATA16_N,DATA16_HEAP+_D #
+#                            ATA16_HEAP_SIZE=2400-24FF                         #
+#                            -Z(DATA)DATA20_I,DATA20_Z,DATA20_N,DATA20_HEAP+_D #
+#                            ATA20_HEAP_SIZE                                   #
+#                            -Z(DATA)CSTACK+_STACK_SIZE=3200-3400              #
+#                            -Z(CODE)INFO=1800-19FF -Z(CODE)INFOA=1980-19FF    #
+#                            -Z(CODE)INFOB=1900-197F -Z(CODE)INFOC=1880-18FF   #
+#                            -Z(CODE)INFOD=1800-187F -Z(CODE)ZAREA=1000-100F   #
+#                            -Z(CODE)ZAREA_CODE=1010-1100                      #
+#                            -Z(CODE)BSL0=1010-11FF -Z(CODE)BSL1=1200-13FF     #
+#                            -Z(CODE)BSL2=1400-15FF -Z(CODE)BSL3=1600-17FF     #
+#                            -Z(CODE)CSTART,ISR_CODE=2504-31FF                 #
+#                            -Z(CONST)DATA16_C,DATA16_ID,DIFUNCT=2504-31FF     #
+#                            -P(CODE)CODE=2504-31FF                            #
+#                            -Z(CONST)DATA20_C,DATA20_ID=2504-31FF             #
+#                            -Z(CODE)INTVEC=FF80-FFFF                          #
+#                            -Z(CODE)RESET=FFFE-FFFF                           #
+#                            -Z(CONST)CHECKSUM=FF80-FF81 -Hffff                #
+#                            -J2,crc16,,,,,#0xFFFF=2500-31FF                   #
+#                            -Z(CONST)BSLSIG=0x17F0-17FB                       #
+#                            -Z(CONST)JTAGLOCK_KEY=0x17FC-17FF) -f             #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 6.4_2\430\config\multiplier32_loc2.xcl"     #
+#                            (-e?Mul8HwLoc2=?Mul8 -e?Mul16HwLoc2=?Mul16        #
+#                            -e?Mul16to32uHwLoc2=?Mul16to32u                   #
+#                            -e?Mul16to32sHwLoc2=?Mul16to32s                   #
+#                            -e?Mul32Hw32Loc2=?Mul32                           #
+#                            -e?Mul64Hw32Loc2=_Mul64i                          #
+#                            -e?Mul32u32uto64iHw32Loc2=_Mul32u32uto64i         #
+#                            -e?Mul32fHwLoc2=_Mul32f                           #
+#                            -e_Mul64fHwPtrLoc2=_Mul64fPtr)                    #
+#                            -D_STACK_SIZE=190 -Fubrof                         #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 6.4_2\430\LIB\CLIB\cl430xsf.r43"            #
+#                            -e_small_write=_formatted_write                   #
+#                            -e_medium_read=_formatted_read                    #
+#                            -D_DATA16_HEAP_SIZE=0                             #
+#                            -Omsp430_txt=C:\ClearCase\msp430f5509_VCORE_FIX\m #
+#                            sp430f5509_VCORE_FIX\Debug\Exe\HID4BSL.txt        #
+#                            -s __program_start -D_DATA20_HEAP_SIZE=50         #
+#                                                                              #
+#                           Copyright (C) 1987-2012 IAR Systems AB.            #
+################################################################################
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *           CROSS REFERENCE            *
+                *                                      *
+                ****************************************
+
+       Program entry at :           2504  Relocatable, from module : ?cstart
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  __SystemLibrary = CLib
+  __core          = 430X
+  __data_model    = small
+  __double_size   = 32
+  __pic           = no
+  __reg_r4        = free
+  __reg_r5        = free
+  __rt_version    = 3
+
+                ****************************************
+                *                                      *
+                *    AUTOMATIC SYMBOL REDIRECTIONS     *
+                *                                      *
+                ****************************************
+
+                  There are no automatic symbol redirections.
+
+
+
+                ****************************************
+                *                                      *
+                *            MODULE SUMMARY            *
+                *                                      *
+                ****************************************
+
+Module               CODE      DATA         CONST
+------               ----      ----         -----
+                    (Rel)  (Rel)  (Abs)  (Rel)  (Abs)
+?CHECKSUM                                    2
+?FILLER_BYTES         643
+?IndCallR11             4
+?cstart                18
+?reset_vector           2
+BSL430_API          2 564    219    182     81     18
+N/A (command line)           400
+------              -----    ---    ---     --     --
+Total:              3 231    619    182     83     18
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+
+SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
+=======              =====    =============   ===========     ====  ====  =====
+DATA16_AN                              0120 - 0121               2   rel    0
+                                       0140 - 0141               2 
+                                       0144 - 0145               2 
+                                       0152 - 0155               4 
+                                       0160 - 0165               6 
+                                       0168 - 0169               2 
+                                       0900 - 0905               6 
+                                       0908 - 0909               2 
+                                       0910 - 0915               6 
+                                       0920 - 0923               4 
+                                       092E - 0930               3 
+                                       093C - 093C               1 
+                                       093E - 093F               2 
+                                       2378 - 23BF              48 
+                                       23C8 - 2402              3B 
+DATA16_I                                  2403                       dse    0
+DATA16_AN                              2404 - 2404               1   rel    0
+                                       2406 - 2407               2 
+                                       240E - 240E               1 
+                                       2410 - 2412               3 
+                                       2414 - 2415               2 
+DATA16_Z                               2416 - 2454              3F   rel    0
+DATA16_N                               2456 - 24F1              9C   rel    1
+BSL430_VERSION_VENDOR
+                                       2500 - 2500               1   rel    0
+BSL430_VERSION_CI                      2501 - 2501               1   rel    0
+BSL430_VERSION_API                     2502 - 2502               1   rel    0
+BSL430_VERSION_PI                      2503 - 2503               1   rel    0
+CSTART                                 2504 - 2515              12   rel    1
+DATA16_AC                              2516 - 2527              12   rel    0
+DATA16_C                               2528 - 2574              4D   rel    0
+?FILL1                                 2575 - 2575               1   rel    0
+<CODE> 1                               2576 - 2F7D             A08   rel    1
+?FILL2                                 2F7E - 31FF             282   rel    0
+CSTACK                                 3200 - 338F             190   rel    1
+CHECKSUM                               FF80 - FF81               2   rel    0
+RESET                                  FFFE - FFFF               2   rel    1
+
+
+                ****************************************
+                *                                      *
+                *              CHECKSUMS               *
+                *                                      *
+                ****************************************
+
+Symbol      Checksum  Memory  Start  End   Initial value
+------      --------  ------  -----  ---   -------------
+__checksum    0x77f2   CODE   2500 - 31FF  0x84cf (#0xffff)
+
+                ****************************************
+                *                                      *
+                *        END OF CROSS REFERENCE        *
+                *                                      *
+                ****************************************
+
+ 2 588 bytes of CODE  memory (+              643 range fill )
+   619 bytes of DATA  memory (+ 182 absolute )
+    83 bytes of CONST memory (+  18 absolute )
+
+Errors: none
+Warnings: none
+

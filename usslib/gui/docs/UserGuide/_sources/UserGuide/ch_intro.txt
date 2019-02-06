@@ -1,0 +1,55 @@
+Introduction
+============
+
+Sections
+--------
+
+The Ultrasonic Sensing Design Center front-end is split into six main sections:
+
+-  `Configuration <ch_config.html>`__
+-  `Waveform Plots <ch_plotting.html>`__
+-  `ADC Capture Functionality <ch_adc.html>`__
+-  `Frequency Sweep <ch_freqsweep.html>`__
+-  `Debug Waveform <ch_debug_graph.html>`__
+-  `Error Handling <ch_errors.html>`__
+
+Logging information and system requirements are explained here:
+
+-  `Logging <ch_logging.html>`__
+-  `System Requirements <ch_sysreqs.html>`__
+
+Navigation
+----------
+
+The sections are accessed via the navigation menu below the main menu bar. Click the corresponding tab to access its contents.
+
+.. figure:: images/nav_bar.png
+   :alt: Navigation Bar
+
+   Navigation Bar
+
+Getting Started
+---------------
+
+USS Design Center comes with a Quick Start guide for the MSP430FR6047. The Quick Start guide can be accessed `here <http://www.ti.com/lit/pdf/slau720>`__, or directly from the GUI via the Help item on the main menu bar (Alt + H).
+
+.. figure:: images/quick_start_guide.png
+   :alt: Opening the Quick Start guide
+
+   Opening the Quick Start guide
+
+The GUI requires connection to a target board via USB. To connect or disconnect to a device, either use the Communications tab at the top (Alt + C), then click Connect or Disconnect. Alternatively, use F1 to connect and F2 to disconnect.
+
+The current connection status and target at the bottom left corner of the screen.
+
+.. figure:: images/hid_conn_bar.png
+   :alt: HID Connection Bar
+
+   HID Connection Bar
+
+For more information
+--------------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

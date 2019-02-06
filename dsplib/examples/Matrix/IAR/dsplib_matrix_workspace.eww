@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\matrix_ex1_add_q15\matrix_ex1_add_q15.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\matrix_ex2_trans_q15\matrix_ex2_trans_q15.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\matrix_ex3_mpy_q15\matrix_ex3_mpy_q15.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

@@ -1,0 +1,314 @@
+<!--
+`ti-splashscreen`
+
+Texas Instruments About Box - can display an application name, version number and copyright information with TI logo and branding.
+
+@group TI GUIComposer
+@element ti-splashscreen
+-->
+<!--
+    Copyright (c) 2014, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+    its contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=560, initial-scale=1.0, maximum-scale=1.0">
+<meta name="mobile-web-app-capable" content="yes">
+<!-- <meta http-equiv="refresh" content="5;url=index.html" />  -->
+
+<style>
+    :host {
+        position: fixed;
+        top: 0 !important;
+        left: 0 !important;
+        opacity: 1;
+        z-index: 999;
+        pointer-events: none;
+        overflow: hidden;
+        width: 560px;
+        height: 270px;
+    }
+    
+    body {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        overflow: hidden;
+        font-size: 3vw;
+    }
+    
+    .banner {
+        height: 50px;
+        padding-bottom: 18px;
+        padding-right: 18px;
+    }
+    
+    .evmName {
+        font-size: 1em;
+    }
+    
+    #progressbar {
+        display: block;
+        width: 100%;
+        height: 6px;
+        position: fixed;
+        z-index: 99999;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 0;
+        background-color: red;
+    }
+    
+    #progressbar > div {
+        width: 0%;
+        /* Adjust with JavaScript */
+        
+        height: 6px;
+    }
+</style>
+
+
+    <!-- Boualem <<<----------------------------- -->
+    <script>
+        // this needs to first or as early as possible
+        try {
+            var crashhandler = require('ti_crashhandler')();
+
+            if (crashhandler.crashDumpFilesExist()) {
+                crashhandler.post();
+            }
+        } catch (ex) {
+            console.log("Error creating ti_crashhandler");
+            console.log(ex);
+        }
+
+        // this needs to second  
+        var gui = require('nw.gui');
+                
+        try {
+            var ti_uncaught_Exception_handler = require('ti_uncaught_Exception_handler');
+            ti_uncaught_Exception_handler.setApplicationName(gui.App.manifest.name);
+            ti_uncaught_Exception_handler.setApplicationVersion(gui.App.manifest.splash_version);
+            console.log("ti_uncaught_Exception_handler created");
+
+            if (ti_uncaught_Exception_handler.uncaughtExceptionLogFileExist()) {
+                ti_uncaught_Exception_handler.post();
+                console.log("ti_uncaught_Exception_handler posted a log file");
+            }
+
+        } catch (ex1) {
+            console.log("Error creating ti_uncaught_Exception_handler");
+            console.log(ex1);
+        }
+
+
+        // this needs to third  
+        var myConfig = {
+            handleUncaughtExceptions: false,
+            "fileLogger": {
+                //"logDirectory": "../..",
+                "logFilename": "designer.log",
+                "json": false,
+                "timestamp": true,
+                "maxRollingFiles": 5,
+                "maxFileSize": 3145728,
+                "levels": {
+                    "defaultLevel": "info"
+                }
+            }
+        };
+
+        var logger = require('ti_logger')(myConfig);
+        logger.info("------------------------Splash screen Started");
+    </script>
+    <!-- ------------------------------- Boualem>>> -->
+
+</head>
+
+<body bgcolor="#0">
+
+
+    <table style="-webkit-user-select: none; position: absolute; border: none; margin: 0px; padding: 0; z-index: 800; width: 100%; height: 100%; left: 0; ">
+        <tbody>
+            <tr style="height: 66%;">
+                <td colspan="2" style="width: 100%; vertical-align: bottom; padding-right:5%">
+
+                    <label id="splash_title" style=" display: block; z-index: 900; font-weight: bold; width: 100%; text-align: right; font-size: 2em; white-space: nowrap; color: #FFFFFF; padding-bottom: 0.1em;">
+                    </label>
+                    <label id="splash_app_name" class="evmName" style="display: block;  font-weight: bold; width: 100%; text-align: right; z-index: 900; font-size: 2em; white-space: nowrap; color: #CC0000; padding-bottom:0.1em">
+                    </label>
+
+                </td>
+            </tr>
+            <tr style="height: 33%">
+                <td style="width: 100%; text-align: right; vertical-align: top; padding-right: 5%">
+                    <table style="width: 100%; height: 57px; background-color:#CC0000">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: left; padding-left: 2%">
+                                    <!--	<label id="splashScreenProgressBar" visible="true" style="display: in-line; font: Helvetica Neue; color: #FFFFFF; font-size: 1.5em;">Loading ... 0%</label> -->
+                                </td>
+                                <td style="text-align: right;">
+                                    <object class="banner" type="image/svg+xml" data="..//images//ti_horiz_banner.svg"></object>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    <label id="splash_copyright" style="display: block;  width: 100%; text-align: right; z-index: 900; font-size: 0.6em; white-space: nowrap; color: #FFFFFF;  padding-bottom: 2em;">
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="progressbar">
+        <div></div>
+    </div>
+
+    <script>
+        // logic that requires that is fully initialized should go here
+        // splashScreenProgressBar = document.getElementById("splashScreenProgressBar");
+        //splashScreenProgressBar.setProgress(100);
+        var getOS = function () {
+            // default to linux because it is not always possible to tell it from
+            // the
+            // appVersion
+            var os = 'linux';
+            if (navigator.appVersion.indexOf("Mac") != -1)
+                os = 'mac';
+            if (navigator.appVersion.indexOf("Win") != -1)
+                os = 'win32';
+            return os;
+        };
+        //var gui = require('nw.gui');
+
+        var win = gui.Window.get();
+        window.onload = function () {
+            // To avoid flickering and displaying an blank frame during startup,
+            // the package.json sets "window": {"show": false} which hides the window.
+            // Make the splash window visible when the script starts executing
+            //win.resizeTo( 800,700);
+            win.show();
+            win.setAlwaysOnTop(true);
+            win.focus();
+        }
+        var myTimeout;
+
+        var path = require("path");
+        var fs = require('fs');
+        var splashDir = path.normalize(process.cwd());
+        var tiCloudDir = path.join(splashDir, '../../' + getOS() + '/TICloudAgent/loaders/DSLite/');
+        logger.info('TICloudAgent dir = ' + tiCloudDir);
+
+        var widget = document.getElementById('splashScreenProgressBar');
+        var progressBar = document.getElementById("progressbar");
+        var progressPercent = 0;
+        var new_win;
+        var splash_title_label = document.getElementById('splash_title');
+        var splash_app_name_label = document.getElementById('splash_app_name');
+        var splash_copyright_label = document.getElementById('splash_copyright');
+        splash_title_label.innerHTML = gui.App.manifest.splash_title;
+        splash_app_name_label.innerHTML = gui.App.manifest.splash_application_name;
+        splash_copyright_label.innerHTML = "&copy;&nbsp;" + gui.App.manifest.splash_copyright_notice;
+        var debugLoopCtr = 0;
+        var debugEnabled = gui.App.manifest.debug_enabled;
+        var debugSplashScreenEnabled = gui.App.manifest.debug_splashscreen_enabled;
+        var _updateProgress = function () {
+            progressPercent += 1;
+            if (progressPercent > 100.0) {
+                new_win.focus();
+                window.close();
+            } else {
+/*                if (progressPercent === 2) {
+                    //copy over the default ccxml file in order to support MSP430 Launchpads
+                    var defaultFilePath = path.join(tiCloudDir, 'MSP430.default');
+                    if (fs.existsSync(defaultFilePath)) {
+                        var ccxmlFile = fs.readFileSync(defaultFilePath,'utf8');
+                        fs.writeFileSync(path.join(tiCloudDir, 'MSP430.ccxml'),ccxmlFile);
+                        logger.info('Splashscreen.html: .ccxml file restored.');
+                    } else {
+                        logger.info('Splashscreen.html Error: could not find ' + defaultFilePath);
+                    }
+                }
+                */
+                if (progressPercent === 10) {
+                    // for debugging, to allow time to turn on debugger, uncomment out the next line,
+                    // set debugEnabled = true and modify package.json to show toolbar, frame, etc.
+
+                    if (debugSplashScreenEnabled && (debugLoopCtr < 16)) {
+                        progressPercent = 0;
+                        debugLoopCtr++;
+                    } else {
+                        new_win = gui.Window.open('../index.html', {
+                            title: gui.App.manifest.splash_title,
+                            show: true,
+                            toolbar: debugEnabled,
+                            frame: true,
+                            position: "center",
+                            width: gui.App.manifest.main_width,
+                            height: gui.App.manifest.main_height,
+                            min_width: 620,
+                            min_height: 420,
+                            icon: gui.App.manifest.window.icon
+                        });
+
+                        logger.info("Designer Window Opened");
+                        // If started in debug mode, restore the original package.json
+                        // file so that the app can be started normally by default
+                        if (debugEnabled) {
+                            fs.createReadStream(path.join(splashDir, 'package.orig')).pipe(fs.createWriteStream(path.join(splashDir, 'package.json')));
+                        }
+                       // logger.info("Splashscreen.html: About to restore default .ccxml file...");
+
+
+
+                    }
+
+                }
+                if (widget != null) {
+                    widget.innerHTML = progressPercent + "%";
+                }
+                progressBar.style.width = progressPercent + "%";
+
+                myTimeout = window.setTimeout(function () {
+                    updateProgress()
+                }, 20);
+            }
+        };
+        var updateProgress = _updateProgress.bind(this);
+        updateProgress();
+    </script>
+</body>
+
+</html>

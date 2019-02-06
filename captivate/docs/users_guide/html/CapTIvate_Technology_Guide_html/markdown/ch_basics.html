@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Capacitive Sensing Basics &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="Technology" href="ch_technology.html"/>
+        <link rel="prev" title="Introduction" href="ch_intro.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Capacitive Sensing Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#self-capacitance">Self Capacitance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#self-capacitance-parasitics">Self Capacitance Parasitics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parasitics-and-the-e-field">Parasitics and the E-Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#e-field-propagation">E-Field Propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#self-capacitance-summary">Self Capacitance Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mutual-capacitance">Mutual Capacitance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mutual-capacitance-parasitics">Mutual Capacitance Parasitics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tightly-coupled-e-fields">Tightly Coupled E-Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overlay-material-requirement">Overlay Material Requirement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mutual-capacitance-sensitivity">Mutual Capacitance Sensitivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mutual-capacitance-summary">Mutual Capacitance Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#true-matrix-capability">True Matrix Capability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_device.html">Device Family</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm.html">MSP-CAPT-FR2633 Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_boostxl_capkeypad.html">BOOSTXL-CAPKEYPAD Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_CAP_MINI.html">EVM430-CAPMINI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_workshop.html">Workshop (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Capacitive Sensing Basics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="capacitive-sensing-basics">
+<h1>Capacitive Sensing Basics<a class="headerlink" href="#capacitive-sensing-basics" title="Permalink to this headline">¶</a></h1>
+<p>This chapter provides a fundamental overview of self and mutual capacitance and capacitive sensing techniques.</p>
+<p>Capacitive sensing is performing a measurement to detect a capacitive change to a sensor element. A sensor element can be any conductive material (copper PCB plane, a wire, etc.) The change can be due to human interaction, such as a finger, ear, or hand. This is often termed &#8220;capacitive touch&#8221; or &#8220;proximity.&#8221; However, capacitive sensing is not limited to human interaction. Other objects or materials can change the capacitance of a sensor. This could be an organic or inorganic material. Think metals or liquids. In either case, the interpretation of the change in capacitance is what defines an application.</p>
+<p>Capacitance is a measure of an object&#8217;s ability to store electric charge. Any two conductive materials that are separated by an insulator will exhibit capacitance, if they are close enough together.</p>
+<p>A similar system can be created in which the second capacitor is actually a person interacting with the system</p>
+<ol class="arabic simple">
+<li>The copper electrode is constructed on FR4 PCB material, and has a free-space coupling capacitance to earth ground.</li>
+<li>A user touches the top of the overlay. The overlay is an insulator, and acts as a dielectric between the user and the copper electrode. Additional capacitance is added to the electrode.</li>
+</ol>
+<div class="figure">
+<img alt="" src="../_images/basic_self_diagram_1.png" />
+</div>
+<div class="section" id="self-capacitance">
+<h2>Self Capacitance<a class="headerlink" href="#self-capacitance" title="Permalink to this headline">¶</a></h2>
+<p>This method of measuring changes in capacitance with respect to earth ground is commonly referred to as self capacitance measurement. Sometimes it is also referred to as surface capacitance. In a parallel-plate model, the electrode defines one plate of the capacitor, with the other plate being ground (for C_electrode) or the user&#8217;s finger (for C_touch). A touch causes the capacitance of the electrode to increase. (Typically 1-10pF)</p>
+<p>When describing the various capacitances found in a capacitive touch solution, an equivalent circuit model can be helpful in visualizing the source of the different capacitances as well as the effect of each capacitance. Figure 2 is an example of an equivalent circuit for a single self-capacitance button.</p>
+<div class="figure" id="id1">
+<img alt="Equivalent Circuit" src="../_images/basic_self_diagram_2.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Equivalent Circuit</span></p>
+</div>
+<p>Five different capacitances are shown in figure below. C_ground is the capacitance between the local device under test (DUT) ground and earth ground. In some applications, local and earth ground are connected when the DUT uses mains power, but typically the local ground is capacitive coupled back to earth ground. C_trace and C_electrode is the capacitance between the trace and electrode structures back to the local ground. This capacitance is most directly affected by surrounding structures, typically ground pours, that are either on the same layer or on adjacent layers. Not shown is the capacitance between the trace and electrode structures and earth ground. These capacitances are not without merit; however, for simplicity and in the context of this document, the design guidelines are given with the principle of affecting the local capacitance (that is, separation between local ground and the traces and electrodes). The capacitance C_parasitics is a combination of the internal
+parasitic capacitance of the microcontroller and any components within the circuit. This capacitance is also referenced to local ground. The touch capacitance, C_touch, is the parallel plate capacitance formed between the touch interaction and the electrode. In the example of a touch, as the finger presses against the overlay, the flattened surface of the finger forms the upper plate and the electrode forms the lower plate. The capacitance is a function of the area of the two plates, the distance between them, and the dielectric of the material that separates them.</p>
+<div class="section" id="self-capacitance-parasitics">
+<h3>Self Capacitance Parasitics<a class="headerlink" href="#self-capacitance-parasitics" title="Permalink to this headline">¶</a></h3>
+<p>In addition to any PCB traces, wires, connecters, etc., there will be some parasitic capacitances to ground as well as to earth ground. Parasitic capacitances have the effect of decreasing the effect of a user&#8217;s touch in the system. This is a result of the fact that we are measuring change in capacitance.</p>
+<ul class="simple">
+<li>If we assume a change in capacitance due to a touch of 5pF, then we get a 25% increase in capacitance if our parasitic capacitance is only 20pF.</li>
+<li>If our parasitic capacitance is 100pF, then a touch only causes a 5% increase in capacitance. As a result, the change is more difficult to measure.</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/basic_self_diagram_3.png" />
+</div>
+</div>
+<div class="section" id="parasitics-and-the-e-field">
+<h3>Parasitics and the E-Field<a class="headerlink" href="#parasitics-and-the-e-field" title="Permalink to this headline">¶</a></h3>
+<p>The effect of parasitic capacitance goes beyond just a reduction in percent change. From a physics perspective, having ground structures in close proximity of the electrode will cause the E-field lines projected out from the electrode to concentrate between the electrode and ground, rather than penetrating up through the overlay into the area of interaction.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_self_diagram_4.png" />
+</div>
+</div>
+<div class="section" id="e-field-propagation">
+<h3>E-Field Propagation<a class="headerlink" href="#e-field-propagation" title="Permalink to this headline">¶</a></h3>
+<p>Self capacitance electrodes project E-field lines out 360 degrees from the electrode. This means that the electrode can be interacted with from the bottom side of a PCB as well as through the overlay material. Ground can be used as a shielding mechanism, as can a voltage-follower driven shield.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_self_diagram_5.png" />
+</div>
+<p>The 360 degree sphere projected in a self-capacitance system also places a limitation on how dense buttons can be packed next to each other.</p>
+<p>If the keys are placed too close together, it will be very easy for the user to incorrectly trigger adjacent keys. The limit on how close keys can be to each other is usually dependent upon the size of the keys and the thickness of the overlay material.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_self_diagram_6.png" />
+</div>
+</div>
+<div class="section" id="self-capacitance-summary">
+<h3>Self Capacitance Summary<a class="headerlink" href="#self-capacitance-summary" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Self capacitance is a capacitive sensing measurement method in which a single electrode&#8217;s capacitance with respect to earth ground is measured.</li>
+<li>A typical user&#8217;s touch adds between 1pF to 10pF to the electrode.</li>
+<li>Parasitic capacitances to ground have the effect of de-sensitizing a user&#8217;s touch.</li>
+<li>Self capacitance electrodes project E-field lines out 360 degrees, and can be interacted with on both sides (unless ground shielding is utilized).</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mutual-capacitance">
+<h2>Mutual Capacitance<a class="headerlink" href="#mutual-capacitance" title="Permalink to this headline">¶</a></h2>
+<p>Mutual capacitance involves measuring a change in capacitance just like self-capacitance, with one big difference: we define both plates of the capacitor, instead of utilizing earth ground as the second plate. Note: Mutual capacitance may also be referred to as projected capacitance.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_mutual_diagram_1.png" />
+</div>
+<p>Mutual capacitance electrodes actually consist of two separate electrode structures, and they require two pins from the microcontroller- a transmit electrode, and a receive electrode. When a user touches an area on the panel where a Tx meets an Rx, the mutual capacitance between those Tx and Rx electrodes is reduced. This is because the user&#8217;s interaction has the effect of disturbing the electric field propagation between the two electrodes. Users are coupled to earth ground, and the human body is a conductor. Placing a finger in between two mutual capacitance electrodes has roughly the same effect as placing ground between them- it reduces electric field coupling between them, which reduces the capacitance. Typical changes in mutual capacitance due to a touch are small- usually less than 1pF.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_mutual_diagram_2.png" />
+</div>
+<div class="section" id="mutual-capacitance-parasitics">
+<h3>Mutual Capacitance Parasitics<a class="headerlink" href="#mutual-capacitance-parasitics" title="Permalink to this headline">¶</a></h3>
+<p>Just like in self capacitance systems, there are still parasitic capacitances! There are now two kinds of parasitic capacitance, mutual and ground.</p>
+<ul class="simple">
+<li>Parasitic mutual capacitance. Anywhere that a Tx trace comes near an Rx trace, the two will have a parasitic mutual capacitance. This is similar to parasitic ground capacitance in self cap.</li>
+<li>Parasitics to ground (CpTx, CpRx). In a mutual capacitance network, the Tx and Rx electrodes will still have capacitance to circuit ground and earth ground. The difference is that now that parasitic capacitance does not affect our measurement. It does, however, still affect our ability to drive the electrodes at high speeds - since we are charging and discharging that capacitance.</li>
+</ul>
+</div>
+<div class="section" id="tightly-coupled-e-fields">
+<h3>Tightly Coupled E-Fields<a class="headerlink" href="#tightly-coupled-e-fields" title="Permalink to this headline">¶</a></h3>
+<p>Because mutual capacitance electrodes are defined by two conductors (both plates of the capacitor), the electric field that a user can interact with will be tightly defined between the two conductors. This is a drastic difference from self-cap, where the field of interaction is projected outward in all directions. This can have many design benefits. Keypads can have closely grouped keys without worry of cross-coupling when a user isn&#8217;t centered directly on one key. It&#8217;s also easier to route guard channels and proximity sensors between keys.</p>
+</div>
+<div class="section" id="overlay-material-requirement">
+<h3>Overlay Material Requirement<a class="headerlink" href="#overlay-material-requirement" title="Permalink to this headline">¶</a></h3>
+<p>Overlay material is required for mutual capacitance touch panels. It provides an area for the electric field between Rx and Tx electrodes to propagate where a user can interact with them. Without an overlay, making contact with mutual capacitance electrodes shorts the Rx and Tx together, and also adds significant parasitic capacitance to ground.</p>
+<p>Since the overlay serves the purpose of projecting out the mutual E-field, it is also important that mutual capacitance electrodes be shaped according to the thickness of the overlay material in order to optimize sensitivity. If the Rx and Tx electrodes are too close together on a design with a thick overlay, very little field will be penetrating up to the top of the overlay.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_mutual_diagram_3.png" />
+</div>
+</div>
+<div class="section" id="mutual-capacitance-sensitivity">
+<h3>Mutual Capacitance Sensitivity<a class="headerlink" href="#mutual-capacitance-sensitivity" title="Permalink to this headline">¶</a></h3>
+<p>Because the change due to a touch on a mutual-cap electrode is smaller than that of a self-cap electrode, the measurements tend to be noisier than self capacitance measurements. It is difficult to construct large sliders and wheels from mutual capacitance electrodes, unless many electrodes are used. As a result, mutual capacitance electrodes lend themselves best to button matrices and more advanced sensors that have small node sizes but high electrode density.</p>
+<p>It&#8217;s important to remember that we are subtracting capacitance in a mutual-cap system. This means that we need to have some mutual capacitance to start with. However, we want that mutual capacitance to be in one specific place: the area of user interaction.</p>
+</div>
+<div class="section" id="mutual-capacitance-summary">
+<h3>Mutual Capacitance Summary<a class="headerlink" href="#mutual-capacitance-summary" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Mutual capacitance is a capacitive sensing method where changes in the capacitance between two electrodes are measured.</li>
+<li>A user&#8217;s touch disrupts the field between the two electrodes, reducing the coupling between them and removing mutual capacitance.</li>
+<li>A typical user&#8217;s touch adds between removes less than 1pF of mutual capacitance from the electrode.</li>
+<li>Parasitic capacitances to ground do not affect the measurement, but do affect our ability to drive the electrodes.</li>
+<li>Mutual capacitance E-fields are tightly coupled between the Tx and Rx electrodes, allowing high-density panels.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="true-matrix-capability">
+<h2>True Matrix Capability<a class="headerlink" href="#true-matrix-capability" title="Permalink to this headline">¶</a></h2>
+<p>One method of creating a large keypad from a small number of pins is through the use of a electrode matrix. A matrix can be realized with self capacitance as well. Let&#8217;s look at an example. The diagram to the right shows a capacitive touch matrix consisting of 4 row electrodes and 3 column electrodes. This allows for 12 keys to be derived from 7 pins. In a self capacitance system, each row and each column is scanned as an independent electrode. Individual keys are derived from aggregating the data from row and column electrodes to determine the position of a touch. Drawback: In a self capacitance matrix, multi-touch is not achievable due to ghosting effects.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_mutual_diagram_4.png" />
+</div>
+<p>In a mutual capacitance approach, the columns could be treated as Tx electrodes, and the rows could be treated as Rx electrodes. Every row/column intersection point is then a unique Tx/Rx combination, and a unique mutual capacitance. Since each node is a unique capacitance that is being measured, full multi-touch is possible.</p>
+<div class="figure">
+<img alt="" src="../_images/basic_mutual_diagram_5.png" />
+</div>
+<p>Because each Rx/Tx intersection is a unique node, a 16 pin device could support up to 64 individual buttons in an 8 X 8 matrix configuration. Only 16 pins would need to be routed on the panel, which is very achievable on a two-layer PCB. An equivalent self capacitance design would require 64 pins to realize the same panel. Having distinct nodes also improves the reliability of the system, as each node (Rx/Tx intersection) is tracked separately in software (as opposed to aggregating row and column measurements to calculate the likely key press, as would be required with self capacitance).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_technology.html" class="btn btn-neutral float-right" title="Technology" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_intro.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

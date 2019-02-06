@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\transform_ex1_fft_fixed_q15\transform_ex1_fft_fixed_q15.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\transform_ex2_cmplx_fft_auto_q15\transform_ex2_cmplx_fft_auto_q15.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\transform_ex3_fft_iq31\transform_ex3_fft_iq31.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

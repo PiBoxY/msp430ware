@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sensor>
+    <Ports>
+        <V_NEG>
+            <direction>input</direction>
+            <side>left</side>
+            <device_connection>
+                <MSP430i2>
+                    <port name="^A.*-$"/>
+                </MSP430i2>
+                <MSP430F67>
+                    <port name="^SD.*N0$"/>
+                </MSP430F67>
+            </device_connection>
+        </V_NEG>
+        <V_POS>
+            <direction>input</direction>
+            <side>left</side>
+            <device_connection>
+                <MSP430i2>
+                    <port name="^A.*\+$"/>
+                </MSP430i2>
+                <MSP430F67>
+                    <port name="^SD.*P0$"/>
+                </MSP430F67>
+            </device_connection>
+        </V_POS>
+    </Ports>
+    <TuningParams>
+    </TuningParams>
+</Sensor>
+

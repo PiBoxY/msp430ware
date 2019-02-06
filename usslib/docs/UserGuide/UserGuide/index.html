@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ultrasonic Sensing Solution Design Center User Guide &mdash; Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation" href="../index.html"/>
+        <link rel="next" title="Introduction" href="ch_intro.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Ultrasonic Sensing Design Center User Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02.20.00.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_sysreqs.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_plotting.html">Waveform Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_adc.html">ADC Captures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_freqsweep.html">Frequency Sweep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_debug_graph.html">Debug Waveform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_calibration.html">Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_errors.html">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_protocol.html">Communication Protocol Spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Ultrasonic Sensing Design Center User Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Ultrasonic Sensing Solution Design Center User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ultrasonic-sensing-solution-design-center-user-guide">
+<h1>Ultrasonic Sensing Solution Design Center User Guide<a class="headerlink" href="#ultrasonic-sensing-solution-design-center-user-guide" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_intro.html#sections">Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_intro.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_intro.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_intro.html#for-more-information">For more information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_sysreqs.html">System Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_sysreqs.html#system-requirement-information">System Requirement Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_sysreqs.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_logging.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_logging.html#logging-information">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_logging.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_config.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_config.html#hw-meter-configuration">HW Meter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_config.html#water-meter-configuration">Water Meter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_config.html#gas-meter-configuration">Gas Meter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_config.html#parameter-vs-demo-application">Parameter vs Demo Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_config.html#updating-the-target">Updating the Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_config.html#timing-diagram">Timing Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_config.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_plotting.html">Waveform Plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_plotting.html#waveform-controls">Waveform Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_plotting.html#waveform-viewing">Waveform Viewing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_plotting.html#zooming-and-tooltips">Zooming and Tooltips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_plotting.html#statistics">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_plotting.html#waveform-options">Waveform Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_plotting.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_adc.html">ADC Captures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_adc.html#adc-controls">ADC Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_adc.html#continuous-capture-information">Continuous Capture Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_adc.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_freqsweep.html">Frequency Sweep</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_freqsweep.html#id1">Frequency Sweep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_freqsweep.html#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_freqsweep.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_debug_graph.html">Debug Waveform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_debug_graph.html#debug-usage">Debug Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_debug_graph.html#debug-controls">Debug Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_debug_graph.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_calibration.html">Calibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_calibration.html#calibration-configuration">Calibration Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_calibration.html#manual-calibration">Manual Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_calibration.html#run-time-calibration">Run-Time Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_calibration.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_errors.html">Error Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_errors.html#error-information">Error Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_errors.html#error-management">Error Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_errors.html#full-application-error-list">Full Application Error List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_errors.html#full-library-error-list">Full Library Error List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_errors.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_protocol.html">Communication Protocol Spec</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_protocol.html#table-of-contents">Table of contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_protocol.html#abstract">ABSTRACT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_protocol.html#msp430-uss-design-center-packet-structure">MSP430 USS Design Center Packet Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch_revision.html#revision-history-of-ultrasonic-technology-guide-releases">Revision History of Ultrasonic Technology Guide Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch_revision.html#revision-history-of-ultrasonic-software-library-releases">Revision History of Ultrasonic Software Library Releases</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02.20.00.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

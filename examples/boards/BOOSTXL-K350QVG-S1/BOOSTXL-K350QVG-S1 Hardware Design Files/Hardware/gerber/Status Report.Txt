@@ -1,0 +1,11 @@
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of Project [EB-StellarisLaunchPad-LCD.PrjPCB]
+   Generated File[Pick Place for BOOSTXL-K350QVG-S1_02.txt]
+   Generated File[Pick Place for BOOSTXL-K350QVG-S1_02.csv]
+
+
+Files Generated   : 2
+Documents Printed : 0
+
+Finished Output Generation At 14:48:45 On 2014/12/12

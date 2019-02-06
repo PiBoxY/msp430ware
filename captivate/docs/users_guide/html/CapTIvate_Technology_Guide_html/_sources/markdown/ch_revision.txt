@@ -1,0 +1,84 @@
+Revision History
+================
+
+This chapter tracks changes in the CapTIvate Technology Guide and CapTIvate Software Library. Technology Guide revision tracking was added for release 1.40.00.00.
+
+Revision History of CapTIvate Technology Guide Releases
+-------------------------------------------------------
+
+Release v1.60.00.00
+~~~~~~~~~~~~~~~~~~~
+
+Release Date: 2017-December-05
+
+-  Design Guide
+
+   -  Added section for `transparent touch <ch_design_guide.html#transparent-touch>`__
+   -  Updated the mutual capacitance electrode design recommendations to specify a 0.5mm RX-TX spacing for buttons. This improves measurement accuracy with respect to the prior guidance of 1/2 the overlay thickness, which optimizes for best sensitivity.
+
+-  Device Family
+
+   -  Added `device selection <ch_device.html#selecting-a-device>`__ section to provide guidance on choosing a device for an application
+   -  Updated `devices <ch_device.html#devices>`__ section to include the new MSP430FR2522 and MSP430FR2512 devices
+   -  Added `device migration <ch_device.html#device-migration>`__ description section
+
+-  Software Library
+
+   -  Added section for `calibration <ch_library.html#calibration>`__ to discuss standard calibration and max offset calibration methods
+   -  Added section for `host processor communication <ch_library.html#host-processor-communication>`__
+
+-  Added BOOSTXL-CAPKEYPAD Development Kit Chapter
+
+Release v1.50.00.00
+~~~~~~~~~~~~~~~~~~~
+
+Release Date: 2017-July-14
+
+-  Design Guide
+
+   -  Best Practice - Mechanicals
+
+      -  Updated the Overlay section
+      -  Updated the Gap section
+      -  Added the coupling material section
+
+   -  Best Practice - Common Layout Considerations
+
+      -  Updated the Ground Planes section
+
+   -  Added section for `Metal Touch <ch_design_guide.html#metal-touch>`__
+
+-  MSP-CAPT-FR2633 Development Kit
+
+   -  Sensor Panel Demonstrations
+
+      -  Added CAPTIVATE-METAL section describing the three metal touch demos
+
+   -  Hardware
+
+      -  Added CAPTIVATE-METAL section describing sensor design, mechanical stackup
+
+Release v1.40.00.00
+~~~~~~~~~~~~~~~~~~~
+
+Release Date: 2017-March-23 - Design Guide - Proximity - Added `Proximity Design Considerations <ch_design_guide.html#proximity-design-considerations>`__ section. - Modified `Proximity Ground and Shielding <ch_design_guide.html#proximity-ground-and-shielding>`__ section. - Added `Proximity Range Test <ch_design_guide.html#proximity-range-test>`__ section. - Noise Immunity - Updated noise immunity design guide to include updated ESD, EFT, and conducted immunity information.
+
+-  Software Library
+
+   -  Updating the `Getting Started: Adding CapTIvate to an Existing Project <ch_library.html#adding-captivate-to-an-existing-project>`__ guide to cover multiple device object libraries and ROM header files.
+   -  Updating the `Advanced Module: EMC Module Configuration <ch_library.html#emc-module-configuration>`__ section to include a description of the eMultiFrequencyWithOutlierRemovalAndErrCorrection conversion mode.
+   -  Updating `memory size benchmarks <ch_library.html#memory-requirements>`__
+   -  Removed how-to description for using a CapTIvate™ IO pin as a driven shield. Will replace with more accurate information in future releases.
+
+-  Device Family
+
+   -  Adding ROM header file and pre-compiled object library columns to the `device family description tables <ch_device.html#device-family>`__ to indicate which ROM header files and which pre-compiled libraries correspond to a given device.
+
+-  Glossary
+
+   -  Updating the `touch threshold <ch_glossary.html#touch-threshold>`__ description to clarify that the maximum valid touch threshold in self capacitance mode is 127, as 128 would result in the threshold point being calculated as LTA - (LTA/128)\*128, or LTA-LTA, which results in a threshold point of zero. In mutual mode, thresholds greater than 127 may be used.
+
+Revision History of CapTIvate Software Library Releases
+-------------------------------------------------------
+
+Although CapTIvate™ Software Library and CapTIvate™ Design Center GUI are delivered together, the CapTIvate Software Library has its own version tracking and change control. Every major library release comes with change control data in the Software Library API guide that describes any new features that have been added and any changes to existing functionality. - `Access the software library change control document <../../../../api_guide/FR2633/html/md_imports_01_changelog.html>`__ - `Access the software library API guide <../../../../api_guide/FR2633/html/index.html>`__

@@ -1,0 +1,175 @@
+<!-- Captivate Description HTML -->
+<!-- Trackpad Filter Parameters -->
+
+<html>
+    <body>
+	    <B>TrackPad Filters Overview</B>
+		<P>
+		To create a custom user touch and feel experience, several filters are available to control the
+		response of the trackpad sensor.
+		<BR>
+        <BR>
+
+        <B>TrackPad Filter Type</B>
+		<P>
+        Dynamic (default) automatically adjusts the filter beta based on the speed of the finger, where as a static
+		filter is a fixed beta independent of the speed of the finger.  The advantage of dynamic filtering
+		is when moving slowly, filtering is increased to improve accuracy and reduce jitter.  When moving 
+		rapidly, the filtering is decreased to allow the sensor to be more responsive.
+
+		<BR>
+		<img src="visualizer_images/TrackPad_Filters.png">
+		<BR>
+
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        Dynamic or Static
+        
+        <P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The TrackPad Filter Type parameter corresponds to the
+        <i><b>bTrackPadFilterType</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+		<BR>
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+		
+		<B>TrackPad Filter Beta</B>
+        <P>
+        This parameter sets the trackpad beta when static filtering is enabled.
+ 		
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The TrackPad Filter Beta may be set from 0 to 255, where 0 is the strongest beta and 255 is the weakest.
+        
+        <P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The TrackPad Filter Beta parameter corresponds to the
+        <i><b>ui8TrackPadFilterBeta</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+		<BR>
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+		
+		<B>TrackPad Filter Enable</B>
+        <P>
+        This parameter enables trackpad filtering and is recommended for all touch applications. 
+				
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        Enable or Disable
+		
+		<P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The TrackPad Filter Enable parameter corresponds to the
+        <i><b>bTrackPadFilterEnable</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+		<BR>
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+		
+		<B>Dynamic Beta Top Speed</B>
+        <P>
+		Dynamic Filter Top Speed and Bottom Speed parameters control the active range of speeds where automatic
+		filtering beta is applied.  Outside this range the beta assumes a fixed value.  This parameter sets the
+		top speed up to which the dynamic beta is allowed to automtically adjust.  Speeds above this parameter
+		cause the beta to lock at the last updated beta.  Speed is calculated as the amount of change in the
+		X or Y position axis from sample to sample and should be set appropriately for the resolution of the trackpad sensor.
+				
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The Dynamic Beta Top Speed may be set from 0 to 65535 and should be set higher than the Beta Bottom Speed.
+		
+		<P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The TrackPad Beta Top Speed parameter corresponds to the
+        <i><b>ui16TopSpeed</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+		<BR>
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+		
+		<B>Dynamic Beta Bottom Speed</B>
+        <P>
+		Dynamic Filter Top Speed and Bottom Speed parameters control the active range of speeds where automatic
+		filtering beta is applied.  Outside this range the beta assumes a fixed value.  This parameter sets the
+		bottom speed down to which the dynamic beta is allowed to automtically adjust.  Speeds below this parameter
+		set the beta = Dynamic Filter Lower Beta.  Speed is calculated as the amount of change in the
+		X or Y position axis from sample to sample and should be set appropriately for the resolution of the trackpad sensor.
+		
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The Dynamic Beta Bottom Speed may be set from 0 to 65535 and should be set lower than the Beta Top Speed.
+		
+		<P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The Dynamic Beta Bottom Speed parameter corresponds to the
+        <i><b>ui16BottomSpeed</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+		<BR>
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+		
+		<B>Dynamic Filter Lower Beta</B>
+        <P>
+        When using dynamic filtering, this parameter sets the filter beta when the finger movement is less than the Dynamic
+		Beta Bottom Speed parameter.
+
+        <P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The Dynamic Filter Lower Beta may be set from 0 to 255, where 0 is the strongest beta and 255 is the weakest.
+        
+        <P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The Swipe Duration Threshold parameter corresponds to the
+        <i><b>ui8Lower Beta</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+		<BR>
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+
+
+    </body>
+</html>

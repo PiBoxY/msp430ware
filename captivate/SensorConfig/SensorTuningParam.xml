@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TuningParams>
+    <Force_Recalibration_Tuning>
+        <display_name>Force_Recalibration</display_name>
+        <classification>sensor</classification>
+        <type>command</type>
+        <description><![CDATA[
+        Force an immediate re-calibration of the sensor.
+        ]]></description> 
+        <default>0</default>
+        <min>0</min>
+        <max>0</max>
+        <group>Tuning</group>
+        <cmd>0x8E</cmd>
+    </Force_Recalibration_Tuning>
+    <Force_Recalibration_Conversion>
+        <display_name>Force_Recalibration</display_name>
+        <classification>sensor</classification>
+        <type>command</type>
+        <description><![CDATA[
+        Force an immediate re-calibration of the sensor.
+        ]]></description> 
+        <default>0</default>
+        <min>0</min>
+        <max>0</max>
+        <group>Conversion_Control</group>
+        <cmd>0x8E</cmd>
+    </Force_Recalibration_Conversion>
+    <Runtime_Recalibration_Enable>
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>Runtime_ReCalibration.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <cmd>0x8D</cmd>
+    </Runtime_Recalibration_Enable>
+    <Conversion_Count>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>Conversion_Count_And_Gain.html</description_file>
+        <default>500</default>
+        <min>100</min>
+        <max>8191</max>
+        <group>Conversion_Control</group>
+        <cmd>0x81</cmd>
+    </Conversion_Count>
+    <Conversion_Gain>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Conversion_Count_And_Gain.html</description_file>
+        <default>100</default>
+        <min>100</min>
+        <max>Conversion_Count</max>
+        <group>Conversion_Control</group>
+		<mode>ADVANCED</mode>
+        <cmd>0x80</cmd>
+    </Conversion_Gain>
+    <Prox_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Prox_Threshold.html</description_file>
+        <default>10</default>
+        <min>0</min>
+        <max>255</max>
+        <cmd>0x82</cmd>
+    </Prox_Threshold>
+    <Touch_Threshold>
+        <classification>element</classification>
+        <type>int</type>
+        <description_file>Touch_Threshold.html</description_file>
+        <default>10</default>
+        <min>0</min>
+        <max>255</max>
+        <cmd>0x83</cmd>
+    </Touch_Threshold>
+    <Prox_Debounce_In_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Debounce.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>15</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x84</cmd>
+    </Prox_Debounce_In_Threshold>
+    <Prox_Debounce_Out_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Debounce.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>15</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x85</cmd>
+    </Prox_Debounce_Out_Threshold>
+    <Touch_Debounce_In_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Debounce.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>15</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x86</cmd>
+    </Touch_Debounce_In_Threshold>
+    <Touch_Debounce_Out_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>Debounce.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>15</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x87</cmd>
+    </Touch_Debounce_Out_Threshold>
+    <Sensor_Timeout_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Sensor_Timeout_Threshold.html</description_file>
+        <default>65535</default>
+        <min>0</min>
+        <max>65535</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x88</cmd>
+    </Sensor_Timeout_Threshold>
+    <Count_Filter_Enable>
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>Count_Filter.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>1</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x89</cmd>
+    </Count_Filter_Enable>
+    <Count_Filter_Beta>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Count_Filter.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>7</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x8A</cmd>
+    </Count_Filter_Beta>
+    <LTA_Filter_Beta>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>LTA_Filter.html</description_file>
+        <default>7</default>
+        <min>0</min>
+        <max>7</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x8B</cmd>
+    </LTA_Filter_Beta>
+    <Halt_LTA_Filter_Immediately>
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>LTA_Filter.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>1</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x8C</cmd>
+    </Halt_LTA_Filter_Immediately>
+    <Bias_Current>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Bias_Current.html</description_file>
+        <default>3</default>
+        <min>0</min>
+        <max>3</max>
+        <valueMap>
+            <map name="2 uA" value="0" />
+            <map name="5 uA" value="1" />
+            <map name="10 uA" value="2" />
+            <map name="20 uA" value="3" />
+        </valueMap>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <sensor_type>MUTUAL_ONLY</sensor_type>
+        <cmd>0x8F</cmd>
+    </Bias_Current>
+    <Sample_Capacitor_Discharge>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Sample_Capacitor_Discharge.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <valueMap>
+            <map name="0 V" value="0" />
+            <map name="0.5 V" value="1" />
+        </valueMap>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <cmd>0x95</cmd>
+    </Sample_Capacitor_Discharge>
+    <Modulation_Enable>
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>Modulation_Enable.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>1</max>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <cmd>0x96</cmd>
+    </Modulation_Enable>
+    <Frequency_Divider>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Frequency_Divider.html</description_file>
+        <default>2</default>
+        <min>0</min>
+        <max>7</max>
+        <valueMap>
+            <map name="f/1" value="0" />
+            <map name="f/2" value="1" />
+            <map name="f/4" value="2" />
+            <map name="f/8" value="3" />
+            <map name="f/16" value="4" />
+            <map name="f/32" value="5" />
+            <map name="f/64" value="6" />
+            <map name="f/128" value="7" />
+        </valueMap>
+        <group>Conversion_Control</group>
+        <cmd>0x97</cmd>
+    </Frequency_Divider>
+    <Charge_Hold_Phase_Length>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Phase_Lengths.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>15</max>
+        <valueMap>
+            <map name="1" value="0" />
+            <map name="2" value="1" />
+            <map name="3" value="2" />
+            <map name="4" value="3" />
+            <map name="5" value="4" />
+            <map name="6" value="5" />
+            <map name="7" value="6" />
+            <map name="8" value="7" />
+            <map name="9" value="8" />
+            <map name="10" value="9" />
+            <map name="11" value="10" />
+            <map name="12" value="11" />
+            <map name="13" value="12" />
+            <map name="14" value="13" />
+            <map name="15" value="14" />
+            <map name="16" value="15" />
+        </valueMap>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <cmd>0x98</cmd>
+    </Charge_Hold_Phase_Length>
+    <Transfer_Sample_Phase_Length>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Phase_Lengths.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>15</max>
+        <valueMap>
+            <map name="1" value="0" />
+            <map name="2" value="1" />
+            <map name="3" value="2" />
+            <map name="4" value="3" />
+            <map name="5" value="4" />
+            <map name="6" value="5" />
+            <map name="7" value="6" />
+            <map name="8" value="7" />
+            <map name="9" value="8" />
+            <map name="10" value="9" />
+            <map name="11" value="10" />
+            <map name="12" value="11" />
+            <map name="13" value="12" />
+            <map name="14" value="13" />
+            <map name="15" value="14" />
+            <map name="16" value="15" />
+        </valueMap>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <cmd>0x99</cmd>
+    </Transfer_Sample_Phase_Length>
+    <Error_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>Error_Threshold.html</description_file>
+        <default>8191</default>
+        <min>0</min>
+        <max>8191</max>
+        <mode>ADVANCED</mode>
+		<mode>ADVANCED</mode>
+        <cmd>0x9A</cmd>
+    </Error_Threshold>
+    <Negative_Touch_Threshold>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>Negative_Touch_Threshold.html</description_file>
+        <default>30</default>
+        <min>0</min>
+        <max>8191</max>
+        <cmd>0x9B</cmd>
+    </Negative_Touch_Threshold>
+    <Idle_State>
+        <classification>sensor</classification>
+        <type>int</type>
+		<description_file>Idle_State.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <valueMap>
+            <map name="High-Z" value="0" />
+            <map name="Grounded" value="1" />
+        </valueMap>
+        <mode>ADVANCED</mode>
+        <group>Conversion_Control</group>
+        <cmd>0x9C</cmd>
+    </Idle_State>
+    <Input_Sync>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Sync_Parameters.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>2</max>
+        <valueMap>
+            <map name="Disabled" value="0" />
+            <map name="Rising Edge" value="1" />
+            <map name="Falling Edge" value="2" />
+        </valueMap>
+        <mode>ADVANCED</mode>
+        <group>Conversion_Control</group>
+        <cmd>0x9D</cmd>
+    </Input_Sync>
+    <Timer_Sync>
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>Sync_Parameters.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>1</max>
+        <mode>ADVANCED</mode>
+        <group>Conversion_Control</group>
+        <cmd>0x9E</cmd>
+    </Timer_Sync>
+    <Automatic_Power_Down_Enable>
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>Auto_Power_Down.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>1</max>
+        <mode>ADVANCED</mode>
+        <group>Conversion_Control</group>
+        <cmd>0x9F</cmd>
+    </Automatic_Power_Down_Enable>
+    <Halt_LTA_On_Sensor_Prox_Or_Touch>
+        <classification>sensor</classification>
+        <type>boolean</type>
+		<description_file>LTA_Filter.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <mode>ADVANCED</mode>
+        <cmd>0xA0</cmd>
+    </Halt_LTA_On_Sensor_Prox_Or_Touch>
+    <Halt_LTA_On_Element_Prox_Or_Touch>
+        <classification>sensor</classification>
+        <type>boolean</type>
+		<description_file>LTA_Filter.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <mode>ADVANCED</mode>
+        <cmd>0xA1</cmd>
+    </Halt_LTA_On_Element_Prox_Or_Touch>
+    <Coarse_Gain_Ratio>
+        <classification>element_noise_immunity</classification>
+        <readonly>true</readonly>
+        <type>int</type>
+        <description_file>Engineering_Parameters.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>7</max>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <frequencyOptions>
+            <map name="Freq A" value="0" />
+            <map name="Freq B" value="1" />
+            <map name="Freq C" value="2" />
+            <map name="Freq D" value="3" />
+        </frequencyOptions>
+        <cmd>0xA2</cmd>
+    </Coarse_Gain_Ratio>
+    <Fine_Gain_Ratio>
+        <classification>element_noise_immunity</classification>
+        <readonly>true</readonly>
+        <type>int</type>
+        <description_file>Engineering_Parameters.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>31</max>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <frequencyOptions>
+            <map name="Freq A" value="0" />
+            <map name="Freq B" value="1" />
+            <map name="Freq C" value="2" />
+            <map name="Freq D" value="3" />
+        </frequencyOptions>
+        <cmd>0xA3</cmd>
+    </Fine_Gain_Ratio>
+    <Parasitic_Offset_Scale>
+        <classification>element_noise_immunity</classification>
+        <readonly>true</readonly>
+        <type>int</type>
+        <description_file>Engineering_Parameters.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>3</max>
+        <valueMap>
+            <map name="Very Small" value="0" />
+            <map name="Small" value="1" />
+            <map name="Large" value="2" />
+            <map name="Very Large" value="3" />
+        </valueMap>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <frequencyOptions>
+            <map name="Freq A" value="0" />
+            <map name="Freq B" value="1" />
+            <map name="Freq C" value="2" />
+            <map name="Freq D" value="3" />
+        </frequencyOptions>
+        <cmd>0xD0</cmd>
+    </Parasitic_Offset_Scale>
+    <Parasitic_Offset_Level>
+        <classification>element_noise_immunity</classification>
+        <readonly>true</readonly>
+        <type>int</type>
+        <description_file>Engineering_Parameters.html</description_file>
+        <default>0</default>
+        <min>0</min>
+        <max>255</max>
+        <group>Conversion_Control</group>
+        <mode>ADVANCED</mode>
+        <frequencyOptions>
+            <map name="Freq A" value="0" />
+            <map name="Freq B" value="1" />
+            <map name="Freq C" value="2" />
+            <map name="Freq D" value="3" />
+        </frequencyOptions>
+        <cmd>0xD1</cmd>
+    </Parasitic_Offset_Level>
+
+</TuningParams>
+

@@ -1,0 +1,219 @@
+<!--
+`ti-tile-dial` is a tile containing an analog dial widget, which can be
+  used to control the value of another widget or a target variable
+
+Example:
+
+    <ti-tile-dial></ti-tile-dial>
+
+
+@group Instrument Tiles
+@element ti-tile-dial
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base-text.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="../ti-widget-dial/ti-widget-dial.html">
+<link rel="import" href="ti-tile-properties.html">
+<link rel="import" href="ti-tile-base.html">
+<link rel="stylesheet" href="../paper-shadow/paper-shadow.css"  shim-shadowdom>
+
+<polymer-element name="ti-tile-dial" extends="ti-tile-base" >
+
+    <template>
+        <style>
+            :host {
+                display : inline-block;
+                background-color: #ffffff;
+                text-decoration: inherit;
+                position : relative;
+                padding: 1em;
+                width: 230px;
+                height: 200px;
+            }
+            core-icon-button /deep/ core-icon[role=img] {
+                height: 15px;
+                width: 15px;
+            }
+            #tileTitle {
+                word-wrap:break-word;
+                white-space:normal;
+				text-align: left;
+                z-index: 0;
+                color:{{_titleFontColor}};
+                font-size:{{titlefontSize}};
+                font-weight:{{_titleFontWeight}};
+            }
+            #containerDiv {
+                top: 0px;
+                width: 100%;
+                height:100%;
+                margin: 0;            
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
+            #instrument_div {
+                position: relative;
+				width: 100%;
+				height:100%;
+
+            }
+            #instrument {
+				top: 1em;
+                bottom: 0px;
+                right: 0px;
+                left: 0px;
+                padding: 5px;
+                position: relative;
+				width: 100%;
+				height: 100%;
+
+            }
+            #editIcon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveLeftIcon {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveRightIcon {
+                position: absolute;
+                top: 0px;
+                right: 20px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #resizeIcon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_resizeCornerColor}};
+            }
+            #pinIcon {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_iconColor}};
+            }
+        </style>
+        <ti-tile-properties id="propertiesDialog" style="width:200px;height:400px;right:30px;" layout></ti-tile-properties>
+        <div id="shadow-bottom" fit  class="paper-shadow-bottom-z-[[elevation]]"></div>
+        <div id="shadow-top" fit  class="paper-shadow-top-z-[[elevation]]"></div>
+        <div id="containerDiv" layout vertical >
+            <div id="tileTitle" flex>{{titleText}}</div>
+            <div fit layout vertical center-justified>
+                <div layout horizontal>
+                    <div id="instrument_div" >
+                        <table align="center" style="margin: 0px auto;">
+                            <tr>
+                                <td width="0px"></td>
+                                <td width="90%" >
+             						<ti-widget-dial id="instrument" value="{{value}}" size="{{dialSize}}" overridecsscolors flatframecolor="{{dialBackgroundColor}}" flatfontcolor="{{dialFontColor}}" pointercolor="{{dialPointerColor}}"></ti-widget-dial>
+                                </td>
+                                <td width="0px"></td>
+                            </tr>
+                        </table>
+             </div>
+                </div>
+            </div>
+            <template if="{{_inDesigner()}}">
+                <core-icon-button id="editIcon"  icon="create" on-tap="{{editProperties}}" title="edit tile properties" ></core-icon-button>
+                <core-icon-button id="moveLeftIcon"  icon="arrow-back" on-tap="{{moveLeft}}" title="move tile left" style="{{_arrowStyle}}" ></core-icon-button>
+                <core-icon-button id="moveRightIcon" icon="arrow-forward" on-tap="{{moveRight}}" title="move tile right" style="{{_arrowStyle}}"></core-icon-button>
+                <core-icon-button id="resizeIcon"  icon="device:signal-cellular-0-bar"  title="resize tile" ></core-icon-button>
+                <core-icon-button id="pinIcon" icon="{{_pinIcon}}" on-tap="{{togglePin}}" ></core-icon-button>
+            </template>
+
+        </div>
+        <content></content>
+    </template>
+    <script>
+        Polymer ('ti-tile-dial',
+                {
+                    publish: {
+                        titleText: '',
+                        value: 0,
+                        minValue: 0,
+                        maxValue: 100,
+                        dialBackgroundColor: "#666666",
+                        dialPointerColor: "#ff0000",
+                        dialFontColor: "#ffffff",
+                        dialSize: "130"
+                    },
+
+                    getCategory: function() {
+                        return 'Control Panel';
+                    },
+                    getComponentName: function() {
+                        return 'Dial';
+                    },
+                    getElement : function()
+                    {
+                        if (this.$) {
+                            return this.$.containerDiv;
+                        } else {
+                            return null;
+                        }
+                    },					
+                    dialSizeChanged: function(){
+                        this.$.instrument.domReady();
+                    },
+                    onResizedByDesigner: function(){
+                        var rect = this.getBoundingClientRect();
+                        var dialRect = this.$.instrument.getBoundingClientRect();
+                        var widthPadding = 30;
+                        var topPadding = dialRect.top - rect.top;
+                        var newSize = Math.min(rect.width-widthPadding,rect.height-topPadding);
+                        if (newSize > 0) {
+                            this.dialSize = newSize;
+                        }
+                    }
+
+                });
+    </script>
+</polymer-element>

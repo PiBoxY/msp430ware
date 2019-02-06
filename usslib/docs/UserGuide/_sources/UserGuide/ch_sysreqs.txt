@@ -1,0 +1,35 @@
+System Requirements
+===================
+
+System Requirement Information
+------------------------------
+
+**Operating Systems**
+
+Ultrasonic Sensing Solution Design Center is supported on Windows 7 or higher, Mac OS X 10.10.1+, and 64-bit Linux.
+
+HID communication should work out of the box with non-Linux systems. For Linux systems, verification has only been completed on Ubuntu 14.04. Please perform the one-time setup steps below:
+
+-  Create the file /etc/udev/rules.d/ti\_hid.rules
+-  Add the lines below to the file and save it
+
+::
+
+    # Allow open access to any USB device with the default Texas Instruments MSP  
+    # Vendor Id of 0x2047  
+    ATTRS{idVendor}=="2047", MODE="0666"  
+
+**Java Requirements**
+
+Java 1.7 or higher is required to run the GUI. To install Java, please consult Oracle's download documentation located `here <https://www.java.com/en/download/help/download_options.xml>`__.
+
+**Runtime Recommendations**
+
+While no minimum processor capability or RAM limit is enforced, it is recommended to have at least 4 GB of RAM and 2 processors to run the GUI. To achieve maximum speed performance, especially with respects to the ADC continuous capture at very high rates (10+ Hz), a 4 processor system is recommended. These requirements will allow the system to perform well at high HID polling rates.
+
+More Information
+----------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

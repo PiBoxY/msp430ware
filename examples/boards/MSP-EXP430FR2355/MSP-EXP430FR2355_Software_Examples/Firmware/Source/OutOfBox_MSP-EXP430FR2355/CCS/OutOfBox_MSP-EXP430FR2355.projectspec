@@ -1,0 +1,17 @@
+<projectSpec>
+    <project
+        compilerBuildOptions="-I${PROJECT_ROOT} -I${PROJECT_ROOT}/jsmn -I${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx --advice:power=&quot;all&quot; -g --code_model=large --data_model=large"
+        device="MSP430FR2355"
+        linkerBuildOptions="-llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/5xx_6xx_FRxx"
+        name="OutOfBox_MSP-EXP430FR2355"
+        enableHexTool="true"
+        hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../jsmn/" />
+        <file action="copy" path="../functiongenerator.c" />
+        <file action="copy" path="../functiongenerator.h" />
+        <file action="copy" path="../lightsensor.c" />
+        <file action="copy" path="../lightsensor.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+    </project>
+</projectSpec>

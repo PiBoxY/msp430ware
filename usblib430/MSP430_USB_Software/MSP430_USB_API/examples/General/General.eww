@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+<project>
+    <path>$WS_DIR$\G1_reduceInterruptLatency/IAR/G1_reduceInterruptLatency.ewp</path>
+  </project>
+  
+  <batchBuild/>
+</workspace>
+

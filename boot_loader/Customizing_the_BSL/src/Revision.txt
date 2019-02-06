@@ -1,0 +1,34 @@
+MSPBSL_CustomBSL430 Release Note
+
+Version  Date          Author              What's New 
+--------------------------------------------------------------------------------------------------
+         May/11        Lane Westlund       Initial version
+                                           Source Snapshot update
+         March/13      Eric Loeffler       Bugfixes for BSL6 5529 errata and to allow startup on devices supporting LOCKLPM5
+         June/13       Eric Loeffler       Added new USB BSL release image for F55xx, removed Peripherial example, added I2C
+                       Brennt Peterson
+         Sept/13       Max Groening        BSL source files updated, new BSL images for F522x, F525x, F552x/F550x, and F677x
+         Jan/14        Max Groening        Workspace and project files were updated
+1.0.7    March/15      Max Groening        Added firmware image for MSP430F552x
+                                           Divided firmware images for MSP430F663x and MSP430F665x
+                                           Added firmware image for MSP430F663x 
+                                           Added firmware image for MSP430F665x 
+1.0.8    June/15       Max Groening        Added firmware image for MSP430FG662x 
+                                           Added firmware image for MSP430FG642x 
+                                           Added firmware image for MSP430F550x/MSP430552x
+                                           Added firmware image for MSP430F663x 
+                                           Added firmware image for MSP430F665x 
+                                           Updated USB BSL source code
+1.0.9    December/15   Max Groening        Example projects updated to build with IAR Embedded Workbench 6.30.3
+                                           USB stack for BSL updated to 1.12 (USB PI 0x09)
+                                           CC430 BSL example changed to CC430F614x
+1.0.10   April/16      Max Groening        Added firmware image MSP430FG662x UART and USB BSL
+                                           Updated MSP430F552x/F552x USB BSL
+                                           Updated MSP430F663x USB BSL
+                                           Updated MSP430F665x USB BSL
+1.0.11   June/16       Max Groening        Updated USB RAM BSL for MSP430F550x/F552x, MSP430F663x and MSP430F665x
+                                           Updated BSL source code, added eUSCI UART/I2C peripheral interface
+1.0.12   October/16    Max Groening        Added firmware images for MSP430F525x image
+1.1.0    June/18       Fatmawati Santosa   Implemented new folder structure (refer to readme.txt)
+                                           Added newer CCS and IAR project files version
+                                           Added I2C BSL code in the CCS examples

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\ctpl_ex0_empty_msp-exp430fr5969\ctpl_ex0_empty_msp-exp430fr5969.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\ctpl_ex1_gpio_lpm45_msp-exp430fr5969\ctpl_ex1_gpio_lpm45_msp-exp430fr5969.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\ctpl_ex2_rtc_lpm35_msp-exp430fr5969\ctpl_ex2_rtc_lpm35_msp-exp430fr5969.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\ctpl_ex3_comp_e_monitor_msp-exp430fr5969\ctpl_ex3_comp_e_monitor_msp-exp430fr5969.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\ctpl_ex4_adc12_b_monitor_msp-exp430fr5969\ctpl_ex4_adc12_b_monitor_msp-exp430fr5969.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

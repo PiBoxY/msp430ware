@@ -1,0 +1,4 @@
+MSP CapTIvate MCU Development Kit
+Panel to Processor Module Connector Integrated Library
+
+Current Revision: A (6 January 2015)

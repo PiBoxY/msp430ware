@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\..\..\TouchProTool_Demo_Bit_Banging\IAR\TouchProTool_Demo_Bit_Banging.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TouchProTool_Demo_UART.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

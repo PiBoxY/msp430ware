@@ -1,0 +1,33 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_LOC} -I${PROJECT_LOC}/driverlib/MSP430FR5xx_6xx -I${PROJECT_LOC}/GrLib/fonts -I${PROJECT_LOC}/GrLib/grlib -I${PROJECT_LOC}/LcdDriver --gcc --advice:power=&quot;none&quot;"
+             linkerCommandFile="lnk_msp430fr5969"
+             device="MSP430FR5969"
+             name="430BOOST-SHARP96_ULP_FRAM"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../CTS/" />
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../GrLib" />
+        <file action="copy" path="../LcdDriver" />
+        <file action="copy" path="../Preloaded_Images/" />
+        <file action="copy" path="../ActivePowerMeasure.c" />
+        <file action="copy" path="../ActivePowerMeasure.h" />
+        <file action="copy" path="../ClockApp.c" />
+        <file action="copy" path="../ClockApp.h" />
+        <file action="copy" path="../FR59xx_EXP.c" openOnCreation="true" />
+        <file action="copy" path="../FR59xx_EXP.h" />
+        <file action="copy" path="../FRAMSpeedApp.c" />
+        <file action="copy" path="../FRAMSpeedApp.h" />
+        <file action="copy" path="../Game.c" />
+        <file action="copy" path="../Game.h" />
+        <file action="copy" path="../msp430fr59xx_CHR.asm" />
+        <file action="copy" path="../msp430fr59xx_CHR.h" />
+        <file action="copy" path="../myTimer.c" />
+        <file action="copy" path="../myTimer.h" />
+        <file action="copy" path="../ULPMeter.c" />
+        <file action="copy" path="../ULPMeter.h" />
+        <file action="copy" path="../UpdateDisplay.c" />
+        <file action="copy" path="../UpdateDisplay.h" />
+        <file action="copy" path="lnk_msp430fr5969.cmd" />
+    </project>
+</projectSpec>

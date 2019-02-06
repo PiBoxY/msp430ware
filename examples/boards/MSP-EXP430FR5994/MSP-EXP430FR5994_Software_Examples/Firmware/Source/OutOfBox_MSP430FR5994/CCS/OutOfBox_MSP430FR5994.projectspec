@@ -1,0 +1,20 @@
+<projectSpec>
+    <project
+        compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP430FR5xx_6xx -I${PROJECT_LOC}/FatFs -I${PROJECT_LOC}/HAL -I${PROJECT_LOC}/SDCardLib"
+        device="MSP430FR5994"
+        name="OutOfBox_MSP430FR5994"
+        enableHexTool="true"
+        hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../FatFs/" />
+        <file action="copy" path="../HAL/" />
+        <file action="copy" path="../SDCardLib/" />
+        <file action="copy" path="../FRAMLogMode.c" />
+        <file action="copy" path="../FRAMLogMode.h" />
+        <file action="copy" path="../LiveTempMode.c" />
+        <file action="copy" path="../LiveTempMode.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+        <file action="copy" path="../SDCardLogMode.c" />
+        <file action="copy" path="../SDCardLogMode.h" />
+    </project>
+</projectSpec>

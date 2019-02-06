@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>images/TI_Bug_Icon_Red.ico</file>
+        <file>images/play.png</file>
+        <file>images/pause.png</file>
+        <file>images/stop.png</file>
+        <file>images/new.png</file>
+        <file>images/Readme.png</file>
+        <file>images/pdf.png</file>
+        <file>images/Console.png</file>
+        <file>images/Config.png</file>
+        <file>images/MSP430_Logo.png</file>
+        <file>images/TI_Red_Platform_Bar.png</file>
+        <file>images/ti_logo_red.png</file>
+    </qresource>
+</RCC>

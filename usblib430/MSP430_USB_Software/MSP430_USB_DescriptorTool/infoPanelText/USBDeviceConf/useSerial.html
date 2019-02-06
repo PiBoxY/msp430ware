@@ -1,0 +1,19 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Use Serial Number?</h1>
+        <p>Associated descriptor fields:  <span class="attribute">iSerialNumber</span> (in the Device Descriptor); and the string in the String Descriptor that it indexes. </p>
+        <p><b>Suggested default:</b>  check the box</p>  
+        <p>This checkbox determines whether the device will report a unique serial number.  If you check the box,the MSP430 USB API will automatically read the die ID unique to a particular physical MSP430 device, and form a unique serial number from it.  This will be reported to the USB host, as the USB serial number.  If unchecked, no serial number string will be reported.  </p> 
+        <p>Generally it is a good idea to report a serial number.  (For more information on the tradeoff between these options, reference the Programmer's Guide for the associated API stack.)</p>
+    </body>
+</html>

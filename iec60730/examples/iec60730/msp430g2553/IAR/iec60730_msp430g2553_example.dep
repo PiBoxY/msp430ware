@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1853795124</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_clock_fail_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_cpu_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_adc_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_crc_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_pc_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_gpio_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_march_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_adc_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_system_config.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_user_config.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_crc_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_clock_fail_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_cpu_test_IAR.s43</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_gpio_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_pc_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_march_test.c</file>
+      <file>$PROJ_DIR$\lnk430g2553.xcl</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_pc_test.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_adc_test.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_pc_test.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_clock_fail_test.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_cpu_test_IAR.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_adc_test.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_crc_test.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_clock_fail_test.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_gpio_test.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_crc_test.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_gpio_test.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_march_test.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\iec60730_msp430g2553_example.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\iec60730_msp430g2553_example.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\iec60730_msp430g2553_example.ulp</file>
+      <file>$TOOLKIT_DIR$\inc\msp430g2553.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\List\IEC60730_cpu_test_IAR.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\IEC60730_march_test.r43</file>
+      <file>$PROJ_DIR$\Debug\List\IEC60730_adc_test.lst</file>
+      <file>$PROJ_DIR$\Debug\List\IEC60730_gpio_test.lst</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$PROJ_DIR$\Debug\List\IEC60730_crc_test.lst</file>
+      <file>$PROJ_DIR$\Debug\List\IEC60730_clock_fail_test.lst</file>
+      <file>$PROJ_DIR$\Debug\List\IEC60730_march_test.lst</file>
+      <file>$PROJ_DIR$\Debug\List\IEC60730_pc_test.lst</file>
+      <file>$PROJ_DIR$\Debug\List\main.lst</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_adc_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 49 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 44 35 36 40 2 38 37 41 45 43 39 46 42 9 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44 35 36 40 2 38 37 41 45 43 39 46 42 9 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_crc_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 52 25</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 3 38 37 41 45 43 39 46 42 9 44 35 36 40 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3 38 37 41 45 43 39 46 42 9 44 35 36 40 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_clock_fail_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 53 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 44 35 36 40 0 38 37 41 45 43 39 46 42 9 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44 35 36 40 0 38 37 41 45 43 39 46 42 9 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_cpu_test_IAR.s43</name>
+      <outputs>
+        <tool>
+          <name>A430</name>
+          <file> 23 47</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>A430</name>
+          <file> 44 35 8 9</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_gpio_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 50 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 44 35 36 40 5 38 37 41 45 43 39 46 42 9 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44 35 36 40 5 38 37 41 45 43 39 46 42 9 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_pc_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 55 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 4 38 37 41 45 43 39 46 42 9 44 35 36 40 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4 38 37 41 45 43 39 46 42 9 44 35 36 40 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_march_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 54 48</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 6 38 37 41 45 43 39 46 42 9 44 35 36 40 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6 38 37 41 45 43 39 46 42 9 44 35 36 40 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 56 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 35 36 40 38 37 41 45 43 39 46 42 1 44 4 9 8 0 6 3 2 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 36 40 38 37 41 45 43 39 46 42 1 44 4 9 8 0 6 3 2 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>ULP430</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\iec60730_msp430g2553_example.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 16 20 26 23 25 27 48 19 18 51</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_clock_fail_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_cpu_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_adc_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_crc_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_pc_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_gpio_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_march_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_adc_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_system_config.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\include\IEC60730_user_config.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_crc_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_clock_fail_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_cpu_test_IAR.s43</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_gpio_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_pc_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_march_test.c</file>
+      <file>$PROJ_DIR$\lnk430g2553.xcl</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\msp430g2553.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_crc_test.r43</file>
+      <file>$PROJ_DIR$\Release\Exe\iec60730_msp430g2553_example.txt</file>
+      <file>$PROJ_DIR$\Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_adc_test.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_clock_fail_test.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_gpio_test.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_adc_test.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_clock_fail_test.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_pc_test.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_pc_test.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_march_test.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_cpu_test_IAR.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\main.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_march_test.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_crc_test.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\IEC60730_gpio_test.pbi</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_adc_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 37</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 27 18 19 23 2 21 20 24 28 26 22 29 25 9 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 18 19 23 2 21 20 24 28 26 22 29 25 9 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_crc_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 3 21 20 24 28 26 22 29 25 9 27 18 19 23 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3 21 20 24 28 26 22 29 25 9 27 18 19 23 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_clock_fail_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 27 18 19 23 0 21 20 24 28 26 22 29 25 9 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 18 19 23 0 21 20 24 28 26 22 29 25 9 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_cpu_test_IAR.s43</name>
+      <outputs>
+        <tool>
+          <name>A430</name>
+          <file> 42</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>A430</name>
+          <file> 27 18 8 9</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_gpio_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 27 18 19 23 5 21 20 24 28 26 22 29 25 9 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 18 19 23 5 21 20 24 28 26 22 29 25 9 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_pc_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 39</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 4 21 20 24 28 26 22 29 25 9 27 18 19 23 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4 21 20 24 28 26 22 29 25 9 27 18 19 23 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60730\source\IEC60730_march_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 44</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 6 21 20 24 28 26 22 29 25 9 27 18 19 23 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6 21 20 24 28 26 22 29 25 9 27 18 19 23 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 18 19 23 21 20 24 28 26 22 29 25 1 27 4 9 8 0 6 3 2 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 19 23 21 20 24 28 26 22 29 25 1 27 4 9 8 0 6 3 2 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 32</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\iec60730_msp430g2553_example.txt</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 16 37 35 42 31 36 44 39 43 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

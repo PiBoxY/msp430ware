@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+<project>
+    <path>$WS_DIR$\H4_PacketProtocol/IAR/H4_PacketProtocol.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H10_ReceiveData_EncryptDecrypt/IAR/H10_ReceiveData_EncryptDecrypt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H5_SendDataWaitTillDone/IAR/H5_SendDataWaitTillDone.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H1_LedOnOff/IAR/H1_LedOnOff.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H11_LedOnOff_EncryptDecrypt/IAR/H11_LedOnOff_EncryptDecrypt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H0_SimpleSend/IAR/H0_SimpleSend.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H2_ReceiveData/IAR/H2_ReceiveData.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H3_EchoToHost/IAR/H3_EchoToHost.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H6_SendDataBackground/IAR/H6_SendDataBackground.ewp</path>
+  </project>
+  
+  <batchBuild/>
+</workspace>
+

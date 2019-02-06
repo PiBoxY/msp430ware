@@ -1,0 +1,15 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: MSP-ISO_Rev1_0.PcbDoc   11/19/2015  3:04:37 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : MSP-ISO_Rev1_0.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        16mil (0.4064mm)         Round          32               6.08 Inch (154.48 mm)
+T2        35.43mil (0.89992mm)     Round          30               4.26 Inch (108.32 mm)
+---------------------------------------------------------------------------
+Totals                                            62               10.35 Inch (262.80 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

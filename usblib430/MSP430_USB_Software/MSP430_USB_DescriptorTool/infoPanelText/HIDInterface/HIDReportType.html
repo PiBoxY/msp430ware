@@ -1,0 +1,26 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>HID Report Type</h1>
+        <p>HID interfaces can be of various subtypes.  The subtypes defined within the MSP430 USB API are:</p>
+        <ul>
+            <li>HID-Datapipe: used for unformatted point-to-point communication, similar to a COM port</li>
+            <li>Mouse</li>
+            <li>Keyboard</li>
+            <li>Custom:  anything that isn't one of the three above</li>
+        </ul>
+        <p>The subtype determines the format of the HID report that will be used.</p>
+        <p>HID-Datapipe is good for general-purpose communication, implementing an unformatted datastream.  On the MSP430 side, you can use send/receive API calls that look very similar to those used with CDC / virtual COM port.  USB examples #H0-H6 demonstrate HID-Datapipe.  </p>
+        <p>"Keyboard" and "Mouse" create standard report descriptors for these kinds of devices.  However, you still need to write application code that sends reports over these interfaces.  See the H7/H8 examples in the USB Developers Package, for examples of mouse/keyboard code.</p>
+        <p>With a selection of "Custom", you define your own report descriptor.  You can do this with the USB-IF's "HID Descriptor Tool" at www.usb.org.  (It has a similar name, but a very different function).  Paste the output from that tool into the popup field.  Then, use HID-Traditional API calls in your MSP430 application, to send/receive reports.</p>
+    </body>
+</html>

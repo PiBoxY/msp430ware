@@ -1,0 +1,174 @@
+<FMCG_COPYRIGHT>
+<FMCG_DATE>
+#include "main.h"
+<FMCG_MAIN_FUNCTION_PROTOTYPES>
+
+// Global user defined flags
+<FMCG_MAIN_RECAL_GLOBAL>
+extern uint8_t gESIStatusFlag;
+
+
+<FMCG_MAIN_SYSTEM_PRE_INIT>
+
+void main(void) {
+	boardConfig();	
+<FMCG_MAIN_CONTENT>
+<FMCG_MAIN_ESI_CONFIG_COMM>
+<FMCG_MAIN_START_TIMERS>
+
+	while(1){
+<FMCG_MAIN_ENTER_LOW_POWER>
+
+		serviceInterrupts();
+	}
+
+}
+
+void boardConfig(void){
+	portConfig();
+	clockSystemConfig();
+<FMCG_MAIN_BOARD_CONFIG>
+
+}
+
+void portConfig(void){
+	// Configure all Ports as output and drive all pins low
+	GPIO_setAsOutputPin(GPIO_PORT_P1,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P1,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setAsOutputPin(GPIO_PORT_P2,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P2,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setAsOutputPin(GPIO_PORT_P3,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P3,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setAsOutputPin(GPIO_PORT_P4,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P4,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setAsOutputPin(GPIO_PORT_P5,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P5,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setAsOutputPin(GPIO_PORT_P6,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P6,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+
+	GPIO_setAsOutputPin(GPIO_PORT_P7,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P7,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+
+	GPIO_setAsOutputPin(GPIO_PORT_P8,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P8,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+
+	GPIO_setAsOutputPin(GPIO_PORT_P9,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P9,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setAsOutputPin(GPIO_PORT_P10,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_P10,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setAsOutputPin(GPIO_PORT_PJ,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+	GPIO_setOutputLowOnPin(GPIO_PORT_PJ,
+						GPIO_PIN0 | GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3 |
+						GPIO_PIN4 | GPIO_PIN5 | GPIO_PIN6 | GPIO_PIN7 );
+
+
+	// Configure PJ.4 and PJ.5 as input pins for LFXIN and LFXOUT mode
+
+	GPIO_setAsPeripheralModuleFunctionInputPin(
+			GPIO_PORT_PJ,
+			GPIO_PIN4 | GPIO_PIN5,
+			GPIO_PRIMARY_MODULE_FUNCTION
+	);
+
+<FMCG_MAIN_GPIO_LED_INIT>	
+
+}
+
+void clockSystemConfig(void){
+
+	// Set DCO Frequency to 8 MHz
+	CS_setDCOFreq(CS_DCORSEL_0, CS_DCOFSEL_6);
+
+	//configure MCLK = 8MHz, SMCLK=2MHz to be source by DCOCLK
+	CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_4);
+	CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+
+	// ACLK Clock configuration
+
+    //Set external clock frequency to ACLK frequency
+<FMCG_MAIN_ACLK_FREQUENCY>
+
+	CS_initClockSignal(CS_ACLK,CS_LFXTCLK_SELECT,CS_CLOCK_DIVIDER_1);
+	CS_turnOnLFXT(CS_LFXT_DRIVE_3);
+
+
+	// Disable the GPIO power-on default high-impedance mode to activate
+    // previously configured port settings
+
+    PMM_unlockLPM5();
+}
+
+<FMCG_MAIN_TIMER_CONFIG>
+<FMCG_MAIN_START_TIMERS_CONFG>
+<FMCG_MAIN_LCD_INIT>
+
+<FMCG_MAIN_SERVICE_INTERRUPTS>
+
+<FMCG_MAIN_INTERRUPT_VECTORS>
+
+
+
+

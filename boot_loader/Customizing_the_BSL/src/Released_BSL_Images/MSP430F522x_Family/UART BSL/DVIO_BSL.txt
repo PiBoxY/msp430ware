@@ -1,0 +1,1 @@
+If a BSL using I/Os in the DVIO domain is required BSL v00.08.08.53 from the F525x can be used.

@@ -1,0 +1,1186 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workshop (Getting Started) &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="FAQ" href="ch_faq.html"/>
+        <link rel="prev" title="EVM430-CAPMINI" href="ch_evm_CAP_MINI.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_basics.html">Capacitive Sensing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_device.html">Device Family</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm.html">MSP-CAPT-FR2633 Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_boostxl_capkeypad.html">BOOSTXL-CAPKEYPAD Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_CAP_MINI.html">EVM430-CAPMINI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workshop (Getting Started)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#an-introduction-to-capacitive-touch-with-msp-captivate-microcontrollers">An Introduction to Capacitive Touch with MSP CapTIvate™ Microcontrollers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workshop-summary">Workshop Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumptions">Assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#required-tools">Required Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-fr2633-target-mcu-and-captivate-pgmr-pcbs">CAPTIVATE-FR2633 Target MCU and CAPTIVATE-PGMR PCBs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-bswp-out-of-box-experience-demo-panel">CAPTIVATE-BSWP (Out-of-Box Experience Demo Panel):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-setup">Hardware Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-note-about-wake-on-proximity-behavior">Important note about wake on proximity behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wake-on-proximity-low-power-mode">Wake on proximity low power mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cpu-scanning-in-active-mode">CPU scanning in active mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#entering-wake-on-proximity-low-power-mode">Entering wake on proximity low power mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#captivate-bswp-demonstration">CAPTIVATE-BSWP Demonstration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-box-experience">Out of Box Experience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-demo">Starting the Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-new-sensor-design-project">Creating a new sensor design project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lab-1">LAB #1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-creating-a-new-design">Part 1 - Creating a New Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-new-captivate-design-center-project">Create a new CapTIvate™ Design Center project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instantiate-beans-adding-an-msp-captivate-controller">Instantiate Beans - Adding an MSP CapTIvate™ Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-sensors">Adding Sensors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-sensors">Configuring Sensors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#auto-assign-sensor-connections">Auto Assign Sensor Connections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#note-we-were-able-to-use-the-auto-assign-feature-here-to-map-the-ports-for-a-board-that-already-exists-this-is-because-the-auto-assign-feature-was-used-to-generate-the-original-port-mapping-for-the-captivate-bswp-panel">NOTE: <em>We were able to use the Auto-Assign feature here to map the ports for a board that already exists. This is because the Auto-Assign feature was used to generate the original port mapping for the CAPTIVATE-BSWP panel.</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-starter-project-target-mcu-code">Generate Starter Project Target MCU Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-lab-1-starter-project-code">Build Lab#1 Starter Project Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-tuning-sensors">Part 2 - Tuning Sensors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tuning-a-button-group-sensor">Tuning a Button Group Sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuning-a-wheel-sensor">Tuning a Wheel Sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuning-a-slider-sensor">Tuning a Slider Sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proximity-sensor-tuning">Proximity Sensor Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#miscellaneous-sensor-parameters">Miscellaneous Sensor Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scan-time-estimation">Scan Time Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-generate-updated-sensor-configuration">Part 3 - Generate Updated Sensor Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experiments-with-low-power">Experiments with Low Power</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lab-2">LAB #2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pre-requisite">Pre-requisite</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#goals">Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Hardware Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#design-center-project">Design Center Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-wake-on-touch-functionality">Adding wake on touch functionality</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modify-wake-on-proximity-parameters">Modify wake on proximity parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-lab-2-starter-project-code">Generate LAB# 2 Starter Project Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launching-target-mcu">Launching target MCU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-energytrace">Using EnergyTrace™</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#important-although-energytrace-technology-can-measure-very-small-currents-with-reasonable-accuracy-and-provide-a-simple-tool-for-low-power-demonstrations-it-is-highly-recommended-that-low-power-measurements-should-be-made-using-a-bench-supply-high-accuracy-meter-and-the-target-isolated-from-the-ezfet-programmer">IMPORTANT: <em>Although EnergyTrace™ Technology can measure very small currents with reasonable accuracy and provide a simple tool for low-power demonstrations, it is HIGHLY RECOMMENDED that low-power measurements should be made using a bench supply, high accuracy meter and the target isolated from the eZFET programmer.</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-measure-proximity-sensor-low-power-current">Part 1 - Measure Proximity Sensor Low Power current</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-effects-of-sensor-sensitivity-on-low-power-current">Part 2 - Effects of Sensor Sensitivity on Low Power current</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-effects-of-sensor-scan-rate-on-low-power-current">Part 3 - Effects of Sensor Scan Rate on Low Power current</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exploring-the-captivate-touch-library">Exploring the CapTIvate™ Touch Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lab-3">LAB #3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Pre-requisite</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Hardware Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Design Center Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-lab-3-starter-code-project">Generate LAB# 3 Starter Code Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-captivate-touch-library-overview">Part 1 - CapTIvate™ Touch Library Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-explore-ccs-project-structure-and-details">Part 2 - Explore CCS project structure and details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-creating-and-using-callbacks">Part 3 - Creating and using callbacks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lab3-action">LAB3 Action:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">LAB3 Action:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">LAB3 Action:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-4-determining-sensor-state-and-position">Part 4 - Determining sensor state and position</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">LAB3 Action:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">LAB3 Action:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Workshop (Getting Started)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workshop-getting-started">
+<h1>Workshop (Getting Started)<a class="headerlink" href="#workshop-getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="an-introduction-to-capacitive-touch-with-msp-captivate-microcontrollers">
+<h2>An Introduction to Capacitive Touch with MSP CapTIvate™ Microcontrollers<a class="headerlink" href="#an-introduction-to-capacitive-touch-with-msp-captivate-microcontrollers" title="Permalink to this headline">¶</a></h2>
+<p>This workshop steps through how to get started with the CapTIvate™ ecosystem and the CapTIvate™ Capacitive Touch MCU Development Kit. The workshop consists of tool setup, an <a class="reference external" href="ch_workshop.html#out-of-box-experience">out-of-box experience</a>, and three labs. The labs all build on each other to teach capacitive touch tuning techniques, recommended workflow, low power optimization, and software development with the CapTIvate™ capacitive touch library.</p>
+</div>
+<div class="section" id="workshop-summary">
+<h2>Workshop Summary<a class="headerlink" href="#workshop-summary" title="Permalink to this headline">¶</a></h2>
+<p>This workshop introduces the CapTIvate™ ecosystem through hands-on experimentation. The workshop is broken up into four sections which are described below.</p>
+<ol class="arabic simple">
+<li>Out-of-Box Experience<ul>
+<li>Explore the CapTIvate™ Capacitive Touch MCU Development Kit components</li>
+<li>Experiment with the features and performance of the MSP430FR2633 CapTIvate™ MCU without writing or compiling any code</li>
+</ul>
+</li>
+<li>Lab 1: Using the CapTIvate™ Design Center to Create and Tune Sensors<ul>
+<li>Learn how to use the CapTIvate™ Design Center views</li>
+<li>Learn the workflow between the CapTIvate™ Design Center and CCS</li>
+<li>Learn basic capacitive touch tuning principles</li>
+</ul>
+</li>
+<li>Lab 2: Experimenting with Low Power Design Techniques<ul>
+<li>Learn how to use the wake-on-proximity feature</li>
+<li>Learn how to tune for the lowest possible power consumption</li>
+<li>Use EnergyTrace™ to measure the effects of tuning on power consumption</li>
+</ul>
+</li>
+<li>Lab 3: Using the CapTIvate™ Software Library<ul>
+<li>Learn about the sensor management features in the software library</li>
+<li>Learn how to use callback functions to get proximity, touch, and position data</li>
+</ul>
+</li>
+</ol>
+<p>Upon completion of this workshop, the user will understand the basics of how to use the CapTIvate™ Design Center, the CapTIvate™ Touch Software Library, and the CapTIvate™ Capacitive Touch MCU Development Kit.</p>
+</div>
+<div class="section" id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h2>
+<p>This workshop assumes the following:</p>
+<ol class="arabic simple">
+<li>The user is reasonably familiar with MSP430 microcontroller architecture</li>
+<li>The user is comfortable with Code Composer Studio v6 and its features, and has Code Composer Studio installed and licensed</li>
+<li>The user is reasonably familiar with elementary capacitive touch principles</li>
+</ol>
+</div>
+<div class="section" id="required-tools">
+<h2>Required Tools<a class="headerlink" href="#required-tools" title="Permalink to this headline">¶</a></h2>
+<p>The following tools are required to complete this workshop:</p>
+<ul class="simple">
+<li>CapTIvate™ Design Center PC GUI Tool<ul>
+<li>The CapTIvate™ Design Center is a PC GUI tool for configuring and tuning CapTIvate™ touch panels. An installer can be downloaded from its home page: <a class="reference external" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/CapTIvate_Design_Center/latest/index_FDS.html">http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/CapTIvate_Design_Center/latest/index_FDS.html</a></li>
+<li>Java run-time engine (JRE) version 1.7 or later is required.</li>
+</ul>
+</li>
+<li>TI Code Composer Studio v6.10 or greater with MSP430 support and MSP430FR2633 service packs<ul>
+<li>Code Composer Studio can be downloaded from the following Wiki page: <a class="reference external" href="http://processors.wiki.ti.com/index.php/Download_CCS">http://processors.wiki.ti.com/index.php/Download_CCS</a>.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="captivate-fr2633-target-mcu-and-captivate-pgmr-pcbs">
+<h3>CAPTIVATE-FR2633 Target MCU and CAPTIVATE-PGMR PCBs<a class="headerlink" href="#captivate-fr2633-target-mcu-and-captivate-pgmr-pcbs" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-FR2633 and CAPTIVATE-PGMR PCBs provide the MSP430FR2633 target MCU and programming/debug features, respectively. <img alt="Programmer and Target PCBs" src="../_images/workshop_hw_target_pgmr.png" /></p>
+</div>
+<div class="section" id="captivate-bswp-out-of-box-experience-demo-panel">
+<h3>CAPTIVATE-BSWP (Out-of-Box Experience Demo Panel):<a class="headerlink" href="#captivate-bswp-out-of-box-experience-demo-panel" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-BSWP is a capacitive touch evaluation panel that plugs into the EVM. It will be used to demonstrate a capacitive touch interface in this workshop. This panel demonstrates self-capacitance. <img alt="BSWP Demo Panel" src="../_images/workshop_hw_bswp_panel.png" /></p>
+<p>For additional information about these and other demo PCBs provided in the CapTIvate™ MCU Development Kit, click - <a class="reference external" href="ch_evm.html#msp-capt-fr2633-development-kit">Kit</a>.</p>
+</div>
+</div>
+<div class="section" id="hardware-setup">
+<h2>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this headline">¶</a></h2>
+<p>Please perform the following:</p>
+<ul class="simple">
+<li>Connect the example sensor demonstration PCB to the CAPTIVATE-FR2633 MCU and CAPTIVATE-PGMR PCBs</li>
+<li>Connect the micro-USB cable between the CAPTIVATE-PGMR programmer PCB and your computer</li>
+<li>Verify the green LED (Power Good) is on and the green LED (USB Enumeration) is blinking.</li>
+</ul>
+<p>Refer to the <a class="reference external" href="ch_faq.html#design-kit">FAQ</a> section for further troubleshooting tips.</p>
+<div class="figure" id="id10">
+<img alt="Typical Setup" src="../_images/evm_demo_setup.png" />
+<p class="caption"><span class="caption-number">Fig. 335 </span><span class="caption-text">Typical Setup</span></p>
+</div>
+</div>
+<div class="section" id="important-note-about-wake-on-proximity-behavior">
+<h2>Important note about wake on proximity behavior<a class="headerlink" href="#important-note-about-wake-on-proximity-behavior" title="Permalink to this headline">¶</a></h2>
+<p>To understand how the wake on proximity mode affects the out of box experience, the behavior is illustrated below. <img alt="Out of box status LEDs" src="../_images/evm_wot_pic1.png" /></p>
+<div class="section" id="wake-on-proximity-low-power-mode">
+<h3>Wake on proximity low power mode<a class="headerlink" href="#wake-on-proximity-low-power-mode" title="Permalink to this headline">¶</a></h3>
+<p>The MCU board may appear to not be working during wake-on-proximity mode. There is no communications with the design center and both LEDs on the MCU board will be off. In this state the CPU is in low power mode 3 with the hardware state machine actively scanning only the proximity sensor at 10Hz until a proximity event is detected. <img alt="Wake on proximity mode" src="../_images/evm_wot_pic2.png" /></p>
+</div>
+<div class="section" id="cpu-scanning-in-active-mode">
+<h3>CPU scanning in active mode<a class="headerlink" href="#cpu-scanning-in-active-mode" title="Permalink to this headline">¶</a></h3>
+<p>Bringing your hand near the board will introduce a proximity condition causing the CPU to exit low power mode and resume actively scanning all the panel sensors at 30Hz as long as your hand is near or touching the panel. LED1 will blink at the rate the CPU is scanning the sensors. LED2 will be on while the proximity detect is true. <img alt="Active mode" src="../_images/evm_wot_pic3.png" /></p>
+</div>
+<div class="section" id="entering-wake-on-proximity-low-power-mode">
+<h3>Entering wake on proximity low power mode<a class="headerlink" href="#entering-wake-on-proximity-low-power-mode" title="Permalink to this headline">¶</a></h3>
+<p>After removing your hand away from the board, LED2 led will turn off, however, LED1 will remain on, indicating the panel is still being scanned for a short period by the CPU. After one second the CPU enters low-power mode 3, LED1 turns off and the hardware state machine is now actively scanning only the proximity sensor. <img alt="Entering sleep mode" src="../_images/evm_wot_pic4.png" /></p>
+</div>
+</div>
+<div class="section" id="captivate-bswp-demonstration">
+<h2>CAPTIVATE-BSWP Demonstration<a class="headerlink" href="#captivate-bswp-demonstration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="out-of-box-experience">
+<h3>Out of Box Experience<a class="headerlink" href="#out-of-box-experience" title="Permalink to this headline">¶</a></h3>
+<p>This demonstration uses the self capacitive BSWP (Button, Slider, Wheel and Proximity) Panel to explores the CapTIvate™ Design Center key features.</p>
+<ul class="simple">
+<li>Design and sensor tuning views</li>
+<li>Experiment with self capacitive button, slider, wheel and proximity</li>
+</ul>
+<p>After completing this Out of Box Experience, continue with the workshop to learn more.</p>
+<ul class="simple">
+<li>How to create and tune sensors for desired touch and feel</li>
+<li>Low power sensor tuning considerations</li>
+<li>Using the CapTIvate™ Touch Library</li>
+</ul>
+<p><strong>Note:</strong> The CAPTIVATE-FR2633 MCU PCB comes pre-programmed from the factory with the CAPTIVATE-BSWP &#8220;Out of Box Experience&#8221; demonstration firmware. However, if the CAPTIVATE-FR2633 PCB needs to be re-programmed, <a class="reference external" href="ch_evm.html#running-an-example-project">Reprogram Target MCU</a> before continuing.</p>
+</div>
+<div class="section" id="starting-the-demo">
+<h3>Starting the Demo<a class="headerlink" href="#starting-the-demo" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Follow the Demo Hardware Setup instructions above.</li>
+<li>Start the CapTIvate™ Design Center using the icon that was installed on your desktop. Select &#8220;Project Open&#8221; and select the &#8220;CAPTIVATE-BSWP&#8221; project directory. <a class="reference external" href="ch_designcenter.html#captivate-design-center-users-guide">Need help with CapTIvate™ Design Center?</a></li>
+<li>The project&#8217;s <a class="reference external" href="ch_designcenter.html#introduction">main window</a> is the design canvas and is pre-populated with the microcontroller and selected sensors matching the hardware for this demo.</li>
+<li><a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">Enable Communications</a> in the CapTIvate™ Design Center to begin the demonstration. Note: The MCU is in &#8220;wake on proximity&#8221; mode and there may appear to be no activity. Bring your hand near or touch the board to activate the MCU.</li>
+</ul>
+<p>The Design Center canvas displays the current state of the sensors on the touch panel. Touch the various sensors on the panel, and observe the response on the canvas. The Design Center draws circular button indicators for button groups, and shows a slider, wheel and proximity depiction for slider, wheel and proximity sensors.</p>
+<div class="figure" id="id11">
+<img alt="Design Center Canvas" src="../_images/cdc_example_design.png" />
+<p class="caption"><span class="caption-number">Fig. 336 </span><span class="caption-text">Design Center Canvas</span></p>
+</div>
+<p>The first thing to note is that there are indicators that flash different colors depending on the state of the element that they represent.</p>
+<div class="figure" id="id12">
+<img alt="Sensor color states" src="../_images/evm_oobe_sensor_colors.png" />
+<p class="caption"><span class="caption-number">Fig. 337 </span><span class="caption-text">Sensor color states</span></p>
+</div>
+<p>Red on a slider or wheel sensor indicates that the slider or wheel is NOT being touched, and the needle or circle shows the last valid position. Green on a slider or wheel sensor indicates that the slider or wheel is being touched, and the needle or circle indicator shows the position. WHITE on a button group indicator or proximity sensor implies that there is no touch or proximity detection on the respective element. Green indicates that the element is being touched. Amber indicates that the element is in proximity detection. GREEN will always supersede AMBER, because when an element is in a touch detect state it is usually also in a proximity detect state. To see both the proximity detection LED and the touch detection LED at the same time, along with the raw data, let&#8217;s open the controller customizer.</p>
+<p>Double click on the MSP430 widget in the canvas view. The controller customizer window will open.</p>
+<div class="figure" id="id13">
+<img alt="MSP430 Widget" src="../_images/evm_oobe_msp430.png" />
+<p class="caption"><span class="caption-number">Fig. 338 </span><span class="caption-text">MSP430 Widget</span></p>
+</div>
+<p>The controller customizer window offers MCU configuration control as well as real-time viewing of element data from the entire panel at once. These different features are located on the different tabs of the customizer. The default tab for the controller customizer is the Configure Connections tab. This tab specifies the sensor-to-port mapping.</p>
+<div class="figure" id="id14">
+<img alt="Controller Customizer View" src="../_images/evm_oobe_mcu_customizer.png" />
+<p class="caption"><span class="caption-number">Fig. 339 </span><span class="caption-text">Controller Customizer View</span></p>
+</div>
+<p>Open the Channel Bar Chart tab. The Channel Bar Chart tab displays channel data for every element in the system. Proximity and touch indicators (Amber and Green, respectively) are shown below the bar for each channel. The channel&#8217;s immediate count value is drawn as the blue bar in the plot for each channel. The green bar indicates the touch threshold, and the yellow bar indicates the proximity threshold. The LTA is drawn as a black bar, and usually appears hidden behind the count bar unless the element is being touched.</p>
+<div class="figure" id="id15">
+<img alt="Controller Customizer View" src="../_images/evm_oobe_mcu_channel_bar_view.png" />
+<p class="caption"><span class="caption-number">Fig. 340 </span><span class="caption-text">Controller Customizer View</span></p>
+</div>
+<p>This concludes the out-of-box demonstration. Feel free to continue to look through the Design Center views to see what&#8217;s available.</p>
+<p>Ready to start your first sensor design? Continue this workshop in the next section to learn how.</p>
+</div>
+</div>
+<div class="section" id="creating-a-new-sensor-design-project">
+<h2>Creating a new sensor design project<a class="headerlink" href="#creating-a-new-sensor-design-project" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lab-1">
+<h3>LAB #1<a class="headerlink" href="#lab-1" title="Permalink to this headline">¶</a></h3>
+<p>In this section we go beyond the <a class="reference external" href="ch_workshop.html#out-of-box-experience">Out of Box Experience</a> and will learn the following:</p>
+<ul class="simple">
+<li>How to create new sensor project using the CapTIvate™ Design Center</li>
+<li>How to generate CCS/IAR target code</li>
+<li>How to tune sensors</li>
+</ul>
+</div>
+<div class="section" id="part-1-creating-a-new-design">
+<h3>Part 1 - Creating a New Design<a class="headerlink" href="#part-1-creating-a-new-design" title="Permalink to this headline">¶</a></h3>
+<p>Configuring the sensors is an important step. We want to take advantage of the target MCU&#8217;s parallel scanning capability, and to do this we need to make optimal connections between the available CapTIvate™ port pins and the electrodes in each sensor. Being able to scan electrodes in parallel can impact both the scan time and power consumption. In this section, we&#8217;ll use the CapTIvate™ Design Center&#8217;s auto-assignment feature to generate an optimal pin assignment for the CAPTIVATE-BSWP panel.</p>
+<p>The BSWP (Button, Slider, Wheel and Proximity) panel features several different self-capacitance sensors: a button group, a wheel, a slider and a proximity sensor. The diagram below shows the pin assignments and sensor layout.</p>
+<div class="figure" id="id16">
+<img alt="Demo Panel Electrode Connections" src="../_images/workshop_bswp_electrodes.png" />
+<p class="caption"><span class="caption-number">Fig. 341 </span><span class="caption-text">Demo Panel Electrode Connections</span></p>
+</div>
+<div class="section" id="create-a-new-captivate-design-center-project">
+<h4>Create a new CapTIvate™ Design Center project<a class="headerlink" href="#create-a-new-captivate-design-center-project" title="Permalink to this headline">¶</a></h4>
+<p>Select File, Project New from the Design Center toolbar and provide &#8220;LAB1&#8221; for the project name. A blank workspace canvas should appear. If the Design Center asks if you would like to save any changes to the example BSWP project, select Discard, so that the example project can serve as a reference later.</p>
+<div class="figure" id="id17">
+<img alt="New Project Name" src="../_images/workshop_new_project_name.png" />
+<p class="caption"><span class="caption-number">Fig. 342 </span><span class="caption-text">New Project Name</span></p>
+</div>
+</div>
+<div class="section" id="instantiate-beans-adding-an-msp-captivate-controller">
+<h4>Instantiate Beans - Adding an MSP CapTIvate™ Controller<a class="headerlink" href="#instantiate-beans-adding-an-msp-captivate-controller" title="Permalink to this headline">¶</a></h4>
+<p>Underneath the menu toolbar in the Design Center is the bean bar. The Design Center contains objects called beans that represent physical things in a capacitive touch system- a MCU, a button group, a slider, a wheel, etc.</p>
+<div class="figure" id="id18">
+<img alt="Bean Objects Menu" src="../_images/workshop_add_controller.png" />
+<p class="caption"><span class="caption-number">Fig. 343 </span><span class="caption-text">Bean Objects Menu</span></p>
+</div>
+<p>All designs must have a controller. They may not have more than one controller (since we are designing a configuration for a single MCU). Let&#8217;s add a controller to the workspace canvas. Select the MSP Controller bean icon from the bean bar, and click on the canvas to place it. The canvas should now show a controller bean.</p>
+<div class="figure" id="id19">
+<img alt="Add MCU Bean" src="../_images/workshop_select_controller.png" />
+<p class="caption"><span class="caption-number">Fig. 344 </span><span class="caption-text">Add MCU Bean</span></p>
+</div>
+<p>Double click the MSP bean to open the controller customizer. In the controller properties view, select the MSP430FR2633IRHB (32-pin QFN) device from the configuration device drop down.</p>
+<div class="figure" id="id20">
+<img alt="Select Device Variant" src="../_images/workshop_select_fr2633.png" />
+<p class="caption"><span class="caption-number">Fig. 345 </span><span class="caption-text">Select Device Variant</span></p>
+</div>
+<p>We will also need to configure the communications interface for communicating with the target MCU. We&#8217;ll use I2C as it offers lower power consumption than the UART interface. In the controller customizer, select BULK_I2C from the communications interface pull-down.</p>
+<div class="figure" id="id21">
+<img alt="Select Communications Mode" src="../_images/workshop_select_communications.png" />
+<p class="caption"><span class="caption-number">Fig. 346 </span><span class="caption-text">Select Communications Mode</span></p>
+</div>
+<p>Close the controller customizer. The bean will now change to represent to correct device and package that will be used in this workshop.</p>
+<div class="figure" id="id22">
+<img alt="MCU Bean Configured" src="../_images/workshop_select_fr2633_2.png" />
+<p class="caption"><span class="caption-number">Fig. 347 </span><span class="caption-text">MCU Bean Configured</span></p>
+</div>
+</div>
+<div class="section" id="adding-sensors">
+<h4>Adding Sensors<a class="headerlink" href="#adding-sensors" title="Permalink to this headline">¶</a></h4>
+<p>Our panel has a button group (keypad with 8 buttons), a 4-element slider, a 3-element wheel and single element proximity sensor. Let&#8217;s add a bean for each one of those sensors now. Just like the controller, the respective beans for each one of these sensor types can be added by clicking the bean icon, and dropping the bean onto the canvas. Now that we&#8217;ve added these sensors, the canvas should look similar to the image below.</p>
+<div class="figure" id="id23">
+<img alt="Add Sensor Beans" src="../_images/workshop_add_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 348 </span><span class="caption-text">Add Sensor Beans</span></p>
+</div>
+</div>
+<div class="section" id="configuring-sensors">
+<h4>Configuring Sensors<a class="headerlink" href="#configuring-sensors" title="Permalink to this headline">¶</a></h4>
+<p>The canvas now contains all of the sensors in our system, plus the controller. Now we need to tell the Design Center more information about each of the sensors in our system. Let&#8217;s start with the button group. Double-click the button group that we added to the canvas to open its customizer window. The customizer has a Configuration section at the top of the customizer. Since our panel is self-capacitance only, we&#8217;ll want to specify SELF for the Capacitive Mode option. We have eight buttons that make up the keypad, so we will set the button count to 8. Notice that the Electrode Configuration drop-down will only show one option: 2 Cycles, 0 Tx Pin and 8 Rx Pin, since that is the only possibility for an eight-button, self-capacitance sensor. Your customizer should match the image shown here.</p>
+<div class="figure" id="id24">
+<img alt="Add Sensor Beans" src="../_images/workshop_configure_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 349 </span><span class="caption-text">Add Sensor Beans</span></p>
+</div>
+<p>Let&#8217;s also give the button group a creative name. The name is entered in the Name text box at the top of the customizer. If you remember back to the demo, it was named buttonGroupSensor. Here, it&#8217;s named BTN0000, a unique default name provided by the Design Center. Let&#8217;s name it keypad for this lab.</p>
+<p>The same process is required for the slider, wheel and proximity sensors. Go ahead and setup the configuration for those sensors now to match the panel configuration (refer to the image at the beginning of this section for a reference). The Design Center assumes 3 elements for a wheel and 4 elements for a slider, which is exactly the configuration we have on this board. That means all we are really doing is naming the sensors and setting the capacitive sensing mode to SELF. Don&#8217;t forget to give these sensors new names as shown in the diagram below. When you&#8217;re finished, they should look like the following three images.</p>
+<div class="figure" id="id25">
+<img alt="Sensors Configured" src="../_images/workshop_configure_sensors2.png" />
+<p class="caption"><span class="caption-number">Fig. 350 </span><span class="caption-text">Sensors Configured</span></p>
+</div>
+<p>The canvas view should now show small connection points on the left side of the four sensors: 8 for the keypad, 4 for the slider, 3 for the wheel and 1 for the proximity sensor. Each connection point indicates a CapTIvate™ port that is required for that sensor. Next, we&#8217;ll be mapping these connection points to actual ports on the MSP430FR2633 MCU that we selected to be the controller.</p>
+<div class="figure" id="id26">
+<img alt="Unassigned sensor electrodes" src="../_images/workshop_sensor_electrodes.png" />
+<p class="caption"><span class="caption-number">Fig. 351 </span><span class="caption-text">Unassigned sensor electrodes</span></p>
+</div>
+</div>
+<div class="section" id="auto-assign-sensor-connections">
+<h4>Auto Assign Sensor Connections<a class="headerlink" href="#auto-assign-sensor-connections" title="Permalink to this headline">¶</a></h4>
+<p>As we pointed out at the beginning of this section, we are going to let the Design Center automatically map sensors to ports. This is the recommended way to map ports because the Design Center uses an algorithm to determine the most optimal configuration. Port assignment is done in the controller customizer. Open the controller customizer. This is the first bean we added- the one that looks like a device. The customizer opens with the Configure Connections tab selected, as shown below. The sensors we added in the previous step are listed in the &#8220;Unconnected Sensor Electrode&#8221; box at the far left of the tab, indicating that nothing has been connected yet. Notice that the Generate Source Code button is grayed out and unavailable. This is because a valid port mapping is required to generate source code. The middle box on the Configure Connections tab has one row for each available CapTIvate™ port. The Use Mode column of the table has each pin to &#8220;Unrestricted&#8221; by default. This means that
+the Auto-Assign feature assumes it has access to all of the ports listed here. It&#8217;s possible to reserve a port (say, if you wanted to use it for a SPI interface) by changing the &#8220;Unrestricted&#8221; option to &#8220;Reserved.&#8221; The BSWP panel that we are designing now requires all 16 ports, so let&#8217;s leave all of the ports as &#8220;Unrestricted.&#8221;</p>
+<div class="figure" id="id27">
+<img alt="Auto Assign Feature" src="../_images/workshop_auto_assign.png" />
+<p class="caption"><span class="caption-number">Fig. 352 </span><span class="caption-text">Auto Assign Feature</span></p>
+</div>
+<p>When complete, you should see a configuration as shown below. Notice how the indicator is GREEN and shows OK, indicating all the sensors have been connected to controller port pins with no conflicts. Also notice that all 16 CapTIvate™ I/O pins have been used.</p>
+<div class="figure" id="id28">
+<img alt="Auto Assign Successful" src="../_images/workshop_auto_assign_successful.png" />
+<p class="caption"><span class="caption-number">Fig. 353 </span><span class="caption-text">Auto Assign Successful</span></p>
+</div>
+<p>Now that the port mapping is known, the time cycles are calculated. The 3rd and final box on the &#8220;Configure Connections&#8221; tab shows a breakdown of the time cycles. A time cycle is a group of elements that will be measured in parallel (at the same time as each other). Notice that the keypad sensor will be measured in two time cycles, and the proximity, slider, and wheel sensor each require one time cycle each. If the device only supported sequential measurements, this panel would take 16 cycles to measure each sensor! With this device we are doing it in just 5, reducing measurement time and power consumption.</p>
+</div>
+<div class="section" id="note-we-were-able-to-use-the-auto-assign-feature-here-to-map-the-ports-for-a-board-that-already-exists-this-is-because-the-auto-assign-feature-was-used-to-generate-the-original-port-mapping-for-the-captivate-bswp-panel">
+<h4>NOTE: <em>We were able to use the Auto-Assign feature here to map the ports for a board that already exists. This is because the Auto-Assign feature was used to generate the original port mapping for the CAPTIVATE-BSWP panel.</em><a class="headerlink" href="#note-we-were-able-to-use-the-auto-assign-feature-here-to-map-the-ports-for-a-board-that-already-exists-this-is-because-the-auto-assign-feature-was-used-to-generate-the-original-port-mapping-for-the-captivate-bswp-panel" title="Permalink to this headline">¶</a></h4>
+<p>Before we move on, we want to save our current Design Center project. Select &#8220;Project Save As&#8221; and change the name of project folder to LAB1 as shown below.</p>
+<div class="figure" id="id29">
+<img alt="Save CapTIvate™ Design Center Project" src="../_images/workshop_lab1_project_save.png" />
+<p class="caption"><span class="caption-number">Fig. 354 </span><span class="caption-text">Save CapTIvate™ Design Center Project</span></p>
+</div>
+</div>
+<div class="section" id="generate-starter-project-target-mcu-code">
+<h4>Generate Starter Project Target MCU Code<a class="headerlink" href="#generate-starter-project-target-mcu-code" title="Permalink to this headline">¶</a></h4>
+<p>Now that we&#8217;ve created a sensor configuration for our sensors, the next step is to generate a starter code project. A starter code project is a fully functional Code Composer Studio and IAR firmware project for the MSP430FR2633 that we can use to program our target and begin the tuning process. Generate starter code project. In the controller customizer, under the Configure Connections tab, select the Generate Source Code button.</p>
+<div class="figure" id="id30">
+<img alt="Generate Starter Code Project" src="../_images/workshop_generate_code.png" />
+<p class="caption"><span class="caption-number">Fig. 355 </span><span class="caption-text">Generate Starter Code Project</span></p>
+</div>
+<p>Save starter code project. A dialog box will ask whether we want to create a new project or update an existing project. Select &#8220;Create new project&#8221;, then click &#8220;OK&#8221; to accept the default location for our new starter project.</p>
+<div class="figure" id="id31">
+<img alt="Save Starter Code Project" src="../_images/workshop_save_code.png" />
+<p class="caption"><span class="caption-number">Fig. 356 </span><span class="caption-text">Save Starter Code Project</span></p>
+</div>
+<p>The Design Center will create the starter code project under your Design Center Workspace directory. In the next step, you will import a copy of this project into your CCS workspace directory.</p>
+</div>
+<div class="section" id="build-lab-1-starter-project-code">
+<h4>Build Lab#1 Starter Project Code<a class="headerlink" href="#build-lab-1-starter-project-code" title="Permalink to this headline">¶</a></h4>
+<p>Import starter code project into CCS. Now that we&#8217;ve generated our LAB1 starter project source code, import the new project to your CCS workspace. If you need a CCS &#8220;refresher&#8221;, follow the steps in a later section CCS - Building and programming. After importing the project, click the debugger icon to build and download the code to the target.</p>
+<p>Note: The very first time a CapTIvate source code project is built in CCS, the compiler may issue the following message if the small code/ small data run-time library needs to be built. Depending on your PC, this may take several minutes.</p>
+<div class="figure" id="id32">
+<img alt="Small memory run-time library build message" src="../_images/workshop_build_rtl.png" />
+<p class="caption"><span class="caption-number">Fig. 357 </span><span class="caption-text">Small memory run-time library build message</span></p>
+</div>
+<p>Since we won&#8217;t be using the debugger at this time, set the target running in &#8220;free run&#8221; mode or simply terminate the debug session. Press the reset button on the MCU PCB.</p>
+<p><strong>Note: After a POR or RESET, the MCU requires a second or two to calibrate the sensors before communication begins.</strong></p>
+<p>Now that we&#8217;ve programmed the target with our start project, let&#8217;s view the real time data and start tuning our sensors! Communicate with the Design Center. In the Design Center, close all of the customizer windows so that only the main canvas is visible, showing all of our sensors. Select Communications, Connect from the Design Center menu bar. The sensor data that is being streamed from the target will now appear in the main view of the BSWP demo board.</p>
+</div>
+</div>
+<div class="section" id="part-2-tuning-sensors">
+<h3>Part 2 - Tuning Sensors<a class="headerlink" href="#part-2-tuning-sensors" title="Permalink to this headline">¶</a></h3>
+<p>At this point, we have not yet specified what kind of tuning we want for each sensor. Each sensor is operating off of the default values that were assigned by the design center. These default values are good starting points, but there is room for improvement. That is the goal of Part 2- to improve upon the defaults and dial in the values that are best for this application. Let&#8217;s look at the individual element data for the 16 channels in our system. Open the Controller customizer and select the Channel Bar Chart tab. All 16 channels will be showing their element data here. While touching the various sensors, the BLUE bars (absolute count measurement) will decrease since this is a self-capacitance panel. Solid RED bars indicate the delta between the long term average (LTA) and the current count. These will increase when an element is touched. Note the position of the default thresholds relative to the counts as you interact with the panel.</p>
+<div class="figure" id="id33">
+<img alt="Channel Bar View" src="../_images/workshop_tune_channel_bar.png" />
+<p class="caption"><span class="caption-number">Fig. 358 </span><span class="caption-text">Channel Bar View</span></p>
+</div>
+<p>The design center assigns default proximity and touch thresholds for all sensors. These values will have to be fine-tuned for each element, since each element has a slightly different sensitivity and parasitic capacitance. You can examine these defaults by opening the CAPT_UserConfig.c file in CCS. Search for &#8221;.ui8TouchThreshold&#8221; or &#8221;.ui16ProxThreshold.&#8221; Notice that proximity threshold is assigned to the sensor while touch thresholds are assigned to each individual element in the sensor.</p>
+<p>Note: the proximity threshold value is an absolute deviation from the LTA (long term average) whereas the touch threshold value is dynamic, expressed as a percentage of the LTA. To learn more, double click on a sensor, click on the Tuning Tab, then on the Proximity Threshold or Touch Threshold Parameters to bring up the integrated help topics.</p>
+<p>Tuning is done on a sensor-by-sensor basis. Each sensor has a customizer window that is opened by double-clicking the sensor bean on the canvas.</p>
+<div class="section" id="tuning-a-button-group-sensor">
+<h4>Tuning a Button Group Sensor<a class="headerlink" href="#tuning-a-button-group-sensor" title="Permalink to this headline">¶</a></h4>
+<p>Let&#8217;s start with the button group sensor first.</p>
+<p>TIP: To assist us in the sensor tuning process, any one of the sensor&#8217;s tabs can be &#8220;un-docked&#8221; allowing us to view the real time data in one tab while modifying a tuning parameter in another tab.</p>
+<div class="figure" id="id34">
+<img alt="Undocking Tabs" src="../_images/workshop_tune_undock.png" />
+<p class="caption"><span class="caption-number">Fig. 359 </span><span class="caption-text">Undocking Tabs</span></p>
+</div>
+<div class="section" id="conversion-count-and-conversion-gain">
+<h5>Conversion Count and Conversion Gain<a class="headerlink" href="#conversion-count-and-conversion-gain" title="Permalink to this headline">¶</a></h5>
+<p>Let&#8217;s experiment with Conversion Count and Conversion Gain. Close the controller customizer, and open the keypad sensor customizer by double clicking the keypad sensor on the canvas. In the customizer, we can see the same bar chart as we saw in the controller view, but here we only see 8 bars for the 8 elements in the keypad sensor. Touch button #1 on the panel while viewing the data in the Design Center. Notice that a touch produces around 75 counts of delta in the measurement - it goes from ~500 counts (also the default conversion count specification), down to ~425 when touched.</p>
+<div class="figure" id="id35">
+<img alt="Close up Button Bar" src="../_images/workshop_tune_gain_count.png" />
+<p class="caption"><span class="caption-number">Fig. 360 </span><span class="caption-text">Close up Button Bar</span></p>
+</div>
+<p>It&#8217;s nice to have 75 counts of delta, but do we really need that much information to determine a touch condition? The system is quite stable (only a few counts of noise), so the extra resolution isn&#8217;t really necessary, and it comes at the cost of scan time and power consumption, which we will investigate in a later lab. Let&#8217;s see if we can still get enough information out of the sensor to determine a touch condition if we bring the conversion count to 250, instead of the default 500.</p>
+<p>Open the Conversion Control tab in the button sensor customizer.</p>
+<div class="figure" id="id36">
+<img alt="Conversion Control" src="../_images/workshop_tune_conversion_control.png" />
+<p class="caption"><span class="caption-number">Fig. 361 </span><span class="caption-text">Conversion Control</span></p>
+</div>
+<p>If you did not change any of the default settings, your conversion control window should look like the one above. The Design Center has selected a Conversion Count of 500, and a Conversion Gain of 250. We&#8217;ve shown that this provides the adequate information we need to determine a touch, but let&#8217;s dial the numbers back a bit. Let&#8217;s try 250 for Conversion Count and 100 for Conversion Gain. Note that Conversion Gain is the &#8220;base&#8221; value that the MCU will try to achieve without using parasitic capacitance offset subtraction. The overall Conversion Count is the count we are trying to achieve after we&#8217;ve added offset subtraction.</p>
+<div class="figure" id="id37">
+<img alt="Conversion Control" src="../_images/workshop_tune_conversion_control2.png" />
+<p class="caption"><span class="caption-number">Fig. 362 </span><span class="caption-text">Conversion Control</span></p>
+</div>
+<p>After a tuning parameter is adjusted in the Design Center, the Apply button lights up yellow, reminding you that you have parameter changes that need to be applied to the target microcontroller. Let&#8217;s press the Apply button now to submit the changes. Switching back to the Channel Bar Chart tab, the changes should be immediately visible. The baseline (no touch) measurement is now normalized at ~250 counts, and touching the button should decrease the counts to ~200, providing a delta of ~45-50 counts.</p>
+<div class="figure" id="id38">
+<img alt="Close up Button Bar" src="../_images/workshop_tune_gain_count2.png" />
+<p class="caption"><span class="caption-number">Fig. 363 </span><span class="caption-text">Close up Button Bar</span></p>
+</div>
+</div>
+<div class="section" id="proximity-and-touch-thresholds">
+<h5>Proximity and Touch Thresholds<a class="headerlink" href="#proximity-and-touch-thresholds" title="Permalink to this headline">¶</a></h5>
+<p>Now that we&#8217;ve got an appropriate measurement resolution, let&#8217;s adjust the proximity threshold and touch threshold to appropriate values that provide the desired feel for the button. While pressing button #1 on the panel, look at the bar graph you will see the green bar represents the location of the touch threshold and the amber bar represents the proximity threshold. Since our blue bar (current count) is past both the proximity threshold (amber) and the touch threshold (green), both the proximity and touch light is illuminated.</p>
+<p>Since a full touch provides ~50 counts of delta, the default touch threshold makes the element a little too sensitive. We require a firm touch that is centered on the button. Let&#8217;s edit the touch threshold to require a firmer touch.</p>
+<p>The touch threshold defines the size of the delta on a given element that is required for that element to enter a touch state. Touch thresholds are specified as a percentage of the long term average (LTA). Because of this, the actual absolute value is calculated dynamically at runtime. In the Design Center, they are entered in units of 1/128 the long term average (LTA). By specifying touch thresholds as a percentage of the LTA, the threshold is kept proportional to the LTA even as the LTA drifts. The default touch threshold value is 10. Since we specified a conversion count of 250, our effective touch threshold is now 250/128 * 10, or 19. Viewing the touch threshold in the Channel Table now shows the absolute threshold = 231, or 250-19.</p>
+<div class="figure" id="id39">
+<img alt="Proximity and Touch Thresholds" src="../_images/workshop_tune_proximity_touch.png" />
+<p class="caption"><span class="caption-number">Fig. 364 </span><span class="caption-text">Proximity and Touch Thresholds</span></p>
+</div>
+<p>Let&#8217;s increase the touch threshold to 15 for this system. A touch threshold of 15 would provide an effective touch threshold of 250/128 * 15, or 29. This will require a firmer touch for a touch to be declared. The touch threshold is set in the Tuning tab of the sensor customizer, just like the Conversion Count and Conversion Gain. Since the keypad is made up of 8 elements numbered from E00 to E07, button #1 corresponds to electrode E00 (CH8), so we want to modify the touch threshold for all 8 elements (E00 to E07). These changes improve the feel of the buttons.</p>
+<p>If you&#8217;d like to understand more about how touch thresholds work, read the Description box in the Design Center when editing one. Feel free to adjust the proximity threshold. Note that there is only one proximity threshold. This threshold applies to the entire sensor.</p>
+</div>
+<div class="section" id="count-filtering">
+<h5>Count Filtering<a class="headerlink" href="#count-filtering" title="Permalink to this headline">¶</a></h5>
+<p>When looking at the bar graph, it&#8217;s easy to see that the count value drops 50 counts almost instantly when the button is touched. Let&#8217;s adjust the count filter to be more aggressive. In the Tuning tab, set the count filter beta value to 2 (the default is 1). This means that we will have a 25% weight for each new value, as opposed to a 50% weight- so the sensor should respond twice as slow. We might also see a little bit less noise on the system due to the increase in the filter.</p>
+<div class="figure" id="id40">
+<img alt="Count Filters" src="../_images/workshop_tune_count_filter.png" />
+<p class="caption"><span class="caption-number">Fig. 365 </span><span class="caption-text">Count Filters</span></p>
+</div>
+<p>Don&#8217;t forget to hit Apply after you&#8217;ve made the change. Now, looking at the bar graph, the system should show a slightly slower response. One neat way to look at filter responses is the Channel Oscilloscope Plot tab. This is an alternative view to the bar chart that shows history, and it&#8217;s a nice way to look at responses to filter changes.</p>
+<p>You may notice that there is a count filter beta value as well as a LTA filter beta value. The LTA filter beta value effects how fast the long-term-average (LTA) tracks changes in the base count when no one is touching the panel (no threshold crossings). The default filter beta for the long term average filter is 7. The available options for both the count filter beta and LTA filter beta are 0 through 7. The filter doubles in strength with each increase. As we&#8217;ve seen, moving from 1 to 2 doubles the response of the filter to a step input.</p>
+<div class="figure" id="id41">
+<img alt="Oscilloscope Tab" src="../_images/workshop_tune_oscilloscope.png" />
+<p class="caption"><span class="caption-number">Fig. 366 </span><span class="caption-text">Oscilloscope Tab</span></p>
+</div>
+<p>By this point, the button should have a decent initial tuning, and we&#8217;ve learned a little bit about filter responses.</p>
+</div>
+</div>
+<div class="section" id="tuning-a-wheel-sensor">
+<h4>Tuning a Wheel Sensor<a class="headerlink" href="#tuning-a-wheel-sensor" title="Permalink to this headline">¶</a></h4>
+<p>Let&#8217;s take a look at another sensor type- the wheel sensor. Close the button sensor customizer, and open the wheel sensor customizer by double-clicking the wheel sensor bean on the canvas.</p>
+<div class="figure" id="id42">
+<img alt="Wheel Sensor View" src="../_images/workshop_tune_wheel_sensor.png" />
+<p class="caption"><span class="caption-number">Fig. 367 </span><span class="caption-text">Wheel Sensor View</span></p>
+</div>
+<div class="section" id="wheel-conversion-count-and-conversion-gain">
+<h5>Wheel Conversion Count and Conversion Gain<a class="headerlink" href="#wheel-conversion-count-and-conversion-gain" title="Permalink to this headline">¶</a></h5>
+<p>The wheel sensor also has a default Conversion Count of 500, with a Conversion Gain of 250. You should see about 100 counts of delta as you run your finger across the wheel. Unlike the buttons that we tuned previously, the wheel uses each element&#8217;s delta as an input to a position function to calculate where you are touching on the wheel. Thus, here it is beneficial to increase the conversion count to provide additional resolution. Let&#8217;s set the Conversion Count to 800 and the Conversion Gain to 125.</p>
+<div class="figure" id="id43">
+<img alt="Conversion Control" src="../_images/workshop_tune_conversion_control3.png" />
+<p class="caption"><span class="caption-number">Fig. 368 </span><span class="caption-text">Conversion Control</span></p>
+</div>
+<p>This should increase the maximum delta on each element by about a factor of 3. This increased resolution will greatly benefit the position calculation.</p>
+</div>
+<div class="section" id="wheel-resolution">
+<h5>Wheel Resolution<a class="headerlink" href="#wheel-resolution" title="Permalink to this headline">¶</a></h5>
+<p>The default wheel position resolution is 1000 points, providing 0 to 999 positions. Most applications won&#8217;t need this much resolution, so let&#8217;s reduce it to a more usable value of 100. Change the desired resolution tuning parameter to 100 from the default of 1000. After applying the change, notice how the response of the wheel is still just as linear as it was at 1000 counts, but now the data is actually much more usable, since it&#8217;s easy to dial in any specific number. The algorithm supports up to 16 bits of resolution.</p>
+</div>
+<div class="section" id="wheel-sensor-position-filtering">
+<h5>Wheel Sensor Position Filtering<a class="headerlink" href="#wheel-sensor-position-filtering" title="Permalink to this headline">¶</a></h5>
+<p>The other knob we to play with is the position filter coefficient. The sensor filter can be adjusted in 255 different steps. 255 would represent a unity response (no filtering), and 1 would represent the strongest filter. Let&#8217;s pick up the response time of the wheel even more by changing the wheel filter coefficient to 150 from the default of 100. The wheel response should be quite fast now, and there should still be enough filtering to provide a stable position report with little jitter. For fun, set the sensor filter to 25 and see how the wheel responds to over-filtering.</p>
+<div class="figure" id="id44">
+<img alt="Filter Control" src="../_images/workshop_tune_wheel_filter.png" />
+<p class="caption"><span class="caption-number">Fig. 369 </span><span class="caption-text">Filter Control</span></p>
+</div>
+</div>
+<div class="section" id="wheel-touch-thresholds">
+<h5>Wheel Touch Thresholds<a class="headerlink" href="#wheel-touch-thresholds" title="Permalink to this headline">¶</a></h5>
+<p>Since we increased the sensitivity significantly in the Conversion Count / Conversion Gain step, the wheel is going to be extremely sensitive to touch. Notice that if you hold a finger hovering over the wheel, the elements enter a touch state well before you actually touch on the panel. We&#8217;ll update the values here just as we did with the button group sensor. A setting of 27-28 is much better than the default value of 10. As always, remember to update the touch threshold for all 3 elements.</p>
+</div>
+</div>
+<div class="section" id="tuning-a-slider-sensor">
+<h4>Tuning a Slider Sensor<a class="headerlink" href="#tuning-a-slider-sensor" title="Permalink to this headline">¶</a></h4>
+<p>Now that we&#8217;ve set up the wheel, let&#8217;s turn our attention to the slider.</p>
+<div class="section" id="slider-conversion-count-and-conversion-gain">
+<h5>Slider Conversion Count and Conversion Gain<a class="headerlink" href="#slider-conversion-count-and-conversion-gain" title="Permalink to this headline">¶</a></h5>
+<p>The slider is just like the wheel when it comes to conversion count and conversion gain. Let&#8217;s set the Conversion Count to 800 and the Conversion Gain to 125 for the slider as well to increase the sensitivity and provide more resolution to the position algorithm. Double-click the slider sensor to open its customizer and click on the Conversion Control tab.</p>
+<div class="figure" id="id45">
+<img alt="Conversion Control" src="../_images/workshop_tune_conversion_control4.png" />
+<p class="caption"><span class="caption-number">Fig. 370 </span><span class="caption-text">Conversion Control</span></p>
+</div>
+</div>
+<div class="section" id="slider-endpoint-trimming">
+<h5>Slider Endpoint Trimming<a class="headerlink" href="#slider-endpoint-trimming" title="Permalink to this headline">¶</a></h5>
+<p>The slider is very similar to the wheel- with the exception that it&#8217;s chopped and has two endpoints. All of the same principles apply, but there will be two new parameters: Slider Lower Trim, and Slider Upper Trim.</p>
+<p>Select the Tuning tab in the customizer. The Upper Trim and Lower Trim parameters are the last two parameters in the parameter window so use the scroll bar to view them.</p>
+<div class="figure" id="id46">
+<img alt="Slider Trim" src="../_images/workshop_tune_slider_trim.png" />
+<p class="caption"><span class="caption-number">Fig. 371 </span><span class="caption-text">Slider Trim</span></p>
+</div>
+<p>While moving your finger up and down the slider, you may notice that the slider values only seem to go from about 40 up to 960, even though we&#8217;ve stated we want a resolution of 1000 (0 to 999 positions) for this sensor. The reason we never get to 0 or 999 is because we&#8217;ve essentially taken a wheel and cut it in half- and the end points never get &#8220;pulled&#8221; by their opposite elements. To counteract this, there is a mechanism to stretch the slider by trimming the edges. Currently, the lower trim value is set to 0, and the upper trim value is set to 999. This means that there is no stretching being applied. We can apply stretching by providing trim values to the slider to re-align our zero point and max point. To set the slider trim values, place your finger on the left-most part of the slider, and look at the response. It will likely be somewhere above zero, but less than 100. We want that position to be defined as zero, so that the user can fully get to 0 when using the slider. Whatever
+measurement you get when touching the left-most part of the slider, enter that in the Lower Trim parameter box in the Tuning tab. Then, place your finger in the right-most part of the slider. You will likely see a value between 900 and 999 (since we are going out to 1000 points of resolution). Whatever measurement you see, place that in the Upper Trim parameter box. Then Apply the changes to the controller, and review the results. For this slider, the values below work well with the other settings that have been specified.</p>
+<div class="figure" id="id47">
+<img alt="Selecting Slider Trim Values" src="../_images/workshop_tune_slider_trim2.png" />
+<p class="caption"><span class="caption-number">Fig. 372 </span><span class="caption-text">Selecting Slider Trim Values</span></p>
+</div>
+<p>That&#8217;s it! Outside of the trim values, sliders behave exactly like wheels.</p>
+</div>
+<div class="section" id="slider-touch-thresholds">
+<h5>Slider Touch Thresholds<a class="headerlink" href="#slider-touch-thresholds" title="Permalink to this headline">¶</a></h5>
+<p>Since we increased the sensitivity significantly in the Conversion Count / Conversion Gain step, the slider is going to be extremely sensitive to touch. Notice that if you hold a finger hovering over the slider, the elements enter a touch state well before you actually touch on the panel. We&#8217;ll update the values here just as we did with the button group sensor and wheel sensor. A setting of 23-25 is much better than the default value of 10. As always, remember to update the touch threshold for all 4 elements in the slider.</p>
+</div>
+</div>
+<div class="section" id="proximity-sensor-tuning">
+<h4>Proximity Sensor Tuning<a class="headerlink" href="#proximity-sensor-tuning" title="Permalink to this headline">¶</a></h4>
+<p>The proximity sensor has all of the same parameters as a button group, but there is only one element. Let&#8217;s set up the proximity sensor at see what kind of proximity distances we can achieve.</p>
+<div class="section" id="proximity-conversion-count-and-conversion-gain">
+<h5>Proximity Conversion Count and Conversion Gain<a class="headerlink" href="#proximity-conversion-count-and-conversion-gain" title="Permalink to this headline">¶</a></h5>
+<p>The default Conversion Count of 500 and Conversion Gain of 250 do not provide very much sensitivity. With the default proximity threshold of 10, the sensor only yields about 1cm of detection distance. Let&#8217;s turn up the sensitivity by setting the Conversion Count to 800 and the Conversion Gain to 100.</p>
+<div class="figure" id="id48">
+<img alt="Selecting Conversion Control Values" src="../_images/workshop_tune_proximity_gain_count.png" />
+<p class="caption"><span class="caption-number">Fig. 373 </span><span class="caption-text">Selecting Conversion Control Values</span></p>
+</div>
+<p>Notice the improvement in sensitivity! We are now able to get over 5cm of detection distance.</p>
+</div>
+<div class="section" id="about-re-purposing-the-touch-threshold">
+<h5>About Re-purposing the Touch Threshold<a class="headerlink" href="#about-re-purposing-the-touch-threshold" title="Permalink to this headline">¶</a></h5>
+<p>Since we are using the proximity threshold to know when someone is close to the panel, we could repurpose the touch threshold for another task. Since the proximity sensor layout on the CAPTIVATE-BSWP panel travels around the PCB, it could be used to detect if someone was leaning up against the panel, or putting their whole hand down on top of it. This kind of information could be used to block outputs of other keys. Imagine a security keypad application that is mounted on a wall. If someone leans up against it, it would be nice if we could detect that and prevent all of the other sensors from triggering at the same time. The touch threshold could be set to detect this kind of a scenario, while the proximity threshold is used to detect distance.</p>
+</div>
+</div>
+<div class="section" id="miscellaneous-sensor-parameters">
+<h4>Miscellaneous Sensor Parameters<a class="headerlink" href="#miscellaneous-sensor-parameters" title="Permalink to this headline">¶</a></h4>
+<p>Let&#8217;s briefly re-visit a few generic sensor parameters that we have not yet addressed. The first is the sensor timeout threshold.</p>
+<p>Sensor Timeout</p>
+<p>The sensor timeout threshold provides a mechanism for averting a &#8220;stuck key&#8221; scenario. Imagine a touch panel on thermostat on a wall. Let&#8217;s say someone put a broom stick up against thermostat, and that showed up as a proximity detection. A proximity detection has the effect of halting our long-term-average. This means that the LTA is no longer going to track environmental drift. This affects the usability of the touch panel. The timeout feature allows for this to be averted by specifying, in samples, how long a sensor can be in detect (proximity or touch) before the interaction is declared invalid.</p>
+<div class="figure" id="id49">
+<img alt="Selecting Slider Timeout Value" src="../_images/workshop_tune_sensor_timeout.png" />
+<p class="caption"><span class="caption-number">Fig. 374 </span><span class="caption-text">Selecting Slider Timeout Value</span></p>
+</div>
+<p>Typically when users are using sensors, they touch them briefly- not for 30 seconds or more. By setting a lower sensor timeout threshold, we can have the system &#8220;reset&#8221; if for some reason it is stuck in detect for a long time. We can simulate this tool by setting the timeout extremely short- say, 200 samples. After 200 samples in detect (&lt; 10sec), the system will reset the touch flags and reseed the long term average. Feel free to try this out.</p>
+<p>Sensor De-Bounce</p>
+<p>The touch library offers a built-in de-bounce mechanism for into and out of proximity and touch states. This is adjustable at a sensor level.</p>
+<div class="figure" id="id50">
+<img alt="Selecting Slider Debounce Values" src="../_images/workshop_tune_sensor_debounce.png" />
+<p class="caption"><span class="caption-number">Fig. 375 </span><span class="caption-text">Selecting Slider Debounce Values</span></p>
+</div>
+<p>Default settings for De-Bounce is 0 (no de-bounce applied). By applying de-bounce to the system, you offer a way to ensure that there was actually a valid touch (and not a brush of a hand or a noise event). However, de-bounce introduces latency into the system.</p>
+<p>Try out setting longer and longer de-bounce settings and observing the effects on the sensor performance.</p>
+</div>
+</div>
+<div class="section" id="scan-time-estimation">
+<h3>Scan Time Estimation<a class="headerlink" href="#scan-time-estimation" title="Permalink to this headline">¶</a></h3>
+<p>Based on the sensors we have configured for this project, a time profile or scan time estimation can be viewed showing the overall scan period, the time to scan each sensor and the combined time for all of the sensors. Note that the time to process the data and transmit the data to the Design Center is not accounted here, only the sensor measurement scan times. To view the scan time estimation, open the Controller Customizer and select the Scan Time Estimate tab.</p>
+<div class="figure" id="id51">
+<img alt="Scan Time Estimation View" src="../_images/workshop_scan_time_estimation.png" />
+<p class="caption"><span class="caption-number">Fig. 376 </span><span class="caption-text">Scan Time Estimation View</span></p>
+</div>
+</div>
+<div class="section" id="part-3-generate-updated-sensor-configuration">
+<h3>Part 3 - Generate Updated Sensor Configuration<a class="headerlink" href="#part-3-generate-updated-sensor-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Now that we&#8217;ve gone through and tuned our sensors, we want to apply those new tuning values to the source code. We don&#8217;t need to re-generate a whole new project to do that- we can simply update the CAPT_UserConfig.c and CAPT_UserConfig.h files, thanks to the Update Code feature in the Design Center. First, let&#8217;s save of an updated copy of the Design Center model (*.ser), so that we have a known good copy of our tuning in Design Center format. Then, open the Controller customizer, and press the Generate Source Code button again. The configuration we want is &#8220;Update existing project.&#8221;</p>
+<div class="figure" id="id52">
+<img alt="Select Update" src="../_images/workshop_update_existing_project.png" />
+<p class="caption"><span class="caption-number">Fig. 377 </span><span class="caption-text">Select Update</span></p>
+</div>
+<p>This time, we want to select the root directory of the CCS project we created, which is in our CCS Workspace, not our working folder where we first generated the starter project.</p>
+<div class="figure" id="id53">
+<img alt="CCS Project Directory" src="../_images/workshop_update_existing_project2.png" />
+<p class="caption"><span class="caption-number">Fig. 378 </span><span class="caption-text">CCS Project Directory</span></p>
+</div>
+<p>You can now re-build the CCS project and re-run it, and all of the new tuning values will have taken effect.</p>
+<p><strong>Congratulations!</strong> You have successfully completed your first CapTIvate™ sensor design. Next, let&#8217;s learn how easy the low-power &#8220;wake on proximity&#8221; feature is to use and measure the current for our sensor design.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="experiments-with-low-power">
+<h2>Experiments with Low Power<a class="headerlink" href="#experiments-with-low-power" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lab-2">
+<h3>LAB #2<a class="headerlink" href="#lab-2" title="Permalink to this headline">¶</a></h3>
+<p>This is Lab #2 and we will experiment with the &#8220;Wake on Proximity&#8221; feature which can achieve extremely low-power by using the CapTIvate™ hardware state machine to scan the proximity sensor while the CPU remains in low power mode 3. We will investigate how the sensor tuning and scan rates can directly impact the low power operation. We will be using the Energy Trace™ feature to measure the power during this lab.</p>
+<div class="section" id="pre-requisite">
+<h4>Pre-requisite<a class="headerlink" href="#pre-requisite" title="Permalink to this headline">¶</a></h4>
+<p>We will continue to build on the work that was done in LAB1, so if you skipped that step, go back to <a class="reference external" href="ch_workshop.html#part-1-creating-a-new-design">Creating a new sensor design project</a>.</p>
+</div>
+</div>
+<div class="section" id="goals">
+<h3>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Learn how to use EnergyTrace™ to make power measurements</li>
+<li>See how tuning sensors effects low-power</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Hardware Setup<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Continue to use the same hardware setup that was used in the previous lab, LAB1. On the MCU PCB, move Jumper J3 between MCU_VCC and 3.3V METERED.</p>
+<div class="figure" id="id54">
+<img alt="Jumper to 3.3V Metered" src="../_images/workshop_lab2_jumper.png" />
+<p class="caption"><span class="caption-number">Fig. 379 </span><span class="caption-text">Jumper to 3.3V Metered</span></p>
+</div>
+</div>
+<div class="section" id="design-center-project">
+<h3>Design Center Project<a class="headerlink" href="#design-center-project" title="Permalink to this headline">¶</a></h3>
+<p>Before starting with this lab, we want to save our current CapTIvate™ Design Center project as LAB2. Select &#8220;Project Save As&#8221; and re-name the folder as &#8220;LAB2&#8221;.</p>
+<div class="figure" id="id55">
+<img alt="Save as LAB2" src="../_images/workshop_lab2_project_save.png" />
+<p class="caption"><span class="caption-number">Fig. 380 </span><span class="caption-text">Save as LAB2</span></p>
+</div>
+</div>
+<div class="section" id="adding-wake-on-touch-functionality">
+<h3>Adding wake on touch functionality<a class="headerlink" href="#adding-wake-on-touch-functionality" title="Permalink to this headline">¶</a></h3>
+<p>The CapTIvate Design Center can enable certain compile time software features to be included in the project&#8217;s starter code. One of these features is the &#8220;wake on proximity&#8221;, also known as &#8220;wake on touch&#8221;, which enables the CPU to remain in a low power mode while the CapTIvate™ hardware state machine scans for a proximity condition. To understand how this behavior works, click <a class="reference external" href="ch_workshop.html#important-note-about-wake-on-proximity-behavior">here</a>.</p>
+<p><strong>Select the Wake on Proximity sensor.</strong> The controller customizer Compile Time Options box lets you select a &#8220;Wake on Proximity Sensor&#8221; from a drop-down box populated with the sensors in the project. This selection chooses which sensor will be scanned during wake on proximity operation. For this lab select the <em>prox sensor</em>.</p>
+<div class="figure" id="id56">
+<img alt="Selecting Wake on Proximity Sensor" src="../_images/workshop_lab2_select_wop.png" />
+<p class="caption"><span class="caption-number">Fig. 381 </span><span class="caption-text">Selecting Wake on Proximity Sensor</span></p>
+</div>
+<div class="section" id="modify-wake-on-proximity-parameters">
+<h4>Modify wake on proximity parameters<a class="headerlink" href="#modify-wake-on-proximity-parameters" title="Permalink to this headline">¶</a></h4>
+<p>In the controller&#8217;s &#8220;Conversion Control&#8221; tab, several parameters define the CPU and wake on proximity operations.</p>
+<p>The &#8220;Wakeup Interval&#8221; specifies how often the CPU should wake automatically, regardless of proximity or touch event. This is a built-in safety mechanism for the wake on proximity state machine. For this lab, disable the Wakeup Interval. This will keep the wake on proximity state machine active indefinitely, providing ample time to take our low power measurements.</p>
+</div>
+</div>
+<div class="section" id="generate-lab-2-starter-project-code">
+<h3>Generate LAB# 2 Starter Project Code<a class="headerlink" href="#generate-lab-2-starter-project-code" title="Permalink to this headline">¶</a></h3>
+<p>Generate starter code project. In the controller customizer, under the Configure Connections tab, select the Generate Source Code button. Select Create new project and use the default output directory.</p>
+<div class="figure" id="id57">
+<img alt="Create/Save starter code project" src="../_images/workshop_lab2_generate_code.png" />
+<p class="caption"><span class="caption-number">Fig. 382 </span><span class="caption-text">Create/Save starter code project</span></p>
+</div>
+</div>
+<div class="section" id="launching-target-mcu">
+<h3>Launching target MCU<a class="headerlink" href="#launching-target-mcu" title="Permalink to this headline">¶</a></h3>
+<p>Import starter code project to CCS. Now that we&#8217;ve generated our LAB2 source code, we need to import the new project to our CCS workspace. If you need a CCS &#8220;refresher&#8221;, follow the steps in a later section CCS - Building and programming.</p>
+<div class="figure" id="id58">
+<img alt="Import Project" src="../_images/workshop_lab2_ccs_import.png" />
+<p class="caption"><span class="caption-number">Fig. 383 </span><span class="caption-text">Import Project</span></p>
+</div>
+<p>After importing the project, click the debugger icon to build and download the code to the target. Since we won&#8217;t be using the debugger at this time, set the target running in &#8220;free run&#8221; mode, Run&gt;Free Run or terminate the debug session. Disabling the debugger disables the EEM module in the MCU, further reducing the current drawn by the MCU.</p>
+</div>
+<div class="section" id="using-energytrace">
+<h3>Using EnergyTrace™<a class="headerlink" href="#using-energytrace" title="Permalink to this headline">¶</a></h3>
+<p>EnergyTrace™ Technology is built into the eZFET programmer on the CAPTIVATE-PGMR PCB. It provides a DC/DC regulated output and monitors the amount of energy a load (target MCU) consumes. We will use the EnergyTrace™ to measure the power and currents in the target MSP430FR2633.</p>
+<div class="section" id="important-although-energytrace-technology-can-measure-very-small-currents-with-reasonable-accuracy-and-provide-a-simple-tool-for-low-power-demonstrations-it-is-highly-recommended-that-low-power-measurements-should-be-made-using-a-bench-supply-high-accuracy-meter-and-the-target-isolated-from-the-ezfet-programmer">
+<h4>IMPORTANT: <em>Although EnergyTrace™ Technology can measure very small currents with reasonable accuracy and provide a simple tool for low-power demonstrations, it is HIGHLY RECOMMENDED that low-power measurements should be made using a bench supply, high accuracy meter and the target isolated from the eZFET programmer.</em><a class="headerlink" href="#important-although-energytrace-technology-can-measure-very-small-currents-with-reasonable-accuracy-and-provide-a-simple-tool-for-low-power-demonstrations-it-is-highly-recommended-that-low-power-measurements-should-be-made-using-a-bench-supply-high-accuracy-meter-and-the-target-isolated-from-the-ezfet-programmer" title="Permalink to this headline">¶</a></h4>
+<p>To enable energy trace, click the icon shown in the diagram below. If this icon does not appear on your menu bar, refer to the troubleshooting section at the end of this manual.</p>
+<div class="figure" id="id59">
+<img alt="Enable EnergyTrace™" src="../_images/workshop_lab2_enable_energytrace.png" />
+<p class="caption"><span class="caption-number">Fig. 384 </span><span class="caption-text">Enable EnergyTrace™</span></p>
+</div>
+<p>A new view tab should appear in your CCS that looks something like the following:</p>
+<div class="figure" id="id60">
+<img alt="EnergyTrace™ Tab" src="../_images/workshop_lab2_energytrace_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 385 </span><span class="caption-text">EnergyTrace™ Tab</span></p>
+</div>
+<p>Set the EnergyTrace™ capture length for 30 seconds. This should provide adequate time to capture the traces for this lab.</p>
+<div class="figure" id="id61">
+<img alt="EnergyTrace™ Capture" src="../_images/workshop_lab2_energytrace_capture.png" />
+<p class="caption"><span class="caption-number">Fig. 386 </span><span class="caption-text">EnergyTrace™ Capture</span></p>
+</div>
+<p>The target MCU is running in the &#8220;free run&#8221; mode without the debugger. To reset the target MCU, press the RESET button on the MCU PCB, then wait for LED2 to blink once. Start an EnergyTrace™ capture by clicking the green &#8220;play&#8221; arrow when ready.</p>
+<div class="figure" id="id62">
+<img alt="Start EnergyTrace™" src="../_images/workshop_lab2_start_energytrace.png" />
+<p class="caption"><span class="caption-number">Fig. 387 </span><span class="caption-text">Start EnergyTrace™</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="part-1-measure-proximity-sensor-low-power-current">
+<h3>Part 1 - Measure Proximity Sensor Low Power current<a class="headerlink" href="#part-1-measure-proximity-sensor-low-power-current" title="Permalink to this headline">¶</a></h3>
+<p>First, let&#8217;s measure the wake on proximity average current to establish a baseline. Be sure to keep your hands clear of the PCB while performing this measurement. The EnergyTrace™ &#8220;mean&#8221; current measurement should &lt; 10uA. This is the current required to measure the proximity sensor &#64; 10 times per second using the default conversion count of 800. If your measurement is much greater than 10uA, hit the RESET button, wait for LED2 to blink once then repeat the measurement. If the measurement is 0, make sure you have jumper J3 between MCU_VCC and 3.3V METERED on the MCU PCB. Record your measurement.</p>
+</div>
+<div class="section" id="part-2-effects-of-sensor-sensitivity-on-low-power-current">
+<h3>Part 2 - Effects of Sensor Sensitivity on Low Power current<a class="headerlink" href="#part-2-effects-of-sensor-sensitivity-on-low-power-current" title="Permalink to this headline">¶</a></h3>
+<p>Next we want to measure the effects a sensor&#8217;s tuning can have on the device&#8217;s current consumption. The BSWP demo board has a single element proximity sensor that runs the perimeter of the PCB. This proximity sensor is used by the &#8220;wake on proximity&#8221; state machine to detect when a hand is near the PCB. The proximity sensor is tuned just a like a button, but with greater sensitivity. In LAB1, the proximity conversion count was set to 800, providing sufficient resolution and proximity detection out to a couple of centimeters. Let&#8217;s see if we can increase the distance by increasing the resolution of the sensor.</p>
+<div class="figure" id="id63">
+<img alt="BSWP Proximity Traces" src="../_images/workshop_lab2_bswp_traces.png" />
+<p class="caption"><span class="caption-number">Fig. 388 </span><span class="caption-text">BSWP Proximity Traces</span></p>
+</div>
+<p>Let&#8217;s start by increasing the conversion count to 1600. In the Design Center, double-click the proximity sensor to open its customizer, then click the Conversion Control tab. Update the conversion count to 1600, then click the <em>Apply</em> button. Click on the Channel Bar Chart to view the new conversion count data and confirm the LTA is near 1600. Verify as your hand approaches the PCB, the proximity detection now occurs sooner (further from the PCB). The proximity sensor is now more sensitive and able to detect proximity from a greater distance. If you are having trouble seeing the values at 1600, it may be necessary to adjust the plot range in order to see the channel bar data. Adjust the plot parameters to fit the new size of the channel bar using the Plot Display Options.</p>
+<div class="figure" id="id64">
+<img alt="Plot options" src="../_images/workshop_lab2_plot_options.png" />
+<p class="caption"><span class="caption-number">Fig. 389 </span><span class="caption-text">Plot options</span></p>
+</div>
+<p>You may also notice with this higher resolution it may be more difficult to see the when the blue bar crosses the proximity thresholds. The design center has a &#8220;zoom&#8221; feature allowing an expanded view of the selected area.</p>
+<div class="figure" id="id65">
+<img alt="Zoom in" src="../_images/workshop_lab2_zoom_in.png" />
+<p class="caption"><span class="caption-number">Fig. 390 </span><span class="caption-text">Zoom in</span></p>
+</div>
+<p>Now that we have increased the sensitivity, let&#8217;s change the proximity threshold to prevent false detections. Select the Proximity sensor&#8217;s Tuning tab and modify the sensor&#8217;s Proximity Threshold and Negative Touch threshold to 30. Click on the Negative Touch parameter for additional information about this parameter in the Design Center description frame.</p>
+<div class="figure" id="id66">
+<img alt="Proximity Thresholds" src="../_images/workshop_lab2_proximity_threshold.png" />
+<p class="caption"><span class="caption-number">Fig. 391 </span><span class="caption-text">Proximity Thresholds</span></p>
+</div>
+<p>With the increase in sensitivity, we have effectively increased our proximity range. Let&#8217;s see how this impacts our low-power current. <strong>DO NOT</strong> reset the MCU, as this will cause the conversion count reset to 800 and thresholds to reset to 15. Start EnergyTrace™ and examine the &#8220;mean&#8221; current. It should be about double from the previous baseline measurement. Record your measurement.</p>
+</div>
+<div class="section" id="part-3-effects-of-sensor-scan-rate-on-low-power-current">
+<h3>Part 3 - Effects of Sensor Scan Rate on Low Power current<a class="headerlink" href="#part-3-effects-of-sensor-scan-rate-on-low-power-current" title="Permalink to this headline">¶</a></h3>
+<p>The device&#8217;s low power current can also be affected by the rate at which a sensor is scanned. Let&#8217;s reset everything back to default by pressing the MCU reset button. To confirm the parameters were reset to their original programmed values, click the proximity sensor Conversion control tab, then the READ button. This reads the current values in the target MCU and you should see the conversion count = 800. In the Design Center, double-click the controller to open its customizer and select the Conversion Control tab. Modify the Wake On Proximity Mode Scan Rate to 50ms then click Apply. This effectively doubles the rate we scan the proximity sensor. <img alt="Proximity Scan Rate" src="../_images/workshop_lab2_scan_rate.png" /></p>
+<p><strong>DO NOT</strong> reset the MCU, as this will reset the scan rate to 100. Start EnergyTrace™ and examine the &#8220;mean&#8221; current. Again, you should see the current more than double from the baseline measurement.</p>
+</div>
+<div class="section" id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<p>The demand for higher sensitivity, higher resolution sensing has a direct impact on the low-power current, as does the rate at which a sensor is scanned. So always consider the trade-offs when designing your sensors for the end application.</p>
+<p>Congratulations! You have successfully experimented with the low-power &#8220;wake on proximity&#8221; feature and learned how sensor tuning and scan rate can directly impact your sensor design. Next, let&#8217;s learn about the CapTIvate™ capacitive touch software library. Continue with this workshop in the next section.</p>
+</div>
+</div>
+<div class="section" id="exploring-the-captivate-touch-library">
+<h2>Exploring the CapTIvate™ Touch Library<a class="headerlink" href="#exploring-the-captivate-touch-library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lab-3">
+<h3>LAB #3<a class="headerlink" href="#lab-3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Pre-requisite<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>We will continue to build on the work that was done in LAB2, so if you skipped that step, go back to <a class="reference external" href="ch_workshop.html#lab-2">Experiments with Low Power</a>.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Goals<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Learn how the sensor manager is used to simplify sensor measurements</li>
+<li>Learn how to use callbacks to handle sensor events</li>
+<li>Learn how to acquire proximity, touch and position status as part of callback</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Hardware Setup<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Continue to use the same hardware setup that was used in the previous lab, LAB2. On the MCU PCB, move Jumper J3 between MCU_VCC and 3.3V LDO and check the jumpers are in place for the two LEDS.</p>
+<div class="figure" id="id67">
+<img alt="Jumpers" src="../_images/workshop_lab3_jumper.png" />
+<p class="caption"><span class="caption-number">Fig. 392 </span><span class="caption-text">Jumpers</span></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Design Center Project<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Before starting with this lab, we want to save our current CapTIvate™ Design Center project as LAB3. Select &#8220;Project Save As&#8221; and re-name the folder as &#8220;LAB3&#8221;.</p>
+<div class="figure" id="id68">
+<img alt="Save as LAB2" src="../_images/workshop_lab3_project_save.png" />
+<p class="caption"><span class="caption-number">Fig. 393 </span><span class="caption-text">Save as LAB2</span></p>
+</div>
+</div>
+<div class="section" id="generate-lab-3-starter-code-project">
+<h3>Generate LAB# 3 Starter Code Project<a class="headerlink" href="#generate-lab-3-starter-code-project" title="Permalink to this headline">¶</a></h3>
+<p>Generate starter code project. In the controller customizer, under the Configure Connections tab, select the Generate Source Code button. Select Create new project and use the default output directory.</p>
+<div class="figure" id="id69">
+<img alt="Save as LAB3" src="../_images/workshop_lab3_save_code.png" />
+<p class="caption"><span class="caption-number">Fig. 394 </span><span class="caption-text">Save as LAB3</span></p>
+</div>
+<p>Select the Design Center communication interface. Double click on the controller to bring up the customizer view. In the Target Communications Select the Connected communications checkbox and verify the Target Communications interface is set to BULK_I2C.</p>
+<p>Import the starter code project into CCS as we did in previous labs. Build the LAB3 starter code project and program your target MCU.</p>
+</div>
+<div class="section" id="part-1-captivate-touch-library-overview">
+<h3>Part 1 - CapTIvate™ Touch Library Overview<a class="headerlink" href="#part-1-captivate-touch-library-overview" title="Permalink to this headline">¶</a></h3>
+<p>For this portion of the lab you are encouraged to follow along as we explore the CapTIvate™ capacitive touch library.</p>
+<p>The software library is a comprehensive collection of functions or components for touch, communications and sensor management as represented by the software stack shown below. The primary &#8220;Touch&#8221; layers are Advanced, Touch (or &#8220;Base&#8221;) and Communications. Functions range from advanced sensor processing to &#8220;bare-metal&#8221; functions allowing direct access to the CapTIvate™ peripheral.</p>
+<p>Communication functions for I2C and UART serial drivers and a communications protocol enable the MSP430FR26xx\25xx microcontroller to send sensor data to the CapTIvate™ Design Center during the sensor development process.</p>
+<div class="figure" id="id70">
+<img alt="Slider callback extra credit" src="../_images/workshop_lab4_library_stack.png" />
+<p class="caption"><span class="caption-number">Fig. 395 </span><span class="caption-text">Slider callback extra credit</span></p>
+</div>
+<p>The majority of library components are provided pre-compiled in the MSP430FR2633 ROM. They are also provided as captivate .lib or captivate.r43 file format for CCS and IAR respectively. No source code is provided for these components. These components are accessed using the <a class="reference external" href="../../api_guide/FR2633/html/index.html">CapTIvate™ API</a></p>
+<div class="figure" id="id71">
+<img alt="Slider callback extra credit" src="../_images/workshop_lab4_compiled_library.png" />
+<p class="caption"><span class="caption-number">Fig. 396 </span><span class="caption-text">Slider callback extra credit</span></p>
+</div>
+<p>Other components are provided as source code that can be modified to suit the needs of the application. The library manager is one example. The library manager &#8220;CAPT_Manager.c&#8221;provides three high-level functions to manage the primary sensor activities; CAPT_initUI(), CAPT_updateUI() and CAPT_calibrateUI(). This greatly simplifies the application&#8217;s interface with the library and can be used a framework for your application. The library manager is provided as source.</p>
+<div class="figure" id="id72">
+<img alt="Slider callback extra credit" src="../_images/workshop_lab4_library_configurable.png" />
+<p class="caption"><span class="caption-number">Fig. 397 </span><span class="caption-text">Slider callback extra credit</span></p>
+</div>
+</div>
+<div class="section" id="part-2-explore-ccs-project-structure-and-details">
+<h3>Part 2 - Explore CCS project structure and details<a class="headerlink" href="#part-2-explore-ccs-project-structure-and-details" title="Permalink to this headline">¶</a></h3>
+<p>During this part of the lab you are encouraged to explore the CCS project and library features on your own. Things to look at are:</p>
+<ul class="simple">
+<li>CapTIvate™ Library are components located &#8220;captivate&#8221; directory</li>
+<li>API header files for library</li>
+<li>ROM header files</li>
+<li>Pre-compiled library</li>
+<li>Application level sensor manager</li>
+<li>CapTIvate™ configuration files are located &#8220;captivate_config&#8221;directory</li>
+<li>Configuration files generated by the Design Center</li>
+<li><strong>DO NOT hand edit these files</strong> as they get updated by the Design Center</li>
+<li>CapTIvate™ application framework files are located &#8220;captivate_app&#8221;directory</li>
+<li>Provides application level framework example for using the library</li>
+<li>Board support files</li>
+</ul>
+</div>
+<div class="section" id="part-3-creating-and-using-callbacks">
+<h3>Part 3 - Creating and using callbacks<a class="headerlink" href="#part-3-creating-and-using-callbacks" title="Permalink to this headline">¶</a></h3>
+<p>The CapTIvate™ touch library uses callbacks to communicate with the user&#8217;s application. Callbacks provide a mechanism for the application to be notified when a sensor has been updated. The application must first register its &#8220;callback&#8221; function for each sensor before it can receive updates. Once an application&#8217;s callback function is registered, the callback is executed each time the corresponding sensor is scanned and processed, regardless if a proximity or touch detection has occurred. During the callback, the application can query the sensor&#8217;s data structure to determine the status of the sensor. The illustration below shows an example sequence where the keypad is scanned and processed, then the keypad callback is executed, followed by sensor data and status communicated to the CapTIvate™ Design Center. This sequence continues for the other sensors then repeats based on the programmed scan rate.</p>
+<div class="figure" id="id73">
+<img alt="Callback after sensor processing" src="../_images/workshop_lab3_callback_slot.png" />
+<p class="caption"><span class="caption-number">Fig. 398 </span><span class="caption-text">Callback after sensor processing</span></p>
+</div>
+<p>For this lab we are going to create a callback function that will turn on LED1 when any keypad button is pressed. The library function <em>CAPT_registerCallback()</em> provides the callback registration.</p>
+<p>Registering the application&#8217;s callback function named &#8220;my_keypad_callback&#8221; to a keypad sensor uses the following syntax:</p>
+<p><strong>MAP_CAPT_registerCallback(&amp;keypad, &amp;my_keypad_callback);</strong></p>
+<div class="section" id="lab3-action">
+<h4>LAB3 Action:<a class="headerlink" href="#lab3-action" title="Permalink to this headline">¶</a></h4>
+<p>In our LAB3 code project, insert the function call described above just before the function call CAPT_appStart(), around line 80, in main. This will allow our callback to be registered before the library starts.</p>
+<p>Note: The names of the sensors created by the design center for our project are located in the CAPT_UserConfig.h file and shown here for convenience. You can see the first sensor in this list is our keypad sensor.</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span>
+<span class="o">//</span> <span class="n">Captivate</span> <span class="n">Sensor</span> <span class="n">Prototypes</span>
+<span class="o">//</span> <span class="n">These</span> <span class="n">prototypes</span> <span class="n">enable</span> <span class="n">access</span> <span class="n">to</span> <span class="n">sensors</span>
+<span class="o">//</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">application</span><span class="o">.</span>
+<span class="o">//</span>
+<span class="n">extern</span> <span class="n">tSensor</span> <span class="n">keypadSensor</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">tSensor</span> <span class="n">proximitySensor</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">tSensor</span> <span class="n">sliderSensor</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">tSensor</span> <span class="n">wheelSensor</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Next, inside our callback, the application can perform any processing on the sensor data and status, such as checking for proximity, touch detection or slider/wheel position. Here is our example that checks when any button in the keypad is touched and released, toggling an LED accordingly.</p>
+</div>
+<div class="section" id="id6">
+<h4>LAB3 Action:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Add the following callback code snippet somewhere before main():</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">keypadCallback</span><span class="p">(</span><span class="n">tSensor</span><span class="o">*</span> <span class="n">pSensor</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">((</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorTouch</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorPrevTouch</span> <span class="o">==</span> <span class="n">false</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">LED2_ON</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorTouch</span> <span class="o">==</span> <span class="n">false</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorPrevTouch</span> <span class="o">==</span> <span class="n">true</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">LED2_OFF</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, in our callback we will turn on LED2 only when a &#8220;touch&#8221; is first detected, and turn off LED2 when a release is detected. This minimizes the time the CPU spends in the callback. We will need to make one additional change to the original code to get this to work. We need to comment out in main() the lines of code shown below. This will allow our callback to control LED2.</p>
+</div>
+<div class="section" id="id7">
+<h4>LAB3 Action:<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Modify the section of main() as shown below:</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span>    <span class="o">//</span> <span class="n">Comment</span> <span class="n">out</span> <span class="n">the</span> <span class="n">current</span> <span class="n">block</span> <span class="n">of</span> <span class="n">code</span> <span class="n">that</span>
+    <span class="o">//</span> <span class="n">calls</span> <span class="n">CAPT_appHandler</span> <span class="ow">and</span> <span class="n">controls</span> <span class="n">LED1</span> <span class="ow">and</span> <span class="n">LED2</span>
+<span class="o">//</span>  <span class="n">LED1_ON</span><span class="p">;</span>
+<span class="o">//</span>  <span class="k">if</span><span class="p">(</span><span class="n">CAPT_appHandler</span><span class="p">()</span><span class="o">==</span><span class="n">true</span><span class="p">)</span>
+<span class="o">//</span>      <span class="n">LED2_ON</span><span class="p">;</span>
+<span class="o">//</span>  <span class="k">else</span>
+<span class="o">//</span>      <span class="n">LED2_OFF</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">LED1_OFF</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Add</span> <span class="n">standalone</span> <span class="n">call</span> <span class="n">to</span> <span class="n">CAPT_appHandler</span>
+    <span class="o">//</span> <span class="k">with</span> <span class="n">no</span> <span class="n">LED</span> <span class="n">state</span> <span class="n">modifications</span>
+    <span class="n">CAPT_appHandler</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Click the debugger icon to build and download the code to the target. Click the &#8220;play&#8221; icon to start the demo running. You should now see LED2 turn on when just the keypad buttons are touched.</p>
+</div>
+</div>
+<div class="section" id="part-4-determining-sensor-state-and-position">
+<h3>Part 4 - Determining sensor state and position<a class="headerlink" href="#part-4-determining-sensor-state-and-position" title="Permalink to this headline">¶</a></h3>
+<p>Sliders and wheels are multi-element sensors, typically with 3 or more electrodes. Like buttons, sliders and wheels can have proximity and touch states, but they also have a position. Position is determined from the individual element measurements. The CapTIvate™ software library&#8217;s algorithm determines the sensors position (place where finger is touching) based on the measurements from all the sensor&#8217;s elements and provides the result in the sensor&#8217;s structure.</p>
+<p>In this section we are going to create a callback function for the slider that will turn on LED1 when the slider&#8217;s position is greater than 500 and turn off LED when the position is less than or equal to 500. We chose 500 because from LAB1 the slider&#8217;s resolution was set to 1000, which provides points from 0 to 999.</p>
+<p>Registering the application&#8217;s callback function named &#8220;my_slider_callback&#8221; to a slider sensor uses the following syntax:</p>
+<p><strong>MAP_CAPT_registerCallback(&amp;slider, &amp;my_slider_callback);</strong></p>
+<div class="section" id="id8">
+<h4>LAB3 Action:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>In the LAB3 code project, insert this function call described above just before the function call CAPT_appStart() in main().</p>
+<p>Below is an example callback that reads the sensor&#8217;s data structure and turns LED1 on or off depending on the value of the slider position.</p>
+</div>
+<div class="section" id="id9">
+<h4>LAB3 Action:<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>Add the following callback code snippet before the function main():</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">sliderCallback</span><span class="p">(</span><span class="n">tSensor</span><span class="o">*</span> <span class="n">pSensor</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">tSliderSensorParams</span><span class="o">*</span> <span class="n">pSliderParams</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorTouch</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">pSliderParams</span> <span class="o">=</span> <span class="p">(</span><span class="n">tSliderSensorParams</span><span class="o">*</span><span class="p">)(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">pSensorParams</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">pSliderParams</span><span class="o">-&gt;</span><span class="n">SliderPosition</span><span class="o">.</span><span class="n">ui16Natural</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">LED1_ON</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">LED1_OFF</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Click the debugger icon to build and download the code to the target. Click the &#8220;play&#8221; icon to start the demo running.</p>
+<p>While viewing the slider in the design center, LED1 will turn on when your finger is greater than 500 and turn off below 500. What happens when you release your finger from the slider when greater than 500? LED1 remains on. That&#8217;s because our code only changes the state of the led when the slider is being pressed.</p>
+<p>What modifications to this callback will turn off LED1 if the slider is not being touched?</p>
+<p>Here is one answer below. Try it to see if it works:</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">sliderCallback</span><span class="p">(</span><span class="n">tSensor</span><span class="o">*</span> <span class="n">pSensor</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">tSliderSensorParams</span><span class="o">*</span> <span class="n">pSliderParams</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorTouch</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">pSliderParams</span> <span class="o">=</span> <span class="p">(</span><span class="n">tSliderSensorParams</span><span class="o">*</span><span class="p">)(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">pSensorParams</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">pSliderParams</span><span class="o">-&gt;</span><span class="n">SliderPosition</span><span class="o">.</span><span class="n">ui16Natural</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">LED1_ON</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">LED1_OFF</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">LED1_OFF</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Congratulations! This is the end of the CapTIvate™ workshop. Visit the <a class="reference external" href="ch_intro.html">Introduction</a> section to learn more about CapTIvate™</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_evm_CAP_MINI.html" class="btn btn-neutral" title="EVM430-CAPMINI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

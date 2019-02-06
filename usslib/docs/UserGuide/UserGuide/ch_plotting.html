@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Waveform Plotting &mdash; Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation" href="../index.html"/>
+        <link rel="next" title="ADC Captures" href="ch_adc.html"/>
+        <link rel="prev" title="Configuration" href="ch_config.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Ultrasonic Sensing Design Center User Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02.20.00.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_sysreqs.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_config.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Waveform Plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#waveform-controls">Waveform Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#waveform-viewing">Waveform Viewing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zooming-and-tooltips">Zooming and Tooltips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statistics">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#waveform-options">Waveform Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_adc.html">ADC Captures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_freqsweep.html">Frequency Sweep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_debug_graph.html">Debug Waveform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_calibration.html">Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_errors.html">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_protocol.html">Communication Protocol Spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Ultrasonic Sensing Design Center User Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Waveform Plotting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="waveform-plotting">
+<h1>Waveform Plotting<a class="headerlink" href="#waveform-plotting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="waveform-controls">
+<h2>Waveform Controls<a class="headerlink" href="#waveform-controls" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="Waveform Controls" src="../_images/waveform_controls.PNG" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Waveform Controls</span></p>
+</div>
+<p>To control the waveform data, use the Start/Stop button on the Control Panel at the top of the Waveforms tab.</p>
+<p>The Start button notifies the target via HID command to initiate data transfer, while the Stop button notifies the target to stop transfers. The Waveform Plots will show data at the rate that the target sends it, which can ramp up to 40 Hz with minimal UPS0 to UPS1 and UPS DNS delay.</p>
+<p>The &#8220;Lock All&#8221; / &#8220;Unlock All&#8221; button allows the user to lock or unlock all three graphs. The lock functionality exists to freeze a graph&#8217;s viewing in time while still receiving data in the background. This can be used to inspect one section of data via the zoom or tooltip functionality. To lock or unlock a single graph, double click the graph.</p>
+<p>The Save Waveforms button allows the user to choose an output file to save the current waveform log data in .csv format to a chosen location. This data can also be saved automatically by going to the Options item in the main menu bar, selecting Logging, and enabling &#8220;Automatically Log Data&#8221;.</p>
+<p>The &#8220;Reset Graphs&#8221; button will reset both the graph data on the screen <strong>and the timestamps on logging GUI-wide</strong>. This functionality exists to allow the user to start a fresh graph data set. If auto-logging is enabled, this will also end the current automatic logging session and start a new one.</p>
+<p>The &#8220;Adv. Calibration Table&#8221; checkbox allows the user the enable or disable the calibration look up table in the application. The calibration look up table is generated after the calibration process is completed. For more information on how to calibrate the system see the <a class="reference external" href="ch_calibration.html">Calibration Section</a>. When this checkbox is selected the application running on the target will check if there is a valid (non-zero minimums, for N ranges the (min of range i) &lt; (min of range i+1) where 0 &lt; i &lt;= N) table stored in memory. If the table is valid it will enable it, otherwise the checkbox will be deselected.</p>
+</div>
+<div class="section" id="waveform-viewing">
+<h2>Waveform Viewing<a class="headerlink" href="#waveform-viewing" title="Permalink to this headline">¶</a></h2>
+<p>USS GUI provides three waveform graphs: Delta Time of Flight, Absolute Time of Flight, and Volume Flow Rate.</p>
+<p>The Absolute Time of Flight graph contains two different channels, DNS and UPS.</p>
+<p>The Delta Time of Flight and Volume Flow Rate graphs provide a single channel of information.</p>
+</div>
+<div class="section" id="zooming-and-tooltips">
+<h2>Zooming and Tooltips<a class="headerlink" href="#zooming-and-tooltips" title="Permalink to this headline">¶</a></h2>
+<p>To zoom in on a data set, left click and drag the mouse from top-left to bottom-right on the data that you want to enlarge. Zooming in on a graph will lock its viewing panel, although data will continue to be received for once the graph is unlocked.</p>
+<p>To zoom out on a graph, drag the mouse from the bottom-right to the top left. The amount dragged will correspond to the amount unzoomed.</p>
+<p>Individual graphs can be locked or unlocked by double clicking on them.</p>
+<div class="figure" id="id2">
+<img alt="Zoom Control" src="../_images/zooming.PNG" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Zoom Control</span></p>
+</div>
+<p>To find the value of a single data point, hover over the point to show a tooltip frame with the X, Y value of the point. These tooltip frames only appear for data points; they do not appear for interpolation lines.</p>
+<div class="figure" id="id3">
+<img alt="Tooltips" src="../_images/tooltips.PNG" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Tooltips</span></p>
+</div>
+</div>
+<div class="section" id="statistics">
+<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
+<p>Statistics are enabled for the Absolute ToF, Delta ToF, and Volume Flow Rate graphs. These calculate the mean, min, max, and standard deviation of the last <em>N</em> samples, where N is set in Waveform Options and defaults to 100. By default, graphing of the mean line is enabled; this can also be disabled per-graph in Waveform Options.</p>
+<p>Integration over time is provided as a statistic for the Volume Flow Rate graph. To start, stop, or clear the current integration value, use the corresponding buttons below the graph.</p>
+</div>
+<div class="section" id="waveform-options">
+<h2>Waveform Options<a class="headerlink" href="#waveform-options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<img alt="Waveform Options" src="../_images/waveform_options.PNG" />
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Waveform Options</span></p>
+</div>
+<p>To choose a custom Y range for any of the three graphs, select the number of minutes of data displayed, or select the number of samples used for statistics, right-click on any graph and click &#8220;Graph Options&#8221;. This menu can also be accessed from the main menu bar under Options → Waveform Graph Options.</p>
+<p>Here, you can enable a custom Y range for a graph by selecting the &#8220;Use Custom Bounds&#8221; checkbox next to the graph name, then choosing a custom range in the corresponding min/max spinners and clicking &#8220;OK&#8221;.</p>
+<p>Additionally, you can select the number of samples used for statistics calculation in the Absolute TOF and Volume Flow Rate graphs, or the minutes of data displayed for all graphs. The minutes displayed can vary from .25 to 60.</p>
+<p>The maximum amount of points that can be displayed per point vector is 144,000 (allowing for sampling at 40 Hz for an hour), or 576,000 points displayed over the four total vectors.</p>
+<p>Please note that showing large amounts of data, or using large amounts of sampling points, can impact GUI performance, especially showing large amounts of densely sampled data. If the system is running poorly for densely sampled data with a long time period displayed, consider lowering the time displayed. This will not delete the data; the last hour of data is retained regardless of the amount of time currently displayed.</p>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For more information on the application, and available evaluation kits, see the <a class="reference external" href="http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER">download page</a>.</li>
+<li>For technical support, email the <a class="reference external" href="mailto:msp-uss-gui-support&#37;&#52;&#48;list&#46;ti&#46;com">USS GUI support team</a> or visit the <a class="reference external" href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP430 E2E forum</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_adc.html" class="btn btn-neutral float-right" title="ADC Captures" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_config.html" class="btn btn-neutral" title="Configuration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02.20.00.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

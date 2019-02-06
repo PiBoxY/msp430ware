@@ -1,0 +1,18 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Polling Interval</h1>
+        <p>Associated descriptor fields:  <span class="attribute">bInterval</span> (in the Endpoint Descriptor)</p>
+        <p>The time interval by which the USB host will poll the HID interface, checking to see if it has "input" reports to send to the host, and delivering any "output" reports to the HID interface.</p>
+        <p>This value will have an effect on latency; for minimum latency, select 1ms; this way, data will be transceived every USB frame, at the minor expense of bandwidth.  The highest allowed value is 255ms.</p>
+    </body>
+</html>

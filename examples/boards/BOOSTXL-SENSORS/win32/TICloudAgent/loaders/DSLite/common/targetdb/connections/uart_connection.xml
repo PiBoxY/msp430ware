@@ -1,0 +1,5 @@
+<connection id="UARTConnection" XML_version="1.2">
+	<connectionType Type="UARTConnection"/>
+	<property Type="hiddenfield" Value="No" id="dataFileRequired"/>
+	<property id="TargetAccess" Type="hiddenfield" Value="DFU" />
+</connection>

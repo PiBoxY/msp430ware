@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map>
+
+<!-- This file creates a mapping id that can be used by the help broker to map topics to actual html locations -->
+
+<map version="1.0">
+
+<!--Online Help Intro -->
+<mapID target="top" url="Energy_Measurement_Technology_Guide_html" />
+</map>

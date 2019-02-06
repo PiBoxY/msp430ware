@@ -1,0 +1,64 @@
+<!-- Captivate Description HTML -->
+<!-- TrackPad_Trim Tuning Parameter -->
+
+<html>
+    <body>
+		<B>TrackPad Trim</B>
+		<P>
+		
+		A typical trackpad layout consists of diamond shape electrodes that fill the surface of the active area. Around the perimeter of the trackpad 
+		there is a non-linear or "dead-zone" where the trackpad may not respond to a finger touch.
+		
+		<P>
+		<img src="visualizer_images/Trackpad_Tuning_DeadZone.png">
+		<P>
+		
+		Trackpad trim parameters provide a way to help "stretch" or scale the left, right, upper and lower end points of a trackpad to compensate for
+		this effect.
+		<BR>
+		<BR>
+		The desired operation of a trackpad is to have the left-most or bottom-most point be represented by the lowest possible value (0), and the
+		right-most or top-most point be represented by the maximum possible value (resolution of the trackpad - 1).  
+		This concept is illustrated in the example below.  
+				
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		To tune the left and lower parameters, move your finger along the edge of the trackpad and determine the region where the finger transitions
+		from a valid touch to a "no touch" state.  This is the transition point into the dead zone.
+		Note the smallest value and set the corresponding X and Y lower trim trackpad parameters to this value. 
+
+		<BR>
+		<BR>
+		Perform the same procedure along the right and upper regions, note the largest value and set the corresponding X and Y upper trim trackpad
+		parameters.  It may take several iterations to obtain the desired performance.
+		Don't forget to click on the "Apply" button after you change any parameter.
+				
+		<P>
+		<B>Range of Valid Values for TrackPad Trim Parameters</B>
+		<BR>
+		Trackpad trim values must be between 0 and  Desired_Resolution-1.
+		In addition, the lower trim must be less than the upper trim.  To disable trackpad trim,
+		set the lower trim to 0 and the upper trim to the Desired_Resolution.
+
+		<P>
+		<B>Affected Software Parameters</B>
+		
+		<BR>
+		The Lower_Trim X parameter corresponds to the  <i><b>ui16LowerTrim_X</b></i> member of the 
+		<i><b>tTrackPadSensorParams</b></i> type in the CapTIvate Touch Library.
+		
+		<BR>
+		The Upper_Trim X parameter corresponds to the  <i><b>ui16UpperTrim_X</b></i> member of the 
+		<i><b>tTrackPadSensorParams</b></i> type in the CapTIvate Touch Library.
+		
+		<BR>
+		The Lower_Trim Y parameter corresponds to the  <i><b>ui16LowerTrim_Y</b></i> member of the 
+		<i><b>tTrackPadSensorParams</b></i> type in the CapTIvate Touch Library.
+		
+		<BR>
+		The Upper_Trim Y parameter corresponds to the  <i><b>ui16UpperTrim_Y</b></i> member of the 
+		<i><b>tTrackPadSensorParams</b></i> type in the CapTIvate Touch Library.
+		
+    </body>
+</html>

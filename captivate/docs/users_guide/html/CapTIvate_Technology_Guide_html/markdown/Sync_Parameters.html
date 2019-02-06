@@ -1,0 +1,54 @@
+<!-- Captivate Description HTML -->
+<!-- Input_Sync, Timer_Sync Tuning Parameters -->
+
+<html>
+	<body>
+		<B>Sync Parameters (Input and Timer)</B>
+		<P>
+		
+		The CapTIvate peripheral provides a mechanism for pending the start of a conversion on a
+		hardware event.  Two different hardware events are available: an external edge on a digital input pin, 
+		or an internal timer trigger.
+		
+		<P>
+		The first option, an external edge trigger, might be used for a variety of
+		reasons.  For example, a measurement could be delayed to be triggered exactly on a 60 Hz zero crossing
+		detection in a noisy environment.  Or, multiple CapTIvate MCUs could be synchronized to a clock edge to begin
+		measurement at the exact same time, minimizing ground loading on a large panel.  The measurement may be triggered 
+		on either a rising edge or a falling edge by setting the Input_Sync parameter.
+
+		<P>
+		<img src="visualizer_images/Sync_Parameters_InputSync.png">
+		<P>
+		
+		The second option, an internal timer trigger, exists to provide wake-on-touch capability by allowing the CapTIvate
+		internal timer to be used to start measurements at periodic intervals without CPU intervention.  The timer triggered
+		conversion is enabled by toggling on the Timer_Sync parameter.
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		Pending on an input sync means that each time cycle in a sensor will pend on its own individual sync event.  For example, a sensor with
+		3 time cycles would take 3 sync edges to complete measurement.  Be aware that if the sync event is slow (60 Hz, for example) the delay
+		associated with waiting for the sync can become noticeable and effect the maximum achievable report rate.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Input_Sync parameter corresponds to the
+		<i><b>ui8InputSyncControl</b></i> 
+		member of the
+		<i><b>tSensor</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+		The Timer_Sync parameter corresponds to the
+		<i><b>bTimerSyncControl</b></i> 
+		member of the
+		<i><b>tSensor</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

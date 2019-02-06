@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MSP-EXP430FR5969 Out Of Box Demo GUI</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body style="height: 100%;">
+    <div class="container-fluid" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5>Instructions</h5>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#setupTab" data-toggle="tab">Setup</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modes <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#liveModeTab" data-toggle="tab">Live Mode</a></li>
+                                  <li><a href="#framModeTab" data-toggle="tab">FRAM Mode</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#resourcesTab" data-toggle="tab">Resources</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="setupTab">
+                                <div id="carousel-0" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                                  <!-- Indicators -->
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#carousel-0" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-0" data-slide-to="1"></li>
+                                    <li data-target="#carousel-0" data-slide-to="2"></li>
+                                    <li data-target="#carousel-0" data-slide-to="3"></li>
+                                  </ol>
+
+                                  <!-- Wrapper for slides -->
+                                  <div class="carousel-inner" style="height:calc(100% - 24px);">
+                                    <div class="item active" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>MSP-EXP430FR5969 Out Of Box Demo</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/01_Wolverine_LaunchPad.jpg">
+                                            </div>
+                                            <p>
+                                                Welcome to the new MSP-EXP430FR5969 LaunchPad's Out Of Box Demo!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Connecting to the Computer</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/02_Connect_to_PC.jpg">
+                                            </div>
+                                            <p>Attach the LaunchPad to your computer with the included micro USB cable.</p>
+                                            <p>The Green LED at the top of the board should light up, indicating the eZ-FET on-board emulator is powered on correctly.</p>
+                                            <p>The Red and Green LEDs near the bottom of the board should toggle alternately for a short duration, indicating the Out Of Box demo is running on the MSP430FR5969</p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>USB Driver Installation</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/03_USB_Driver.jpg">
+                                            </div>
+                                            <p>
+                                                <i>
+                                                    *Note: The drivers are bundled and installed with <a class="downloadLink" data-href="http://www.ti.com/tool/ccstudio">Code Composer Studio</a> or <a class="downloadLink" data-href="http://www.iar.com/Products/IAR-Embedded-Workbench/TI-MSP430/">IAR Embedded Workbench for MSP430</a>. You may skip this step if the drivers are successfully installed.
+                                                </i>
+                                            </p>
+                                            <p>
+                                                Install the LaunchPad drivers if needed. <a class="downloadLink" data-href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430_FET_Drivers/latest/index_FDS.html">Download the driver package</a>.
+                                            </p>
+                                            <OL>
+                                                <LI>After extracting the driver package, navigate to <i>install_root_directory</i>/emulation/drivers/msp430/
+                                                <LI>Copy DPInst.exe or DPInst64.exe (depending on your operating system) from the /DPInst/ folder into the /USB_CDC/ folder.
+                                                <LI>Run the DPInst.exe or DPInst64.exe in the /USB_CDC/ folder.
+                                            </OL>
+                                            <p>
+                                                Proceed after the installer has successfully installed the drivers.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Connect GUI to Serial Communication Port</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/04_SerialPort_Connect.jpg">
+                                            </div>
+                                            <p>
+                                                Open Device Manager and identify the correct COM port number associated with <b>MSP Application UART1</b>
+                                            </p>
+                                            <p>
+                                                Select the corresponding COM port in the GUI from the dropdown list and click the <b>Connect</b> button. You are now ready to collect data with the LaunchPad.
+                                            </p>
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- Controls -->
+                                  <a class="left carousel-control" href="#carousel-0" data-slide="prev">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#carousel-0" data-slide="next">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                  </a>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="liveModeTab">
+                                <div id="carousel-1" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                                  <!-- Indicators -->
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-1" data-slide-to="1"></li>
+                                  </ol>
+
+                                  <!-- Wrapper for slides -->
+                                  <div class="carousel-inner" style="height:calc(100% - 24px);">
+                                    <div class="item active" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Live Temperature Gathering Mode</h3>
+                                            <p>
+                                                After the GUI is connected to the LaunchPad, click the <b>Start</b> button under Live Temp Mode inside the Application Controls panel. This puts the LaunchPad into the <b>live temperature gathering</b> mode.
+                                            </p>
+                                            <p>
+                                                MSP430FR5969 uses its 12bit ADC to sample and convert the signals obtained from its internal Temperature Sensor then sends the raw data through the UART Backchannel to PC.
+                                            </p>
+                                            <p>
+                                                The GUI keeps a buffer of the most recent 100 temperature measurements as displayed in the graph to the right. 
+                                            </p>
+                                            <p>
+                                                Click the <b>Stop</b> button to exit the Live Temp Mode.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Try Changing the Temperature</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/05_Live_Mode.jpg">
+                                            </div>
+                                            <p>
+                                                Touch the MSP430FR5969 with your finger and see if you can influence the temperature.
+                                            </p>
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- Controls -->
+                                  <a class="left carousel-control" href="#carousel-1" data-slide="prev">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#carousel-1" data-slide="next">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                  </a>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="framModeTab">
+                                <div id="carousel-2" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                                  <!-- Indicators -->
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-2" data-slide-to="1"></li>
+                                    <li data-target="#carousel-2" data-slide-to="2"></li>
+                                    <li data-target="#carousel-2" data-slide-to="3"></li>
+                                    <li data-target="#carousel-2" data-slide-to="4"></li>
+                                    <li data-target="#carousel-2" data-slide-to="5"></li>
+                                  </ol>
+
+                                  <!-- Wrapper for slides -->
+                                  <div class="carousel-inner" style="height:calc(100% - 24px);">
+                                    <div class="item active" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>FRAM Data Logging Mode</h3>
+                                            <p>
+                                                After the GUI is connected to the LaunchPad, click the <b>Start</b> button under FRAM Log Mode inside the Application Controls Panel. This puts the LaunchPad into the <b>FRAM data logging</b> mode.
+                                            </p>
+                                            <p>
+                                                The red LED1 blinks 3 times to indicate successful entry.
+                                            </p>
+                                            <p>
+                                                In this mode, the MSP430FR5969 enters Low Power Mode 3.5 and wakes up every 5 seconds to measure and record its input voltage and temperature to FRAM (visible each wakeup by the blinking green LED2).
+                                            </p>
+                                            <p>
+                                                To exit from data logging mode, click the <b>S2 pushbutton</b> on the LaunchPad. The red LED1 lights up shortly to indicate successful exit from data logging.
+                                            </p>
+                                            <p>
+                                                <i>
+                                                    *Note: The GUI will disconnect from the LaunchPad automatically shortly after pressing Start. This is because the eUSCI module used for UART communication is switched off in LPM 3.5.
+                                                </i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Transfer FRAM Logged Data from LaunchPad to GUI</h3>
+                                            <p>
+                                                Follow the steps below to transfer and display logged voltage and temperature data sitting in FRAM.
+                                            </p>
+                                            <OL>
+                                                <LI>If not already, exit from data logging mode by clicking the <b>S2 pushbutton</b> on the LaunchPad. The red LED1 lights up shortly to indicate successful exit from data logging.
+                                                <LI>Re-establish communication between LaunchPad and GUI by selecting the corresponding COM port in the GUI from the dropdown list and clicking the <b>Connect</b> button.
+                                                <LI>Hit the <b>Transfer FRAM Data</b> button to download the logged voltage and temperature data from the LaunchPad.
+                                            </OL>
+                                            <p>
+                                                After the transfer is completed, the voltage and temperature data are plotted to the right.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Running on Super Capacitor</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/06_Super_Cap.jpg">
+                                            </div>
+                                            <p>
+                                                With the MSP430's ultralow-power FRAM, this application provides the possibility to continue logging voltage and temperature data while powering the MSP430FR5969 with just the on-board super capacitor.
+                                            </p>
+                                            <p>
+                                                The next few slides provides detailed setups to setup the LaunchPad to run off of the Super Cap.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Charging the Super Capacitor</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/07_Charging.jpg">
+                                            </div>
+                                            <p>
+                                                Configure the jumpers on your MSP-EXP430FR5969 LaunchPad as shown in the figure above to charge the Super Cap.
+                                            </p>
+                                            <OL>
+                                                <LI>To charge the super cap, power must be coming from a debugger (eZ-FET or JTAG) or external power through J10. In this case, the LaunchPad is powered by the USB cable through the eZ-FET debugger.
+                                                <LI>Set J10 jumper to select "Debugger".
+                                                <LI>Set J2 jumper to select "Use" and then set a jumper across J11 to begin charging.
+                                                <LI>Allow 2~3 minutes for the Super Cap to fully charge.
+                                                <LI>After the Super Cap has charged, click the <b>Start</b> button under FRAM Log Mode inside the Application Controls Panel. This puts the LaunchPad into the <b>FRAM data logging</b> mode.
+                                            </OL>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Disconnecting the LaunchPad from Computer</h3>
+                                            <div class="zoomImage" style="height:65%">
+                                                <img src="assets/images/08_Disconnecting.jpg">
+                                            </div>
+                                            <p>
+                                                While the LaunchPad is in the FRAM logging mode, configure the jumpers on your MSP-EXP430FR5969 LaunchPad as shown in the figure above before disconnecting the LaunchPad from the computer.
+                                            </p>
+                                            <OL>
+                                                <LI>Disconnect J11 to stop charging the Super Cap.
+                                                <LI>Disconnect "V+" and "RST" jumpers on J13. This prevents the Super Cap from back powering the eZ-FET debugger after disconnecting from the computer.
+                                                <LI>Unplug the USB cable connecting the LaunchPad to your computer.
+                                            </OL>
+                                            <p>
+                                                The LaunchPad should now be running off of the Super Cap only, continuing to wakeup every 5 seconds to measure/log voltage and temperature.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Reconnecting the LaunchPad to Computer after running off Super Cap</h3>
+                                            <OL>
+                                                <LI>Exit from data logging mode by clicking the <b>S2 pushbutton</b> on the LaunchPad. The red LED1 lights up shortly to indicate successful exit from data logging.
+                                                <LI>Reconnect LaunchPad to computer via USB cable.
+                                                <LI>Set jumpers "V+" and "RST" on J13
+                                                <LI>Set jumper J2 to "Bypass"
+                                                <LI>Re-establish communication between LaunchPad and GUI by selecting the corresponding COM port in the GUI from the dropdown list and clicking the <b>Connect</b> button.
+                                                <LI>Hit the <b>Transfer FRAM Data</b> button to download the logged voltage and temperature data from the LaunchPad.
+                                            </OL>
+                                            <p>
+                                                After the transfer is completed, the voltage and temperature data are plotted to the right.
+                                            </p>
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- Controls -->
+                                  <a class="left carousel-control" href="#carousel-2" data-slide="prev">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#carousel-2" data-slide="next">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                  </a>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="resourcesTab">
+                                <div id="carousel-3" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                                  <!-- Indicators -->
+                                  <!--ol class="carousel-indicators">
+                                    <li data-target="#carousel-3" data-slide-to="0" class="active"></li>
+                                  </ol-->
+
+                                  <!-- Wrapper for slides -->
+                                  <div class="carousel-inner" style="height:calc(100% - 24px);">
+                                    <div class="item active" style="height:100%">
+                                        <div class="instruction-box" style="height:100%">
+                                            <h3>Resources</h3>
+                                            <ul>
+                                                <li>
+                                                    <a class="downloadLink" data-href="http://www.ti.com/lit/pdf/slau535">MSP-EXP430FR5969 LaunchPad Evaluation Kit User's Guide</a>
+                                                </li>
+                                                <li>
+                                                    <a class="downloadLink" data-href="http://www.ti.com/lit/pdf/slau556">MSP-EXP430FR5969 Quick Start Guide</a>
+                                                </li>
+                                                <li>
+                                                    <a class="downloadLink" data-href="http://www.ti.com/lit/zip/slar091">MSP-EXP430FR5969 Hardware Design Files</a>
+                                                </li>
+                                            </ul>
+                                            <p>
+                                                Visit <a class="downloadLink" data-href="http://www.ti.com/tool/msp-exp430fr5969">www.ti.com/tool/msp-exp430fr5969</a> for additional resources and examples.
+                                            </p>
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- Controls -->
+                                  <!--a class="left carousel-control" href="#carousel-3" data-slide="prev">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#carousel-3" data-slide="next">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                  </a-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9" style="padding-bottom:0px">
+                <div class="row" style="height: 175px;">
+                    <div class="col-sm-9" style="width: calc(100% - 200px)">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5>Application Controls</h5>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-sm-6" style="text-align:center">
+                                            <p>Live Temp Mode</p>
+                                            <button id="liveTempButton" class="btn btn-default" disabled="disabled">Start</button>
+                                        </div>
+                                        <div class="col-sm-6" style="text-align:center">
+                                            <p>FRAM Log Mode</p>
+                                            <div>
+                                                <button id="framLogButton" class="btn btn-default" disabled="disabled">Start</button>
+                                            </div>
+                                            <div>
+                                                <button id="framDisplayButton" class="btn btn-default" disabled="disabled">Transfer FRAM Data</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="width: 200px;">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5>Connect to Serial Port</h5>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form" id="serialForm">
+                                    <div class="form-group">
+                                            <div>
+                                                <select class="form-control" id="formData">
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <div style="text-align:center">
+                                                <button id="connectButton" type="submit" class="btn btn-default" disabled="disabled">Connect</button>
+                                            </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="height: calc(100% - 175px);">
+                    <div class="col-sm-9" style="width: calc(100% - 200px)">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5>Incoming Data</h5>
+                            </div>
+                            <div class="panel-body">
+                                <div id="graph" style="width:100%; height:100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="width: 200px;">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5>Graph Controls</h5>
+                            </div>
+                            <div class="panel-body" style="text-align:center;">
+                                <div>
+                                    <button id="resetAxesButton" class="btn btn-default" disabled="disabled">Reset Axes</button>
+                                </div>
+                                <br>
+                                <p>Temperature Unit</p>
+                                <div>
+                                    <button id="celciusButton" class="btn btn-default" disabled="disabled">Celcius</button>
+                                </div>
+                                <div>
+                                    <button id="fahrenheitButton" class="btn btn-default" disabled="disabled">Fahrenheit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/jquery/dist/jquery.min.js"></script>
+    <script src="assets/zoom/jquery.zoom.min.js"></script>
+    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/flot/jquery.flot.js"></script>
+    <script src="assets/flot/jquery.flot.resize.js"></script>
+    <script src="assets/flot/jquery.flot.time.js"></script>
+    <script src="assets/flot/jquery.flot.navigate.js"></script>
+    <script src="assets/flot/jquery.flot.axislabels.js"></script>
+    <script src="assets/flot/jquery.flot.downsample.js"></script>
+    <script type="text/javascript">
+        var CAL_ADC_12T30;
+        var CAL_ADC_12T85;
+        var cal = 0;
+        var index = 0;
+        var arrayF = [], arrayC = [], arrayAvg = [], arrayV = [];
+        var array_len = 100;
+        var tempFormat = 0;
+        var timeStamp = [];
+        var plot, options, runningAvg;
+        var ping = 0;
+        var ModeEnum = {
+            Disconnected:  0,
+            Connected:     1,
+            LiveTemp:      2,
+            FRAMLogging:   3,
+            TransmitData: 4
+        };
+        var currentMode = ModeEnum.Disconnected;
+        var framLogStartTime = (new Date(2014,0,1,12,0,0,0)).getTime();
+        var gui = require('nw.gui');
+        
+        function disableButtons(bool)
+        {
+            $('#liveTempButton').prop('disabled', bool);
+            $('#resetAxesButton').prop('disabled', bool);
+            $('#framLogButton').prop('disabled', bool);
+            $('#framDisplayButton').prop('disabled', bool);
+        }
+        
+        var graph = function(port) {
+            var data_counter = 0;
+            var time_len = 10000;
+            var update_interval = 10;
+            //var array_len = parseInt(time_len / update_interval);
+            var last_data_point = 0;
+
+            var no_data = true;
+            var stop_timer = false;
+
+            options = {
+                series: {
+                    shadowSize: 0, // Drawing is faster without shadows
+                    points: { show: true, fill: true },
+                    lines: { show: true, fill: true, fillColor: { colors: [ { opacity: 0.2 }, { opacity: 0.2 } ] } },
+                    downsample: {threshold: 100}
+                },
+                xaxis: {
+                    axisLabel: 'Time (HH:MM:SS)',
+                    color: "rgba(84,84,84,0.8)",
+                    tickColor: "rgba(84,84,84,0.22)",
+                    mode: 'time',
+                    timeformat: '%H:%M:%S',
+                    timezone: "browser",
+                    zoomRange: false,
+                    panRange: false
+                },
+                yaxes: [
+                    {
+                        autoscaleMargin: 0.5,
+                        axisLabel: 'Temperature (F)',
+                        color: "rgba(84,84,84,0.8)",
+                        tickColor: "rgba(84,84,84,0.22)",
+                        //min:50, max:100,
+                        tickSize: 5,
+                        zoomRange: [10, 200]
+                    },
+                    {
+                        axisLabel: 'Voltage',
+                        color: "rgba(84,84,84,0.8)",
+                        tickColor: "rgba(84,84,84,0.22)",
+                        position: "right",
+                        min: 0, max: 5,
+                        zoomRange: [1, 10]
+                    }
+                ],
+                zoom: {
+                    interactive: true,
+                    amount: 1.05
+                },
+                pan: {
+                    interactive: true
+                },
+                lines: {
+                    steps: false
+                },
+                grid: { hoverable: true },
+                colors: ['#4abed4']
+            }
+
+            plot = $.plot("#graph", [], options);
+        };
+
+        var SerialPort = require("serialport").SerialPort;
+        var oldPorts;
+        var port;
+
+        var timer = function() {
+            //console.log("Ping");
+            // Getting the COM ports available
+            var serialPort = require("serialport");
+            serialPort.list(function (err, ports) {
+                if (JSON.stringify(ports) !== JSON.stringify(oldPorts))
+                {
+                    var html = "";
+                    ports.forEach(function(port) {
+                        html += "<option value=\"" + port.comName + "\">" + port.comName +"</option>\n";
+                    });
+                    $("#formData").html(html);
+                    oldPorts = ports;
+                }
+            });
+
+            if (port != undefined)
+            {
+                if (currentMode != ModeEnum.LiveTemp)
+                port.write("5");
+                
+                ping++;
+                if (ping > 1)
+                {
+                    port.close();
+                    port = undefined;
+                    ping = 0;
+                    currentMode == ModeEnum.Disconnected;
+                    
+                    $('#connectButton').prop('disabled', false);
+                    
+                    $('#liveTempButton').text('Start');
+                    disableButtons(true);
+                }
+            }
+            else
+            {
+                if($("#formData").val() == null)
+                    $('#connectButton').prop('disabled', true);
+                else
+                    $('#connectButton').prop('disabled', false);
+                
+                disableButtons(true);
+            }
+        };
+        
+        var interval = window.setInterval(timer,1000);
+        
+        $("#serialForm").submit(function(event) {
+            portNum = $("#formData").val();
+            
+            if ((typeof port != 'undefined') && (port.path != portNum))
+            {
+                port.close();
+                currentMode = ModeEnum.Disconnected;
+            }
+            
+		    if ((typeof port != 'undefined') && (port.path == portNum))
+                console.log("Port is already opened");
+            else
+            {
+                port = new SerialPort(portNum, {baudrate: 9600});
+                console.log("Got here");
+            }
+            
+            port.on("open", function() {
+                console.log('open');
+                graph(port);
+                port.write("0");
+                currentMode = ModeEnum.Connected;
+                
+                $('#connectButton').prop('disabled', true);
+                
+                $('#liveTempButton').prop('disabled', false);
+                $('#resetAxesButton').prop('disabled', false);
+                $('#framLogButton').prop('disabled', false);
+                $('#framDisplayButton').prop('disabled', false);
+                $('#celciusButton').prop('disabled', false);
+                $('#fahrenheitButton').prop('disabled', false);
+            });
+            
+            port.on('data', function(data) {
+                console.log(data);
+                if ((data[0]*256+data[1])==65535)
+                {
+                    ping=0;
+                }
+                else
+                {
+                    ping=0;
+                    switch (cal) {
+                        case 0:
+                            CAL_ADC_12T30 = data[0]*256+data[1];
+                            console.log('30 calibration: ' + CAL_ADC_12T30);
+                            cal++;
+                            break;
+                        case 1:
+                            CAL_ADC_12T85 = data[0]*256+data[1];
+                            console.log('85 calibration: ' + CAL_ADC_12T85);
+                            cal++;
+                            break;
+                        default :
+                            if (currentMode == ModeEnum.TransmitData)
+                            {
+                                if (timeStamp.length < 6)
+                                    timeStamp[timeStamp.length] = data[0];
+                                else
+                                {
+                                    var d = data[0]*256+data[1];
+                                    if (index==0)
+                                    {
+                                        array_len = d/2;
+                                        $("#graph").attr('max',array_len*2);
+                                        index++;
+                                        console.log("index received");
+                                        framLogStartTime = 0;
+                                        for (var i=0;i<timeStamp.length;i++)
+                                            framLogStartTime+=(timeStamp[i]*Math.pow(256,i));
+                                    }
+                                    else
+                                    {
+                                        if (arrayC.length < array_len)
+                                        {
+                                            var degreeC = (d-CAL_ADC_12T30)*(85-30)/(CAL_ADC_12T85-CAL_ADC_12T30) + 30
+                                            var degreeF = degreeC * 9/5 + 32;
+                                            
+                                            arrayC.push([framLogStartTime+(5000*arrayC.length), degreeC]);
+                                            arrayF.push([framLogStartTime+(5000*arrayF.length), degreeF]);
+                                            
+                                            console.log("Temp array PUSH");
+                                        }
+                                        else
+                                        {
+                                            var batVoltage = d/4095 * 4.0;
+                                            arrayV.push([framLogStartTime+(5000*arrayV.length),batVoltage]);
+                                            
+                                            console.log("Battery array PUSH");
+                                        }
+
+                                        $("#graph").attr('value',arrayC.length+arrayV.length);
+                                        
+                                        console.log("value: " + $("#graph").attr('value') + "  max: " + $("#graph").attr('max'));
+
+                                        if (arrayV.length == array_len)
+                                        {
+                                            $("#graph").replaceWith( "<div id='graph' style='width:100%; height:100%;'></div>" );
+                                            plot = $.plot("#graph", [], options);
+                                            
+                                            $("#graph").bind("plothover", function (event, pos, item) {
+                                                console.log("HOVER");
+
+                                                if (item) {
+                                                    var x = new Date(item.datapoint[0]).toLocaleString(),
+                                                        y = item.datapoint[1].toFixed(2);
+                                                    $("#tooltip").html("(" + x + ", " + y + ")")
+                                                        .css({top: item.pageY+5, left: item.pageX+5})
+                                                        .fadeIn(200);
+                                                } else {
+                                                    $("#tooltip").hide();
+                                                }
+                                            });
+                                            
+                                            var array;
+                                            if (tempFormat == 0)
+                                                array = arrayF;
+                                            else
+                                                array = arrayC;
+                                            
+                                            plot.setData([array, {data: arrayV, color: "red", yaxis: 2}]);
+                                            plot.getOptions().xaxes[0].zoomRange = [1, 10000000000000];
+                                            plot.getOptions().xaxes[0].panRange = [array[0][0], array[array.length-1][0]];
+                                            plot.setupGrid();
+                                            plot.draw();
+                                            
+                                            $('#graph').bind('plotzoom', function (event, plot)
+                                            {
+                                                var numVisibleData = (plot.getOptions().xaxes[0].max - plot.getOptions().xaxes[0].min) / 1000 / 5;
+                                                var thresh = Math.floor((100 / numVisibleData) * array_len);
+                                                console.log("max # points: " + numVisibleData + "  threshold: " + thresh);
+                                                plot.getOptions().series.downsample.threshold = thresh;
+                                                var array;
+                                                if (tempFormat == 0)
+                                                    array = arrayF;
+                                                else
+                                                    array = arrayC;
+                                                plot.setData([array, {data: arrayV, color: "red", yaxis: 2}]);
+                                                plot.setupGrid();
+                                                plot.draw();
+                                            });
+                                            
+                                            interval = window.setInterval(timer,1000);
+                                            disableButtons(false);
+                                        }
+                                    }
+                                }
+                                
+                                console.log("Transit mode data: " + d);
+                            }
+                            else
+                            {
+                                var d = data[0]*256+data[1];
+                                var degreeC = (d-CAL_ADC_12T30)*(85-30)/(CAL_ADC_12T85-CAL_ADC_12T30) + 30
+                                var degreeF = degreeC * 9/5 + 32;
+                                var t = Date.now();
+                                if(arrayC.length >= array_len) {
+                                    arrayC = arrayC.slice(1);
+                                    arrayF = arrayF.slice(1);
+                                }
+                                
+                                arrayC.push([t, degreeC]);
+                                arrayF.push([t, degreeF]);
+                                
+                                var array;
+                                if (tempFormat == 0)
+                                    array = arrayF;
+                                else
+                                    array = arrayC;
+                                
+                                // Calculate running average
+                                runningAvg = 0;
+                                for (var i = 0; i < array.length; i++) {
+                                    runningAvg += array[i][1];
+                                }
+                                runningAvg /= array.length;
+
+                                // Plot data on graph
+                                plot.setData([{data: array/*, color: "rgba(74, 190, 212, 0.2)"*/}]);
+                                plot.getOptions().grid.markings=[{ yaxis: {from: runningAvg,to: runningAvg}, lineWidth: 2, color: "#E62E2E"}];
+                                plot.setupGrid();
+                                plot.draw();
+                                
+                                console.log("Live data: " + d);
+                            }
+                    }
+                }
+            });
+            
+            port.on("close", function() {
+                console.log('CLOSED');
+            });
+            
+            port.on("error", function(err) {
+                console.log('ERROR', err);
+            });
+            
+            event.preventDefault();
+        });
+        
+        $("<div id='tooltip'></div>").css({
+			position: "absolute",
+			display: "none",
+			border: "1px solid #fdd",
+			padding: "2px",
+			"background-color": "#fee",
+			opacity: 0.80
+		}).appendTo("body");
+        
+        $("#graph").bind("plothover", function (event, pos, item) {
+            console.log("HOVER");
+
+            if (item) {
+                var x = new Date(item.datapoint[0]).toLocaleString(),
+                    y = item.datapoint[1].toFixed(2);
+                $("#tooltip").html("(" + x + ", " + y + ")")
+                    .css({top: item.pageY+5, left: item.pageX+5})
+                    .fadeIn(200);
+            } else {
+                $("#tooltip").hide();
+            }
+		});
+        
+        $("#resetAxesButton").click(function() {
+            //console.log("Reset Button Pressed");
+            
+            plot = $.plot("#graph", [], options);
+            var array;
+            if (tempFormat == 0)
+                array = arrayF;
+            else
+                array = arrayC;
+                
+            if (currentMode == ModeEnum.TransmitData)
+            {
+                plot.setData([array, {data: arrayV, color: "red", yaxis: 2}]);
+                plot.getOptions().xaxes[0].zoomRange = [1, 10000000000000];
+            }
+            else if (currentMode == ModeEnum.LiveTemp)
+                plot.setData([{data: array}]);
+            plot.setupGrid();
+            plot.draw();
+        });
+        
+        $("#liveTempButton").click(function() {
+            $(this).text(function (_, text) {
+                if (text === 'Stop') {
+                    port.write("0");
+                    currentMode = ModeEnum.Connected;
+                    $('#framLogButton').prop('disabled', false);
+                    $('#framDisplayButton').prop('disabled', false);
+                    return 'Start';
+                }
+                else {
+                    currentMode = ModeEnum.LiveTemp;
+                    //window.clearInterval(interval);
+                    $('#framLogButton').prop('disabled', true);
+                    $('#framDisplayButton').prop('disabled', true);
+                    
+                    $('#graph').unbind('plotzoom');
+                    plot = $.plot("#graph", [], options);
+
+                    cal = 0;
+                    array_len = 100;
+                    arrayC.length = 0;
+                    arrayF.length = 0;
+                    port.write("1");
+                    return 'Stop';
+                }
+            });
+        });
+        
+        $("#celciusButton").click(function() {
+            tempFormat = 1;
+            plot.getOptions().yaxes[0].axisLabel = "Temperature (C)";
+            
+            if (currentMode == ModeEnum.TransmitData)
+                plot.setData([arrayC, {data: arrayV, color: "red", yaxis: 2}]);
+            else
+            {
+                plot.setData([{data: arrayC}]);
+                runningAvg = 0;
+                for (var i = 0; i < arrayC.length; i++) {
+                    runningAvg += arrayC[i][1];
+                }
+                runningAvg /= arrayC.length;
+                plot.getOptions().grid.markings=[{ yaxis: {from: runningAvg,to: runningAvg}, lineWidth: 2, color: "#E62E2E"}];
+            }
+            plot.setupGrid();
+            plot.draw();
+        });
+        
+        $("#fahrenheitButton").click(function() {
+            tempFormat = 0;
+            plot.getOptions().yaxes[0].axisLabel = "Temperature (F)";
+            
+            if (currentMode == ModeEnum.TransmitData)
+                plot.setData([arrayF, {data: arrayV, color: "red", yaxis: 2}]);
+            else
+            {
+                plot.setData([{data: arrayF}]);
+                runningAvg = 0;
+                for (var i = 0; i < arrayF.length; i++) {
+                    runningAvg += arrayF[i][1];
+                }
+                runningAvg /= arrayF.length;
+                plot.getOptions().grid.markings=[{ yaxis: {from: runningAvg,to: runningAvg}, lineWidth: 2, color: "#E62E2E"}];
+            }
+            plot.setupGrid();
+            plot.draw();
+        });
+        
+        $("#framLogButton").click(function() {
+            $(this).text(function (_, text) {
+                window.clearInterval(interval);
+                cal = 0;
+                framLogStartTime = Date.now();
+                arrayC.length = 0;
+                arrayF.length = 0;
+                port.write("2");
+                port.write(getDateNowInByteArray(framLogStartTime));
+                interval = window.setInterval(timer,1000);
+            });
+        });
+        
+        $("#framDisplayButton").click(function() {
+            $(this).text(function (_, text) {
+                currentMode = ModeEnum.TransmitData;
+                window.clearInterval(interval);
+                plot.shutdown();
+                cal = 0;
+                index=0;
+                timeStamp.length = 0;
+                arrayC.length = 0;
+                arrayF.length = 0;
+                arrayV.length = 0;
+                
+                disableButtons(true);
+                
+                $("#graph").replaceWith( "<progress id='graph' value='0' max='100'></progress>" );
+                port.write("3");
+            });
+        });
+        
+        function getDateNowInByteArray(time) {
+            var now = time;
+            var bytes = [6];
+            var i;
+            for (i=0;i<6;i++) {
+                bytes[i] = now & 255;
+                now = now / 256;
+            }
+            return bytes;
+        }
+        
+        $(".downloadLink").click(function(event){
+            if (event.which == 2 || event.ctrlKey==1)
+                event.preventDefault();
+            gui.Shell.openExternal($(this).data('href'));
+        });
+        
+        $(".zoomImage").zoom({ on:'click', magnify: 1.5 });
+        
+        $('#graph').bind('plotzoom', function (event, plot)
+        {
+            console.log("ZOOM");
+        });
+        
+    </script>
+</body>
+</html>

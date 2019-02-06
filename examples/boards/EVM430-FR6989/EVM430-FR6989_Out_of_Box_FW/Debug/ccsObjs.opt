@@ -1,0 +1,1 @@
+"./main.obj" "./ScanIF.obj" "./LCD.obj" "./IIC.obj" "./ESI_ESIOSC.obj" "../lnk_msp430fr6989.cmd" -l"libc.a" 

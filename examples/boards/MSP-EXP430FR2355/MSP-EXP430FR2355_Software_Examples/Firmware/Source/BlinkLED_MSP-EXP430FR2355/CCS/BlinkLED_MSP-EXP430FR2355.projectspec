@@ -1,0 +1,10 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx"
+             device="MSP430FR2355"
+             name="BlinkLED_MSP-EXP430FR2355"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+    </project>
+</projectSpec>

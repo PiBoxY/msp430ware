@@ -1,0 +1,284 @@
+*************************************************************
+FileName = CAPTIVATE-PROXIMITY_REV_B.GBR
+AutoAperture = True
+*************************************************************
+Generating : Top Layer
+      File : CAPTIVATE-PROXIMITY_REV_B.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : CAPTIVATE-PROXIMITY_REV_B.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : CAPTIVATE-PROXIMITY_REV_B.GTO
+
+    Adding Layer      : Top Overlay
+
+    Adding Layer      : M11 Gerber Information
+
+
+Used DCodes :
+    D16
+    D17
+    D22
+    D23
+    D24
+    D25
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : CAPTIVATE-PROXIMITY_REV_B.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D16
+    D17
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : CAPTIVATE-PROXIMITY_REV_B.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D16
+    D17
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : CAPTIVATE-PROXIMITY_REV_B.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D16
+    D17
+    D29
+    D30
+    D31
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : CAPTIVATE-PROXIMITY_REV_B.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D16
+    D17
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : CAPTIVATE-PROXIMITY_REV_B.GBO
+
+    Adding Layer      : Bottom Overlay
+
+    Adding Layer      : M11 Gerber Information
+
+
+Used DCodes :
+    D16
+    D17
+    D24
+*************************************************************
+
+*************************************************************
+Generating : M1 Board Outline
+      File : CAPTIVATE-PROXIMITY_REV_B.GM1
+
+    Adding Layer      : M1 Board Outline
+
+    Adding Layer      : M11 Gerber Information
+
+
+Used DCodes :
+    D16
+    D17
+*************************************************************
+
+*************************************************************
+Generating : M2 Board Dimensions
+      File : CAPTIVATE-PROXIMITY_REV_B.GM2
+
+    Adding Layer      : M2 Board Dimensions
+
+    Adding Layer      : M11 Gerber Information
+
+
+Used DCodes :
+    D16
+    D17
+    D22
+    D24
+    D32
+    D33
+    D34
+    D35
+*************************************************************
+
+*************************************************************
+Generating : M9 Title Sheet
+      File : CAPTIVATE-PROXIMITY_REV_B.GM9
+
+    Adding Layer      : M9 Title Sheet
+
+    Adding Layer      : M11 Gerber Information
+
+
+Used DCodes :
+    D16
+    D17
+    D24
+    D36
+*************************************************************
+
+*************************************************************
+Generating : M10 Fab Notes
+      File : CAPTIVATE-PROXIMITY_REV_B.GM10
+
+    Adding Layer      : M10 Fab Notes
+
+    Adding Layer      : M11 Gerber Information
+
+
+Used DCodes :
+    D16
+    D17
+    D37
+*************************************************************
+
+*************************************************************
+Generating : M12 Stackup
+      File : CAPTIVATE-PROXIMITY_REV_B.GM12
+
+    Adding Layer      : M12 Stackup
+
+    Adding Layer      : M11 Gerber Information
+
+
+Used DCodes :
+    D16
+    D17
+    D22
+    D38
+*************************************************************
+
+*************************************************************
+Generating : Drill Drawing
+      File : CAPTIVATE-PROXIMITY_REV_B.GD1
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Drawing
+
+
+Used DCodes :
+    D16
+    D17
+    D36
+    D39
+*************************************************************
+
+*************************************************************
+Generating : Drill Guide
+      File : CAPTIVATE-PROXIMITY_REV_B.GG1
+
+    Adding Layer      : M11 Gerber Information
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Guide
+
+
+Used DCodes :
+    D16
+    D17
+    D36
+*************************************************************
+

@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enabling High Water Flow applications &mdash; MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation" href="../index.html"/>
+        <link rel="next" title="Volume Flow Rate Calibration" href="VFRCalib.html"/>
+        <link rel="prev" title="Library Calibrations Routines" href="Calibrations.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MSP Ultrasonic Sensing Library Users Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02_20_00_16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Whats_supported.html">What is supported by the library?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Understanding.html">Understanding the Ultrasonic Sensing Solution Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CodeExamples.html">Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibrations.html">Library Calibrations Routines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Enabling High Water Flow applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VFRCalib.html">Volume Flow Rate Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InterpLUT.html">Generating Interpolation Correction Look-up table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimLib.html">Using the memory optimized libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BestPract.html">USS SW Library best practices</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MSP Ultrasonic Sensing Library Users Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Enabling High Water Flow applications</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enabling-high-water-flow-applications">
+<h1>Enabling High Water Flow applications<a class="headerlink" href="#enabling-high-water-flow-applications" title="Permalink to this headline">¶</a></h1>
+<p>The recommended Delta Time of Flight (DToF) computation option for high water volume flow rates is USS_Alg_dToF_Calculation_Option_estimate.</p>
+<table border="1" class="docutils">
+    <tr>
+        <th>Expected delta time of Flight</th>
+        <th>Recommended DToF option</th>
+        <th>High flow option</th>
+    </tr>
+    <tr>
+        <td>|max DToF|<= (transducerPeriod / 2) &mu;sec</td>
+        <td>USS_Alg_dToF_Calculation_Option_water</td>
+        <td>USS_highFlow_option_disabled</td>
+    </tr>
+    <tr>
+        <td>|max DToF|> (transducerPeriod / 2) &mu;sec</td>
+        <td>USS_Alg_dToF_Calculation_Option_estimate</td>
+        <td>Don't care</td>
+    </tr>
+</table><p>The table below provides recommended DToF/High flow configurations for typical transducer frequencies in flow meter applications.</p>
+<table border="1" class="docutils">
+    <tr>
+        <th>Transducer Frequency</th>
+        <th>Expected <br/> |max DToF|</th>
+        <th>Recommended Recommended DToF option</th>
+        <th>Recommended High flow option</th>
+    </tr>
+    <tr>
+        <td rowspan="2">1 MHz</td>
+        <td> < 0.5 &mu;sec</td>
+        <td>USS_Alg_dToF_Calculation_Option_water</td>
+        <td>USS_highFlow_option_disabled</td>
+    </tr>
+    <tr>
+        <td> >= 0.5 &mu;sec</td>
+        <td>USS_Alg_dToF_Calculation_Option_estimate</td>
+        <td>Don't care</td>
+    </tr>
+    <tr>
+        <td rowspan="2">2 MHz</td>
+        <td> < 0.25 &mu;sec</td>
+        <td>USS_Alg_dToF_Calculation_Option_water</td>
+        <td>USS_highFlow_option_disabled</td>
+    </tr>
+    <tr>
+        <td> >= 0.25 &mu;sec</td>
+        <td>USS_Alg_dToF_Calculation_Option_estimate</td>
+        <td>Don't care</td>
+    </tr>
+</table><p><strong>IMPORTANT:</strong> The following water high flow options are not recommended for new development. This options have been deprecated and might be removed in the future.</p>
+<table border="1" class="docutils">
+    <tr>
+        <th>Delta Time of Flifht</th>
+        <th>Deprecated high flow option</th>
+    </tr>
+    <tr>
+        <td rowspan="2">USS_Alg_dToF_Calculation_Option_water</td>
+        <td>USS_highFlow_option_version1</td>
+    </tr>
+    <tr>
+        <td>USS_highFlow_option_version2 </td>
+    </tr>
+</table></div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VFRCalib.html" class="btn btn-neutral float-right" title="Volume Flow Rate Calibration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Calibrations.html" class="btn btn-neutral" title="Library Calibrations Routines" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02_20_00_16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

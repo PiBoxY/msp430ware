@@ -1,0 +1,31 @@
+{
+    "name": "BOOSTXL-SENSORS_GUI+ET",
+    "main": "splashscreen.html",
+    "chromium-args": "--ignore-certificate-errors",
+    "single-instance": false,
+    "splash_title": "BOOSTXL-Sensors",
+    "splash_application_name": "EVM",
+    "splash_copyright_notice": "Copyright 2015. Texas Instruments Incorporated. All rights reserved.",
+    "splash_version": "1.3.2",
+    "main_width": 1200,
+    "main_height": 800,
+    "help": "http://http://www.ti.com/lit/SLAU666",
+    "e2e": "http://e2e.ti.com/support/microcontrollers/msp430/",
+    "board_name": "MSP432P401R LaunchPad ",
+    "device_name": "MSP432P401R",
+    "target_out_filename": "BOOSTXL-SENSORS_SensorGUI_MSP432P401R.out",
+    "target_out_foldername": "target",
+    "debug_enabled": false,
+    "debug_splashscreen_enabled": false,
+    "window": {
+        "show": false,
+        "toolbar": false,
+        "frame": false,
+        "position": "center",
+        "width": 560,
+        "height": 270,
+        "min_width": 560,
+        "min_height": 270,
+        "icon": "gui_icon.png"
+    }
+}

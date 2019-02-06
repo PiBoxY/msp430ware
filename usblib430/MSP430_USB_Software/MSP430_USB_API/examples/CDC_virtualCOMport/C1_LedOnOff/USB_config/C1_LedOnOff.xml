@@ -1,0 +1,75 @@
+<!-- --COPYRIGHT--,BSD
+ *  Copyright (c) 2016, Texas Instruments Incorporated
+ *  All rights reserved.
+ * 
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ * 
+ *  *  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ * 
+ *  *  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ * 
+ *  *  Neither the name of Texas Instruments Incorporated nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ * 
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ *  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ *  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ *  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ *  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ *  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ *  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * --/COPYRIGHT-- -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<descTool>
+    <toolOptions>
+        <runGUI>0</runGUI>
+        <workspace>C:\msp430usb\msp430_usb\src\examples\CDC_virtualCOMport\C1_LedOnOff\USB_config</workspace>
+        <projectName>n/a</projectName>
+    </toolOptions>
+    <toolConfig>
+        <treeConfig>
+            <MSP mcuFam="0">
+                <mspConfig>
+                    <disableXtalOnSus>1</disableXtalOnSus>
+                    <XT2OscFreq>14</XT2OscFreq>
+                    <DMAChannel>1</DMAChannel>
+                    <bypassXT2>0</bypassXT2>
+                    <useSYSBIOS>0</useSYSBIOS>
+                    <driveVBUSfromExtSupp>0</driveVBUSfromExtSupp>
+                </mspConfig>
+                <USBDevice>
+                    <deviceProp>
+                        <vid>0x2047</vid>
+                        <pid>0x0300</pid>
+                        <vndStr>Texas Instruments</vndStr>
+                        <prodStr>MSP430-USB Example</prodStr>
+                        <devRelNum>0x200</devRelNum>
+                        <useSerNum>1</useSerNum>
+                    </deviceProp>
+                    <config>
+                        <configParam>
+                            <selfPowered>0</selfPowered>
+                            <remWkupSup>0</remWkupSup>
+                            <maxPowDrain>0</maxPowDrain>
+                            <configStr>MSP430 USB</configStr>
+                        </configParam>
+                        <interfaces>
+                            <cdcInterface intString="Virtual COM Port (CDC)"/>
+                        </interfaces>
+                    </config>
+                </USBDevice>
+            </MSP>
+        </treeConfig>
+    </toolConfig>
+    <codeGeneration generate="1" generateINF="0" generateXML="0" />
+</descTool>

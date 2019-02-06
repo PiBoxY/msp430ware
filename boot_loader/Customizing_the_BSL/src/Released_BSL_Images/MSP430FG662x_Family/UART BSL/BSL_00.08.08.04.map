@@ -1,0 +1,797 @@
+################################################################################
+#                                                                              #
+#      IAR Universal Linker V5.4.1.30                                          #
+#                                                                              #
+#           Link time     =  16/Feb/2015  17:27:55                             #
+#           Target CPU    =  MSP430                                            #
+#           List file     =  C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\List\MSP430FG6626_UART.map               #
+#           Output file 1 =  C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\Exe\MSP430FG6626_UART.txt                #
+#                            Format: msp430_txt                                #
+#           Output file 2 =  C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\Exe\MSP430FG6626_UART.d43                #
+#                            Format: debug                                     #
+#                            UBROF version 10.0.6                              #
+#           Command line  =  C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\Obj\BSL430_API.r43                       #
+#                            C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\Obj\BSL430_Command_Interpreter.r43       #
+#                            C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\Obj\BSL430_Low_Level_Init.r43            #
+#                            C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\Obj\BSL430_PI_TA.r43                     #
+#                            -o                                                #
+#                            C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\Exe\MSP430FG6626_UART.d43                #
+#                            -l                                                #
+#                            C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \Release\List\MSP430FG6626_UART.map               #
+#                            -xms                                              #
+#                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
+#                            rkbench 6.4_3\430\LIB\"                           #
+#                            -f                                                #
+#                            C:\git\MSP430_BSL\source\device\MSP430FG6626_UART #
+#                            \CONFIG\lnk430_BSL_AREA_RAM_1C00-43FF.xcl         #
+#                            (-cmsp430                                         #
+#                            -Z(CONST)BSL430_VERSION_VENDOR=1010-1010          #
+#                            -Z(CONST)BSL430_VERSION_CI=1011-1011              #
+#                            -Z(CONST)BSL430_VERSION_API=1012-1012             #
+#                            -Z(CONST)BSL430_VERSION_PI=1013-1013              #
+#                            -Z(DATA)DATA16_I,DATA16_Z,DATA16_N,DATA16_HEAP+_D #
+#                            ATA16_HEAP_SIZE=1C00-43FF                         #
+#                            -Z(DATA)DATA20_I,DATA20_Z,DATA20_N,DATA20_HEAP+_D #
+#                            ATA20_HEAP_SIZE                                   #
+#                            -Z(DATA)CSTACK+_STACK_SIZE#                       #
+#                            -Z(CODE)INFO=1800-19FF -Z(CODE)INFOA=1980-19FF    #
+#                            -Z(CODE)INFOB=1900-197F -Z(CODE)INFOC=1880-18FF   #
+#                            -Z(CODE)INFOD=1800-187F                           #
+#                            -Z(CODE)CSTART,ISR_CODE=1010-17EF                 #
+#                            -Z(CONST)DATA16_C,DATA16_ID,DIFUNCT=1010-17EF     #
+#                            -Z(CODE)ZAREA=1000-100F                           #
+#                            -Z(CODE)ZAREA_CODE=1010-1063                      #
+#                            -Z(CODE)BSL0=1010-11FF -Z(CODE)BSL1=1200-13FF     #
+#                            -Z(CODE)BSL2=1400-15FF -Z(CODE)BSL3=1600-17EF     #
+#                            -P(CODE)CODE=1010-17EF                            #
+#                            -Z(CONST)DATA20_C,DATA20_ID=1010-17EF             #
+#                            -Z(CODE)INTVEC=FF80-FFFF                          #
+#                            -Z(CODE)RESET=FFAE-FFAF                           #
+#                            -Z(CONST)BSLSIG=0x17F0-17FB                       #
+#                            -Z(CONST)JTAGLOCK_KEY=0x17FC-17FF                 #
+#                            -Z(CONST)CHECKSUM=FF80-FF81) -Hff                 #
+#                            -J2,crc16,,,,2,0 -f                               #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 6.4_3\430\config\multiplier32_loc2.xcl"     #
+#                            (-e?Mul8HwLoc2=?Mul8 -e?Mul16HwLoc2=?Mul16        #
+#                            -e?Mul16to32uHwLoc2=?Mul16to32u                   #
+#                            -e?Mul16to32sHwLoc2=?Mul16to32s                   #
+#                            -e?Mul32Hw32Loc2=?Mul32                           #
+#                            -e?Mul64Hw32Loc2=_Mul64i                          #
+#                            -e?Mul32u32uto64iHw32Loc2=_Mul32u32uto64i         #
+#                            -e?Mul32fHwLoc2=_Mul32f                           #
+#                            -e_Mul64fHwPtrLoc2=_Mul64fPtr)                    #
+#                            -D_STACK_SIZE=190 -Fubrof                         #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 6.4_3\430\LIB\DLIB\dl430xsfn.r43"           #
+#                            -D_DATA16_HEAP_SIZE=0                             #
+#                            -Omsp430_txt=C:\git\MSP430_BSL\source\device\MSP4 #
+#                            30FG6626_UART\Release\Exe\MSP430FG6626_UART.txt   #
+#                            -s __program_start -D_DATA20_HEAP_SIZE=50         #
+#                                                                              #
+#                           Copyright (C) 1987-2012 IAR Systems AB.            #
+################################################################################
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *           CROSS REFERENCE            *
+                *                                      *
+                ****************************************
+
+       Program entry at :           1014  Relocatable, from module : ?cstart
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  __Heap_Handler             = Basic
+  __SystemLibrary            = DLib
+  __core                     = 430X
+  __data_model               = small
+  __dlib_file_descriptor     = 0
+  __dlib_full_locale_support = 0
+  __double_size              = 32
+  __pic                      = no
+  __reg_r4                   = free
+  __reg_r5                   = free
+  __rt_version               = 3
+
+                ****************************************
+                *                                      *
+                *    AUTOMATIC SYMBOL REDIRECTIONS     *
+                *                                      *
+                ****************************************
+
+                  There are no automatic symbol redirections.
+
+
+
+                ****************************************
+                *                                      *
+                *              MODULE MAP              *
+                *                                      *
+                ****************************************
+
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?ABS_ENTRY_MOD
+
+Absolute parts
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _DATA20_HEAP_SIZE       0050 
+           _DATA16_HEAP_SIZE       0000 
+           _STACK_SIZE             0190 
+    *************************************************************************
+
+  FILE NAME : C:\git\MSP430_BSL\source\device\MSP430FG6626_UART\Release\Obj\BSL430_API.r43
+  PROGRAM MODULE, NAME : BSL430_API
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA16_AN
+  Relative segment, address: 0152 - 0153 (0x2 bytes), align: 0
+  Segment part 1. ROOT.       Intra module refs:   CRC_Check
+                                                   PI_receivePacket
+                                                   PI_sendData
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_CRCDIRB_L            0152 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0154 - 0155 (0x2 bytes), align: 0
+  Segment part 2. ROOT.       Intra module refs:   CRC_Check
+                                                   PI_receivePacket
+                                                   PI_sendData
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_CRCINIRES_L          0154 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0140 - 0141 (0x2 bytes), align: 0
+  Segment part 3. ROOT.       Intra module refs:   BSL430_unlock_BSL
+                                                   eraseLocation
+                                                   interpretCommand
+                                                   receiveDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_FCTL1_L              0140 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0144 - 0145 (0x2 bytes), align: 0
+  Segment part 4. ROOT.       Intra module refs:   BSL430_unlock_BSL
+                                                   eraseLocation
+                                                   interpretCommand
+                                                   receiveDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_FCTL3_L              0144 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0204 - 0205 (0x2 bytes), align: 0
+  Segment part 5. ROOT.       Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PADIR_L              0204 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 020A - 020B (0x2 bytes), align: 0
+  Segment part 6. ROOT.       Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PASEL_L              020A 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0120 - 0121 (0x2 bytes), align: 0
+  Segment part 7. ROOT.       Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PMMCTL0_L            0120 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0130 - 0131 (0x2 bytes), align: 0
+  Segment part 8. ROOT.       Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PM5CTL0_L            0130 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0340 - 0341 (0x2 bytes), align: 0
+  Segment part 9. ROOT.       Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TA0CTL                  0340 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0342 - 0343 (0x2 bytes), align: 0
+  Segment part 10. ROOT.      Intra module refs:   main
+                                                   sendByte
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TA0CCTL0                0342 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0344 - 0345 (0x2 bytes), align: 0
+  Segment part 11. ROOT.      Intra module refs:   receiveByte
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TA0CCTL1                0344 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0350 - 0351 (0x2 bytes), align: 0
+  Segment part 12. ROOT.      Intra module refs:   sendByte
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TA0R                    0350 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0352 - 0353 (0x2 bytes), align: 0
+  Segment part 13. ROOT.      Intra module refs:   sendByte
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TA0CCR0                 0352 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0354 - 0355 (0x2 bytes), align: 0
+  Segment part 14. ROOT.      Intra module refs:   receiveByte
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TA0CCR1                 0354 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0160 - 0161 (0x2 bytes), align: 0
+  Segment part 15. ROOT.      Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSCTL0_L            0160 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0162 - 0163 (0x2 bytes), align: 0
+  Segment part 16. ROOT.      Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSCTL1_L            0162 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0164 - 0165 (0x2 bytes), align: 0
+  Segment part 17. ROOT.      Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSCTL2_L            0164 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0168 - 0169 (0x2 bytes), align: 0
+  Segment part 18. ROOT.      Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSCTL4_L            0168 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 016A - 016B (0x2 bytes), align: 0
+  Segment part 19. ROOT.      Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSCTL5_L            016A 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 015C - 015D (0x2 bytes), align: 0
+  Segment part 20. ROOT.      Intra module refs:   __low_level_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_WDTCTL_L             015C 
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C00 - 1C01 (0x2 bytes), align: 1
+  Segment part 22.            Intra module refs:   BSL430_unlock_BSL
+                                                   BSL430_writeMemory
+                                                   CRC_Check
+                                                   eraseLocation
+                                                   interpretCommand
+                                                   main
+                                                   receiveDataBlock
+                                                   sendDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           LockedStatus            1C00 
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C02 - 1C03 (0x2 bytes), align: 1
+  Segment part 23.            Intra module refs:   BSL430_unlock_BSL
+                                                   eraseLocation
+                                                   interpretCommand
+                                                   main
+                                                   receiveDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           FwRamKey                1C02 
+    -------------------------------------------------------------------------
+BSL430_VERSION_API
+  Relative segment, address: 1012 - 1012 (0x1 bytes), align: 0
+  Segment part 24.            Intra module refs:   __low_level_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_API_Version      1012 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 1794 - 17A1 (0xe bytes), align: 1
+  Segment part 69. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __low_level_init        1794            ?cstart_call_low_level_init (?cstart)
+               CSTACK = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+BSL430_VERSION_VENDOR
+  Relative segment, address: 1010 - 1010 (0x1 bytes), align: 0
+  Segment part 25.            Intra module refs:   interpretCommand
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_Vendor_Version   1010 
+    -------------------------------------------------------------------------
+BSL430_VERSION_CI
+  Relative segment, address: 1011 - 1011 (0x1 bytes), align: 0
+  Segment part 26.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_CI_Version       1011 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 1056 - 105B (0x6 bytes), align: 1
+  Segment part 43.            Intra module refs:   eraseLocation
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 105C - 111D (0xc2 bytes), align: 1
+  Segment part 45.            Intra module refs:   interpretCommand
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           sendDataBlock           105C 
+               calls direct
+               CSTACK = 00000000 ( 0000001A )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 111E - 1199 (0x7c bytes), align: 1
+  Segment part 47.            Intra module refs:   interpretCommand
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           CRC_Check               111E 
+               calls direct
+               CSTACK = 00000000 ( 00000008 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 119A - 11E1 (0x48 bytes), align: 1
+  Segment part 50.            Intra module refs:   interpretCommand
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           eraseLocation           119A 
+               calls direct
+               CSTACK = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 11E2 - 1275 (0x94 bytes), align: 1
+  Segment part 53.            Intra module refs:   interpretCommand
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_unlock_BSL       11E2 
+               CSTACK = 00000000 ( 0000000A )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 1276 - 1307 (0x92 bytes), align: 1
+  Segment part 59.            Intra module refs:   receiveDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_writeMemory      1276 
+               CSTACK = 00000000 ( 00000014 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 1308 - 1375 (0x6e bytes), align: 1
+  Segment part 61.            Intra module refs:   interpretCommand
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           receiveDataBlock        1308 
+               calls direct
+               CSTACK = 00000000 ( 00000008 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 1376 - 13F3 (0x7e bytes), align: 1
+  Segment part 67.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           main                    1376            Segment part 22 (?cstart)
+               calls direct
+               CSTACK = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 13F4 - 153D (0x14a bytes), align: 1
+  Segment part 64.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           interpretCommand        13F4 
+               calls direct and indirect
+               CSTACK = 00000000 ( 00000008 )
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C04 - 1C05 (0x2 bytes), align: 1
+  Segment part 27.            Intra module refs:   interpretPI_Command
+                                                   main
+                                                   receiveByte
+                                                   sendByte
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BitTime                 1C04 
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C06 - 1C07 (0x2 bytes), align: 1
+  Segment part 28.            Intra module refs:   interpretPI_Command
+                                                   main
+                                                   receiveByte
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BitTime_5               1C06 
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C08 - 1C09 (0x2 bytes), align: 1
+  Segment part 29.            Intra module refs:   interpretCommand
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_ReceiveBuffer    1C08 
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C0A - 1C0B (0x2 bytes), align: 1
+  Segment part 30.            Intra module refs:   CRC_Check
+                                                   eraseLocation
+                                                   interpretCommand
+                                                   main
+                                                   receiveDataBlock
+                                                   sendDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_SendBuffer       1C0A 
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C0C - 1C0D (0x2 bytes), align: 1
+  Segment part 31.            Intra module refs:   PI_receivePacket
+                                                   receiveDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_BufferSize       1C0C 
+    -------------------------------------------------------------------------
+DATA16_N
+  Relative segment, address: 1C0E - 1D11 (0x104 bytes), align: 1
+  Segment part 32.            Intra module refs:   PI_receivePacket
+                                                   PI_sendData
+                                                   interpretPI_Command
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           RAM_Buf                 1C0E 
+    -------------------------------------------------------------------------
+BSL430_VERSION_PI
+  Relative segment, address: 1013 - 1013 (0x1 bytes), align: 0
+  Segment part 33.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL430_PI_Version       1013 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 153E - 162B (0xee bytes), align: 1
+  Segment part 40.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PI_receivePacket        153E 
+               calls direct
+               CSTACK = 00000000 ( 00000006 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 162C - 16BB (0x90 bytes), align: 1
+  Segment part 39.            Intra module refs:   PI_receivePacket
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           interpretPI_Command     162C 
+               calls direct
+               CSTACK = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 1752 - 1793 (0x42 bytes), align: 1
+  Segment part 38.            Intra module refs:   PI_receivePacket
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           receiveByte             1752 
+               CSTACK = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 16BC - 1707 (0x4c bytes), align: 1
+  Segment part 34.            Intra module refs:   PI_receivePacket
+                                                   PI_sendData
+                                                   interpretPI_Command
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           sendByte                16BC 
+               CSTACK = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 1708 - 1751 (0x4a bytes), align: 1
+  Segment part 35.            Intra module refs:   CRC_Check
+                                                   Segment part 43
+                                                   interpretCommand
+                                                   receiveDataBlock
+                                                   sendDataBlock
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PI_sendData             1708 
+               calls direct
+               CSTACK = 00000000 ( 00000006 )
+
+    *************************************************************************
+
+  FILE NAME : C:\git\MSP430_BSL\source\device\MSP430FG6626_UART\Release\Obj\BSL430_Command_Interpreter.r43
+    *************************************************************************
+
+  FILE NAME : C:\git\MSP430_BSL\source\device\MSP430FG6626_UART\Release\Obj\BSL430_Low_Level_Init.r43
+  PROGRAM MODULE, NAME : BSL430_Low_Level_Init
+
+Absolute parts
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BSL_REQ_JTAG_OPEN       0001 
+           BSL_REQ_APP_CALL        0002 
+  SEGMENTS IN THE MODULE
+  ======================
+ZAREA
+  Common segment, address: 1000 - 100F (0x10 bytes), align: 1
+  Segment part 0. ROOT.       Intra module refs:   Segment part 2
+    -------------------------------------------------------------------------
+ZAREA_CODE
+  Relative segment, address: 1028 - 1055 (0x2e bytes), align: 1
+  Segment part 1. ROOT.       Intra module refs:   Segment part 0
+                                                   Segment part 2
+    -------------------------------------------------------------------------
+BSLSIG
+  Common segment, address: 17F0 - 17FB (0xc bytes), align: 1
+  Segment part 2. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           BslEntryLoc             17FA 
+           BslProtectVecLoc        17F2 
+           PBSLSigLoc              17F4 
+           SBSLSigLoc              17F6 
+    -------------------------------------------------------------------------
+JTAGLOCK_KEY
+  Common segment, address: 17FC - 17FF (0x4 bytes), align: 1
+  Segment part 3. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PJTAGLOCK_KEY           17FC 
+           SJTAGLOCK_KEY           17FE 
+
+    *************************************************************************
+
+  FILE NAME : C:\git\MSP430_BSL\source\device\MSP430FG6626_UART\Release\Obj\BSL430_PI_TA.r43
+    *************************************************************************
+
+  FILE NAME : C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4_3\430\LIB\DLIB\dl430xsfn.r43
+  LIBRARY MODULE, NAME : ?_exit
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: 17AE, align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _exit                   17AE            exit (?exit)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 17AE - 17B1 (0x4 bytes), align: 1
+  Segment part 6.             Intra module refs:   _exit
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?cstart
+
+  SEGMENTS IN THE MODULE
+  ======================
+CSTACK
+  Relative segment, address: 4270, align: 1
+  Segment part 1.
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: 1014 - 1017 (0x4 bytes), align: 1
+  Segment part 12.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __program_start         1014            ?reset_vector (?reset_vector)
+                                                   Absolute parts (?ABS_ENTRY_MOD)
+                                                   Segment part 0 (BSL430_Low_Level_Init)
+           ?cstart_begin           1014 
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: 1018 - 101F (0x8 bytes), align: 1
+  Segment part 13.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?cstart_call_low_level_init
+                                   1018            __low_level_init (BSL430_API)
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: 1020 - 1027 (0x8 bytes), align: 1
+  Segment part 22.            Intra module refs:   ?cstart_call_low_level_init
+                                                   Segment part 12
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?cstart_call_main       1020 
+           ?cstart_end             1028 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?reset_vector
+
+  SEGMENTS IN THE MODULE
+  ======================
+RESET
+  Relative segment, address: FFAE - FFAF (0x2 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?reset_vector           FFAE            Segment part 12 (?cstart)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?exit
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: 17A2 - 17A5 (0x4 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           exit                    17A2            Segment part 22 (?cstart)
+               calls direct
+               CSTACK = 00000000 ( 00000004 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?IndCallR13
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: 17A6 - 17A9 (0x4 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?IndCallR13             17A6            interpretCommand (BSL430_API)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?__exit
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: 17AA - 17AD (0x4 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __exit                  17AA            Segment part 6 (?_exit)
+                                                   _exit (?_exit)
+
+    *************************************************************************
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?FILLER_BYTES
+
+  SEGMENTS IN THE MODULE
+  ======================
+JTAGLOCK_KEY
+  Common segment, address: 17FC - 17FF (0x4 bytes), align: 0
+  Segment part 3.
+    -------------------------------------------------------------------------
+BSLSIG
+  Common segment, address: 17F0 - 17FB (0xc bytes), align: 0
+  Segment part 2.
+    -------------------------------------------------------------------------
+ZAREA
+  Common segment, address: 1000 - 100F (0x10 bytes), align: 0
+  Segment part 1.
+    -------------------------------------------------------------------------
+?FILL1
+  Relative segment, address: 17B2 - 17EF (0x3e bytes), align: 0
+  Segment part 0.
+
+    *************************************************************************
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?CHECKSUM
+
+  SEGMENTS IN THE MODULE
+  ======================
+CHECKSUM
+  Relative segment, address: FF80 - FF81 (0x2 bytes), align: 1
+  Segment part 1. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __checksum              FF80 
+
+
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+
+SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
+=======              =====    =============   ===========     ====  ====  =====
+DATA16_AN                              0120 - 0121               2   rel    0
+                                       0130 - 0131               2 
+                                       0140 - 0141               2 
+                                       0144 - 0145               2 
+                                       0152 - 0155               4 
+                                       015C - 015D               2 
+                                       0160 - 0165               6 
+                                       0168 - 016B               4 
+                                       0204 - 0205               2 
+                                       020A - 020B               2 
+                                       0340 - 0345               6 
+                                       0350 - 0355               6 
+ZAREA                                  1000 - 100F              10   com    1
+BSL430_VERSION_VENDOR
+                                       1010 - 1010               1   rel    0
+BSL430_VERSION_CI                      1011 - 1011               1   rel    0
+BSL430_VERSION_API                     1012 - 1012               1   rel    0
+BSL430_VERSION_PI                      1013 - 1013               1   rel    0
+CSTART                                 1014 - 1027              14   rel    1
+ZAREA_CODE                             1028 - 1055              2E   rel    1
+<CODE> 1                               1056 - 17B1             75C   rel    1
+?FILL1                                 17B2 - 17EF              3E   rel    0
+BSLSIG                                 17F0 - 17FB               C   com    1
+JTAGLOCK_KEY                           17FC - 17FF               4   com    1
+DATA16_Z                                  1C00                       dse    0
+DATA16_I                                  1C00                       dse    0
+DATA16_N                               1C00 - 1D11             112   rel    1
+CSTACK                                 4270 - 43FF             190   rel    1
+CHECKSUM                               FF80 - FF81               2   rel    1
+RESET                                  FFAE - FFAF               2   rel    1
+
+
+                ****************************************
+                *                                      *
+                *              CHECKSUMS               *
+                *                                      *
+                ****************************************
+
+Symbol      Checksum  Memory  Start  End   Initial value
+------      --------  ------  -----  ---   -------------
+__checksum    0xfff6   CODE   1000 - 17FF  0x0000 (#0x0000)
+                       CODE   FFAE - FFAF
+
+                ****************************************
+                *                                      *
+                *        END OF CROSS REFERENCE        *
+                *                                      *
+                ****************************************
+
+ 1 968 bytes of CODE  memory (+             62 range fill )
+   674 bytes of DATA  memory (+ 40 absolute )
+    22 bytes of CONST memory
+
+Errors: none
+Warnings: none
+

@@ -1,0 +1,219 @@
+<module id="SCI_REGS" HW_revision="">
+  <register id="SCICCR" width="16" page="1" offset="0x0" internal="0" description="Communications control register">
+    <bitfield id="SCICHAR" description="Character length control " begin="2" end="0" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SCICHAR_LEGNTH_1"/>
+      <bitenum id="__1" value="1" description="SCICHAR_LEGNTH_2"/>
+      <bitenum id="__2" value="2" description="SCICHAR_LEGNTH_3"/>
+      <bitenum id="__3" value="3" description="SCICHAR_LEGNTH_4"/>
+      <bitenum id="__4" value="4" description="SCICHAR_LEGNTH_5"/>
+      <bitenum id="__5" value="5" description="SCICHAR_LEGNTH_6"/>
+      <bitenum id="__6" value="6" description="SCICHAR_LEGNTH_7"/>
+      <bitenum id="__7" value="7" description="SCICHAR_LEGNTH_8"/>
+    </bitfield>
+    <bitfield id="ADDRIDLE_MODE" description="ADDR/IDLE Mode control " begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Idle-line mode protocol selected"/>
+      <bitenum id="__1" value="1" description="Address-bit mode protocol selected"/>
+    </bitfield>
+    <bitfield id="LOOPBKENA" description="Loop Back enable" begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Loop Back test mode disabled"/>
+      <bitenum id="__1" value="1" description="Loop Back test mode enabled"/>
+    </bitfield>
+    <bitfield id="PARITYENA" description="Parity enable " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Parity disabled; no parity bit is generated during transmission"/>
+      <bitenum id="__1" value="1" description="Parity is enabled"/>
+    </bitfield>
+    <bitfield id="PARITY" description="Even or Odd Parity " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Odd parity"/>
+      <bitenum id="__1" value="1" description="Even parity"/>
+    </bitfield>
+    <bitfield id="STOPBITS" description="Number of Stop Bits " begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="One stop bit"/>
+      <bitenum id="__1" value="1" description="Two stop bits"/>
+    </bitfield>
+  </register>
+  <register id="SCICTL1" width="16" page="1" offset="0x1" internal="0" description="Control register 1">
+    <bitfield id="RXENA" description="SCI receiver enable " begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Prevent received characters from transfer into the SCIRXEMU and"/>
+      <bitenum id="__1" value="1" description="Send received characters to SCIRXEMU and SCIRXBUF"/>
+    </bitfield>
+    <bitfield id="TXENA" description="SCI transmitter enable " begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmitter disabled"/>
+      <bitenum id="__1" value="1" description="Transmitter enabled"/>
+    </bitfield>
+    <bitfield id="SLEEP" description="SCI sleep " begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Sleep mode disabled"/>
+      <bitenum id="__1" value="1" description="Sleep mode enabled"/>
+    </bitfield>
+    <bitfield id="TXWAKE" description="Transmitter wakeup method " begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit feature is not selected"/>
+      <bitenum id="__1" value="1" description="Transmit feature selected is dependent on the mode, idle-line o"/>
+    </bitfield>
+    <bitfield id="SWRESET" description="Software reset " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Writing a 0 to this bit initializes the SCI state machines and "/>
+      <bitenum id="__1" value="1" description="After a system reset, re-enable the SCI by writing a 1 to this "/>
+    </bitfield>
+    <bitfield id="RXERRINTENA" description="Recieve __interrupt enable " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive error interrupt disabled"/>
+      <bitenum id="__1" value="1" description="Receive error interrupt enabled"/>
+    </bitfield>
+  </register>
+  <register id="SCIHBAUD" width="16" page="1" offset="0x2" internal="0" description="Baud rate (high) register">
+    <bitfield id="BAUD" description="SCI 16-bit baud selection Registers SCIHBAUD" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SCILBAUD" width="16" page="1" offset="0x3" internal="0" description="Baud rate (low) register">
+    <bitfield id="BAUD" description="SCI 16-bit baud selection Registers SCILBAUD" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SCICTL2" width="16" page="1" offset="0x4" internal="0" description="Control register 2">
+    <bitfield id="TXINTENA" description="Transmit __interrupt enable " begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable TXRDY interrupt"/>
+      <bitenum id="__1" value="1" description="Enable TXRDY interrupt"/>
+    </bitfield>
+    <bitfield id="RXBKINTENA" description="Receiver-buffer break enable " begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable RXRDY/BRKDT interrupt"/>
+      <bitenum id="__1" value="1" description="Enable RXRDY/BRKDT interrupt"/>
+    </bitfield>
+    <bitfield id="TXEMPTY" description="Transmitter empty flag " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmitter buffer or shift register or both are loaded with da"/>
+      <bitenum id="__1" value="1" description="Transmitter buffer and shift registers are both empty"/>
+    </bitfield>
+    <bitfield id="TXRDY" description="Transmitter ready flag " begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SCITXBUF is full"/>
+      <bitenum id="__1" value="1" description="SCITXBUF is ready to receive the next character"/>
+    </bitfield>
+  </register>
+  <register id="SCIRXST" width="16" page="1" offset="0x5" internal="0" description="Recieve status register">
+    <bitfield id="RXWAKE" description="Receiver wakeup detect flag " begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No detection of a receiver wake-up condition"/>
+      <bitenum id="__1" value="1" description="A value of 1 in this bit indicates detection of a receiver wake"/>
+    </bitfield>
+    <bitfield id="PE" description="Parity error flag " begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No parity error or parity is disabled"/>
+      <bitenum id="__1" value="1" description="Parity error is detected"/>
+    </bitfield>
+    <bitfield id="OE" description="Overrun error flag" begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No overrun error detected"/>
+      <bitenum id="__1" value="1" description="Overrun error detected"/>
+    </bitfield>
+    <bitfield id="FE" description="Framing error flag " begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No framing error detected"/>
+      <bitenum id="__1" value="1" description="Framing error detected"/>
+    </bitfield>
+    <bitfield id="BRKDT" description="Break-detect flag " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No break condition"/>
+      <bitenum id="__1" value="1" description="Break condition occurred"/>
+    </bitfield>
+    <bitfield id="RXRDY" description="Receiver ready flag " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No new character in SCIRXBUF"/>
+      <bitenum id="__1" value="1" description="Character ready to be read from SCIRXBUF"/>
+    </bitfield>
+    <bitfield id="RXERROR" description="Receiver error flag " begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No error flags set"/>
+      <bitenum id="__1" value="1" description="Error flag(s) set"/>
+    </bitfield>
+  </register>
+  <register id="SCIRXEMU" width="16" page="1" offset="0x6" internal="0" description="Recieve emulation buffer register">
+    <bitfield id="ERXDT" description="Receive emulation buffer data" begin="7" end="0" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="SCIRXBUF" width="16" page="1" offset="0x7" internal="0" description="Recieve data buffer">
+    <bitfield id="SAR" description="Receive Character bits" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="SCIFFPE" description="Receiver error flag " begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No frame error occurred while receiving the character, in bits "/>
+      <bitenum id="__1" value="1" description="A frame error occurred while receiving the character in bits 7-"/>
+    </bitfield>
+    <bitfield id="SCIFFFE" description="Receiver error flag " begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No parity error occurred while receiving the character, in bits"/>
+      <bitenum id="__1" value="1" description="A parity error occurred while receiving the character in bits 7"/>
+    </bitfield>
+  </register>
+  <register id="SCITXBUF" width="16" page="1" offset="0x9" internal="0" description="Transmit data buffer">
+    <bitfield id="TXDT" description="Transmit data buffer" begin="7" end="0" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="SCIFFTX" width="16" page="1" offset="0xa" internal="0" description="FIFO transmit register">
+    <bitfield id="TXFFIL" description="Interrupt level " begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="TXFFIENA" description="Interrupt enable " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="TX FIFO interrupt based on TXFFIVL match (less than or equal to"/>
+      <bitenum id="__1" value="1" description="TX FIFO interrupt based on TXFFIVL match (less than or equal to"/>
+    </bitfield>
+    <bitfield id="TXFFINTCLR" description="Clear INT flag " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 has no effect on TXFIFINT flag bit, Bit reads back a ze"/>
+      <bitenum id="__1" value="1" description="Write 1 to clear TXFFINT flag in bit 7"/>
+    </bitfield>
+    <bitfield id="TXFFINT" description="INT flag" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="TXFIFO interrupt has not occurred, read-only bit"/>
+      <bitenum id="__1" value="1" description="TXFIFO interrupt has occurred, read-only bit"/>
+    </bitfield>
+    <bitfield id="TXFFST" description="FIFO status " begin="12" end="8" width="5" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit FIFO is empty"/>
+      <bitenum id="__1" value="1" description="Transmit FIFO has 1 words"/>
+      <bitenum id="__2" value="2" description="Transmit FIFO has 2 words"/>
+      <bitenum id="__3" value="3" description="Transmit FIFO has 3 words"/>
+      <bitenum id="__4" value="4" description="Transmit FIFO has 4 words"/>
+    </bitfield>
+    <bitfield id="TXFIFOXRESET" description="FIFO reset " begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Reset the FIFO pointer to zero and hold in reset"/>
+      <bitenum id="__1" value="1" description="Re-enable transmit FIFO operation"/>
+    </bitfield>
+    <bitfield id="SCIFFENA" description="Enhancement enable " begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="SCI FIFO enhancements are disabled"/>
+      <bitenum id="__1" value="1" description="SCI FIFO enhancements are enabled"/>
+    </bitfield>
+    <bitfield id="SCIRST" description="SCI reset rx/tx channels " begin="15" end="15" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SCIFFRX" width="16" page="1" offset="0xb" internal="0" description="FIFO recieve register">
+    <bitfield id="RXFFIL" description="Interrupt level " begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="RXFFIENA" description="Interrupt enable " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="RX FIFO interrupt based on RXFFIVL match (less than or equal to"/>
+      <bitenum id="__1" value="1" description="RX FIFO interrupt based on RXFFIVL match (less than or equal to"/>
+    </bitfield>
+    <bitfield id="RXFFINTCLR" description="Clear INT flag " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 has no effect on RXFIFINT flag bit"/>
+      <bitenum id="__1" value="1" description="Write 1 to clear RXFFINT flag in bit 7"/>
+    </bitfield>
+    <bitfield id="RXFFINT" description="INT flag " begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="RXFIFO interrupt has not occurred, read-only bit"/>
+      <bitenum id="__1" value="1" description="RXFIFO interrupt has occurred, read-only bit"/>
+    </bitfield>
+    <bitfield id="RXFFST" description="FIFO status " begin="12" end="8" width="5" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive FIFO is empty"/>
+      <bitenum id="__1" value="1" description="Receive FIFO has 1 words"/>
+      <bitenum id="__2" value="2" description="Receive FIFO has 2 words"/>
+      <bitenum id="__3" value="3" description="Receive FIFO has 3 words"/>
+      <bitenum id="__4" value="4" description="Receive FIFO has 4 words"/>
+    </bitfield>
+    <bitfield id="RXFIFORESET" description="FIFO reset " begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 to reset the FIFO pointer to zero, and hold in reset."/>
+      <bitenum id="__1" value="1" description="Re-enable receive FIFO operation"/>
+    </bitfield>
+    <bitfield id="RXFFOVRCLR" description="Clear overflow " begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 has no effect on RXFFOVF flag bit, Bit reads back a zero"/>
+      <bitenum id="__1" value="1" description="Write 1 to clear RXFFOVF flag in bit 15"/>
+    </bitfield>
+    <bitfield id="RXFFOVF" description="FIFO overflow " begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive FIFO has not overflowed, read-only bit"/>
+      <bitenum id="__1" value="1" description="Receive FIFO has overflowed, read-only bit"/>
+    </bitfield>
+  </register>
+  <register id="SCIFFCT" width="16" page="1" offset="0xc" internal="0" description="FIFO control register">
+    <bitfield id="FFTXDLY" description="FIFO transmit delay " begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="CDC" description="Auto baud mode enable " begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disables auto-baud alignment"/>
+      <bitenum id="__1" value="1" description="Enables auto-baud alignment"/>
+    </bitfield>
+    <bitfield id="ABDCLR" description="Auto baud clear " begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Write 0 has no effect on ABD flag bit. Bit reads back a zero."/>
+      <bitenum id="__1" value="1" description="Write 1 to clear ABD flag in bit 15."/>
+    </bitfield>
+    <bitfield id="ABD" description="Auto baud detect " begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Auto-baud detection is not complete"/>
+      <bitenum id="__1" value="1" description="Auto-baud hardware has detected &quot;A&quot; or &quot;a&quot; character on the SCI"/>
+    </bitfield>
+  </register>
+  <register id="SCIPRI" width="16" page="1" offset="0xf" internal="0" description="FIFO Priority control">
+    <bitfield id="FREESOFT" description="Emulation modes " begin="4" end="3" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Immediate stop on suspend"/>
+      <bitenum id="__1" value="1" description="Complete current receive/transmit sequence before stopping"/>
+      <bitenum id="__2" value="2" description="Free run"/>
+      <bitenum id="__3" value="3" description="Free run"/>
+    </bitfield>
+  </register>
+</module>

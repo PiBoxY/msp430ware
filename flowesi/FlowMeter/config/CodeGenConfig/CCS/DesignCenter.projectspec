@@ -1,0 +1,9 @@
+<projectSpec>
+	<project compilerBuildOptions="-O3 -I${PROJECT_ROOT}/driverlib/MSP430FR5xx_6xx -I${PROJECT_ROOT}/ESIConfig <TARGET_COMM_INCLUDE_PATH> -I${PROJECT_ROOT} --gcc --advice:power=&quot;none&quot; --large_memory_model" device="<DEVICE_NAME>" name="<PROJECT_NAME>" >
+		<file action="copy" path="<DRIVERLIB_PATH>/driverlib/MSP430FR5xx_6xx/" targetDirectory="driverlib/" />
+		<file action="copy" path="<DRIVERLIB_PATH>/driverlib/MSP430FR5xx_6xx/deprecated/" targetDirectory="driverlib/MSP430FR5xx_6xx/" />
+		<file action="copy" path="<DRIVERLIB_PATH>/driverlib/MSP430FR5xx_6xx/deprecated/CCS/" targetDirectory="driverlib/MSP430FR5xx_6xx/deprecated/" />
+		<file action="copy" path="<DRIVERLIB_PATH>/driverlib/MSP430FR5xx_6xx/inc/" targetDirectory="driverlib/MSP430FR5xx_6xx/" />
+		<buildVariable name="ORIGINAL_PROJECT_ROOT" scope="project" type="dir" value="." />
+	 </project>
+</projectSpec>

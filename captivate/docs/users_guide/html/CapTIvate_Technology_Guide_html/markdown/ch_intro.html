@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="Capacitive Sensing Basics" href="ch_basics.html"/>
+        <link rel="prev" title="Getting Started" href="ch_getting_started.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#capacitive-sensing-basics">Capacitive Sensing Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technology">Technology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-guide">Design Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#captivate-design-center">CapTIvate™ Design Center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#device-family">Device Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-touch-library">Software Touch Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mcu-development-kit">MCU Development Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workshop">Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-more-information">For More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_basics.html">Capacitive Sensing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_device.html">Device Family</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm.html">MSP-CAPT-FR2633 Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_boostxl_capkeypad.html">BOOSTXL-CAPKEYPAD Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_CAP_MINI.html">EVM430-CAPMINI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_workshop.html">Workshop (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Each chapter in the CapTIvate™ Technology Guide is introduced briefly below. Check out the <a class="reference external" href="ch_getting_started.html">getting started</a> section if you are new to CapTIvate™.</p>
+<div class="section" id="capacitive-sensing-basics">
+<h2>Capacitive Sensing Basics<a class="headerlink" href="#capacitive-sensing-basics" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_basics.html#capacitive-sensing-basics">Capacitive Sensing Basics</a> chapter provides a fundamental overview of self and mutual capacitance.</p>
+</div>
+<div class="section" id="technology">
+<h2>Technology<a class="headerlink" href="#technology" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_technology.html">Technology</a> chapter describes the operating principles of the CapTIvate™ peripheral.</p>
+</div>
+<div class="section" id="design-guide">
+<h2>Design Guide<a class="headerlink" href="#design-guide" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_design_guide.html">Design Guide</a> chapter introduces the flow for beginning a new design, and walks through the trade-offs of designing for different requirements, such as low power, noise immunity, or moisture.</p>
+</div>
+<div class="section" id="captivate-design-center">
+<h2>CapTIvate™ Design Center<a class="headerlink" href="#captivate-design-center" title="Permalink to this headline">¶</a></h2>
+<p>Read the <a class="reference external" href="ch_designcenter.html">Design Center GUI</a> chapter to get started with the rapid development tool that accelerates capacitive touch designs for CapTIvate™ Technology enabled MSP devices. By helping guide the product developer through the capacitive touch development process, the CapTIvate™ Design Center can simplify and accelerate any touch design through the use of innovative user graphical interfaces, wizards and controls.</p>
+</div>
+<div class="section" id="device-family">
+<h2>Device Family<a class="headerlink" href="#device-family" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_device.html#device-family">Device</a> chapter introduces the MSP MCUs that have the CapTIvate™ technology.</p>
+</div>
+<div class="section" id="software-touch-library">
+<h2>Software Touch Library<a class="headerlink" href="#software-touch-library" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_library.html">CapTIvate™ Capacitive Touch Software Library</a> is a comprehensive collection of functions providing touch, communications and sensor management features. Touch functions range from advanced sensor processing for buttons, sliders and wheels to &#8220;bare-metal&#8221; functions that provide direct access to the CapTIvate™ peripheral.</p>
+</div>
+<div class="section" id="mcu-development-kit">
+<h2>MCU Development Kit<a class="headerlink" href="#mcu-development-kit" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_evm.html#msp-capt-fr2633-development-kit">MSP-CAPT-FR2633 MCU Development Kit</a> is an easy to use evaluation platform for the MSP430FR2633 MCU. It contains everything needed to start developing on this MCU platform, including on-board emulation for programming, debugging and EnergyTrace™ measurements.</p>
+</div>
+<div class="section" id="workshop">
+<h2>Workshop<a class="headerlink" href="#workshop" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_workshop.html">workshop</a> is based around the <a class="reference external" href="ch_evm.html#msp-capt-fr2633-development-kit">MSP-CAPT-FR2633 MCU Development Kit</a>, and contains the out-of-box experience as well as several labs to introduce the technology hands-on.</p>
+</div>
+<div class="section" id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="ch_faq.html">FAQ</a> contains answers to the questions that get asked the most.</p>
+</div>
+<div class="section" id="for-more-information">
+<h2>For More Information<a class="headerlink" href="#for-more-information" title="Permalink to this headline">¶</a></h2>
+<p>For more information on the CapTIvate™ technology, software, and available evaluation kits, see the <a class="reference external" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/CapTIvate_Design_Center/latest/index_FDS.html">CapTIvate™ Design Center download page</a>.</p>
+<p>For technical support, E-mail us directly at <a class="reference external" href="mailto:captivate&#37;&#52;&#48;list&#46;ti&#46;com">captivate<span>&#64;</span>list<span>&#46;</span>ti<span>&#46;</span>com</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_basics.html" class="btn btn-neutral float-right" title="Capacitive Sensing Basics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_getting_started.html" class="btn btn-neutral" title="Getting Started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

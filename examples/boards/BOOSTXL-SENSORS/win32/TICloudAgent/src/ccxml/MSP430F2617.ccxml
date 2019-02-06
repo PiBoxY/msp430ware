@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations XML_version="1.2" id="configurations_0">
+<configuration XML_version="1.2" id="UARTConnection_0">
+        <instance XML_version="1.2" desc="UARTConnection_0" href="connections/uart_connection.xml" id="UARTConnection_0" xml="uart_connection.xml" xmlpath="connections"/>
+        <connection XML_version="1.2" id="UARTConnection_0">
+            <instance XML_version="1.2" href="drivers/gti_uart_driver.xml" id="drivers" xml="gti_uart_driver.xml" xmlpath="drivers"/>
+            <platform XML_version="1.2" id="platform_0">
+                <instance XML_version="1.2" desc="MSP430_0" href="cpus/MSP430.xml" id="MSP430_0" xml="MSP430.xml" xmlpath="cpus"/>
+                <cpu HW_revision="1.0" XML_version="1.2" description="MSP430 CPU" id="MSP430_0" isa="MSP430">
+                    <property Type="stringfield" Value="COM34" id="COM Port"/>
+                </cpu>
+            </platform>
+        </connection>
+    </configuration>
+</configurations>
+

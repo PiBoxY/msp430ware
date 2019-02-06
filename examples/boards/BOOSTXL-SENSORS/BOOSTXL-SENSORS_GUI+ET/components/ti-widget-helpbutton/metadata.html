@@ -1,0 +1,27 @@
+<x-meta id="ti-widget-helpbutton" label="Help Button" group="Buttons">
+
+    <template>
+        <ti-widget-helpbutton style="width:23px;height:23px;" tileWidthInPx="250" tileHeightInPx="200" icon="help" iconSizeInPx="15" iconColor="#808080" tilePosition="below_right" markdownText="Syntax:
+* image: \!\[alt text\]\(app\imagepath.gif\)
+* link: \[alt text\](url\)
+* See the [Markdown Basics Guide](https://help.github.com/articles/markdown-basics/) for info on Markdown.
+" titleText="Instructions"></ti-widget-helpbutton>
+    </template>
+    <property name="titleText" kind="string" important order="7" defaultValue="Instructions"></property>
+
+    <property name="markdownText" kind="text" important order="6"></property>
+    <property name="tilePosition" kind="select"
+              options="above,below,above_left,left,below_left,above_right,right,below_right" important order="5"></property>
+    <property name="tileWidthInPx" kind="number"   important order="5"></property>
+    <property name="tileHeightInPx" kind="number"   important order="5"></property>
+
+    <property name="elevation" kind="range" min="0.0" max="5.0" step="1.0" defaultValue="3" important order="4" ></property>
+    <property name="icon" kind="string"  defaultValue="help" important order="3"></property>
+    <property name="iconSizeInPx" kind="number"  defaultValue="15" important order="2"></property>
+    <property name="iconColor" kind="color" important order="1"></property>
+    <property name="backgroundColor" kind="color" important order="0"></property>
+
+    <template id="imports">
+        <link rel="import" href="ti-widget-helpbutton.html">
+    </template>
+</x-meta>

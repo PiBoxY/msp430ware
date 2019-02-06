@@ -1,0 +1,65 @@
+<ui version="4.0" >
+ <class>dialogConsole</class>
+ <widget class="QDialog" name="dialogConsole" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>569</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <property name="font" >
+   <font>
+    <stylestrategy>PreferDefault</stylestrategy>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>Console</string>
+  </property>
+  <widget class="QTextEdit" name="txtConsole" >
+   <property name="geometry" >
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>531</width>
+     <height>441</height>
+    </rect>
+   </property>
+   <property name="font" >
+    <font>
+     <family>Terminal</family>
+     <pointsize>10</pointsize>
+     <stylestrategy>NoAntialias</stylestrategy>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="lineWrapMode" >
+    <enum>QTextEdit::NoWrap</enum>
+   </property>
+   <property name="readOnly" >
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnClose" >
+   <property name="geometry" >
+    <rect>
+     <x>460</x>
+     <y>490</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font" >
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text" >
+    <string>Close</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

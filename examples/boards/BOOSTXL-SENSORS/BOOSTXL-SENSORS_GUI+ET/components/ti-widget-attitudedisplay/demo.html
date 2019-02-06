@@ -1,0 +1,177 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+Copyright (c) 2014, Texas Instruments Incorporated
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+*   Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+*   Neither the name of Texas Instruments Incorporated nor the names of
+its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<!--[if gte IE 6]>
+	<script type="text/javascript">
+		// this is IE greater than or equal to 6
+		var isInternetExplorer=true;
+	</script>
+	<![endif]-->
+
+	<script>
+		var isIE =   ((navigator.appName == 'Microsoft Internet Explorer') ||
+		((navigator.appName == 'Netscape') &&
+		(new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));
+		if (window.isInternetExplorer) {
+			isIE =  true;
+		}
+
+		if ( isIE ){
+			var object = document.createElement("object");
+			object.setAttribute("id", "ticloudagentlauncher");
+			object.setAttribute("type", "application/x-ticloudagentlauncher");
+			object.setAttribute("width", "0");
+			object.setAttribute("height", "0");
+			document.head.appendChild( object );
+			window.TICloudAgent_HACK = {};
+			window. TICloudAgent_HACK.plugin = document.getElementById("ticloudagentlauncher");
+		}
+	</script>
+	<link rel="import" href="../polymer/polymer.html">
+	<script src="../webcomponentsjs/webcomponents.js"></script>
+	<style>
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 20px;
+			font-family: sans-serif;
+		}
+		.icons {
+			color: red;
+		}
+		.wide { display: block; padding-left: 5px; padding-top:5px; vertical-align:bottom; background-color: gray; }
+		.container {height: 28px; width:120px;}
+	</style>
+	<link rel="import" href="ti-widget-attitudedisplay.html">
+	<link rel="import" href="../ti-widget-common/ti-widget-slider.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-checkbox.html">
+	<link rel="import" href="../ti-core-stylesheets/ti-core-stylesheets.html">
+</head>
+
+<body style="padding:30px;">
+<template is="auto-binding" id="template">
+	<style>
+		#ti_widget_angledisplay {
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<h1 align="center">Demo of ti-widget-attitudedisplay</h1>
+	<p>&nbsp;</p>
+	<div layout horizontal>
+
+	</div>
+    <div >
+		<ti-widget-attitudedisplay style="width:300px;" id="ti_widget_angledisplay" rotation="{{ $.slider_angle.value }}" tilt="{{$.slider_tilt.value}}" ></ti-widget-attitudedisplay>
+	</div>
+    <div >
+        <table>
+            <tr>
+                <td style="font-weight:bold">Rotation</td>
+                <td width="255px"><ti-widget-slider     style="width:255px;" maxvalue="360" labels="0,360" id="slider_angle"></ti-widget-slider></td>
+                <td width="80px">  <span>{{ $.slider_angle.value }}</span></td>
+                <td style="padding-left:10px"> <ti-widget-checkbox id="autoAngle" label="auto rotate" on-changed="{{onAutoAngleChecked}}"></ti-widget-checkbox></td>
+            </tr>
+			<tr>
+                <td style="font-weight:bold">Tilt</td>
+                <td width="255px"><ti-widget-slider     style="width:255px;" minvalue="-90" maxvalue="90" labels="-90,90"  id="slider_tilt"></ti-widget-slider></td>
+                <td width="80px">  <span>{{ $.slider_tilt.value }}</span></td>
+                <td style="padding-left:10px"><ti-widget-checkbox id="autoTilt" label="auto tilt" on-changed="{{onAutoTiltChecked}}"></ti-widget-checkbox></td>
+            </tr>
+        </table>
+    </div>
+
+</template>
+<script>
+	var templateObj = document.querySelector('#template');
+	templateObj.ready = function(){
+	   templateObj.async(function(){
+	      var display = templateObj.$.ti_widget_angledisplay;
+	   },1);
+	}
+
+    var angleIncr = +1;
+    var updateAngle = function(angle){
+        templateObj.$.ti_widget_angledisplay.rotation = angle;
+        var nextAngle = angle+angleIncr;
+        if (nextAngle >= 360){
+            angleIncr = -1;
+            nextAngle = 360;
+        }
+        if (nextAngle < 0){
+            angleIncr = 1;
+            nextAngle = 0;
+        }
+        if (templateObj.$.autoAngle.checked) {
+            window.setTimeout(function () {
+                updateAngle(nextAngle);
+            }, 29);
+        }
+    };
+    templateObj.onAutoAngleChecked = function(e){
+        updateAngle(templateObj.$.slider_angle.value);
+    };
+
+    var tiltIncr = +1;
+    var updateTilt = function(tilt){
+
+        templateObj.$.ti_widget_angledisplay.tilt = tilt;
+        var nextTilt = tilt+tiltIncr;
+        if (nextTilt >= 90){
+            tiltIncr = -1;
+            nextTilt = 90;
+        }
+        if (nextTilt <= -90){
+            tiltIncr = 1;
+            nextTilt = -90;
+        }
+        if (templateObj.$.autoTilt.checked) {
+            window.setTimeout(function () {
+                updateTilt(nextTilt);
+            }, 40);
+        }
+    };
+    templateObj.onAutoTiltChecked = function(e){
+        updateTilt(templateObj.$.slider_tilt.value);
+    }
+
+</script>
+</body>
+</html>

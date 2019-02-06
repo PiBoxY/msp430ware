@@ -1,0 +1,349 @@
+<!--
+`ti-tile-textbox` is an empty container widget to host child widgets.  
+
+Example:
+
+    <ti-tile-textbox></ti-tile-textbox>
+
+See demo for a full working example of how to use this component.
+
+@group Instrument Tiles
+@element ti-tile-textbox
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base-text.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="../ti-widget-common/ti-widget-textbox.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="ti-tile-base.html">
+<link rel="stylesheet" href="../paper-shadow/paper-shadow.css"  shim-shadowdom>
+
+<polymer-element name="ti-tile-textbox" extends="ti-tile-base"  >
+
+    <template>
+        <style>
+            :host {
+                display : inline-block;
+                background-color: #ffffff;
+                text-decoration: inherit;
+                position : relative;
+                padding: 1em;
+                width: 150px;
+                height: 200px;
+            }
+            core-icon-button /deep/ core-icon[role=img] {
+                height: 15px;
+                width: 15px;
+            }
+            #tileTitle {
+                word-wrap:break-word;
+                white-space:normal;
+				text-align: left;
+                z-index: 0;
+                color:{{_titleFontColor}};
+                font-size:{{titlefontSize}};
+                font-weight:{{_titleFontWeight}};
+            }
+
+            #containerDiv {
+                top: 0px;
+                width: 100%;
+                margin: 0;
+                vertical-align:middle;
+                height:100%;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
+            #txTextBox {
+                top: 50px;
+                left: 15px;
+                width: 300px;
+                right: 45px;
+                position: absolute;
+                margin: 0;
+                padding-left: 0;
+            }
+            #rxTextArea {
+                top: 90px;
+                left: 15px;
+                right: 45px;
+                bottom: 5px;
+                position: absolute;
+                margin: 0;
+                padding-left: 0;
+            }
+
+            #sendButton {
+                top: 45px;
+                right: 5px;
+                width: 30px;
+
+                position: absolute;
+            }
+            #clearButton {
+                top: 90px;
+                right: 5px;
+                width: 30px;
+
+                position: absolute;
+            }
+            #editIcon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveLeftIcon {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveRightIcon {
+                position: absolute;
+                top: 0px;
+                right: 20px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #resizeIcon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_resizeCornerColor}};
+            }
+            #pinIcon {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_iconColor}};
+            }
+        </style>
+        <ti-tile-properties id="propertiesDialog" style="width:200px;height:400px;right:30px;" layout></ti-tile-properties>
+        <div id="shadow-bottom" fit  class="paper-shadow-bottom-z-[[elevation]]"></div>
+        <div id="shadow-top" fit  class="paper-shadow-top-z-[[elevation]]"></div>
+        <div id="containerDiv" layout vertical >
+            <div id="tileTitle" flex>{{titleText}}</div>
+            <ti-widget-textbox id="txTextBox"  titleLabel="" on-keyup="{{keyupHdlr}}" title="text to send to the device.  Use up/down keys for history."></ti-widget-textbox>
+            <paper-button id="sendButton" on-click="{{ sendText }}">Send</paper-button>
+            <paper-button id="clearButton" on-click="{{ clearText }}">Clear</paper-button>
+            <textarea id="rxTextArea" rows="6" cols="35" title="text received from the device">        </textarea>
+            <template if="{{_inDesigner()}}">
+                <core-icon-button id="editIcon"  icon="create" on-tap="{{editProperties}}" title="edit tile properties" ></core-icon-button>
+                <core-icon-button id="moveLeftIcon"  icon="arrow-back" on-tap="{{moveLeft}}" title="move tile left" style="{{_arrowStyle}}" ></core-icon-button>
+                <core-icon-button id="moveRightIcon" icon="arrow-forward" on-tap="{{moveRight}}" title="move tile right" style="{{_arrowStyle}}"></core-icon-button>
+                <core-icon-button id="resizeIcon"  icon="device:signal-cellular-0-bar"  title="resize tile" ></core-icon-button>
+                <core-icon-button id="pinIcon" icon="{{_pinIcon}}" on-tap="{{togglePin}}" ></core-icon-button>
+            </template>
+
+        </div>
+        <content></content>
+    </template>
+    <script>
+        Polymer ('ti-tile-textbox',
+                {
+                    _cmdHistory: undefined,
+                    _cmdHistoryIndex: 0,
+                    _maxNumCommands: 25,
+
+                    publish: {
+                        titleText: '',
+                        txValueToDevice: '',
+                        rxValueFromDevice: '',
+                        convertTxToJSONobject: true
+                    },
+
+                    created: function(){
+                        this._cmdHistory = [];
+                        this._cmdHistoryIndex = 0;
+                    },
+                    getCategory: function() {
+                        return 'Status';
+                    },
+                    getComponentName: function() {
+                        return 'TextBox';
+                    },
+                    getElement : function()
+                    {
+                        if (this.$) {
+                            return this.$.containerDiv;
+                        } else {
+                            return null;
+                        }
+                    },					
+                    keyupHdlr: function(event){
+                        var keyCode = event.which || event.keyCode;
+
+                        switch (keyCode){
+                            case 0xd: // enterKeyCode
+                                this.sendText();
+                                break;
+                            case 0x26:   // up arrow
+                                if (this._cmdHistory.length > 0) {
+                                    this._cmdHistoryIndex--;
+                                    if (this._cmdHistoryIndex < 0) {
+                                        this._cmdHistoryIndex = -1;
+                                        this.$.txTextBox.value = '';
+                                    } else {
+                                        if (this._cmdHistoryIndex < this._cmdHistory.length) {
+                                            this.$.txTextBox.value = this._cmdHistory[this._cmdHistoryIndex];
+                                        }
+                                    }
+                                }
+                                break;
+                            case 0x28:   // down arrow
+                                this._cmdHistoryIndex++;
+                                if (this._cmdHistory.length > 0) {
+                                    if (this._cmdHistoryIndex > (this._cmdHistory.length - 1)) {
+                                        this._cmdHistoryIndex = this._cmdHistory.length;
+                                        this.$.txTextBox.value = '';
+                                    } else {
+                                        if (this._cmdHistoryIndex < this._cmdHistory.length) {
+                                            this.$.txTextBox.value = this._cmdHistory[this._cmdHistoryIndex];
+                                        }
+                                    }
+                                }
+                                break;
+                        }
+                    },
+                    sendText:  function() {
+                        if (this.convertTxToJSONobject) {
+                            var ok = false;
+                            var txStr = this.$.txTextBox.value.trim();
+                            // remove any leading or trailing garbage characters
+                            var cleanText = txStr;
+                            if ((txStr.indexOf('{') !== -1) && (txStr.indexOf('}') !== -1)) {
+                                cleanText = txStr.substring(txStr.indexOf('{')+1, txStr.lastIndexOf('}'));
+                                cleanText = cleanText.trim();
+                            }
+                            cleanText = cleanText.replace(/=/g,':');
+                            cleanText = cleanText.replace(/'/g,'"');
+                            if (cleanText.indexOf(':') !== -1) {
+                                // remove any spaces between : and the value, and between , and the next property name
+                                while (cleanText.indexOf(': ') > 0) {
+                                    cleanText = cleanText.substring(0, cleanText.indexOf(': ') + 1) + cleanText.substring(cleanText.indexOf(': ') + 2).trim();
+                                }
+                                while (cleanText.indexOf(', ') > 0) {
+                                    cleanText = cleanText.substring(0, cleanText.indexOf(', ') + 1) + cleanText.substring(cleanText.indexOf(', ') + 2).trim();
+                                }
+                                if (!cleanText.startsWith('"')){
+                                    cleanText = '"'+cleanText.split(':').join('":');
+                                    if (cleanText.indexOf('}') === -1) {
+                                        cleanText = cleanText.split(',').join(',"');
+                                    }
+                                }
+                            } else {
+                                // assign an arbitrary value to the string, treating it as a property.
+                                if (cleanText.indexOf('"') === -1) {
+                                    cleanText = '"'+cleanText + '":true';
+                                }
+                            }
+
+                            try {
+                                this.txValueToDevice = JSON.parse('{'+cleanText+'}');
+                                ok = true;
+                            }
+                            catch (ex){
+
+                            }
+                            if (gc) {
+                                var objTag = gc.widget.StatusIndicator.Factory.get(this.$.txTextBox);
+
+                                if (!ok) {
+                                    if (objTag) {
+                                        objTag.addMessage("badly formatted JSON string");
+                                    }
+                                } else {
+                                    if (objTag) {
+                                        objTag.removeMessage("badly formatted JSON string");
+                                    }
+                                }
+                            }
+                        } else {
+                            this.txValueToDevice = this.$.txTextBox.value+'\n';
+                        }
+                        // only clear the text from the text box if it has actually been sent.
+                        if (ok) {
+                            var _self = this;
+                            // make it so that the change monitor will handle sending the same command twice
+                            this.async(function () {
+                                this._cmdHistory.push(this.$.txTextBox.value);
+                                if (this._cmdHistory.length > this._maxNumCommands){
+                                    this._cmdHistory = this._cmdHistory.slice(1,this._cmdHistory.length); // discard the oldest command
+                                }
+                                this._cmdHistoryIndex = this._cmdHistory.length;  // index is always decremented before it is used.
+                                _self.$.txTextBox.value = '';
+
+                            }, 1);
+                        }
+
+                    },
+                    clearText: function(){
+                        this.$.rxTextArea.value = '';
+                    },
+                    rxValueFromDeviceChanged: function(){
+                        var rxString;
+                        if (this.convertTxToJSONobject &&  (this.rxValueFromDevice !== null && typeof this.rxValueFromDevice === 'object')){
+                            try {
+                                rxString = JSON.stringify(this.rxValueFromDevice) + '\n';
+                            }
+                            catch(ex){
+                                console.log('bad string received in ti-tile-textbox: '+this.rxValueFromDevice+', ex='+ex.toString());
+                            }
+                        } else {
+                            rxString = this.rxValueFromDevice
+                        }
+                        var txt = rxString + this.$.rxTextArea.value;
+                        if (txt.length > 320){
+                            txt = txt.substring(0,320);
+                        }
+                        this.$.rxTextArea.value = txt;
+                        var _self = this;
+                        // make it so that the change monitor will handle receiving the same command twice
+                        this.async(function(){
+                            _self.rxValueFromDevice = '';
+                        },1);
+                    }
+                });
+    </script>
+</polymer-element>

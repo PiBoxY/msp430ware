@@ -1,0 +1,16 @@
+{"command":"logEvent", "data":["statusMessage", "%s: %s", ["type", "message"]]}
+{"command":"logEvent", "data":["gelOutput", "GEL: %s", ["message"]]}
+{"command":"logEventIf", "data":["progress.update", "%s\n", ["name"], ["isFirstUpdate"], [true]]}
+{"command":"logEventIf", "data":["progress.update", "\t%s: %s%%\n", ["subActivity", "percent"], ["percent", "isComplete", "isFirstUpdate"], [true, false, false]]}
+{"command":"logEventIf", "data":["progress.update", "\t%s\n", ["subActivity"], ["percent", "isComplete", "isFirstUpdate"], [false, false, false]]}
+{"command":"configure","data":["%ARG0%"]}
+{"command":"switchToCore", "data":[0]}
+{"command":"logMessage", "data":["Connecting...\n"]}
+{"command":"targetState.connect"}
+{"command":"symbols.loadProgramOnly","data":["%ARG1%"]}
+{"command":"targetState.waitForHalt"}
+{"command":"logMessage", "data":["Running...\n"]}
+{"command":"targetState.run","data":[true]}
+{"command":"switchToDebugger"}
+{"command":"deConfigure"}
+{"command":"logMessage", "data":["Success\n"]}

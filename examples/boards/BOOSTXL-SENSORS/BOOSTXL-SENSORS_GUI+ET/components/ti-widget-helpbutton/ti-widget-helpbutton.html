@@ -1,0 +1,369 @@
+<!--
+`ti-widget-helpbutton`
+
+The Help Button widget displays a help icon (?) that, when clicked, opens a small floating tile that displays rich
+text and images based on the markdownText property settings for the ti-widget-helpbutton.
+
+Example:
+
+    <ti-widget-helpbutton id="ti_widget_helpbutton" titletext="Instructions" markdownText="This is some **Markdown** *text*"></ti-widget-helpbutton>
+
+<img src="helpImage.gif" width="90%"/>
+
+To display an image in your help popup, place the image file in the app folder (e.g. in app/images) and refer to it using the relative path 
+e.g. \!\[alt text\]\(app/images/filename.gif\)  
+*Note the exclamation mark in front of the square brackets*.
+
+Note that the z-index of the ti-widget-helpbutton element will determine the stacking order for not only the icon, but for the markdown tile
+as well.  If you find that the help info markdown tile is underneath another component, adjust the ti-widget-helpbutton z-index and / or the
+z-index of the component that is rendered above the help info markdown tile so that the ti-widget-helpbutton has a higher rendering order.
+Please see MDN's [The Stacking Context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+for a good explanation of how the render order for elements is determined.
+
+See the [Markdown Basics Guide](https://help.github.com/articles/markdown-basics/) for info on Markdown
+
+@group Buttons
+@element ti-widget-helpbutton
+@homepage ../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+    its contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-tile-wizard/ti-tile-markdown.html">
+<link rel="import" href="../core-icons/core-icons.html">
+<link rel="import" href="../core-icon/core-icon.html">
+
+<polymer-element name="ti-widget-helpbutton">
+
+    <template id="ti-widget-helpbutton">
+
+        <style>
+            :host
+            {
+                display: block;
+                margin:0px;
+                padding:0px;
+            }
+            .helpIcon /deep/ core-icon[role=img]{
+                color: {{iconColor}};
+                padding:0px;
+                margin:0px;
+                top:4px;
+                left:4px;
+                position:absolute;
+                width: {{_getIconSizeInPx(iconSizeInPx)}};
+                height: {{_getIconSizeInPx(iconSizeInPx)}};
+                margin-top: _getIconOffsetInPx(iconSizeInPx);
+                transform: translate(0, _getIconOffsetInPx(iconSizeInPx));
+            }
+            #helpDiv {
+                position: absolute;
+                width:100%;
+                height:100%;
+                padding:0px;
+                margin:0px;
+            }
+            #helpButtonInfo {
+                position: absolute;
+                /* z-index:2222;  See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context for a good explanation of stacking orders */
+            }
+
+        </style>
+
+        <div  id="helpDiv" >
+            <core-icon-button icon="{{icon}}" class="helpIcon" id="helpicon"  on-click="{{helpIconClickedHdlr}}"  ></core-icon-button>
+        </div>
+        <ti-tile-markdown id="helpButtonInfo" elevation="{{elevation}}" visible="false" markdownText="{{markdownText}}" titleText="{{titleText}}" backgroundColor="{{backgroundColor}}" helpButtonMode="true"></ti-tile-markdown>
+
+    </template>
+    <script>
+        Polymer ('ti-widget-helpbutton', {
+            publish: {
+                /**
+                 * Provides an optional title for the help information tile.
+                 *
+                 * @attribute titleText
+                 * @type string
+                 * @default ""
+                 */
+                titleText : "",
+                iconSizeInPx: 15,
+                /**
+                 * Controls where the help information tile is displayed relative to the position of the help icon.
+                 * options:
+                 * * above
+                 * * below
+                 * * above_left
+                 * * left
+                 * * below_left
+                 * * above_right
+                 * * right
+                 * * below_right
+                 *
+                 * @attribute tilePosition
+                 * @type string
+                 * @default 'below_right'
+                 */
+                tilePosition: "below_right",
+                /**
+                 * The Markdown text to display in the help information tile.
+                 * see the [Markdown Basics Guide](https://help.github.com/articles/markdown-basics/) for info on Markdown
+                 *
+                 * @attribute markdownText
+                 * @type string
+                 * @default ''
+                 */
+                markdownText: "",
+                /**
+                 * The color of the help icon.
+                 *
+                 * @attribute iconColor
+                 * @type color
+                 * @default '#808080'
+                 */
+                iconColor: "#808080",
+                backgroundColor: "#ffffff",
+                /**
+                 * The icon to use for the help button (see core-icons for other icons that can be used)
+                 *
+                 * @attribute icon
+                 * @type string
+                 * @default 'help'
+                 */
+                icon: "help",
+                onOpenCallback: undefined,
+                hostContainerObj: undefined,
+                elevation: 5,
+                /**
+                 * The width of the help information tile in pixels.
+				 * (the tile size is updated the next time the help information tile is displayed).
+                 *
+                 * @attribute tileWidthInPx
+                 * @type number
+                 * @default 200
+                 */
+                tileWidthInPx: 200,
+                /**
+                 * The height of the help information tile in pixels.
+				 * (the tile size is updated the next time the help information tile is displayed).
+                 *
+                 * @attribute tileHeightInPx
+                 * @type number
+                 * @default 200
+                 */
+                tileHeightInPx: 200,
+
+                /**
+                 * The number of pixels to adjust the vertical position of the help information tile.
+				 * (the tile position is updated the next time the help information tile is displayed).
+                 *
+                 * @attribute adjustY
+                 * @type number
+                 * @default 0
+                 */
+                adjustY: 0,
+                /**
+                 * The number of pixels to adjust the horizontal position of the help information tile.
+				 * (the tile position is updated the next time the help information tile is displayed).
+                 *
+                 * @attribute adjustX
+                 * @type number
+                 * @default 0
+                 */
+                adjustX: 0
+            },
+            _showTile: false,
+            tileWidthInPxChanged: function(){
+                if (!this.$) return;
+                this.$.helpButtonInfo.style.width = this.tileWidthInPx+"px";
+            },
+            tileHeightInPxChanged: function(){
+                if (!this.$) return;
+                this.$.helpButtonInfo.style.height = this.tileHeightInPx+"px";
+            },
+            adjustYChanged: function(){
+                if (!this.$) return;
+                this.$.helpButtonInfo.style.top = this._getMarkdownTop();
+            },
+            adjustXChanged: function(){
+                if (!this.$) return;
+                this.$.helpButtonInfo.style.left = this._getMarkdownLeft();
+            },
+            tilePositionChanged: function(){
+                if (!this.$) return;
+                this.$.helpButtonInfo.style.left = this._getMarkdownLeft();
+                this.$.helpButtonInfo.style.top = this._getMarkdownTop();
+            },
+            _getDivWidth: function(iconSizeInPx){
+                return (iconSizeInPx)+'px';
+            },
+            _getIconSizeInPx: function(iconSizeInPx){
+                return (iconSizeInPx)+'px';
+            },
+            _getIconOffsetInPx: function(iconSizeInPx){
+                return (iconSizeInPx/2)+'px';
+            },
+            _getOffset: function (object, offset) {
+                if ((!object) || (!object.offsetLeft) || (!object.offsetTop))
+                    return;
+                offset.x += object.offsetLeft;
+                offset.y += object.offsetTop;
+
+                this._getOffset (object.offsetParent, offset);
+            },
+            _getScrolled: function (object, scrolled) {
+                if ((!object) || (!object.scrollLeft) || (!object.scrollTop))
+                    return;
+                scrolled.x += object.scrollLeft;
+                scrolled.y += object.scrollTop;
+
+                if ((object.tagName) && (object.tagName.toLowerCase () != "html")) {
+                    this._getScrolled (object.parentNode, scrolled);
+                }
+            },
+            _getMarkdownLeft: function(){
+                var result = "";
+                if ((this.$)&&(this.$.helpicon)) {
+
+                    var offset = {x : 0, y : 0};
+                    this._getOffset (this.$.helpicon, offset);
+
+                    var scrolled = {x : 0, y : 0};
+                    this._getScrolled (this.$.helpicon.parentNode, scrolled);
+
+                    var posX = offset.x - scrolled.x;
+
+                    var left = posX;
+                    if (this.tilePosition.toLowerCase().indexOf('left') >= 0){
+                        left -= this.tileWidthInPx;
+                    } else if (this.tilePosition.toLowerCase().indexOf('right') === -1) {
+                        // above or below
+                        left -= this.tileWidthInPx/2;
+                    }
+                    // always position with the corner in the center of the icon
+                    left += this.$.helpicon.offsetWidth >> 1;
+
+                    var right = left + this.tileWidthInPx;
+                    if (right > window.innerWidth){
+                        left = window.innerWidth - this.tileWidthInPx;
+                    }
+                    result = (left + this.adjustX) +"px";
+                }
+                return result;
+            },
+            _getMarkdownTop: function(){
+                var result = "";
+                if ((this.$)&&(this.$.helpicon)) {
+
+                    var offset = {x : 0, y : 0};
+                    this._getOffset (this.$.helpicon, offset);
+
+                    var scrolled = {x : 0, y : 0};
+                    this._getScrolled (this.$.helpicon.parentNode, scrolled);
+
+                    var posY = offset.y - scrolled.y;
+
+                    var iconRect = this.$.helpicon.getBoundingClientRect();
+                    var top = posY;
+                    if (this.tilePosition.toLowerCase().indexOf('above') >= 0){
+                        top -= this.tileHeightInPx;
+                    } else  if (this.tilePosition.toLowerCase().indexOf('below') === -1) {
+                        // left or right, not above_left, below_left, above_right, below_right, above, below
+                        top -= this.tileHeightInPx / 2;
+                    }
+                    // always position with the corner in the center of the icon
+                    top += iconRect.height >> 1;
+                    var hostContainerRect;
+                    if (this.hostContainerObj){
+                        hostContainerRect = this.hostContainerObj.getBoundingClientRect();
+                    }
+                    if ((this.hostContainerObj)&&(hostContainerRect.height > 0)) {
+                        var maxRoomAboveIcon = iconRect.top - hostContainerRect.top;
+                        if ((top + maxRoomAboveIcon ) < 0) {
+                            top = -1 * maxRoomAboveIcon;
+                        }
+                    }
+                    var bottom = top + this.tileHeightInPx;
+
+                    if ((this.hostContainerObj)&&(hostContainerRect.height > 0)){
+
+                        var maxRoomBelowIcon = hostContainerRect.bottom - iconRect.bottom ;
+                        if (bottom > maxRoomBelowIcon){
+                            top -= (bottom - maxRoomBelowIcon);
+                        }
+                    } else {
+                        if (bottom > window.innerHeight){
+                            top = window.innerHeight - this.tileHeightInPx;
+                        }
+                    }
+                    result = (top + this.adjustY) + "px";
+                }
+                return result;
+            },
+            helpIconClickedHdlr: function(event){
+                event.stopPropagation();
+                if (event.cancelBubble != null){
+                    event.cancelBubble = true;
+                }
+                this.$.helpButtonInfo.visible = !this.$.helpButtonInfo.visible;
+                if (this.$.helpButtonInfo.visible) {
+                    if (this.onOpenCallback){
+                        this.onOpenCallback(this);
+                    }
+                    this.$.helpButtonInfo.style.width = this.tileWidthInPx+"px";
+                    this.$.helpButtonInfo.style.height = this.tileHeightInPx+"px";
+                    this.$.helpButtonInfo.style.left = this._getMarkdownLeft();
+                    this.$.helpButtonInfo.style.top = this._getMarkdownTop();
+                }
+            },
+            ready: function(){
+
+                window.document.addEventListener('click',function(event) {
+                    var id = event.target.id;
+                    var localName = event.target.localName;
+                    if ((localName !== 'ti-tile-markdown') && (event.target !== this) && (localName !== 'design-frame')) {
+                        this.$.helpButtonInfo.visible = false;
+                    }
+                }.bind(this));
+            },
+            _resizeEventHdlr: function(e) {
+                this.$.helpButtonInfo.visible = false;
+            },
+            domReady: function() {
+                window.addEventListener('resize', function (e) {
+                    this._resizeEventHdlr(e);
+                }.bind(this));
+
+            }
+
+
+
+        });
+    </script>
+</polymer-element>

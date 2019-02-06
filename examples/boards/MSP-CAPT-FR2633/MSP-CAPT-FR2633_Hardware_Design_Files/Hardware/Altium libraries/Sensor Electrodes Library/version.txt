@@ -1,0 +1,10 @@
+MSP CapTIvate MCUs
+Electrode Library
+
+Current Revision: B (15 May 2015)
+ - Adding self-cap electrode without silkscreen
+
+Previous Revisions: 
+
+A (29 January 2015)
+ - original Release

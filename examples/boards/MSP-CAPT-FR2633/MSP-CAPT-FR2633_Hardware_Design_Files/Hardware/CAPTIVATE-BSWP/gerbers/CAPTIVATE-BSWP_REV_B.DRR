@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: captivate_bswp.PcbDoc   9/17/2015  5:19:01 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : CAPTIVATE-BSWP_REV_B.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        20mil (0.508mm)          Round          27               16.40 Inch (416.63 mm)
+T2        39.37mil (1mm)           Round          48               6.72 Inch (170.78 mm)
+T3        110.24mil (2.8001mm)     Round          2                1.90 Inch (48.26 mm)
+---------------------------------------------------------------------------
+Totals                                            77               25.03 Inch (635.67 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

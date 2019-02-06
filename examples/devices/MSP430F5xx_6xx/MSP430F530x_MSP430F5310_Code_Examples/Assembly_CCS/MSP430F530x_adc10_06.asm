@@ -1,0 +1,149 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;*******************************************************************************
+;  MSP430F530x Demo - ADC10, Internal Reference toggle
+;
+;  Description: Sample and convert analog voltage at ADC i/p ch A1 in single 
+;  channel single conversion mode. Internal reference is toggled between
+;  1.5V and 2.5V and the ADC measurements are made. With 1V input at A1, Vref+
+;  of 1.5V and 2.5V gives ADC conv result of ~682 and ~409 respectively. LED at 
+;  P1.0 is turned on when ADC conv result >500 (that is with Vref=1.5V) and 
+;  turned off otherwise (when Vref=2.5V)
+;  ACLK = n/a, MCLK = SMCLK = default DCO ~1.2MHz, ADC10CLK = ADC10OSC 
+;
+;               MSP430F530x
+;            -----------------
+;        /|\|              XIN|-
+;         | |                 |
+;         --|RST          XOUT|-
+;           |                 |
+;           |             P1.0|--> LED 
+;           |          P6.1/A1|<-- 1V
+;
+;  K. Chen
+;  Texas Instruments Inc.
+;  March 2012
+;  Built with CCS Version: 5.2
+;*******************************************************************************
+
+ .cdecls C,LIST, "msp430.h"
+;-------------------------------------------------------------------------------
+            .def    RESET                   ; Export program entry-point to
+                                            ; make it known to linker.
+
+            .global _main
+            .global __STACK_END
+            .sect   .stack                  ; Make stack linker segment known
+;-------------------------------------------------------------------------------
+            .text                           ; Assemble to Flash memory
+            .retain                         ; Ensure current section gets linked
+            .retainrefs
+;-------------------------------------------------------------------------------
+_main
+RESET       mov.w   #__STACK_END,SP         ; Initialize stackpointer
+StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop WDT
+
+; Confirgure ADC10 - Pulse sa,ple mode; ADC10SC trigger
+SetupADC10  mov.w   #ADC10SHT_2 | ADC10ON,&ADC10CTL0 ; 16 ADC10CLKs; ADC ON
+            mov.w   #ADC10SHP | ADC10CONSEQ_0,&ADC10CTL1
+                                            ; s/w trig, single ch/conv 
+            mov.w   #ADC10RES,&ADC10CTL2    ; 10-bit conversion results
+            mov.w   #ADC10SREF_1 | ADC10INCH_1,&ADC10MCTL0 ; A1, Vref+
+
+; Configure internal reference
+while_loop  and.w   #REFGENBUSY,&REFCTL0    ; If ref generator busy, WAIT       
+            jnz     while_loop              ;
+            bis.w   #REFVSEL_0 | REFON,&REFCTL0 ; Select Internal ref = 1.5V.
+                                                ; Internal reference on
+
+; Configure TA0 to provide delay for reference settling ~75us            
+            mov.w   #80,&TA0CCR0            ; Delay to allow Ref to settle
+            bis.w   #CCIE,&TA0CCTL0         ; Compare-mode interrupt.
+            mov.w   #MC_1 | TASSEL_2,&TA0CTL; up mode, TACLK=SMCLK
+            nop
+            bis.w   #LPM0 | GIE,SR          ; Enter LPM0, TA0_ISR will force
+            nop                             ; exit
+            bic.w   #CCIE,&TA0CCTL0         ; Disable timer interrupt
+
+SetupP1     bis.b   #BIT0,&P1DIR            ; P1.0 output
+            bic.b   #BIT0,&P1OUT            ; Clear P1.0
+
+            bic.w   #ADC10ENC,&ADC10CTL0    ; ADC10 disable   
+
+Mainloop    bis.w   #ADC10ENC | ADC10SC,&ADC10CTL0
+                                            ; Sampling and conversion start
+; Toggle internal reference voltage
+L1          bit.w   #ADC10BUSY,&ADC10CTL1   ; ADC10BUSY?
+            jnz     L1                      ;
+            xorx.w  #REFVSEL1,&REFCTL0      ; Toggle Internal Ref betn 1.5V/2.5V
+L2          and.w   #ADC10IFG0,&ADC10IFG    ; Conversion complete?
+            jz      L2                      ;
+            cmp.w   #500,&ADC10MEM0         ; ADC10MEM0 = A1 > 500? 
+            jnc     less_than               ;
+            bis.b   #BIT0,&P1OUT            ; Set P1.0 LED on; Vref = 1.5V used
+            jmp     delay                   ; 
+less_than   bic.b   #BIT0,&P1OUT            ; Clear P1.0; Vref=2.5V used 
+            jmp     delay                   ; 
+
+delay       mov.w   #0x7FFF,R15             ; Delay to R15
+L3          dec.w   R15                     ; Decrement R15
+            jnz     L3                      ; Delay over?
+
+            jmp     Mainloop                ; Again
+            nop                             ; To workaround CPU40      
+;-------------------------------------------------------------------------------
+TA0_ISR;    ISR for TACCR0
+;-------------------------------------------------------------------------------
+            clr.w   &TA0CTL                 ; Clear Timer_A control registers
+            bic.w   #LPM0,0(SP)             ; Exit LPM0 on reti
+            reti                            ;
+;-------------------------------------------------------------------------------
+;           Interrupt Vectors
+;-------------------------------------------------------------------------------
+            .sect   TIMER0_A0_VECTOR        ; Timer_A0 Vector
+            .short  TA0_ISR                 ;
+            .sect   ".reset"                ; MSP430 RESET Vector
+            .short  RESET                   ;
+            .end

@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\a0272566\Documents\Altium\LaunchPads\msp-exp430fr2355\1_PCB\MCU036A_MSP-EXP430FR2355_PCB.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=mcu036a-roundholes.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=mcu036a-slotholes.txt|DrillLayers=gtl,g1,g2,gbl

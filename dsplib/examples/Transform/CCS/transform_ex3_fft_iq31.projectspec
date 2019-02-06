@@ -1,0 +1,7 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/dsplib/include" device="MSP430FR5994" linkerBuildOptions="" name="transform_ex3_fft_iq31" description="DSPLib example project demonstrating how to use the 32-bit real fast fourier transform function without any scaling.">
+    <file action="copy" path="../transform_ex3_fft_iq31.c" targetDirectory="" />
+	<file action="copy" path="../../../include" targetDirectory="dsplib" />
+	<file action="copy" path="../../../source" targetDirectory="dsplib" />
+  </project>
+</projectSpec>

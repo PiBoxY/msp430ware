@@ -1,0 +1,4 @@
+Sensor, Electrode, MCU Pin, Package Pin
+prototypingSensor,RX02,CAP0.0,17
+prototypingSensor,RX00,CAP1.2,20
+prototypingSensor,RX01,CAP1.3,19

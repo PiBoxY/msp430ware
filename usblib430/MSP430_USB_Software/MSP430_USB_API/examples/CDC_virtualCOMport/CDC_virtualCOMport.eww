@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+<project>
+    <path>$WS_DIR$\C6_SendDataBackground/IAR/C6_SendDataBackground.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\C1_LedOnOff/IAR/C1_LedOnOff.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\C2_ReceiveData/IAR/C2_ReceiveData.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\C3_EchoToHost/IAR/C3_EchoToHost.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\C0_SimpleSend/IAR/C0_SimpleSend.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\C4_PacketProtocol/IAR/C4_PacketProtocol.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\C5_SendDataWaitTillDone/IAR/C5_SendDataWaitTillDone.ewp</path>
+  </project>
+  
+  <batchBuild/>
+</workspace>
+

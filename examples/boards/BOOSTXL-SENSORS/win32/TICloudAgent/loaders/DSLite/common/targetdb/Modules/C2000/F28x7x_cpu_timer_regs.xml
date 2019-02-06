@@ -1,0 +1,46 @@
+<module id="CPU_TIMER_REGS" HW_revision="">
+  <register id="TIM" width="16" page="1" offset="0x0" internal="0" description="CPU-Timer, Counter Register">
+    <bitfield id="TIM" description="CPU-Timer Counter Registers" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="TIMH" width="16" page="1" offset="0x1" internal="0" description="CPU-Timer, Counter Register High">
+    <bitfield id="TIMH" description="CPU-Timer Counter Registers High" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="PRD" width="16" page="1" offset="0x2" internal="0" description="CPU-Timer, Period Register">
+    <bitfield id="PRD" description="CPU-Timer Period Registers" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="PRDH" width="16" page="1" offset="0x3" internal="0" description="CPU-Timer, Period Register High">
+    <bitfield id="PRDH" description="CPU-Timer Period Registers High" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="TCR" width="16" page="1" offset="0x4" internal="0" description="CPU-Timer, Control Register">
+    <bitfield id="TSS" description="CPU-Timer stop status bit." begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Reads of 0 indicate the CPU-timer is running"/>
+      <bitenum id="__1" value="1" description="Reads of 1 indicate that the CPU-timer is stopped"/>
+    </bitfield>
+    <bitfield id="TRB" description="Timer reload " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The TRB bit is always read as zero. Writes of 0 are ignored."/>
+      <bitenum id="__1" value="1" description="When you write a 1 to TRB, the TIMH:TIM is loaded with the valu"/>
+    </bitfield>
+    <bitfield id="FREE_SOFT" description="Emulation modes " begin="11" end="10" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Stop after the next decrement of the TIMH:TIM (hard stop)"/>
+      <bitenum id="__1" value="1" description="Stop after the TIMH:TIM decrements to 0 (soft stop)[[br]][[br]]"/>
+      <bitenum id="__2" value="2" description="Free run"/>
+      <bitenum id="__3" value="3" description="Free run"/>
+    </bitfield>
+    <bitfield id="TIE" description="CPU-Timer Interrupt Enable." begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The CPU-Timer interrupt is disabled."/>
+      <bitenum id="__1" value="1" description="The CPU-Timer interrupt is enabled"/>
+    </bitfield>
+    <bitfield id="TIF" description="CPU-Timer Interrupt Flag. " begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The CPU-Timer has not decremented to zero"/>
+      <bitenum id="__1" value="1" description="This flag gets set when the CPU-timer decrements to zero"/>
+    </bitfield>
+  </register>
+  <register id="TPR" width="16" page="1" offset="0x6" internal="0" description="CPU-Timer, Prescale Register">
+    <bitfield id="TDDR" description="CPU-Timer Divide-Down." begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="PSC" description="CPU-Timer Prescale Counter." begin="15" end="8" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="TPRH" width="16" page="1" offset="0x7" internal="0" description="CPU-Timer, Prescale Register High">
+    <bitfield id="TDDRH" description="CPU-Timer Divide-Down." begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="PSCH" description="CPU-Timer Prescale Counter." begin="15" end="8" width="8" rwaccess="R/W"/>
+  </register>
+</module>

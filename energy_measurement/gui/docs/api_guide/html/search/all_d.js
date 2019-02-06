@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['reactiveenergy',['reactiveEnergy',['../struct___e_m___phase___results__.html#a14c73d514e26af1e235a9a2ccd7119a5',1,'_EM_Phase_Results_::reactiveEnergy()'],['../struct___e_m___total___results__.html#a7201318c2ed97004b4021a3f607a9c36',1,'_EM_Total_Results_::reactiveEnergy()']]],
+  ['reactiveenergycounter',['reactiveEnergyCounter',['../struct___e_m___pulse___settings__.html#a3a893e7ff9556c7eaaf2eb6465ed71a0',1,'_EM_Pulse_Settings_']]],
+  ['reactiveenergypulseremaining',['reactiveEnergyPulseRemaining',['../struct___e_m___pulse___settings__.html#a7556b242fe87c903f0599e1fabfe0ea6',1,'_EM_Pulse_Settings_']]],
+  ['reactivepower',['reactivePower',['../struct___e_m___phase___results__.html#a844bcf5b2c6f1fd46922a74e46f45bf2',1,'_EM_Phase_Results_::reactivePower()'],['../struct___e_m___total___results__.html#afcf0c811db2867c364b29bc04d267cd5',1,'_EM_Total_Results_::reactivePower()']]],
+  ['reactivepowersf',['reactivePowerSF',['../struct___e_m___phase___calibration__.html#a8d5410a2b6a43897c036e262eacc9da2',1,'_EM_Phase_Calibration_']]],
+  ['reactivepulsegpiopin',['reactivePulseGpioPin',['../struct___e_m___pulse___settings__.html#a8dff37f108a4e4aea16d3aeeddbf7097',1,'_EM_Pulse_Settings_']]],
+  ['reactivepulsegpioport',['reactivePulseGpioPort',['../struct___e_m___pulse___settings__.html#a49d5b957dad0d1236aa666359e31b274',1,'_EM_Pulse_Settings_']]],
+  ['reactpowdotprod',['reactPowDotProd',['../struct___e_m___metrology__.html#aaaae6ca92ae7651f53a715b8ae23a654',1,'_EM_Metrology_']]],
+  ['reactpowgconst',['reactPowGConst',['../struct___e_m___metrology__.html#a887969a5219189e12e6448f120ac8448',1,'_EM_Metrology_']]],
+  ['reactpowiirlength',['reactPowIIRLength',['../struct___e_m___algorithm___configuration__.html#a43596cad2fb2c73c3645e4573bc77792',1,'_EM_Algorithm_Configuration_']]],
+  ['reactpowiirminfreq',['reactPowIIRMinFreq',['../struct___e_m___algorithm___configuration__.html#a9893b5b3e7b53540f85a3bd92fc7ebf4',1,'_EM_Algorithm_Configuration_']]],
+  ['reactpowiirshift',['reactPowIIRShift',['../struct___e_m___algorithm___configuration__.html#a8025cd03fdbb5f0d8709eab1d9f779aa',1,'_EM_Algorithm_Configuration_']]],
+  ['reactpowiirtable',['reactPowIIRTable',['../struct___e_m___algorithm___configuration__.html#a68925fc73702e5629774e6a4214fcb32',1,'_EM_Algorithm_Configuration_']]],
+  ['reactpowprevv90',['reactPowPrevV90',['../struct___e_m___phase___b_g___results__.html#a80d5ff174d41c0563e7284507e0606a4',1,'_EM_Phase_BG_Results_']]],
+  ['referenceselect',['referenceSelect',['../struct___h_a_l___a_d_c___s_d24___configuration__.html#a5f84956dd62e175b9c58bdc31df080c9',1,'_HAL_ADC_SD24_Configuration_']]],
+  ['residualpowercutoff',['residualPowerCutoff',['../struct___e_m___algorithm___configuration__.html#a02beef5df24b78d3f958f1d87932a9e3',1,'_EM_Algorithm_Configuration_']]],
+  ['result_5fapi',['Result_api',['../group__result__api.html',1,'']]],
+  ['revision_2emd',['revision.md',['../revision_8md.html',1,'']]],
+  ['rogowskiprevi90',['rogowskiPrevI90',['../struct___e_m___phase___b_g___results__.html#a44771d47492463fcfec5ab9f1c1dbb0a',1,'_EM_Phase_BG_Results_']]]
+];

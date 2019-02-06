@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\a0221162\Documents\Projects\MSP-EXP430FR2433\msp-exp430fr2433\1_PCB\MSP-EXP430FR2433_PCB.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=mcu0241.0-roundholes.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=mcu0241.0-slotholes.txt|DrillLayers=gtl,g1,g2,gbl

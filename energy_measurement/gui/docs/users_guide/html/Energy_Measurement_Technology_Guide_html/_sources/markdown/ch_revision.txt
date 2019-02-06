@@ -1,0 +1,27 @@
+Revision History
+================
+
+This chapter tracks changes in the Energy Measurement Technology Guide and Energy Measurement Software Library.
+
+Revision History of Energy Measurement Technology Guide Releases
+----------------------------------------------------------------
+
+Release v1.30.00.00
+~~~~~~~~~~~~~~~~~~~
+
+Release Date: 2018-July-20
+
+-  Design Guide
+
+   -  Updated documentation and images to support Rogowski Coil current sensors.
+   -  Updated code generation to support both CCS and IAR IDEs.
+   -  Added an Out-of-Box Experience section to enable users to view results in EMDC more quickly.
+   -  Included a high-level diagram illustrating the communication connections and tools between the PC and EVM.
+   -  Updated the tables summarizing the MSP-ISO connections to prevent the target device on the EVM from being back-powered through the UART pins.
+   -  Fixed broken links to software API guide and other minor formatting issues.
+   -  Renamed EMDC example projects and example firmware examples to include the current sensor type.
+
+Revision History of Energy Measurement Software Library Releases
+----------------------------------------------------------------
+
+Although Energy Measurement Software Library and Energy Measurement Design Center GUI are delivered together, the Energy Measurement Software Library has its own version tracking and change control. Every major library release comes with change control data in the Software Library API guide that describes any new features that have been added and any changes to existing functionality. - `Access the software library change control document <../../../../api_guide/html/md_sw_changelog.html>`__ - `Access the software library API guide <../../../../api_guide/html/index.html>`__

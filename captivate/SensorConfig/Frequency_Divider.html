@@ -1,0 +1,74 @@
+<!-- Captivate Description HTML -->
+<!-- Frequency_Divider Tuning Parameter -->
+
+<html>
+	<body>
+		<B>Conversion Frequency Divider</B>
+		<P>
+		
+		The conversion frequency divider allows for the conversion
+		clock to be divided down from the base rate of 16 MHz.
+		The conversion clock period must be long enough to ensure complete charge
+		transfer phases.  This can be verified on an oscilloscope by probing the
+		electrode pins if a sensor is experiencing noise.
+		
+		<p>
+		<table>
+		  <tr>
+			<th>Divider</th>
+			<th>Base Frequency</th>
+		  </tr>
+		  <tr>
+			<td>/1</td>
+			<td>16 MHz</td>
+		  </tr>
+		  <tr>
+			<td>/2</td>
+			<td>8 MHz</td>
+		  </tr>
+		  <tr>
+			<td>/4</td>
+			<td>4 MHz</td>
+		  </tr>
+		  <tr>
+			<td>/8</td>
+			<td>2 MHz</td>
+		  </tr>
+		  <tr>
+			<td>/16</td>
+			<td>1 MHz</td>
+		  </tr>
+		  <tr>
+			<td>/32</td>
+			<td>500 kHz</td>
+		  </tr>
+		  <tr>
+			<td>/64</td>
+			<td>250 kHz</td>
+		  </tr>
+		  <tr>
+			<td>/128</td>
+			<td>125 kHz</td>
+		  </tr>		  
+		</table>
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		The conversion clock divider works in series with the 
+		conversion charge and transfer phase lengths.  The effective
+		overall conversion rate is a function of the clock divider,
+		the charge/hold phase length, and the transfer/sample phase length.
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Frequency_Divider parameter corresponds to the
+		<i><b>ui8FreqDiv</b></i> 
+		member of the
+		<i><b>tSensor</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "template": "Hello World",
+  "description": "Basic application that displays 'hello world'",
+  "version": "1.0.2"
+}

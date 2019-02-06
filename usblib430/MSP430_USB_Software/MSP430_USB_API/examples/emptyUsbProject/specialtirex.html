@@ -1,0 +1,153 @@
+<!-- --COPYRIGHT--,BSD
+ *  Copyright (c) 2016, Texas Instruments Incorporated
+ *  All rights reserved.
+ * 
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ * 
+ *  *  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ * 
+ *  *  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ * 
+ *  *  Neither the name of Texas Instruments Incorporated nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ * 
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ *  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ *  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ *  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ *  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ *  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ *  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * --/COPYRIGHT-- -->
+<html>
+<head>
+<title>Empty USB Project</title>
+
+<link href="./css/main.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" >
+	var PROJECT_NAME = "emptyUsbProject";
+</script>
+<script type="text/javascript" src="js/jquery-1.6.1.js"></script>
+</head>
+
+<body>
+<h1>
+	<img src="./images/create_project.gif" /> Empty USB project
+</h1>
+
+<h2>
+	Creates an empty USB project to start development
+</h2>
+
+<h3>
+	These are the steps to import the project, use the descriptor tool, build the project, and debug the project.
+</h3>
+
+<p>
+<table id="Table" cellpadding="5">
+	<tr>
+		<td style="white-space:nowrap">Step 1:</td>
+		<td style="white-space:nowrap"><a id="importProjectLink" href="#"><img src="./images/import_project.png" hspace=5 />Import the example project into CCS (Do not rename)</a></td>
+	</tr>
+	<tr>
+		<td/>
+		<td><small><i>Click on the link above to import the project. The imported project is available in the <b>Project Explorer</b> view,
+		expand the project node to browse the imported source files. To modify source code, double clicks on the source file within the
+		project to open the source file editor.</i></small></td>
+		<td/>
+	</tr>
+    <tr>
+		<td style="white-space:nowrap">Step 2:</td>
+		<td style="white-space:nowrap"><a id="invokeDescTool" href="#"><img src="./images/app_launcher.png" hspace=5 />Launch The Descriptor Tool</a></td>
+	</tr>
+	<tr>
+		<td/>
+		<td><small><i>Design your USB device in the Descriptor tool and then generate Descriptor Tool files into the project</i></small></td>
+		<td/>
+	</tr>
+    <tr>
+		<td style="white-space:nowrap">Step 3:</td>
+		<td style="white-space:nowrap">Rename the project (if needed)</td>
+	</tr>
+	<tr>
+		<td/>
+		<td><small><i>Now that the project is imported and the USB descriptor made, you can rename the project</i></small></td>
+		<td/>
+	</tr>
+	<tr>
+		<td style="white-space:nowrap">Step 4:</td>
+		<td style="white-space:nowrap"><a id="buildProjectLink" href="liveaction:BuildProjectAction(emptyUsbProject)"><img src="./images/build.png" hspace=5 />Build the imported project</a></td>
+	</tr>
+	<tr>
+		<td />
+		<td><small><i>To change build options, right click on the project and select <b>Properties</b> from the context menu. To build the project,
+		select the link above, or select the <b>Build</b> toolbar button, or select the <b>Project | Build Project</b> menu item.</i></small></td>
+		<td/>
+	</tr>
+	<tr>
+		<td style="white-space:nowrap">Step 5:</td>
+		<td style="white-space:nowrap"><a id="debugConfigurationLink" href="liveaction:DebuggerConfigurationAction(emptyUsbProject)"><img src="./images/connection.gif" hspace=5 />Debugger Configuration</a></td>
+	</tr>
+	<tr>
+		<td />
+		<td><small><i>Click on the link above to change the device connection. Additionally, this option is also available in the project properties.</i></small>
+		</td>
+		<td/>
+	</tr>
+	<tr>
+		<td style="white-space:nowrap">Step 6:</td>
+		<td style="white-space:nowrap"><a id="debugProjectLink" href="liveaction:DebugProjectAction(emptyUsbProject)"><img src="./images/debug.png" hspace=5 />Debug the imported project</a></td>
+	</tr>
+	<tr/>
+		<tr>
+		<td />
+		<td><small><i>Click on the link above to launch a debug session for the <b>emptyUsbProject</b> project and switch to the <b>CCS Debug Perspective</b>.
+		Additionally, these are other methods to start a project debug session. Select the project in the <b>Project Explorer</b> view and click on the bug toolbar button.
+		To relaunch a previous debug session, click on the small arrow beside the bug toolbar button and select one of the debug session from the history.</i></small></td>
+		<td/>
+	</tr>
+</table>
+
+<script type="text/javascript">
+
+	/**
+	 * Creates a project using a CCS projectSpec
+	 * @return {false} returns false so that browser does not try to follow link
+	 */
+	$("#importProjectLink").click(function() {
+		var path = window.location.pathname;
+		console.log(path);
+		path = path.replace("specialtirex.html", "CCS/emptyUsbProject.projectSpec");
+		window.location = "liveaction:CreateProjectFromSpecAction(" + path + ", emptyUsbProject, MSP430F5529)";
+		return false;
+	});
+</script>
+
+<script type="text/javascript">
+
+	/**
+	 * Runs the descriptor tool with the workspace as a parameter
+	 * @return {false} returns false so that browser does not try to follow link
+	 */
+	$("#invokeDescTool").click(function() {
+		var ws = getWSLocation();
+		ws = ws + 'emptyUsbProject\\USB_config'
+		var path = window.location.pathname;
+		path = path.replace("MSP430_USB_API/examples/emptyUsbProject/specialtirex.html" , "MSP430_USB_DescriptorTool/MSP430_USB_Descriptor_Tool.exe");
+		window.location = "liveaction:RunProgramAction(" + path + " -dir " + ws + ")";
+		return false;
+	});
+</script>
+</body>
+</html>

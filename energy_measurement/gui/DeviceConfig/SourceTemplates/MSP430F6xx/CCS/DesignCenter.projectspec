@@ -1,0 +1,45 @@
+<projectSpec>
+  <project 
+    compilerBuildOptions="
+	  --define=__WATCHDOG_ENABLE__ 
+      -I${PROJECT_ROOT}
+	  -I${PROJECT_ROOT}/driverlib
+      -I${PROJECT_ROOT}/driverlib/MSP430F5xx_6xx
+	  -I${PROJECT_ROOT}/emSWLib
+	  -I${EMSWLIB_ROOT}/include
+	  -I${MATHLIB_ROOT}/include
+      -I${PROJECT_ROOT}/EM_Config
+	  -I${PROJECT_ROOT}/hal
+	  -I${PROJECT_ROOT}/hal/MSP430F5xx_6xx
+	  -I${PROJECT_ROOT}/DesignCenter/emDC
+	  -I${PROJECT_ROOT}/DesignCenter/comm
+	  -I${PROJECT_ROOT}/DesignCenter/guiApp
+	  -I${PROJECT_ROOT}/DesignCenter/guiApp/hmiDC
+      --code_model=large
+      --data_model=large
+	  --printf_support=full
+      -O4
+      --opt_for_speed=5 
+      --advice:power=&quot;none&quot;"
+	
+    linkerBuildOptions="
+	  --library=${EMSWLIB_ROOT}/CCS/MSP430F6xx/EMLib_CCS_MSP430F6xx.a
+	  --library=${MATHLIB_ROOT}/libraries/CCS/QmathLib.a
+	  --library=${MATHLIB_ROOT}/libraries/CCS/IQmathLib.a
+	  --stack_size=256"
+	  enableHexTool="true" 
+      hexBuildOptions="--ti_txt"
+    <EMDC_PROJECTSPEC_DEVICE_NAME>
+    <EMDC_PROJECTSPEC_PROJECT_NAME>
+  >
+	<EMDC_PROJECTSPEC_SOURCE_FILES>	
+	<buildVariable name="EMSWLIB_ROOT" scope="project" type="dir" value="../lib/EM" />
+	<buildVariable name="MATHLIB_ROOT" scope="project" type="dir" value="../lib/mathlib" />
+	<file action="link" path="../lib/EM/include/emSwLib.h" targetDirectory="emSWLib" />
+    <file action="link" path="../lib/EM/CCS/MSP430F6xx/EMLib_CCS_MSP430F6xx.a" targetDirectory="emSWLib" />
+    <file action="link" path	="../lib/mathlib/include/QmathLib.h" targetDirectory="QMathLib" />
+    <file action="link" path="../lib/mathlib/libraries/CCS/QmathLib.a" targetDirectory="QMathLib" />
+    <file action="link" path="../lib/mathlib/include/IQmathLib.h" targetDirectory="IQMathLib" />
+    <file action="link" path="../lib/mathlib/libraries/CCS/IQmathLib.a" targetDirectory="IQMathLib" />
+  </project>
+</projectSpec>

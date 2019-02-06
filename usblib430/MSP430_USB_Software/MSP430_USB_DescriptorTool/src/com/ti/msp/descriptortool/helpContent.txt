@@ -1,0 +1,9 @@
+Usage: descriptorTool [OPTION]...
+
+Options
+  -t, --testing  Generates MSP USB Descriptor Files using specified "test.xml" file.
+  -h, --help     display this help and exit
+  -v, --version  output version information and exit
+  -d, --debug    Set debug level, suggested usage --debug 5
+
+Report descriptorTool bugs at https://bugzilla.dal.design.ti.com/enter_bug.cgi?product=msp430usb

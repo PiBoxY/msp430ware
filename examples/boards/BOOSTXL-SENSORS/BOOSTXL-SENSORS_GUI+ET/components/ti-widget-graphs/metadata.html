@@ -1,0 +1,137 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+    Copyright (c) 2014, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<x-meta id="ti-widget-linegraph" Label="Line Graph" group="Graphs & Charts">
+  <template>
+    <ti-widget-linegraph style="width:180px;height:180px;" backgroundColor="#FFFFFF" series_0_Color="#00BBCC" series_0_Values="0;0.48;0.89;1;0.75;0.24;-0.35;-0.82;-1;-0.83;-0.37;0"></ti-widget-linegraph>
+  </template>
+    <property  name="titleLabel"       kind="string"> </property>
+    <property  name="numChannels"      kind="select" options="1,2,3,4"> </property>
+    <property  name="series_0_Values"  kind="string"> </property>
+    <property  name="series_0_Units"   kind="string"> </property>
+    <property  name="series_0_Min"     kind="number"> </property>
+    <property  name="series_0_Max"     kind="number"> </property>
+    <property  name="series_0_Color"   kind="color">  </property>
+    <property  name="series_1_Values"  kind="string"> </property>
+    <property  name="series_1_Units"   kind="string"> </property>
+    <property  name="series_1_Min"     kind="number"> </property>
+    <property  name="series_1_Max"     kind="number"> </property>
+    <property  name="series_1_Color"   kind="color">  </property>
+    <property  name="series_2_Values"  kind="string"> </property>
+    <property  name="series_2_Units"   kind="number"> </property>
+    <property  name="series_2_Min"     kind="number"> </property>
+    <property  name="series_2_Max"     kind="number"> </property>
+    <property  name="series_2_Color"   kind="color">  </property>
+    <property  name="series_3_Values"  kind="string"> </property>
+    <property  name="series_3_Units"   kind="number"> </property>
+    <property  name="series_3_Min"     kind="number"> </property>
+    <property  name="series_3_Max"     kind="number"> </property>
+    <property  name="series_3_Color"   kind="color">  </property>
+    <property  name="backgroundColor"  kind="color">  </property>
+   
+<!--
+
+
+  <property  name="autoScale"  kind="boolean"> </property>
+  <property  name="showXAxis"  kind="boolean"> </property>
+  <property  name="showYAxis"  kind="boolean"> </property>
+  <property  name="showLegend" kind="boolean"> </property>
+  <property  name="showGrid"   kind="boolean"> </property>
+  <property  name="visible"    kind="boolean"> </property>
+  <property  name="disabled"   kind="boolean"> </property>
+-->
+
+  <template id="imports">
+    <link rel="import" href="ti-widget-linegraph.html">
+  </template>
+</x-meta>
+
+<x-meta id="ti-widget-scalargraph" Label="Scalar Graph" group="Graphs & Charts">
+  <template>
+    <ti-widget-scalargraph style="width:380px;height:180px;" backgroundColor="#FFFFFF" series_0_Color="#00BBCC"></ti-widget-scalargraph>
+  </template>
+
+    <property  name="titleLabel"       kind="string"> </property>
+    <property  name="numChannels"      kind="select" options="1,2,3,4"> </property>
+    <property  name="value_0"          kind="number"> </property>
+    <property  name="series_0_Units"   kind="string"> </property>
+    <property  name="series_0_Min"     kind="number"> </property>
+    <property  name="series_0_Max"     kind="number"> </property>
+    <property  name="series_0_Color"   kind="color"> </property>
+    <property  name="value_1"          kind="number"> </property>
+    <property  name="series_1_Units"   kind="string"> </property>
+    <property  name="series_1_Min"     kind="number"> </property>
+    <property  name="series_1_Max"     kind="number"> </property>
+    <property  name="series_1_Color"   kind="color">  </property>
+    <property  name="value_2"          kind="number"> </property>
+    <property  name="series_2_Units"   kind="number"> </property>
+    <property  name="series_2_Min"     kind="number"> </property>
+    <property  name="series_2_Max"     kind="number"> </property>
+    <property  name="series_2_Color"   kind="color">  </property>
+    <property  name="value_3"          kind="number"> </property>
+    <property  name="series_3_Units"   kind="number"> </property>
+    <property  name="series_3_Min"     kind="number"> </property>
+    <property  name="series_3_Max"     kind="number"> </property>
+    <property  name="series_3_Color"   kind="color">  </property>
+  <property  name="backgroundColor"  kind="color"> </property>
+  <template id="imports">
+    <link rel="import" href="ti-widget-scalargraph.html">
+  </template>
+</x-meta>
+
+<x-meta id="ti-widget-temperaturegraph" Label="Sliding Temperature Graph" group="Graphs & Charts">
+    <template>
+        <ti-widget-temperaturegraph style="width:380px;height:180px;" backgroundColor="#FFFFFF" lineColor="#00BBCC"></ti-widget-temperaturegraph>
+    </template>
+
+    <property  name="titleLabel"       kind="string"></property>
+    <property  name="temperature"     kind="number"> </property>
+    <property  name="temperatureScale"   kind="select" options="F,C,K"> </property>
+    <property  name="targetTemperatureScale"   kind="select" options="F,C,K"> </property>
+    <property  name="minTempF"     kind="number"> </property>
+    <property  name="maxTempF"     kind="number"> </property>
+    <property  name="minTempC"     kind="number"> </property>
+    <property  name="maxTempC"     kind="number"> </property>
+    <property  name="minTempK"     kind="number"> </property>
+    <property  name="maxTempK"     kind="number"> </property>
+    <property  name="lineColor"        kind="color"> </property>
+    <property  name="backgroundColor"  kind="color"> </property>
+    <template id="imports">
+        <link rel="import" href="ti-widget-temperaturegraph.html">
+    </template>
+</x-meta>

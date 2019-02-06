@@ -1,0 +1,17 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_LOC}/driverlib/MSP430FR5xx_6xx --advice:power=&quot;all&quot; -g"
+             linkerCommandFile="lnk_msp430fr5969"
+             device="MSP430FR5969"
+             name="OutOfBox_MSP430FR5969"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../FRAMLogMode.c" />
+        <file action="copy" path="../FRAMLogMode.h" />
+        <file action="copy" path="../LiveTempMode.c" />
+        <file action="copy" path="../LiveTempMode.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+        <file action="copy" path="../main.h" />
+        <file action="copy" path="lnk_msp430fr5969.cmd" />
+    </project>
+</projectSpec>

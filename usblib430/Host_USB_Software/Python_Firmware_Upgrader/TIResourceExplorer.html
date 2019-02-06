@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Launch External Application</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>
+    <img src="images/run_program.gif" /> Launch External Application
+</h1>
+
+<h2>
+    Click on the link to launch the external application
+</h2>
+
+<p>
+    <script type="text/javascript">
+
+    function replaceAll(find, replace, str) {
+        return str.replace(new RegExp(find, 'g'), replace);
+    }
+
+    var scripts = document.getElementsByTagName('script');
+    var script = scripts[scripts.length-1].baseURI;
+    var application = script.replace("file:///", "");
+    application = application.replace("TIResourceExplorer.html", "");
+    application = replaceAll("/", "\\", application);
+
+    document.write("Launch <a href=\"liveaction:RunProgramAction(explorer " + application + ")\"><b>Python Firmware Upgrader</b></a>");
+    </script>
+
+</p>
+</body>
+</html>

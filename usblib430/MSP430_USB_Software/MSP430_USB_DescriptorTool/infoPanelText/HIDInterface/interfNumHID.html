@@ -1,0 +1,19 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Interface Number HID</h1>
+        <p>Associated descriptor fields:  <span class="attribute">bInterfaceNumber</span> (in the Interface Descriptor)</p>
+        <p>Take note of this read-only value and pass it as the "intfNum" parameter in HID API calls to select this interface, as opposed to others.  The Tool also generates constants in descriptors.h reflecting this value; for example, HID0_INTFNUM, HID1_INTFNUM, etc.</p>  
+        <p>For example:  USBHID_sendData(buffer, data, HID1_INTFNUM);</p> 
+        <p>If two or more HID interfaces are used, these values index them on the MSP430 application side.  But the host needs a way to tell one interface from the other; this can be done by reading the interface strings assigned to each HID interface (assigned using the field below).  The host application can poll through all available HID interfaces on the host, searching for interface strings it expects to see in the target device.</p>
+    </body>
+</html>

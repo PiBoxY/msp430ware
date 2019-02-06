@@ -1,0 +1,24 @@
+<!-- Captivate Description HTML -->
+<!-- -->
+
+<html>
+	<body>
+		<B>Negative Touch Flag</B>
+		<P>
+		The Negative Touch flag is set when negative touch is detected. The negative touch threshold provides a mechanism for detecting when an element's measurement 
+		count adjusts quickly in the direction opposite of a touch.  This scenario might happen during
+		device power-up if a user has their hand covering an electrode during power-up calibration.  The library
+		makes the assumption at power-up that there is no user interaction.  This may not always be the case.  If 
+		the system is calibrated with a user touching a sensor, when they remove their hand, the measurements from that
+		sensor's elements will quickly adjust in the opposite direction of a touch.  Setting a negative touch threshold provides
+		a way to quickly detect this event.  Upon detection, the application will re-calibrate to ensure 
+		full sensitivity from the electrode immediately following the "negative" touch.
+		
+		<P>
+		<B>To modify the Negative Touch Threshold:</B>
+		<P>
+		1. Go to the sensor window -> Tuning tab -> Change Negative Touch Threshold*
+		<P>
+		*Click the Negative Touch Threshold parameter in sensor window for more information.
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Using SYSBIOS</h1>
+        <p>Check this box if using the USB API with TI's SYSBIOS real-time operating system (RTOS).  Otherwise, leave it unchecked.</p>
+        <p>Checking this box will cause the Tool to replace the USB interrupt service routine with a function called iUsbInterruptHandler().  The application can then assign tiUsbInterruptHandler() into the SYSBIOS Hwi module.  Using the Hwi module with the dispatcher enabled allows SYSBIOS API calls to be made within the USB event handlers.</p>
+    </body>
+</html>

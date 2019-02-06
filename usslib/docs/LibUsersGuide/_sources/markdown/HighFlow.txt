@@ -1,0 +1,77 @@
+Enabling High Water Flow applications
+=====================================
+
+The recommended Delta Time of Flight (DToF) computation option for high water volume flow rates is USS\_Alg\_dToF\_Calculation\_Option\_estimate.
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+       <tr>
+           <th>Expected delta time of Flight</th>
+           <th>Recommended DToF option</th>
+           <th>High flow option</th>
+       </tr>
+       <tr>
+           <td>|max DToF|<= (transducerPeriod / 2) &mu;sec</td>
+           <td>USS_Alg_dToF_Calculation_Option_water</td>
+           <td>USS_highFlow_option_disabled</td>
+       </tr>
+       <tr>
+           <td>|max DToF|> (transducerPeriod / 2) &mu;sec</td>
+           <td>USS_Alg_dToF_Calculation_Option_estimate</td>
+           <td>Don't care</td>
+       </tr>
+   </table>
+
+The table below provides recommended DToF/High flow configurations for typical transducer frequencies in flow meter applications.
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+       <tr>
+           <th>Transducer Frequency</th>
+           <th>Expected <br/> |max DToF|</th>
+           <th>Recommended Recommended DToF option</th>
+           <th>Recommended High flow option</th>
+       </tr>
+       <tr>
+           <td rowspan="2">1 MHz</td>
+           <td> < 0.5 &mu;sec</td>
+           <td>USS_Alg_dToF_Calculation_Option_water</td>
+           <td>USS_highFlow_option_disabled</td>
+       </tr>
+       <tr>
+           <td> >= 0.5 &mu;sec</td>
+           <td>USS_Alg_dToF_Calculation_Option_estimate</td>
+           <td>Don't care</td>
+       </tr>
+       <tr>
+           <td rowspan="2">2 MHz</td>
+           <td> < 0.25 &mu;sec</td>
+           <td>USS_Alg_dToF_Calculation_Option_water</td>
+           <td>USS_highFlow_option_disabled</td>
+       </tr>
+       <tr>
+           <td> >= 0.25 &mu;sec</td>
+           <td>USS_Alg_dToF_Calculation_Option_estimate</td>
+           <td>Don't care</td>
+       </tr>
+   </table>
+
+**IMPORTANT:** The following water high flow options are not recommended for new development. This options have been deprecated and might be removed in the future.
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+       <tr>
+           <th>Delta Time of Flifht</th>
+           <th>Deprecated high flow option</th>
+       </tr>
+       <tr>
+           <td rowspan="2">USS_Alg_dToF_Calculation_Option_water</td>
+           <td>USS_highFlow_option_version1</td>
+       </tr>
+       <tr>
+           <td>USS_highFlow_option_version2 </td> 
+       </tr>
+   </table>

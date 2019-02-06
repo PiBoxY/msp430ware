@@ -1,0 +1,286 @@
+<!--
+`ti-widget-thermometer` is a temperature gauge for display values visually as a thermometer.
+
+Example:
+
+    <ti-widget-thermometer></ti-widget-thermometer>
+
+See demo for a full working example of how to use this component.
+
+@group TI Instrument Widgets
+@element ti-widget-thermometer
+@extends ti-widget-base-gauge
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-instruments/ti-widget-base-gauge.html">
+<link rel="import" href="../ti-widget-common/ti-widget-ruler.html">
+
+<polymer-element name="ti-widget-thermometer" extends="ti-widget-base-gauge">
+    <template>
+        <style>
+            :host 
+            {
+                display: inline-block;
+            }
+            #image {
+                overflow: visible;
+                position: relative;
+                height: 100%;
+                transform: translateX(-50%);
+            }
+            #thermometer {
+                position: relative;
+            }
+            #container {
+                top: 9%;
+                bottom: 22%;
+                position: absolute;
+                left: 50%;
+            }
+            #ruler {
+                width: 1em;
+                height: 100%;
+                position: relative;
+                font-size: {{_scaleFontSize}};
+                left: 0px;
+                top: 0px;
+                color: {{getFontColor(disabled)}};
+            }
+            #title {
+                color: {{getFontColor(disabled)}};
+                font-size: large;
+                white-space: normal;
+                text-align: center;
+                padding: 0px;
+            }
+            #displayValue {
+                color: {{getFontColor(disabled)}};
+                font-size: {{fontSize}};
+                font-weight: bold;
+            }
+            #units {
+                color: {{getFontColor(disabled,'#777')}};
+	            font-size: {{_unitsFontSize}};
+                font-weight: bold;
+                position: absolute;
+                left: 100%;
+                top: 0px;
+            }
+            #topContainer {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        
+        <div id="topContainer" layout vertical> 
+            <label id="title">{{titleLabel}}</label>
+            <div id="thermometer" flex>
+                <div id="container" horizontal layout center-justified start>
+                    <svg id="image" height="100%" viewBox="0 0 25 280" preserveAspectRatio="xMidYMid meet">
+                        <path stroke="none" fill="#edebeb" id="stroke" d="M-12.5,300a35,35,0,1,0,50,0l0,-300a25,25,0,0,0,-50,0Z"></path>
+                        <path stroke="none" fill="red" id="fill" d="M-1.5,305a24,24,0,1,0,28,0l0,-300l-28,0Z"></path>
+                    </svg>
+                    <ti-widget-ruler labels="{{_displayLabels}}" minorticks="{{minorTicks}}" orientation="vertical" id="ruler"></ti-widget-ruler>
+                </div>
+            </div>
+            <div layout horizontal center-justified center>
+                <div style="position: relative;">
+                    <label id="displayValue">{{_displayValue}}</label>
+                       <label id="units">&deg;C</label>
+                </div>
+            </div>
+        </div>
+        
+    </template>
+    
+    <script>
+        Polymer ('ti-widget-thermometer', 
+        {
+            publish: 
+            {
+                /**
+                 * Controls the value to displayed in this gauge.
+                 *
+                 * @attribute value
+                 * @type number 
+                 */
+                 value: 0,
+                 
+                /**
+                 * Provides the textual labels to display for each major tick on the thermometer's ruler.
+                 * The number of major ticks is determined by the number of labels provider here. 
+                 * Labels do not necessarily have be numberic.  Text labels are perfectly acceptable.  It is up to 
+                 * you however make sure the first and last label corresponds to the maxValue and minValue 
+                 * attributes respectively.
+                 * The list of labels must be delimited by comma ',', semicolon ';', or pipe '|' characters.
+                 *
+                 * @attribute labels
+                 * @type list of strings 
+                 */
+                labels: "",
+    
+                /**
+                 * Controls the number of minor ticks to display between  each major tick on the thermometer's ruler.
+                 * Minor ticks do not have any label or text beside with them. 
+                 *
+                 * @attribute minorTicks
+                 * @type list of strings 
+                 * @default 0
+                 */
+                minorTicks: 0,
+                
+                /**
+                 * Provides a unit symbol to display after the degree sign.  For example, C for celcius, F for fareinheiht, or K for kelvin.
+                 *
+                 * @attribute units
+                 * @type string
+                 * @default C
+                 */
+                units : 'C',
+                
+                /**
+                 * <p>Controls the size of the text that is displayed.  Use inherit if
+                 * you wish to inherit the size from the parent container.  The size can
+                 * be one of the following:</p>
+                 * <ul><li>xx-small</li>
+                 * <li>x-small</li><li>small</li><li>medium</li><li>large</li>
+                 * <li>x-large</li><li>xx-large</li><li>smaller</li><li>larger</li><li>inherit</li></ul>
+                 *
+                 * @attribute fontSize
+                 * @type string
+                 * @default inherit
+                 */
+                fontSize: "xx-large"
+            },
+                
+            unitsChanged: function() 
+            {
+                if (!this.$) return;
+                this.$.units.innerHTML = "&deg;" + this.units;
+            },
+            
+            fontSizeChanged: function(){
+                switch (this.fontSize){
+                    case 'xx-large':
+                        this._scaleFontSize = 'small';
+                        break;
+                    case 'x-large':
+                        this._scaleFontSize = 'small';
+                        break;
+                    case 'large':
+                        this._scaleFontSize = 'x-small';
+                        break;
+                    default:
+                        this._scaleFontSize = 'xx-small';
+                        break;
+                }
+                this._unitsFontSize = this._scaleFontSize;
+            },
+            _percentColors : undefined,
+            _scaleFontSize: 'small',
+            _unitsFontSize: 'small',
+            domReady: function(){
+                if (this._percentColors === undefined) {
+                    this._percentColors = ["#559cd7", "#c2c212", "#ef4040"];
+                }
+                // explicitly call change monitors that are protected by 'if (!this.$) return' statements
+                this.unitsChanged();
+                this.fontSizeChanged();
+            },
+            updateGauge: function(pct)
+            {
+                if (!this.$) return;
+                var offset = 280*pct;
+                
+                var path = this.$.fill;
+                var segments = path.pathSegList;
+                segments.getItem(2).y = -(offset + 25);
+                
+                var color = this.getColorForPercentage(pct, this._percentColors);
+                path.setAttribute('fill', color);
+            },
+            
+            labelsChanged: function()
+            {
+                if (this.labels && this.labels.length > 0)
+                {
+                   this._displayLabels = this.labels;
+                }
+                else 
+                {
+                    // compute labels based on minValue and maxValue
+                    var min = +this.minValue;
+                    var max = +this.maxValue;
+                    
+                    // try to pick a reasonable number of major ticks between 3 and 9
+                    var range = (max-min) * 1000;
+                    var majorTicks = 4;
+                    if (range % 1 == 0)
+                    {
+                        var primeNumbers = [ 2, 3, 5, 10, 100, 1000 ];
+                        for(var i = primeNumbers.length-1; i >= 0; i--)
+                        {
+                            var prime = primeNumbers[i];
+                            while (range > prime && range % prime == 0)
+                            {
+                                range = range/prime;
+                            }
+                        }
+                        if ((range > 2 && range < 10) || (range == 2 && ((max-min)/range) % 2 != 0))
+                        {
+                            majorTicks = range;
+                        }
+                    }
+                    
+                    // generate labels based on major ticks
+                    var labels = max + ';';
+                    for(var j = majorTicks; j--> 1;)
+                    {
+                        labels += (j*(max-min)/majorTicks + min) + ';';
+                    }
+                    this._displayLabels = labels + min; 
+                }
+            },
+            minValueChanged : function()
+            {
+                this.labelsChanged();
+                this.updateValue();
+            },
+            maxValueChanged : function()
+            {
+                this.labelsChanged();
+                this.updateValue();
+            }
+
+        });
+    </script>
+</polymer-element>

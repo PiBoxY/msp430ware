@@ -1,0 +1,16 @@
+<projectSpec>
+  <project compilerBuildOptions="-DCTPL_STACK_SIZE=160 -I${PROJECT_ROOT}/fram-utilities/ctpl" device="MSP430FR4133" linkerCommandFile="${PROJECT_ROOT}/fram-utilities/ctpl/devices/msp430fr4133/ctpl_lnk_msp430fr4133.cmd" linkerBuildOptions="--stack_size=160" name="ctpl_ex1_gpio_lpm45_msp-exp430fr4133">
+	<file action="copy" path="../ctpl_ex1_gpio_lpm45_msp-exp430fr4133.c" targetDirectory="." />
+	<file action="copy" path="../../../../src/ctpl/ctpl.c" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/ctpl.h" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/ctpl_copy.h" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/ctpl_benchmark.h" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/ctpl_low_level.asm" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/ctpl_low_level_macros.asm" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/ctpl_low_level.h" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/ctpl_pre_init.c" targetDirectory="." />
+	<file action="copy" path="../../../../src/ctpl/peripherals" targetDirectory="fram-utilities/ctpl" />
+	<file action="copy" path="../../../../src/ctpl/devices/msp430fr4133/ctpl_msp430fr4133.c" targetDirectory="." />
+	<file action="copy" path="../../../../src/ctpl/devices/msp430fr4133/ctpl_lnk_msp430fr4133.cmd" targetDirectory="." />
+  </project>
+</projectSpec>

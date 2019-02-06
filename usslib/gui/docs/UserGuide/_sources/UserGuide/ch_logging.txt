@@ -1,0 +1,44 @@
+Logging
+=======
+
+Logging Information
+-------------------
+
+**Automatic Logging**
+
+Automatic logging functionality exists for the waveform information contained in the Configuration, Waveforms, Debug Waveforms, and ADC Capture tabs.
+
+This option can be enabled by clicking the Options menu at the top, then selecting Logging, and enabling "Automatically Log Data".
+
+.. figure:: images/auto_log.PNG
+   :alt: Enable Automatic Logging
+
+   Enable Automatic Logging
+
+Once this option is selected, incoming data will automatically be divided into files in four automatically-created folders. The location for these folders will default to a USS directory created in your home folder upon installation, at ~home/USS\_VERSION/USSWorkspace/USS\_Project.
+
+.. figure:: images/log_location.PNG
+   :alt: Log Locations
+
+   Log Locations
+
+The location of these four folders can be modified by disabling logging, choosing a new location in the menu under Options → Logging, then reenabling Automatic Logging.
+
+When automatic logging is enabled, all incoming Configuration, Waveform/Debug Plot, and single ADC capture information will be appended to timestamped log files in these folders.
+
+**Error Logging**
+
+USS Design Center maintains an error log in the above-described home directory, at ~home/USS\_VERSION/USS.log.
+
+This log can be helpful for viewing continuous ADC capture HID drop rates or other types of runtime errors.
+
+**Alternative**
+
+By default, automatic logging is disabled. With automatic logging disabled, the user can save these logs by using the corresponding "Save Waveforms" or "Save Capture" buttons on the Waveform graphs and ADC capture graphs. Incoming configuration command data can only be logged via Automatic Logging.
+
+More Information
+----------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

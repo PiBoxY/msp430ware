@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['em_5falgorithm_5fconfiguration',['EM_Algorithm_Configuration',['../em_sw_lib_8h.html#a7f8c1ced728b07b1b156560517dc7dd4',1,'emSwLib.h']]],
+  ['em_5fcurrent_5fsensor',['EM_Current_Sensor',['../em_sw_lib_8h.html#a8964c86faf42d35d4b4dc915f5ccb38c',1,'emSwLib.h']]],
+  ['em_5fenergy_5ft',['EM_Energy_t',['../em_sw_lib_8h.html#af19ef5d36782ea1911ba0a1f4b2726c3',1,'emSwLib.h']]],
+  ['em_5fmessage_5fcode',['EM_message_code',['../em_sw_lib_8h.html#a49eed1476cbc4d90c0ef3708bf776f28',1,'emSwLib.h']]],
+  ['em_5fmeter_5fconfiguration',['EM_Meter_Configuration',['../em_sw_lib_8h.html#acfdf0a5c8cdfd854b9dc01be12996b83',1,'emSwLib.h']]],
+  ['em_5fmetrology',['EM_Metrology',['../em_sw_lib_8h.html#a2e883ea1cc7d80cdfc58bf722eb62dae',1,'emSwLib.h']]],
+  ['em_5fphase',['EM_Phase',['../em_sw_lib_8h.html#aa896fdbe202cc68cd1ea20ca1f3295e5',1,'emSwLib.h']]],
+  ['em_5fphase_5fbg_5fresults',['EM_Phase_BG_Results',['../em_sw_lib_8h.html#a7880bb724e609f02cb3d6a0413e2d5b1',1,'emSwLib.h']]],
+  ['em_5fphase_5fcalibration',['EM_Phase_Calibration',['../em_sw_lib_8h.html#a623e372d150302e4e23639e08e207be6',1,'emSwLib.h']]],
+  ['em_5fphase_5fconfiguration',['EM_Phase_Configuration',['../em_sw_lib_8h.html#ac002052634f8b69b5bf8952ca6a3e803',1,'emSwLib.h']]],
+  ['em_5fphase_5fresults',['EM_Phase_Results',['../em_sw_lib_8h.html#a8189d9c8ea9b05335cec20f66763ad17',1,'emSwLib.h']]],
+  ['em_5fpower_5ft',['EM_Power_t',['../em_sw_lib_8h.html#a749c5a1965a653b8765af560dde565bc',1,'emSwLib.h']]],
+  ['em_5fpulse_5fsettings',['EM_Pulse_Settings',['../em_sw_lib_8h.html#a5e7d7de3e9ae6ce0c56c199516333ef4',1,'emSwLib.h']]],
+  ['em_5fsw_5flib_5fconfig_5fhandle',['EM_SW_Lib_Config_Handle',['../em_sw_lib_8h.html#a837b6a11e53dcd5688fb2c05420e4ff9',1,'emSwLib.h']]],
+  ['em_5fsw_5flib_5fresult_5fhandle',['EM_SW_Lib_Result_Handle',['../em_sw_lib_8h.html#a22b592d72c252500653d07af953b9c53',1,'emSwLib.h']]],
+  ['em_5fsystem_5fconfiguration',['EM_System_Configuration',['../em_sw_lib_8h.html#a85eac103503a6527fda74bf2bbb2e225',1,'emSwLib.h']]],
+  ['em_5ftotal_5fresults',['EM_Total_Results',['../em_sw_lib_8h.html#ae3e8e409f282157e47284db0105b45cd',1,'emSwLib.h']]]
+];

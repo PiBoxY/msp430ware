@@ -1,0 +1,219 @@
+<!--
+`ti-tile-meter` is an empty container widget to host child widgets.  
+
+Example:
+
+    <ti-tile-meter></ti-tile-meter>
+
+See demo for a full working example of how to use this component.
+
+@group Instrument Tiles
+@element ti-tile-meter
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base-text.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="../ti-widget-instruments/ti-widget-gauge.html">
+<link rel="import" href="ti-tile-properties.html">
+<link rel="import" href="ti-tile-base.html">
+<link rel="stylesheet" href="../paper-shadow/paper-shadow.css"  shim-shadowdom>
+
+<polymer-element name="ti-tile-meter" extends="ti-tile-base" >
+
+    <template>
+        <style>
+            :host {
+                display : inline-block;
+                background-color: #ffffff;
+                text-decoration: inherit;
+                position : relative;
+                padding: 1em;
+                width: 150px;
+                min-width: 100px;
+				min-height: 120px;
+                height: 200px;
+            }
+            core-icon-button /deep/ core-icon[role=img] {
+                height: 15px;
+                width: 15px;
+            }
+            #tileTitle {
+                word-wrap:break-word;
+                white-space:normal;
+				text-align: left;
+                z-index: 0;
+                color:{{_titleFontColor}};
+                font-size:{{titlefontSize}};
+                font-weight:{{_titleFontWeight}};
+            }
+            #containerDiv {
+                top: 0px;
+                width: 100%;
+                height:100%;
+                margin: 0;            
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
+            #instrument_div {
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                position: relative;
+            }
+            #instrument {
+				top: 1em;
+                bottom: 1em;
+                position: absolute;
+                padding-right: 1em;
+                padding-left: 1em;
+                display:block;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+            }
+            #editIcon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveLeftIcon {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveRightIcon {
+                position: absolute;
+                top: 0px;
+                right: 20px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #resizeIcon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_resizeCornerColor}};
+            }
+            #pinIcon {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_iconColor}};
+            }
+        </style>
+        <ti-tile-properties id="propertiesDialog" style="width:200px;height:400px;right:30px;" layout></ti-tile-properties>
+        <div id="shadow-bottom" fit  class="paper-shadow-bottom-z-[[elevation]]"></div>
+        <div id="shadow-top" fit animated?="false" class="paper-shadow-top-z-[[elevation]]"></div>
+        <div id="containerDiv" layout vertical >
+            <div id="tileTitle" flex>{{titleText}}</div>
+            <div fit layout vertical center-justified>
+                <div layout horizontal>
+                    <div id="instrument_div" >
+            			<ti-widget-gauge id="instrument" value="{{value}}" units-"{{units}}" titleLabel="" minValue="{{minValue}}" maxValue="{{maxValue}}" units="{{units}}" valueFontSize="{{valueFontSize}}"></ti-widget-gauge>
+                    </div>
+                </div>
+            </div>
+            <template if="{{_inDesigner()}}">
+                <core-icon-button id="editIcon"  icon="create" on-tap="{{editProperties}}" title="edit tile properties" ></core-icon-button>
+                <core-icon-button id="moveLeftIcon"  icon="arrow-back" on-tap="{{moveLeft}}" title="move tile left" style="{{_arrowStyle}}" ></core-icon-button>
+                <core-icon-button id="moveRightIcon" icon="arrow-forward" on-tap="{{moveRight}}" title="move tile right" style="{{_arrowStyle}}"></core-icon-button>
+                <core-icon-button id="resizeIcon"  icon="device:signal-cellular-0-bar"  title="resize tile" ></core-icon-button>
+                <core-icon-button id="pinIcon" icon="{{_pinIcon}}" on-tap="{{togglePin}}" ></core-icon-button>
+            </template>
+
+        </div>
+        <content></content>
+    </template>
+    <script>
+        Polymer ('ti-tile-meter',
+                {
+                    publish: {
+                        titleText: '',
+                        value: 0,
+                        minValue: 0,
+                        maxValue: 100,
+                        units: "",
+                        meterColors:  "#00e000,#00e000,#00e000,#a9d70b,#f9c802,#ff0000",
+                        valueFontSize: "xx-large"
+                    },
+
+                    domReady: function(){
+						this.super();
+                        var _self = this;
+                        this.async(function(){
+                            _self.meterColorsChanged();
+                        },10)
+						this.onResizedByDesigner();
+                    },
+                    getCategory: function() {
+                        return 'Meter';
+                    },
+                    getComponentName: function() {
+                        return 'Multipurpose';
+                    },
+                    getElement : function()
+                    {
+                        if (this.$) {
+                            return this.$.containerDiv;
+                        } else {
+                            return null;
+                        }
+                    },					
+                    meterColorsChanged: function(){
+                        this.$.instrument._percentColors = this.meterColors.split(',');
+                        var _self = this;
+                        this.async(function(){
+                            _self.$.instrument.updateGauge(this.value);
+                        },1)
+
+                    },
+                    onResizedByDesigner: function(){
+                        var rect = this.getBoundingClientRect();
+                        this.$.instrument.style.width = ""+(rect.width-20)+"px";
+                        this.$.instrument.style.height = ""+(rect.height-50)+"px";
+                    }
+                });
+    </script>
+</polymer-element>

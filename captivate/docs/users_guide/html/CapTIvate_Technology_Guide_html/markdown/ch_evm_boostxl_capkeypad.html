@@ -1,0 +1,1679 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BOOSTXL-CAPKEYPAD Development Kit &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="EVM430-CAPMINI" href="ch_evm_CAP_MINI.html"/>
+        <link rel="prev" title="MSP-CAPT-FR2633 Development Kit" href="ch_evm.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_basics.html">Capacitive Sensing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_device.html">Device Family</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm.html">MSP-CAPT-FR2633 Development Kit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BOOSTXL-CAPKEYPAD Development Kit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-devices">Key Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-included">What&#8217;s Included</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kit-contents">Kit Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boostxl-capkeypad-software-examples">BOOSTXL-CAPKEYPAD Software Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host-launchpad-mcu-software-examples">Host LaunchPad MCU Software Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#block-diagram">Block Diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-box-experience-with-captivate-pgmr-and-captivate-design-center">Out-of-Box Experience with CAPTIVATE-PGMR and CapTIvate Design Center</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1-connect-hardware">Step 1: Connect Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-board-wake-up">Step 2: Board Wake-Up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-3-keypad-touch-detection">Step 3: Keypad Touch Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-4-using-captivate-design-center">Step 4: Using CapTIvate Design Center</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-box-experience-with-msp-exp430fr6989-segmented-lcd">Out-of-Box Experience with MSP-EXP430FR6989 + Segmented LCD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1-program-launchpad">Step 1: Program LaunchPad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-assemble-hardware">Step 2: Assemble Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-3-power-up-and-test">Step 3: Power Up and Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-box-experience-with-msp-exp430f5529lp-qvga-host-demo">Out-of-Box Experience with MSP-EXP430F5529LP + QVGA Host Demo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Step 1: Program LaunchPad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Step 2: Assemble Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Step 3: Power Up and Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-box-experience-with-msp-exp430f5529lp-as-a-usb-keyboard">Out-of-Box Experience with MSP-EXP430F5529LP as a USB Keyboard</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Step 1: Program LaunchPad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Step 2: Assemble Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Step 3: Power Up and Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mechanical-design">Mechanical Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connection-headers">Connection Headers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#launchpad-interface-boosterpack-header">LaunchPad Interface (BoosterPack Header)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#captivate-pgmr-interface">CAPTIVATE-PGMR Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prototyping-interface">Prototyping Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-jumpers">Configuration Jumpers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rx-tx-jumpers">RX/TX Jumpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#v-supply">V+ Supply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#irq-pin-location">IRQ Pin Location</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#software-examples">Software Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-an-example-project">Running an Example Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-project-locations">Example Project Locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boostxl-capkeypad-out-of-box-software-example">BOOSTXL-CAPKEYPAD Out-of-Box Software Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#boostxl-capkeypad-emc-noise-immunity-software-example">BOOSTXL-CAPKEYPAD-EMC Noise Immunity Software Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#boostxl-capkeypad-prototyping-software-example">BOOSTXL-CAPKEYPAD-Prototyping Software Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#boostxl-capkeypad-demo-i2c-slave-register-map-specification">BOOSTXL-CAPKEYPAD-Demo I2C Slave Register Map Specification</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-slave-address">I2C Slave Address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-register-file">I2C Register File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-register-description-0x00-control-word-lower-8-bits">I2C Register Description: 0x00, Control Word Lower 8 Bits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-register-description-0x01-control-word-upper-8-bits">I2C Register Description: 0x01, Control Word Upper 8 Bits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-register-description-0x02-status-word-lower-8-bits">I2C Register Description: 0x02, Status Word Lower 8 Bits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-register-description-0x03-status-word-upper-8-bits">I2C Register Description: 0x03, Status Word Upper 8 Bits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-register-description-0x04-last-status-word-lower-8-bits">I2C Register Description: 0x04, Last Status Word Lower 8 Bits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">I2C Register Description: 0x03, Status Word Upper 8 Bits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#boostxl-capkeypad-demo-i2c-transaction-example">BOOSTXL-CAPKEYPAD-Demo I2C Transaction Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#writing-to-the-control-word">Writing To The Control Word</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reading-the-status-words">Reading The Status Words</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#power-consumption">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conducted-noise-immunity">Conducted Noise Immunity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schematics">Schematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layout">Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_CAP_MINI.html">EVM430-CAPMINI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_workshop.html">Workshop (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>BOOSTXL-CAPKEYPAD Development Kit</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="boostxl-capkeypad-development-kit">
+<h1>BOOSTXL-CAPKEYPAD Development Kit<a class="headerlink" href="#boostxl-capkeypad-development-kit" title="Permalink to this headline">¶</a></h1>
+<p>The BOOSTXL-CAPKEYPAD is an easy-to-use evaluation module (EVM) for the MSP430FR2522 capacitive touch sensing microcontroller (MCU) with CapTIvate technology. The BOOSTXL-CAPKEYPAD enables you to extend your LaunchPad design by adding a 12-key capacitive touch numeric keypad with LED backlighting and proximity wake-up. Don&#8217;t have a LaunchPad? The BOOSTXL-CAPKEYPAD may be used as a simple CapTIvate technology evaluation module when coupled with the <a class="reference external" href="ch_evm.html#captivate-pgmr-programmer-pcb-overview">CAPTIVATE-PGMR</a> for interfacing to a host PC running the <a class="reference external" href="http://www.ti.com/tool/MSPCAPTDSNCTR">CapTIvate Design Center</a>. It is even possible to bypass the onboard keypad and connect up to 3 external capacitive sensors to the BOOSTXL-CAPKEYPAD to test out your own sensor design concepts.</p>
+<p>This chapter of the CapTIvate Technology Guide contains the following sections:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#overview">Overview</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#getting-started">Getting Started</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#hardware">Hardware</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#software-examples">Software Examples</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#resources">Resources</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#schematics">Schematics</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#layout">Layout</a></li>
+</ol>
+<p>To order a BOOSTXL-CAPKEYPAD, visit the <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">tool folder</a>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Out of the box, the BOOSTXL-CAPKEYPAD powers up as a 12-key numeric keypad capacitive touch interface with proximity wake-up. The status of the keypad may be easily read by a host LaunchPad via a 3-pin I2C-bus interface (SDA, SCL, and IRQ). In addition to the host I2C interface, sensor data streaming is enabled out of the box to the CapTIvate Design Center via the UART interface in the 20-pin CapTIvate programming connector. The BOOSTXL-CAPKEYPAD may also be programmed and debugged via the 20-pin CapTIvate programming connector and the use of a <a class="reference external" href="ch_evm.html#captivate-pgmr-programmer-pcb-overview">CAPTIVATE-PGMR</a> module.</p>
+<div class="figure" id="id14">
+<img alt="BOOSTXL-CAPKEYPAD" src="../_images/Photo_Top1.png" />
+<p class="caption"><span class="caption-number">Fig. 278 </span><span class="caption-text">BOOSTXL-CAPKEYPAD</span></p>
+</div>
+<div class="section" id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD has the following key features:</p>
+<ul class="simple">
+<li>12-key numeric keypad for entering values to a host MCU</li>
+<li>Short-range proximity wake-up option to detect when a user is close to the touch panel</li>
+<li>Guard channel rejection algorithm to prevent invalid touches from being reported due to a palm resting on the keypad</li>
+<li>LED backlighting of electrodes with fade-in/fade-out capability</li>
+<li>3-wire I2C interface to a host processor (SDA, SCL, IRQ)</li>
+<li>2-wire UART interface to a <a class="reference external" href="ch_evm.html#captivate-pgmr-programmer-pcb-overview">CAPTIVATE-PGMR</a> for capacitive touch tuning and evaluation</li>
+<li>3-pin prototyping header allows 3 touch sensing lines from the keypad to be re-purposed for general purpose capacitive touch prototyping</li>
+<li>Power selection jumper for external current measurement or current measurement using EnergyTrace technology. For EnergyTrace support, the BOOSTXL-CAPKEYPAD must be used with a <a class="reference external" href="ch_evm.html#captivate-pgmr-programmer-pcb-overview">CAPTIVATE-PGMR</a> module.</li>
+</ul>
+</div>
+<div class="section" id="key-devices">
+<h3>Key Devices<a class="headerlink" href="#key-devices" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD features the following integrated circuit devices:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ti.com/product/msp430fr2522">MSP430FR2522</a> ultra-low-power MCU with noise-tolerant CapTIvate technology</li>
+<li><a class="reference external" href="http://www.ti.com/product/lp3943">LP3943</a> 16-channel LED driver with independent string control via SMBUS/I2C</li>
+</ul>
+</div>
+<div class="section" id="what-s-included">
+<h3>What&#8217;s Included<a class="headerlink" href="#what-s-included" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD comes with the following hardware and software:</p>
+<div class="section" id="kit-contents">
+<h4>Kit Contents<a class="headerlink" href="#kit-contents" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>1 <em>BOOSTXL-CAPKEYPAD</em> Development Board</li>
+<li>1 Quick Start Guide</li>
+</ul>
+</div>
+<div class="section" id="boostxl-capkeypad-software-examples">
+<h4>BOOSTXL-CAPKEYPAD Software Examples<a class="headerlink" href="#boostxl-capkeypad-software-examples" title="Permalink to this headline">¶</a></h4>
+<p>The following software examples are available to run on the MSP430FR2522 MCU on the BOOSTXL-CAPKEYPAD:</p>
+<ul class="simple">
+<li><strong>BOOSTXL-CAPKEYPAD</strong> out-of-box demonstration (pre-programmed on a new BOOSTXL-CAPKEYPAD)</li>
+<li><strong>BOOSTXL-CAPKEYPAD-EMC</strong> conducted noise immunity demonstration</li>
+<li><strong>BOOSTXL-CAPKEYPAD-Prototyping</strong> self-capacitance prototyping example</li>
+</ul>
+</div>
+<div class="section" id="host-launchpad-mcu-software-examples">
+<h4>Host LaunchPad MCU Software Examples<a class="headerlink" href="#host-launchpad-mcu-software-examples" title="Permalink to this headline">¶</a></h4>
+<p>The following software examples are available to run on a variety of host LaunchPads, demonstrating how the BOOSTXL-CAPKEYPAD could be used to extend a LaunchPad design by adding keypad functionality.</p>
+<ul class="simple">
+<li><strong>MSP-EXP430FR6989</strong> LaunchPad host processor demonstration</li>
+<li><strong>MSP-EXP430F5529LP</strong> LaunchPad + Kentec QVGA LCD host processor demonstration</li>
+</ul>
+</div>
+</div>
+<div class="section" id="block-diagram">
+<h3>Block Diagram<a class="headerlink" href="#block-diagram" title="Permalink to this headline">¶</a></h3>
+<p>The functional block diagram for the BOOSTXL-CAPKEYPAD is shown below.</p>
+<div class="figure" id="id15">
+<img alt="BOOSTXL-CAPKEYPAD" src="../_images/bd.gif" />
+<p class="caption"><span class="caption-number">Fig. 279 </span><span class="caption-text">BOOSTXL-CAPKEYPAD</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>This section outlines how to get started with the kit. There are two ways to get started with the BOOSTXL-CAPKEYPAD:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#out-of-box-experience-with-captivate-pgmr-and-captivate-design-center">Using the BOOSTXL-CAPKEYPAD with the CAPTIVATE-PGMR and CapTIvate Design Center</a></li>
+<li>Using the BOOSTXL-CAPKEYPAD with a LaunchPad Host MCU<ol class="loweralpha">
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#out-of-box-experience-with-msp-exp430fr6989-segmented-lcd">MSP-EXP430FR6989 Host LaunchPad with Segmented LCD</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#out-of-box-experience-with-msp-exp430f5529lp-qvga-host-demo">MSP-EXP430F5529LP Host LaunchPad with QVGA BoosterPack</a></li>
+<li><a class="reference external" href="ch_evm_boostxl_capkeypad.html#out-of-box-experience-with-msp-exp430f5529lp-as-a-usb-keyboard">MSP-EXP430F5529LP Host LaunchPad as a USB Keyboard</a></li>
+</ol>
+</li>
+</ol>
+<div class="section" id="out-of-box-experience-with-captivate-pgmr-and-captivate-design-center">
+<h3>Out-of-Box Experience with CAPTIVATE-PGMR and CapTIvate Design Center<a class="headerlink" href="#out-of-box-experience-with-captivate-pgmr-and-captivate-design-center" title="Permalink to this headline">¶</a></h3>
+<p>This out-of-box experience describes how to use the BOOSTXL-CAPKEYPAD with the CAPTIVATE-PGMR module and CapTIvate Design Center.</p>
+<p><strong>Required Tools</strong></p>
+<ul class="simple">
+<li>The latest <a class="reference external" href="http://www.ti.com/tool/MSPCAPTDSNCTR">CapTIvate Design Center</a> PC GUI Tool must be installed on a host PC, Mac, or Linux machine</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/msp-capt-fr2633">CAPTIVATE-PGMR</a> module is required to interface the BOOSTXL-CAPKEYPAD to the host PC</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">BOOSTXL-CAPKEYPAD</a> programmed with the BOOSTXL-CAPKEYPAD-Demo firmware example</li>
+<li>A micro-USB cable is required to connect the CAPTIVATE-PGMR to the host PC</li>
+</ul>
+<p><strong>Assumptions</strong></p>
+<ul class="simple">
+<li>This guide assumes that CapTIvate Design Center is already installed on the host PC. For installation instructions, see the <a class="reference external" href="ch_designcenter.html">CapTIvate Design Center</a> chapter.</li>
+</ul>
+<div class="section" id="step-1-connect-hardware">
+<h4>Step 1: Connect Hardware<a class="headerlink" href="#step-1-connect-hardware" title="Permalink to this headline">¶</a></h4>
+<p>Connect the BOOSTXL-CAPKEYPAD to a CAPTIVATE-PGMR module via the 20-pin programming interface connector at the top of the BOOSTXL-CAPKEYPAD, as shown below. Then, connect the CAPTIVATE-PGMR to a host computer with a micro-USB cable. When the board combo is connected to the host computer, the power-good LED should be lit, and the enumeration LED should be blinking. When communication activity is occurring, the red communications LED will illuminate.</p>
+<div class="figure" id="id16">
+<img alt="BOOSTXL-CAPKEYPAD with CAPTIVATE-PGMR and Host Computer" src="../_images/evm_demo_setup_boostxl.png" />
+<p class="caption"><span class="caption-number">Fig. 280 </span><span class="caption-text">BOOSTXL-CAPKEYPAD with CAPTIVATE-PGMR and Host Computer</span></p>
+</div>
+</div>
+<div class="section" id="step-2-board-wake-up">
+<h4>Step 2: Board Wake-Up<a class="headerlink" href="#step-2-board-wake-up" title="Permalink to this headline">¶</a></h4>
+<p>With the BOOSTXL-CAPKEYPAD powered up, bring your hand close the BOOSTXL-CAPKEYPAD touch panel. The buttons should transition from dark to illuminated as shown. When you remove your hand from the keypad area, the keypad will time out after a period of inactivity and return to the wake-on-proximity mode. At that point, the LED backlighting will fade off. The <strong>AWAKE</strong> status LED on the BOOSTXL-CAPKEYPAD will also illuminate when the board is running in active mode.</p>
+<div class="figure" id="id17">
+<img alt="BOOSTXL-CAPKEYPAD in Wake-on-Prox Mode" src="../_images/Top_PGMR_Dark.png" />
+<p class="caption"><span class="caption-number">Fig. 281 </span><span class="caption-text">BOOSTXL-CAPKEYPAD in Wake-on-Prox Mode</span></p>
+</div>
+<div class="figure" id="id18">
+<img alt="BOOSTXL-CAPKEYPAD in Active Mode" src="../_images/Top_PGMR_Lit.png" />
+<p class="caption"><span class="caption-number">Fig. 282 </span><span class="caption-text">BOOSTXL-CAPKEYPAD in Active Mode</span></p>
+</div>
+<p>The wake-on-proximity functionality allows for power savings when the keypad is not used. The electrodes are not lit when no one is near the electrodes, and only the proximity sensor is scanned. When a user is detected close to the panel, all touch electrodes become active.</p>
+</div>
+<div class="section" id="step-3-keypad-touch-detection">
+<h4>Step 3: Keypad Touch Detection<a class="headerlink" href="#step-3-keypad-touch-detection" title="Permalink to this headline">¶</a></h4>
+<p>Bring a hand near the keypad area again, and touch one of the keypad buttons. The <strong>DETECT</strong> LED illuminates what a button is touched.</p>
+<div class="figure" id="id19">
+<img alt="BOOSTXL-CAPKEYPAD in Active Mode" src="../_images/Top_PGMR_Lit_DetectLit.png" />
+<p class="caption"><span class="caption-number">Fig. 283 </span><span class="caption-text">BOOSTXL-CAPKEYPAD in Active Mode</span></p>
+</div>
+<p>The BOOSTXL-CAPKEYPAD will pass individual touches on electrodes, but it rejects a palm across the keypad. this feature enables the touch panel area to be cleaned while powered up, without reporting invalid touches. To test this feature, place a palm across the keypad, and note that the <strong>DETECT</strong> LED does not illuminate.</p>
+<div class="figure" id="id20">
+<img alt="BOOSTXL-CAPKEYPAD in Active Mode" src="../_images/BOOSTXL-CAPKEYPAD_Top_PGMR_Lit_DetectGuarded.png" />
+<p class="caption"><span class="caption-number">Fig. 284 </span><span class="caption-text">BOOSTXL-CAPKEYPAD in Active Mode</span></p>
+</div>
+</div>
+<div class="section" id="step-4-using-captivate-design-center">
+<h4>Step 4: Using CapTIvate Design Center<a class="headerlink" href="#step-4-using-captivate-design-center" title="Permalink to this headline">¶</a></h4>
+<p>Open CapTIvate Design Center on the host computer.</p>
+<div class="figure" id="id21">
+<img alt="CapTIvate Design Center Shortcut" src="../_images/cdc_quickstart_desktop_shortcut.png" />
+<p class="caption"><span class="caption-number">Fig. 285 </span><span class="caption-text">CapTIvate Design Center Shortcut</span></p>
+</div>
+<p>Select <em>File</em> -&gt; <em>Project Open</em> from the menu bar. Then select the <em>BOOSTXL-CAPKEYPAD-Demo</em> project folder, and select <em>Open</em>.</p>
+<div class="figure" id="id22">
+<img alt="BOOSTXL-CAPKEYPAD-Demo Project Open" src="../_images/project_open_basic.png" />
+<p class="caption"><span class="caption-number">Fig. 286 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-Demo Project Open</span></p>
+</div>
+<p>When the project opens, the design canvas should match the image below. There are three objects in this design:</p>
+<ol class="arabic simple">
+<li>MSP430FR2522IRHL20 controller</li>
+<li>keypadSensor button group</li>
+<li>proximitySensor proximity sensor</li>
+</ol>
+<div class="figure" id="id23">
+<img alt="BOOSTXL-CAPKEYPAD-Demo Project Canvas" src="../_images/project_canvas_basic.png" />
+<p class="caption"><span class="caption-number">Fig. 287 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-Demo Project Canvas</span></p>
+</div>
+<p>With the BOOSTXL-CAPKEYPAD and CAPTIVATE-PGMR assembly connected to the host computer via USB, select <em>Communications</em> -&gt; <em>Connect</em> from the menu bar in CapTIvate Design Center to enable target communications. At this point, when you touch a button, the button status is reflected in the CapTIvate Design Center.</p>
+<div class="figure" id="id24">
+<img alt="BOOSTXL-CAPKEYPAD-Demo Project Canvas, Buttons 1 and 2 Touched" src="../_images/project_canvas_basic_touched.png" />
+<p class="caption"><span class="caption-number">Fig. 288 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-Demo Project Canvas, Buttons 1 and 2 Touched</span></p>
+</div>
+<p>Open the keypadSensor customizer by double-clicking the keypadSensor icon on the canvas. The <em>Channel Bar Chart</em> view will open by default. Touch any of the keys on the BOOSTXL-CAPKEYPAD to view the response in the customizer. All sensors on the BOOSTXL-CAPKEYPAD are mutual capacitance sensors. This means that touching a sensor reduces the capacitance of the electrode, causing the conversion result (in charge transfer counts) to increase. The capture below shows the response on button 1 when it is pressed. The default <em>Channel Bar Chart</em> tab is ideal for examining threshold levels.</p>
+<div class="figure" id="id25">
+<img alt="BOOSTXL-CAPKEYPAD-Demo Project Canvas, Button 1 Touched" src="../_images/project_customizer_basic_touched.png" />
+<p class="caption"><span class="caption-number">Fig. 289 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-Demo Project Canvas, Button 1 Touched</span></p>
+</div>
+<p>To view a histogram of a touch, switch to the <em>Channel Oscilloscope Plot</em>. The oscilloscope plot is ideal for examining filter performance and noise immunity.</p>
+<div class="figure" id="id26">
+<img alt="BOOSTXL-CAPKEYPAD-Demo Project Canvas, Button 1 Touched" src="../_images/project_customizer_basic_touched_osc.png" />
+<p class="caption"><span class="caption-number">Fig. 290 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-Demo Project Canvas, Button 1 Touched</span></p>
+</div>
+<p>Close the keypadSensor customizer, and open the proximitySensor customizer by double-clicking it. Then, bring a hand near the keypad area and observe the proximity sensing response. Note that the response increases rapidly as the distance between the hand and the keypad area is reduced. The proximity sensor also doubles as a guard channel. The prox threshold (drawn in orange in the CapTIvate Design Center) is used as the wake-up threshold. The touch threshold (drawn in green) is used as the guard channel threshold. The guard channel is used as a mask to prevent false touch detections from a palm resting on the keypad or a cloth wiping down the keypad.</p>
+<div class="figure" id="id27">
+<img alt="BOOSTXL-CAPKEYPAD-Demo Project Canvas, Button 1 Touched" src="../_images/project_customizer_basic_prox.png" />
+<p class="caption"><span class="caption-number">Fig. 291 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-Demo Project Canvas, Button 1 Touched</span></p>
+</div>
+<p>This concludes the out-of-box demonstration of the BOOSTXL-CAPKEYPAD with the CAPTIVATE-PGMR and CapTIvate Design Center.</p>
+</div>
+</div>
+<div class="section" id="out-of-box-experience-with-msp-exp430fr6989-segmented-lcd">
+<h3>Out-of-Box Experience with MSP-EXP430FR6989 + Segmented LCD<a class="headerlink" href="#out-of-box-experience-with-msp-exp430fr6989-segmented-lcd" title="Permalink to this headline">¶</a></h3>
+<p>This example demonstrates how to mate the <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">BOOSTXL-CAPKEYPAD</a> to an <a class="reference external" href="http://www.ti.com/tool/msp-exp430fr6989">MSP-EXP430FR6989 LaunchPad</a>.</p>
+<p><strong>Required Tools</strong></p>
+<ul class="simple">
+<li>The latest <a class="reference external" href="http://www.ti.com/tool/MSPCAPTDSNCTR">CapTIvate Design Center</a> PC GUI Tool must be installed on a host PC, Mac, or Linux machine</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">BOOSTXL-CAPKEYPAD</a> programmed with the BOOSTXL-CAPKEYPAD-Demo firmware example</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/msp-exp430fr6989">MSP-EXP430FR6989 LaunchPad</a></li>
+<li>A micro-USB cable is required to connect the MSP-EXP430FR6989 to the host computer</li>
+</ul>
+<p><strong>Assumptions</strong></p>
+<ul class="simple">
+<li>This guide assumes that CapTIvate Design Center is already installed on the host PC. For installation instructions, see the <a class="reference external" href="ch_designcenter.html">CapTIvate Design Center</a> chapter.</li>
+</ul>
+<div class="section" id="step-1-program-launchpad">
+<h4>Step 1: Program LaunchPad<a class="headerlink" href="#step-1-program-launchpad" title="Permalink to this headline">¶</a></h4>
+<p>Before connecting the LaunchPad to the BoosterPack, it is good practice to program it first to ensure that there are no IO assignment conflicts. The LaunchPad software example is stored in the CapTIvate Design Center workspace in the BOOSTXL-CAPKEYPAD project directory. Within the BOOSTXL-CAPKEYPAD project directory, there is a sub folder named <em>hostmcu_demo_src</em>. This contains the LaunchPad example projects. For this demo, the host project is <em>MSP-EXP430FR6989_KeypadHostDemo_SEGLCD</em>. If you are using the default installation directories, this location would be as follows:</p>
+<blockquote>
+<div><em>C:/Users/USERNAME/CapTIvateDesignCenter_X_XX_XX_XX/CapTIvateDesignCenterWorkspace/BOOSTXL-CAPKEYPAD/hostmcu_demo_src/MSP-EXP430FR6989_KeypadHostDemo_SEGLCD</em></div></blockquote>
+<p>Import this example project into Code Composer Studio or IAR Embedded Workbench. Then, compile and build the project and load it onto the LaunchPad. For instructions on how to import a project into CCS or IAR, view the <a class="reference external" href="ch_designcenter.html#loading-and-running-generated-projects">loading and running generated projects</a> guide in the CapTIvate Design Center chapter.</p>
+</div>
+<div class="section" id="step-2-assemble-hardware">
+<h4>Step 2: Assemble Hardware<a class="headerlink" href="#step-2-assemble-hardware" title="Permalink to this headline">¶</a></h4>
+<p>Next, disconnect the LaunchPad from the USB cable in order to remove power. Then, connect the LaunchPad to the BOOSTXL-CAPKEYPAD to create a 2-board stack, as shown below. This uses headers J1-J4 on the BOOSTXL-CAPKEYPAD, as well as J1-J4 on the LaunchPad. The assembled stack is shown below.</p>
+<div class="figure" id="id28">
+<img alt="BOOSTXL-CAPKEYPAD w/ MSP-EXP430FR6989" src="../_images/FR6989LP_BP.png" />
+<p class="caption"><span class="caption-number">Fig. 292 </span><span class="caption-text">BOOSTXL-CAPKEYPAD w/ MSP-EXP430FR6989</span></p>
+</div>
+</div>
+<div class="section" id="step-3-power-up-and-test">
+<h4>Step 3: Power Up and Test<a class="headerlink" href="#step-3-power-up-and-test" title="Permalink to this headline">¶</a></h4>
+<p>Reconnect power to the LaunchPad by reconnecting the USB cable. Then, touch any of the buttons on the BOOSTXL-CAPKEYPAD to see the keystrokes logged onto the LCD. Up to 6 keystrokes may be entered at a time. Touching the enter or cancel keys displays enter or cancel on the LCD display, respectively. If the keypad is not touched for a period of time, it will shut down into is wake-on-proximity mode, and the LCD display will clear.</p>
+<p><strong>DONE!</strong> This concludes the BOOSTXL-CAPKEYPAD + MSP-EXP430FR6989 + Segmented LCD demo. Feel free to build your own code on top of the examples!</p>
+</div>
+<div class="section" id="troubleshooting">
+<h4>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h4>
+<p>If the BoosterPack is not responsive after providing power, it may not have the default BOOSTXL-CAPKEYPAD-Demo software programmed on it. This can happen if it was reprogrammed with a different application at some point. If you experience this issue, ensure that the correct demo software is programmed to the BOOSTXL-CAPKEYPAD. Programming the BOOSTXL-CAPKEYPAD requires the use of a CAPTIVATE-PGMR module.</p>
+</div>
+</div>
+<div class="section" id="out-of-box-experience-with-msp-exp430f5529lp-qvga-host-demo">
+<h3>Out-of-Box Experience with MSP-EXP430F5529LP + QVGA Host Demo<a class="headerlink" href="#out-of-box-experience-with-msp-exp430f5529lp-qvga-host-demo" title="Permalink to this headline">¶</a></h3>
+<p>This example demonstrates how to mate the <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">BOOSTXL-CAPKEYPAD</a> to an <a class="reference external" href="http://www.ti.com/tool/msp-exp430f5529lp">MSP-EXP430F5529LP LaunchPad</a> as well as a <a class="reference external" href="http://www.ti.com/tool/boostxl-k350qvg-s1">BOOSTXL-K350QVG-S1</a> 3.5&#8221; 320x240 QVGA LCD display panel.</p>
+<p><strong>Required Tools</strong></p>
+<ul class="simple">
+<li>The latest <a class="reference external" href="http://www.ti.com/tool/MSPCAPTDSNCTR">CapTIvate Design Center</a> PC GUI Tool must be installed on a host PC, Mac, or Linux machine</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">BOOSTXL-CAPKEYPAD</a> programmed with the BOOSTXL-CAPKEYPAD-Demo firmware example</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/boostxl-k350qvg-s1">BOOSTXL-K350QVG-S1</a></li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/msp-exp430f5529lp">MSP-EXP430F5529LP LaunchPad</a></li>
+<li>A micro-USB cable is required to connect the MSP-EXP430F5529LP to the host computer</li>
+</ul>
+<p><strong>Assumptions</strong></p>
+<ul class="simple">
+<li>This guide assumes that CapTIvate Design Center is already installed on the host PC. For installation instructions, see the <a class="reference external" href="ch_designcenter.html">CapTIvate Design Center</a> chapter.</li>
+</ul>
+<div class="section" id="id1">
+<h4>Step 1: Program LaunchPad<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Before connecting the LaunchPad to the BoosterPack, it is good practice to program it first to ensure that there are no IO assignment conflicts. The LaunchPad software example is stored in the CapTIvate Design Center workspace in the BOOSTXL-CAPKEYPAD project directory. Within the BOOSTXL-CAPKEYPAD project directory, there is a sub folder named <em>hostmcu_demo_src</em>. This contains the LaunchPad example projects. For this demo, the host project is <em>MSP-EXP430F5529LP_KeypadHostDemo_QVGA</em>. If you are using the default installation directories, this location would be as follows:</p>
+<blockquote>
+<div><em>C:/Users/USERNAME/CapTIvateDesignCenter_X_XX_XX_XX/CapTIvateDesignCenterWorkspace/BOOSTXL-CAPKEYPAD/hostmcu_demo_src/MSP-EXP430F5529LP_KeypadHostDemo_QVGA</em></div></blockquote>
+<p>Import this example project into Code Composer Studio or IAR Embedded Workbench. Then, compile and build the project. Connect the MSP-EXP430F5529LP to the host computer with USB cable, and download the demo project to the LaunchPad. For instructions on how to import a project into CCS or IAR, view the <a class="reference external" href="ch_designcenter.html#loading-and-running-generated-projects">loading and running generated projects</a> guide in the CapTIvate Design Center chapter.</p>
+</div>
+<div class="section" id="id2">
+<h4>Step 2: Assemble Hardware<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Next, disconnect the LaunchPad from the USB cable in order to remove power. Then, connect the LaunchPad to the top of the BOOSTXL-CAPKEYPAD to create a 2-board stack. This uses headers J1-J4 on the BOOSTXL-CAPKEYPAD, as well as J1-J4 on the LaunchPad. Once the keypad and LaunchPad are connected, attach the QVGA LCD BoosterPack on top of the LaunchPad, creating a 3-board stack. The assembled stack is shown below.</p>
+<div class="figure" id="id29">
+<img alt="BOOSTXL-CAPKEYPAD w/ MSP-EXP430F5529LP and BOOSTXL-K350QVG-S1 - Perspective View" src="../_images/Top_LP_Stackup_LCD.png" />
+<p class="caption"><span class="caption-number">Fig. 293 </span><span class="caption-text">BOOSTXL-CAPKEYPAD w/ MSP-EXP430F5529LP and BOOSTXL-K350QVG-S1 - Perspective View</span></p>
+</div>
+<div class="figure" id="id30">
+<img alt="BOOSTXL-CAPKEYPAD w/ MSP-EXP430F5529LP and BOOSTXL-K350QVG-S1 - Side View" src="../_images/Side_LP_Stackup.png" />
+<p class="caption"><span class="caption-number">Fig. 294 </span><span class="caption-text">BOOSTXL-CAPKEYPAD w/ MSP-EXP430F5529LP and BOOSTXL-K350QVG-S1 - Side View</span></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Step 3: Power Up and Test<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Reconnect power to the LaunchPad by reconnecting the USB cable. Then, touch any of the buttons on the BOOSTXL-CAPKEYPAD to see the keystrokes logged onto the LCD!</p>
+<p><strong>DONE!</strong> This concludes the BOOSTXL-CAPKEYPAD + MSP-EXP430F5529LP + QVGA LCD demo. Feel free to build your own code on top of the examples!</p>
+</div>
+<div class="section" id="id4">
+<h4>Troubleshooting<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>If the BoosterPack is not responsive after providing power, it may not have the default BOOSTXL-CAPKEYPAD-Demo software programmed on it. This can happen if it was reprogrammed with a different application at some point. If you experience this issue, ensure that the correct demo software is programmed to the BOOSTXL-CAPKEYPAD. Programming the BOOSTXL-CAPKEYPAD requires the use of a CAPTIVATE-PGMR module.</p>
+</div>
+</div>
+<div class="section" id="out-of-box-experience-with-msp-exp430f5529lp-as-a-usb-keyboard">
+<h3>Out-of-Box Experience with MSP-EXP430F5529LP as a USB Keyboard<a class="headerlink" href="#out-of-box-experience-with-msp-exp430f5529lp-as-a-usb-keyboard" title="Permalink to this headline">¶</a></h3>
+<p>This example demonstrates how to mate the <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">BOOSTXL-CAPKEYPAD</a> to an <a class="reference external" href="http://www.ti.com/tool/msp-exp430f5529lp">MSP-EXP430F5529LP LaunchPad</a> in order to implement a 12-key numeric keypad with USB HID connectivity. The final completed BOOSTXL-CAPKEYPAD + MSP-ESP430F5529LP stack will enumerate on a host computer as a USB keyboard. Then, you can use the BOOSTXL-CAPKEYPAD to enter numbers into any running application on your host computer that takes keystrokes.</p>
+<p><strong>Required Tools</strong></p>
+<ul class="simple">
+<li>The latest <a class="reference external" href="http://www.ti.com/tool/MSPCAPTDSNCTR">CapTIvate Design Center</a> PC GUI Tool must be installed on a host PC, Mac, or Linux machine</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/boostxl-capkeypad">BOOSTXL-CAPKEYPAD</a> programmed with the BOOSTXL-CAPKEYPAD-Demo firmware example</li>
+<li>A <a class="reference external" href="http://www.ti.com/tool/msp-exp430f5529lp">MSP-EXP430F5529LP LaunchPad</a></li>
+<li>A micro-USB cable is required to connect the MSP-EXP430F5529LP to the host computer</li>
+</ul>
+<p><strong>Assumptions</strong></p>
+<ul class="simple">
+<li>This guide assumes that CapTIvate Design Center is already installed on the host PC. For installation instructions, see the <a class="reference external" href="ch_designcenter.html">CapTIvate Design Center</a> chapter.</li>
+</ul>
+<div class="section" id="id5">
+<h4>Step 1: Program LaunchPad<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Before connecting the LaunchPad to the BoosterPack, it is good practice to program it first to ensure that there are no IO assignment conflicts. The LaunchPad software example is stored in the CapTIvate Design Center workspace in the BOOSTXL-CAPKEYPAD project directory. Within the BOOSTXL-CAPKEYPAD project directory, there is a sub folder named <em>hostmcu_demo_src</em>. This contains the LaunchPad example projects. For this demo, the host project is <em>MSP-EXP430F5529LP_KeypadHostDemo_USBNumPad</em>. If you are using the default installation directories, this location would be as follows:</p>
+<blockquote>
+<div><em>C:/Users/USERNAME/CapTIvateDesignCenter_X_XX_XX_XX/CapTIvateDesignCenterWorkspace/BOOSTXL-CAPKEYPAD/hostmcu_demo_src/MSP-EXP430F5529LP_KeypadHostDemo_USBNumPad</em></div></blockquote>
+<p>Import this example project into Code Composer Studio or IAR Embedded Workbench. Then, compile and build the project. Connect the MSP-EXP430F5529LP to the host computer with USB cable, and download the demo project to the LaunchPad. For instructions on how to import a project into CCS or IAR, view the <a class="reference external" href="ch_designcenter.html#loading-and-running-generated-projects">loading and running generated projects</a> guide in the CapTIvate Design Center chapter.</p>
+</div>
+<div class="section" id="id6">
+<h4>Step 2: Assemble Hardware<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Next, disconnect the LaunchPad from the USB cable in order to remove power. Then, connect the LaunchPad to the top of the BOOSTXL-CAPKEYPAD to create a 2-board stack. This uses headers J1-J4 on the BOOSTXL-CAPKEYPAD, as well as J1-J4 on the LaunchPad.</p>
+</div>
+<div class="section" id="id7">
+<h4>Step 3: Power Up and Test<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Reconnect power to the LaunchPad by reconnecting the USB cable. Then, touch any of the buttons on the BOOSTXL-CAPKEYPAD to see the keystrokes logged on a running computer. To prevent corruption of any open documents, it&#8217;s a good idea to open up a blank text editor such as Notepad before running this demo. That way, test keystrokes from the BoosterPack go into Notepad and not into any other open files!</p>
+<p><strong>Key Mapping</strong> The number keys map directly to the numeric equivalent keystrokes on the host computer. The check button maps as a return keystroke, and the &#8216;x&#8217; button maps as a backspace keystroke.</p>
+<p><strong>DONE!</strong> This concludes the BOOSTXL-CAPKEYPAD + MSP-EXP430F5529LP USB HID Keyboard demo. Feel free to build your own code on top of the example!</p>
+</div>
+<div class="section" id="id8">
+<h4>Troubleshooting<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>If the system is not responsive after providing power, it may not have the default BOOSTXL-CAPKEYPAD-Demo software programmed on it. This can happen if it was reprogrammed with a different application at some point. If you experience this issue, ensure that the correct demo software is programmed to the BOOSTXL-CAPKEYPAD. Programming the BOOSTXL-CAPKEYPAD requires the use of a CAPTIVATE-PGMR module.</p>
+</div>
+</div>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>The BOOSTXL-CAPKEYPAD hardware contains many connection options to enable various LaunchPad use-cases and CapTIvate evaluation use-cases. This section describes hardware configuration.</p>
+<div class="section" id="mechanical-design">
+<h3>Mechanical Design<a class="headerlink" href="#mechanical-design" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD consists of a 4-layer, 1.6mm thick FR4 printed circuit board with a 3mm acrylic overlay material bonded to the PCB using 3M 467MP adhesive. The 3mm overlay represents a typical product overlay thickness. LED illumination is provided from the bottom side of the board through LED through holes in the PCB. Graphics are applied in between the PCB and the acrylic overlay.</p>
+</div>
+<div class="section" id="connection-headers">
+<h3>Connection Headers<a class="headerlink" href="#connection-headers" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD has connection points for interfacing to a LaunchPad, a CAPTIVATE-PGMR module, and prototype sensors.</p>
+<div class="section" id="launchpad-interface-boosterpack-header">
+<h4>LaunchPad Interface (BoosterPack Header)<a class="headerlink" href="#launchpad-interface-boosterpack-header" title="Permalink to this headline">¶</a></h4>
+<p>The BOOSTXL-CAPKEYPAD features 40-pin BoosterPack standard headers (J1-J4). These headers are top-side only, meaning that the BOOSTXL-CAPKEYPAD is intended to be used at the bottom of a LaunchPad stack. This allows LCD displays on LaunchPads to be visible while using the keypad. The BoosterPack header pinout is shown below.</p>
+<div class="figure" id="id31">
+<img alt="BoosterPack Pinout" src="../_images/BPHeader.png" />
+<p class="caption"><span class="caption-number">Fig. 295 </span><span class="caption-text">BoosterPack Pinout</span></p>
+</div>
+</div>
+<div class="section" id="captivate-pgmr-interface">
+<h4>CAPTIVATE-PGMR Interface<a class="headerlink" href="#captivate-pgmr-interface" title="Permalink to this headline">¶</a></h4>
+<p>The BOOSTXL-CAPKEYPAD may be connected to a CAPTIVATE-PGMR by attaching the CAPTIVATE-PGMR module to header J5 at the top of the board.</p>
+<div class="figure" id="id32">
+<img alt="CAPTIVATE-PGMR Header" src="../_images/J5.png" />
+<p class="caption"><span class="caption-number">Fig. 296 </span><span class="caption-text">CAPTIVATE-PGMR Header</span></p>
+</div>
+</div>
+<div class="section" id="prototyping-interface">
+<h4>Prototyping Interface<a class="headerlink" href="#prototyping-interface" title="Permalink to this headline">¶</a></h4>
+<p>The keypad&#8217;s TX lines are connected to the MCU through jumper block J10.</p>
+<div class="figure" id="id33">
+<img alt="Header J10" src="../_images/jumpers_proto_default.png" />
+<p class="caption"><span class="caption-number">Fig. 297 </span><span class="caption-text">Header J10</span></p>
+</div>
+<p>To add an off-board sensor for prototyping purposes, remove any of the three TX jumpers in header J10. Then, connect a prototype sensor to the MCU-side (highlighted below).</p>
+<div class="figure" id="id34">
+<img alt="Header J10 - Jumpers Removed" src="../_images/jumpers_proto_removed.png" />
+<p class="caption"><span class="caption-number">Fig. 298 </span><span class="caption-text">Header J10 - Jumpers Removed</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="configuration-jumpers">
+<h3>Configuration Jumpers<a class="headerlink" href="#configuration-jumpers" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD has several configuration jumpers. The default locations are shown below.</p>
+<div class="figure" id="id35">
+<img alt="J6, J7, J8, J9 Default Position" src="../_images/jumpers_default.png" />
+<p class="caption"><span class="caption-number">Fig. 299 </span><span class="caption-text">J6, J7, J8, J9 Default Position</span></p>
+</div>
+<p>Moving jumpers from their default locations can enable the alternate use-cases introduced below.</p>
+<div class="section" id="rx-tx-jumpers">
+<h4>RX/TX Jumpers<a class="headerlink" href="#rx-tx-jumpers" title="Permalink to this headline">¶</a></h4>
+<p>The RX/TX jumpers allow the UART RX and TX signals from the MSP430FR2522 CapTIvate MCU to be routed to either the HID Bridge communications channel on the CAPTIVATE-PGMR or the back channel serial COM port on the CAPTIVATE-PGMR. The default setting is HID Bridge, which allows the CapTIvate Design Center to be used for sensor status visualization. Alternately, jumpers J6 (RX) and J7 (TX) can be set to the COM port position to stream data to a host PC virtual COM port.</p>
+<div class="figure" id="id36">
+<img alt="J6, J7 COM Port Position" src="../_images/jumpers_backchannel.png" />
+<p class="caption"><span class="caption-number">Fig. 300 </span><span class="caption-text">J6, J7 COM Port Position</span></p>
+</div>
+<p>It is also possible to remove the J6 and J7 jumpers altogether, and wire the UART center pins out to a different board.</p>
+</div>
+<div class="section" id="v-supply">
+<h4>V+ Supply<a class="headerlink" href="#v-supply" title="Permalink to this headline">¶</a></h4>
+<p>When powering the BOOSTXL-CAPKEYPAD from a CAPTIVATE-PGMR module via header J5, it is possible to use either a clean LDO-regulated supply or the EnergyTrace supply for measuring supply current from Code Composer Studio. The default position is the LDO-regulated supply. To use the EnergyTrace supply, move jumper J8 to the &#8216;ET&#8217; position. This jumper has no effect when a LaunchPad is connected instead of a CAPTIVATE-PGMR module. In that case, the LaunchPad supplies V+ directly via pin 1 of J1 (the BoosterPack supply point).</p>
+<div class="figure" id="id37">
+<img alt="J8 EnergyTrace Supply Position" src="../_images/jumpers_et.png" />
+<p class="caption"><span class="caption-number">Fig. 301 </span><span class="caption-text">J8 EnergyTrace Supply Position</span></p>
+</div>
+</div>
+<div class="section" id="irq-pin-location">
+<h4>IRQ Pin Location<a class="headerlink" href="#irq-pin-location" title="Permalink to this headline">¶</a></h4>
+<p>The I2C slave interface IRQ pin may be connected to one of two locations in the BoosterPack header. The default location is IRQA (BoosterPack pin 12). By moving jumper J9 to IRQB, it is possible to bring the IRQ signal out on BoosterPack pin 27. This may be required if another BoosterPack requires pin 12.</p>
+<div class="figure" id="id38">
+<img alt="J9 IRQB Position" src="../_images/jumpers_irq.png" />
+<p class="caption"><span class="caption-number">Fig. 302 </span><span class="caption-text">J9 IRQB Position</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="software-examples">
+<h2>Software Examples<a class="headerlink" href="#software-examples" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the software examples that are available for the BOOSTXL-CAPKEYPAD. In the case of this BoosterPack, these software examples run on the MSP430FR2522 device that exists on the BOOSTXL-CAPKEYPAD itself. This is different from other BoosterPacks, where the software examples are for a host LaunchPad MCU only. Several host LaunchPad software examples are also provided for use with the BOOSTXL-CAPKEYPAD-Demo project. See the <a class="reference external" href="ch_evm_boostxl_capkeypad.html#getting-started">Getting Started</a> section for more information on the available host LaunchPad demonstrations.</p>
+<div class="section" id="running-an-example-project">
+<h3>Running an Example Project<a class="headerlink" href="#running-an-example-project" title="Permalink to this headline">¶</a></h3>
+<p>To run an example project, it is necessary to do the following:</p>
+<ol class="arabic simple">
+<li>If it is not already connected, connect a CAPTIVATE-PGMR module to the BOOSTXL-CAPKEYPAD.</li>
+<li>Import, build, and program the specific example that you are using onto the MSP430FR2522 target MCU on the BOOSTXL-CAPKEYPAD module. Follow these steps to <a class="reference external" href="ch_designcenter.html#loading-and-running-generated-projects">load and run generated firmware projects</a>. <a class="reference external" href="ch_evm_boostxl_capkeypad.html#example-project-locations">Example project locations</a> are described below. The BOOSTXL-CAPKEYPAD module ships pre-programmed for the BOOSTXL-CAPKEYPAD-Demo software example.</li>
+<li>Start the CapTIvate Design Center using the icon that was installed on your desktop.</li>
+<li>Click <em>File</em> -&gt; <em>Project Open</em> from the menu bar and select the desired project directory. <a class="reference external" href="ch_designcenter.html#menu-descriptions">Click here for help with CapTIvate™ Design Center</a>. The project&#8217;s <a class="reference external" href="ch_designcenter.html#introduction">main window</a> is the design canvas and is pre-populated with the microcontroller and selected sensors matching the hardware for this demo.</li>
+<li><a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">Enable Communications</a> in the CapTIvate™ Design Center to begin the demonstration.</li>
+<li>View the data for different sensors when you approach and touch the panel. Note: If the MCU is in wake-on-proximity mode, there may appear to be no activity. Bring your hand near or touch the board to activate the MCU.</li>
+</ol>
+</div>
+<div class="section" id="example-project-locations">
+<h3>Example Project Locations<a class="headerlink" href="#example-project-locations" title="Permalink to this headline">¶</a></h3>
+<p>During the CapTIvate™ Design Center installation process, example CapTIvate Design Center projects and BOOSTXL-CAPKEYPAD MSP430FR2522 firmware projects are placed in the user&#8217;s home directory under &#8220;CaptivateDesignCenter/CaptivateDesignCenterWorkspace&#8221;. On Windows 7, this would be:</p>
+<p><em>C:/Users/USERNAME/CapTIvateDesignCenter_X_XX_XX_XX/CapTIvateDesignCenterWorkspace/</em></p>
+</div>
+<div class="section" id="boostxl-capkeypad-out-of-box-software-example">
+<h3>BOOSTXL-CAPKEYPAD Out-of-Box Software Example<a class="headerlink" href="#boostxl-capkeypad-out-of-box-software-example" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD project is the out-of-box demonstration software project. This is the software that comes pre-programmed from TI on the BOOSTXL-CAPKEYPAD. It is also the software that enables the LED backlighting features and I2C slave host processor interface.</p>
+<div class="section" id="id9">
+<h4>Overview<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>The CapTIvate Design Center project canvas for this example is shown below.</p>
+<div class="figure" id="id39">
+<img alt="BOOSTXL-CAPKEYPAD Design Canvas" src="../_images/project_canvas_basic.png" />
+<p class="caption"><span class="caption-number">Fig. 303 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Design Canvas</span></p>
+</div>
+<p>This software example enables the following key out-of-box functionality:</p>
+<ul class="simple">
+<li>A 12-key numeric keypad sensor</li>
+<li>A proximity and guard sensor</li>
+<li>An I2C slave interface to a host processor using hardware I2C with the eUSCI_B0 module</li>
+<li>An I2C master interface to the LP3943 LED driver using a software I2C approach</li>
+<li>Bi-directional UART communication with the CapTIvate Design Center using the CapTIvate communications library</li>
+</ul>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm_boostxl_capkeypad.html#running-an-example-project">running an example project</a> and open the BOOSTXL-CAPKEYPAD project.</p>
+<div class="section" id="capacitive-touch-sensor-configuration">
+<h5>Capacitive Touch Sensor Configuration<a class="headerlink" href="#capacitive-touch-sensor-configuration" title="Permalink to this headline">¶</a></h5>
+<p>The sensor configuration for the out-of-box experience described here. The MSP430FR2522 target MCU has 8 touch sensing IOs. 5 are used as RX&#8217;s, and the remaining 3 are used as TX&#8217;s. The keypad sensor is implemented as a 4 RX x 3 TX mutual capacitance matrix. The proximity and guard channel utilizes a dedicated RX channel, but it re-purposes the three TX channels from the keypad electrodes and merges them to act as one large TX when in proximity/guard mode. The TX timing is shown in the figure below.</p>
+<div class="figure" id="id40">
+<img alt="BOOSTXL-CAPKEYPAD Demo TX Electrode Timing" src="../_images/demo_timing_tx.png" />
+<p class="caption"><span class="caption-number">Fig. 304 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Demo TX Electrode Timing</span></p>
+</div>
+</div>
+<div class="section" id="software-flow">
+<h5>Software Flow<a class="headerlink" href="#software-flow" title="Permalink to this headline">¶</a></h5>
+<p>The BOOSTXL-CAPKEYPAD demo software operates in one of three states:</p>
+<ol class="arabic simple">
+<li>Active mode<ul>
+<li>CapTIvate is periodically scanning all 12 keys and the prox/guard sensor at a 14ms (~70 Hz) rate</li>
+<li>Backlight LEDs are active</li>
+<li>If UART is enabled, sensor and element packets are sent out via the UART port</li>
+<li>When a new sample is available, the IRQ line is pulled low to indicate to a host LaunchPad that data is available</li>
+</ul>
+</li>
+<li>Wake-on-proximity mode<ul>
+<li>CapTIvate is periodically scanning just the prox/guard sensor using the wake-on-prox state machine in HW with the CPU off at a 100ms (10 Hz) rate</li>
+<li>Backlight LEDs are off</li>
+<li>If UART is enabled, packets may be received but no packets are being sent</li>
+<li>The IRQ pin stays high and does not signal the host LaunchPad</li>
+</ul>
+</li>
+<li>Shutdown mode<ul>
+<li>CapTIvate is shut down and no sensors are updated</li>
+<li>Backlight LEDs are off</li>
+<li>The IRQ pin stays high and does not signal the host LaunchPad</li>
+<li>All MCU clocks are off, and MCU is in LPM4 waiting for a wakeup request from a host processor over I2C</li>
+</ul>
+</li>
+</ol>
+<p>The current operating state is determined by the 3 control bits in the system control word (managed by the host LaunchPad over I2C), as well as the current status of the keypad. The BOOSTXL-CAPKEYPAD will power up in active mode, scanning all electrodes, with LED backlighting on. If no touch is detected within 300 samples (4-5 seconds typical) then wake-on-proximity mode will be entered. If a proximity event is detected, then the system will revert back to active mode automatically. Shutdown mode is only entered or existed if a host MCU manipulates the shutdown bit in the system control word.</p>
+<p><strong>Initialization</strong></p>
+<p>When the BOOSTXL-CAPKEYPAD powers up, the MSP430FR2522 initializes the following items:</p>
+<ol class="arabic simple">
+<li>Board Init<ul>
+<li>Set 1 FRAM wait state</li>
+<li>16 MHz MCLK, sourced from the DCO</li>
+<li>2 MHz SMCLK, sourced from the DCO</li>
+<li>32 kHz ACLK, sourced from REFO</li>
+<li>Re-map eUSCI_A and eUSCI_B to alternate locations</li>
+<li>Configure ports (hardware UART, hardware I2C slave, software I2C)</li>
+<li>Enable interrupts</li>
+</ul>
+</li>
+<li>Host Interface<ul>
+<li>Enable the hardware I2C interface (eUSCI_B0) in slave mode to communicate with a host LaunchPad</li>
+<li>I2C slave address is 0x0B</li>
+</ul>
+</li>
+<li>LED Control<ul>
+<li>Start the software I2C driver for communication with the LP3943 LED driver.</li>
+<li>Turn off all LEDs to start</li>
+</ul>
+</li>
+<li>Keypad<ul>
+<li>Start CapTIvate</li>
+<li>Calibrate the keypad and prox/guard sensor</li>
+<li>Start the periodic interval timer which controls the sensor refresh rate</li>
+</ul>
+</li>
+</ol>
+<p><strong>The application main routine is shown below.</strong></p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span>//*****************************************************************************
+// Includes
+//*****************************************************************************
+
+#include &quot;board.h&quot;
+#include &quot;system.h&quot;
+#include &quot;host_interface.h&quot;
+#include &quot;boostxl-capkeypad.h&quot;
+
+//*****************************************************************************
+// Global Variables
+//*****************************************************************************
+
+//! \brief System_topLevel is the top level system control and status
+//! structure.  It contains the control and status words for the
+//! BOOSTXL-CAPKEYPAD.
+//! For information on the fields in this structure, see system.h.
+//!
+volatile System_controlAndStatus System_topLevel;
+
+//! \brief If a shutdown was requested, lock the applicaiton in LPM4 with
+//! the keypad powered down until the shutdown request is cleared.  After the
+//! shutdown request is cleared,the keypad is re-initialized and the shutdown
+//! function will exit.
+static inline void shutdownHandler(void);
+
+//*****************************************************************************
+// Function Implementations
+//*****************************************************************************
+
+void main(void)
+{
+    // Initialize all of the needed submodules.
+    // The watchdog timer is disabled before CINIT.
+    Board_init();
+    HostInterface_init();
+    LEDControl_init();
+    BXLCapKeypad_init();
+
+    // Set default top level system status
+    g_uiApp.state = eUIActive;
+    System_topLevel.statusWord = SYSTEM__STAT_ACTIVE;
+    System_topLevel.lastStatusWord = SYSTEM__STAT_ACTIVE;
+    System_topLevel.controlWord =\
+            SYSTEM__CTRL_WOP_ENABLE |\
+            SYSTEM__CTRL_UART_ENABLE;
+
+    // This is the background execution loop.
+    // BXLCapKeypad_run checks to see if it is time to update
+    // the keypad status.  If it is, an update will be performed.
+    // This function also handles entering and exiting a wake-on-prox state.
+    // BXLCapKeypad_updateCapTIvateComm checks to see if there is any incoming
+    // data from the CapTIvate Design Center via the UART interface that needs
+    // to be handled.
+    // BXLCapKeypad_sleep is a safe sleep function that ensures no CapTIvate
+    // flags are pending when a low power sleep mode is entered.
+    while(1)
+    {
+        shutdownHandler();
+        BXLCapKeypad_run();
+        BXLCapKeypad_updateCapTIvateComm();
+        BXLCapKeypad_sleep();
+    }
+}
+
+void shutdownHandler(void)
+{
+    __bic_SR_register(GIE);
+    if (System_topLevel.controlWord &amp; SYSTEM__CTRL_SHUTDOWN)
+    {
+        BXLCapKeypad_stop();
+        do
+        {
+            __bis_SR_register(LPM4_bits | GIE);
+            __bic_SR_register(GIE);
+        } while(System_topLevel.controlWord &amp; SYSTEM__CTRL_SHUTDOWN);
+        BXLCapKeypad_init();
+    }
+    __bis_SR_register(GIE);
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boostxl-capkeypad-emc-noise-immunity-software-example">
+<h3>BOOSTXL-CAPKEYPAD-EMC Noise Immunity Software Example<a class="headerlink" href="#boostxl-capkeypad-emc-noise-immunity-software-example" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD-EMC software example implements a noise-tolerant 12-key numeric keypad by configuring the CapTIvate software library to utilize its noise immunity features. When running this software example, the BOOSTXL-CAPKEYPAD can pass an IEC 61000-4-6 conducted noise immunity test at stress level 2 (3Vrms) with noise coupled directly into the DC power supply.</p>
+<div class="section" id="id10">
+<h4>Overview<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>The CapTIvate Design Center project canvas for this example is shown below.</p>
+<div class="figure" id="id41">
+<img alt="BOOSTXL-CAPKEYPAD-EMC Design Canvas" src="../_images/emc_canvas.png" />
+<p class="caption"><span class="caption-number">Fig. 305 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-EMC Design Canvas</span></p>
+</div>
+<p>This example is configured with the following settings:</p>
+<ul class="simple">
+<li>A 20ms active mode scan period (50 Hz).</li>
+<li>A 4 MHz conversion frequency for all 12 keys</li>
+<li>A total measurement time AND post-processing time of approximately 15ms</li>
+<li>Frequency hopping with outlier removal enabled</li>
+<li>2x oversampling enabled</li>
+<li>2x touch and proximity debounce-in threshold</li>
+<li>Count filter beta = 2 for AC noise attenuation</li>
+<li>CapTIvate automatic power down is disabled. This uses more power, but allows for faster scanning of electrodes because the CapTIvate LDO does not need to start up for each conversion window as it is always on.</li>
+</ul>
+<p>The keypad consists of a 4-RX, 3-TX mutual capacitance matrix. Two buttons are measured at a time (in parallel), thus a total of 6 measurement slots are needed. For each measurement slot, the electrodes are measured at 4 different conversion frequencies 2 different times, for a total of 8 conversions per measurement slot. Thus, the actual number of conversion measurement slots that run per refresh is 48. This can be seen in the logic capture below.</p>
+<div class="figure" id="id42">
+<img alt="BOOSTXL-CAPKEYPAD-EMC Timing - Wide Capture" src="../_images/emc_demo_timing_wide.png" />
+<p class="caption"><span class="caption-number">Fig. 306 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-EMC Timing - Wide Capture</span></p>
+</div>
+<div class="figure" id="id43">
+<img alt="BOOSTXL-CAPKEYPAD-EMC Timing - Zoom Capture" src="../_images/emc_demo_timing_zoom.png" />
+<p class="caption"><span class="caption-number">Fig. 307 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-EMC Timing - Zoom Capture</span></p>
+</div>
+<p>As can be seen in the figures above, the total conversion and post-processing time for all 12 keys in the keypad is 15-16ms. Thus, as scanning window of 20ms is selected to leave 4ms-5ms of reserve time for handing deviations in measurement time due to temperature shifts and touch events.</p>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm_boostxl_capkeypad.html#running-an-example-project">running an example project</a> and open the BOOSTXL-CAPKEYPAD-EMC project.</p>
+<p>Noise immunity test results are shown in the <a class="reference external" href="ch_evm_boostxl_capkeypad.html#conducted-noise-immunity">resources section</a>.</p>
+</div>
+<div class="section" id="notes">
+<h4>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>The EMC demo does not enable LED backlighting to conserve code space on the MSP430FR2522.</li>
+<li>The <a class="reference external" href="ch_evm.html#captivate-iso-communications-isolation-pcb">CAPTIVATE-ISO</a> isolation module may be utilized with the <a class="reference external" href="ch_evm.html#captivate-pgmr-programmer-pcb-overview">CAPTIVATE-PGMR</a> to view sensor data during a noise test.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="boostxl-capkeypad-prototyping-software-example">
+<h3>BOOSTXL-CAPKEYPAD-Prototyping Software Example<a class="headerlink" href="#boostxl-capkeypad-prototyping-software-example" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD-Prototyping software example provides a way to &#8220;wire in&#8221; prototype sensors that were created externally. This enables copper-tape prototyping for up to 3 electrodes.</p>
+<div class="section" id="id11">
+<h4>Overview<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The CapTIvate Design Center project canvas for this example is shown below.</div>
+<div class="line"><img alt="BOOSTXL-CAPKEYPAD-Prototyping Design Canvas" src="../_images/proto_canvas.png" /></div>
+</div>
+<p>To connect a prototype sensor, connect a jumper wire to one of the three CAPx.y pins in J10, as described in the <a class="reference external" href="ch_evm_boostxl_capkeypad.html#prototyping-interface">hardware section</a>.</p>
+<p>This example is configured with the following settings:</p>
+<ul class="simple">
+<li>A 33ms active mode scan period (30 Hz).</li>
+<li>A 1 MHz conversion frequency for all 3 sensors</li>
+<li>A total measurement time of approximately 1.6ms for all 3 sensors</li>
+</ul>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm_boostxl_capkeypad.html#running-an-example-project">running an example project</a> and open the BOOSTXL-CAPKEYPAD-Prototyping project.</p>
+</div>
+<div class="section" id="id12">
+<h4>Notes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Once you connect a prototype sensor, you may need to re-calibrate the sensor. To do this from the CapTIvate Design Center, open the sensor customizer by double-clicking it. Then, open the <em>Conversion Control</em> tab. At the bottom of the tab, select the <em>Force_Recalibration</em> button at the bottom of the tab (shown below). Performing a re-calibration will re-tune the CapTIvate analog settings for the sensor you have added. For details on calibration, see the <a class="reference external" href="ch_library.html#calibration">calibration</a> section of the software library chapter.</p>
+<div class="figure" id="id44">
+<img alt="BOOSTXL-CAPKEYPAD-Prototyping Design Canvas" src="../_images/recal_btn.png" />
+<p class="caption"><span class="caption-number">Fig. 308 </span><span class="caption-text">BOOSTXL-CAPKEYPAD-Prototyping Design Canvas</span></p>
+</div>
+</li>
+<li><p class="first">When using wires to connect an external electrode, it is important to be aware that the wires themselves are touch sensitive and form a portion of the sensing electrode. You may see different performance depending on how the electrode wires are positioned.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>This section contains resource tools to aid in development with the BOOSTXL-CAPKEYPAD.</p>
+<div class="section" id="boostxl-capkeypad-demo-i2c-slave-register-map-specification">
+<h3>BOOSTXL-CAPKEYPAD-Demo I2C Slave Register Map Specification<a class="headerlink" href="#boostxl-capkeypad-demo-i2c-slave-register-map-specification" title="Permalink to this headline">¶</a></h3>
+<p>The BOOSTXL-CAPKEYPAD-Demo firmware that is pre-programmed on the BOOSTXL-CAPKEYPAD from the factory provides an I2C slave interface composed of an SDA (data) pin, SCL (clock) pin, and IRQ (interrupt) pin. All three pins are open-drain type signals at V+ logic level (3.3V typical). The purpose of this I2C interface is enabling low power communication with a host LaunchPad MCU. At power-up, the BOOSTXL-CAPKEYPAD-Demo example provides a simple register-based I2C interface that enables a host processor to read the current status of the keypad. It also provides some control to the LaunchPad to be able to manipulate the configuration of the keypad to optimize for response time or low power. The accessible registers are described below.</p>
+<div class="section" id="i2c-slave-address">
+<h4>I2C Slave Address<a class="headerlink" href="#i2c-slave-address" title="Permalink to this headline">¶</a></h4>
+<p>The I2C bus slave address for the BOOSTXL-CAPKEYPAD is <strong>0x0B</strong>. This can be adjusted in software if needed.</p>
+</div>
+<div class="section" id="i2c-register-file">
+<h4>I2C Register File<a class="headerlink" href="#i2c-register-file" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="24%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Register Address</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Control Word, lower 8 bits</td>
+<td>Contains bits for configuring the operational state of the keypad.</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Control Word, upper 8 bits</td>
+<td>The upper 8 bits of the control word are reserved and not used.</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>Status Word, lower 8 bits</td>
+<td>Contains the current top level status flags, and current touch status for keys 1-4</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>Status Word, upper 8 bits</td>
+<td>Contains the current touch status for keys 5-Cancel</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Last Status Word, lower 8 bits</td>
+<td>Contains the previous top level status flags, and previous touch status for keys 1-4</td>
+</tr>
+<tr class="row-odd"><td>0x05</td>
+<td>Last Status Word, upper 8 bits</td>
+<td>Contains the previous touch status for keys 5-Cancel</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="i2c-register-description-0x00-control-word-lower-8-bits">
+<h4>I2C Register Description: 0x00, Control Word Lower 8 Bits<a class="headerlink" href="#i2c-register-description-0x00-control-word-lower-8-bits" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="14%" />
+<col width="21%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit:</th>
+<th class="head">BIT7</th>
+<th class="head">BIT6</th>
+<th class="head">BIT5</th>
+<th class="head">BIT4</th>
+<th class="head">BIT3</th>
+<th class="head">BIT2</th>
+<th class="head">BIT1</th>
+<th class="head">BIT0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description:</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>UART Enable</td>
+<td>Wake-on-Prox Enable</td>
+<td>Shutdown</td>
+</tr>
+<tr class="row-odd"><td>Reset:</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>RW:</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>RW</td>
+<td>RW</td>
+<td>RW</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BIT0 - Shutdown</strong></p>
+<p>The shutdown bit resets to 0 at power-up. Setting the shutdown bit places the BOOSTXL-CAPKEYPAD into its lowest power state. In shutdown mode, the capacitive touch keypad is not updated and the LED backlighting is disabled. The only way to wake up the keypad is to clear the shutdown bit or reset the keypad.</p>
+<p><strong>BIT1 - Wake-on-Prox Enable</strong></p>
+<p>The wake-on-proximity enable bit resets to 1 at power-up. When set, the BOOSTXL-CAPKEYPAD will enter a wake-on-proximity mode after a period of inactivity. When no touches have been detected for several seconds, the LED backlighting will fade to off and the CapTIvate keypad will only measure the proximity sensor. In this mode, no IRQ requests are sent to the host processor while the proximity sensor is being scanned. If a proximity detection occurs, the keypad will wake up and transition to active mode, reporting all samples to the host MCU via the IRQ pin. If this bit is cleared, the BOOSTXL-CAPKEYPAD will remain in active mode all of the time. This means that the LED backlighting will remain active, and after every new touch sample is acquired the host will be notified via the IRQ pin.</p>
+<p><strong>BIT2 - UART Enable</strong></p>
+<p>The UART enable bit resets to 1 at power-up. When set, the BOOSTXL-CAPKEYPAD transmits sensor and element packets via the UART interface when in active mode. The UART interface is located in the 20-pin CAPTIVATE-PGMR header at the top of the BoosterPack. This interface enables the CapTIvate Design Center to view real time sensor data from the BOOSTXL-CAPKEYPAD when a CAPTIVATE-PGMR module is attached between the BOOSTXL-CAPKEYPAD and a host computer. Clearing BIT2 disables this UART interface, and allows the BOOSTXL-CAPKEYPAD to run in a lower power state because the UART baud rate clock is not required. Thus, if a host LaunchPad wants to communicate with the BOOSTXL-CAPKEYPAD, but use of CapTIvate Design Center is not needed, the UART enable bit may be cleared to conserve power.</p>
+</div>
+<div class="section" id="i2c-register-description-0x01-control-word-upper-8-bits">
+<h4>I2C Register Description: 0x01, Control Word Upper 8 Bits<a class="headerlink" href="#i2c-register-description-0x01-control-word-upper-8-bits" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit:</th>
+<th class="head">BIT7</th>
+<th class="head">BIT6</th>
+<th class="head">BIT5</th>
+<th class="head">BIT4</th>
+<th class="head">BIT3</th>
+<th class="head">BIT2</th>
+<th class="head">BIT1</th>
+<th class="head">BIT0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description:</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+<td>Rsvd.</td>
+</tr>
+<tr class="row-odd"><td>Reset:</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>RW:</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+<p>Register 0x01 is reserved control word space and is not used.</p>
+</div>
+<div class="section" id="i2c-register-description-0x02-status-word-lower-8-bits">
+<h4>I2C Register Description: 0x02, Status Word Lower 8 Bits<a class="headerlink" href="#i2c-register-description-0x02-status-word-lower-8-bits" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="9%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit:</th>
+<th class="head">BIT7</th>
+<th class="head">BIT6</th>
+<th class="head">BIT5</th>
+<th class="head">BIT4</th>
+<th class="head">BIT3</th>
+<th class="head">BIT2</th>
+<th class="head">BIT1</th>
+<th class="head">BIT0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description:</td>
+<td>Key 4</td>
+<td>Key 3</td>
+<td>Key 2</td>
+<td>Key 1</td>
+<td>Touch</td>
+<td>Guard</td>
+<td>Prox</td>
+<td>Active</td>
+</tr>
+<tr class="row-odd"><td>Reset:</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>RW:</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BIT0 - Active</strong></p>
+<p>This bit indicates the current user interface state. &#8216;1&#8217; corresponds to ACTIVE mode. In ACTIVE mode, the BOOSTXL-CAPKEYPAD is scanning all electrodes, reporting new samples to the host via the IRQ pin, and LED backlighting is enabled. &#8216;0&#8217; corresponds to Wake-on-Prox mode. In Wake-on-Prox mode, the BOOSTXL-CAPKEYPAD is only scanning the proximity sensor, IRQ signals to the host are deactivated, and LED backlighting is disabled. The BOOSTXL-CAPKEYPAD will automatically transition between ACTIVE and Wake-on-Prox states when the Wake-on-Prox enable bit is set in the control word register.</p>
+<p><strong>BIT1 - Prox</strong></p>
+<p>This bit indicates whether proximity is detected near the BOOSTXL-CAPKEYPAD. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT2 - Guard</strong></p>
+<p>This bit indicates whether the guard channel masking function is activated. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT3 - Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on any key (global touch detect). A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT4 - Key 1 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 1. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT5 - Key 2 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 2. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT6 - Key 3 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 3. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT7 - Key 4 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 4. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+</div>
+<div class="section" id="i2c-register-description-0x03-status-word-upper-8-bits">
+<h4>I2C Register Description: 0x03, Status Word Upper 8 Bits<a class="headerlink" href="#i2c-register-description-0x03-status-word-upper-8-bits" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="14%" />
+<col width="9%" />
+<col width="13%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit:</th>
+<th class="head">BIT7</th>
+<th class="head">BIT6</th>
+<th class="head">BIT5</th>
+<th class="head">BIT4</th>
+<th class="head">BIT3</th>
+<th class="head">BIT2</th>
+<th class="head">BIT1</th>
+<th class="head">BIT0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description:</td>
+<td>Cancel Key</td>
+<td>Key 0</td>
+<td>Enter Key</td>
+<td>Key 9</td>
+<td>Key 8</td>
+<td>Key 7</td>
+<td>Key 6</td>
+<td>Key 5</td>
+</tr>
+<tr class="row-odd"><td>Reset:</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>RW:</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BIT0 - Key 5 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 5. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT1 - Key 6 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 6. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT2 - Key 7 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 7. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT3 - Key 8 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 8. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT4 - Key 9 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 9. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT5 - Enter Key Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on the enter key. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT6 - Key 0 Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on key 0. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT0 - Cancel (X) Key Touch</strong></p>
+<p>This bit indicates whether a touch is currently detected on the cancel (X) key. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+</div>
+<div class="section" id="i2c-register-description-0x04-last-status-word-lower-8-bits">
+<h4>I2C Register Description: 0x04, Last Status Word Lower 8 Bits<a class="headerlink" href="#i2c-register-description-0x04-last-status-word-lower-8-bits" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="9%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit:</th>
+<th class="head">BIT7</th>
+<th class="head">BIT6</th>
+<th class="head">BIT5</th>
+<th class="head">BIT4</th>
+<th class="head">BIT3</th>
+<th class="head">BIT2</th>
+<th class="head">BIT1</th>
+<th class="head">BIT0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description:</td>
+<td>Key 4</td>
+<td>Key 3</td>
+<td>Key 2</td>
+<td>Key 1</td>
+<td>Touch</td>
+<td>Guard</td>
+<td>Prox</td>
+<td>Active</td>
+</tr>
+<tr class="row-odd"><td>Reset:</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>RW:</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+<p>The &#8216;last status word&#8217; registers (0x04 and 0x05) provide the same information as the current status word (0x02 and 0x03), but the data is for the previous sample. This gives a mechanism for determining whether a touch is newly detected or released (by performing an XOR of the current and previous values).</p>
+<p><strong>BIT0 - Active</strong></p>
+<p>This bit indicates the current user interface state in the previous sample. &#8216;1&#8217; corresponds to ACTIVE mode. &#8216;0&#8217; corresponds to Wake-on-Prox mode.</p>
+<p><strong>BIT1 - Prox</strong></p>
+<p>This bit indicates whether proximity was detected near the BOOSTXL-CAPKEYPAD during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT2 - Guard</strong></p>
+<p>This bit indicates whether the guard channel masking function was activated during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT3 - Touch</strong></p>
+<p>This bit indicates whether a touch was detected on any key (global touch detect) during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT4 - Key 1 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 1 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT5 - Key 2 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 2 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT6 - Key 3 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 3 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT7 - Key 4 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 4 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+</div>
+<div class="section" id="id13">
+<h4>I2C Register Description: 0x03, Status Word Upper 8 Bits<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="14%" />
+<col width="9%" />
+<col width="13%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit:</th>
+<th class="head">BIT7</th>
+<th class="head">BIT6</th>
+<th class="head">BIT5</th>
+<th class="head">BIT4</th>
+<th class="head">BIT3</th>
+<th class="head">BIT2</th>
+<th class="head">BIT1</th>
+<th class="head">BIT0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description:</td>
+<td>Cancel Key</td>
+<td>Key 0</td>
+<td>Enter Key</td>
+<td>Key 9</td>
+<td>Key 8</td>
+<td>Key 7</td>
+<td>Key 6</td>
+<td>Key 5</td>
+</tr>
+<tr class="row-odd"><td>Reset:</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>RW:</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BIT0 - Key 5 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 5 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT1 - Key 6 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 6 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT2 - Key 7 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 7 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT3 - Key 8 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 8 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT4 - Key 9 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 9 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT5 - Enter Key Touch</strong></p>
+<p>This bit indicates whether a touch was detected on the enter key during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT6 - Key 0 Touch</strong></p>
+<p>This bit indicates whether a touch was detected on key 0 during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+<p><strong>BIT0 - Cancel (X) Key Touch</strong></p>
+<p>This bit indicates whether a touch was detected on the cancel (X) key during the last sample. A value of &#8216;1&#8217; = true, and &#8216;0&#8217; = false.</p>
+</div>
+</div>
+<div class="section" id="boostxl-capkeypad-demo-i2c-transaction-example">
+<h3>BOOSTXL-CAPKEYPAD-Demo I2C Transaction Example<a class="headerlink" href="#boostxl-capkeypad-demo-i2c-transaction-example" title="Permalink to this headline">¶</a></h3>
+<p>Below are sample I2C transactions between the BOOSTXL-CAPKEYPAD running the BOOSTXL-CAPKEYPAD-Demo software (the I2C bus slave) and a host LaunchPad MCU (the I2C bus master).</p>
+<div class="section" id="writing-to-the-control-word">
+<h4>Writing To The Control Word<a class="headerlink" href="#writing-to-the-control-word" title="Permalink to this headline">¶</a></h4>
+<p>Below is an example of performing an I2C write transaction to set the lower control word of the BOOSTXL-CAPKEYPAD to a value of 0x02. The control word resides at address 0x00. The BOOSTXL-CAPKEYPAD I2C address is 0x11. Thus, to perform a bus write, the master sets up a write to 0x11, writes the register (0x00), and writes the value (0x02).</p>
+<div class="figure" id="id45">
+<img alt="I2C Write Transaction" src="../_images/I2C_Ctrl_Write.png" />
+<p class="caption"><span class="caption-number">Fig. 309 </span><span class="caption-text">I2C Write Transaction</span></p>
+</div>
+<p>In this example, writing 0x02 to the lower control word has the effect of clearing the shutdown bit, enabling wake-on-prox, and disabling the UART communication.</p>
+<div class="figure" id="id46">
+<img alt="I2C Write Decoding" src="../_images/I2C_Ctrl_Write_Script.png" />
+<p class="caption"><span class="caption-number">Fig. 310 </span><span class="caption-text">I2C Write Decoding</span></p>
+</div>
+</div>
+<div class="section" id="reading-the-status-words">
+<h4>Reading The Status Words<a class="headerlink" href="#reading-the-status-words" title="Permalink to this headline">¶</a></h4>
+<p>Below is an example of performing an I2C read transaction to obtain the current and last status words of the BOOSTXL-CAPKEYPAD. The I2C bus master, in this case, waits for the IRQ high-to-low transition before reading. The IRQ pin indicates that a new sample is now available. That sample will be valid until the IRQ pin transitions back high, indicating that the next sample is being measured.</p>
+<div class="figure" id="id47">
+<img alt="I2C Read Transaction" src="../_images/I2C_Status_Read.png" />
+<p class="caption"><span class="caption-number">Fig. 311 </span><span class="caption-text">I2C Read Transaction</span></p>
+</div>
+<p>To read the status words, the bus master performs an I2C write to slave address 0x11 and writes the address of the register it wishes to read (0x02). Then, it sends a re-start condition back to slave address 0x11, and reads out 4 bytes (0x02, 0x03, 0x04, and 0x05).</p>
+<div class="figure" id="id48">
+<img alt="I2C Read Decoding" src="../_images/I2C_Status_Read_Script.png" />
+<p class="caption"><span class="caption-number">Fig. 312 </span><span class="caption-text">I2C Read Decoding</span></p>
+</div>
+<p>In this example, the current status word lower byte (0x02) and the previous status word lower byte (0x04) both have just one bit set- the active bit. This bit indicates that the BOOSTXL-CAPKEYPAD is in its active scanning mode, testing all 12 buttons, with backlighting on.</p>
+</div>
+</div>
+<div class="section" id="power-consumption">
+<h3>Power Consumption<a class="headerlink" href="#power-consumption" title="Permalink to this headline">¶</a></h3>
+<p>The power consumption of the BOOSTXL-CAPKEYPAD depends on two factors: the operating configuration (set by the control word) and the status of the user interface (wake-on-proximity vs. active). Below is a list of typical average currents in the various operating modes.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="16%" />
+<col width="15%" />
+<col width="13%" />
+<col width="12%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Description</th>
+<th class="head">CTRL_UART_ENABLE</th>
+<th class="head">CTRL_WOP_ENABLE</th>
+<th class="head">CTRL_SHUTDOWN</th>
+<th class="head">STAT_ACTIVE</th>
+<th class="head">I-avg (Typical)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Active with 3 touches, UART enabled</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>FALSE</td>
+<td>TRUE</td>
+<td>26.2 mA</td>
+</tr>
+<tr class="row-odd"><td>Active with 2 touches, UART enabled</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>FALSE</td>
+<td>TRUE</td>
+<td>23.2 mA</td>
+</tr>
+<tr class="row-even"><td>Active with 1 touch, UART enabled</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>FALSE</td>
+<td>TRUE</td>
+<td>20.2 mA</td>
+</tr>
+<tr class="row-odd"><td>Active with no touches, UART enabled</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>FALSE</td>
+<td>TRUE</td>
+<td>13.5 mA</td>
+</tr>
+<tr class="row-even"><td>Wake-on-prox, UART enabled</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>FALSE</td>
+<td>FALSE</td>
+<td>360 uA</td>
+</tr>
+<tr class="row-odd"><td>Active with no touches, UART disabled</td>
+<td>FALSE</td>
+<td>TRUE</td>
+<td>FALSE</td>
+<td>TRUE</td>
+<td>13.2 mA</td>
+</tr>
+<tr class="row-even"><td>WOP, UART disabled</td>
+<td>FALSE</td>
+<td>TRUE</td>
+<td>FALSE</td>
+<td>FALSE</td>
+<td>8 uA</td>
+</tr>
+<tr class="row-odd"><td>Shutdown</td>
+<td>X</td>
+<td>X</td>
+<td>TRUE</td>
+<td>X</td>
+<td>1uA</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the BOOSTXL-CAPKEYPAD out-of-box example powers up with the following control word settings:</p>
+<p><strong>Default Out-of-Box Init in main.c</strong></p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="n">System_topLevel</span><span class="o">.</span><span class="n">controlWord</span> <span class="o">=</span>\
+            <span class="n">SYSTEM__CTRL_WOP_ENABLE</span> <span class="o">|</span>\
+            <span class="n">SYSTEM__CTRL_UART_ENABLE</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Default Out-of-Box Settings</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="74%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Setting</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>SYSTEM__CTRL_SHUTDOWN</td>
+<td>FALSE</td>
+</tr>
+<tr class="row-odd"><td>SYSTEM__CTRL_WOP_ENABLE</td>
+<td>TRUE</td>
+</tr>
+<tr class="row-even"><td>SYSTEM__CTRL_UART_ENABLE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE</strong></p>
+<p>The BOOSTXL-CAPKEYPAD powers up with UART enabled. This allows for communication between the BOOSTXL-CAPKEYPAD and a host computer running CapTIvate Design Center. In order for the UART to be functional, the MSP430FR2522 must sleep in low power mode 0 (LPM0) so that the baud rate clock is functional. This adds approximately 350uA to the average power consumption. For applications where the BOOSTXL-CAPKEYPAD is used only with a LaunchPad, and not the CapTIvate Design Center, the UART can be disabled by clearing the SYSTEM__CTRL_UART_ENABLE bit. This will allow LPM4 to be used in wake-on-proximity mode, dropping the average current to less than 10uA in wake-on-proximity mode. The UART interface can be disabled via the I2C interface from a host processor- it is not necessary to re-program the MCU.</p>
+<p>The current profile in wake-on-proximity mode with the UART interface disabled can be seen below.</p>
+<div class="figure" id="id49">
+<img alt="BOOSTXL-CAPKEYPAD Current Profile in WOP Mode with UART Disabled" src="../_images/nSHUTDOWN_WOP_nUART__WOP.png" />
+<p class="caption"><span class="caption-number">Fig. 313 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Current Profile in WOP Mode with UART Disabled</span></p>
+</div>
+</div>
+<div class="section" id="conducted-noise-immunity">
+<h3>Conducted Noise Immunity<a class="headerlink" href="#conducted-noise-immunity" title="Permalink to this headline">¶</a></h3>
+<p>When running the BOOSTXL-CAPKEYPAD-EMC demo software, the BOOSTXL-CAPKEYPAD is capable of tolerating 3Vrms conducted noise coupled directly into its DC power supply. The plot below shows the results of a conducted noise immunity test in which the noise frequency was swept from 300kHz to 80 MHz while a continuous touch was applied to the electrode under test. The post-processed data, raw data, and measured noise level is shown. Note that while individual frequencies in the raw data are affected by conducted noise currents, the overall post-processed result rejects the noise-affected frequency to maintain correct operation.</p>
+<div class="figure" id="id50">
+<img alt="Conducted Noise Immunity Test Result, F-Sweep" src="../_images/emc_cni_test_sweep.png" />
+<p class="caption"><span class="caption-number">Fig. 314 </span><span class="caption-text">Conducted Noise Immunity Test Result, F-Sweep</span></p>
+</div>
+<p>The plot below shows two consecutive touches on the electrode under test while in the presence of constant conducted noise at 4 MHz. In the BOOSTXL-CAPKEYPAD-EMC software demonstration, the base charge transfer frequency is 4 MHz. The plot shows the clearly corrupted raw data at the base conversion frequency, but the 3 alternate frequencies are unaffected. It is this principle that enables reliable touch detection in the presence of conducted noise.</p>
+<div class="figure" id="id51">
+<img alt="Conducted Noise Immunity Test Result, Dwell at 4MHz Noise Frequency" src="../_images/emc_cni_test_dwell_4M.png" />
+<p class="caption"><span class="caption-number">Fig. 315 </span><span class="caption-text">Conducted Noise Immunity Test Result, Dwell at 4MHz Noise Frequency</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="schematics">
+<h2>Schematics<a class="headerlink" href="#schematics" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id52">
+<img alt="BOOSTXL-CAPKEYPAD Schematic" src="../_images/schematic1.png" />
+<p class="caption"><span class="caption-number">Fig. 316 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Schematic</span></p>
+</div>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id53">
+<img alt="BOOSTXL-CAPKEYPAD Layout" src="../_images/layout.png" />
+<p class="caption"><span class="caption-number">Fig. 317 </span><span class="caption-text">BOOSTXL-CAPKEYPAD Layout</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_evm_CAP_MINI.html" class="btn btn-neutral float-right" title="EVM430-CAPMINI" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_evm.html" class="btn btn-neutral" title="MSP-CAPT-FR2633 Development Kit" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

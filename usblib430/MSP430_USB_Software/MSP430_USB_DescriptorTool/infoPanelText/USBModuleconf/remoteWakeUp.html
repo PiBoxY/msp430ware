@@ -1,0 +1,19 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Remote wakeup supported?</h1>
+        <p>Associated descriptor fields:  <span class="attribute">bmAttributes</span> (in the Configuration Descriptor)</p>
+        <p>Check this box if the device will support the USB remote wakeup function.  This is the function by which a USB device can signal to the host that it should wake the device from a suspended state.  The most common example of this is a PC in standby mode, where if the user moves the mouse or presses the keyboard, it wakes the host; and the host subsequently performs a "USB resume" on the the mouse or keyboard.</p>  
+        <p>If checked, the device's USB descriptors will indicate to the host that the device wants the ability to perform a remote wakeup.  However, the host must then grant permission to the device, before such an action will succeed.  If permission is granted, the USB API call USB_forceRemoteWakeup() will cause a remote wakeup.</p> 
+        <p>If you want Windows to perform "selective suspend" on your device (a feature by which the USB host determines the device is idle and opportunistically suspends it), it may not do so if this box isn't checked. (See the USB API Programmer's Guide for more information.)</p>
+    </body>
+</html>

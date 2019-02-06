@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Calibration &mdash; Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ultrasonic Sensing Design Center User Guide 02.20.00.16 documentation" href="../index.html"/>
+        <link rel="next" title="Error Handling" href="ch_errors.html"/>
+        <link rel="prev" title="Debug Waveform" href="ch_debug_graph.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Ultrasonic Sensing Design Center User Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02.20.00.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_sysreqs.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_plotting.html">Waveform Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_adc.html">ADC Captures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_freqsweep.html">Frequency Sweep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_debug_graph.html">Debug Waveform</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#calibration-configuration">Calibration Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-calibration">Manual Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-time-calibration">Run-Time Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_errors.html">Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_protocol.html">Communication Protocol Spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Ultrasonic Sensing Design Center User Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Calibration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calibration">
+<h1>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h1>
+<p>The calibration panel enables the user to calibrate the meter (using liner fit calibration) for different number of ranges. For example if an application requires higher accuracy for lower and higher flows, then 2 ranges may be used. This section covers the basic settings for calibration, and how to calibrate the meter manually or at run-time. Once the calibration is completed the meter constants can be transmitted to the target or output to a header file.</p>
+<div class="section" id="calibration-configuration">
+<h2>Calibration Configuration<a class="headerlink" href="#calibration-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="Volume Flow Rate Calibration Ranges Configuration" src="../_images/calibration_range_config.PNG" />
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Volume Flow Rate Calibration Ranges Configuration</span></p>
+</div>
+<p><strong>Number of Calibration Ranges</strong></p>
+<p>The number of ranges used for calibration is configured in the Configuration-&gt;Parameter tab. Each time the number of ranges is updated, the project header files must be regenerated and the code must be recompiled for valid operation.</p>
+<div class="figure" id="id2">
+<img alt="Control Panel and Meter Calibration Parameters" src="../_images/calibration_controls.PNG" />
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Control Panel and Meter Calibration Parameters</span></p>
+</div>
+<p>The Control Panel at the top of the calibration tab includes the following options:</p>
+<p><strong>Saving Configurations</strong></p>
+<p>Save the current calibration configuration (values of each range) or load saved configurations by using the &#8220;Save Configuration&#8221; or &#8220;Load Configuration&#8221; buttons. The location of the configuration file will default to a USS directory created in your home folder upon installation, at ~home/USS_VERSION/USSWorkspace/USS_Project. Saving the configuration will also save the automatic logging state and location. Additionally, the GUI will automatically save the configuration upon exit and reload the exit configuration when launched.</p>
+<p><strong>Maximum Volume Flow Rate (VFR)</strong></p>
+<p>Input the Maximum Volume Flow Rate (VFR) based on the application requirements in the Control Panel.</p>
+<p><strong>Flow Unit</strong></p>
+<p>The &#8220;Flow Unit&#8221; is derived from the Meter Constant units in the Configuration-&gt;Parameter tab.</p>
+<p>The &#8220;Meter Calibration Parameters&#8221; panel at the middle of the calibration tab includes the following options:</p>
+<p><strong>Flow Minimum</strong></p>
+<p>Input the &#8220;Flow Minimum&#8221; for each range. During run-time calibration, changing this value does not require the code to be recompiled.</p>
+<p><strong>Number of Points</strong></p>
+<p>Input the &#8220;Number of Points&#8221; for each range. Each calibration point is made up of an expected VFR and a mean VFR. During run-time calibration, changing this value do not require the code to be recompiled.</p>
+<p><strong>Error Threshold (%) (Optional)</strong></p>
+<p>Input the &#8220;Error Threshold&#8221; for each range. This value is used once calibration for a range is completed. For each calibration point, the mean VFR is applied with the meter constants. The calibrated mean VFR is compared versus the expected VFR and compared to this threshold. If the new calibrated value is above this threshold, the cell will be red, otherwise it will be green. During run-time calibration, changing this value do not require the code to be recompiled.</p>
+<p><strong>Slope</strong></p>
+<p>The slope is the meter constant calculated after all the calibration points have been entered.</p>
+<p><strong>Offset</strong></p>
+<p>The offset is the meter constant calculated after all the calibration points have been entered.</p>
+</div>
+<div class="section" id="manual-calibration">
+<h2>Manual Calibration<a class="headerlink" href="#manual-calibration" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how to manually calibrate the meter. This requires to have log of previously tested data sets, including expected VFR and mean VFR.</p>
+<ul class="simple">
+<li>For each &#8220;Range #&#8221; in the Meter Calibration Parameters panel, click on the Range button.</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="Click on Range Button" src="../_images/calibration_range_click.PNG" />
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Click on Range Button</span></p>
+</div>
+<ul class="simple">
+<li>All of the Expected VFR and Mean VFR boxes will have a red edge around them.</li>
+</ul>
+<div class="figure" id="id4">
+<img alt="Calibration Point Default" src="../_images/calibration_range_1_calib_pt_default.PNG" />
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Calibration Point Default</span></p>
+</div>
+<ul class="simple">
+<li>Enter the Expected VFR and Mean VFR for each calibration point. As the values are updated the red edge will become green. Once all the calibration points are updated, the Calib. VFR and Error (%) columns will be populated.</li>
+</ul>
+<div class="figure" id="id5">
+<img alt="Calibration Point Calibrated" src="../_images/calibration_range_1_calib_pt_calibrated.PNG" />
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Calibration Point Calibrated</span></p>
+</div>
+<ul class="simple">
+<li>(Optional) Enter the Error Threshold for the calibrated Range. If the input &#8220;Error Threshold&#8221; is less than the absolute value of calculated Error (%) for each Calibration Point, the box will be red.</li>
+</ul>
+<div class="figure" id="id6">
+<img alt="Error Threshold Input" src="../_images/calibration_parameters_range_1_threshold_error.PNG" />
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Error Threshold Input</span></p>
+</div>
+<ul class="simple">
+<li>To view which calibration point&#8217;s error was larger than the error threshold, click on the Range box.</li>
+</ul>
+<div class="figure" id="id7">
+<img alt="Calibration Point Error" src="../_images/calibration_range_1_calib_pt_calibrated_threshold_red.PNG" />
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Calibration Point Error</span></p>
+</div>
+<ul class="simple">
+<li>The user can choose to re-calibrate the calibration point with larger error, or increase the Error Threshold for the corresponding range. If the Error Threshold is increased above the largest error then the Error Threshold&#8217;s red edge will become green.</li>
+</ul>
+<div class="figure" id="id8">
+<img alt="Error Threshold Input Updated" src="../_images/calibration_parameters_range_1_threshold_green.PNG" />
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Error Threshold Input Updated</span></p>
+</div>
+<ul class="simple">
+<li>Repeat the previous steps for the remaining ranges. The slope and offset columns must have values populated when calibration is completed.</li>
+</ul>
+<div class="figure" id="id9">
+<img alt="Calibrated Ranges" src="../_images/calibration_manual_completed.PNG" />
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Calibrated Ranges</span></p>
+</div>
+<ul class="simple">
+<li>If the code running on the target was previously compiled using the # ranges used for manual calibration, then connect to the target and click the &#8220;Update Calibration&#8221; button, to store the meter constants. Otherwise, generate the header files and recompile the target code.</li>
+</ul>
+<div class="figure" id="id10">
+<img alt="Update Calibration" src="../_images/calibration_update_calibration.PNG" />
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Update Calibration</span></p>
+</div>
+<ul class="simple">
+<li>A calibration update message should appear.</li>
+</ul>
+<div class="figure" id="id11">
+<img alt="Calibrated Ranges" src="../_images/calibration_success_message.PNG" />
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Calibrated Ranges</span></p>
+</div>
+<ul class="simple">
+<li>(optional) If Design Center is connected to a target board, click on &#8220;Read MCU Configuration&#8221; to view the meter constants stored in the target. This will send a request to the target to send the meter constants it has for each range. It will <strong>not</strong> overwrite the meter constants in the Meter Calibration Parameter panel.</li>
+</ul>
+</div>
+<div class="section" id="run-time-calibration">
+<h2>Run-Time Calibration<a class="headerlink" href="#run-time-calibration" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how to calibrate the meter at run-time, instead of loading previously tested data sets.</p>
+<ul class="simple">
+<li>Enter the &#8220;Expected Volume Flow Rate (VFR)&#8221; and &#8220;Calibration Pt# &#8221; in the Configuration panel. The Range text box will be updated automatically based on the &#8220;Expected Volume Flow Rate (VFR)&#8221; and will display the corresponding Range #.</li>
+</ul>
+<div class="figure" id="id12">
+<img alt="Expected Volume Flow Rate Input" src="../_images/calibration_runtime_expected_vfr.PNG" />
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Expected Volume Flow Rate Input</span></p>
+</div>
+<ul class="simple">
+<li>Click the &#8220;Start Calibration&#8221; button on the Calibration Control Panel at the bottom of the Calibration Tab. The Start button notifies the target via HID command to initiate data transfer.</li>
+<li>Wait for a desired amount of time while captures are being averaged.</li>
+<li>Click the &#8220;Stop Calibration&#8221; button on the Calibration Control Panel at the bottom of the Calibration Tab. The Stop button notifies the target via HID command to stop data transfer.</li>
+<li>When the stop button is pressed the Calibration Pt in the corresponding Range # will be updated with the expected and mean VFR.</li>
+<li>This process must be repeated for all the Calibration Points in each Range. The slope and offset columns in the &#8220;Meter Calibration Parameters&#8221; will have the calibration constants when the calibration is completed.</li>
+<li>If the code running on the target was previously compiled using the # ranges used for run-time calibration. Then click the &#8220;Update Calibration&#8221; button, to store the meter constants. Otherwise, generate the header files and recompile the target code.</li>
+<li>(optional) Click on &#8220;Read MCU Configuration&#8221; to view the meter constants stored in the target. This will send a request to the target to send the meter constants it has for each range. It will <strong>not</strong> overwrite the meter constants in the Meter Calibration Parameter panel.</li>
+</ul>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For more information on the application, and available evaluation kits, see the <a class="reference external" href="http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER">download page</a>.</li>
+<li>For technical support, email the <a class="reference external" href="mailto:msp-uss-gui-support&#37;&#52;&#48;list&#46;ti&#46;com">USS GUI support team</a> or visit the <a class="reference external" href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP430 E2E forum</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_errors.html" class="btn btn-neutral float-right" title="Error Handling" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_debug_graph.html" class="btn btn-neutral" title="Debug Waveform" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02.20.00.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

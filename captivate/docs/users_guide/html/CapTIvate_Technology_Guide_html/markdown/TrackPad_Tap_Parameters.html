@@ -1,0 +1,128 @@
+<!-- Captivate Description HTML -->
+<!-- Gesture Tap Parameters -->
+
+<html>
+    <body>
+		<img src="visualizer_images/trackpad_tap.png">
+		<BR>
+		
+		<B>Tap Time Minimum Threshold</B>
+		<P>
+
+		This parameter sets the minimum time (#samples) required for a valid tap gesture.
+		If the number of samples is less than this parameter, the gesture is ignored.
+		A valid tap requires the number of samples to fall with the min and max parameters.
+		<BR>
+		<BR>
+		
+		<B>Tap Time Maximum Threshold</B>
+		<P>
+		This parameter sets the maximum time (#samples) for a valid tap gesture .
+		If the number of samples is greater than this parameter, the gesture is ignored.
+		A valid tap requires the number of samples to fall with the min and max parameters.
+		<BR>
+		<BR>
+		
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The Tap Time Minimum threshold may be set from 1 to 65535 and should be set
+		less than Tap Time Maximum.
+		<BR>
+		<BR>
+		The Tap Time Maximum threshold may be set from 1 to 65535 and should be set
+		greater than Tap Time Minimum.
+        
+        <P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The  Duration Threshold parameter corresponds to the
+		<BR>
+        <i><b>ui16TapTimeMin</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+        The Swipe Distance Threshold parameter corresponds to the
+		<BR>
+        <i><b>ui16TapTimeMax</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+        type in the CapTIvate Touch Library.
+		<BR>
+		<BR>		
+				
+		<BR>
+		<img src="visualizer_images/trackpad_double_tap.png">
+		<BR>
+        <B>Double Tap Time Maximum Threshold</B>
+		<P>
+
+		This parameter sets the maximum time (#samples) for a valid double tap gesture.
+		If the number of samples is greater than this parameter, the gesture is ignored.
+		A valid double tap requires the number of samples to be less than the max parameter.
+		<BR>
+		<BR>
+		
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The Double Tap Time Maximum threshold may be set from 1 to 65535.
+		<BR>
+		<BR>
+		        
+        <P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The Double Tap Time Max threshold parameter corresponds to the
+        <BR>
+		<i><b>ui16DoubleTapTimeMax</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+        type in the CapTIvate Touch Library.
+        <BR>
+		<BR>
+
+		<BR>
+		<img src="visualizer_images/trackpad_tap_hold.png">
+		<BR>
+		
+		<B>Tap and Hold Time Minimum Threshold</B>
+		<P>
+
+		This parameter sets the minimum time (#samples) for a valid tap and hold gesture.
+		If the number of samples is less than this parameter, the gesture is ignored.
+		<BR>
+		<BR>
+		
+		<P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The Tap and Hold Time Minimum threshold may be set from 1 to 65535.
+		<BR>
+		<BR>
+		        
+        <P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The  Duration Threshold parameter corresponds to the
+        <BR>
+		<i><b>ui16TapHoldTimeMin</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+        type in the CapTIvate Touch Library.
+		<BR>
+    </body>
+</html>

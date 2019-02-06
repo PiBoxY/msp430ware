@@ -1,0 +1,563 @@
+<!--
+`ti-widget-temperaturegraph`
+
+The Sliding Temperature Graph widget acts as a scalar graph that plots the value assigned to the temperature property
+over time.  The timeline slides along the x-axis, with time markers periodically displayed.
+
+Example:
+
+    <ti-widget-temperaturegraph temperature="{{$.uart.temp}} temperatureScale="C"></ti-widget-temperaturegraph>
+
+@group TI Instrument Widgets
+@element ti-widget-temperaturegraph
+@homepage ../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+    its contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="stylesheets/rex.css">
+<link rel="stylesheet" href="stylesheets/chart.css" />
+<link rel="import" href="../core-resizable/core-resizable.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base.html">
+<link rel="import" href="../ti-widget-common/ti-widget-label.html">
+<script data-require="jquery@*" data-semver="2.0.3" src="assets/flot/jquery.js"></script>
+<script type='text/javascript' src="assets/flot/jquery.flot.js"></script>
+<script type='text/javascript' src="assets/flot/jquery.flot.time.js"></script>
+<!-- NOTE:  DO NOT USE jquerty.flot.resize.min.js - it causes chart to be rendered with height-16px in FireFox
+<script type='text/javascript' src="assets/flot/jquery.flot.resize.min.js"></script>
+-->
+
+<polymer-element name="ti-widget-temperaturegraph"  extends="ti-widget-base" >
+
+    <template >
+        <style>
+            :host {
+                transition:width 0.01s, height 0.01s;
+                display:inline-block;
+            }
+            #title {
+                color: #555;
+                font-size: large;
+                white-space: normal;
+                text-align: center;
+                padding-bottom: 1em;
+            }
+            #chart {
+                height:90%;
+                width:90%;
+                bottom: 1em;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, 0);
+                background-color:{{backgroundColor}};
+            }
+            #xAxisLabel {
+                width:100%;
+                text-align:center;
+                font-size:x-small;
+                bottom: 0.25em;
+                padding-bottom: 3px;
+            }
+        </style>
+
+        <div style="height:100%; width:100%;background-color:{{backgroundColor}};" layout vertical justified>
+            <label id="title">{{titleLabel}}</label>
+            <div id="chart" onresize="{{this.onResize}}" ></div>
+            <div id="xAxisLabel" style="{{_isHidden(hideXAxis)}}">{{xAxisLabel}}</div>
+            <content></content>
+        </div>
+    </template>
+    <script>
+        Polymer (Polymer.mixin( {
+            _configured: false,
+            _numBadValues: 0,
+            _dataPoints: undefined,
+            _isRunning: false,
+            _plotObj: undefined,
+            _lastTempDisplayUpdateTime: 0,
+            _previousTemperatureScale: "F",
+            _rxDataCount: 0,
+            _redrawOnOptionsChange: true,
+            publish: {
+                /**
+                 * Provides an optional title for the graph.
+                 *
+                 * @attribute titleLabel
+                 * @type string
+                 */
+                titleLabel: "",
+                /**
+                 * temperatureScale determines whether to display temperature in Farenheit (F), Celsius(C) or Kelvin (K)
+                 *
+                 * @attribute temperatureScale
+                 * @type String
+                 * @default F
+                 */
+                temperatureScale: "F",
+                /**
+                 * targetTemperatureScale indicates whether the temperature data from the target is in Farenheit (F), Celsius(C) or Kelvin (K)
+                 *
+                 * @attribute targetTemperatureScale
+                 * @type String
+                 * @default F
+                 */
+                targetTemperatureScale: "F",
+                /**
+                 * The label string to be displayed under the X axis (e.g. "time (s)" )
+                 *
+                 * @attribute xAxisLabel
+                 * @type string
+                 * @default ''
+                 */
+                xAxisLabel: "",
+                /**
+                 * temperature is the last received temperature data value. bind this to e.g. $.uart.temp using the ti-serialio-model
+                 *
+                 * @attribute temperature
+                 * @type int
+                 * @default undefined
+                 */
+                temperature: undefined,
+                /**
+                 * The fixed-scale flag.
+                 *
+                 * @attribute fixedScale
+                 * @type boolean
+                 * @default true
+                 */
+                fixedScale: true,
+                numDecimalPoints: 0,
+                /**
+                 * minTempF is the lowest temperature to display on the y axis
+                 *
+                 * @attribute minTempF
+                 * @type int
+                 * @default 60
+                 */
+                minTempF: 60,
+                /**
+                 * maxTempF is the highest temperature to display on the y axis
+                 *
+                 * @attribute maxTempF
+                 * @type int
+                 * @default undefined
+                 */
+                maxTempF: 90,
+                /**
+                 * minTempC is the lowest temperature to display on the y axis
+                 * when the temperatureScale is set to Celsius
+                 *
+                 * @attribute minTempC
+                 * @type int
+                 * @default 60
+                 */
+                minTempC: 10,
+                /**
+                 * maxTempC is the highest temperature in to display on the y axis
+                 * when the temperatureScale is set to Celsius
+                 *
+                 * @attribute maxTempC
+                 * @type int
+                 * @default undefined
+                 */
+                maxTempC: 40,
+                /**
+                 * minTempK is the lowest temperature to display on the y axis
+                 * when the temperatureScale is set to Kelvin
+                 *
+                 * @attribute minTempK
+                 * @type int
+                 * @default 60
+                 */
+                minTempK: 280,
+                /**
+                 * maxTempK is the highest temperature in to display on the y axis
+                 * when the temperatureScale is set to Kelvin
+                 *
+                 * @attribute maxTempC
+                 * @type int
+                 * @default undefined
+                 */
+                maxTempK: 320,
+                /**
+                 * The color of the line used to represent the temperature.
+                 *
+                 * @attribute lineColor
+                 * @type string
+                 * @default '#ffffff'
+                 */
+                lineColor: '#00bbcc',
+                /**
+                 * The background color.
+                 *
+                 * @attribute backgroundColor
+                 * @type string
+                 * @default '#ffffff'
+                 */
+                backgroundColor: '#ffffff',
+                secondsBetweenTicks: 5,
+                numValuesToPlot:128,
+                /**
+                 * A string indicating the current temperature.
+                 *
+                 * @attribute strCurrentTemperature
+                 * @type string
+                 * @default ''
+                 */
+                strCurrentTemperature: '0'
+            },
+            _isHidden: function(flag){
+                var result = "";
+                if (flag){
+                    result = "display:none";
+                }
+                return result;
+            },
+            _secondsBetweenTicksChanged: function(){
+                var _self = this;
+                this.async(function() {
+                    _self.initOptions();
+                }, null, 0);
+            },
+            secondsBetweenTicksChanged: undefined,
+            eventDelegates: {
+                'core-resize': 'onResize'
+            },
+            _numValuesToPlotChanged: function(){
+                var _self = this;
+                this.async(function() {
+                    _self.initOptions();
+                }, null, 0);
+            },
+            numValuesToPlotChanged: undefined,
+            convertTemperature: function(value){
+                var newValue;
+                var result = value;
+                switch (this.temperatureScale) {
+                    case "F":
+                        switch(this.targetTemperatureScale){
+                            case "F":
+                                newValue = value;
+                                break;
+                            case "C":
+                                newValue = ((value * 9)/5)+32;
+                                break;
+                            case "K":
+                                newValue = (((value - 273.15) * 9)/5)+32;
+                                break;
+                        }
+                        result = newValue.toFixed(1);
+                        break;
+                    case "C":
+                        switch(this.targetTemperatureScale){
+                            case "F":
+                                newValue = (value - 32) * 5 / 9;
+                                break;
+                            case "C":
+                                newValue = value;
+                                break;
+                            case "K":
+                                newValue = value + 273.15;
+                                break;
+                        }
+                        result = newValue.toFixed(1);
+                        break;
+                    case "K":
+                        switch(this.targetTemperatureScale){
+                            case "F":
+                                newValue = (value - 32) * 5 / 9 + 273.15;
+                                break;
+                            case "C":
+                                newValue = value - 273.15;
+                                break;
+                            case "K":
+                                newValue = value;
+                                break;
+                        }
+                        result = newValue.toFixed(1);
+                        break;
+                }
+                return result;
+            },
+            temperatureChanged: function (newValue, oldValue) {
+                if (!this._dataPoints){
+                    this._dataPoints = [];
+                }
+
+                if (newValue !== undefined) {
+                    if (!this._isRunning) {
+                        this._isRunning = true;
+                    }
+
+
+                    if (parseFloat(newValue) <= 20) {
+                        this.numBadValues++;
+                        //console.log('Discarding bad value ('+newValue+').  Total number of bad values = '+this.numBadValues);
+                    }
+                        var t = Date.now();
+                        newValue = this.convertTemperature(newValue);
+
+                        this._dataPoints.push([t, newValue]);
+
+                        if ((t - this._lastTempDisplayUpdateTime) > 1000) {
+                            this.strCurrentTemperature = newValue;
+                            this._lastTempDisplayUpdateTime = t;
+                        }
+
+
+                        if (this._dataPoints.length > this.numValuesToPlot) {
+                            this._dataPoints.shift();
+                        }
+                        this._rxDataCount++;
+
+                }
+            },
+            maxTempKChanged: function(){
+                this.temperatureScaleChanged();
+            },
+            minTempKChanged: function(){
+                this.temperatureScaleChanged();
+            },
+            maxTempCChanged: function(){
+                this.temperatureScaleChanged();
+            },
+            minTempCChanged: function(){
+                this.temperatureScaleChanged();
+            },
+            maxTempFChanged: function(){
+                this.temperatureScaleChanged();
+            },
+            minTempFChanged: function(){
+                this.temperatureScaleChanged();
+            },
+            _temperatureScaleChanged: function(){
+                if (this._dataPoints) {
+                    this.reset();
+                    this.asyncInitOptions();
+                }
+            },
+            temperatureScaleChanged: undefined,
+            _rxDataCountChanged: function(newVal, oldVal){
+
+                if (!this.$) return;
+
+                if ((this._rxDataCount % 256) == 0) {
+                    console.log("_rxDataCount = " + this._rxDataCount+', numBadValues = '+this._numBadValues);
+                }
+                if ((this.$.chart !== undefined)&&(this._isRunning)) {
+                   // if (this._rxDataCount > 0) {
+                        if (this._plotObj !== undefined) {
+                            this._plotObj.setData([this._dataPoints]);
+                            this._plotObj.setupGrid();
+                            this._plotObj.draw();
+                        }
+                   // }
+                }
+
+
+            },
+            _yAxisFormatter: function(val, axis) {
+                var strColor = 'black';
+
+                var strUnits = '&deg'+this.temperatureScale;
+
+                var result = val;
+                var numDecimals = this.numDecimalPoints;
+                var min = this._plotOptions.yaxis.min;
+                var max = this._plotOptions.yaxis.max;
+                if ((max-min < 5) && (numDecimals === 0)){
+                    numDecimals = 1;
+                }
+                if (!isNaN(val)) {
+                    var strVal = val.toString();
+
+                    result = val.toFixed(numDecimals);
+                }
+
+                if ((val >= axis.max) && (strUnits.length > 0)) {
+                    result = result + ' ' + strUnits;
+                } else {
+                    result = result + '&nbsp;&nbsp;&nbsp;';
+                }
+                return result;
+            },
+            yAxisFormatter: undefined,
+            onResize: function() {
+                this.asyncInitOptions();
+            },
+            _asyncInitOptions: function() {
+                var _self = this;
+                this.async(function() {
+                    _self.initOptions();
+                }, null, 0);
+            },
+            asyncInitOptions: undefined,
+            processOptionsHook: function(plot,options){
+
+            },
+            _plotOptions: undefined,
+            _initOptions: function() {
+                console.log("initOptions()");
+
+                if(this.$.chart.clientHeight <= 0 || this.$.chart.clientWidth <= 0) {
+                    return;
+                }
+
+                this._plotOptions = {
+                    xaxis: {
+                        mode: 'time',
+                        timeformat: '%H:%M:%S',
+                        tickSize: [this.secondsBetweenTicks, "second"],
+                        twelveHourClock: true,
+                        timezone: "browser" // switch to using local time on plot
+                    },
+                    yaxis:  {
+                        alignTicksWithAxis: 1,
+                        position: "left",
+                        zoomRange: null,
+                        tickFormatter: this.yAxisFormatter
+                    },
+
+                    series: {shadowSize: 1, lines: {show:true}, points: {show:false}, bars: {show:false}},
+                    colors: [this.lineColor],
+                    grid: {borderWidth:2},
+                    hooks: {
+                        processOptions: [this.processOptionsHook]
+                    }
+                }
+
+                //
+                var newValue;
+                if(this.fixedScale) {
+
+                    switch (this.temperatureScale) {
+                        case "F":
+                            this._plotOptions.yaxis.min = this.minTempF;
+                            this._plotOptions.yaxis.max = this.maxTempF;
+                            newValue = (this.minTempF + this.maxTempF)/2;
+                            break;
+                        case "C":
+                            //newMin = (minF-32)*5/9;
+                            this._plotOptions.yaxis.min = this.minTempC;
+                            //newMax = (maxF-32)*5/9;
+                            this._plotOptions.yaxis.max = this.maxTempC;
+                            newValue = (this.minTempC + this.maxTempC)/2;
+                            break;
+                        case "K":
+                            // newMin = (minF - 32) * 5 / 9 + 273.15;
+                            this._plotOptions.yaxis.min = this.minTempK;
+                            // newMax = (maxF - 32) * 5 / 9 + 273.15;
+                            this._plotOptions.yaxis.max = this.maxTempK;
+                            newValue = (this.minTempK + this.maxTempK)/2;
+                            break;
+                    }
+
+                }
+
+                this._dataPoints = [];
+                var t = Date.now();
+                var newValue = (this.minTempF + this.maxTempF)/2;
+                this._dataPoints.push([t, newValue]);
+                this._dataPoints.push([t+1, newValue]);
+                this._plotObj = $.plot(this.$.chart, this._dataPoints, this._plotOptions);
+
+                this._isRunning = true;
+                this._rxDataCount = this._dataPoints.length;
+
+                // recalculate ranges and scale
+                this._plotObj.setupGrid();
+                // draw
+                this._plotObj.draw();
+            },
+            initOptions: undefined,
+            reset: function() {
+                this._dataPoints = [];
+                var t = Date.now();
+                var newValue = (this.minTempF + this.maxTempF)/2;
+                this._dataPoints.push([t, newValue]);
+                this._dataPoints.push([t+1, newValue]);
+
+            },
+            _configureGraph: function(){
+                this._configured = true;
+            },
+            configureGraph: undefined,
+
+            getElement : function() {
+                return this.$.chart;
+            },
+            onOptionsChange: function(oldVal, newVal, a, b, c) {
+                console.log("onOptionsChange()");
+                if(this._redrawOnOptionsChange) {
+                    // reinitialize options afterward
+                    this.asyncInitOptions();
+                }
+            },
+            attached: function () {
+                this.resizableAttachedHandler();
+                this.addEventListener("transitionend",function(e){
+                    //console.log("transition handler");
+                    this.onResize();
+                })
+            },
+            detached:function(){
+                this.resizableDetachedHandler();
+            },
+            created: function(){
+
+                this.configureGraph = this._configureGraph.bind(this);
+                this.numValuesToPlotChanged = this._numValuesToPlotChanged.bind(this);
+                this.secondsBetweenTicksChanged = this._secondsBetweenTicksChanged.bind(this);
+                this.asyncInitOptions = this._asyncInitOptions.bind(this);
+                this.initOptions = this._initOptions.bind(this);
+                this.yAxisFormatter = this._yAxisFormatter.bind(this);
+                this.temperatureScaleChanged = this._temperatureScaleChanged.bind(this);
+            },
+            domReady: function(){
+                this._lastTempDisplayUpdateTime = Date.now();
+                // initialize plot options after client set properties
+                // use async call to prevent intermittent effects
+                var _self = this;
+                this.async(function(){
+                    _self.reset();
+                    _self.asyncInitOptions();
+                    // notify listeners chart is ready so properties can be set
+                    _self.fire("ready");
+                },1);
+
+
+            }
+
+
+
+
+        },Polymer.CoreResizable));
+    </script>
+</polymer-element>

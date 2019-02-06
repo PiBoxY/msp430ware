@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Energy Measurement Technology Guide 1.30.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Energy Measurement Technology Guide 1.30.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="Design Center GUI" href="ch_designcenter.html"/>
+        <link rel="prev" title="Energy Measurement Technology Guide" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Energy Measurement Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.30.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-kits-support">Development Kits Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#device-support">Device Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-api">Software API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technology-guide-overview">Technology Guide Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#energy-measurement-design-center-gui">Energy Measurement Design Center GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#communication-protocol-specification">Communication Protocol Specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#revision-history">Revision History</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#for-more-information">For More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_comm_protocol.html">Communication Protocol Spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Energy Measurement Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The Energy Measurement Design Center (EMDC) is a rapid development tool that enables energy measurement using TI MSP430i20xx and MSP430F67xx Flash-based microcontrollers (MCUs). It includes a graphical user interface (GUI), documentation, software library and examples that can simplify development and accelerate designs for power monitoring and energy measurement in smart grid and building automation applications. Start by dragging and dropping a MCU, voltage sensors, and current sensors into the GUI workspace. Configure the MCU and each sensor according to your system configuration. The GUI will check for errors before generating the source code. Import the code into an IDE and program the MCU. The GUI will allow you to easily calibrate the device and view the results.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Java JRE 1.7 or later must be installed on the host system. Click here to go to <a class="reference external" href="https://www.java.com/en/download">Java Download Page</a>.</li>
+<li><a class="reference external" href="http://www.ti.com/tool/MSP-FET">MSP MCU Programmer and Debugger</a></li>
+<li>HID Bridge requirements:<ul>
+<li><a class="reference external" href="http://www.ti.com/tool/MSP-EXP430F5529LP">MSP430F5529 LaunchPad</a> (used as HID bridge for communication)</li>
+<li><a class="reference external" href="http://www.ti.com/tool/MSP-ISO">Isolation Adapter for MSP LaunchPad Development Kits</a> (isolates target from HID bridge)</li>
+<li><a class="reference external" href="http://www.ti.com/tool/UNIFLASH">UniFlash Standalone Tool</a> (used to program LaunchPad with provided HID bridge binary file)</li>
+</ul>
+</li>
+<li>Source code generated by this release requires:<ul>
+<li><a class="reference external" href="http://www.ti.com/tool/CCSTUDIO-MSP">Code Composer Studio (CCS)</a> version 7.1.0 or later</li>
+<li><a class="reference external" href="https://www.iar.com/iar-embedded-workbench/#!?architecture=MSP430">IAR Systems Embedded Workbench for MSP430</a> version 7.10 or later</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="development-kits-support">
+<h2>Development Kits Support<a class="headerlink" href="#development-kits-support" title="Permalink to this headline">¶</a></h2>
+<p>The following development kits are supported in this release :</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ti.com/tool/EVM430-i2040S">EVM430-i2040S</a></li>
+<li><a class="reference external" href="http://www.ti.com/tool/EVM430-F6736">EVM430-F6736</a></li>
+<li><a class="reference external" href="http://www.ti.com/tool/EVM430-F6779">EVM430-F6779</a></li>
+</ul>
+</div>
+<div class="section" id="device-support">
+<h2>Device Support<a class="headerlink" href="#device-support" title="Permalink to this headline">¶</a></h2>
+<p>The following families of devices are supported in this release of Energy Measurement Design Center:</p>
+<ul class="simple">
+<li>MSP430i20xx</li>
+<li>MSP430F67xx(1)(A)</li>
+</ul>
+</div>
+<div class="section" id="software-api">
+<h2>Software API<a class="headerlink" href="#software-api" title="Permalink to this headline">¶</a></h2>
+<p>For more information on the Energy Measurement Software Library and ADC Hardware Abstraction Layer (HAL), see <a class="reference external" href="../../../../api_guide/html/index.html">Software Library API Guide</a>.</p>
+</div>
+<div class="section" id="technology-guide-overview">
+<h2>Technology Guide Overview<a class="headerlink" href="#technology-guide-overview" title="Permalink to this headline">¶</a></h2>
+<p>Each chapter in the Energy Measurement Technology Guide is introduced briefly below.</p>
+<div class="section" id="energy-measurement-design-center-gui">
+<h3>Energy Measurement Design Center GUI<a class="headerlink" href="#energy-measurement-design-center-gui" title="Permalink to this headline">¶</a></h3>
+<p>Read the <a class="reference external" href="ch_designcenter.html">Design Center GUI</a> chapter to get started with the rapid development tool that can simplify development and accelerate designs in a wide range of power monitoring and energy measurement applications, including smart grid and building automation, using MSP430 MCUs with 24-bit Sigma Delta ADCs. Using the Design Center, you can configure, calibrate, and view results without writing a single line of code! This chapter includes the following sections:</p>
+<ul class="simple">
+<li><a class="reference external" href="ch_designcenter.html#out-of-box-experience">Out-Of-Box Experience</a>: This section describes how to program the required tools, make the connections, and quickly view results using the provided EMDC example projects and example firmware images.</li>
+<li><a class="reference external" href="ch_designcenter.html#quick-start-guide">Quick Start Guide</a>: This section is intended to provide a very basic and quick overview of how to use the Energy Measurement Design Center (EMDC) to configure a typical energy measurement design (based on the three-phase EVM430-F6779), generate the source code, communicate with the target, and calibrate the system.</li>
+<li><a class="reference external" href="ch_designcenter.html#user-s-guide">User&#8217;s Guide</a>: This sections is intended to provide more detailed information about the features of the Energy Measurement Design Center.</li>
+</ul>
+</div>
+<div class="section" id="communication-protocol-specification">
+<h3>Communication Protocol Specification<a class="headerlink" href="#communication-protocol-specification" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="ch_comm_protocol.html">Communication Protocol Spec</a> chapter introduces the command details and protocol used between EMDC and the target.</p>
+</div>
+<div class="section" id="revision-history">
+<h3>Revision History<a class="headerlink" href="#revision-history" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="ch_revision.html">Revision History</a> chapter tracks changes in the Energy Measurement Technology Guide and Energy Measurement Software Library.</p>
+</div>
+</div>
+<div class="section" id="for-more-information">
+<h2>For More Information<a class="headerlink" href="#for-more-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Visit the <a class="reference external" href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP E2E Forum</a> for support.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_designcenter.html" class="btn btn-neutral float-right" title="Design Center GUI" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Energy Measurement Technology Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.30.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

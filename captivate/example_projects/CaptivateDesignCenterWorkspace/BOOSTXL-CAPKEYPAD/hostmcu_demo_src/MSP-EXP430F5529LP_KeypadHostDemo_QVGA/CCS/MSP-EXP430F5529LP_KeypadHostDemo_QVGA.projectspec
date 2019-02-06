@@ -1,0 +1,25 @@
+<projectSpec>
+  <project 
+    compilerBuildOptions="
+      --gcc 
+      -I${PROJECT_ROOT}
+	  -I${PROJECT_ROOT}/driverlib/MSP430F5xx_6xx
+	  -I${PROJECT_ROOT}/GrLib/grlib
+	  -I${PROJECT_ROOT}/GrLib/fonts
+      --advice:power=&quot;none&quot;"
+   device="MSP430F5529"
+   name="MSP-EXP430F5529LP_KeypadHostDemo_QVGA"
+  >
+	<file action="copy" path="../driverlib" />
+	<file action="copy" path="../GrLib" />
+	<file action="copy" path="../LcdDriver" />
+    <file action="copy" path="../main.c" />
+	<file action="copy" path="../system_pre_init.c" />
+	<file action="copy" path="../board.c" />
+	<file action="copy" path="../board.h" />
+	<file action="copy" path="../display.c" />
+	<file action="copy" path="../display.h" />
+	<file action="copy" path="../keypad.c" />
+	<file action="copy" path="../keypad.h" />
+  </project>
+</projectSpec>

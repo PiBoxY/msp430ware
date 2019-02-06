@@ -1,0 +1,352 @@
+<!--
+`ti-widget-base-selector` is a base class for selection widgets.
+
+Example:
+
+    <polymer-element name="ti-widget-droplist" extends="ti-widget-base-selector">
+
+See demo for a full working example of how to use this component.
+
+@group TI Widgets
+@element ti-widget-base-selector
+@extends ti-widget-base-text
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="ti-widget-base-text.html">
+<polymer-element name="ti-widget-base-selector" extends="ti-widget-base-text" >
+    <script>
+        Polymer ('ti-widget-base-selector', 
+        {
+            /**
+             * Fired when the currentState changes.  use on-selected={{myHandler}} to receive callback
+             *
+             * @event selected
+             */
+             publish: {
+                /**
+                 * Controls the currently selected item by its textual label value.
+                 *
+                 * @attribute selectedText
+                 * @type string
+                 */
+                selectedText: "item1",
+
+                /**
+                 * Provides a list of textual labels to be displayed for the options in the selection.
+                 * Items are specified in a string with each item separated by ',', ';', or '|'
+                 * @attribute labels
+                 * @type string
+                 */
+                labels: "item1|item2",
+
+                /**
+                 * Controls the currently selected item by its zero based index in the list of options.
+                 *
+                 * @attribute selectedIndex
+                 * @type number
+                 * @default 0
+                 */
+                selectedIndex: 0,
+
+                /**
+                 * Controls the currently selected item by its value.  Values are provided by the values
+                 * attribute.  For convenience, if no values attribute is specified, the option values
+                 * are automatically defined as their one based index.  If you need a zero based index,
+                 * use the selectedIndex attribute instead.
+                 *
+                 * @attribute selectedValue
+                 * @type number
+                 * @default 1
+                 */
+                selectedValue: 1,
+
+                /**
+                 * Provides a list of values for the list of options.  This list should be the
+                 * same length as the list of labels provided for the options; otherwise the
+                 * extra options will have undefined values.  The values need not be numeric.  String
+                 * values are also allowed.
+                 *
+                 * @attribute values
+                 * @type list of strings|numbers separated by ',', ';', or '|'
+                 * @default undefined
+                 */
+                values: undefined,
+
+                /**
+                 * Controls whether the list of options are sorted or not.  Sorting is for display purposes
+                 * only.  It will not effect the selectedIndex or selectedValue in anyway.  Sorting is
+                 * alphabetical based on the lowercase version of each options label text.
+                 *
+                 * @attribute sorted
+                 * @type boolean
+                 * @default false
+                 */
+                sorted: false,
+
+                /**
+                 * Provides the initial selection for the list of options.  This is usually not necessary.
+                 * Usually the widget will respond to data bindings to get the initial selection.
+                 * Use this only when you want to force the initial value of the selection and drive other
+                 * bindings with it.
+                 *
+                 * @attribute initialIndex
+                 * @type zero based index into the list of options
+                 * @default undefined
+                 */
+                initialIndex: undefined
+            },
+            
+            _options : [ ],
+            _lastSelectedText: "item1",
+            _lastSelectedIndex: 0,
+            _lastSelectedValue: 1,
+        
+            findOption : function(propertyName, value)
+            {
+                if (value !== null && value !== undefined && (propertyName !== 'index' || (value >= 0 && value < this._options.length)))
+                {
+                    for(var i = this._options.length; i-- > 0; )
+                    {
+                        var option = this._options[i];
+                            
+                        if (option[propertyName] == value)
+                        {
+                            return { option: option, selectedIndex: i};
+                        }
+                    }
+                }
+                return null;
+            },
+            updateProperties : function()
+            {
+                var result = null;
+                
+                // the following code is required to detect client changes to selected values where the polymer changed
+                // event is not called first due to labels or values also changing at the same time. This method could
+                // change the value back to it's original value, causing polymer to not call our changed event.  So the
+                // following code should eat any changed event that is pending.
+                if (this._lastSelectedText != this.selectedText) 
+                {
+                    this._desired = "Text";	
+                    this._lastSelectedText = this.selectedText; 
+                }
+                else if (this._lastSelectedValue != this.selectedValue)
+                {
+                	this._desired = "Value";
+                    this._lastSelectedValue = this.selectedValue; 
+                }
+                else if (this._lastSelectedIndex != this.selectedIndex)
+                {
+                	this._desired = "Index";
+                    this._lastSelectedIndex = this.selectedIndex; 
+                }
+                
+                if (this._options.length > 0)
+                {
+                    if (this._desired === undefined)
+                    {
+                        // preserve by index 
+                        result = this.findOption('index', this.initialIndex === undefined ? this.selectedIndex : this.initialIndex);
+                    }
+                    else 
+                    {
+                        // preserve by desired state
+                        result = this.findOption(this._desired.toLowerCase(), this['selected' + this._desired]);
+                    }
+                }
+
+                if (!result)
+                {
+                	result = { option: {index: -1 }, selectedIndex: -1 };
+                }
+                
+                var option = result.option;
+                if (this._desired !== 'Index' && this.selectedIndex != option.index)
+                {
+                	this._lastSelectedIndex = option.index;
+                    this.selectedIndex = option.index;
+                }
+                if (this._desired !== 'Text' && this.selectedText != option.text)
+                {
+                	this._lastSelectedText = option.text;
+                    this.selectedText = option.text;
+                }
+                if (this._desired !== 'Value' && this.selectedValue != option.value)
+                {
+                    this._lastSelectedValue = option.value;
+                    this.selectedValue = option.value;
+                }
+                if (result.selectedIndex != this.getSelectedIndex())
+                {
+                    this.setSelectedIndex(result.selectedIndex);
+                }
+            },
+            valuesChanged : function()
+            {
+                this._valuesArray = this.values == "" ? undefined : this.parseArray(this.values);
+                
+                for(var i = this._options.length; i-- > 0; )
+                {
+                    var option = this._options[i];
+                    option.value = this._valuesArray ? this._valuesArray[option.index] : option.index+1;
+                }
+                this.updateProperties();
+            },
+            labelsChanged : function()
+            {
+                var labelsArray = this.parseArray(this.labels);
+                
+                this._options = [];
+                for(var i = 0; i < labelsArray.length; i++ )
+                {
+                    var option = { text: labelsArray[i], index: i };
+                    option.value = this._valuesArray ? this._valuesArray[i] : i+1;
+                    this._options.push(option);
+                }
+                
+                if (this.sorted)
+                {
+                    this.doSort();
+                }
+                
+                this.setOptions(this._options);
+                
+                // refresh 
+                this.updateProperties();
+            },
+            doSort : function()
+            {
+                if (this._options.length > 0)
+                {
+                    if (this.sorted)
+                    {
+                        this._options = this._options.sort(function(a, b) 
+                        { 
+                            return a.text.toLocaleLowerCase().localeCompare(b.text.toLocaleLowerCase()); 
+                        });
+                    }
+                    else 
+                    {
+                        this._options = this._options.sort(function(a, b) 
+                        {
+                            return a.index - b.index; 
+                        });
+                    }
+                }
+            },
+            sortedChanged : function()
+            {
+                this.doSort();
+                
+                // update widget with new order of options
+                this.setOptions(this._options);
+                
+                var result = this.findOption('index', this.selectedIndex)
+                this.setSelectedIndex(result === null ? -1 : result.selectedIndex);
+            },
+            selectedValueChanged : function()
+            {
+            	if (this.selectedValue !== this._lastSelectedValue)
+            	{
+            		this._lastSelectedValue = this.selectedValue;
+                    var i = this.getSelectedIndex();
+                    if ( (i >= 0 && i < this._options.length) ? this._options[i].value != this.selectedValue : this.selectedValue !== undefined) 
+                    {
+                        this._desired = 'Value';
+                        
+                        this.updateProperties();
+                    }
+            	}
+            },
+            selectedTextChanged : function()
+            {
+            	if (this.selectedText !== this._lastSelectedText) 
+            	{
+            		this._lastSelectedText = this.selectedText; 
+	                var i = this.getSelectedIndex();
+	                if ( (i >= 0 && i < this._options.length) ? this._options[i].text != this.selectedText : this.selectedText !== undefined) 
+	                {
+	                    this._desired = 'Text';
+	                    
+	                    this.updateProperties();
+	                }
+            	}
+            },
+            selectedIndexChanged : function()
+            {
+            	if (this.selectedIndex !== this._lastSelectedIndex)
+            	{
+            		this._lastSelectedIndex = this.selectedIndex;
+                    var i = this.getSelectedIndex();
+                    if ( (i >= 0 && i < this._options.length) ? this._options[i].index != this.selectedIndex : this.selectedIndex !== undefined) 
+                    {
+                        this._desired = 'Index';
+                        
+                        this.updateProperties();
+                    }
+            	}
+            },
+            onUserInputChanged : function()
+            {
+                if (this._desired === undefined)
+                {
+                    // arbitrarily choose to preserve index if user makes changes before model does.
+                    this._desired = 'Index';
+                }
+                
+                var index = this.getSelectedIndex();
+                var option = this._options[index];
+                this.selectedIndex = option.index;
+                this.selectedValue = option.value;
+                this.selectedText = option.text;
+                
+                this.fire('selected');
+            },
+            initialIndexChanged : function()
+            {
+                if (this._desired === undefined)
+                {
+                    var i = this.getSelectedIndex();
+                    if ( (i >= 0 && i < this._options.length) ? this._options[i].index != this.initialIndex : this.initialIndex !== undefined)
+                    { 
+                        this.updateProperties();
+                    }
+                }
+            },
+            visibleChanged: function()
+            {
+            	this.super();
+            	this.updateProperties();
+            }
+        });
+    </script>
+</polymer-element>

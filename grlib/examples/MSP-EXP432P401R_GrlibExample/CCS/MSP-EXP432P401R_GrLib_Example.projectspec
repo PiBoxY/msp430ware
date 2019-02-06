@@ -1,0 +1,17 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT} -I${MSPWAREDLIB_ROOT} -I${PROJECT_ROOT}/GrLib/grlib -I${PROJECT_ROOT}/LcdDriver" 
+  device="Cortex M.MSP432P401R" 
+  name="MSP-EXP432P401R_GrLib_Example" 
+  enableHexTool="true"
+  hexBuildOptions="--ti_txt" >
+    <pathVariable name="MSPWAREDLIB_ROOT" path="../../../driverlib/MSP432P4xx/" scope="project" />
+    <file action="copy" path="../main.c" openOnCreation="true" />
+    <file action="copy" path="../touch_P401R.c" />
+	<file action="copy" path="../touch_P401R.h" />
+	<file action="copy" path="../LcdDriver/" targetDirectory="LcdDriver" />
+	<file action="copy" path="../images/" />
+	<file action="copy" path="../../../src/grlib/" targetDirectory="GrLib" />
+	<file action="copy" path="../../../src/fonts/" targetDirectory="GrLib" />
+    <file action="link" path="../../../driverlib/MSP432P4xx/ccs/msp432p4xx_driverlib.lib" />
+  </project>
+</projectSpec>

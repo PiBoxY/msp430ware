@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><!-- /* * Copyright 2007 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ -->
+
+
+<title>MSP430 Java HID Demo App -- Release Notes</title><!-- For now, we use the doxygen style sheet --><link href="docs/html/doxygen.css" rel="stylesheet" type="text/css"></head>
+<body>
+<table width="100%">
+<tbody>
+<tr>
+<td bgcolor="black" width="1"><a href="http://www.ti.com"><img src="doc/tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+<td bgcolor="red"><img src="doc/titagline.gif"></td>
+</tr>
+</tbody>
+</table>
+<h1>MSP430 Java HID Demo App -- Release Notes</h1>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+<p>Welcome to the MSP430 Java HID USB Demo App! This is an
+example of a host-side HID application. It's designed to use the
+HID-Datapipe format (see the Programmer's Guide for more information).
+However, it could also be used for any custom HID device -- that is, an
+HID device not driven directly by the OS, like a mouse/keyboard.<br>
+</p>
+<p>The project is composed
+of a Java GUI and C drivers. The communication between Java
+and the C
+drivers is Java Native Interface (JNI) based. &nbsp; This means
+there
+is an accompanying SO in the same path as the *.jar file that contains
+the native calls. &nbsp;&nbsp; </p>
+This document is divided into the following sections:
+<ul>
+<li><a href="#Prerequisites">Prerequisites</a></li>
+<li><a href="#Running">Running the HID Demo App</a></li>
+<li><a href="#Rebuilding">Rebuilding the HID Demo
+App</a></li>
+<li><a href="#Validation">Validation Information</a></li>
+<li><a href="#Known_Issues">Known Issues</a></li>
+<li><a href="#Versioning">Versioning</a></li>
+<li><a href="#Support">Support</a></li>
+</ul>
+<br>
+<hr><br>
+<h2><a name="Prerequisites" id="Prerequisites">Prerequisites</a></h2>
+<h3><a name="Prerequisites" id="Prerequisites">To
+run the app:</a></h3>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">OS</a></li>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">Linux Ubuntu with 32-bit Java Sun JDK 1.6+</a></li>
+</ul>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">Linux Ubuntu with 64-bit Java OpenJDK&nbsp;1.6+</a></li>
+</ul></ul>
+<h3><a name="Prerequisites" id="Prerequisites">To
+re-build the app:</a></h3>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">OS</a></li>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">Linux Ubuntu with 32-bit Java Sun JDK 1.6+</a></li>
+</ul>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">Linux Ubuntu with&nbsp;64-bit Java OpenJDK 1.6+ </a></li>
+</ul><li><a name="Prerequisites" id="Prerequisites"></a>Terminal Window<a name="Prerequisites" id="Prerequisites">
+</a><br></li>
+<ul></ul>
+</ul>
+<br>
+<a name="Prerequisites" id="Prerequisites"></a>
+<hr><a name="Prerequisites" id="Prerequisites"></a><h2><a name="Running" id="Running">Running
+the HID Demo App</a></h2>
+
+<a name="Running" id="Running"> </a>
+<p><a name="Running" id="Running">The HID
+Demo App can be run with any of the HID-Datapipe examples included in
+the USB Developers Package. Please refer to the Examples Guide in the
+Developers Package for usage information.</a></p><p><a name="Running" id="Running">The Hid
+Demo App may be executed from a command line, by navigating to the
+directory in
+which the *.jar file is located, and typing &nbsp;the following command:</a></p><p><a name="Running" id="Running">&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">java
+-jar -Djava.library.path=/&lt;path_to_.so_file&gt;/ &nbsp; &nbsp;HidDemo.jar</span> &nbsp;</a><a name="Running" id="Running"> </a></p><a name="Running" id="Running"></a><a name="Running" id="Running">This should
+bring up the HID Demo App. If it does not, check to ensure that a
+Java Virtual Machine (JVM) is listed in your PC's path.</a>
+<br><br><span style="font-weight: bold;"></span>Unless you are running
+the application as root, a one-time setup is required to grant
+permissions to the HID device mounted by the MSP USB. &nbsp;Root
+permissions are required for this setup.<br><ul><li>Create the file /etc/udev/rules.d/ti_hid.rules. Add the 2&nbsp; lines below to the file and save the file.<br><div style="margin-left: 40px;"><span style="font-style: italic;"># Allow open access to any usb device with the default Texas Instruments VendorId of 0x2047</span><br style="font-style: italic;"><span style="font-style: italic;">ATTRS{idVendor}=="2047", MODE="0666"</span><br></div></li></ul><a name="Running" id="Running">
+</a>
+<hr><a name="Running" id="Running"><br>
+</a>
+<h2><a name="Rebuilding" id="Rebuilding">Rebuilding&nbsp;
+the HID Demo App</a></h2>
+<p><a name="Rebuilding" id="Rebuilding">This
+update&nbsp;can build 32- and 64-bit
+&nbsp;libraries. The project contains: </a></p>
+<table style="width: 666px; height: 160px;" border="1">
+<tbody>
+<tr>
+<td>com </td>
+<td>Top Level Java and Class files</td>
+</tr>
+<tr>
+<td>doc</td>
+<td>Release Notes image files</td>
+</tr>
+<tr>
+<td>icons </td>
+<td>User interface resources</td>
+</tr>
+<tr>
+<td>jni</td>
+<td>C sources and library</td>
+</tr>
+</tbody>
+</table>
+<a name="Rebuilding" id="Rebuilding"><br>
+There is also a Makefile, at top level, for rebuilding the application
+(*.jar
+file and SO). &nbsp;To rebuild, please see pre-requisites. <br>
+The HID Demo App was
+developed only as an example, so you're encouraged to modify and update
+it.
+&nbsp;In order to do this, you will need the following software
+installed:</a>
+<ul></ul>
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html"></a>
+
+<br><ul><li><a name="Rebuilding" id="Rebuilding">OpenJDK or Java-Sun 1.6+ &nbsp;(32 bit&nbsp;or 64 bit)</a></li><li><a name="Rebuilding" id="Rebuilding"></a>libusb</li><li>libudev-dev</li></ul>The OpenJDK may be
+downloaded from:<br><a href="http://openjdk.java.net/install/" target="_blank">http://openjdk.java.net/install/</a><br><br>You
+will need to install development packages for libudev, and libusb. On
+Debian/Ubuntu systems these can be installed by running:<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sudo apt-get install libudev-dev libusb-1.0-0-dev <br><br><a name="Rebuilding" id="Rebuilding"></a><br>
+Modify the Makefile (in
+hidDemo-java/Makefile) to add
+the location of the JDK and libusb you have installed on your system. &nbsp;
+If the compilers were installed correctly, the only changes that should
+be needed is the JDK&nbsp;path.&nbsp;
+<br>
+<br>
+ifeq (${Linux},1)<br>&nbsp;&nbsp;&nbsp; CC=gcc<br>&nbsp;&nbsp;&nbsp; CXX=gcc<br>&nbsp;&nbsp;&nbsp; CCFLAGS=-m64 -fPIC<br><span style="font-weight: bold;">&nbsp; &nbsp; JDK="/usr/lib/jvm/java-6-sun-1.6.0.26"</span><span style="font-weight: bold;"></span><br>&nbsp;&nbsp;&nbsp; LIB_NAME=libHidCommunicationManagerLinux64.so<br>&nbsp;&nbsp;&nbsp; JNICFLAGS=-c -I${JDK}/include -I${JDK}/include/linux -std=gnu99 -D__int64="long long" -fPIC<br>&nbsp;&nbsp;&nbsp; JNILDFLAGS=-Wall -D_JNI_IMPLEMENTATION_ <br>&nbsp;&nbsp;&nbsp; LNXOBJS=${HIDAPI_ROOT}/linux/hid-libusb.c<br>&nbsp;&nbsp;&nbsp; LNXLIBS=-lusb-1.0 -ludev -lrt<br>else<br>&nbsp;&nbsp;&nbsp; CC=gcc<br>&nbsp;&nbsp;&nbsp; CXX=gcc<br>&nbsp;&nbsp;&nbsp; CCFLAGS=-m32 -fPIC<br>&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"> JDK="/usr/lib/jvm/java-6-sun-1.6.0.26"</span><br>&nbsp;&nbsp;&nbsp; LIB_NAME=libHidCommunicationManagerLinux.so<br>&nbsp;&nbsp;&nbsp; JNICFLAGS=-c -I${JDK}/include -I${JDK}/include/linux -std=gnu99 -D__int64="long long"<br>&nbsp;&nbsp;&nbsp; JNILDFLAGS=-Wall -D_JNI_IMPLEMENTATION_<br>&nbsp;&nbsp;&nbsp; LNXOBJS=${HIDAPI_ROOT}/linux/hid-libusb.c<br>&nbsp;&nbsp;&nbsp; LNXLIBS=-lusb-1.0 -ludev -lrt<br>endif<br>
+<br>
+<br>
+<br>
+The JDK paths should point to where your system's JDK is installed (the
+JDK
+directory right above bin/ that contains javah.exe).<br>
+<br>
+The
+final step is to open a terminal window and&nbsp; run "make" (or
+"make Linux=1", for 64-bit build) in the HidDemo-linux directory.<br>
+<br>
+<br>
+<hr><br>
+<h2><a name="Validation" id="Validation">Validation</a></h2>
+The 32-bit version has been tested on&nbsp;a 32-bit
+Linux&nbsp;machine and the 64-bit version has been tested on a 64-bit
+Linux machine.<br>
+<br>
+<hr><br>
+<h2><a name="Known_Issues" id="Known_Issues">Known
+Issues</a></h2>If
+the HID port connected to the device does not have read and write
+permissions, the Java Hid Demo App&nbsp;will disapper upon connection
+to the device. &nbsp; <br>
+<br>
+<hr><br>
+<h2><a name="Versioning" id="Versioning">Versioning</a></h2>
+<p>This is demo code, and therefore there is no versioning.</p>
+<hr>
+<h2><a name="Support" id="Support">Support</a></h2>
+<a name="Support" id="Support">First check the
+Examples Guide and MSP430 USB API Programmer's Guide in the USB
+Developers Package for more information. If you still need support,
+please
+visit the </a><a href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP430
+E2E forum</a>.
+or e-mail us directly at&nbsp;<font face="Times New Roman" size="3"><span style="font-size: 12pt;"><a title="mailto:msp430ware@list.ti.com" href="mailto:msp430ware@list.ti.com">msp430ware@list.ti.com.</a><o:p></o:p></span></font>
+<br>
+<br>
+</body></html>

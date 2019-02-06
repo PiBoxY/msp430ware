@@ -1,0 +1,42 @@
+<projectSpec>
+  <project 
+    compilerBuildOptions="
+      --gcc 
+      -I${PROJECT_ROOT}
+	  -I${PROJECT_ROOT}/driverlib
+      -I${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx
+	  -I${PROJECT_ROOT}/mathlib
+      -I${PROJECT_ROOT}/captivate
+      -I${PROJECT_ROOT}/captivate/ADVANCED
+      -I${PROJECT_ROOT}/captivate/BASE
+      -I${PROJECT_ROOT}/captivate/COMM
+	  -I${PROJECT_ROOT}/captivate_app
+  	  -I${PROJECT_ROOT}/captivate_config
+      --code_model=small
+      --data_model=small
+      -O3
+      --opt_for_speed=0
+	  --define=TARGET_IS_MSP430FR2XX_4XX
+      --advice:power=&quot;none&quot;"
+    linkerBuildOptions="
+	  --library=${PROJECT_ROOT}/captivate/BASE/libraries/captivate_fr2522_family.lib
+	  --library=${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx/libraries/driverlib.lib
+	  --library=${PROJECT_ROOT}/mathlib/libraries/QmathLib.lib
+	  --library=${PROJECT_ROOT}/mathlib/libraries/IQmathLib.lib
+	  --stack_size=256"
+   device="MSP430FR2522"
+   name="MSP-TS430RHL20-SingleButton-Demo"
+  >
+    <file action="copy" path="../captivate/ADVANCED" targetDirectory="captivate" />
+	<file action="copy" path="../captivate/BASE/" targetDirectory="captivate" />
+	<file action="copy" path="../captivate/BASE/libraries/captivate_fr2633_family.lib" targetDirectory="captivate/BASE/libraries" excludeFromBuild="True"/>
+	<file action="copy" path="../captivate/BASE/libraries/captivate_fr2522_family.lib" targetDirectory="captivate/BASE/libraries" excludeFromBuild="False"/>
+	<file action="copy" path="../captivate/COMM" targetDirectory="captivate" />
+    <file action="copy" path="../captivate/captivate.h" targetDirectory="captivate" />
+	<file action="copy" path="../captivate_app" />
+	<file action="copy" path="../captivate_config" />
+	<file action="copy" path="../driverlib" />
+	<file action="copy" path="../mathlib" />
+    <file action="copy" path="../main.c" />
+  </project>
+</projectSpec>

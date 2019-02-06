@@ -1,0 +1,91 @@
+Library Calibrations Routines
+=============================
+
+HSPLL Frequency Verification Test Configuration
+-----------------------------------------------
+
+The library allows user's to compensate Absolute Time of Flight (AbsToF) and Delta Time of Flight (DToF) calculation due to USS XTAL frequency drift via ``USS_Algorithms_User_Configuration.clockRelativeError`` parameter.
+
+It is highly recommended to use ``USS_verifyHSPLLFrequency`` API to configure ``USS_Algorithms_User_Configuration.clockRelativeError``. The flow chart below shows the implementation for USS\_verifyHSPLLFrequency API.
+
+.. figure:: images/Clock_Calibration.png
+   :alt: Clock Calibration
+
+   Clock Calibration
+
+The default configuration parameters for this test are shown below. User's can modify these parameters to increase test accuracy or reduce test duration. These parameters are available in *<USS\_LIB\_DIR>/lib/USS/source/ussSwLibCalibration.h*
+
+.. code:: c
+
+    // Number of iterations used for averaging = 2^(RESONATOR_CALIB_ITERATION_COUNT)
+    // If RESONATOR_CALIB_ITERATION_COUNT == 0, Number of iterations used for
+    // averaging = 1.
+    // If RESONATOR_CALIB_ITERATION_COUNT == 1, Number of iterations used for
+    // averaging = 2
+    //
+    // Minimum value = 0
+    // Maximum value = 10
+    #define RESONATOR_CALIB_ITERATION_COUNT             2
+
+    // Number of ACLK cycles to monitor SAPH ASQCLK.
+    // Minimum value = 1
+    // Maximum value = 3000
+    #define RESONATOR_CALIB_MONITORING_ACLK             550
+
+Usage assumption
+~~~~~~~~~~~~~~~~
+
+**IMPORTANT:**
+
+During HSPLL frequency monitoring the application must ensure that no application level interrupts are triggered during the monitoring window otherwise HSPLL frequency calculation accuracy might be impacted.
+
+HSPLL Frequency Verification Test Benchmark
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The table below shows the expected error bound, typical current consumption and test duration for various test configurations. Test duration were obtained using CCSv8.0 using optimization level -O3. Reducing the application optimization level will result in a longer test duration.
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+       <tr>
+           <th rowspan="2">Configuration</th>
+           <th colspan="3">MCLK=8 MHz</th>
+           <th colspan="3">MCLK=16 MHz</th>
+       </tr>
+       <tr>
+           <th>Error bound</th>
+           <th>Typical current consumption (&mu;A)</th>
+           <th>Typical Test duration (ms)</th>
+           <th>Error bound</th>
+           <th>Typical current consumption (&mu;A)</th>
+           <th>Typical test duration(ms)</th>
+       </tr>
+       <tr>
+           <td>
+               <code>
+                   RESONATOR_CALIB_ITERATION_COUNT == 2<br/>
+                   RESONATOR_CALIB_MONITORING_ACLK == 550<br/>
+               </code>
+           </td>
+           <td><1.86e-5</td>
+           <td>26.05</td>
+           <td>68.18</td>
+           <td><9.31e-6</td>
+           <td>31.39</td>
+           <td>67.84</td>
+       </tr>
+       <tr>
+           <td>
+               <code>
+                   RESONATOR_CALIB_ITERATION_COUNT == 0<br/>
+                   RESONATOR_CALIB_MONITORING_ACLK == 550<br/>
+               </code>
+           </td>
+           <td><7.45e-5</td>
+           <td>7.01</td>
+           <td>17.41</td>
+           <td><3.72e-5</td>
+           <td>8.41</td>
+           <td>17.19</td>
+       </tr>
+   </table>

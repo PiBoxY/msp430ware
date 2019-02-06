@@ -1,0 +1,66 @@
+<!-- Captivate Description HTML -->
+<!-- Wake On Prox Mode Tuning Parameters -->
+
+<html>
+	<body>
+		<B>Wake On Proximity Mode</B>
+		<P>
+		Wake-on-proximity mode is an operating mode that allows the first cycle of any sensor to be used as a wake-up mechanism
+		for the rest of the user interface.  To enable this mode, select a sensor to be used as the wakeup sensor via the drop
+		down selection in the controller customizer.  By enabling this mode, it is possible to achieve lower power consumption
+		for a system by only updating one time cycle at a slower rate (say, a proximity sensor) until a proximity event on that cycle is detected.
+		At that point, the full user interface will be updated.  The sensor selected for wake-on-proximity will be updated in the background
+		with no CPU intervention until one of the following 3 things happens:
+		
+		
+		<P><B>1. A proximity threshold crossing was detected on the wake-on-proximity sensor.</B>
+		If the peripheral detects a proximity threshold crossing, a detection interrupt will be issued
+		and the application will switch from autonomous mode to active mode.
+		<P><B>2. A negative touch threshold crossing was detected on the wake-on-proximity sensor.</B>
+		If the peripheral detects a negative touch threshold crossing, a detection interrupt will be issued
+		and the application will switch from wake-on-proximity mode to active mode.
+		<P><B>3. A conversion counter interrupt condition occurred.</B>
+		The conversion counter interrupt provides a simple way to wake the application after a specified
+		number of conversions has taken place (specified by the Wakeup_Interval parameter).  In systems with other sensors,
+		it is advised to wake up the application periodically to update the long term averages (LTA's) of the other sensors in the
+		system, so that environmental drift is accounted for.
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		<P>
+		The Wake_On_Prox_Mode_Scan_Rate_ms parameter specifies the interval at which the wake-on-proximity sensor is updated in hardware.
+		To convert to samples per second (SPS), simply take 1000 divided by the specified report rate period.
+		For example, a report rate (response time) of 50ms would equate to 20 samples per second (SPS).
+		
+		<P>
+		The Inactivity_Timeout parameter species the amount of time (in samples) to wait before switching from
+		active mode to wake-on-proximity mode after all sensor proximity flags have cleared.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Wake_On_Prox_Mode_Scan_Rate_ms parameter corresponds to the
+		<i><b>ui16WakeOnProxModeScanPeriod</b></i> 
+		member of the
+		<i><b>tCaptivateApplication</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+		The Inactivity_Timeout parameter corresponds to the
+		<i><b>ui16InactivityTimeout</b></i> 
+		member of the
+		<i><b>tCaptivateApplication</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+		The Wakeup_Interval parameter corresponds to the
+		<i><b>ui8WakeupInterval</b></i> 
+		member of the
+		<i><b>tCaptivateApplication</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

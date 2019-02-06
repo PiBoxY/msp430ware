@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Code Examples &mdash; MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation" href="../index.html"/>
+        <link rel="next" title="Library Calibrations Routines" href="Calibrations.html"/>
+        <link rel="prev" title="Understanding the Ultrasonic Sensing Solution Library" href="Understanding.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MSP Ultrasonic Sensing Library Users Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02_20_00_16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Whats_supported.html">What is supported by the library?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Understanding.html">Understanding the Ultrasonic Sensing Solution Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#software-prerequisites">Software Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-prerequisites">Hardware Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#device-resource-usage">Device Resource Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#library-configuration-assumptions">Library configuration assumptions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-example-directory-structure">Code Example Directory Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-composer-studio">Code Composer Studio</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#importing-the-project">Importing the Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-the-project">Building the Project</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#iar-embedded-workbench-for-msp430">IAR Embedded Workbench for MSP430</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Importing the Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Building the Project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-uss-sw-library-usage">Recommended USS SW Library usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recommended-measurement-and-algorithms-initialization">Recommended measurement and algorithms initialization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modifying-library-configuration-files">Modifying Library Configuration Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#library-memory-optimization-configuration">Library memory optimization configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lea-ram-buffers">LEA RAM Buffers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fram-buffers">FRAM Buffers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-buffers">RAM Buffers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Calibrations.html">Library Calibrations Routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HighFlow.html">Enabling High Water Flow applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VFRCalib.html">Volume Flow Rate Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InterpLUT.html">Generating Interpolation Correction Look-up table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimLib.html">Using the memory optimized libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BestPract.html">USS SW Library best practices</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MSP Ultrasonic Sensing Library Users Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Code Examples</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="code-examples">
+<h1>Code Examples<a class="headerlink" href="#code-examples" title="Permalink to this headline">¶</a></h1>
+<p>The code examples in this library shows basic usage of the library API&#8217;s. The example project implements the typical SW Flow in ultrasonic application as described in section Flow Diagram</p>
+<div class="section" id="software-prerequisites">
+<h2>Software Prerequisites<a class="headerlink" href="#software-prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Code Composer Studio version 7.2.0 or later<ul>
+<li>Compiler version or TI v16.9.3.LTS</li>
+</ul>
+</li>
+<li>IAR Embedded Workbench for MSP v 7.10 or later</li>
+</ul>
+</div>
+<div class="section" id="hardware-prerequisites">
+<h2>Hardware Prerequisites<a class="headerlink" href="#hardware-prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ti.com/tool/evm430-fr6047">EVM430-FR6047</a> (recommended to evaluate single tone ultrasonic applications)</li>
+<li><a class="reference external" href="http://www.ti.com/tool/evm430-fr6043">EVM430-FR6043</a> (recommended to evaluate multi tone ultrasonic applications)</li>
+<li><a class="reference external" href="http://www.ti.com/tool/evm430-fr6043-02">EVM430-FR6043-02</a> (recommended to evaluate single tone ultrasonic applications)</li>
+<li><a class="reference external" href="http://www.ti.com/tool/msp-ts430pz100e">MSP-TS430PZ100E</a></li>
+</ul>
+<div class="section" id="device-resource-usage">
+<h3>Device Resource Usage<a class="headerlink" href="#device-resource-usage" title="Permalink to this headline">¶</a></h3>
+<p>The USS library requires access to different MSP430 modules based on the excitation type selected user selection to to control the external AFE.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="10%" />
+<col width="17%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Module</th>
+<th class="head">Default selection</th>
+<th class="head">File containing module defintion</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Timer_A</td>
+<td>Timer_A2</td>
+<td>ussSWLib/USS_HAL/USS_Lib_HAL.h</td>
+<td>Used to generated USS crystal/resonator settling times. Use to enable transitions to LPM3 during low power captures.</td>
+</tr>
+<tr class="row-odd"><td>LEA</td>
+<td>&nbsp;</td>
+<td>Not configurable</td>
+<td>Internally used by Algorithms API to accelerate vector based operations</td>
+</tr>
+<tr class="row-even"><td>Timer_A</td>
+<td>Timer_A0</td>
+<td>ussSWLib/USS_HAL/USS_Lib_HAL.h</td>
+<td>Use to generate AFE events.</td>
+</tr>
+<tr class="row-odd"><td>GPIO USSSWLIB_HAL_AFE_RXEN</td>
+<td>P6.7</td>
+<td>ussSWLib/USS_HAL/USS_Lib_HAL.h</td>
+<td>Only use when controlling external AFE</td>
+</tr>
+<tr class="row-even"><td>GPIO USSSWLIB_HAL_AFE_RX_SEL1</td>
+<td>P3.6</td>
+<td>ussSWLib/USS_HAL/USS_Lib_HAL.h</td>
+<td>Only use when controlling external AFE</td>
+</tr>
+<tr class="row-odd"><td>GPIO USSSWLIB_HAL_AFE_RX_SEL2</td>
+<td>P3.7</td>
+<td>ussSWLib/USS_HAL/USS_Lib_HAL.h</td>
+<td>Only use when controlling external AFE</td>
+</tr>
+<tr class="row-even"><td>GPIO USSSWLIB_HAL_AFE_RXPWR</td>
+<td>P2.2</td>
+<td>ussSWLib/USS_HAL/USS_Lib_HAL.h</td>
+<td>Only use when controlling external AFE</td>
+</tr>
+<tr class="row-odd"><td>GPIO USSSWLIB_HAL_AFE_TXPWR</td>
+<td>P1.0</td>
+<td>ussSWLib/USS_HAL/USS_Lib_HAL.h</td>
+<td>Only use when controlling external AFE</td>
+</tr>
+<tr class="row-even"><td>DMA</td>
+<td>DMA_Channel 2</td>
+<td>Not configurable</td>
+<td>Only needed when using multitoned excitation pulses and running on device with USS_A module</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>DMA_Channel 3</td>
+<td>Not configurable</td>
+<td>Only needed when using multitoned excitation pulses and running on device with USS_A module</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="library-configuration-assumptions">
+<h4>Library configuration assumptions<a class="headerlink" href="#library-configuration-assumptions" title="Permalink to this headline">¶</a></h4>
+<p>The following modules are automatically configured by the library and don&#8217;t need to be initialized as part of the application:</p>
+<ul class="simple">
+<li>USS module</li>
+<li>Timer_A</li>
+<li>GPIOs use to control external circuitry</li>
+<li>DMA channel when multitoned generation is selected</li>
+</ul>
+<p>In order to achieve the lowest power consumption and achieve the expected timing configuration, it is recommended that users configure the following modules.</p>
+<ul class="simple">
+<li>Clock System (CS)<ul>
+<li>It is highly recommended that ACLK is sourced externally by a 32.768 KHz crystal<ul>
+<li>Please refer to <a class="reference external" href="http://www.ti.com/lit/pdf/slaa322">MSP430™ 32-KHz Crystal Oscillators</a> Application Report for further information for crystal selection</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Digital I/O<ul>
+<li>It is highly recommended to terminate unused pins.</li>
+</ul>
+</li>
+</ul>
+<p>For further recommendations to achieve the lowest power consumption please refer to <a class="reference external" href="http://processors.wiki.ti.com/index.php/MSP430_FAQ#How_to_achieve_the_specified_power_consumption_values_as_in_the_datasheet.3F">How to achieve the specified power consumption values as in the datasheet?</a></p>
+<p>In addition, the clock module configuration must match LIBRARY CLOCK DEFINITION configuration defines in <code class="docutils literal"><span class="pre">&lt;USS_SW_LIB_ROOT&gt;/examples/USSSWLib_template_example/USS_Config/USS_userConfig.h</span></code>.</p>
+<p>Code section :</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">/*******************************************************************************</span>
+ <span class="o">*</span> <span class="n">LIBRARY</span> <span class="n">CLOCK</span> <span class="n">DEFINITION</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">IMPORTANT</span><span class="p">:</span> <span class="n">The</span> <span class="n">following</span> <span class="n">defines</span> <span class="n">only</span> <span class="n">specify</span> <span class="n">MCLK</span> <span class="ow">and</span> <span class="n">LFXT</span> <span class="n">frequencies</span> <span class="n">at</span>
+ <span class="o">*</span> <span class="n">which</span> <span class="n">the</span> <span class="n">application</span> <span class="ow">is</span> <span class="n">configured</span> <span class="n">to</span> <span class="n">run</span><span class="o">.</span> <span class="n">The</span> <span class="n">library</span> <span class="n">DOES</span> <span class="n">NOT</span> <span class="n">configure</span>
+ <span class="o">*</span> <span class="n">MCLK</span><span class="p">,</span> <span class="n">SMCLK</span> <span class="ow">or</span> <span class="n">LFXT</span><span class="o">.</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">This</span> <span class="n">parameter</span> <span class="n">are</span> <span class="n">also</span> <span class="n">using</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">derived</span> <span class="n">parameter</span> <span class="n">section</span> <span class="n">to</span> <span class="n">calculate</span>
+ <span class="o">*</span> <span class="n">HSPLL</span> <span class="n">counts</span> <span class="ow">and</span> <span class="n">LFXT</span> <span class="n">counts</span><span class="o">.</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">USS_MCLK_FREQ_IN_HZ</span> <span class="n">valid</span> <span class="n">options</span><span class="p">:</span>
+ <span class="o">*</span> <span class="o">-</span> <span class="n">Valid</span> <span class="n">device</span> <span class="n">specific</span> <span class="n">MCLK</span> <span class="n">frequency</span> <span class="n">options</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">USS_LFXT_FREQ_IN_HZ</span> <span class="n">valid</span> <span class="n">options</span><span class="p">:</span>
+ <span class="o">*</span> <span class="o">-</span> <span class="n">Valid</span> <span class="n">device</span> <span class="n">specific</span> <span class="n">MCLK</span> <span class="n">frequency</span> <span class="n">options</span>
+ <span class="o">*</span>
+<span class="o">*******************************************************************************/</span>
+<span class="c1">#if (USS_PULSE_MODE == USS_PULSE_MODE_MULTI_TONE)</span>
+<span class="c1">#define USS_MCLK_FREQ_IN_HZ               16000000</span>
+<span class="c1">#else</span>
+<span class="c1">#define USS_MCLK_FREQ_IN_HZ               8000000</span>
+<span class="c1">#endif</span>
+<span class="c1">#define USS_SMCLK_FREQ_IN_HZ               8000000</span>
+<span class="c1">#define USS_LFXT_FREQ_IN_HZ                  32768</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="code-example-directory-structure">
+<h2>Code Example Directory Structure<a class="headerlink" href="#code-example-directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>The USS SW Library contains a basic template example project. The intention of the example is showcase the typical ultrasonic</p>
+<ul class="simple">
+<li><strong>CCS</strong> - Code composer specific project files this directory contains project configuration files (*_USSSWLib_template_example.projectspec) and linker command files.</li>
+<li><strong>IAR</strong> - IAR specific project files and IAR linker command files.</li>
+<li><strong>USS_Config</strong> - Default library configuration files. For more information regarding modifying the library configuration file please refer to <a class="reference external" href="#modify">Modifying USS SW Library Configuration files</a></li>
+</ul>
+<div class="section" id="code-composer-studio">
+<h3>Code Composer Studio<a class="headerlink" href="#code-composer-studio" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="importing-the-project">
+<h4>Importing the Project<a class="headerlink" href="#importing-the-project" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>In CCS, select <em>File -&gt; Import...</em></li>
+<li>In the Import window, select <em>C/C++ -&gt; CCS Projects</em> and select the <em>Next</em> button</li>
+<li>In the Import CCS Eclipse Projects window, hit the <em>Browse</em> button to browse to <code class="docutils literal"><span class="pre">&lt;USS_SW_LIB_EXAMPLES_DIR&gt;</span></code> and then select <em>Refresh</em> to update the window. Select the checkbox next to the project and click <em>Finish</em>. This will load the project into CCS workspace.</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="Importing in CCS" src="../_images/CCSImport.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Importing in CCS</span></p>
+</div>
+</div>
+<div class="section" id="building-the-project">
+<h4>Building the Project<a class="headerlink" href="#building-the-project" title="Permalink to this headline">¶</a></h4>
+<p>To build the project, right-click on the project name in the Project Explorer and select <em>Build Project</em> OR click on the Build icon in the top toolbar.</p>
+<div class="figure" id="id4">
+<img alt="Building in CCS" src="../_images/BuildProjectCCS.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Building in CCS</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="iar-embedded-workbench-for-msp430">
+<h3>IAR Embedded Workbench for MSP430<a class="headerlink" href="#iar-embedded-workbench-for-msp430" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Importing the Project<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>All code examples that are shipped with the USS SW Library come with a .eww IAR workspace file. To import a project into IAR, navigate to the project’s IAR directory <code class="docutils literal"><span class="pre">&lt;USS_SW_LIBRARY_INSTALL_DIR&gt;\examples\USSSWLib_template_example&gt;</span></code> and double-click on the .eww workspace file for that project.</p>
+<div class="figure" id="id5">
+<img alt="Importing in IAR" src="../_images/IARImport3.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Importing in IAR</span></p>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Building the Project<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Make / Build the project by right-clicking on the project in your Workspace and selecting Make or by clicking Shortcut F7 on your keyboard.</p>
+<div class="figure" id="id6">
+<img alt="Building in IAR" src="../_images/IARBuild.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Building in IAR</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recommended-uss-sw-library-usage">
+<h2>Recommended USS SW Library usage<a class="headerlink" href="#recommended-uss-sw-library-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="recommended-measurement-and-algorithms-initialization">
+<h3>Recommended measurement and algorithms initialization<a class="headerlink" href="#recommended-measurement-and-algorithms-initialization" title="Permalink to this headline">¶</a></h3>
+<p>Users can decide to use to use the provided Absolute Time Of Flight, Delta Time of Flight and Volume Flow as part of the USS SW Library or implement custom algorithms using the sampled waveforms.</p>
+<p>The following diagrams shows the recommended measurement configuration sequence.</p>
+<div class="figure" id="id7">
+<img alt="Measurement Configuration" src="../_images/reccomendedMeasConfig.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Measurement Configuration</span></p>
+</div>
+<p>Before invoking USS_runAlgorithms or USS_runAlgorithmsFixedPoint it is highly recommended to follow the configuration sequence below.</p>
+<div class="figure" id="id8">
+<img alt="Measurement Configuration" src="../_images/reccomendedAlgInit.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Measurement Configuration</span></p>
+</div>
+<p>Most API supported by the library will return an error code back to the application which the user can use to determine if the there was an error detected when invoking an API. All measurement configurations and algorithm initialization APIs will return <code class="docutils literal"><span class="pre">USS_message_code_no_error</span></code> if the API ran successfully.</p>
+</div>
+</div>
+<div class="section" id="modifying-library-configuration-files">
+<h2>Modifying Library Configuration Files<a class="headerlink" href="#modifying-library-configuration-files" title="Permalink to this headline">¶</a></h2>
+<p>All modifications to USS SW Library are done via <code class="docutils literal"><span class="pre">&lt;USS_userConfig.h&gt;</span></code> file. This header file in four main sections:</p>
+<ul class="simple">
+<li><strong>Library memory optimization configuration</strong></li>
+<li><strong>Library basic configuration parameters</strong><ul>
+<li>Clock Definition</li>
+<li>Diagnostic Configuration</li>
+<li>Meter Configuration</li>
+<li>Ultrasonic Firing/Capture Configuration</li>
+<li>Calibration Configuration</li>
+<li>Algorithm Configuration</li>
+</ul>
+</li>
+<li><strong>Library advanced configuration parameters</strong><ul>
+<li>Advanced Algorithm Configuration</li>
+<li>Advanced Ultrasonic Firing/Capture Configuration</li>
+</ul>
+</li>
+<li><strong>Library Derived parameter</strong></li>
+</ul>
+<div class="section" id="library-memory-optimization-configuration">
+<h3>Library memory optimization configuration<a class="headerlink" href="#library-memory-optimization-configuration" title="Permalink to this headline">¶</a></h3>
+<p>This section allows user to optimize LEA RAM, RAM and FRAM library memory usage by allowing users to modify various temporary buffers sizes during compilation time.</p>
+<table border="1" class="docutils">
+    <tr>
+        <th>USS SW Library Macro Name</th>
+    </tr>
+    <tr>
+        <td>USS_SW_LIB_APP_MAX_CAPTURE_SIZE</td>
+    </tr>
+    <tr>
+        <td>USS_SW_LIB_APP_MAX_FILTER_LENGTH</td>
+    </tr>
+    <tr>
+        <td>USS_SW_LIB_APP_MAX_FILTER_OPTIONS</td>
+    </tr>
+    <tr>
+        <td>USS_SW_LIB_APP_MAX_HILBERT_FILTER_OPTIONS</td>
+    </tr>
+    <tr>
+        <td>USS_SW_LIB_APP_MAX_HILBERT_FILTER_LENGTH</td>
+    </tr>
+    <tr>
+        <td>USS_BINARY_ARRAY_MAX_SIZE</td>
+    </tr>
+    <tr>
+        <td>USS_NUM_OF_MAX_TRILL_PULSES</td>
+    </tr>
+    <tr>
+        <td>USS_NUM_OF_MAX_ADDTL_TRILL_PULSES</td>
+    </tr>
+</table><p>The sections below list all temporary buffer used by the library and the. The buffers listed below are defined in <code class="docutils literal"><span class="pre">&lt;USS_userConfig.c&gt;</span></code></p>
+<div class="section" id="lea-ram-buffers">
+<h4>LEA RAM Buffers<a class="headerlink" href="#lea-ram-buffers" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+    <tr>
+        <th>LEA RAM Buffer Name</th>
+        <th>Data type</th>
+        <th>Default Configuration Buffer size</th>
+        <th>Comment</th>
+    </tr>
+    <tr>
+        <td>gUSSLEATempMemBlock</td>
+        <td>int16_t</td>
+        <td>[2*(USS_SW_LIB_APP_MAX_CAPTURE_SIZE +USS_SW_LIB_APP_MAX_FILTER_LENGTH)]</td>
+        <td>Required for Firing/Capture Process</td>
+    </tr>
+    <tr>
+        <td>gUSSLEARAMReservedBlock1</td>
+        <td>int16_t</td>
+        <td>[USS_SW_LIB_APP_MAX_CAPTURE_SIZE + USS_SW_LIB_APP_MAX_FILTER_LENGTH]</td>
+        <td>Used by algorithm dtoFCalcOption:
+            <ul>
+                <li>USS_Alg_dToF_Calculation_Option_water</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>gUSSLEARAMReservedBlock2</td>
+        <td>int16_t</td>
+        <td>[USS_SW_LIB_APP_MAX_CAPTURE_SIZE + USS_SW_LIB_APP_MAX_FILTER_LENGTH]</td>
+        <td>Used by algorithm absToFOption:
+            <ul>
+                <li>USS_Alg_AbsToF_Calculation_Option_hilbert</li>
+                <li>USS_Alg_AbsToF_Calculation_Option_hilbertWide</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>gUSSBinaryPattern</td>
+        <td>int16_t</td>
+        <td>USS_BINARY_ARRAY_MAX_SIZE</td>
+        <td>Used by algorithm absToFOption:
+            <ul>
+                <li>USS_Alg_AbsToF_Calculation_Option_hilbertWide</li>
+            </ul>
+        </td>
+    </tr>
+</table></div>
+<div class="section" id="fram-buffers">
+<h4>FRAM Buffers<a class="headerlink" href="#fram-buffers" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+    <tr>
+        <th>FRAM Buffer Name</th>
+        <th>Data type</th>
+        <th>Default Configuration Buffer size</th>
+        <th>Comment</th>
+    </tr>
+    <tr>
+        <td>gNVMemBlock</td>
+        <td>int16_t</td>
+        <td>[USS_SW_LIB_APP_MAX_CAPTURE_SIZE * 2]</td>
+        <td>Used by all absToFOption computation options</td>
+    </tr>
+    <tr>
+        <td>gUSSFilterCoeffs</td>
+        <td>int16_t</td>
+        <td>[USS_SW_LIB_APP_MAX_FILTER_OPTIONS] * [USS_SW_LIB_APP_MAX_FILTER_LENGTH]</td>
+        <td>Used by USS_runAlgortihms APIs when signal filtering is enabled</td>
+    </tr>
+    <tr>
+        <td>gUSSHilbertCoeffs</td>
+        <td>int16_t</td>
+        <td>[USS_SW_LIB_APP_MAX_HILBERT_FILTER_OPTIONS] * [USS_SW_LIB_APP_MAX_HILBERT_FILTER_LENGTH]</td>
+        <td>Used by algorithm absToFOption:
+            <ul>
+                <li>USS_Alg_AbsToF_Calculation_Option_hilbert</li>
+                <li>USS_Alg_AbsToF_Calculation_Option_hilbertWide</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>epulse</li>
+                <li>hper</li>
+                <li>lper</li>
+                <li>xpulse</li>
+                <li>xhper</li>
+                <li>xlper</li>
+            </ul>
+        </td>
+        <td>uint16_t</td>
+        <td>[USS_NUM_OF_MAX_TRILL_PULSES]</td>
+        <td>Required when using multitone generation functionality on devices with SAPH_A module. <br /><br /> To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>xtraepulse</li>
+                <li>xtraxpulse</li>
+                <li>xtraxhper</li>
+                <li>xtraxlper</li>
+                <li>xtrahper</li>
+                <li>xtralper</li>
+            </ul>
+        </td>
+        <td>uint16_t</td>
+        <td>[USS_NUM_OF_ADDTL_TRILL_PULSES]</td>
+        <td>Required when using multitone generation functionality on devices with SAPH_A module and (USS_NUM_OF_ADDTL_TRILL_PULSES > 0). <br /><br />To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.
+        </td>
+    </tr>
+    <tr>
+        <td>additionalBinarySequence</td>
+        <td>int16_t</td>
+        <td>[USS_NUM_OF_ADDTL_TRILL_PULSES]</td>
+        <td>Required when (USS_NUM_OF_ADDTL_TRILL_PULSES > 0)</td>
+    </tr>
+</table></div>
+<div class="section" id="ram-buffers">
+<h4>RAM Buffers<a class="headerlink" href="#ram-buffers" title="Permalink to this headline">¶</a></h4>
+<table>
+    <tr>
+        <th>RAM Buffer Name</th>
+        <th>Data type</th>
+        <th>Default Configuration Buffer size</th>
+        <th>Comment</th>
+    </tr>
+    <tr>
+        <td>RAM_XE</td>
+        <td>uint16_t</td>
+        <td>[(USS_NUM_OF_MAX_TRILL_PULSES + USS_NUM_OF_ADDTL_TRILL_PULSES) * 6]</td>
+        <td>Required when using multitone generation functionality on devices with SAPH_A module. <br /><br /> To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.
+        </td>
+    </tr>
+    <tr>
+        <td>RAM_DMA_CONFIG</td>
+        <td>uint16_t</td>
+        <td>[(USS_NUM_OF_MAX_TRILL_PULSES + USS_NUM_OF_ADDTL_TRILL_PULSES) * 18]</td>
+        <td>Required when using multitone generation functionality on devices with SAPH_A module. <br /><br /> To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.</td>
+    </tr>
+</table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Calibrations.html" class="btn btn-neutral float-right" title="Library Calibrations Routines" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Understanding.html" class="btn btn-neutral" title="Understanding the Ultrasonic Sensing Solution Library" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02_20_00_16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

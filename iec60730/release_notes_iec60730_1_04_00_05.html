@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<!-- /* * Copyright 2007 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ --><title>MSP430 IEC60730 Library</title>
+
+<!-- For now, we use the doxygen style sheet -->
+<link href="doc/html/doxygen.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%">
+<tbody>
+<tr>
+<td bgcolor="black" width="1"><a href="http://www.ti.com"><img src="doc/html/tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+<td bgcolor="red"><img src="doc/html/titagline.gif"></td>
+</tr>
+</tbody>
+</table>
+<h1>MSP430 IEC60730 Software Package &nbsp;1.04.00.05</h1>
+<h2>Release Notes&nbsp;</h2>
+Document Revision: 021215.1821<br>
+<br>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+<p></p>
+This document is divided into the following sections:
+<ul>
+<li><a href="#Documentation">Documentation</a></li>
+<li><a href="#Whats_New">What's New</a></li>
+<li><a href="#Revision_History">Revision History</a></li>
+<li><a href="#Installation">Installation and Usage</a></li>
+<li><a href="#Host_Support">Host Support</a></li>
+<li><a href="#Dependencies">Dependencies</a></li>
+<li><a href="#Device_Support">Device Support</a></li>
+<li><a href="#Validation">Validation Information</a></li>
+<li><a href="#Examples">Examples</a></li>
+<li><a href="#Technical_Support">Technical Support
+and Product Updates</a></li>
+</ul>
+
+<h2><a name="Documentation" id="Documentation">Documentation</a></h2>
+<ul>
+	<li style="margin-left: 40px;"><a href="doc/html/index.html">MSP430 IEC60730 Software Package API Index</a></li>
+	<li style="margin-left: 40px;"><a href="doc/MSP430_IEC60730_Software_Package_Users_Guide-1_04_00_05.pdf">MSP430 IEC60730 Software Package Users Guide</a></li>
+	<li style="margin-left: 40px;"><a href="http://processors.wiki.ti.com/index.php/MSP430_IEC60730">MSP430 IEC60730 Wiki</a></li>
+</ul>	
+<h2><a name="Whats_New" id="Whats_New">What's New</a></h2>
+<ul>
+	<li>Updated MSP430 driver library to version 2.00.00.16</li>
+	<li>Updated CCS project spec file to use unix style directory path</li>
+</ul>
+
+<h2><a name="Revision_History" id="Revision_History">Revision History</a></h2>
+<span style="font-weight: bold;">1.03.00.01<br></span>
+<ul>
+	<li>Added example project for DRV91670 device
+		<ul>
+			<li>In this example IEC 60730 class B function have been implemented on a DC brushless motor control application using DRV91670</li>
+			<li><b>IMPORTANT:</b> Please refer to <a href="examples/iec60730/drv91670/DRV91670_Sensorless_BLDC_Version 1_0_IEC60730/README.txt"> DRV91670 README file</a> for more information regarding CCS support files for DRV91670.
+			
+		</ul>
+	</li>
+</ul>
+<span style="font-weight: bold;">1.02.00.6<br></span>
+<ul>
+<li>Updated CCS project to use projecspec file. Using projectspec file the file in example project are copy to the workspace instead of linked</li>
+<li>IEC60730 Configuration Tool can now be launch from CCS TI resource explorer</li>
+<li>User's Guide was updated to include Detailed information contained in API Guide</li>
+</ul>
+<span style="font-weight: bold;">1.01.00.17<br></span>
+<ul>
+	<li>Added support for MSP430FR57xx devices.</li>
+	<li>Added CCS and IAR IEC60730_msp430fr5739_example</li>
+	<li>Added MSP430 Software Package Configuration Tool.- The tool
+		can be found under "{IEC60730_PATH}\utils\" for more 
+		information on how to use the tool please consult the 
+		<a href="doc/MSP430_IEC60730_Software_Package_Users_Guide-1_04_00_05.pdf">MSP430 IEC60730 Software Package Users Guide</a></li>
+	<li>Added macro definitions in "IEC60730_user_config.h" for easy way to configure 
+		Oscillator test to use different Timer_A module available in the device</li>	
+	<li>Bug Fixes for CPU and Oscillator test.</li>	
+</ul>
+
+<h2><a name="Installation" id="Installation">Installation
+and Usage</a></h2>
+<p class="MsoNormal" style="margin: 5pt 0in;">MSP430 IEC60730 Software Package can be installed as part of MSP430ware Driver Library or it can be use as a
+stand alone library.</p>
+<h2><a name="Host_Support" id="Host_Support">Host
+Support</a></h2>
+<p>This release supports installation and development on
+Microsoft Windows XP Workstations.</p>
+<h2><a name="Dependencies" id="Dependencies">Dependencies</a></h2>
+<ul>
+	<li>MSP430 IEC60730 Software Package Dependencies:</li>
+		<ul>
+			<li>CCS5.4+</li>
+			<li>IAR 5.40+</li>
+		</ul>
+	</li>
+</ul>	
+<h2><a name="Device_Support" id="Device_Support">Device
+Support</a></h2>
+This release supports the following devices:
+<ul>
+	<li>MSP430G23xx</li>
+	<li>MSP430G24xx</li>
+	<li>MSP430G25xx</li>
+	<li>MSP430G2x44</li>
+	<li>MSP430G2x77</li>
+	<li>MSP430F5xx</li>
+	<li>MSP430FR57xx</li>
+	<li>DRV91670</li>
+	<br>
+</ul>
+
+
+
+<h2><a name="Validation" id="Validation">Validation
+Information</a></h2>
+<p>This release is a minor release version and has been tested.<br>
+<h2><a name="Examples" id="Examples">Examples</a></h2>
+<p>
+The examples can be found in <a href="examples\iec60730">MSP430 IEC60730 Software Package Example Projects</a>. The directory
+contains four examples:
+<ul>
+	<li>IEC60730_emptyProject</li>
+	<li>IEC60730_msp430f5529_example</li>
+	<li>IEC60730_msp430g2553_example</li>
+	<li>IEC60730_msp430fr5739_example</li>
+</ul></p>	
+<p>For CCS, the examples can be imported using the import wizard. </p>
+<p>For IAR, double click on the <i>.eww</i> file inside the IAR directory of each example project. </p>
+<p>Please consult the
+<a href="doc/MSP430_IEC60730_Software_Package_Users_Guide-1_04_00_05.pdf">MSP430 IEC60730 Software Package Users Guide</a></li>
+for detailed instructions on how to to run the examples.</p>
+
+<h2><a name="Versioning" id="Versioning">Versioning</a></h2>
+<p>This is build 1.04.00.05 of&nbsp; MSP430 IEC60730 Software Package.</p>
+<h2><small><small><a name="Technical_Support" id="Technical_Support">Technical
+Support and Product Updates</a></small></small></h2>
+<h2><small><small>Support</small></small></h2>
+<ul>
+<li><small><small>For questions and support, please
+visit <a href="http://support.ti.com/">support.ti.com</a>.</small></small></li>
+<li><small><small>or e-mail us directly at&nbsp;<font face="Times New Roman" size="3"><span style="font-size: 12pt;"><a title="mailto:msp430ware@list.ti.com" href="mailto:msp430ware@list.ti.com">msp430ware@list.ti.com.</a><o:p></o:p></span></font></small></small></li>
+</ul>
+<h2><small><small>Additional Resources</small></small></h2>
+<small><small>For more information, visit <a href="http://www.ti.com">www.ti.com</a>.
+</small></small>
+</body></html>

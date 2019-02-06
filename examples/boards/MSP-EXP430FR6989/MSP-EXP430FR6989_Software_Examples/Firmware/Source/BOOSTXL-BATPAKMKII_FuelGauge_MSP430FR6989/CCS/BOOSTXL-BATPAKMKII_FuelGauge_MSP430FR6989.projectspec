@@ -1,0 +1,18 @@
+<projectSpec>
+    <project compilerBuildOptions="--printf_support=full -I${PROJECT_ROOT}/driverlib/MSP430FR5xx_6xx"
+             device="MSP430FR6989"
+             name="BOOSTXL-BATPAKMKII_FuelGauge_MSP430FR6989"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../HAL_BQ27441.c" />
+        <file action="copy" path="../HAL_BQ27441.h" />
+        <file action="copy" path="../HAL_I2C.c" />
+        <file action="copy" path="../HAL_I2C.h" />
+        <file action="copy" path="../HAL_LCD.c" />
+        <file action="copy" path="../HAL_LCD.h" />
+        <file action="copy" path="../HAL_UART.c" />
+        <file action="copy" path="../HAL_UART.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+    </project>
+</projectSpec>

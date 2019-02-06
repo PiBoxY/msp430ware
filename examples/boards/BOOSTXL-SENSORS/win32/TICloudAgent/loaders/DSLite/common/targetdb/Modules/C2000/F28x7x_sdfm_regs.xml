@@ -1,0 +1,200 @@
+<module id="SDFM_REGS" HW_revision="">
+  <register id="SDIFLG" width="32" page="1" offset="0x0" internal="0" description="Interrupt Flag Register">
+    <bitfield id="IFH1" description="High-level Interrupt flag Filter 1" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL1" description="Low-Level Interrupt flag Filter 1" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="IFH2" description="High-level Interrupt flag Filter 2" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL2" description="Low-Level Interrupt flag Filter 2" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="IFH3" description="High-level Interrupt flag Filter 3" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL3" description="Low-Level Interrupt flag Filter 3" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="IFH4" description="High-level Interrupt flag Filter 4" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL4" description="Low-Level Interrupt flag Filter 4" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="MF1" description="Modulator Failure for Filter 1" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="MF2" description="Modulator Failure for Filter 2" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="MF3" description="Modulator Failure for Filter 3" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="MF4" description="Modulator Failure for Filter 4" begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="AF1" description="Acknowledge flag for Filter 1" begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="AF2" description="Acknowledge flag for Filter 2" begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="AF3" description="Acknowledge flag for Filter 3" begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="AF4" description="Acknowledge flag for Filter 4" begin="15" end="15" width="1" rwaccess="R/W"/>
+    <bitfield id="MIF" description="Master Interrupt Flag" begin="31" end="31" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDIFLGCLR" width="32" page="1" offset="0x2" internal="0" description="Interrupt Flag Clear Register">
+    <bitfield id="IFH1" description="High-level Interrupt flag Filter 1" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL1" description="Low-Level Interrupt flag Filter 1" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="IFH2" description="High-level Interrupt flag Filter 2" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL2" description="Low-Level Interrupt flag Filter 2" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="IFH3" description="High-level Interrupt flag Filter 3" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL3" description="Low-Level Interrupt flag Filter 3" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="IFH4" description="High-level Interrupt flag Filter 4" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="IFL4" description="Low-Level Interrupt flag Filter 4" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="MF1" description="Modulator Failure for Filter 1" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="MF2" description="Modulator Failure for Filter 2" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="MF3" description="Modulator Failure for Filter 3" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="MF4" description="Modulator Failure for Filter 4" begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="AF1" description="Acknowledge flag for Filter 1" begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="AF2" description="Acknowledge flag for Filter 2" begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="AF3" description="Acknowledge flag for Filter 3" begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="AF4" description="Acknowledge flag for Filter 4" begin="15" end="15" width="1" rwaccess="R/W"/>
+    <bitfield id="MIF" description="Master Interrupt Flag" begin="31" end="31" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDCTL" width="16" page="1" offset="0x4" internal="0" description="SD Control Register">
+    <bitfield id="MIE" description="Master Interrupt enable" begin="13" end="13" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDMFILEN" width="16" page="1" offset="0x6" internal="0" description="SD Master Filter Enable">
+    <bitfield id="MFE" description="Master Filter Enable. " begin="11" end="11" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDSTATUS" width="16" page="1" offset="0x7" internal="0" description="SD Status Register">
+    <bitfield id="IO1" description="Integrator overflow for filter module 1." begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="IO2" description="Integrator overflow for filter module 2." begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="IO3" description="Integrator overflow for filter module 3." begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="IO4" description="Integrator overflow for filter module 4." begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="MAF1" description="Manchester failure status for filter module 1." begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="MAF2" description="Manchester failure status for filter module 2." begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="MAF3" description="Manchester failure status for filter module 3." begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="MAF4" description="Manchester failure status for filter module 4." begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="MAL1" description="Manchester locked status for filter module 1." begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="MAL2" description="Manchester locked status for filter module 2." begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="MAL3" description="Manchester locked status for filter module 3." begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="MAL4" description="Manchester locked status for filter module 4." begin="15" end="15" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCTLPARM1" width="16" page="1" offset="0x10" internal="0" description="Control Parameter Register for Ch1">
+    <bitfield id="MOD" description="Delta-Sigma Modulator mode" begin="1" end="0" width="2" rwaccess="R/W"/>
+    <bitfield id="MS" description="Manchester Status" begin="15" end="5" width="11" rwaccess="R/W"/>
+  </register>
+  <register id="SDFSFPARM1" width="16" page="1" offset="0x11" internal="0" description="Sinc Filter Parameter Register for Ch1">
+    <bitfield id="SOSR" description="SINC Filter Oversample Ratio= SOSR+1" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="FEN" description="Filter Enable " begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="AE" description="Ack Enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="SST" description="SINC Filter Structure (SincFast/1/2/3)" begin="11" end="10" width="2" rwaccess="R/W"/>
+    <bitfield id="FILRESEN" description="SINC FILTER Reset Enable" begin="12" end="12" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFIPARM1" width="16" page="1" offset="0x12" internal="0" description="Integrator Parameter Register for Ch1">
+    <bitfield id="IOSR" description="Integrator Oversample Ratio= IOSR+1" begin="6" end="0" width="7" rwaccess="R/W"/>
+    <bitfield id="IEN" description="Integrator enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="DEN" description="Demodulation enable (for Resolver apps)" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="DR" description="Data Representation (0/1 = 16/32b 2's complement)" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="SH" description="Shift Control (# bits to shift in 16b mode)" begin="15" end="11" width="5" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPH1" width="16" page="1" offset="0x13" internal="0" description="High-level Threshold Register for Ch1">
+    <bitfield id="HLT" description="High-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPL1" width="16" page="1" offset="0x14" internal="0" description="Low-level Threshold Register for Ch1">
+    <bitfield id="LLT" description="Low-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCPARM1" width="16" page="1" offset="0x15" internal="0" description="Comparator Parameter Register for Ch1">
+    <bitfield id="COSR" description="Comparator Oversample Ratio = COSR + 1" begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="IEH" description="High-level interrupt enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="IEL" description="Low-level interrupt enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="CS1_CS0" description="Comparator filter structure (Sincfast/Sinc1/Sinc2/Sinc3" begin="8" end="7" width="2" rwaccess="R/W"/>
+    <bitfield id="MFIE" description="Modulator Failure Interrupt enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFDATA1" width="32" page="1" offset="0x16" internal="0" description="Filter Data Register (16 or 32bit) for Ch1">
+    <bitfield id="DATA16" description="16-bit Data in 16b mode, Lo-order 16b in 32b mode" begin="15" end="0" width="16" rwaccess="R/W"/>
+    <bitfield id="DATA32HI" description="Hi-order 16b in 32b mode" begin="31" end="16" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCTLPARM2" width="16" page="1" offset="0x20" internal="0" description="Control Parameter Register for Ch2">
+    <bitfield id="MOD" description="Delta-Sigma Modulator mode" begin="1" end="0" width="2" rwaccess="R/W"/>
+    <bitfield id="MS" description="Manchester Status" begin="15" end="5" width="11" rwaccess="R/W"/>
+  </register>
+  <register id="SDFSFPARM2" width="16" page="1" offset="0x21" internal="0" description="Sinc Filter Parameter Register for Ch2">
+    <bitfield id="SOSR" description="SINC Filter Oversample Ratio= SOSR+1" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="FEN" description="Filter Enable " begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="AE" description="Ack Enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="SST" description="SINC Filter Structure (SincFast/1/2/3)" begin="11" end="10" width="2" rwaccess="R/W"/>
+    <bitfield id="FILRESEN" description="SINC FILTER Reset Enable" begin="12" end="12" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFIPARM2" width="16" page="1" offset="0x22" internal="0" description="Integrator Parameter Register for Ch2">
+    <bitfield id="IOSR" description="Integrator Oversample Ratio= IOSR+1" begin="6" end="0" width="7" rwaccess="R/W"/>
+    <bitfield id="IEN" description="Integrator enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="DEN" description="Demodulation enable (for Resolver apps)" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="DR" description="Data Representation (0/1 = 16/32b 2's complement)" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="SH" description="Shift Control (# bits to shift in 16b mode)" begin="15" end="11" width="5" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPH2" width="16" page="1" offset="0x23" internal="0" description="High-level Threshold Register for Ch2">
+    <bitfield id="HLT" description="High-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPL2" width="16" page="1" offset="0x24" internal="0" description="Low-level Threshold Register for Ch2">
+    <bitfield id="LLT" description="Low-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCPARM2" width="16" page="1" offset="0x25" internal="0" description="Comparator Parameter Register for Ch2">
+    <bitfield id="COSR" description="Comparator Oversample Ratio = COSR + 1" begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="IEH" description="High-level interrupt enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="IEL" description="Low-level interrupt enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="CS1_CS0" description="Comparator filter structure (Sincfast/Sinc1/Sinc2/Sinc3" begin="8" end="7" width="2" rwaccess="R/W"/>
+    <bitfield id="MFIE" description="Modulator Failure Interrupt enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFDATA2" width="32" page="1" offset="0x26" internal="0" description="Filter Data Register (16 or 32bit) for Ch2">
+    <bitfield id="DATA16" description="16-bit Data in 16b mode, Lo-order 16b in 32b mode" begin="15" end="0" width="16" rwaccess="R/W"/>
+    <bitfield id="DATA32HI" description="Hi-order 16b in 32b mode" begin="31" end="16" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCTLPARM3" width="16" page="1" offset="0x30" internal="0" description="Control Parameter Register for Ch3">
+    <bitfield id="MOD" description="Delta-Sigma Modulator mode" begin="1" end="0" width="2" rwaccess="R/W"/>
+    <bitfield id="MS" description="Manchester Status" begin="15" end="5" width="11" rwaccess="R/W"/>
+  </register>
+  <register id="SDFSFPARM3" width="16" page="1" offset="0x31" internal="0" description="Sinc Filter Parameter Register for Ch3">
+    <bitfield id="SOSR" description="SINC Filter Oversample Ratio= SOSR+1" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="FEN" description="Filter Enable " begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="AE" description="Ack Enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="SST" description="SINC Filter Structure (SincFast/1/2/3)" begin="11" end="10" width="2" rwaccess="R/W"/>
+    <bitfield id="FILRESEN" description="SINC FILTER Reset Enable" begin="12" end="12" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFIPARM3" width="16" page="1" offset="0x32" internal="0" description="Integrator Parameter Register for Ch3">
+    <bitfield id="IOSR" description="Integrator Oversample Ratio= IOSR+1" begin="6" end="0" width="7" rwaccess="R/W"/>
+    <bitfield id="IEN" description="Integrator enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="DEN" description="Demodulation enable (for Resolver apps)" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="DR" description="Data Representation (0/1 = 16/32b 2's complement)" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="SH" description="Shift Control (# bits to shift in 16b mode)" begin="15" end="11" width="5" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPH3" width="16" page="1" offset="0x33" internal="0" description="High-level Threshold Register for Ch3">
+    <bitfield id="HLT" description="High-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPL3" width="16" page="1" offset="0x34" internal="0" description="Low-level Threshold Register for Ch3">
+    <bitfield id="LLT" description="Low-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCPARM3" width="16" page="1" offset="0x35" internal="0" description="Comparator Parameter Register for Ch3">
+    <bitfield id="COSR" description="Comparator Oversample Ratio = COSR + 1" begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="IEH" description="High-level interrupt enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="IEL" description="Low-level interrupt enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="CS1_CS0" description="Comparator filter structure (Sincfast/Sinc1/Sinc2/Sinc3" begin="8" end="7" width="2" rwaccess="R/W"/>
+    <bitfield id="MFIE" description="Modulator Failure Interrupt enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFDATA3" width="32" page="1" offset="0x36" internal="0" description="Filter Data Register (16 or 32bit) for Ch3">
+    <bitfield id="DATA16" description="16-bit Data in 16b mode, Lo-order 16b in 32b mode" begin="15" end="0" width="16" rwaccess="R/W"/>
+    <bitfield id="DATA32HI" description="Hi-order 16b in 32b mode" begin="31" end="16" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCTLPARM4" width="16" page="1" offset="0x40" internal="0" description="Control Parameter Register for Ch4">
+    <bitfield id="MOD" description="Delta-Sigma Modulator mode" begin="1" end="0" width="2" rwaccess="R/W"/>
+    <bitfield id="MS" description="Manchester Status" begin="15" end="5" width="11" rwaccess="R/W"/>
+  </register>
+  <register id="SDFSFPARM4" width="16" page="1" offset="0x41" internal="0" description="Sinc Filter Parameter Register for Ch4">
+    <bitfield id="SOSR" description="SINC Filter Oversample Ratio= SOSR+1" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="FEN" description="Filter Enable " begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="AE" description="Ack Enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="SST" description="SINC Filter Structure (SincFast/1/2/3)" begin="11" end="10" width="2" rwaccess="R/W"/>
+    <bitfield id="FILRESEN" description="SINC FILTER Reset Enable" begin="12" end="12" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFIPARM4" width="16" page="1" offset="0x42" internal="0" description="Integrator Parameter Register for Ch4">
+    <bitfield id="IOSR" description="Integrator Oversample Ratio= IOSR+1" begin="6" end="0" width="7" rwaccess="R/W"/>
+    <bitfield id="IEN" description="Integrator enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="DEN" description="Demodulation enable (for Resolver apps)" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="DR" description="Data Representation (0/1 = 16/32b 2's complement)" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="SH" description="Shift Control (# bits to shift in 16b mode)" begin="15" end="11" width="5" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPH4" width="16" page="1" offset="0x43" internal="0" description="High-level Threshold Register for Ch4">
+    <bitfield id="HLT" description="High-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCMPL4" width="16" page="1" offset="0x44" internal="0" description="Low-level Threshold Register for Ch4">
+    <bitfield id="LLT" description="Low-level threshold for the comparator filter output." begin="14" end="0" width="15" rwaccess="R/W"/>
+  </register>
+  <register id="SDFCPARM4" width="16" page="1" offset="0x45" internal="0" description="Comparator Parameter Register for Ch4">
+    <bitfield id="COSR" description="Comparator Oversample Ratio = COSR + 1" begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="IEH" description="High-level interrupt enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="IEL" description="Low-level interrupt enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="CS1_CS0" description="Comparator filter structure (Sincfast/Sinc1/Sinc2/Sinc3" begin="8" end="7" width="2" rwaccess="R/W"/>
+    <bitfield id="MFIE" description="Modulator Failure Interrupt enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SDFDATA4" width="32" page="1" offset="0x46" internal="0" description="Filter Data Register (16 or 32bit) for Ch4">
+    <bitfield id="DATA16" description="16-bit Data in 16b mode, Lo-order 16b in 32b mode" begin="15" end="0" width="16" rwaccess="R/W"/>
+    <bitfield id="DATA32HI" description="Hi-order 16b in 32b mode" begin="31" end="16" width="16" rwaccess="R/W"/>
+  </register>
+</module>

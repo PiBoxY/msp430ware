@@ -1,0 +1,1389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Design Center GUI &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="Device Family" href="ch_device.html"/>
+        <link rel="prev" title="Design Guide" href="ch_design_guide.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_basics.html">Capacitive Sensing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design Center GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-and-software-requirements">Hardware and software requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additional-linux-requirements">Additional Linux requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#licensing">Licensing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#captivate-design-center-quick-start">CapTIvate™ Design Center Quick start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-design-center">Start the Design Center</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-new-project">Create a new project</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#place-the-sensors">Place the sensors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#place-a-slider-sensor-in-the-design-area">Place a slider sensor in the design area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#place-a-wheel-sensor-in-the-design-area">Place a wheel sensor in the design area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#place-a-button-group-keypad-sensor-in-the-design-area">Place a button group (keypad) sensor in the design area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#place-a-proximity-sensor-in-the-design-area">Place a proximity sensor in the design area</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#place-the-msp430-controller">Place the MSP430 controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-sensors-to-msp430-capacitive-touch-i-o-ports">Connect sensors to MSP430 capacitive touch I/O ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-source-code">Generate source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-and-run-the-msp430fr26xx-25xx-generated-firmware-project-using-ccs-or-iar">Load and run the MSP430FR26xx/25xx generated firmware project using CCS or IAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#communicating-with-the-target">Communicating with the target</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#start-hid-communication-with-the-target">Start HID communication with the target</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#display-sensor-data">Display sensor data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tune-sensor-performance">Tune sensor performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#captivate-design-center-users-guide">CapTIvate™ Design Center Users guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#design-center-gui-panels">Design Center GUI panels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#menu-bar">Menu bar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-selection-tab">Object Selection Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#miscellaneous-selection-tab">Miscellaneous Selection Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design-canvas">Design Canvas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#menu-descriptions">Menu Descriptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#file">File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit">Edit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#communications">Communications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#help">Help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topics">Topics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about">About</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#controller-properties">Controller Properties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#device-configuration">Device configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-target-communications-and-target-mcu-communications-interface">Enable target communications and target MCU communications interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-compile-time-options">Select Compile Time options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-low-power-mode">Configure Low Power Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-sensor-ports-to-controller-pins">Mapping sensor ports to controller pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#making-manual-connections-graphically">Making manual connections graphically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-code-generation">Source Code Generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller-target-data-displays">Controller target data displays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller-conversion-control-parameters">Controller Conversion Control parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller-scan-time-estimator">Controller Scan Time Estimator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sensor-properties">Sensor Properties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#position-display">Position Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-configuration">Sensor Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-target-communications-from-sensor-properties">Enable Target Communications from Sensor Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-target-data-displays">Sensor target data displays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuning-sensor-performance">Tuning Sensor performance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-target-data">Displaying Target Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#channel-bar-chart">Channel Bar Chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oscilloscope-plot">Oscilloscope Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#channel-table">Channel Table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#snr-measurements">SNR Measurements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#snr-options">SNR Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#snr-prompts">SNR Prompts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-and-running-generated-projects">Loading and running generated projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#importing-opening-projects">Importing/opening projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-composer-studio">Code Composer Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iar-embedded-workbench">IAR Embedded Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-target-communications-in-the-design-center">Enable target communications in the Design Center</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_device.html">Device Family</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm.html">MSP-CAPT-FR2633 Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_boostxl_capkeypad.html">BOOSTXL-CAPKEYPAD Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_CAP_MINI.html">EVM430-CAPMINI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_workshop.html">Workshop (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Design Center GUI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="design-center-gui">
+<h1>Design Center GUI<a class="headerlink" href="#design-center-gui" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="CapTIvate Design Center" src="../_images/cdc_example_design.png" />
+<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">CapTIvate Design Center</span></p>
+</div>
+<p>The CapTIvate™ Design Center is a rapid development tool that accelerates capacitive touch designs for CapTIvate™ Technology enabled MSP430 devices. By helping guide the product developer through the capacitive touch development process, the CapTIvate™ Design Center can simplify and accelerate any touch design through the use of innovative user graphical interfaces, wizards and controls.</p>
+<div class="section" id="key-features">
+<h3>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Intuitive GUI tools for creating, configuring and defining the MSP430 connections for sensors</li>
+<li>Support for slider, wheel, button group, and proximity sensors</li>
+<li>Support mutual and self capacitive sensor types in the same design</li>
+<li>Automated generation of complete source code projects for CCS and IAR IDE&#8217;s</li>
+<li>Real time target communication via a HID communication bridge. Enabling target communication allows users to:</li>
+<li>View detailed sensor data</li>
+<li>Configure and tune sensor performance</li>
+<li>Perform SNR measurements</li>
+</ul>
+</div>
+<div class="section" id="hardware-and-software-requirements">
+<h3>Hardware and software requirements<a class="headerlink" href="#hardware-and-software-requirements" title="Permalink to this headline">¶</a></h3>
+<p>A PC with the following requirements is required to execute the CapTIvate™ Design Center: - Windows 7 operating system with Java version 1.6+ - Apple OS X 10.10.1+ with Java version 1.7+ - Linux OS with Java version 1.6+</p>
+<p>The source code projects generated by the tool support the following IDEs:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ti.com/tool/ccstudio">Texas Instruments Code Composer Studio (CCS)</a> version 6.1 or later</li>
+<li><a class="reference external" href="http://www.iar.com">IAR Systems Embedded Workbench for MSP430</a> version 6.30 or later</li>
+</ul>
+<div class="section" id="additional-linux-requirements">
+<h4>Additional Linux requirements<a class="headerlink" href="#additional-linux-requirements" title="Permalink to this headline">¶</a></h4>
+<p>If you are not running the application using a root account, you may not have permissions to the HID device mounted by the MSP microcontroller.</p>
+<p>To enable access perform the one-time setup step:</p>
+<ul class="simple">
+<li>Create the file /etc/udev/rules.d/ti_hid.rules.</li>
+<li>Add the lines below to the file and save the file.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## Allow open access to any usb device with the default Texas Instruments MSP</span>
+<span class="c1">## Vendor Id of 0x2047</span>
+<span class="n">ATTRS</span><span class="p">{</span><span class="n">idVendor</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;2047&quot;</span><span class="p">,</span> <span class="n">MODE</span><span class="o">=</span><span class="s2">&quot;0666&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="licensing">
+<h3>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline">¶</a></h3>
+<p>The CapTIvate™ Design Center is released under the BSD 3-clause license. See the license manifest in the installation directory for details.</p>
+</div>
+</div>
+<div class="section" id="captivate-design-center-quick-start">
+<h2>CapTIvate™ Design Center Quick start<a class="headerlink" href="#captivate-design-center-quick-start" title="Permalink to this headline">¶</a></h2>
+<p>This section is intended to provide a very basic and quick overview of how to use the CapTIvate™ Design Center to define a typical capacitive touch design, generate source code, and communicate with the target. For additional detailed information about the features of the CapTIvate™ Design Center, refer to the <a class="reference external" href="ch_designcenter.html#design-center-users-guide">CapTIvate™ Design Center user&#8217;s guide</a>.</p>
+<p>When ready to start your own design, check out the workshop guide section, <a class="reference external" href="ch_workshop.html#creating-a-new-sensor-design-project">Creating a new sensor design project</a>.</p>
+<div class="section" id="start-the-design-center">
+<h3>Start the Design Center<a class="headerlink" href="#start-the-design-center" title="Permalink to this headline">¶</a></h3>
+<p>Double click on the desktop &#8220;CapTIvateDesignCenter&#8221; short cut to start the tool.</p>
+<div class="figure" id="id2">
+<img alt="CapTIvate™ Design Center Shortcut" src="../_images/cdc_quickstart_desktop_shortcut.png" />
+<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">CapTIvate™ Design Center Shortcut</span></p>
+</div>
+<div class="section" id="create-a-new-project">
+<h4>Create a new project<a class="headerlink" href="#create-a-new-project" title="Permalink to this headline">¶</a></h4>
+<p>Use the File-&gt;Project New menu to create a new project</p>
+<div class="figure" id="id3">
+<img alt="New Project Name" src="../_images/cdc_quickstart_create_project.png" />
+<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">New Project Name</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="place-the-sensors">
+<h3>Place the sensors<a class="headerlink" href="#place-the-sensors" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="place-a-slider-sensor-in-the-design-area">
+<h4>Place a slider sensor in the design area<a class="headerlink" href="#place-a-slider-sensor-in-the-design-area" title="Permalink to this headline">¶</a></h4>
+<p>Select the slider by clicking on the sensor icon. Place the new object by clicking on the design canvas.</p>
+<div class="figure" id="id4">
+<img alt="Placing a Slider Sensor" src="../_images/cdc_quickstart_place_slider.png" />
+<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">Placing a Slider Sensor</span></p>
+</div>
+<p>Display the sensor properties to configure it to be a self capacitance slider with 4 elements.</p>
+<ul class="simple">
+<li>Double-click on the slider object in the design area to display its properties.</li>
+<li>Configure the sensor to have 4 elements and close the properties dialog.</li>
+</ul>
+<div class="figure" id="id5">
+<img alt="Modify Sensor Properties" src="../_images/cdc_quickstart_slider_configure.png" />
+<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">Modify Sensor Properties</span></p>
+</div>
+</div>
+<div class="section" id="place-a-wheel-sensor-in-the-design-area">
+<h4>Place a wheel sensor in the design area<a class="headerlink" href="#place-a-wheel-sensor-in-the-design-area" title="Permalink to this headline">¶</a></h4>
+<p>Select the wheel by clicking on the sensor icon. Place the new object by clicking on the design canvas.</p>
+<div class="figure" id="id6">
+<img alt="Placing a Wheel Sensor" src="../_images/cdc_quickstart_place_wheel.png" />
+<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">Placing a Wheel Sensor</span></p>
+</div>
+<p>Display the sensor properties to configure it to be a self capacitance wheel with 3 elements.</p>
+<ul class="simple">
+<li>Double-click on the wheel object in the design area to display its properties.</li>
+<li>Configure the sensor to have 3 elements and close the properties dialog.</li>
+</ul>
+<div class="figure" id="id7">
+<img alt="Modify Sensor Properties" src="../_images/cdc_quickstart_wheel_configure.png" />
+<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">Modify Sensor Properties</span></p>
+</div>
+</div>
+<div class="section" id="place-a-button-group-keypad-sensor-in-the-design-area">
+<h4>Place a button group (keypad) sensor in the design area<a class="headerlink" href="#place-a-button-group-keypad-sensor-in-the-design-area" title="Permalink to this headline">¶</a></h4>
+<p>Select the button group by clicking on the sensor icon. Place the new object by clicking on the design canvas.</p>
+<div class="figure" id="id8">
+<img alt="Placing Button Group Sensor" src="../_images/cdc_quickstart_place_buttons.png" />
+<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">Placing Button Group Sensor</span></p>
+</div>
+<p>Display the sensor properties to configure it to be a self capacitance button group with 8 elements.</p>
+<ul class="simple">
+<li>Double-click on the button group object in the design area to display its properties.</li>
+<li>Configure the sensor to have 8 elements and close the properties dialog.</li>
+</ul>
+<div class="figure" id="id9">
+<img alt="Modify Sensor Properties" src="../_images/cdc_quickstart_buttons_configure.png" />
+<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">Modify Sensor Properties</span></p>
+</div>
+</div>
+<div class="section" id="place-a-proximity-sensor-in-the-design-area">
+<h4>Place a proximity sensor in the design area<a class="headerlink" href="#place-a-proximity-sensor-in-the-design-area" title="Permalink to this headline">¶</a></h4>
+<p>Select the proximity sensor by clicking on the sensor icon. Place the new object by clicking on the design canvas.</p>
+<div class="figure" id="id10">
+<img alt="Place Proximity Sensor" src="../_images/cdc_quickstart_place_proximity.png" />
+<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">Place Proximity Sensor</span></p>
+</div>
+<p>Display the sensor properties to configure it to be a self capacitance proximity with 1 element.</p>
+<ul class="simple">
+<li>Double-click on the proximity object in the design area to display its properties.</li>
+<li>Configure the sensor to have 1 element and close the properties dialog.</li>
+</ul>
+<div class="figure" id="id11">
+<img alt="Modify Sensor Properties" src="../_images/cdc_quickstart_proximity_configure.png" />
+<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">Modify Sensor Properties</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="place-the-msp430-controller">
+<h3>Place the MSP430 controller<a class="headerlink" href="#place-the-msp430-controller" title="Permalink to this headline">¶</a></h3>
+<p>Select the MSP430 by clicking on the MCU icon. Place the new object by clicking on the design canvas.</p>
+<div class="figure" id="id12">
+<img alt="Place MCU" src="../_images/cdc_quickstart_place_controller.png" />
+<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Place MCU</span></p>
+</div>
+</div>
+<div class="section" id="connect-sensors-to-msp430-capacitive-touch-i-o-ports">
+<h3>Connect sensors to MSP430 capacitive touch I/O ports<a class="headerlink" href="#connect-sensors-to-msp430-capacitive-touch-i-o-ports" title="Permalink to this headline">¶</a></h3>
+<p>Double-click on the MSP430 controller object in the design area to display its properties.</p>
+<ul class="simple">
+<li>Configure the MSP430 controller as MSP430FR2633IRHB (32-pin QFN package)</li>
+<li>Note that the &#8220;Errors&#8221; LED is red, indicating that there are still unconnected sensor ports.</li>
+</ul>
+<div class="figure" id="id13">
+<img alt="Display MCU Properties" src="../_images/cdc_quickstart_controller_config_preassign.png" />
+<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">Display MCU Properties</span></p>
+</div>
+<p>Select the &#8220;Auto-Assign&#8221; button to automatically assign all the sensor ports to appropriate ports on the MSP430. Note that the &#8220;Errors&#8221; LED turns green and &#8220;OK&#8221;, indicating that all sensor ports have been assigned to controller ports.</p>
+<div class="figure" id="id14">
+<img alt="CapTIvate™ Auto-Assignment Feature" src="../_images/cdc_quickstart_controller_config_postassign.png" />
+<p class="caption"><span class="caption-number">Fig. 98 </span><span class="caption-text">CapTIvate™ Auto-Assignment Feature</span></p>
+</div>
+</div>
+<div class="section" id="generate-source-code">
+<h3>Generate source code<a class="headerlink" href="#generate-source-code" title="Permalink to this headline">¶</a></h3>
+<p>Select the &#8220;Generate Code&#8221; button on the MSP430 Controller properties dialog.</p>
+<div class="figure" id="id15">
+<img alt="Generate Source Code Button" src="../_images/cdc_quickstart_controller_codegen.png" />
+<p class="caption"><span class="caption-number">Fig. 99 </span><span class="caption-text">Generate Source Code Button</span></p>
+</div>
+<p>Select &#8220;Create new project&#8221; then &#8220;OK&#8221; in the dialog indicating that you want to create a new full project.</p>
+<div class="figure" id="id16">
+<img alt="Select New Project" src="../_images/cdc_ug_generate_source_options.png" />
+<p class="caption"><span class="caption-number">Fig. 100 </span><span class="caption-text">Select New Project</span></p>
+</div>
+<p>Select &#8220;OK&#8221; to keep the default location for the generated code.</p>
+<div class="figure" id="id17">
+<img alt="Use Default Location" src="../_images/cdc_quickstart_controller_codegen_location.png" />
+<p class="caption"><span class="caption-number">Fig. 101 </span><span class="caption-text">Use Default Location</span></p>
+</div>
+</div>
+<div class="section" id="load-and-run-the-msp430fr26xx-25xx-generated-firmware-project-using-ccs-or-iar">
+<h3>Load and run the MSP430FR26xx/25xx generated firmware project using CCS or IAR<a class="headerlink" href="#load-and-run-the-msp430fr26xx-25xx-generated-firmware-project-using-ccs-or-iar" title="Permalink to this headline">¶</a></h3>
+<p>For information regarding importing/opening project in CCS or IAR and running the generated projects please refer to <a class="reference external" href="ch_designcenter.html#loading-and-running-generated-projects">Loading and Running Generated Projects</a></p>
+</div>
+<div class="section" id="communicating-with-the-target">
+<h3>Communicating with the target<a class="headerlink" href="#communicating-with-the-target" title="Permalink to this headline">¶</a></h3>
+<p>This section shows some examples of how the data read from the target over HID is displayed.</p>
+<p>Note that you will not see any valid sensor data unless your target board is connected to a sensor board that matches the configuration created in the Design Center GUI.</p>
+<div class="section" id="start-hid-communication-with-the-target">
+<h4>Start HID communication with the target<a class="headerlink" href="#start-hid-communication-with-the-target" title="Permalink to this headline">¶</a></h4>
+<p>Enable the HID communication by selecting the menu &#8220;Communications-&gt;Connect.&#8221; Verify the HID device is connected by viewing the message in the main window lower left corner.</p>
+<div class="figure" id="id18">
+<img alt="HID Connection Status" src="../_images/cdc_quickstart_verify_hid.png" />
+<p class="caption"><span class="caption-number">Fig. 102 </span><span class="caption-text">HID Connection Status</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="display-sensor-data">
+<h3>Display sensor data<a class="headerlink" href="#display-sensor-data" title="Permalink to this headline">¶</a></h3>
+<p>Double click on the slider object to display the properties dialog. The tabs are used to display graphs of the real-time sensor data, and also to enable reading and modifying the sensor&#8217;s configuration and tuning parameters. The sensor &#8220;position&#8221; is also reflected in the display.</p>
+<div class="figure" id="id19">
+<img alt="Channel Bar Chart" src="../_images/cdc_quickstart_channel_bar_chart.png" />
+<p class="caption"><span class="caption-number">Fig. 103 </span><span class="caption-text">Channel Bar Chart</span></p>
+</div>
+<div class="figure" id="id20">
+<img alt="Oscilloscope Chart" src="../_images/cdc_quickstart_oscilloscope_plot.png" />
+<p class="caption"><span class="caption-number">Fig. 104 </span><span class="caption-text">Oscilloscope Chart</span></p>
+</div>
+<div class="figure" id="id21">
+<img alt="Channel Table" src="../_images/cdc_quickstart_channel_table.png" />
+<p class="caption"><span class="caption-number">Fig. 105 </span><span class="caption-text">Channel Table</span></p>
+</div>
+<div class="section" id="tune-sensor-performance">
+<h4>Tune sensor performance<a class="headerlink" href="#tune-sensor-performance" title="Permalink to this headline">¶</a></h4>
+<p>Sensors can be configured in real-time using the Tuning panel. Modify the desired parameter then click &#8220;Apply&#8221;. All parameters are described directly in the panel for ease of use. Sensor parameters can only be modified when the target is connected.</p>
+<div class="figure" id="id22">
+<img alt="Sensor Tuning Parameters" src="../_images/cdc_quickstart_sensor_tuning.png" />
+<p class="caption"><span class="caption-number">Fig. 106 </span><span class="caption-text">Sensor Tuning Parameters</span></p>
+</div>
+<p>It is possible to &#8220;un-dock&#8221; any of the tuning views to allow easier viewing of one or more views at one time. Click and drag the handle on the left of the view to position as needed. Closing an un-docked window returns it to the tab pane.</p>
+<div class="figure" id="id23">
+<img alt="Un-docking views" src="../_images/cdc_quickstart_views_undock.png" />
+<p class="caption"><span class="caption-number">Fig. 107 </span><span class="caption-text">Un-docking views</span></p>
+</div>
+<p>For additional detailed information about the features of the CapTIvate™ Design Center, refer to the <a class="reference external" href="ch_designcenter.html#design-center-users-guide">CapTIvate™ Design Center user&#8217;s guide</a>.</p>
+<p>When ready to start your own design, check out the workshop guide section, <a class="reference external" href="ch_workshop.html#creating-a-new-sens0r-design-project">Creating a new sensor design project</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="captivate-design-center-users-guide">
+<h2>CapTIvate™ Design Center Users guide<a class="headerlink" href="#captivate-design-center-users-guide" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="design-center-gui-panels">
+<h3>Design Center GUI panels<a class="headerlink" href="#design-center-gui-panels" title="Permalink to this headline">¶</a></h3>
+<p>The Design Center GUI consists of three main panels; Menu bar, Object selection tab and Design canvas.</p>
+<div class="figure" id="id24">
+<img alt="CapTIvate™ Design Center GUI" src="../_images/cdc_ug_designcenter_panels.png" />
+<p class="caption"><span class="caption-number">Fig. 108 </span><span class="caption-text">CapTIvate™ Design Center GUI</span></p>
+</div>
+<div class="section" id="menu-bar">
+<h4>Menu bar<a class="headerlink" href="#menu-bar" title="Permalink to this headline">¶</a></h4>
+<p>The menu bar provides access to the GUI&#8217;s features and controls.</p>
+<div class="figure" id="id25">
+<img alt="Menu Bar" src="../_images/cdc_ug_menu_bar.png" />
+<p class="caption"><span class="caption-number">Fig. 109 </span><span class="caption-text">Menu Bar</span></p>
+</div>
+</div>
+<div class="section" id="object-selection-tab">
+<h4>Object Selection Tab<a class="headerlink" href="#object-selection-tab" title="Permalink to this headline">¶</a></h4>
+<p>The object selection tab displays objects can be selected for placement in the design canvas. Object types include:</p>
+<ul class="simple">
+<li>Sensors</li>
+<li>MSP430 controller</li>
+<li>Miscellaneous objects such as comments</li>
+</ul>
+<div class="figure" id="id26">
+<img alt="Object Selection Bar" src="../_images/cdc_ug_object_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 110 </span><span class="caption-text">Object Selection Bar</span></p>
+</div>
+</div>
+<div class="section" id="miscellaneous-selection-tab">
+<h4>Miscellaneous Selection Tab<a class="headerlink" href="#miscellaneous-selection-tab" title="Permalink to this headline">¶</a></h4>
+<p>The Miscellaneous selection tab displays a comment object and user data logging object.</p>
+<div class="figure" id="id27">
+<img alt="Object Selection Bar" src="../_images/cdc_ug_misc_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 111 </span><span class="caption-text">Object Selection Bar</span></p>
+</div>
+<div class="section" id="comment-object">
+<h5>Comment Object<a class="headerlink" href="#comment-object" title="Permalink to this headline">¶</a></h5>
+<p>The comment object is used to create user comments that can be added to the design project.</p>
+<div class="figure" id="id28">
+<img alt="Adding a comment" src="../_images/cdc_ug_misc_comment.png" />
+<p class="caption"><span class="caption-number">Fig. 112 </span><span class="caption-text">Adding a comment</span></p>
+</div>
+</div>
+<div class="section" id="user-data-logging-object">
+<h5>User Data Logging Object<a class="headerlink" href="#user-data-logging-object" title="Permalink to this headline">¶</a></h5>
+<p>The user data logging object provides a means to log user user defined data. For more information about how to use this feature with firmware running on the target MCU, refer to the <a class="reference external" href="ch_library.html#stream-unformatted-data-to-the-design-center-gui">Software Library Chapter.</a> User data is collected and stored in a userDataLog.csv file. Refer to <a class="reference external" href="ch_designcenter.html#communications">Communications Section</a> for details on the data enable/disable collection process.</p>
+<div class="figure" id="id29">
+<img alt="Adding a comment" src="../_images/cdc_ug_misc_user_datalog.png" />
+<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Adding a comment</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="design-canvas">
+<h4>Design Canvas<a class="headerlink" href="#design-canvas" title="Permalink to this headline">¶</a></h4>
+<p>To place an object in the design canvas:</p>
+<ul class="simple">
+<li>Select an object from the object tab with the left mouse button</li>
+<li>Position the cursor in the design area and place the object by clicking the left mouse button</li>
+</ul>
+<p>Objects may be selected and moved anywhere on the canvas. Additional object operations can be displayed by right-clicking the mouse button on the object. To display the properties and configure the object, double-click using the left mouse button. To access the on-line help for an object type, select it and press the F1 key.</p>
+<div class="figure" id="id30">
+<img alt="Design Canvas" src="../_images/cdc_ug_design_canvas.png" />
+<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Design Canvas</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="menu-descriptions">
+<h3>Menu Descriptions<a class="headerlink" href="#menu-descriptions" title="Permalink to this headline">¶</a></h3>
+<p>This menu item provides selections for projects, workspaces and printing.</p>
+<div class="section" id="file">
+<h4>File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id31">
+<img alt="Menu - File" src="../_images/cdc_ug_file_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 115 </span><span class="caption-text">Menu - File</span></p>
+</div>
+<div class="section" id="print">
+<h5>Print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h5>
+<p>Allows the user to print the window.</p>
+</div>
+<div class="section" id="project-open-save-saveas">
+<h5>Project Open/Save/SaveAs<a class="headerlink" href="#project-open-save-saveas" title="Permalink to this headline">¶</a></h5>
+<p>Allows the user to:</p>
+<ul class="simple">
+<li>Open a new or existing project in the current workspace</li>
+<li>Save the current project</li>
+<li>Save the current project as a different name</li>
+</ul>
+<div class="figure" id="id32">
+<img alt="Menu-Project Save" src="../_images/cdc_ug_file_open.png" />
+<p class="caption"><span class="caption-number">Fig. 116 </span><span class="caption-text">Menu-Project Save</span></p>
+</div>
+</div>
+<div class="section" id="switch-workspace">
+<h5>Switch Workspace<a class="headerlink" href="#switch-workspace" title="Permalink to this headline">¶</a></h5>
+<p>The design center stores projects within a workspace directory. This menu allows the user to change open a different workspace. This behavior is similar to the way TI Code Composer Studio uses workspaces and projects.</p>
+<p>The default workspace path is %USERPROFILE%/CaptivateDesignCenter/CaptivateDesignCenterWorkspace. ##### Exit Exit the CapTIvate™ Design Center application.</p>
+</div>
+</div>
+<div class="section" id="edit">
+<h4>Edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h4>
+<p>This menu item provides options for deleting or restoring one or more selected objects. For example, if the canvas is populated with multiple sensors, to clear the canvas simply select all, then cut (delete).</p>
+<div class="figure" id="id33">
+<img alt="Menu-Edit" src="../_images/cdc_ug_edit_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 117 </span><span class="caption-text">Menu-Edit</span></p>
+</div>
+<div class="section" id="undo-redo">
+<h5>Undo/Redo<a class="headerlink" href="#undo-redo" title="Permalink to this headline">¶</a></h5>
+<p>Undo or redo a previous edit menu operation.</p>
+</div>
+<div class="section" id="cut">
+<h5>Cut<a class="headerlink" href="#cut" title="Permalink to this headline">¶</a></h5>
+<p>Remove the selected object from the design</p>
+</div>
+<div class="section" id="select-all">
+<h5>Select All<a class="headerlink" href="#select-all" title="Permalink to this headline">¶</a></h5>
+<p>Select all the objects in the design canvas</p>
+</div>
+</div>
+<div class="section" id="options">
+<h4>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h4>
+<p>Allows the user to customize the display of the design canvas.</p>
+<div class="section" id="display">
+<h5>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h5>
+<p>Modifies the canvas.</p>
+<div class="figure" id="id34">
+<img alt="Menu-Options-Display" src="../_images/cdc_ug_options_display.png" />
+<p class="caption"><span class="caption-number">Fig. 118 </span><span class="caption-text">Menu-Options-Display</span></p>
+</div>
+</div>
+<div class="section" id="features">
+<h5>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h5>
+<p>Changes the feature mode. In &#8220;Advanced&#8221; mode, more sensor tuning and configuration options are displayed.</p>
+<div class="figure" id="id35">
+<img alt="Menu-Options-Features" src="../_images/cdc_ug_options_features.png" />
+<p class="caption"><span class="caption-number">Fig. 119 </span><span class="caption-text">Menu-Options-Features</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="communications">
+<h4>Communications<a class="headerlink" href="#communications" title="Permalink to this headline">¶</a></h4>
+<p>Modifies the communications.</p>
+<div class="figure" id="id36">
+<img alt="Menu-Communications" src="../_images/cdc_ug_communications.png" />
+<p class="caption"><span class="caption-number">Fig. 120 </span><span class="caption-text">Menu-Communications</span></p>
+</div>
+<div class="section" id="connect-disconnect">
+<h5>Connect/Disconnect<a class="headerlink" href="#connect-disconnect" title="Permalink to this headline">¶</a></h5>
+<p>Controls whether the Design Center</p>
+<p><a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">communicates with the target</a> board over HID.</p>
+</div>
+<div class="section" id="settings-hid">
+<h5>Settings - HID<a class="headerlink" href="#settings-hid" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="hid">
+<h5>HID<a class="headerlink" href="#hid" title="Permalink to this headline">¶</a></h5>
+<p>Enables the user to change the HID connection parameters.</p>
+<p><strong>NOTE:</strong> The parameters default to the correct values for TI&#8217;s CapTIvate™ Technology EVMs.</p>
+</div>
+<div class="section" id="settings-logging">
+<h5>Settings - Logging<a class="headerlink" href="#settings-logging" title="Permalink to this headline">¶</a></h5>
+<p>Enabling data logging will allow element, sensor and user data to be logged to *.csv files automatically generated in the project&#8217;s directory as shown.</p>
+<div class="figure" id="id37">
+<img alt="Enable Data Logging" src="../_images/cdc_ug_settings_logging.png" />
+<p class="caption"><span class="caption-number">Fig. 121 </span><span class="caption-text">Enable Data Logging</span></p>
+</div>
+<div class="figure" id="id38">
+<img alt="Enable Data Logging" src="../_images/cdc_ug_settings_logging_sensor.png" />
+<p class="caption"><span class="caption-number">Fig. 122 </span><span class="caption-text">Enable Data Logging</span></p>
+</div>
+<p>After logging has been enabled, use the communications enable/disable to collect and append data to the log files.</p>
+<p><strong>NOTE:</strong> Disabling then re-enabling the Log Data feature will delete any previous data stored in the log files.</p>
+</div>
+</div>
+<div class="section" id="help">
+<h4>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h4>
+<p>Access to the CapTIvate™ Documentation and software version.</p>
+<div class="figure" id="id39">
+<img alt="Menu-Help" src="../_images/cdc_ug_help.png" />
+<p class="caption"><span class="caption-number">Fig. 123 </span><span class="caption-text">Menu-Help</span></p>
+</div>
+</div>
+<div class="section" id="topics">
+<h4>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h4>
+<p>Displays the help documentation in a browser window.</p>
+</div>
+<div class="section" id="about">
+<h4>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h4>
+<p>Displays software version information.</p>
+</div>
+</div>
+<div class="section" id="controller-properties">
+<h3>Controller Properties<a class="headerlink" href="#controller-properties" title="Permalink to this headline">¶</a></h3>
+<p>Double clicking on the controller object will display the properties dialog.</p>
+<div class="figure" id="id40">
+<img alt="Controller" src="../_images/cdc_ug_controller_object.png" />
+<p class="caption"><span class="caption-number">Fig. 124 </span><span class="caption-text">Controller</span></p>
+</div>
+<p>The properties dialog for a <a class="reference external" href="ch_designcenter.html#controller-properties">controller</a> object allows the user to:</p>
+<ul class="simple">
+<li>configure the device</li>
+<li>map <a class="reference external" href="ch_designcenter.html#controller-properties">controller</a> pins to sensor <a class="reference external" href="ch_glossary.html#element">elements</a></li>
+<li>enable <a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">target communications</a> and view sensor data</li>
+</ul>
+<div class="figure" id="id41">
+<img alt="Controller Properties" src="../_images/cdc_ug_controller_customizer.png" />
+<p class="caption"><span class="caption-number">Fig. 125 </span><span class="caption-text">Controller Properties</span></p>
+</div>
+<div class="section" id="device-configuration">
+<h4>Device configuration<a class="headerlink" href="#device-configuration" title="Permalink to this headline">¶</a></h4>
+<p>Select the desired MSP430 device with CapTIvate™ Technology from the pull-down list. When using the CapTIvate™ EVM, choose the MSP430FR2633IRHB.</p>
+<div class="figure" id="id42">
+<img alt="Selecting Device" src="../_images/cdc_ug_select_fr2633.png" />
+<p class="caption"><span class="caption-number">Fig. 126 </span><span class="caption-text">Selecting Device</span></p>
+</div>
+</div>
+<div class="section" id="enable-target-communications-and-target-mcu-communications-interface">
+<h4>Enable target communications and target MCU communications interface<a class="headerlink" href="#enable-target-communications-and-target-mcu-communications-interface" title="Permalink to this headline">¶</a></h4>
+<p>Enable/disable <a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">target communications</a> using this button. This is equivalent to the <a class="reference external" href="ch_designcenter.html#communications">Communications-&gt;Connect/Disconnect</a> menu items. The Communication Interface provides UART and I2C selections for the HID Bridge MCU to target MCU communications interface. To change the current interface, select a new one and click the &#8220;Connected&#8221; button. The HID Bridge MCU on the CAPTIVATE-PGMR PCB will immediately start using the new interface. When generating source code, the generated project files will be updated to provide support for the new interface.</p>
+<div class="figure" id="id43">
+<img alt="Selecting Communications" src="../_images/cdc_ug_target_comms.png" />
+<p class="caption"><span class="caption-number">Fig. 127 </span><span class="caption-text">Selecting Communications</span></p>
+</div>
+</div>
+<div class="section" id="select-compile-time-options">
+<h4>Select Compile Time options<a class="headerlink" href="#select-compile-time-options" title="Permalink to this headline">¶</a></h4>
+<p>Compile options can be selected to enable additional features provided in software. These features, when selected, are added to the code project generated by the CapTIvate™ Design Center.</p>
+<ul class="simple">
+<li>Enable <a class="reference external" href="ch_glossary.html#noise-immunity">Noise Immunity</a> for improving noise immunity when operating in noisy environments.</li>
+<li><a class="reference external" href="ch_glossary.html#wake-on-proximity">Wake on Proximity</a> enables ultra-low power proximity detection using the hardware state machine (no CPU) and the selected sensor. The sensor list varies with the types and numbers of sensors in the project. Additional parameters, such as low power scan rate, inactivity timeout and others can be specified in the <a class="reference external" href="ch_designcenter.html#controller-conversion-control-parameters">Controller Conversion Control</a>.</li>
+</ul>
+<div class="figure" id="id44">
+<img alt="Compile Time Options" src="../_images/cdc_ug_compile_time_options.png" />
+<p class="caption"><span class="caption-number">Fig. 128 </span><span class="caption-text">Compile Time Options</span></p>
+</div>
+<p>Note that for most use-cases, these two compile-time options (noise immunity and wake-on-proximity) are not intended to be used simultaneously in the same design. Battery powered designs benefit the most from wake-on-proximity mode, and line powered designs benefit the most from noise immunity mode.</p>
+</div>
+<div class="section" id="configure-low-power-mode">
+<h4>Configure Low Power Mode<a class="headerlink" href="#configure-low-power-mode" title="Permalink to this headline">¶</a></h4>
+<p>The Low Power Mode Options configure the low power mode to reduce system power consumption based on the application requirements.</p>
+<ul class="simple">
+<li>The Low Power Mode option determines the power mode of the MCU in between CapTIvate conversions. Valid options are LPM0 (high power standby with SMCLK and ACLK enabled), and LPM3 (low power standby with SMCLK disabled and ACLK enabled).</li>
+<li>The Force LPM4 in Wake-on-Prox Mode option enable the very low power oscillator (VLO) as the conversion timer in wake-on-proximity mode in LPM4. This option may be used to reduce the average current in wake-on-proximity mode for designs that do not have a crystal oscillator.</li>
+</ul>
+<div class="figure" id="id45">
+<img alt="Low Power Mode Options" src="../_images/cdc_ug_low_power_mode_options.png" />
+<p class="caption"><span class="caption-number">Fig. 129 </span><span class="caption-text">Low Power Mode Options</span></p>
+</div>
+</div>
+<div class="section" id="mapping-sensor-ports-to-controller-pins">
+<h4>Mapping sensor ports to controller pins<a class="headerlink" href="#mapping-sensor-ports-to-controller-pins" title="Permalink to this headline">¶</a></h4>
+<p>There are three ways to map the <a class="reference external" href="ch_glossary.html#sensor-port">sensor ports</a> to controller pins:</p>
+<ol class="arabic simple">
+<li>Allow the Design Center to automatically map all the connections using the &#8220;Auto-Assign&#8221; function on the controller &#8220;Configure Connections&#8221; tab</li>
+<li>Manually map the connections using the connection table in the controller &#8220;Configure Connections&#8221; tab</li>
+<li>Graphically connect the sensor and controller pins on the objects in the design canvas</li>
+</ol>
+<div class="section" id="auto-assign">
+<h5>Auto-assign<a class="headerlink" href="#auto-assign" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id46">
+<img alt="Auto-Assignment Button" src="../_images/cdc_ug_auto_assign.png" />
+<p class="caption"><span class="caption-number">Fig. 130 </span><span class="caption-text">Auto-Assignment Button</span></p>
+</div>
+<p>If the &#8220;Auto-Assign&#8221; button is selected, the Design Center will attempt to optimally connect all of the <em>unconnected</em> the <a class="reference external" href="ch_glossary.html#sensor-port">sensor ports</a> to the controller. Note that any connections that already exist will not be changed. In this manner, it is possible to make some connections manually, and then auto-assign the rest.</p>
+<p>This is a good option if there are no pre-existing restrictions on the mapping. For example, if the mapping is constrained due to board layout considerations, users should choose one of the other options.</p>
+<p>If the assignment completes successfully, the &#8220;Errors&#8221; indicator will turn green. If the indicator is &#8220;red&#8221;, errors still exist. Clicking on the indicator will display a dialog with a listing of the remaining errors.</p>
+</div>
+<div class="section" id="manual-mapping-using-the-configure-connections-table">
+<h5>Manual mapping using the Configure Connections table<a class="headerlink" href="#manual-mapping-using-the-configure-connections-table" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id47">
+<img alt="Manual Mapping using Table" src="../_images/cdc_ug_controller_config_table.png" />
+<p class="caption"><span class="caption-number">Fig. 131 </span><span class="caption-text">Manual Mapping using Table</span></p>
+</div>
+<p>The Configure Connection table enables detailed control for mapping the sensor ports to the controller ports. The table is split into 3 main parts:</p>
+<ul class="simple">
+<li>The &#8220;Unconnected&#8221; column lists all the sensor ports that are not assigned to a controller pin. The data in this column is read-only.</li>
+<li>The &#8220;Controller&#8221; columns display information on the CapTIvate™ Technology enabled ports on the MSP430, any usage mode restrictions, and which of the ports belong to the same <a class="reference external" href="ch_glossary.html#parallel-block">parallel sense block</a>.</li>
+</ul>
+<p>For information on how to best assign pins manually, see the <a class="reference external" href="ch_design_guide.html#captivate-pin-selection">pin assignment</a> section of the Design Guide chapter.</p>
+</div>
+<div class="section" id="port-column-edits">
+<h5>Port column edits<a class="headerlink" href="#port-column-edits" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id48">
+<img alt="Editing Port Column" src="../_images/cdc_ug_controller_config_port.png" />
+<p class="caption"><span class="caption-number">Fig. 132 </span><span class="caption-text">Editing Port Column</span></p>
+</div>
+<p>Selecting a cell in the port column will bring up a pull-down menu that allows the user to control the usage mode of the port. The &#8220;Use Mode&#8221; column will be updated to display any restrictions made a controller pin.</p>
+<ul class="simple">
+<li>Available: Any sensor port may be assigned</li>
+<li>Reserved: No sensor port may be assigned to this pin</li>
+<li>RX only: Only sensor RX ports may be assigned to this pin</li>
+<li>TX only: Only sensor TX ports may be assigned to this pin</li>
+<li>SELF only: Only <a class="reference external" href="ch_glossary.html#self-capacitance">self capacitance</a> sensor ports may be assigned to this pin</li>
+<li>MUTUAL only: Only <a class="reference external" href="ch_glossary.html#mutual-capacitance">mutual capacitance</a> sensor ports may be assigned to this pin</li>
+</ul>
+</div>
+<div class="section" id="parallel-group-column-edits">
+<h5>Parallel Group column edits<a class="headerlink" href="#parallel-group-column-edits" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id49">
+<img alt="Editing Parallel Groups" src="../_images/cdc_ug_controller_config_parallel_block.png" />
+<p class="caption"><span class="caption-number">Fig. 133 </span><span class="caption-text">Editing Parallel Groups</span></p>
+</div>
+<p>Selecting a cell in the port column will bring up a pull-down menu that allows This column allows the user to modify which pins are assigned to each <a class="reference external" href="ch_glossary.html#parallel-block">parallel sense group</a>.</p>
+<ul class="simple">
+<li>The &#8220;Sensors&#8221; section contains a column for each sensor in the design and is used to enable users to individually map each sensor port to the desired controller pin.</li>
+</ul>
+</div>
+<div class="section" id="sensor-column-edits">
+<h5>Sensor column edits<a class="headerlink" href="#sensor-column-edits" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id50">
+<img alt="Editing Sensor Columns" src="../_images/cdc_ug_controller_config_sensor.png" />
+<p class="caption"><span class="caption-number">Fig. 134 </span><span class="caption-text">Editing Sensor Columns</span></p>
+</div>
+<p>Selecting a cell in a sensor column will display the list of unconnected ports for that sensor which are legally allowed to be assigned to that controller pin. As sensor ports are assigned, the Unconnected and Time Cycle tables are dynamically updated.</p>
+<ul class="simple">
+<li>The <a class="reference external" href="ch_glossary.html#time-cycle">Time Cycles</a> section displays which sensor ports will be scanned in parallel by the target. This data is read-only and is updated whenever changes to the sensor connections or configuration are detected.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="making-manual-connections-graphically">
+<h4>Making manual connections graphically<a class="headerlink" href="#making-manual-connections-graphically" title="Permalink to this headline">¶</a></h4>
+<p>Connections between the controller and sensors can be made by clicking the port on the sensor and dragging the connection to the desired port on the controller.</p>
+<p><strong>Note:</strong> Be sure to display the connections first using the <a class="reference external" href="ch_designcenter.html#display">Options-&gt;Display</a> menu item.</p>
+<div class="figure" id="id51">
+<img alt="Graphical Connections" src="../_images/cdc_ug_gui_connection.png" />
+<p class="caption"><span class="caption-number">Fig. 135 </span><span class="caption-text">Graphical Connections</span></p>
+</div>
+</div>
+<div class="section" id="source-code-generation">
+<h4>Source Code Generation<a class="headerlink" href="#source-code-generation" title="Permalink to this headline">¶</a></h4>
+<p>Source code for the design can be generated once all the sensor ports have been connected to the controller.</p>
+<div class="figure" id="id52">
+<img alt="Generate Source Code Button" src="../_images/cdc_ug_generate_source_code.png" />
+<p class="caption"><span class="caption-number">Fig. 136 </span><span class="caption-text">Generate Source Code Button</span></p>
+</div>
+<div class="section" id="create-new-project">
+<h5>Create new project<a class="headerlink" href="#create-new-project" title="Permalink to this headline">¶</a></h5>
+<p>This option will create a complete project with the design specific definitions, support code, and CSS/IAR project files.</p>
+</div>
+<div class="section" id="update-existing-project">
+<h5>Update existing project<a class="headerlink" href="#update-existing-project" title="Permalink to this headline">¶</a></h5>
+<p>This option will only update the design specific definition files. Use this option to update a project that has already been imported into an IDE.</p>
+<div class="figure" id="id53">
+<img alt="Select Output" src="../_images/cdc_ug_generate_source_options.png" />
+<p class="caption"><span class="caption-number">Fig. 137 </span><span class="caption-text">Select Output</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="controller-target-data-displays">
+<h4>Controller target data displays<a class="headerlink" href="#controller-target-data-displays" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="controller-channel-bar-chart">
+<h5>Controller Channel Bar Chart<a class="headerlink" href="#controller-channel-bar-chart" title="Permalink to this headline">¶</a></h5>
+<p>See <a class="reference external" href="ch_designcenter.html#channel-bar-chart">Channel Bar Chart</a></p>
+</div>
+<div class="section" id="controller-channel-table">
+<h5>Controller Channel Table<a class="headerlink" href="#controller-channel-table" title="Permalink to this headline">¶</a></h5>
+<p>See <a class="reference external" href="ch_designcenter.html#channel-table">Channel Table</a></p>
+</div>
+</div>
+<div class="section" id="controller-conversion-control-parameters">
+<h4>Controller Conversion Control parameters<a class="headerlink" href="#controller-conversion-control-parameters" title="Permalink to this headline">¶</a></h4>
+<p>There are two groups of parameters that are controlled in this tab; one for data control, the other for wake on proximity. Clicking on any parameter will display a description for it in the &#8220;Description&#8221; viewing pane to the right of the parameter.</p>
+<div class="section" id="element-and-sensor-data-enables">
+<h5>Element and Sensor data enables<a class="headerlink" href="#element-and-sensor-data-enables" title="Permalink to this headline">¶</a></h5>
+<p>These controls provide a method to minimize the amount of data sent from the target MCU to the CapTIvate™ Design Center during real-time tuning. By default, these both should be &#8220;checked.&#8221; For designs with large number of sensors or elements, the data transmission can be very large and potentially slow down the report rate during sensor tuning. Deselecting one or the other will help improve the throughput.</p>
+</div>
+<div class="section" id="wake-on-proximity-parameters">
+<h5>Wake on proximity parameters<a class="headerlink" href="#wake-on-proximity-parameters" title="Permalink to this headline">¶</a></h5>
+<p>When using wake on proximity for ultra-low power proximity detection, it is possible to select:</p>
+<ul class="simple">
+<li>Ultra-low power Wake on proximity scan rate is the rate at which the hardware state machine (no CPU) scans the selected proximity sensor/electrode. Note: up to 4 electrodes can be scanned in parallel.</li>
+<li>Active Mode scan rate is the rate at which the CPU scans all the sensors connected to the target MCU.</li>
+<li>Wake up interval sets a failsafe timeout used by the hardware state machine to force the CPU to wake up and run any background tasks periodically. The wakeup period is based on the &#8220;Wake on proximity scan rate&#8221; time the &#8220;N samples selected in drop down&#8221; value. This parameter is optional and can be disabled)</li>
+<li>Inactivity timeout is the time the CPU continues to scan all the sensors after there is no proximity detection. At the end of the timeout, the MCU re-enters the ultra-low power wake on proximity mode. The timeout period is based on the &#8220;Active scan rate&#8221; times the &#8220;Inactivity Timeout&#8221; value.</li>
+</ul>
+<div class="figure" id="id54">
+<img alt="Wake On Proximity Parameters" src="../_images/cdc_ug_controller_params.png" />
+<p class="caption"><span class="caption-number">Fig. 138 </span><span class="caption-text">Wake On Proximity Parameters</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="controller-scan-time-estimator">
+<h4>Controller Scan Time Estimator<a class="headerlink" href="#controller-scan-time-estimator" title="Permalink to this headline">¶</a></h4>
+<p>The scan time estimator displays the nominal amount of time it will take to measure each sensor, drawn with respect to the overall scan period. The overall scan period is controlled by the <a class="reference external" href="ch_glossary.html#system-report-rate">System Report Rate</a> parameter.</p>
+<div class="figure" id="id55">
+<img alt="Scan Time Estimator View" src="../_images/cdc_ug_scantimeestimator.png" />
+<p class="caption"><span class="caption-number">Fig. 139 </span><span class="caption-text">Scan Time Estimator View</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="sensor-properties">
+<h3>Sensor Properties<a class="headerlink" href="#sensor-properties" title="Permalink to this headline">¶</a></h3>
+<p>Double clicking on a sensor object will display the properties dialog. The properties dialog for a sensor object allows the user to:</p>
+<ul class="simple">
+<li>configure the sensor</li>
+<li>tune the sensor</li>
+<li>enable <a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">target communications</a> and view sensor data</li>
+</ul>
+<div class="figure" id="id56">
+<img alt="Sensor Properties View" src="../_images/cdc_ug_sensor_customizer.png" />
+<p class="caption"><span class="caption-number">Fig. 140 </span><span class="caption-text">Sensor Properties View</span></p>
+</div>
+<div class="section" id="position-display">
+<h4>Position Display<a class="headerlink" href="#position-display" title="Permalink to this headline">¶</a></h4>
+<p>Each properties dialog will display the &#8220;position&#8221; of the sensor. The rendering of this information is specific to the sensor type. The display is active whenever the Design Center <a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">target communications</a> are active.</p>
+<p><a class="reference external" href="ch_glossary.html#button-group-sensor">Button Group Sensor</a></p>
+<p>Each button in the group is displayed in a grid indexed by the sensor&#8217;s TX/RX ports.</p>
+<ul class="simple">
+<li>White indicates the button is not being touched</li>
+<li>Yellow indicates that the <a class="reference external" href="ch_glossary.html#proximity-threshold">proximity threshold</a> has been reached</li>
+<li>Green indicates that the <a class="reference external" href="ch_glossary.html#touch-threshold">touch threshold</a> has been reached and that a touch has been detected</li>
+</ul>
+<div class="figure" id="id57">
+<img alt="Button Group Sensor" src="../_images/cdc_ug_button_group_position.png" />
+<p class="caption"><span class="caption-number">Fig. 141 </span><span class="caption-text">Button Group Sensor</span></p>
+</div>
+<p><a class="reference external" href="ch_glossary.html#slider-sensor">Slider Sensor</a></p>
+<ul class="simple">
+<li>Red indicates the slider is not being touched</li>
+<li>Green indicates that the <a class="reference external" href="ch_glossary.html#touch-threshold">touch threshold</a> has been reached and that a touch has been detected</li>
+<li>The slider position is rendered on the display and the numeric value is also displayed below the GUI.</li>
+</ul>
+<div class="figure" id="id58">
+<img alt="Slider Sensor" src="../_images/cdc_ug_slider_position.png" />
+<p class="caption"><span class="caption-number">Fig. 142 </span><span class="caption-text">Slider Sensor</span></p>
+</div>
+<p><a class="reference external" href="ch_glossary.html#proximity-sensor">Proximity Sensor</a></p>
+<div class="figure" id="id59">
+<img alt="Proximity Sensor" src="../_images/cdc_ug_proximity_position.png" />
+<p class="caption"><span class="caption-number">Fig. 143 </span><span class="caption-text">Proximity Sensor</span></p>
+</div>
+<ul class="simple">
+<li>White indicates the button is not being touched</li>
+<li>Yellow indicates that the <a class="reference external" href="ch_glossary.html#proximity-threshold">proximity threshold</a> has been reached</li>
+<li>Green indicates that the <a class="reference external" href="ch_glossary.html#touch-threshold">touch threshold</a> has been reached and that a touch has been detected</li>
+</ul>
+<p><a class="reference external" href="ch_glossary.html#wheel-sensor">Wheel Sensor</a></p>
+<ul class="simple">
+<li>Red indicates the wheel is not being touched</li>
+<li>Green indicates that the <a class="reference external" href="ch_glossary.html#touch-threshold">touch threshold</a> has been reached and that a touch has been detected</li>
+<li>The wheel position is rendered on the display and the numeric value is also displayed below the GUI.</li>
+</ul>
+<div class="figure" id="id60">
+<img alt="Wheel Sensor" src="../_images/cdc_ug_wheel_position.png" />
+<p class="caption"><span class="caption-number">Fig. 144 </span><span class="caption-text">Wheel Sensor</span></p>
+</div>
+</div>
+<div class="section" id="sensor-configuration">
+<h4>Sensor Configuration<a class="headerlink" href="#sensor-configuration" title="Permalink to this headline">¶</a></h4>
+<p>The sensor configuration is specified through the properties dialog.</p>
+<div class="figure" id="id61">
+<img alt="Sensor Configuration" src="../_images/cdc_ug_sensor_config.png" />
+<p class="caption"><span class="caption-number">Fig. 145 </span><span class="caption-text">Sensor Configuration</span></p>
+</div>
+<div class="section" id="capacitive-mode">
+<h5>Capacitive Mode<a class="headerlink" href="#capacitive-mode" title="Permalink to this headline">¶</a></h5>
+<p>Specify the capacitive mode type for the sensor. Choices are:</p>
+<ul class="simple">
+<li><a class="reference external" href="ch_glossary.html#mutual-capacitance">Mutual</a></li>
+<li><a class="reference external" href="ch_glossary.html#self-capacitance">Self</a></li>
+</ul>
+</div>
+<div class="section" id="element-count">
+<h5>Element Count<a class="headerlink" href="#element-count" title="Permalink to this headline">¶</a></h5>
+<p>Specify the number of <a class="reference external" href="ch_glossary.html#element">elements</a> for sensor.</p>
+</div>
+<div class="section" id="electrode-configuration">
+<h5>Electrode Configuration<a class="headerlink" href="#electrode-configuration" title="Permalink to this headline">¶</a></h5>
+<p>Based on the specified number of elements, the Design Center will calculate the possible <a class="reference external" href="ch_glossary.html#sensor-port">TX/RX port</a> configurations along with the number of <a class="reference external" href="ch_glossary.html#time-cycle">time cycles</a> that are required for each of the configurations. The Design Center will default to a configuration that takes the minimum number of <a class="reference external" href="ch_glossary.html#time-cycle">time cycles</a>.</p>
+<div class="figure" id="id62">
+<img alt="Electrode Configuration" src="../_images/cdc_ug_electrode_config.png" />
+<p class="caption"><span class="caption-number">Fig. 146 </span><span class="caption-text">Electrode Configuration</span></p>
+</div>
+</div>
+<div class="section" id="configure-tx-rx-grouping">
+<h5>Configure TX/RX grouping<a class="headerlink" href="#configure-tx-rx-grouping" title="Permalink to this headline">¶</a></h5>
+<p>In some cases, it may be desired to change how the default assignment of the <a class="reference external" href="ch_glossary.html#element">sensor elements</a> to the TX/RX ports. Selecting the &#8220;Configure TX/RX Groups&#8221; will display a dialog where these mappings can be changed.</p>
+<div class="figure" id="id63">
+<img alt="TX/RX Grouping" src="../_images/cdc_ug_txrx_grouping.png" />
+<p class="caption"><span class="caption-number">Fig. 147 </span><span class="caption-text">TX/RX Grouping</span></p>
+</div>
+<p>The example below shows a typical 4-element self capacitive slider with default TX/RX group assignment. Note how the Design Center assigns RX0..RX3 to one pin from each CapTIvate™ block and to the sensor electrodes E00..E03. When designing the PCB it is important to follow these assignments generated by the Design Center. In the case of a slider or wheel, it is very important that RX0-&gt;E00, RX1-&gt;E01, RX2-&gt;E02, etc., else the algorithm will not work correctly.</p>
+<div class="figure" id="id64">
+<img alt="Typical TX/RX Sensor Group Assigment" src="../_images/cdc_sensor_group_default.png" />
+<p class="caption"><span class="caption-number">Fig. 148 </span><span class="caption-text">Typical TX/RX Sensor Group Assigment</span></p>
+</div>
+<p>There may be instances where a previous PCB design doesn&#8217;t match the current Design Center configuration or the PCB routing was done incorrectly. Below is an example showing a 4-element slider with RX1 and RX2 swapped (RX1 assigned to slider element E02 and RX2 assigned to slider element E01).</p>
+<div class="figure" id="id65">
+<img alt="Incorrect TX/RX Sensor Group Assignment" src="../_images/cdc_sensor_group_incorrect.png" />
+<p class="caption"><span class="caption-number">Fig. 149 </span><span class="caption-text">Incorrect TX/RX Sensor Group Assignment</span></p>
+</div>
+<p>The Design Center sensor TX/RX group assignments can be overridden to provide electrode assignments that match the PCB design. Below is an example showing how sensor electrode E02 is assigned to RX02 and E01 is assigned to RX01 using the Sensor TX/RX grouping tool. After the re-assignment the Controller properties view shows the new proper sensor electrode assignments and the software can now processes the slider in the correct order.</p>
+<div class="figure" id="id66">
+<img alt="Corrected TX/RX Sensor Group Assignment" src="../_images/cdc_sensor_group_corrected.png" />
+<p class="caption"><span class="caption-number">Fig. 150 </span><span class="caption-text">Corrected TX/RX Sensor Group Assignment</span></p>
+</div>
+<p><strong>Note</strong>, this method provides a convenient way to reverse the behavior of either a slider or wheel if desired.</p>
+</div>
+</div>
+<div class="section" id="enable-target-communications-from-sensor-properties">
+<h4>Enable Target Communications from Sensor Properties<a class="headerlink" href="#enable-target-communications-from-sensor-properties" title="Permalink to this headline">¶</a></h4>
+<p>Enable/disable <a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">target communications</a>. This button is equivalent to the <a class="reference external" href="ch_designcenter.html#connect-disconnect">Communications-&gt;Connect/Disconnect</a> menu items.</p>
+<div class="figure" id="id67">
+<img alt="Communications Enable" src="../_images/cdc_ug_sensor_comms.png" />
+<p class="caption"><span class="caption-number">Fig. 151 </span><span class="caption-text">Communications Enable</span></p>
+</div>
+</div>
+<div class="section" id="sensor-target-data-displays">
+<h4>Sensor target data displays<a class="headerlink" href="#sensor-target-data-displays" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="sensor-channel-bar-chart">
+<h5>Sensor Channel Bar Chart<a class="headerlink" href="#sensor-channel-bar-chart" title="Permalink to this headline">¶</a></h5>
+<p>See <a class="reference external" href="ch_designcenter.html#channel-bar-chart">Channel Bar Chart</a></p>
+</div>
+<div class="section" id="sensor-oscilloscope-plot">
+<h5>Sensor Oscilloscope Plot<a class="headerlink" href="#sensor-oscilloscope-plot" title="Permalink to this headline">¶</a></h5>
+<p>See <a class="reference external" href="ch_designcenter.html#oscilloscope-plot">Oscilloscope Plot</a></p>
+</div>
+<div class="section" id="sensor-channel-table">
+<h5>Sensor Channel Table<a class="headerlink" href="#sensor-channel-table" title="Permalink to this headline">¶</a></h5>
+<p>See <a class="reference external" href="ch_designcenter.html#channel-table">Channel Table</a></p>
+</div>
+<div class="section" id="sensor-error-status-flags">
+<h5>Sensor Error Status Flags<a class="headerlink" href="#sensor-error-status-flags" title="Permalink to this headline">¶</a></h5>
+<p>This section shows the sensor error status flags for Negative Touch Detect flag and Max Count Error flag.</p>
+<ul class="simple">
+<li>Negative Touch Detect Flag: The Negative Touch flag is set when negative touch is detected.</li>
+<li>Max Count Error Flag: The Max Count Error flag is set when conversion count cross the error threshold.</li>
+</ul>
+<p>For more information on these two flags, you can click the quick link on the flag indicators. After the flag indicators light up, user needs to manually clear them before it can be set again.</p>
+<div class="figure" id="id68">
+<img alt="Communications Enable" src="../_images/cdc_ug_sensor_error.png" />
+<p class="caption"><span class="caption-number">Fig. 152 </span><span class="caption-text">Communications Enable</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="tuning-sensor-performance">
+<h4>Tuning Sensor performance<a class="headerlink" href="#tuning-sensor-performance" title="Permalink to this headline">¶</a></h4>
+<p>The sensor parameters are specified through the <strong>Tuning</strong> and <strong>Conversion Control</strong> tabs. Real-time reading and writing values to the target requires that <a class="reference external" href="ch_designcenter.html#communications">target communications</a> are enabled.</p>
+<p>Parameter values are written to the appropriate structures whenever the source code is generated for the design. The values will take affect after the new source code is compiled and loaded to the target.</p>
+<p>It is also possible to read and write values directly to the target in real-time when the <a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">target communications</a> are enabled in the Design Center. This enables real-time tuning of sensor performance and can greatly reduce the time necessary to achieve the desired system behavior.</p>
+<p><strong>Note:</strong> that any values loaded in real time will revert to the original values when the target is reset unless new source code is generated, compiled and loaded to the target.</p>
+<div class="section" id="tuning-parameters">
+<h5>Tuning Parameters<a class="headerlink" href="#tuning-parameters" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id69">
+<img alt="Tuning View" src="../_images/cdc_ug_sensor_tuning.png" />
+<p class="caption"><span class="caption-number">Fig. 153 </span><span class="caption-text">Tuning View</span></p>
+</div>
+</div>
+<div class="section" id="conversion-control-parameters">
+<h5>Conversion Control Parameters<a class="headerlink" href="#conversion-control-parameters" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id70">
+<img alt="Conversion Control View" src="../_images/cdc_ug_sensor_conversion_control.png" />
+<p class="caption"><span class="caption-number">Fig. 154 </span><span class="caption-text">Conversion Control View</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="displaying-target-data">
+<h3>Displaying Target Data<a class="headerlink" href="#displaying-target-data" title="Permalink to this headline">¶</a></h3>
+<p>The Design Center provides a rich set of tools to view the sensor data from the target.</p>
+<ul class="simple">
+<li>Channel Bar Chart provides a easy way to visualize the interaction between the values related to measurement counts and touch/proximity thresholds</li>
+<li>Oscilloscope Plot provides a way to look at historical traces of the sensor data measurements</li>
+<li>Channel Table provides a tabular rendering of the data present in the Channel Bar chart along with the sensor to controller mapping for each sensor element</li>
+<li>Zoom in/out/full zoom</li>
+<li>To zoom in, click and drag down and to the right to define the zoom area</li>
+<li>To zoom out, click and drag up and to the left to define the amount to zoom out</li>
+<li>Click the right mouse button to do a full zoom out</li>
+<li>Plot Display options will display a dialog with several options for changing the plot display.</li>
+</ul>
+<div class="figure" id="id71">
+<img alt="Polt Options" src="../_images/cdc_ug_plot_display_options.png" />
+<p class="caption"><span class="caption-number">Fig. 155 </span><span class="caption-text">Polt Options</span></p>
+</div>
+<div class="section" id="channel-bar-chart">
+<h4>Channel Bar Chart<a class="headerlink" href="#channel-bar-chart" title="Permalink to this headline">¶</a></h4>
+<p>Data displayed for each <a class="reference external" href="ch_glossary.html#channel">channel</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="ch_glossary.html#count">Count</a></li>
+<li><a class="reference external" href="ch_glossary.html#delta">Delta</a></li>
+<li><a class="reference external" href="ch_glossary.html#proximity_threshold">Proximity Threshold</a></li>
+<li><a class="reference external" href="ch_glossary.html#touch-threshold">Touch Threshold</a></li>
+</ul>
+<div class="figure" id="id72">
+<img alt="Channel Bar View" src="../_images/cdc_ug_channel_bar_chart.png" />
+<p class="caption"><span class="caption-number">Fig. 156 </span><span class="caption-text">Channel Bar View</span></p>
+</div>
+</div>
+<div class="section" id="oscilloscope-plot">
+<h4>Oscilloscope Plot<a class="headerlink" href="#oscilloscope-plot" title="Permalink to this headline">¶</a></h4>
+<p>Data displayed for each <a class="reference external" href="ch_glossary.html#channel">channel</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="ch_glossary.html#count">Count</a></li>
+<li><a class="reference external" href="ch_glossary.html#delta">Delta</a></li>
+<li>Proximity status - value of 100 indicates that the <a class="reference external" href="ch_glossary.html#proximity-threshold">Proximity Threshold</a> has been reached</li>
+<li>Touch status - value of 100 indicates that the <a class="reference external" href="ch_glossary.html#touch-threshold">Touch Threshold</a> has been reached</li>
+</ul>
+<div class="figure" id="id73">
+<img alt="Oscilloscope View" src="../_images/cdc_ug_oscilloscope_plot.png" />
+<p class="caption"><span class="caption-number">Fig. 157 </span><span class="caption-text">Oscilloscope View</span></p>
+</div>
+</div>
+<div class="section" id="channel-table">
+<h4>Channel Table<a class="headerlink" href="#channel-table" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Data displayed for each <a class="reference external" href="ch_glossary.html#channel">channel</a>:</li>
+<li>Connection data<ul>
+<li><a class="reference external" href="ch_glossary.html#channel">Channel</a></li>
+<li>Sensor name</li>
+<li><a class="reference external" href="ch_glossary.html#element">Element</a></li>
+<li><a class="reference external" href="ch_glossary.html#sensor-port">TX</a></li>
+<li><a class="reference external" href="ch_glossary.html#sensor-port">RX</a></li>
+<li><a class="reference external" href="ch_glossary.html#time-cycle">Time Cycle</a></li>
+<li><a class="reference external" href="ch_designcenter.html#controller-properties">Controller Port</a></li>
+<li><a class="reference external" href="ch_glossary.html#parallel-block">Parallel Sense Group</a></li>
+</ul>
+</li>
+<li>Measurement data<ul>
+<li><a class="reference external" href="ch_glossary.html#count">Count</a></li>
+<li><a class="reference external" href="ch_glossary.html#delta">Delta</a></li>
+<li><a class="reference external" href="ch_glossary.html#proximity_threshold">Proximity Threshold</a></li>
+<li><a class="reference external" href="ch_glossary.html#touch-threshold">Touch Threshold</a></li>
+<li>Proximity status - yellow indicates that the <a class="reference external" href="ch_glossary.html#proximity-threshold">Proximity Threshold</a> has been reached</li>
+<li>Touch status - green indicates that the <a class="reference external" href="ch_glossary.html#touch-threshold">Touch Threshold</a> has been reached</li>
+</ul>
+</li>
+</ul>
+<div class="figure" id="id74">
+<img alt="Channel View" src="../_images/cdc_ug_channel_table.png" />
+<p class="caption"><span class="caption-number">Fig. 158 </span><span class="caption-text">Channel View</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="snr-measurements">
+<h3>SNR Measurements<a class="headerlink" href="#snr-measurements" title="Permalink to this headline">¶</a></h3>
+<p>The CapTIvate™ Design Center provides a built-in SNR measurement capability that makes it very easy to perform SNR data collection and calculations in real-time. The SNR measurement view is available on every sensor.</p>
+<div class="figure" id="id75">
+<img alt="SNR View" src="../_images/cdc_snr_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 159 </span><span class="caption-text">SNR View</span></p>
+</div>
+<div class="section" id="snr-options">
+<h4>SNR Options<a class="headerlink" href="#snr-options" title="Permalink to this headline">¶</a></h4>
+<p>The SNR options provide flexibility for the data collection and measurement process.</p>
+<ul class="simple">
+<li>Filtering Enabled<ul>
+<li>Selecting this option applies the Count Filter settings found in the Tuning Tab.
+This filter can impact the SNR results. Please refer to the Filter Count Beta and Enable options found in the Tuning Tab. TI recommends enabling the count filter.</li>
+</ul>
+</li>
+<li>Sample Size<ul>
+<li>The sample size is the number of samples taken during the touch portion of the test and the release portion of the test. TI recommends capturing 1000 samples.</li>
+</ul>
+</li>
+<li>Measurement Selection<ul>
+<li>Select &#8220;Touch&#8221; to measure the touch detection SNR and margins. Select &#8220;Prox&#8221; to measure the proximity detection SNR and margins.</li>
+</ul>
+</li>
+<li>Element<ul>
+<li>Select the desired sensing element in the current sensor to measure.</li>
+</ul>
+</li>
+<li>Export CSV<ul>
+<li>Export the entire sample set for the next measurement to the SNR CSV file in the project folder.</li>
+</ul>
+</li>
+<li>Overwrite CSV<ul>
+<li>If Export to CSV and Overwrite CSV are selected, then the SNR CSV file in the project directory will be cleared before the SNR measurement is performed and only the new results will be kept in the SNR CSV file. If this option is not selected, then each measurement is appended to the existing CSV file.</li>
+</ul>
+</li>
+</ul>
+<div class="figure" id="id76">
+<img alt="SNR Options" src="../_images/cdc_snr_options.png" />
+<p class="caption"><span class="caption-number">Fig. 160 </span><span class="caption-text">SNR Options</span></p>
+</div>
+</div>
+<div class="section" id="snr-prompts">
+<h4>SNR Prompts<a class="headerlink" href="#snr-prompts" title="Permalink to this headline">¶</a></h4>
+<p>The SNR measurement process is automated, but does require interaction (touch) with the sensors. Only one electrode can be measured at a time. In the table under the SNR options, click to select the electrode to be measured, then click the &#8220;Measure SNR&#8221; button. The first prompt will appear. Touch and hold the target electrode and click the &#8220;OK&#8221; button. After the number of samples have been acquired, the second prompt will appear. Remove your finger from the electrode and click the &#8220;OK&#8221; button.</p>
+<div class="figure" id="id77">
+<img alt="SNR Measurement Prompts" src="../_images/cdc_snr_prompts.png" />
+<p class="caption"><span class="caption-number">Fig. 161 </span><span class="caption-text">SNR Measurement Prompts</span></p>
+</div>
+<p>When the measurement sequence is complete, the SNR calculations are displayed in the selected electrode row.</p>
+<div class="figure" id="id78">
+<img alt="SNR Measurements" src="../_images/cdc_snr_results.png" />
+<p class="caption"><span class="caption-number">Fig. 162 </span><span class="caption-text">SNR Measurements</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-and-running-generated-projects">
+<h2>Loading and running generated projects<a class="headerlink" href="#loading-and-running-generated-projects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="importing-opening-projects">
+<h3>Importing/opening projects<a class="headerlink" href="#importing-opening-projects" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="code-composer-studio">
+<h4>Code Composer Studio<a class="headerlink" href="#code-composer-studio" title="Permalink to this headline">¶</a></h4>
+<p>To import a CCS project generated by the Design Center, follow the instructions below.</p>
+<ul class="simple">
+<li>Launch CCS</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_ccs_startup.png" />
+</div>
+<ul class="simple">
+<li>Select &#8220;Project-&gt;Import CCS Projects&#8221;</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_ccs_import_project.png" />
+</div>
+<ul class="simple">
+<li>Provide the location of the generated project source and select the project</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_ccs_select_project.png" />
+</div>
+<ul class="simple">
+<li>Click &#8220;Finish&#8221;</li>
+<li>Compile and load the code onto the target MSP430</li>
+<li>Click the &#8220;debug&#8221; button</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_ccs_debug.png" />
+</div>
+<ul class="simple">
+<li>Click the &#8220;run&#8221; button</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_ccs_run.png" />
+</div>
+<ul class="simple">
+<li>Click the &#8220;stop&#8221; button</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_ccs_stop.png" />
+</div>
+<p>Click the &#8220;stop&#8221; button to stop the debugger.</p>
+</div>
+<div class="section" id="iar-embedded-workbench">
+<h4>IAR Embedded Workbench<a class="headerlink" href="#iar-embedded-workbench" title="Permalink to this headline">¶</a></h4>
+<p>To open an IAR project generated by the Design Center, follow the instructions below.</p>
+<ul class="simple">
+<li>Launch IAR Embedded Workbench</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_iar_startup.png" />
+</div>
+<ul class="simple">
+<li>Go to &#8220;File-&gt;Open Workspace&#8221; and navigate to the generated source directory</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_iar_open_workspace.png" />
+</div>
+<ul class="simple">
+<li>Select the workspace file found under &#8220;IAR/.eww&#8221;</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_iar_select_project.png" />
+</div>
+<ul class="simple">
+<li>Compile and load the code onto the target MSP430</li>
+<li>Start debugging (Project-&gt;Download and Debug)</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_iar_download_and_debug.png" />
+</div>
+<ul class="simple">
+<li>Start execution (Debug-&gt;Go)</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_iar_debug_go.png" />
+</div>
+<ul class="simple">
+<li>Stop execution (Debug-&gt;Stop Debugging)</li>
+</ul>
+<div class="figure">
+<img alt="" src="../_images/cdc_iar_debug_stop.png" />
+</div>
+<p>Click the &#8220;Stop Debugging&#8221; menu item to stop the debugger.</p>
+</div>
+</div>
+<div class="section" id="enable-target-communications-in-the-design-center">
+<h3>Enable target communications in the Design Center<a class="headerlink" href="#enable-target-communications-in-the-design-center" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="../_images/cdc_start_comms.png" />
+</div>
+<p>Once the code has been loaded onto the target, select the &#8220;Communications-&gt;Connect&#8221; menu in the Design Center to enable the HID communications.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_device.html" class="btn btn-neutral float-right" title="Device Family" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_design_guide.html" class="btn btn-neutral" title="Design Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

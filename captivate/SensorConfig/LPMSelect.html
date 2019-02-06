@@ -1,0 +1,18 @@
+<!-- Captivate Description HTML -->
+<!-- LPM Selection -->
+
+<html>
+    <body>
+	
+		<B>Low Power Mode (LPM) Select</B><BR>
+		
+        <P>This option determines the power mode of the MCU in between CapTIvate conversions.  Valid options are LPM0 (high power standby with SMCLK and ACLK enabled), and LPM3 (low power standby with SMCLK disabled and ACLK enabled).
+        
+        <P>This selection is populated in the uiApp global application data structure in the CAPT_UserConfig.c file during
+        source code generation.  The variable is referenced by the CAPT_appSleep() function, which is called in the application loop when CapTIvate is not executing code.
+        
+        <P><I>Notes</I><BR>
+        LPM3 does not support UART receive.  This is because in LPM3 the UART baud rate clock source (SMCLK) is not active.  If you are using UART for the communication interface, and require receive capability to communicate with the CapTIvate Design Center, you must select LPM0 or greater.
+        
+    </body>
+</html>

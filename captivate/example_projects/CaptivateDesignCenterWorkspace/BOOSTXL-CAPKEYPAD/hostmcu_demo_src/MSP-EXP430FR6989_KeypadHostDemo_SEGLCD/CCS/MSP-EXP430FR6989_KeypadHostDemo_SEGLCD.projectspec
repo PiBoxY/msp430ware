@@ -1,0 +1,16 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP430FR5xx_6xx"
+             device="MSP430FR6989"
+             name="MSP-EXP430FR6989_KeypadHostDemo_SEGLCD"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../display.c" />
+        <file action="copy" path="../display.h" />
+        <file action="copy" path="../board.c" />
+        <file action="copy" path="../board.h" />
+        <file action="copy" path="../keypad.c" />
+        <file action="copy" path="../keypad.h" />
+		<file action="copy" path="../main.c" openOnCreation="true" />
+    </project>
+</projectSpec>

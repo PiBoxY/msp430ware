@@ -1,0 +1,46 @@
+<!-- Captivate Description HTML -->
+<!-- Communications Tuning Parameters -->
+
+<html>
+	<body>
+		<B>Target Communications Configuration</B>
+		<P>
+		The CapTIvate touch library communications module has the capability of
+	    sending element data and sensor data to the host PC.  Element data consists
+		of all the low level data for a sensor's elements: current measurement count,
+		long term average, and touch and proximity status.  Sensor data consists of
+		aggregate data for the sensor.  This includes items such as slider position,
+		wheel position, and global sensor status flags.
+		
+		<P>
+		Both data types can be sent, as well as one or the other or none.  On larger panels,
+		it may be desirable to disable transmission of element data to increase the maximum
+		report rate.
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		The protocol used to communicate between the target Captivate MCU and the PC running
+		the CapTIvate Design Center is re-usable for communicating between the target and another
+		embedded host processor or host MCU.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Element_Data_Transmit_Enable parameter corresponds to the
+		<i><b>bElementDataTxEnable</b></i> 
+		member of the
+		<i><b>tGlobalCaptivateSettings</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+		The Sensor_Data_Transmit_Enable parameter corresponds to the
+		<i><b>bSensorDataTxEnable</b></i> 
+		member of the
+		<i><b>tGlobalCaptivateSettings</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>		
+		
+	</body>
+</html>

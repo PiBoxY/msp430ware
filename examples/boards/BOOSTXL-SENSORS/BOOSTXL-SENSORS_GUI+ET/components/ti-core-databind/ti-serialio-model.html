@@ -1,0 +1,191 @@
+<!--
+`ti-serialio-model` adds the serial port model for databinding to a uart or usb stream of data.
+    - 
+Example:
+
+    <ti-serialio-model></ti-serialio-model>
+
+See ../demo/ti-serialio-model/demo.html for a full working example of how to use this component.
+
+@group TI Core
+@element ti-serialio-model
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+    its contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../ti-core-databind/ti-core-databind.html">
+<link rel="import" href="../ti-service-serialio/ti-service-serialio.html">
+<script src='src/internal/serialPortModel.js'></script>
+
+<polymer-element name="ti-serialio-model">
+<template>
+    <style>
+        :host {
+            display: none;
+    }
+    </style>
+    <ti-service-serialio id="serialIO" serialModelOutputHdlr="{{serialPortDataHdlr}}" selectedDevice="{{selectedDevice}}"></ti-service-serialio>
+</template>
+<script>
+    
+    Polymer('ti-serialio-model', 
+    {
+        /**
+         * Fired when the visibility of one of the buttons in the application that is associated
+         * with ti-service-programloader needs to be changed
+         *
+         * @event serialioModelReceivingData
+         */
+        publish: 
+        {
+            /**
+             * An object that represents the device that is being interacted with.
+             * The object must have the following fields:
+             *  <p> {<br/>
+                         *   boardName:     'MSP-EXP430G2 v1.5',<br/>
+                         *   deviceName:      'MSP430G2553',<br/>
+                         *   }<br/>
+             * <p>
+             *
+             * @attribute selectedDevice
+             * @type object
+             * @default undefined
+             */
+        	selectedDevice: undefined
+        },
+        serialPortDataHdlr: gc.databind.SerialPortModel.serialPortRecievedHandler,
+        ready: function() 
+        {
+            if (typeof process !== "undefined")
+            {
+                // Node webkit specific code for auto-connect
+                var gui = require('nw.gui');
+                
+	            if (this.selectedDevice === undefined) 
+	            {
+	                var deviceInfo = 
+	                {
+	                    boardName: gui.App.manifest.board_name,
+	                    deviceName: gui.App.manifest.device_name,
+	                    fileName: gui.App.manifest.target_out_filename,
+	                    fileFolderName: gui.App.manifest.target_out_foldername
+	                };
+	                if (deviceInfo.deviceName !== undefined) 
+	                {
+	                    this.selectedDevice = deviceInfo;
+	                }
+	            }
+                // only auto-connect if not being run by the designer, in order to avoid
+                // trying to connect multiple times to the target
+                if (gui.App.manifest.name.indexOf("designer") !== 0)
+                {
+                    this.$.serialIO.backplane.connect();
+                }
+            }
+            else 
+            {
+                this.$.serialIO.backplane.connect();
+            }
+            
+            var that = this;
+            this.$.serialIO.addEventListener('serialPortsReadyToBeOpened', function() 
+            {
+            	that.onSerialPortListChanged();
+            	that.$.serialIO.updateStateMachine('userOpenSerialPort');
+            	
+                gc.databind.SerialPortModel.setSerialIOInstance(that.$.serialIO);
+            });
+            
+            that.$.serialIO.addEventListener('serialPortOpen', function() 
+            {
+                var backplane = that.$.serialIO.backplane;
+                backplane.statusString2 = 'waiting for data ...';
+                backplane.tooltip2 = 'Please ensure your hardware is actually transmitting data on the same serial port.';
+
+                gc.databind.SerialPortModel.connect(function() 
+                {
+                    backplane.statusString2 = 'Hardware Connected.';
+                    backplane.tooltip2 = '';
+                    that.fire('serialioModelReceivingData');
+                });
+            });
+            
+            that.$.serialIO.addEventListener('currentStateUpdated', function() 
+            {
+                if (that.$.serialIO.currentState.name.indexOf('disconnect') === 0)
+                {
+                	gc.databind.SerialPortModel.disconnect();
+                }
+            });
+
+        },
+        onSerialPortListChanged : function() 
+        {
+            if ((typeof process !== 'undefined') && localStorage)
+            {
+                var gui = require('nw.gui');
+                var projectName = gui.App.manifest.name;
+                var deviceName = this.selectedDevice.deviceName;
+                var keyPrefix = projectName+'_'+deviceName+'_';
+                if (localStorage[keyPrefix+'_comPort']) 
+                {
+                    var comPortSavedByUser = localStorage[keyPrefix+'_comPort'];
+                    var found = false;
+                    var serialIO = this.$.serialIO;
+                    for (var i = 0; i < serialIO.serialPorts.length; i++)
+                    {
+                        if (serialIO.serialPorts[i].comName === comPortSavedByUser){
+                            serialIO.selectedSerialPort = serialIO.serialPorts[i];
+                            serialIO.selectedSerialPortChanged(); // force the new port to be 'selected' and unselect all others
+                            if (localStorage[keyPrefix+'_baudRate']) 
+                            {
+                                serialIO.selectedBaudRate = localStorage[keyPrefix+'_baudRate'];
+                            } 
+                            else 
+                            {
+                                serialIO.selectedSerialPort.baudRate = serialIO.selectedBaudRate;  // update the baud rate setting fo the selectedSerialPort
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        },
+        generateProjectMetadata : function(exportDirectory, arrayOfLines)
+        {
+            var bindings = gc.databind.registry.parseBindingsFromGist(this.id, arrayOfLines, 'uart');
+            gc.databind.registry.saveBindingsToFile(exportDirectory + '/index.json', bindings);
+        }
+    });
+</script>
+</polymer-element>
+    

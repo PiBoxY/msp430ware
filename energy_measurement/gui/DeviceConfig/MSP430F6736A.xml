@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MSP430F6736A>
+    <deviceName>MSP430F6736A</deviceName>
+    <sourceTemplate>MSP430F6xx</sourceTemplate>
+    <package>
+        <name>gen</name>
+        <right>6 5 4 3 2 1</right>
+    </package>
+    <ports>
+        <SD0N0>  <pkgPin>1</pkgPin> </SD0N0>
+        <SD0P0>  <pkgPin>2</pkgPin> </SD0P0>
+        <SD1N0>  <pkgPin>3</pkgPin> </SD1N0>
+        <SD1P0>  <pkgPin>4</pkgPin> </SD1P0>
+        <SD2N0>  <pkgPin>5</pkgPin> </SD2N0>
+        <SD2P0>  <pkgPin>6</pkgPin> </SD2P0>
+    </ports>
+	<adcGain>SD24_B_GAIN_1 SD24_B_GAIN_2 SD24_B_GAIN_4 SD24_B_GAIN_8 SD24_B_GAIN_16 SD24_B_GAIN_32 SD24_B_GAIN_64 SD24_B_GAIN_128</adcGain>
+	<smclkFreq>8,388,608 16,777,216 25,165,824</smclkFreq>
+	<maxAdcVoltage>920</maxAdcVoltage>
+	<sampleFreq>2048 4096 8192 16384</sampleFreq>
+	<overSampleRate>32 64 128 256 512 1024</overSampleRate>
+	<gpioPorts>GPIO_PORT_P1 GPIO_PORT_P2 GPIO_PORT_P3 GPIO_PORT_P4 GPIO_PORT_P5 GPIO_PORT_P6 GPIO_PORT_P7 GPIO_PORT_P8 GPIO_PORT_P9</gpioPorts>
+	<gpioPins>GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7</gpioPins>
+	<benchmarks>
+		<EM_calcVRMSMultAcc>
+			<minCycles>56</minCycles>
+			<maxCycles>56</maxCycles>
+		</EM_calcVRMSMultAcc>
+		<EM_voltageDCFilter>
+			<minCycles>46</minCycles>
+			<maxCycles>46</maxCycles>
+		</EM_voltageDCFilter>
+		<EM_calcIRMSMultAcc>
+			<minCycles>69</minCycles>
+			<maxCycles>69</maxCycles>
+		</EM_calcIRMSMultAcc>
+		<EM_currentDCFilter>
+			<minCycles>66</minCycles>
+			<maxCycles>66</maxCycles>
+		</EM_currentDCFilter>
+		<EM_calcActivePowerMultAcc>
+			<minCycles>69</minCycles>
+			<maxCycles>69</maxCycles>
+		</EM_calcActivePowerMultAcc>
+		<EM_calcReactivePowerMultAcc>
+			<minCycles>195</minCycles>
+			<maxCycles>195</maxCycles>
+		</EM_calcReactivePowerMultAcc>
+		<EM_calcFreqPeriod>
+			<minCycles>93</minCycles>
+			<maxCycles>279</maxCycles>
+		</EM_calcFreqPeriod>
+		<EM_perDataChunk>
+			<minCycles>118</minCycles>
+			<maxCycles>118</maxCycles>
+		</EM_perDataChunk>
+		<EM_updateOneDivSC>
+			<minCycles>15</minCycles>
+			<maxCycles>523</maxCycles>
+		</EM_updateOneDivSC>
+		<EM_calcVRMSDivSqrt>
+			<minCycles>2320</minCycles>
+			<maxCycles>2320</maxCycles>
+		</EM_calcVRMSDivSqrt>
+		<EM_calcIRMSDivSqrt>
+			<minCycles>2628</minCycles>
+			<maxCycles>2628</maxCycles>
+		</EM_calcIRMSDivSqrt>
+		<EM_calcActivePowerDiv>
+			<minCycles>876</minCycles>
+			<maxCycles>876</maxCycles>
+		</EM_calcActivePowerDiv>
+		<EM_calcReactivePowerDiv>
+			<minCycles>877</minCycles>
+			<maxCycles>877</maxCycles>
+		</EM_calcReactivePowerDiv>
+		<EM_calcApparentPower>
+			<minCycles>2889</minCycles>
+			<maxCycles>2889</maxCycles>
+		</EM_calcApparentPower>
+		<EM_calcVPeak>
+			<minCycles>92</minCycles>
+			<maxCycles>92</maxCycles>
+		</EM_calcVPeak>
+		<EM_calcIPeak>
+			<minCycles>93</minCycles>
+			<maxCycles>93</maxCycles>
+		</EM_calcIPeak>
+		<EM_calcPowerFactor>
+			<minCycles>1614</minCycles>
+			<maxCycles>1614</maxCycles>
+		</EM_calcPowerFactor>
+		<EM_calcActiveEnergy>
+			<minCycles>574</minCycles>
+			<maxCycles>574</maxCycles>
+		</EM_calcActiveEnergy>
+		<EM_calcReactiveEnergy>
+			<minCycles>579</minCycles>
+			<maxCycles>579</maxCycles>
+		</EM_calcReactiveEnergy>
+		<EM_calcApparentEnergy>
+			<minCycles>574</minCycles>
+			<maxCycles>574</maxCycles>
+		</EM_calcApparentEnergy>
+		<EM_calcFreq>
+			<minCycles>470</minCycles>
+			<maxCycles>470</maxCycles>
+		</EM_calcFreq>
+		<EM_clearMetrology>
+			<minCycles>131</minCycles>
+			<maxCycles>131</maxCycles>
+		</EM_clearMetrology>
+		<EM_updateReactPowConst>
+			<minCycles>69</minCycles>
+			<maxCycles>69</maxCycles>
+		</EM_updateReactPowConst>
+		<EM_calcTotalActivePower>
+			<minCycles>119</minCycles>
+			<maxCycles>119</maxCycles>
+		</EM_calcTotalActivePower>
+		<EM_calcTotalReactivePower>
+			<minCycles>119</minCycles>
+			<maxCycles>119</maxCycles>
+		</EM_calcTotalReactivePower>
+		<EM_calcTotalApparentPower>
+			<minCycles>119</minCycles>
+			<maxCycles>119</maxCycles>
+		</EM_calcTotalApparentPower>
+		<EM_calcTotalActiveEnergy>
+			<minCycles>119</minCycles>
+			<maxCycles>119</maxCycles>
+		</EM_calcTotalActiveEnergy>
+		<EM_calcTotalReactiveEnergy>
+			<minCycles>119</minCycles>
+			<maxCycles>119</maxCycles>
+		</EM_calcTotalReactiveEnergy>
+		<EM_calcTotalApparentEnergy>
+			<minCycles>119</minCycles>
+			<maxCycles>119</maxCycles>
+		</EM_calcTotalApparentEnergy>
+		<EM_delayCurrent90Degrees>
+			<minCycles>165</minCycles>
+			<maxCycles>165</maxCycles>
+		</EM_delayCurrent90Degrees>
+	</benchmarks>
+</MSP430F6736A>

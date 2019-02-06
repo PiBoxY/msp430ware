@@ -1,0 +1,38 @@
+<!-- Captivate Description HTML -->
+<!-- Idle_State Tuning Parameter -->
+
+<html>
+	<body>
+		<B>Pin Idle State</B>
+		<P>
+		
+		The idle state specifies the drive state of a sensor's pins when the sensor is not actively
+		being measured.  Pins have the option of being driven low to ground (VSS), or left tri-stated (high-impedance).
+		
+		<P>
+		<img src="visualizer_images/Idle_State.png">
+		<P>
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		For most applications, pins should be grounded when not being measured.  This is important especially if there are
+		other sensors in the system.  When sensor pins (and their connected electrodes) are left floating,
+		they can capacitively couple with the electrodes of nearby sensors while those sensors are being measured.  
+		This can cause cross-triggering.  For some applications it is desirable to float pins (set to High-Z)when not being measured to prevent
+		coupling to ground.  Water and moisture suppression would be an example of such a use case.
+		
+
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Idle_State parameter corresponds to the
+		<i><b>bIdleState</b></i> 
+		member of the
+		<i><b>tSensor</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

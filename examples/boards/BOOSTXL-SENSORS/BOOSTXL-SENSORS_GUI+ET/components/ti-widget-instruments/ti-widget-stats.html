@@ -1,0 +1,196 @@
+<!--
+`ti-widget-stats` is a widget for calculating and displaying minimum, maximum, and average values over time.  You do
+not necessarily need this widget to display the statistical values.  You could just use it to calculate the values, but
+make it nonvisible to the end user.  In this case, you would bind the minValue, maxValue, and average to other widgets to
+display the values.
+
+Example:
+
+    <ti-widget-stats></ti-widget-stats>
+
+See demo for a full working example of how to use this component.
+
+@group TI Instrument Widgets
+@element ti-widget-stats
+@extends ti-widget-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base.html">
+
+<polymer-element name="ti-widget-stats" extends="ti-widget-base" attributes="value decimalPlaces minValue maxValue average">
+    <template>
+        <style>
+            :host 
+            {
+                display: inline-block;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;   
+            	color: {{getFontColor(disabled)}};
+            }
+            * {
+            	padding: 0.5em;
+            }
+            #title {
+            	font-size: large;
+            	padding: 0.3em;
+            }
+            #top {
+            	width: 100%;
+            	height: 100%;
+            	position: relative;
+            }
+           	:host:disabled #top {
+           		
+           	}
+            label {
+            	font-size: medium;
+            }
+            .labelCell {
+            	width: 1px;
+            	padding: 0px;
+            }
+            .valueCell {
+            	width: 1px;
+            	padding: 0px;
+            	text-align: right;
+            	font-weight: bold;
+            }
+        </style>
+
+      	<table id="top" title="{{tooltip}}">
+      		<tr>
+	      		<td class="labelCell"><label>Min:</label></td>
+	      		<td class="valueCell"><label>{{_displayMinValue}}</label></td>
+      		</tr>
+      		<tr>
+	      		<td class="labelCell"><label>Ave:</label></td>
+	      		<td class="valueCell"><label>{{_displayAveValue}}</label></td>
+      		</tr>
+      		<tr>
+	      		<td class="labelCell"><label>Max:</label></td>
+	      		<td class="valueCell"><label>{{_displayMaxValue}}</label></td>
+      		</tr>
+      	</table>
+    </template>
+    
+    <script>
+        Polymer ('ti-widget-stats', 
+        {
+            /**
+             * Provides the value binding that the statistics will be calculated from over time.
+             *
+             * @attribute value
+             * @type number 
+             */
+            value: 0,
+            
+            /**
+             * The calculated minimum value from the value binding over time. 
+             *
+             * @attribute minValue
+             * @type number 
+             */
+            minValue: undefined,
+            
+            /**
+             * The calculated maximum value from the value binding over time. 
+             *
+             * @attribute maxValue
+             * @type number 
+             */
+            maxValue: undefined,
+            
+            /**
+             * The calculated average value from the value binding over time. 
+             *
+             * @attribute average
+             * @type number 
+             */
+            average: undefined,
+            _displayMinValue : "",
+            _displayMaxValue : "",
+            _displayAveValue : "",
+            
+            /**
+             * Controls the number of decimal places to round the calculated statistical values (minValue, maxValue, average) for display 
+             * purposes within this widget.
+             *
+             * @attribute decimalPlaces
+             * @type number 
+             * @default 1
+             */
+            decimalPlaces : 1,
+            disabled : undefined,
+            _count : 0,
+            _runningTotal : 0,
+            valueChanged : function()
+            {
+            	this.valueStreamingDataListener(this.value);
+            },
+            decimalPlacesChanged : function()
+            {
+           		this._displayMinValue = this.minValue.toFixed(+this.decimalPlaces);
+           		this._displayMaxValue = this.maxValue.toFixed(+this.decimalPlaces);
+            	this._displayAveValue = this.average.toFixed(+this.decimalPlaces);
+            },
+            valueStreamingDataListener: function(nextValue) 
+            {
+            	var newValue = +nextValue;
+                if (this.minValue === undefined || this.minValue > newValue)
+                {
+                    this.minValue = newValue;
+                    this._displayMinValue = newValue.toFixed(+this.decimalPlaces);
+                }
+                if (this.maxValue === undefined || this.maxValue < newValue)
+                {
+                    this.maxValue = newValue;
+                    this._displayMaxValue = newValue.toFixed(+this.decimalPlaces);
+                }
+                this._count++;
+                this._runningTotal += newValue;
+                this.average = this._runningTotal / this._count;
+                this._displayAveValue = this.average.toFixed(+this.decimalPlaces);
+            }, 
+            ready: function()
+            {
+            	// clear stats at the begining
+            	this.minValue = undefined;
+            	this.maxValue = undefined;
+            	this.average = undefined;
+            }
+        });
+    </script>
+</polymer-element>

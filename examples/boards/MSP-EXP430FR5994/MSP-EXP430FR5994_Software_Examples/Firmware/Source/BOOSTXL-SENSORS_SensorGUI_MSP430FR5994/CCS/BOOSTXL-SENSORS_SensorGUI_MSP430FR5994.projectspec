@@ -1,0 +1,6 @@
+<projectSpec> 
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/src -I${PROJECT_ROOT}/driverlib\MSP430FR5xx_6xx --printf_support=full --advice:power=&quot;none&quot; " linkerBuildOptions="--stack_size=512 --heap_size=512 --cinit_hold_wdt=on" linkerCommandFile="lnk_msp430fr5994.cmd" device="MSP430FR5994" name="BOOSTXL-SENSORS_SensorGUI_MSP430FR5994"> 
+     <file action="copy" path="../driverlib" /> 
+     <file action="copy" path="../src" />
+  </project> 
+</projectSpec> 

@@ -1,0 +1,318 @@
+<!--
+`ti-tile-scalargraph` is an empty container widget to host child widgets.  
+
+Example:
+
+    <ti-tile-scalargraph></ti-tile-scalargraph>
+
+See demo for a full working example of how to use this component.
+
+@group Instrument Tiles
+@element ti-tile-scalargraph
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base-text.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="../ti-widget-graphs/ti-widget-scalargraph.html">
+<link rel="import" href="ti-tile-properties.html">
+<link rel="import" href="ti-tile-base.html">
+<link rel="stylesheet" href="../paper-shadow/paper-shadow.css"  shim-shadowdom>
+
+<polymer-element name="ti-tile-scalargraph" extends="ti-tile-base" >
+
+    <template>
+        <style>
+            :host {
+                display : inline-block;
+                background-color: #ffffff;
+                text-decoration: inherit;
+                position : relative;
+                padding: 1em;
+				width: 470px;
+                height: 200px;
+                min-width: 250px;
+                min-height:150px;
+            }
+            core-icon-button /deep/ core-icon[role=img] {
+                height: 15px;
+                width: 15px;
+            }
+            #tileTitle {
+                word-wrap:break-word;
+                white-space:normal;
+				text-align: left;
+                z-index: 0;
+                color:{{_titleFontColor}};
+                font-size:{{titlefontSize}};
+                font-weight:{{_titleFontWeight}};
+            }
+
+            #containerDiv {
+                top: 0px;
+                width: 100%;
+                height:100%;
+                margin: 0;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
+            #instrument_div {
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                position: relative;
+            }
+            #instrument {
+				top: 1em;
+                bottom: 1em;
+                position: absolute;
+                padding-right: 1em;
+                padding-left: 1em;
+                display:block;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+
+            }
+            #editIcon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveLeftIcon {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveRightIcon {
+                position: absolute;
+                top: 0px;
+                right: 20px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #resizeIcon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_resizeCornerColor}};
+            }
+            #pinIcon {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_iconColor}};
+            }
+        </style>
+        <ti-tile-properties id="propertiesDialog" style="width:200px;height:400px;right:30px;" layout></ti-tile-properties>
+        <div id="shadow-bottom" fit  class="paper-shadow-bottom-z-[[elevation]]"></div>
+        <div id="shadow-top" fit  class="paper-shadow-top-z-[[elevation]]"></div>
+        <div id="containerDiv" layout vertical >
+            <div id="tileTitle" flex>{{titleText}}</div>
+            <div fit layout vertical center-justified>
+                <div layout horizontal>
+                    <div id="instrument_div" >
+			            <ti-widget-scalargraph id="instrument" numChannels="{{numChannels}}" tickOn="{{tickOn}}" tickPeriod="{{tickPeriod}}" hideYAxis1="true" hideYAxis2="true" fixedScale="true" series_0_Min="{{minValue}}" series_0_Max="{{maxValue}}" series_0_Units="{{units}}" series_1_Min="{{minValue}}" series_1_Max="{{maxValue}}" series_1_Units="{{units}}" series_2_Min="{{minValue}}" series_2_Max="{{maxValue}}" series_2_Units="{{units}}" numChannels="{{numChannels}}" value_0="{{value_X}}" series_0_Label="{{label_X}}" value_1="{{value_Y}}" series_1_Label="{{label_Y}}"  value_2="{{value_Z}}" series_2_Label="{{label_Z}}"></ti-widget-scalargraph>
+                    </div>
+                </div>
+            </div>
+            <template if="{{_inDesigner()}}">
+                <core-icon-button id="editIcon"  icon="create" on-tap="{{editProperties}}" title="edit tile properties" ></core-icon-button>
+                <core-icon-button id="moveLeftIcon"  icon="arrow-back" on-tap="{{moveLeft}}" title="move tile left" style="{{_arrowStyle}}" ></core-icon-button>
+                <core-icon-button id="moveRightIcon" icon="arrow-forward" on-tap="{{moveRight}}" title="move tile right" style="{{_arrowStyle}}"></core-icon-button>
+                <core-icon-button id="resizeIcon"  icon="device:signal-cellular-0-bar"  title="resize tile" ></core-icon-button>
+                <core-icon-button id="pinIcon" icon="{{_pinIcon}}" on-tap="{{togglePin}}" ></core-icon-button>
+            </template>
+
+        </div>
+        <content></content>
+    </template>
+    <script>
+        Polymer ('ti-tile-scalargraph',
+                {
+
+                    publish: {
+                        /**
+                         * Provides the title for the tile.
+                         *
+                         * @attribute titleText
+                         * @type string
+                         */
+                        titleText: '',
+                        /**
+                         * The units of data series to be displayed on the Y axis.
+                         *
+                         * @attribute units
+                         * @type string
+                         * @default undefined
+                         */
+                        units: "mV",
+                        /**
+                         * value for the 1st data series.  If using XDS Debug Port / Target Monitor with tickOn = false
+                         * new data will only be added only when the value changes.
+                         *
+                         * @attribute value_X
+                         * @type number
+                         * @default "0"
+                         */
+                        value_X: 0,
+                        /**
+                         * label for the 1st data series
+                         *
+                         * @attribute label_X
+                         * @type string
+                         * @default "X"
+                         */
+                        label_X: "X",
+                        /**
+                         * value for the 2nd data series.  If using XDS Debug Port / Target Monitor with tickOn = false
+                         * new data will only be added only when the value changes.
+                         *
+                         * @attribute value_Y
+                         * @type number
+                         * @default "0"
+                         */
+                        value_Y: 0,
+                        /**
+                         * label for the 2nd data series
+                         *
+                         * @attribute label_Y
+                         * @type string
+                         * @default "Y"
+                         */
+                        label_Y: "Y",
+                        /**
+                         * value for the 3rd data series.  If using XDS Debug Port / Target Monitor with tickOn = false
+                         * new data will only be added only when the value changes.
+                         *
+                         * @attribute value_Z
+                         * @type number
+                         * @default "0"
+                         */
+                        value_Z: 0,
+                        /**
+                         * label for the 3rd data series
+                         *
+                         * @attribute label_Z
+                         * @type string
+                         * @default "Z"
+                         */
+                        label_Z: "Z",
+                        /**
+                         * minimum value for the Y axis
+                         *
+                         * @attribute minValue
+                         * @type number
+                         * @default 0
+                         */
+                        minValue: 0,
+                        /**
+                         * maximum value for the Y axis
+                         *
+                         * @attribute maxValue
+                         * @type number
+                         * @default 100
+                         */
+                        maxValue: 100,
+                        /**
+                         * number of data series to plot
+                         *
+                         * @attribute numChannels
+                         * @type number
+                         * @default 3
+                         */
+                        numChannels: 3,
+                        /**
+                         * Enables periodic sampling of data when using the XDS Debug Port / Target Monitor (Program Model)
+                         * for target communications
+                         *
+                         * @attribute tickOn
+                         * @type boolean
+                         * @default false
+                         */
+                        tickOn: {
+                            value: false,
+                            reflect: true
+                        },
+                        /**
+                         * The sampling period in mSec.
+                         *
+                         * @attribute tickPeriod
+                         * @type number
+                         * @default 0
+                         */
+                        tickPeriod: 1
+                    },
+
+                    getCategory: function() {
+                        return 'Graph';
+                    },
+                    getComponentName: function() {
+                        return 'XYZ Line Graph';
+                    },
+                    getElement : function()
+                    {
+                        return this;
+                    },
+                    getElement : function()
+                    {
+                        if (this.$) {
+                            return this.$.containerDiv;
+                        } else {
+                            return null;
+                        }
+                    },					
+					domReady: function(){
+						this.onResizedByDesigner();
+                        this.super();
+					},
+                    onResizedByDesigner: function(){
+                        var rect = this.getBoundingClientRect();
+                        this.$.instrument.style.width = ""+(rect.width-20)+"px";
+                        this.$.instrument.style.height = ""+(rect.height-50)+"px";
+                    }
+
+                });
+    </script>
+</polymer-element>

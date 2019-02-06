@@ -1,0 +1,5 @@
+
+SECTIONS
+{
+    MYDRIVE      : {} > FLASH2
+}

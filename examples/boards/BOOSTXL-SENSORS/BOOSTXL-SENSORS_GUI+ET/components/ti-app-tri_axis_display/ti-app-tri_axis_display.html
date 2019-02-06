@@ -1,0 +1,262 @@
+<!--
+`ti-app-tri_axis_display`  TODO: insert description here
+
+Example:
+
+    <ti-app-tri_axis_display></ti-app-tri_axis_display>
+
+See demo.html for a full working example of how to use this component.
+
+@group User
+@element ti-app-tri_axis_display
+@homepage ../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+Copyright 2015. Texas Instruments Incorporated. All rights reserved.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+*   Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+*   Neither the name of Texas Instruments Incorporated nor the names of
+its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../ti-core-stylesheets/ti-core-stylesheets.html">
+<link rel="import" href="../ti-widget-common/ti-widget-label.html">
+<link rel="import" href="../ti-widget-common/ti-widget-slider.html">
+<link rel="import" href="../ti-widget-common/ti-widget-droplist.html">
+<link rel="import" href="../ti-widget-common/ti-widget-container.html">
+<link rel="import" href="../ti-widget-graphs/ti-widget-scalargraph.html">
+ 
+<polymer-element name="ti-app-tri_axis_display">
+
+  <template>
+    <style shim-shadowdom>    
+      #ti_widget_label {
+        width: 255px;
+        left: 250px;
+        top: 5px;
+        position: absolute;
+      }
+      #ti_widget_label1 {
+        left: 10px;
+        top: 50px;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+      }
+      #ti_widget_label2 {
+        left: 10px;
+        top: 170px;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+      }
+      #ti_widget_label3 {
+        left: 10px;
+        top: 110px;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+      }
+      #ti_widget_scalargraph {
+        width: {{graphWidth}};
+        height: 200px;
+        left: 100px;
+        top: 30px;
+        position: absolute;
+        padding-left:{{graphPaddingLeft}};
+        padding-right:{{graphPaddingRight}};
+        padding-bottom:{{graphPaddingBottom}};
+      }
+      #ti_widget_container {
+        height: auto;
+        width: auto;
+        border: 0px solid black;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      #ti_widget_label4 {
+        left: 53px;
+        top: 50px;
+        position: absolute;
+      }
+      #ti_widget_label5 {
+        left: 52px;
+        top: 110px;
+        position: absolute;
+      }
+      #ti_widget_label6 {
+        left: 52px;
+        top: 170px;
+        position: absolute;      }
+
+      
+    </style>
+    <ti-core-stylesheets id="ti_core_stylesheets"></ti-core-stylesheets>
+    <ti-widget-label label="{{ titleLabel }}" textalign="center" fontsize="large" id="ti_widget_label"></ti-widget-label>
+    <ti-widget-label label="X:" textalign="center" fontcolor="#00BBCC" fontweight="bold" id="ti_widget_label1"></ti-widget-label>
+    <ti-widget-label label="Y:" textalign="center" fontcolor="#AAAAAA" fontweight="bold" id="ti_widget_label3"></ti-widget-label>
+    <ti-widget-label label="Z:" textalign="center" fontcolor="#CC0000" fontweight="bold" id="ti_widget_label2"></ti-widget-label>
+    <ti-widget-label label="0" id="ti_widget_label4" fontcolor="#00BBCC"></ti-widget-label>
+    <ti-widget-label label="0" id="ti_widget_label5" fontcolor="#AAAAAA"></ti-widget-label>
+    <ti-widget-label label="0" id="ti_widget_label6" fontcolor="#CC0000"></ti-widget-label>
+    <ti-widget-container id="ti_widget_container">
+      </ti-widget-container>
+    <ti-widget-scalargraph numchannels="3" series_0_color="#00BBCC" series_1_color="#AAAAAA" series_2_color="#CC0000" hidexaxis backgroundcolor="#FFFFFF" series_0_max="{{ maxValue }}" series_0_min="{{ minValue }}" series_1_max="{{ maxValue }}" series_1_min="{{ minValue }}" series_2_max="{{ maxValue }}" series_2_min="{{ minValue }} "id="ti_widget_scalargraph" value_0="{{ xValue }}" value_1="{{ yValue }}" value_2="{{ zValue }}" fixedscale hidexaxis hideyaxis1 hideyaxis2></ti-widget-scalargraph>
+  </template>
+
+  <script>
+
+    Polymer('ti-app-tri_axis_display', {
+    publish: {
+       /**
+        * Name that will apear above display
+        *
+        * @attribute titleLabel
+        * @type string
+        * @default "titleLabel"
+        */
+       titleLabel : "titleLabel" ,
+       /**
+        * X value of the accelerometer
+        *
+        * @attribute xValue
+        * @type number
+        * @default 0
+        */
+       xValue:0,
+       /**
+        * Y value of the accelerometer
+        *
+        * @attribute yValue
+        * @type number
+        * @default 0
+        */
+       yValue:0,
+              /**
+        * Z value of the accelerometer
+        *
+        * @attribute zValue
+        * @type number
+        * @default 0
+        */
+       zValue:0,
+       /**
+        * Minimum value of sliders
+        *
+        * @attribute minValue
+        * @type number
+        * @default 0
+        */
+       minValue:0,
+       /**
+        * Maximum value of sliders 
+        *
+        * @attribute maxValue
+        * @type number
+        * @default 0
+        */
+       maxValue:0,
+
+        /**
+         * Number of decimal places to display in the x value labels
+         *
+         * @attribute xDecimalPlaces
+         * @type number
+         * @default 2
+         */
+        xDecimalPlaces: 2,
+        /**
+         * Number of decimal places to display in the y value labels
+         *
+         * @attribute yDecimalPlaces
+         * @type number
+         * @default 2
+         */
+        yDecimalPlaces: 2,
+        /**
+         * Number of decimal places to display in the z value labels
+         *
+         * @attribute zDecimalPlaces
+         * @type number
+         * @default 2
+         */
+        zDecimalPlaces: 2,
+
+        /**
+         * Number of decimal places to display in the z value labels
+         *
+         * @attribute graphPaddingLeft
+         * @type number
+         * @default 2
+         */
+        graphPaddingLeft: '0px',
+               /**
+         * Number of decimal places to display in the z value labels
+         *
+         * @attribute graphPaddingRight
+         * @type number
+         * @default 2
+         */
+        graphPaddingRight: '0px',
+         /**
+         * Number of decimal places to display in the z value labels
+         *
+         * @attribute graphPaddingBottom
+         * @type number
+         * @default 2
+         */
+        graphPaddingBottom: '0px',
+        /**
+         * Width of graph
+         *
+         * @attribute graphWidth
+         * @type number
+         * @default 2
+         */
+        graphWidth: '560px'
+    },
+    // the ready callback is called once the template has been stamped.
+        // use this.$.id_of_element to acccess an element.
+        xValueStreamingDataListener: function(nextValue) {
+            this.$.ti_widget_scalargraph.onValueChange(0, +nextValue);
+            this.$.ti_widget_label4.label = nextValue.toFixed(this.xDecimalPlaces);
+        },
+        yValueStreamingDataListener: function(nextValue) {
+            this.$.ti_widget_scalargraph.onValueChange(1, +nextValue);
+            this.$.ti_widget_label5.label = nextValue.toFixed(this.yDecimalPlaces);
+        },
+        zValueStreamingDataListener: function(nextValue) {
+            this.$.ti_widget_scalargraph.onValueChange(2, +nextValue);
+            this.$.ti_widget_label6.label = nextValue.toFixed(this.zDecimalPlaces);
+        }
+
+                
+    
+
+      
+    });
+
+  </script>
+
+</polymer-element>

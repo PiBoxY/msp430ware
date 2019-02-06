@@ -1,0 +1,7 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/dsplib/include" device="MSP430FR5994" linkerBuildOptions="" name="transform_ex2_cmplx_fft_auto_q15" description="DSPLib example project demonstrating how to use the complex fast fourier transform function with auto scaling.">
+    <file action="copy" path="../transform_ex2_cmplx_fft_auto_q15.c" targetDirectory="" />
+	<file action="copy" path="../../../include" targetDirectory="dsplib" />
+	<file action="copy" path="../../../source" targetDirectory="dsplib" />
+  </project>
+</projectSpec>

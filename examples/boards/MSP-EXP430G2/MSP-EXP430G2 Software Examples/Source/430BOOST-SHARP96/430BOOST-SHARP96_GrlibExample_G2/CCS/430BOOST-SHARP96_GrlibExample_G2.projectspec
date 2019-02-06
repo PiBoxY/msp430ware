@@ -1,0 +1,21 @@
+<projectSpec>
+  <project compilerBuildOptions="-O3 -I${PROJECT_ROOT} -I${PROJECT_ROOT}\grlib -I${PROJECT_ROOT}\fonts -I${PROJECT_ROOT}\LcdDriver --advice:power=&quot;none&quot;"
+           device="MSP430G2553"
+           name="430BOOST-SHARP96_GrlibExample_G2"
+           postBuildStep="&quot;${CG_TOOL_HEX}&quot; --ti_txt &quot;${BuildArtifactFileName}&quot; -o &quot;${BuildArtifactFileBaseName}.txt&quot; -order MS -romwidth 16" >
+	<file action="copy" path="..\main.c" targetDirectory="." />
+	<file action="copy" path="..\LcdDriver\Sharp96x96.c" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\LcdDriver\Sharp96x96.h" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\LcdDriver\HAL_MSP-EXP430G2_Sharp96x96.c" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\LcdDriver\HAL_MSP-EXP430G2_Sharp96x96.h" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\grlib\circle.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\context.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\grlib.h" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\image.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\line.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\rectangle.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\string.c" targetDirectory="grlib" />
+	<file action="copy" path="..\fonts\fontfixed6x8.c" targetDirectory="fonts" />
+    <buildVariable name="ORIGINAL_PROJECT_ROOT" scope="project" type="dir" value="." />
+  </project>
+</projectSpec>

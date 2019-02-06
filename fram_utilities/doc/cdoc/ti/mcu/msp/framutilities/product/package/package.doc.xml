@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.mcu.msp.framutilities.product' nodoc='0' root='../../../../../' summary='MSP430+DriverLib+Product+Package'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.mcu.msp.framutilities.product%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <unit name='FRAMUtilities' kind='module' nodoc='0' metaonly='1' summary=''>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fti%2Fmcu%2Fmsp%2Fframutilities%2Fproduct%2Fpackage.html%22+title%3D%22ti.mcu.msp.framutilities.product%22%3Eti.mcu.msp.framutilities.product%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EFRAMUtilities%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EFRAMUtilities%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+FRAMUtilities+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.mcu.msp.framutilities.product.FRAMUtilities%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <group name='module-wide constants &amp; types'>
+            <decl kind='const' name='BASENAME' anchor='.B.A.S.E.N.A.M.E' altext='ti.mcu.msp.framutilities.product.FRAMUtilities.BASENAME' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='The+base+name+of+the+pre-built+DriverLib+library'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EBASENAME%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%2522framutilities%2522%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EFRAMUtilities.%3Cspan+class%3D%22xdoc-id%22%3EBASENAME%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%2522framutilities%2522%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+name+controls+the+name+of+a+pre-built+DriverLib+library.++For+%0A++example%2C+if+BASENAME+is+set+to+%22driverlib%22+the+name+of+the+library+%0A++will+be+driverlib.lib+in+the+.%2Fsrc%2Fdriverlib+folder+of+your+project.'/>
+                </docSect>
+            </decl>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='config' name='outputDir' anchor='output.Dir' altext='ti.mcu.msp.framutilities.product.FRAMUtilities.outputDir' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='The+output+directory+for+all+generated+sources'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EoutputDir%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EFRAMUtilities.%3Cspan+class%3D%22xdoc-id%22%3EoutputDir%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='The+default+output+directory+is+the+%3Ctt%3Esrc%2F%3C%2Ftt%3E+sub-directory+of+the+%0A++directory+containing+the+configuration+script+used+to+specify+%0A++the+peripherals+for+which+to+generate+code.'/>
+                    <docPara content='This+parameter+should+only+be+changed+when+running+the+%0A++configuration+tool+in+a+command+line+environment.++Integrated+%0A++Development+Environments+%28IDEs%29+often+require+that+generated+sources+%0A++be+placed+in+specific+directories.++Changes+to+this+parameter+often+%0A++require+corresponding+changes+to+the+IDE.'/>
+                </docSect>
+            </decl>
+        </group>
+        <group name='module-wide data'>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+            <decl kind='fxn' name='getFamilyPath' anchor='get.Family.Path' altext='ti.mcu.msp.framutilities.product.FRAMUtilities.getFamilyPath' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Given+a+device+name%2C+return+the+path+to+the+device+family%27s+sources'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EgetFamilyPath%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EdeviceName%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EFRAMUtilities.%3Cspan+class%3D%22xdoc-id%22%3EgetFamilyPath%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EdeviceName%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+function+returns+a+path+relative+to+the+DriverLib+source+%0A++repository+containing+the+DriverLib+sources.++For+example%2C+%0A++if+%3Ctt%3EdeviceName%3C%2Ftt%3E+is+%3Ctt%3E%22MSP430FR5969%22%3C%2Ftt%3E%2C+this+function+returns+%0A++%3Ctt%3E%22driverlib%2FMSP430FR5xx_6xx%22%3C%2Ftt%3E.'/>
+                    <docPara content='The+string+returned+by+this+function+can+be+used+with+%3Ctt%3EgetSrcRepo%3C%2Ftt%3E+%0A++to+obtain+the+absolute+path+to+the+sources+for+the+DriverLib+family+%0A++that+supports+the+device+%3Ctt%3EdeviceName%3C%2Ftt%3E.'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22FRAMUtilities.html%23get.Src.Repo%22+title%3D%22getSrcRepo%22%3EgetSrcRepo%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='getLibPath' anchor='get.Lib.Path' altext='ti.mcu.msp.framutilities.product.FRAMUtilities.getLibPath' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='Returns+the+path+to+a+pre-built+DriverLib+library'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EgetLibPath%3C%2Fspan%3E%3C%2Fgo%3E%28++%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EFRAMUtilities.%3Cspan+class%3D%22xdoc-id%22%3EgetLibPath%3C%2Fspan%3E%3C%2Fgo%3E%28++%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+function+is+called+by+the+%3Ctt%3EgetLibs%28%29%3C%2Ftt%3E+method+provided+by+the+%0A++package+containing+the+DriverLib+module.++This+%3Ctt%3EgetLibs%28%29%3C%2Ftt%3E+method+%0A++is+implemented+in+the+%3Ctt%3Epackage.xs%3C%2Ftt%3E+file+and+is+used+to+provide+the+%0A++path+to+a+pre-built+DriverLib+library+for+any+project+that+uses+%0A++DriverLib.'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='getSrcRepo' anchor='get.Src.Repo' altext='ti.mcu.msp.framutilities.product.FRAMUtilities.getSrcRepo' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Given+a+family+path%2C+return+the+path+to+it%27s+source+repository'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EgetSrcRepo%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EfamilyPath%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EFRAMUtilities.%3Cspan+class%3D%22xdoc-id%22%3EgetSrcRepo%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EfamilyPath%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+function+returns+an+absolute+path+to+the+repository+%0A++containing+the+DriverLib+sources+for+the+specified+device+family.'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22FRAMUtilities.html%23get.Family.Path%22+title%3D%22getFamilyPath%22%3EgetFamilyPath%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+        </group>
+    </unit>
+    <unit name='ProductView' kind='module' nodoc='1' metaonly='1' summary='Define+the+product+view+of+the+MSP430+DriverLib+product' inherits='xdc.tools.product.IProductView'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fti%2Fmcu%2Fmsp%2Fframutilities%2Fproduct%2Fpackage.html%22+title%3D%22ti.mcu.msp.framutilities.product%22%3Eti.mcu.msp.framutilities.product%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EProductView%3C%2Fspan%3E%3C%2Fgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3E+inherits+%3C%2Fspan%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%22+title%3D%22xdc.tools.product.IProductView%22%3EIProductView%3C%2Fa%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EProductView%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+            <line tab='0' comment='inherits+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%22+title%3D%22xdc.tools.product.IProductView%22%3Exdc.tools.product.IProductView%3C%2Fa%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+ProductView+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.mcu.msp.framutilities.product.ProductView%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='struct' name='ProductElemDesc' anchor='.Product.Elem.Desc' altext='ti.mcu.msp.framutilities.product.ProductView.ProductElemDesc' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='ProductElemDesc+structure' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23.Product.Elem.Desc%22+title%3D%22xdc.tools.product.IProductView.ProductElemDesc%22%3EIProductView%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EProductElemDesc%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' comment='Name+of+group+or+module' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EelemName%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='Name+of+module' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EmoduleName%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='Icon+file+name+representing+element' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EiconFileName%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='Array+of+%3Ctt%3EProductElemDesc%3C%2Ftt%3E' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23.Product.Elem.Desc%22+title%3D%22xdc.tools.product.IProductView.ProductElemDesc%22%3EIProductView.ProductElemDesc%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EelemArray%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+%3Ci%3Eobj%3C%2Fi%3E+%3D+%3Cspan+class%3D%22xdoc-kw1%22%3Enew%3C%2Fspan%3E+%3Cgo%3EProductView.%3Cspan+class%3D%22xdoc-id%22%3EProductElemDesc%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line blank='1' always='0'/>
+                    <line tab='1' comment='Name+of+group+or+module' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EelemName%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='Name+of+module' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EmoduleName%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='Icon+file+name+representing+element' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EiconFileName%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='Array+of+%3Ctt%3EProductElemDesc%3C%2Ftt%3E' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EelemArray%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23.Product.Elem.Desc%22+title%3D%22xdc.tools.product.IProductView.ProductElemDesc%22%3EIProductView.ProductElemDesc%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                </synopMeta>
+                <docSect name='FIELDS'>
+                    <docChild name='elemName' summary='Name+of+element.+Elements+can+be+either%0A++++++++++++++++++++++++++groups+or+modules'>
+                    </docChild>
+                    <docChild name='moduleName' summary='In+case+of+a+leaf+node+this+field+will%0A++++++++++++++++++++++++++contain+the+module+name.+For+intermediate%0A++++++++++++++++++++++++++tree+nodes+the+module+name+will+be+set+to+%0A++++++++++++++++++++++++++%3Ctt%3Enull%3C%2Ftt%3E'>
+                    </docChild>
+                    <docChild name='iconFileName' summary='The+name+of+the+icon+file+that+is+associated%0A++++++++++++++++++++++++++with+this+element.++In+xdctools+3.23%2C+this+path%0A++++++++++++++++++++++++++must+be+relative+to+the+package+containing+the%0A++++++++++++++++++++++++++%3Ctt%3EIProductView%3C%2Ftt%3E+implementation.'>
+                        <docPara content='In+xdctools+3.24.01+%28or+above%29%2C+this+path+may%0A++++++++++++++++++++++++++be+relative+or+absolute.++If+it%27s+relative%2C%0A++++++++++++++++++++++++++it%27s+first+searched+for+in+the+package%0A++++++++++++++++++++++++++containing+the+%3Ctt%3EIProductView%3C%2Ftt%3E+implementation%0A++++++++++++++++++++++++++module+and%2C+if+this+fails%2C+the+relative+path%0A++++++++++++++++++++++++++is+searched+via+%3Ctt%3Exdc.findFile%28%29%3C%2Ftt%3E.++If+the+icon%0A++++++++++++++++++++++++++is+still+not+found%2C+a+default+icon+will+be%0A++++++++++++++++++++++++++used.'/>
+                    </docChild>
+                    <docChild name='elemArray' summary='Array+used+to+define+children+of+a+node.'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='This+structure+is+used+to+define+the+logical+tree+%22view%22+of+a%0A++product.+This+view+is+composed+of+elements+that+are+either+modules%0A++or+groups%3A+modules+at+the+leaves+of+the+tree+and+groups+elsewhere.'/>
+                </docSect>
+            </decl>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='config' name='driverLib' anchor='driver.Lib' altext='ti.mcu.msp.framutilities.product.ProductView.driverLib' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fti%2Fmcu%2Fmsp%2Fframutilities%2Fproduct%2FProductView.html%23.Product.Elem.Desc%22+title%3D%22ti.mcu.msp.framutilities.product.ProductView.ProductElemDesc%22%3EProductView.ProductElemDesc%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EdriverLib%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EProductView.%3Cspan+class%3D%22xdoc-id%22%3EdriverLib%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fti%2Fmcu%2Fmsp%2Fframutilities%2Fproduct%2FProductView.html%23.Product.Elem.Desc%22+title%3D%22ti.mcu.msp.framutilities.product.ProductView.ProductElemDesc%22%3EProductView.ProductElemDesc%3C%2Fa%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+            </decl>
+            <decl kind='config' name='homeModule' anchor='home.Module' altext='ti.mcu.msp.framutilities.product.ProductView.homeModule' nodoc='0' external='1' overrides='1' readonly='0' instance='0' summary='Top-level+module+for+this+product' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23home.Module%22+title%3D%22xdc.tools.product.IProductView.homeModule%22%3EIProductView%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eoverride+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EhomeModule%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%2522ti.mcu.msp.framutilities.product.FRAMUtilities%2522%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EProductView.%3Cspan+class%3D%22xdoc-id%22%3EhomeModule%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E+%2522ti.mcu.msp.framutilities.product.FRAMUtilities%2522%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='The+%3Ctt%3EhomeModule%3C%2Ftt%3E+is+a+distinguished+%22top-level%22+module+that+is+used%0A++by+GUI%27s+as+a+starting+point%2C+or+%22home+page%22%2C+to+navigate+to+the%0A++other+content+managed+by+this+product.'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='linksToArray' anchor='links.To.Array' altext='ti.mcu.msp.framutilities.product.ProductView.linksToArray' nodoc='0' external='1' overrides='1' readonly='0' instance='0' summary='Array+of+IDs+of+products+accessable+from+this+product%27s+home+module' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23links.To.Array%22+title%3D%22xdc.tools.product.IProductView.linksToArray%22%3EIProductView%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eoverride+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ElinksToArray%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D+%3D+%255B'/>
+                    <line tab='1' content='%2522org.eclipse.rtsc.xdctools%2522'/>
+                    <line tab='0' content='%255D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EProductView.%3Cspan+class%3D%22xdoc-id%22%3ElinksToArray%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E+%255B'/>
+                    <line tab='1' content='%2522org.eclipse.rtsc.xdctools%2522'/>
+                    <line tab='0' content='%255D%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+array+of+product+IDs+is+used+to+determine+a+hierarchical%0A++relationship+between+products+and+if+a+product%27s+modules+can+be%0A++reached+from+another+product%27s+home+page.+If+product+A+%22links+to%22%0A++product+B%2C+then+product+B%27s+home+page+can+be+closed+so+long+as%0A++product+A%27s+home+page+is+open.'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='product' anchor='product' altext='ti.mcu.msp.framutilities.product.ProductView.product' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fti%2Fmcu%2Fmsp%2Fframutilities%2Fproduct%2FProductView.html%23.Product.Elem.Desc%22+title%3D%22ti.mcu.msp.framutilities.product.ProductView.ProductElemDesc%22%3EProductView.ProductElemDesc%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eproduct%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EProductView.%3Cspan+class%3D%22xdoc-id%22%3Eproduct%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fti%2Fmcu%2Fmsp%2Fframutilities%2Fproduct%2FProductView.html%23.Product.Elem.Desc%22+title%3D%22ti.mcu.msp.framutilities.product.ProductView.ProductElemDesc%22%3EProductView.ProductElemDesc%3C%2Fa%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+            </decl>
+        </group>
+        <group name='module-wide data'>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+            <decl kind='fxn' name='getProductDescriptor' anchor='get.Product.Descriptor' altext='ti.mcu.msp.framutilities.product.ProductView.getProductDescriptor' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Return+this+product%27s+tree+view' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23get.Product.Descriptor%22+title%3D%22xdc.tools.product.IProductView.getProductDescriptor%22%3EIProductView%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23.Product.Elem.Desc%22+title%3D%22xdc.tools.product.IProductView.ProductElemDesc%22%3EIProductView.ProductElemDesc%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EgetProductDescriptor%3C%2Fspan%3E%3C%2Fgo%3E%28++%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EProductView.%3Cspan+class%3D%22xdoc-id%22%3EgetProductDescriptor%3C%2Fspan%3E%3C%2Fgo%3E%28++%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2F..%2Fxdc%2Ftools%2Fproduct%2FIProductView.html%23.Product.Elem.Desc%22+title%3D%22xdc.tools.product.IProductView.ProductElemDesc%22%3EIProductView.ProductElemDesc%3C%2Fa%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+method+is+typically+invoked+by+development+tools+like+IDE%27s+%0A++to+get+the+product+view+tree+structure.'/>
+                </docSect>
+                <docSect name='returns'>
+                    <docPara content='Returns+root+node+of+tree+of+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22ProductView.html%23.Product.Elem.Desc%22+title%3D%22ProductElemDesc%22%3EProductElemDesc%3C%2Fa%3E%3C%2Ftt%3E+structures'/>
+                </docSect>
+            </decl>
+        </group>
+    </unit>
+    <docSect name='details'>
+        <docPara content='This+package+provides+integration+of+the+DriverLib+peripheral+support+%0A++library+within+the+Eclipse%2FCCS+development+environment.++It+provides%3A'/>
+        <docPara content='%3CUL%3E%3CLI%3E+CCS+project+wizard+templates+to+make+it+easy+to+create+projects+%0A++++++++that+build+and+use+DriverLib+%0A%3C%2FLI%3E%3CLI%3E+a+pre-defined+build+variable+%3Ctt%3E%24%7BMSP430_DRIVERLIB_ROOT%7D%3C%2Ftt%3E%3B+simplifies+%0A++++++++the+addition+of+DriverLib+to+existing+projects+and+enables+projects+%0A++++++++to+be+portable+among+develipers+with+differing++installation+%0A++++++++directories+%0A%3C%2FLI%3E%3CLI%3E+%22Available+Product%22+view+support%3B+enables+DriverLib+to+be+easily+%0A++++++++added+to+existing+projects+that+use+a+target-content+product+%28e.g.%2C+%0A++++++++SYS%2FBIOS%29+%0A%3C%2FLI%3E%3CLI%3E+searchable+documentation+within+the+Eclipse+help+system+%0A%3C%2FLI%3E%3CLI%3E+side-by-side+versioning+support%3B+enables+project-specific+control+%0A++++++++of+the+version+of+DriverLib+used+by+the+project+%0A%3C%2FLI%3E%3C%2FUL%3E'/>
+    </docSect>
+</package>

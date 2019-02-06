@@ -1,0 +1,112 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+Copyright (c) 2014, Texas Instruments Incorporated
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+*   Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+*   Neither the name of Texas Instruments Incorporated nor the names of
+its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <!--[if gte IE 6]>
+    <script type="text/javascript">
+        // this is IE greater than or equal to 6
+        var isInternetExplorer=true;
+    </script>
+    <![endif]-->
+
+    <script>
+        var isIE =   ((navigator.appName == 'Microsoft Internet Explorer') ||
+        ((navigator.appName == 'Netscape') &&
+        (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));
+        if (window.isInternetExplorer) {
+            isIE =  true;
+        }
+
+        if ( isIE ){
+            var object = document.createElement("object");
+            object.setAttribute("id", "ticloudagentlauncher");
+            object.setAttribute("type", "application/x-ticloudagentlauncher");
+            object.setAttribute("width", "0");
+            object.setAttribute("height", "0");
+            document.head.appendChild( object );
+            window.TICloudAgent_HACK = {};
+            window. TICloudAgent_HACK.plugin = document.getElementById("ticloudagentlauncher");
+        }
+    </script>
+    <link rel="import" href="../polymer/polymer.html">
+    <link rel="import" href="ti-widget-helpbutton.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-droplist.html">
+
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+            text-align:center;
+        }
+    </style>
+    <link rel="import" href="ti-widget-helpbutton.html">
+</head>
+
+<body >
+<template is="auto-binding" id="template">
+    <style>
+        #ti_widget_helpbutton {
+            width: 15px;
+            height: 15px;
+            position:absolute;
+            left:400px;
+            top:400px;
+            padding:0px;
+        }
+        #droplist {
+            position: absolute;
+            top: 400px;
+            left: 180px;
+            width: 200px;
+
+        }
+    </style>
+    <h1 align="center">Demo of ti-widget-helpbutton</h1>
+    <ti-widget-helpbutton id="ti_widget_helpbutton" titleText="Help Information" tilePosition="{{$.droplist.selectedText}}" tileWidthInPx="500" tileHeightInPx="500" markdownText="![help image](helpimage.gif)
+    see the [Markdown Basics Guide](https://help.github.com/articles/markdown-basics/) for info on Markdown"></ti-widget-helpbutton>
+    <ti-widget-droplist id="droplist" labels="above_left|left|below_left|below|below_right|right|above_right|above" selectedIndex="5" ></ti-widget-droplist>
+
+</template>
+<script>
+</script>
+</body>
+</html>

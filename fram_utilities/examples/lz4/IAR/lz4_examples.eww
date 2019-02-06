@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\lz4_ex1_compress_frame\lz4_ex1_compress_frame.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\lz4_ex2_custom_frame\lz4_ex2_custom_frame.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\lz4_ex3_stream_decompress\lz4_ex3_stream_decompress.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

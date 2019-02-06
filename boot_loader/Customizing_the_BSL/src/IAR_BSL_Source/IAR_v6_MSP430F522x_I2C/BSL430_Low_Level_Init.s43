@@ -1,0 +1,165 @@
+//**************************************************************
+// BSL SW low level functions
+//**************************************************************
+#include <msp430F5229.h>
+
+#define ARG1 R12
+#define ARG2 R13
+#define ARG3 R14
+#define ARG4 R15
+
+#define RET_low  R12
+#define RET_high r13
+
+EXTERN version_array
+EXTERN __program_start
+
+               COMMON   ZAREA
+;--------------------------------------------------------------
+               ;BSL Z-Area 
+;--------------------------------------------------------------
+BSL_Entry_JMP JMP    __program_start            ; BSL ENTRY AREA
+              JMP    BSL_ACTION0  
+              JMP    $                          ;BSL_ACTION1 unused
+              JMP    $                          ;BSL_ACTION2 unused
+              JMP    $                          ;BSL_ACTION3 unused 
+              JMP    $                          ;BSL_ACTION4 unused 
+              JMP    $                          ;BSL_ACTION5 unused 
+              JMP    $                          ;BSL_ACTION6 unused               
+              
+              RSEG ZAREA_CODE
+//**************************************************************
+// Name       :BSL_ACTION0
+// Function   :BSL Action 0 is a function caller
+// Arguments  :r15, Function ID
+//                - 0: Get Software ID
+//                - 1: Unlock BSL Flash area
+// Returns    :r14, Low Word
+//            :r15, High Word
+//**************************************************************
+BSL_ACTION0:  
+              CMP      #0xDEAD, ARG2
+              JNE      RETURN_ERROR
+              CMP      #0xBEEF, ARG3 
+              JNE      RETURN_ERROR                              
+              ;CMP      #0x01, ARG1
+              ; to do ... comment!
+              ;JEQ      BSL_Unprotect          ; 1 == unlock BSL flash area
+              ;JEQ      JTAG_Lock
+              //JL       BSL_SW_ID            ; 0 == return SW ID
+              ;JL       RETURN_ERROR           ; 0 == return SW ID
+              JMP      RETURN_TO_BSL           ; 2 == return to BSL
+RETURN_ERROR              
+              CLR      RET_low
+              CLR      RET_high
+              RETA                           
+
+//**************************************************************
+// Name       :RETURN_TO_BSL
+// Function   :Returns to a BSL function after that function has made
+//            :an external function call
+// Arguments  none
+// Returns    :none
+//**************************************************************
+RETURN_TO_BSL
+              POP.W    RET_low                 ; remove first word from return addr
+              POP.W    RET_high                ; remove second word from return addr
+              
+              RETA                             ; should now return to the BSL location
+
+//**************************************************************
+// Name       :BSL_Unprotect
+// Function   :Unlocks the BSL for writing and erasing of its flash area
+// Arguments  :none
+// Returns    :1 in r14.0, for success
+//**************************************************************
+/*
+BSL_Unprotect
+              ;JMP      RETURN_ERROR          ; 5438 BSL ONLY!
+              BIC      #SYSBSLPE, &SYSBSLC  ; opens BSL
+              MOV      #0x01, RET_low
+              CLR      RET_high
+              
+              RETA     
+*/
+//**************************************************************
+// Name       :JTAG_Lock
+// Function   :
+// Arguments  :none
+// Returns    :1 in r14.0, for success
+//**************************************************************
+;JTAG_Lock
+;             MOV.W     #FWKEY, &FCTL3
+;             MOV.W     #FWKEY+WRT, &FCTL1
+;             MOV.W     ARG3, &PJTAGLOCK_KEY
+;             MOV.W     #FWKEY, &FCTL1
+;             MOV.W     #FWKEY+LOCK, &FCTL3
+;             
+;             MOV      #0x01, RET_low
+;             CLR      RET_high
+ ;            RETA    
+
+//**************************************************************
+// Name       :BSL_SW_ID
+// Function   :Returns the software ID (version number) for the BSL
+// Arguments  :none
+// Returns    :r14.0-7  Peripheral Interface Version
+//            :r14.8-15 Command Interpreter Version
+//            :r15.0-7  430 API Version
+//            :r15.8-15 Vendor ID number (0x00 for TI)
+//**************************************************************
+/*
+BSL_SW_ID
+             MOV.W &version_array, R15
+             MOV.B @R15+, RET_high
+             SWPB  RET_high
+             BIS.B @R15+, RET_high
+             MOV.B @R15+, RET_low
+             SWPB  RET_low
+             BIS.B @R15+, RET_low
+             
+             RETA
+*/
+;--------------------------------------------------------------
+               ;BSL Signature Area
+;--------------------------------------------------------------
+ PUBLIC BslEntryLoc                             ;location of BSL Entry Address
+ PUBLIC BslProtectVecLoc                        ;location of BSL_Protect() vector
+ PUBLIC PBSLSigLoc                              ;location of primary BSL signature
+ PUBLIC SBSLSigLoc                              ;location of secondary BSL signature
+ 
+ PUBLIC BSL_REQ_JTAG_OPEN
+ PUBLIC BSL_REQ_APP_CALL
+ 
+//**************************************************************
+// Name       :BSL_Protect
+// Function   :Protects the BSL memory and protects the SYS module
+// Arguments  :none
+// Returns    :0 in R12.0 for lock (keep JTAGLOCK_KEY state)
+//            :1 in R12.0 for unlock (overwrite JTAGLOCK_KEY) : BSL_REQ_JTAG_OPEN
+//            :0 in R12.1 for no appended call
+//            :1 in R12.1 for appended call via BSLENTRY : BSL_REQ_APP_CALL
+//**************************************************************
+BSL_REQ_JTAG_OPEN  EQU  0x0001                  ;Return Value for BSLUNLOCK Function to open JTAG
+BSL_REQ_APP_CALL   EQU  0x0002                  ;Return Value for BSLUNLOCK Function to Call BSL again
+BSL_Protect:     
+              CLR      RET_low                  ;lock (keep JTAGLOCK_KEY state)
+             
+              BIS     #SYSBSLPE+SYSBSLSIZE0+SYSBSLSIZE1 , &SYSBSLC ; protects BSL
+              ;BIC     #BSL_REQ_JTAG_OPEN, RET_low   ;lock (keep JTAGLOCK_KEY state)
+              ;BIS     #BSL_REQ_JTAG_OPEN, RET_low   ;make sure it remains open for debugging
+              bit     #SYSBSLIND,&SYSCTL      ;check for BSL start request
+              jz      BCC2BSL
+
+              BIS.W   #BSL_REQ_APP_CALL, RET_low
+BCC2BSL       RETA
+              
+              COMMON   BSLSIG
+                 DW       0xFFFF
+BslProtectVecLoc DW       BSL_Protect             ;adress of function
+PBSLSigLoc       DW       03CA5h                  ;1st BSL signature
+SBSLSigLoc       DW       0C35Ah                  ;2nd BSL signature
+                 DW       0xFFFF
+BslEntryLoc      DW       BSL_Entry_JMP
+
+              END

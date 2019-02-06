@@ -1,0 +1,362 @@
+;//*****************************************************************************
+;//
+;//IEC60730_cpu_test.asm - CPU Tests for IEC60730 Class B.
+;//
+;//*****************************************************************************
+#include <msp430.h>
+#include "IEC60730_system_config.h"
+#include "IEC60730_user_config.h"
+ 
+
+;//*****************************************************************************
+;//
+;//! Test CPU registers
+;//!
+;//! This C-callable assembly routine tests CPU core registers for stuck at bits.
+;//! The following registers are tested:
+;//!	- R4
+;//!	- SP
+;//!	- SR
+;//!	- R5-R15
+;//! The registers are tested in the order listed above
+;//!
+;//! Modified registers are \b R4, \b SP, \b SR, and \b R5-R15
+;//!
+;//! \return SIG_CPU_REG_TEST.- if test does not detects stuck at bits.
+;//!         TEST_FAILED. - if test detects stuck at bits in CPU registers and
+;//! 						JUMP_TO_FAILSAFE is disabled in
+;//!						"IEC60730_user_config.h".
+;//
+;//*****************************************************************************
+
+        NAME    IEC60730_CPU_TEST_testCpuRegisters
+
+
+	PUBLIC	IEC60730_CPU_TEST_testCpuRegisters
+        RSEG    CODE
+
+IEC60730_CPU_TEST_testCpuRegisters
+
+;*******************************************************************************
+;Constants for testing purposes
+;*******************************************************************************
+
+#if __CORE__                       ; CPU test for MSP430 CPUX
+      PUSHX.A R4
+      MOVA    #0xAAAAA,R4          ; Write and Check 0xAAAAA
+      CMPA    #0xAAAAA,R4          ; To register R4
+      JNE     RestorePC
+      MOVA    #0x55555,R4          ; Write and Check 0x55555
+      CMPA    #0x55555,R4	   	   ; To register R4
+      JNE     RestorePC
+      POPX.A  R4
+
+      MOVA    SP,R4                ; Save value of SP in R4
+      MOVA    #0xAAAAA,SP
+      CMPA    #0xAAAAA,SP
+      JNE     TestFailed
+      MOVA    #0x55554,SP          ; Any WRITE to LSB is ignored and is always
+      CMPA    #0x55554,SP          ; READ as '0'
+      JNE     TestFailed
+      MOVA    R4,SP                ; Restore value of SP
+
+      MOV     SR,R4                ; Save SP in R4
+      MOV   #0xAAAA,SR
+      CMP   #0x0AAA,SR
+      JNE     TestFailed
+      MOV   #0x5545,SR
+      CMP   #0x0545,SR             ; Clearing CPUOFF bit to avoid MSP430 to go
+      JNE     TestFailed           ; To LPM
+      MOV     R4,SR
+
+StabilizeLoop
+#if defined(__MSP430_HAS_CS__)
+      BIC.W	#XT1OFFG + XT2OFFG,&CSCTL5
+      BIC.W	#OFIFG,&SFRIFG1
+      BIT.W     #OFIFG,&SFRIFG1
+      JC        StabilizeLoop
+#elif defined(__MSP430_HAS_UCS__)
+      BIC.W	#XT2OFFG + XT1LFOFFG + DCOFFG,&UCSCTL7
+      BIC.W	#OFIFG,&SFRIFG1
+      BIT.W     #OFIFG,&SFRIFG1
+      JC        StabilizeLoop
+#elif defined(__MSP430_HAS_BC2__)
+      BIC.W	#IFG1,&OFIFG
+      BIT.W     #IFG1,&OFIFG
+      JC        StabilizeLoop
+#endif
+
+      MOVA      R5,R4
+      MOVA      #0xAAAAA,R5        ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R5        ; To register R5
+      JNE       TestFailed
+      MOVA      #0x55555,R5        ; Write and Check 0x55555
+      CMPA      #0x55555,R5        ; To register R5
+      JNE       TestFailed
+      MOVA      R4,R5
+      
+      MOVA      R6,R4
+      MOVA      #0xAAAAA,R6        ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R6        ; To register R6
+      JNE       TestFailed
+      MOVA      #0x55555,R6        ; Write and Check 0x55555
+      CMPA      #0x55555,R6        ; To register R6
+      JNE       TestFailed
+      MOVA      R4,R6
+
+      MOVA      R7,R4
+      MOVA      #0xAAAAA,R7        ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R7        ; To register R7
+      JNE       TestFailed
+      MOVA      #0x55555,R7        ; Write and Check 0x55555
+      CMPA      #0x55555,R7        ; To register R7
+      JNE       TestFailed
+      MOVA      R4,R7
+
+      MOVA      R8,R4
+      MOVA      #0xAAAAA,R8        ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R8        ; To register R8
+      JNE       TestFailed
+      MOVA      #0x55555,R8        ; Write and Check 0x55555
+      CMPA      #0x55555,R8        ; To register R8
+      JNE       TestFailed
+      MOVA      R4,R8
+
+      MOVA      R9,R4
+      MOVA      #0xAAAAA,R9        ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R9        ; To register R9
+      JNE       TestFailed
+      MOVA      #0x55555,R9        ; Write and Check 0x55555
+      CMPA      #0x55555,R9        ; To register R9
+      JNE       TestFailed
+      MOVA      R4,R9
+
+      MOVA      R10,R4
+      MOVA      #0xAAAAA,R10       ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R10       ; To register R10
+      JNE       TestFailed
+      MOVA      #0x55555,R10       ; Write and Check 0x55555
+      CMPA      #0x55555,R10       ; To register R10
+      JNE       TestFailed
+      MOVA      R4,R10
+
+      MOVA      R11,R4
+      MOVA      #0xAAAAA,R11       ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R11       ; To register R11
+      JNE       TestFailed
+      MOVA      #0x55555,R11       ; Write and Check 0x55555
+      CMPA      #0x55555,R11       ; To register R11
+      JNE       TestFailed
+      MOVA      R4,R11
+
+      MOVA      R12,R4
+      MOVA      #0xAAAAA,R12       ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R12       ; To register R12
+      JNE       TestFailed
+      MOVA      #0x55555,R12       ; Write and Check 0x55555
+      CMPA      #0x55555,R12       ; To register R12
+      JNE       TestFailed
+      MOVA      R4,R12
+
+      MOVA      R13,R4
+      MOVA      #0xAAAAA,R13       ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R13       ; To register R13
+      JNE       TestFailed
+      MOVA      #0x55555,R13       ; Write and Check 0x55555
+      CMPA      #0x55555,R13       ; To register R13
+      JNE       TestFailed
+      MOVA      R4,R13
+      
+      MOVA      R14,R4
+      MOVA      #0xAAAAA,R14       ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R14       ; To register R14
+      JNE       TestFailed
+      MOVA      #0x55555,R14       ; Write and Check 0x55555
+      CMPA      #0x55555,R14       ; To register R14
+      JNE       TestFailed
+      MOVA      R4,R14
+
+      MOVA      R15,R4
+      MOVA      #0xAAAAA,R15       ; Write and Check 0xAAAAA
+      CMPA      #0xAAAAA,R15       ; To register R15
+      JNE       TestFailed
+      MOVA      #0x55555,R15       ; Write and Check 0x55555
+      CMPA      #0x55555,R15       ; To register R15
+      JNE       TestFailed
+
+#else
+
+      PUSH      R4
+      MOV.W     #0xAAAA,R4         ; Write and Check 0xAAAA
+      CMP.W     #0xAAAA,R4         ; To register R4
+      JNE       RestorePC
+      MOV.W     #0x5555,R4
+      CMP.W     #0x5555,R4
+      JNE       RestorePC
+      POP       R4
+
+
+      MOV.W     SP,R4              ; Save value of SP in R4
+      MOV.W     #0xAAAA,SP
+      CMP.W     #0xAAAA,SP
+      JNE       TestFailed
+      MOV.W     #0x5554,SP         ; Any WRITE to LSB is ignored and is always
+      CMP.W     #0x5554,SP         ; READ as '0'
+      JNE       TestFailed
+      MOV.W     R4,SP              ; Restore value of SP
+
+
+      MOV.W     SR,R4              ; Save SP in R4
+      MOV.W     #0xAAAA,SR
+      CMP.W     #0xAAAA,SR
+      JNE       TestFailed
+
+      MOV.W     #0x5545,SR
+      CMP.W     #0x5545,SR         ; Clearing CPUOFF bit to avoid MSP430 to go
+      JNE       TestFailed         ; To LPM
+
+      MOV.W     R4,SR
+
+StabilizeLoop
+#if defined(__MSP430_HAS_CS__)
+      BIC.W	#XT1OFFG + XT2OFFG,&CSCTL5
+      BIC.W	#OFIFG,&SFRIFG1
+      BIT.W     #OFIFG,&SFRIFG1
+      JC        StabilizeLoop
+#elif defined(__MSP430_HAS_UCS__)
+      BIC.W	#XT2OFFG + XT1LFOFFG + DCOFFG,&UCSCTL7
+      BIC.W	#OFIFG,&SFRIFG1
+      BIT.W     #OFIFG,&SFRIFG1
+      JC        StabilizeLoop
+#elif defined(__MSP430_HAS_BC2__)
+      BIC.W	#IFG1,&OFIFG
+      BIT.W     #IFG1,&OFIFG
+      JC        StabilizeLoop
+#endif
+
+      MOV.W     R5,R4
+      MOV.W     #0xAAAA,R5         ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R5         ; To register R5
+      JNE       TestFailed
+      MOV.W     #0x5555,R5         ; Write and Check #0x5555
+      CMP.W     #0x5555,R5         ; To register R5
+      JNE       TestFailed
+      MOV.W     R4,R5
+
+      MOV.W     R6,R4
+      MOV.W     #0xAAAA,R6         ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R6         ; To register R6
+      JNE       TestFailed
+      MOV.W     #0x5555,R6         ; Write and Check #0x5555
+      CMP.W     #0x5555,R6         ; To register R6
+      JNE       TestFailed
+      MOV.W     R4,R6
+
+      MOV.W     R7,R4
+      MOV.W     #0xAAAA,R7         ; Write and Check #0xAAAAA
+      CMP.W     #0xAAAA,R7         ; To register R7
+      JNE       TestFailed
+      MOV.W     #0x5555,R7         ; Write and Check #0x5555
+      CMP.W     #0x5555,R7         ; To register R7
+      JNE       TestFailed
+      MOV.W     R4,R7
+
+      MOV.W     R8,R4
+      MOV.W     #0xAAAA,R8         ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R8         ; To register R8
+      JNE       TestFailed
+      MOV.W     #0x5555,R8         ; Write and Check #0x5555
+      CMP.W     #0x5555,R8         ; To register R8
+      JNE       TestFailed
+      MOV.W     R4,R8
+
+      MOV.W     R9,R4
+      MOV.W     #0xAAAA,R9         ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R9         ; To register R9
+      JNE       TestFailed
+      MOV.W     #0x5555,R9         ; Write and Check #0x5555
+      CMP.W     #0x5555,R9         ; To register R9
+      JNE       TestFailed
+      MOV.W     R4,R9
+      
+      MOV.W     R10,R4
+      MOV.W     #0xAAAA,R10        ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R10        ; To register R10
+      JNE       TestFailed
+      MOV.W     #0x5555,R10        ; Write and Check #0x5555
+      CMP.W     #0x5555,R10        ; To register R10
+      JNE       TestFailed
+      MOV.W     R4,R10
+
+      MOV.W     R11,R4
+      MOV.W     #0xAAAA,R11        ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R11        ; To register R11
+      JNE       TestFailed
+      MOV.W     #0x5555,R11        ; Write and Check #0x5555
+      CMP.W     #0x5555,R11        ; To register R11
+      JNE       TestFailed
+      MOV.W     R4,R11
+
+      MOV.W     R12,R4
+      MOV.W     #0xAAAA,R12        ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R12        ; To register R12
+      JNE       TestFailed
+      MOV.W     #0x5555,R12        ; Write and Check #0x5555
+      CMP.W     #0x5555,R12        ; To register R12
+      JNE       TestFailed
+      MOV.W     R4,R12
+
+      MOV.W     R13,R4
+      MOV.W     #0xAAAA,R13        ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R13        ; To register R13
+      JNE       TestFailed
+      MOV.W     #0x5555,R13        ; Write and Check #0x5555
+      CMP.W     #0x5555,R13        ; To register R13
+      JNE       TestFailed
+      MOV.W     R4,R13
+      
+      MOV.W     R14,R4
+      MOV.W     #0xAAAA,R14        ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R14        ; To register R14
+      JNE       TestFailed
+      MOV.W     #0x5555,R14        ; Write and Check #0x5555
+      CMP.W     #0x5555,R14        ; To register R14
+      JNE       TestFailed
+      MOV.W     R4,R14
+      
+      MOV.W     R15,R4
+      MOV.W     #0xAAAA,R15        ; Write and Check #0xAAAA
+      CMP.W     #0xAAAA,R15        ; To register R15
+      JNE       TestFailed
+      MOV.W     #0x5555,R15        ; Write and Check #0x5555
+      CMP.W     #0x5555,R15        ; To register R15
+      JNE       TestFailed
+      MOV.W     R4,R15
+
+      #endif
+
+End_test
+      MOV      #SIG_CPU_REG_TEST,R12
+#if __CORE__      
+      RETA
+#else
+      RET
+#endif
+RestorePC 
+#if __CORE__
+      POPX.A   R4
+#else
+      POP      R4
+#endif
+TestFailed
+      CLR       R12
+      
+#if __CORE__      
+      RETA
+#else
+      RET
+#endif
+
+      END
+	  
+	  	  

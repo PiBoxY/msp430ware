@@ -1,0 +1,9 @@
+{
+    "widgetBindings": [
+        {
+            "propertyName": "value",
+            "serverBindName": "uart.Angle",
+            "widgetId": "ti_widget_angledisplay2"
+        }
+    ]
+}

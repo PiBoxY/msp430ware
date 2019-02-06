@@ -1,0 +1,29 @@
+Getting Started
+===============
+
+Welcome
+-------
+
+Welcome to the CapTIvate™ Technology Guide!
+
+CapTIvate™ is a capacitive user interface design ecosystem that takes the next big step in design process evolution. It brings together a capacitive measurement technology, a design GUI, a capacitive touch software library, and a hardware development platform. This document is the single source of information about how to use that ecosystem.
+
+Starting Out
+------------
+
+If you are a beginner at capacitive sensing, start by learning about `capacitive sensing basics <ch_basics.html#capacitive-sensing-basics>`__. If you have a CapTIvate™ Development Kit, you can quickly get started with hardware by going through the `out-of-box experience <ch_workshop.html>`__. Then, you'll want to check out the `technology <ch_technology.html>`__ chapter, which introduces the main principles behind the CapTIvate™ technology.
+
+Becoming an Expert
+------------------
+
+Once you've got the basics down, become a CapTIvate™ expert by completing workshops for `creating a new sensor design <ch_workshop.html#creating-a-new-sensor-design-project>`__, `experimenting with ultra-low-power <ch_workshop.html#experiments-with-low-power>`__, and `using the CapTIvate™ Touch Library <ch_workshop.html#exporing-the-captivate-touch-library>`__. Then explore the other sensor panels that come with the `MSP-CAPT-FR2633 Development Kit <ch_evm.html#msp-capt-fr2633-development-kit>`__.
+
+Kicking off a Design
+--------------------
+
+If you are going to be starting a new design, be sure to visit the `design <ch_design_guide.html>`__ chapter, which will guide you through making design decisions and tradeoffs. You can then reference the `CapTIvate™ Design Center quick start guide <ch_designcenter.html#captivate-design-center-quick-start>`__ for help starting a new project. The `CCS/IAR project quick start guide <ch_designcenter.html#loading-and-running-generated-projects>`__ explains how to get firmware projects up and running in a development environment such as TI's Code Composer Studio or IAR Embedded Workbench.
+
+Using this Guide
+----------------
+
+If you would like more information about this guide, the `introduction chapter <ch_intro.html>`__ provides a brief introduction to every chapter.

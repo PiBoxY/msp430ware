@@ -1,0 +1,13 @@
+<projectSpec>
+  <project compilerBuildOptions="-O3 -I${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx -I${PROJECT_ROOT} -I${PROJECT_ROOT}/GrLib/grlib -I${PROJECT_ROOT}/GrLib/fonts --advice:power=&quot;none&quot; --gcc" device="MSP430FR4133" name="MSP-EXP430FR4133_Grlib_Example">
+	<file action="copy" path="../main.c" targetDirectory="." />
+	<file action="copy" path="../system_pre_init.c" targetDirectory="." />
+	<file action="copy" path="../LcdDriver/" />
+	<file action="copy" path="../../../src/grlib/" targetDirectory="GrLib/" />
+	<file action="copy" path="../../../src/fonts/" targetDirectory="GrLib/" />
+	<file action="copy" path="../../../driverlib/MSP430FR2xx_4xx/" targetDirectory="driverlib/" />
+    <file action="copy" path="../../../driverlib/MSP430FR2xx_4xx/deprecated/" targetDirectory="driverlib/MSP430FR2xx_4xx/" />
+    <file action="copy" path="../../../driverlib/MSP430FR2xx_4xx/deprecated/CCS/" targetDirectory="driverlib/MSP430FR2xx_4xx/deprecated/" />
+    <file action="copy" path="../../../driverlib/MSP430FR2xx_4xx/inc/" targetDirectory="driverlib/MSP430FR2xx_4xx/" />
+  </project>
+</projectSpec>

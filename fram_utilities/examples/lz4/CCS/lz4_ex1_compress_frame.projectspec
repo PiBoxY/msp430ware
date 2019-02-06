@@ -1,0 +1,11 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/fram-utilities/lz4 --diag_suppress=10420" device="MSP430FR5969" linkerBuildOptions="--stack_size=160" name="lz4_ex1_compress_frame">
+	<file action="copy" path="../lz4_ex1_compress_frame.c" targetDirectory="." />
+	<file action="copy" path="../../../src/lz4/lz4.c" targetDirectory="fram-utilities/lz4" />
+	<file action="copy" path="../../../src/lz4/lz4.h" targetDirectory="fram-utilities/lz4" />
+	<file action="copy" path="../../../src/lz4/lz4_stream.c" targetDirectory="fram-utilities/lz4" />
+	<file action="copy" path="../../../src/lz4/lz4_stream.h" targetDirectory="fram-utilities/lz4" />
+	<file action="copy" path="../../../src/lz4/xxhash.c" targetDirectory="fram-utilities/lz4" />
+	<file action="copy" path="../../../src/lz4/xxhash.h" targetDirectory="fram-utilities/lz4" />
+  </project>
+</projectSpec>

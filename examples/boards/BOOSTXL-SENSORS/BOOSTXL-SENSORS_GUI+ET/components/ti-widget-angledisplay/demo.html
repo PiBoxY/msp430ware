@@ -1,0 +1,168 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+Copyright (c) 2014, Texas Instruments Incorporated
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+*   Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+*   Neither the name of Texas Instruments Incorporated nor the names of
+its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <!--[if gte IE 6]>
+    <script type="text/javascript">
+        // this is IE greater than or equal to 6
+        var isInternetExplorer=true;
+    </script>
+    <![endif]-->
+
+    <script>
+        var isIE =   ((navigator.appName == 'Microsoft Internet Explorer') ||
+        ((navigator.appName == 'Netscape') &&
+        (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));
+        if (window.isInternetExplorer) {
+            isIE =  true;
+        }
+
+        if ( isIE ){
+            var object = document.createElement("object");
+            object.setAttribute("id", "ticloudagentlauncher");
+            object.setAttribute("type", "application/x-ticloudagentlauncher");
+            object.setAttribute("width", "0");
+            object.setAttribute("height", "0");
+            document.head.appendChild( object );
+            window.TICloudAgent_HACK = {};
+            window. TICloudAgent_HACK.plugin = document.getElementById("ticloudagentlauncher");
+        }
+    </script>
+    <link rel="import" href="../polymer/polymer.html">
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+            text-align:center;
+        }
+        .icons {
+            color: red;
+        }
+        .wide { display: block; padding-left: 5px; padding-top:5px; vertical-align:bottom; background-color: gray; }
+        .container {height: 28px; width:120px;}
+    </style>
+    <link rel="import" href="ti-widget-angledisplay.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-slider.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-label.html">
+    <link rel="import" href="../ti-widget-statusbar/ti-widget-statusbar.html">
+    <link rel="import" href="../ti-core-databind/ti-serialio-model.html">
+    <link rel="import" href="../ti-core-stylesheets/ti-core-stylesheets.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-droplist.html">
+</head>
+
+<body >
+<template is="auto-binding" id="template">
+    <style>
+        #ti_widget_angledisplay {
+            width: 140px;
+            height: 140px;
+        }
+        #ti_widget_angledisplay2 {
+            width: 140px;
+            height: 140px;
+        }
+        #fontSize {
+            width: 130px;
+            position: absolute;
+            padding-top:17px;
+            padding-left:10px;
+            height: 20px;
+        }
+    </style>
+    <h1 align="center">Demo of ti-widget-angledisplay</h1>
+    <p>&nbsp;</p>
+    <div>
+
+    </div>
+    <div >
+        <div>
+            <h2>Example 1: Angle bound to slider value:</h2>
+            <ti-widget-angledisplay id="ti_widget_angledisplay" fontSize="{{$.fontSize.selectedText}}" value="{{ $.slider_angle.value }}" ></ti-widget-angledisplay>
+        </div>
+        <p>&nbsp;</p>
+        <div >
+
+                    <span style="font-weight:bold">Angle: </span>
+                    <span style="text-align:left;"><ti-widget-slider    on-mousemove="{{onAngleChangedHdlr}}" style="width:255px;" maxvalue="360" labels="0,360" id="slider_angle"></ti-widget-slider></span>
+                    <span>{{ $.slider_angle.value }}</span></td>
+
+<span style="font-weight:bold;padding-left:30px;">Font Size: </span><span>
+            <ti-widget-droplist selectedtext="small" labels="xx-small,x-small,small,medium,large,x-large,xx-large,smaller,larger" selectedindex="2" selectedvalue="3" initialindex="2" id="fontSize"></ti-widget-droplist>
+           </span>
+
+        </div>
+        <p>&nbsp;</p><p>&nbsp;</p>
+        <div>
+            <h2>Example 2: Angle bound to $.uart.Angle</h2> - requires target to send {"Angle":123}\n :<br/><p>&nbsp;</p>
+            <ti-widget-angledisplay id="ti_widget_angledisplay2" value="{{ $.uart.Angle }}" ></ti-widget-angledisplay>
+
+
+        </div>
+        <p>&nbsp;</p>
+        <div ><span>Angle: <ti-widget-label label="{{ $.ti_widget_angledisplay2.value }}"></ti-widget-label> &deg;</span></div>
+    </div>
+    <ti-serialio-model id="uart"></ti-serialio-model>
+    <ti-widget-statusbar></ti-widget-statusbar>
+</template>
+<script>
+    var templateObj = document.querySelector('#template');
+    templateObj.ready = function(){
+        templateObj.async(function(){
+            var display = templateObj.$.ti_widget_angledisplay;
+            //display.value = 90;
+            //display.tilt_vector = "-0.422674,-47.19674 -49.746502,-47.26867 -48.7781469,-0.0711 -49.59421358,47.55077 -49.59421358,47.55077";
+            //"0.007,-39.67687 -49.316796,-39.74881 -48.7781466,-0.0711 -50.02391958,40.03091 -50.02391958,40.03091";
+            //"-3.215765,  0.28581  -52.539594,  0.21388    -48.778146,-0.0711 -46.80112158, 0.0682 -46.80112158, 0.0682
+            // "-0.637527,  51.958   -49.961356,  51.88606 C 1.2486599,979.13635 0.64744642,927.60352 0.64744642,927.60352";
+            //"-4.291397,  38.08364 -49.531649,  38.02804 C 3.1810142,965.29135 0.64744642,927.60352 0.64744642,927.60352 ";
+
+
+            //console.log('ti-widget-angledisplay.value = '+value);
+        },1);
+    }
+    templateObj.onAngleChangedHdlr = function(e){
+        templateObj.$.ti_widget_angledisplay.value = templateObj.$.slider_angle.value;
+    }
+
+</script>
+</body>
+</html>

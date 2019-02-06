@@ -1,0 +1,232 @@
+<module id="I2C_REGS" HW_revision="">
+  <register id="I2COAR" width="16" page="1" offset="0x0" internal="0" description="I2C Own address ">
+    <bitfield id="OAR" description="I2C Own address " begin="9" end="0" width="10" rwaccess="R/W"/>
+  </register>
+  <register id="I2CIER" width="16" page="1" offset="0x1" internal="0" description="I2C Interrupt Enable ">
+    <bitfield id="ARBL" description="Arbitration-lost interrupt enable" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Interrupt request disabled"/>
+      <bitenum id="__1" value="1" description="Interrupt request enabled"/>
+    </bitfield>
+    <bitfield id="NACK" description="No-acknowledgment interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Interrupt request disabled"/>
+      <bitenum id="__1" value="1" description="Interrupt request enabled"/>
+    </bitfield>
+    <bitfield id="ARDY" description="Register-access-ready interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Interrupt request disabled"/>
+      <bitenum id="__1" value="1" description="Interrupt request enabled"/>
+    </bitfield>
+    <bitfield id="RRDY" description="Receive-data-ready interrupt enable" begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Interrupt request disabled"/>
+      <bitenum id="__1" value="1" description="Interrupt request enabled"/>
+    </bitfield>
+    <bitfield id="XRDY" description="Transmit-data-ready interrupt enable" begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Interrupt request disabled"/>
+      <bitenum id="__1" value="1" description="Interrupt request enabled"/>
+    </bitfield>
+    <bitfield id="SCD" description="Stop condition detected interrupt enable" begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Interrupt request disabled"/>
+      <bitenum id="__1" value="1" description="Interrupt request enabled"/>
+    </bitfield>
+    <bitfield id="AAS" description="Addressed as slave interrupt enable" begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Interrupt request disabled"/>
+      <bitenum id="__1" value="1" description="Interrupt request enabled"/>
+    </bitfield>
+  </register>
+  <register id="I2CSTR" width="16" page="1" offset="0x2" internal="0" description="I2C Status">
+    <bitfield id="ARBL" description="Arbitration-lost interrupt flag bit" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Arbitration not lost"/>
+      <bitenum id="__1" value="1" description="Arbitration lost"/>
+    </bitfield>
+    <bitfield id="NACK" description="No-acknowledgment interrupt flag bit." begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="ACK received/NACK not received"/>
+      <bitenum id="__1" value="1" description="NACK bit received"/>
+    </bitfield>
+    <bitfield id="ARDY" description="Register-access-ready interrupt flag bit" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The registers are not ready to be accessed"/>
+      <bitenum id="__1" value="1" description="The registers are ready to be accessed"/>
+    </bitfield>
+    <bitfield id="RRDY" description="Receive-data-ready interrupt flag bit." begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="I2CDRR not ready"/>
+      <bitenum id="__1" value="1" description="I2CDRR ready: Data has been copied from I2CRSR to I2CDRR."/>
+    </bitfield>
+    <bitfield id="XRDY" description="Transmit-data-ready interrupt flag bit." begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="I2CDXR not ready"/>
+      <bitenum id="__1" value="1" description="I2CDXR ready: Data has been copied from I2CDXR to I2CXSR"/>
+    </bitfield>
+    <bitfield id="SCD" description="Stop condition detected bit." begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="STOP condition not detected since SCD was last cleared"/>
+      <bitenum id="__1" value="1" description="A STOP condition has been detected on the I2C bus."/>
+    </bitfield>
+    <bitfield id="AD0" description="Address 0 bits" begin="8" end="8" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="AD0 has been cleared by a START or STOP condition."/>
+      <bitenum id="__1" value="1" description="An address of all zeros (general call) is detected."/>
+    </bitfield>
+    <bitfield id="AAS" description="Addressed-as-slave bit" begin="9" end="9" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="In the 7-bit addressing mode, the AAS bit is cleared when recei"/>
+      <bitenum id="__1" value="1" description="The I2C module has recognized its own slave address or an addre"/>
+    </bitfield>
+    <bitfield id="XSMT" description="Transmit shift register empty bit." begin="10" end="10" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Underflow detected (empty)"/>
+      <bitenum id="__1" value="1" description="No underflow detected (not empty)"/>
+    </bitfield>
+    <bitfield id="RSFULL" description="Receive shift register full bit." begin="11" end="11" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No overrun detected"/>
+      <bitenum id="__1" value="1" description="Overrun detected"/>
+    </bitfield>
+    <bitfield id="BB" description="Bus busy bit." begin="12" end="12" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Bus free"/>
+      <bitenum id="__1" value="1" description="Bus busy: The I2C module has received or transmitted a START bi"/>
+    </bitfield>
+    <bitfield id="NACKSNT" description="NACK sent bit." begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="NACK not sent"/>
+      <bitenum id="__1" value="1" description="NACK sent: A no-acknowledge bit was sent during the acknowledge"/>
+    </bitfield>
+    <bitfield id="SDIR" description="Slave direction bit" begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="I2C is not addressed as a slave transmitter"/>
+      <bitenum id="__1" value="1" description="I2C is addressed as a slave transmitter."/>
+    </bitfield>
+  </register>
+  <register id="I2CCLKL" width="16" page="1" offset="0x3" internal="0" description="I2C Clock low-time divider ">
+    <bitfield id="I2CCLKL" description="Clock low-time divide-down value." begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="I2CCLKH" width="16" page="1" offset="0x4" internal="0" description="I2C Clock high-time divider ">
+    <bitfield id="I2CCLKH" description="Clock high-time divide-down value." begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="I2CCNT" width="16" page="1" offset="0x5" internal="0" description="I2C Data count">
+    <bitfield id="I2CCNT" description="Data count value." begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="I2CDRR" width="16" page="1" offset="0x6" internal="0" description="I2C Data receive">
+    <bitfield id="DATA" description="Receive data" begin="7" end="0" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="I2CSAR" width="16" page="1" offset="0x7" internal="0" description="I2C Slave address">
+    <bitfield id="SAR" description="Slave Address" begin="9" end="0" width="10" rwaccess="R/W"/>
+  </register>
+  <register id="I2CDXR" width="16" page="1" offset="0x8" internal="0" description="I2C Data Transmit ">
+    <bitfield id="DATA" description="Transmit data" begin="7" end="0" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="I2CMDR" width="16" page="1" offset="0x9" internal="0" description="I2C Mode ">
+    <bitfield id="BC" description="Bit count bits." begin="2" end="0" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="8 bits per data byte"/>
+      <bitenum id="__1" value="1" description="1 bit per data byte"/>
+      <bitenum id="__2" value="2" description="2 bits per data byte"/>
+      <bitenum id="__3" value="3" description="3 bits per data byte"/>
+      <bitenum id="__4" value="4" description="4 bits per data byte"/>
+      <bitenum id="__5" value="5" description="5 bits per data byte"/>
+      <bitenum id="__6" value="6" description="6 bits per data byte"/>
+      <bitenum id="__7" value="7" description="7 bits per data byte"/>
+    </bitfield>
+    <bitfield id="FDF" description="Free Data Format " begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Free data format mode is disabled"/>
+      <bitenum id="__1" value="1" description="Free data format mode is enabled"/>
+    </bitfield>
+    <bitfield id="STB" description="START Byte Mode" begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The I2C module is not in the START byte mode."/>
+      <bitenum id="__1" value="1" description="The I2C module is in the START byte mode"/>
+    </bitfield>
+    <bitfield id="IRS" description="I2C Module Reset " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The I2C module is in reset/disabled"/>
+      <bitenum id="__1" value="1" description="The I2C module is enabled"/>
+    </bitfield>
+    <bitfield id="DLB" description="Digital Loopback Mode " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Digital loopback mode is disabled."/>
+      <bitenum id="__1" value="1" description="Digital loopback mode is enabled"/>
+    </bitfield>
+    <bitfield id="RM" description="Repeat Mode" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Nonrepeat mode"/>
+      <bitenum id="__1" value="1" description="Repeat mode"/>
+    </bitfield>
+    <bitfield id="XA" description="Expanded Address Mode " begin="8" end="8" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="7-bit addressing mode (normal address mode)"/>
+      <bitenum id="__1" value="1" description="10-bit addressing mode (expanded address mode)"/>
+    </bitfield>
+    <bitfield id="TRX" description="Transmitter Mode " begin="9" end="9" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receiver mode"/>
+      <bitenum id="__1" value="1" description="Transmitter mode"/>
+    </bitfield>
+    <bitfield id="MST" description="Master Mode " begin="10" end="10" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Slave mode"/>
+      <bitenum id="__1" value="1" description="Master mode"/>
+    </bitfield>
+    <bitfield id="STP" description="STOP Condition " begin="11" end="11" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="STP is automatically cleared after the STOP condition has been "/>
+      <bitenum id="__1" value="1" description="STP has been set by the device to generate a STOP condition whe"/>
+    </bitfield>
+    <bitfield id="STT" description="START condition bit" begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="In the master mode, STT is automatically cleared after the STAR"/>
+      <bitenum id="__1" value="1" description="In the master mode, setting STT to 1 causes the I2C module to g"/>
+    </bitfield>
+    <bitfield id="FREE" description="Debug Action" begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="When I2C module is master:[[br]]If SCL is low when the breakpoi"/>
+      <bitenum id="__1" value="1" description="The I2C module runs free; that is, it continues to operate when"/>
+    </bitfield>
+    <bitfield id="NACKMOD" description="NACK mode bit" begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="In the slave-receiver mode: The I2C module sends an acknowledge"/>
+      <bitenum id="__1" value="1" description="In either slave-receiver or master-receiver mode: The I2C modul"/>
+    </bitfield>
+  </register>
+  <register id="I2CISRC" width="16" page="1" offset="0xa" internal="0" description="I2C Interrupt Source">
+    <bitfield id="INTCODE" description="Interrupt code bits." begin="2" end="0" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="None"/>
+      <bitenum id="__1" value="1" description="Arbitration lost"/>
+      <bitenum id="__2" value="2" description="No-acknowledgment condition detected"/>
+      <bitenum id="__3" value="3" description="Registers ready to be accessed"/>
+      <bitenum id="__4" value="4" description="Receive data ready"/>
+      <bitenum id="__5" value="5" description="Transmit data ready"/>
+      <bitenum id="__6" value="6" description="Stop condition detected"/>
+      <bitenum id="__7" value="7" description="Addressed as slave"/>
+    </bitfield>
+  </register>
+  <register id="I2CEMDR" width="16" page="1" offset="0xb" internal="0" description="I2C Extended Mode ">
+    <bitfield id="BC" description="Backwards compatibility mode" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="See Figure 9-17 for details."/>
+      <bitenum id="__1" value="1" description="See Figure 9-17 for details."/>
+    </bitfield>
+  </register>
+  <register id="I2CPSC" width="16" page="1" offset="0xc" internal="0" description="I2C Prescaler ">
+    <bitfield id="IPSC" description="I2C Prescaler Divide Down " begin="7" end="0" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="I2CFFTX" width="16" page="1" offset="0x20" internal="0" description="I2C FIFO Transmit ">
+    <bitfield id="TXFFIL" description="Transmit FIFO Interrupt Level " begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="TXFFIENA" description="Transmit FIFO Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disabled. TXFFINT flag does not generate an interrupt when set."/>
+      <bitenum id="__1" value="1" description="Enabled. TXFFINT flag does generate an interrupt when set."/>
+    </bitfield>
+    <bitfield id="TXFFINTCLR" description="Transmit FIFO Interrupt Flag Clear " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Writes of zeros have no effect. Reads return a 0."/>
+      <bitenum id="__1" value="1" description="Writing a 1 to this bit clears the TXFFINT flag."/>
+    </bitfield>
+    <bitfield id="TXFFINT" description="Transmit FIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit FIFO interrupt condition has not occurred."/>
+      <bitenum id="__1" value="1" description="Transmit FIFO interrupt condition has occurred."/>
+    </bitfield>
+    <bitfield id="TXFFST" description="Transmit FIFO Status " begin="12" end="8" width="5" rwaccess="R/W"/>
+    <bitfield id="TXFFRST" description="Transmit FIFO Reset " begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Reset the transmit FIFO pointer to 0000 and hold the transmit F"/>
+      <bitenum id="__1" value="1" description="Enable the transmit FIFO operation."/>
+    </bitfield>
+    <bitfield id="I2CFFEN" description="Transmit FIFO Enable " begin="14" end="14" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the I2C FIFO mode."/>
+      <bitenum id="__1" value="1" description="Enable the I2C FIFO mode."/>
+    </bitfield>
+  </register>
+  <register id="I2CFFRX" width="16" page="1" offset="0x21" internal="0" description="I2C FIFO Receive ">
+    <bitfield id="RXFFIL" description="Receive FIFO Interrupt Level " begin="4" end="0" width="5" rwaccess="R/W"/>
+    <bitfield id="RXFFIENA" description="Receive FIFO Interrupt Enable " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disabled. RXFFINT flag does not generate an interrupt when set."/>
+      <bitenum id="__1" value="1" description="Enabled. RXFFINT flag does generate an interrupt when set."/>
+    </bitfield>
+    <bitfield id="RXFFINTCLR" description="Receive FIFO Interrupt Flag Clear " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Writes of zeros have no effect. Reads return a zero."/>
+      <bitenum id="__1" value="1" description="Writing a 1 to this bit clears the RXFFINT flag."/>
+    </bitfield>
+    <bitfield id="RXFFINT" description="Receive FIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive FIFO interrupt condition has not occurred."/>
+      <bitenum id="__1" value="1" description="Receive FIFO interrupt condition has occurred."/>
+    </bitfield>
+    <bitfield id="RXFFST" description="Receive FIFO Status " begin="12" end="8" width="5" rwaccess="R/W"/>
+    <bitfield id="RXFFRST" description="Receive FIFO Reset " begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Reset the receive FIFO pointer to 0000 and hold the receive FIF"/>
+      <bitenum id="__1" value="1" description="Enable the receive FIFO operation."/>
+    </bitfield>
+  </register>
+</module>

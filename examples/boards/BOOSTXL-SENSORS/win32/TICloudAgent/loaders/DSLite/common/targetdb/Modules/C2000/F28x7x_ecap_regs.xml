@@ -1,0 +1,146 @@
+<module id="ECAP_REGS" HW_revision="">
+  <register id="TSCTR" width="32" page="1" offset="0x0" internal="0" description="Time-Stamp Counter">
+    <bitfield id="TSCTR" description="Time Stamp Counter " begin="31" end="0" width="32" rwaccess="R/W"/>
+  </register>
+  <register id="CTRPHS" width="32" page="1" offset="0x2" internal="0" description="Counter Phase Offset Value Register">
+    <bitfield id="CTRPHS" description="Counter phase " begin="31" end="0" width="32" rwaccess="R/W"/>
+  </register>
+  <register id="CAP1" width="32" page="1" offset="0x4" internal="0" description="Capture 1 Register">
+    <bitfield id="CAP1" description="Capture 1 " begin="31" end="0" width="32" rwaccess="R/W"/>
+  </register>
+  <register id="CAP2" width="32" page="1" offset="0x6" internal="0" description="Capture 2 Register">
+    <bitfield id="CAP2" description="Capture 2" begin="31" end="0" width="32" rwaccess="R/W"/>
+  </register>
+  <register id="CAP3" width="32" page="1" offset="0x8" internal="0" description="Capture 3Register">
+    <bitfield id="CAP3" description="Capture 3" begin="31" end="0" width="32" rwaccess="R/W"/>
+  </register>
+  <register id="CAP4" width="32" page="1" offset="0xa" internal="0" description="Capture 4 Register">
+    <bitfield id="CAP4" description="Capture 4" begin="31" end="0" width="32" rwaccess="R/W"/>
+  </register>
+  <register id="ECCTL1" width="16" page="1" offset="0x14" internal="0" description="Capture Control Register 1">
+    <bitfield id="FREE_SOFT" description="Emulation mode " begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="TSCTR counter stops immediately on emulation suspend"/>
+      <bitenum id="__1" value="1" description="TSCTR counter runs until = 0"/>
+      <bitenum id="__16" value="10" description="TSCTR counter is unaffected by emulation suspend (Run Free)"/>
+      <bitenum id="__17" value="11" description="TSCTR counter is unaffected by emulation suspend (Run Free)"/>
+    </bitfield>
+    <bitfield id="PRESCALE" description="Event Filter prescale select " begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Divide by 1 (i.e,. no prescale, by-pass the prescaler)"/>
+      <bitenum id="__1" value="1" description="Divide by 2"/>
+      <bitenum id="__16" value="10" description="Divide by 4"/>
+      <bitenum id="__17" value="11" description="Divide by 6"/>
+      <bitenum id="__256" value="100" description="Divide by 8"/>
+      <bitenum id="__257" value="101" description="Divide by 10"/>
+      <bitenum id="__69904" value="11110" description="Divide by 60"/>
+      <bitenum id="__69905" value="11111" description="Divide by 62"/>
+    </bitfield>
+    <bitfield id="CAPLDEN" description="Enable Loading CAP1-4 regs on a Cap Event " begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable CAP1-4 register loads at capture event time."/>
+      <bitenum id="__1" value="1" description="Enable CAP1-4 register loads at capture event time."/>
+    </bitfield>
+    <bitfield id="CTRRST4" description="Counter Reset on Capture Event 4 " begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Do not reset counter on Capture Event 4 (absolute time stamp op"/>
+      <bitenum id="__1" value="1" description="Reset counter after Capture Event 4 time-stamp has been capture"/>
+    </bitfield>
+    <bitfield id="CAP4POL" description="Capture Event 4 Polarity select " begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Capture Event 4 triggered on a rising edge (RE)"/>
+      <bitenum id="__1" value="1" description="Capture Event 4 triggered on a falling edge (FE)"/>
+    </bitfield>
+    <bitfield id="CTRRST3" description="Counter Reset on Capture Event 3 " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Do not reset counter on Capture Event 3 (absolute time stamp)"/>
+      <bitenum id="__1" value="1" description="Reset counter after Event 3 time-stamp has been captured[[br]]("/>
+    </bitfield>
+    <bitfield id="CAP3POL" description="Capture Event 3 Polarity select " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Capture Event 3 triggered on a rising edge (RE)"/>
+      <bitenum id="__1" value="1" description="Capture Event 3 triggered on a falling edge (FE)"/>
+    </bitfield>
+    <bitfield id="CTRRST2" description="Counter Reset on Capture Event 2 " begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Do not reset counter on Capture Event 2 (absolute time stamp)"/>
+      <bitenum id="__1" value="1" description="Reset counter after Event 2 time-stamp has been captured[[br]]("/>
+    </bitfield>
+    <bitfield id="CAP2POL" description="Capture Event 2 Polarity select " begin="8" end="8" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Capture Event 2 triggered on a rising edge (RE)"/>
+      <bitenum id="__1" value="1" description="Capture Event 2 triggered on a falling edge (FE)"/>
+    </bitfield>
+    <bitfield id="CTRRST1" description="Counter Reset on Capture Event 1 " begin="13" end="9" width="5" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Do not reset counter on Capture Event 1 (absolute time stamp)"/>
+      <bitenum id="__1" value="1" description="Reset counter after Event 1 time-stamp has been captured (used "/>
+    </bitfield>
+    <bitfield id="CAP1POL" description="Capture Event 1 Polarity select" begin="15" end="14" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Capture Event 1 triggered on a rising edge (RE)"/>
+      <bitenum id="__1" value="1" description="Capture Event 1 triggered on a falling edge (FE)"/>
+    </bitfield>
+  </register>
+  <register id="ECCTL2" width="16" page="1" offset="0x15" internal="0" description="Capture Control Register 2">
+    <bitfield id="APWMPOL" description=" APWM output polarity select " begin="2" end="1" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Output is active high (Compare value defines high time)"/>
+      <bitenum id="__1" value="1" description="Output is active low (Compare value defines low time)"/>
+    </bitfield>
+    <bitfield id="CAP_APWM" description="CAP/APWM operating mode select " begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="ECAP module operates in capture mode"/>
+      <bitenum id="__1" value="1" description="ECAP module operates in APWM mode"/>
+    </bitfield>
+    <bitfield id="SWSYNC" description="SW forced counter sync " begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Writing a zero has no effect. Reading always returns a zero"/>
+      <bitenum id="__1" value="1" description="Writing a one forces a TSCTR shadow load of current ECAP module"/>
+    </bitfield>
+    <bitfield id="SYNCO_SEL" description="Sync-out mode " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Select sync-in event to be the sync-out signal pass through"/>
+      <bitenum id="__1" value="1" description="Select CTR = PRD event to be the sync-out signal"/>
+      <bitenum id="__16" value="10" description="Disable sync out signal"/>
+      <bitenum id="__17" value="11" description="Disable sync out signal"/>
+    </bitfield>
+    <bitfield id="SYNCI_EN" description="Counter sync-in select" begin="7" end="6" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable sync-in option"/>
+      <bitenum id="__1" value="1" description="Enable counter (TSCTR) to be loaded from CTRPHS register upon e"/>
+    </bitfield>
+    <bitfield id="TSCTRSTOP" description="TSCNT counter stop " begin="8" end="8" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="TSCTR stopped"/>
+      <bitenum id="__1" value="1" description="TSCTR free-running"/>
+    </bitfield>
+    <bitfield id="RE_ARM" description="One-shot re-arm " begin="9" end="9" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Has no effect (reading always returns a 0)"/>
+      <bitenum id="__1" value="1" description="Arms the one-shot sequence as follows:[[br]]1) Resets the Mod4 "/>
+    </bitfield>
+    <bitfield id="STOP_WRAP" description="Stop value for one-shot, Wrap for continuous" begin="10" end="10" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Stop after Capture Event 1 in one-shot mode[[br]]Wrap after Cap"/>
+      <bitenum id="__1" value="1" description="Stop after Capture Event 2 in one-shot mode[[br]]Wrap after Cap"/>
+      <bitenum id="__16" value="10" description="Stop after Capture Event 3 in one-shot mode[[br]]Wrap after Cap"/>
+      <bitenum id="__17" value="11" description="Stop after Capture Event 4 in one-shot mode[[br]]Wrap after Cap"/>
+    </bitfield>
+    <bitfield id="CONT_ONESHT" description="Continuous or one-shot " begin="15" end="11" width="5" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Operate in continuous mode"/>
+      <bitenum id="__1" value="1" description="Operate in one-Shot mode"/>
+    </bitfield>
+  </register>
+  <register id="ECFRC" width="16" page="1" offset="0x19" internal="0" description="Capture Interrupt Force Register">
+    <bitfield id="CTR_CMP" description="Compare Equal Interrupt Enable " begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No effect. Always reads back a 0."/>
+      <bitenum id="__1" value="1" description="Writing a 1 sets the CTR=CMP flag bit."/>
+    </bitfield>
+    <bitfield id="CTR_PRD" description="Period Equal Interrupt Enable" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No effect. Always reads back a 0."/>
+      <bitenum id="__1" value="1" description="Writing a 1 sets the CTR=PRD flag bit."/>
+    </bitfield>
+    <bitfield id="CTROVF" description="Counter Overflow Interrupt Enable " begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No effect. Always reads back a 0."/>
+      <bitenum id="__1" value="1" description="Writing a 1 to this bit sets the CTROVF flag bit."/>
+    </bitfield>
+    <bitfield id="CEVT4" description="Capture Event 4 Interrupt Enable " begin="4" end="4" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No effect. Always reads back a 0."/>
+      <bitenum id="__1" value="1" description="Writing a 1 sets the CEVT4 flag bit"/>
+    </bitfield>
+    <bitfield id="CEVT3" description="Capture Event 3 Interrupt Enable " begin="5" end="5" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No effect. Always reads back a 0."/>
+      <bitenum id="__1" value="1" description="Writing a 1 sets the CEVT3 flag bit"/>
+    </bitfield>
+    <bitfield id="CEVT2" description="Capture Event 2 Interrupt Enable " begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No effect. Always reads back a 0."/>
+      <bitenum id="__1" value="1" description="Writing a 1 sets the CEVT2 flag bit."/>
+    </bitfield>
+    <bitfield id="CEVT1" description="Capture Event 1 Interrupt Enable " begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No effect. Always reads back a 0."/>
+      <bitenum id="__1" value="1" description="Sets the CEVT1 flag bit."/>
+    </bitfield>
+  </register>
+</module>

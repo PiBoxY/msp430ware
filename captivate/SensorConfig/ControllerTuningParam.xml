@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TuningParams>
+    <Element_Data_Transmit_Enable>
+        <classification>controller</classification>
+        <type>boolean</type>
+        <description_file>Communications.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <group>Conversion_Control</group>
+        <cmd>0xC0</cmd>
+    </Element_Data_Transmit_Enable>
+    <Sensor_Data_Transmit_Enable>
+        <classification>controller</classification>
+        <type>boolean</type>
+        <description_file>Communications.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+        <group>Conversion_Control</group>
+        <cmd>0xC1</cmd>
+    </Sensor_Data_Transmit_Enable>
+    <Active_Mode_Scan_Rate_ms>
+        <classification>controller</classification>
+        <type>int</type>
+        <description_file>System_Report_Rate.html</description_file>
+        <default>33</default>
+        <min>1</min>
+        <max>2047</max>
+        <group>Conversion_Control</group>
+        <cmd>0xC2</cmd>
+    </Active_Mode_Scan_Rate_ms>
+	<Wake_On_Prox_Mode_Scan_Rate_ms>
+        <classification>controller</classification>
+        <type>int</type>
+        <description_file>WakeOnProx_Mode.html</description_file>
+        <default>100</default>
+        <min>1</min>
+        <max>2047</max>
+        <group>Conversion_Control</group>
+        <cmd>0xC3</cmd>
+    </Wake_On_Prox_Mode_Scan_Rate_ms>
+	<Inactivity_Timeout>
+        <classification>controller</classification>
+        <type>int</type>
+        <description_file>WakeOnProx_Mode.html</description_file>
+        <default>32</default>
+        <min>1</min>
+        <max>65535</max>
+        <group>Conversion_Control</group>
+        <cmd>0xC5</cmd>
+    </Inactivity_Timeout>
+	<Wakeup_Interval>
+        <classification>controller</classification>
+        <type>int</type>
+        <description_file>WakeOnProx_Mode.html</description_file>
+        <default>5</default>
+        <min>0</min>
+        <max>8</max>
+        <valueMap>
+            <map name="16 Samples" value="0" />
+            <map name="32 Samples" value="1" />
+            <map name="64 Samples" value="2" />
+            <map name="128 Samples" value="3" />
+            <map name="256 Samples" value="4" />
+            <map name="512 Samples" value="5" />
+            <map name="1024 Samples" value="6" />
+            <map name="2048 Samples" value="7" />
+			<map name="Disabled" value="8" />
+        </valueMap>
+        <group>Conversion_Control</group>
+        <cmd>0xC4</cmd>
+    </Wakeup_Interval>
+</TuningParams>
+

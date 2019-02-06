@@ -1,0 +1,331 @@
+<!--
+`ti-tile-analoggauge` is a tile containing an analog gauge widget, which can be
+  used to display the value of another widget or a target variable
+
+Example:
+
+    <ti-tile-analoggauge></ti-tile-analoggauge>
+
+See demo for a full working example of how to use this component.
+
+@group Instrument Tiles
+@element ti-tile-analoggauge
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base-text.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="../ti-widget-svggauge/ti-widget-svggauge.html">
+<link rel="import" href="ti-tile-properties.html">
+<link rel="import" href="ti-tile-base.html">
+<link rel="stylesheet" href="../paper-shadow/paper-shadow.css"  shim-shadowdom>
+
+<polymer-element name="ti-tile-analoggauge" extends="ti-tile-base"  >
+
+    <template>
+        <style>
+            :host {
+                display : inline-block;
+                background-color: #ffffff;
+                text-decoration: inherit;
+                position : relative;
+                padding: 1em;
+                width: 200px;
+                height: 200px;
+            }
+            core-icon-button /deep/ core-icon[role=img] {
+                height: 15px;
+                width: 15px;
+            }
+            #tileTitle {
+                word-wrap:break-word;
+                white-space:normal;
+				text-align: left;
+                z-index: 0;
+                color:{{_titleFontColor}};
+                font-size:{{titlefontSize}};
+                font-weight:{{_titleFontWeight}};
+            }
+
+            #containerDiv {
+                top: 0px;
+                width: 100%;
+                height:100%;
+                margin: 0;            
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
+            #instrument_div {
+                position: relative;
+				width: 100%;
+				height:100%;
+            }
+            #instrument {
+
+				top: 20px;
+                bottom: 0px;
+                right: 0px;
+                left: 0px;
+                padding: 8px;
+                position: static;
+                transform: translate(0, 20px);
+            }
+            #editIcon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveLeftIcon {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #moveRightIcon {
+                position: absolute;
+                top: 0px;
+                right: 20px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+                color: {{_iconColor}};
+            }
+            #resizeIcon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_resizeCornerColor}};
+            }
+            #pinIcon {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                color: {{_iconColor}};
+            }
+        </style>
+        <ti-tile-properties id="propertiesDialog" on-bind-property="{{applyPropertyBinding}}" style="width:200px;height:400px;right:30px;" layout></ti-tile-properties>
+        <div id="shadow-bottom" fit  class="paper-shadow-bottom-z-[[elevation]]"></div>
+        <div id="shadow-top" fit  class="paper-shadow-top-z-[[elevation]]"></div>
+        <div id="containerDiv" layout vertical >
+            <div id="tileTitle" flex>{{titleText}}</div>
+            <div fit layout vertical center-justified>
+                <div layout horizontal>
+                    <div id="instrument_div" >
+                        <table align="center" style="margin: 0px auto;">
+                            <tr>
+                                <td width="0px"></td>
+                                <td width="90%" >
+       				                <ti-widget-svggauge id="instrument"  value="{{value}}" showOdometer="{{showOdometer}}" odometer="{{odometer}}"  minValue="{{minValue}}" maxValue="{{maxValue}}" titleText="{{gaugeTitle}}"  units="{{units}}" frameColor="{{frameColor}}" needleColor="{{needleColor}}" tickcolor="#000000" majortickcolor="#000000" gaugeFontSizeInPx="{{gaugeFontSizeInPx}}" titleFontSizeInPx="{{gaugeTitleFontSizeInPx}}" odometerFontSizeInPx="{{odometerFontSizeInPx}}"></ti-widget-svggauge>
+                                </td>
+                                <td width="0px"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <template if="{{_inDesigner()}}">
+                <core-icon-button id="editIcon"  icon="create" on-tap="{{editProperties}}" title="edit tile properties" ></core-icon-button>
+                <core-icon-button id="moveLeftIcon"  icon="arrow-back" on-tap="{{moveLeft}}" title="move tile left" style="{{_arrowStyle}}"></core-icon-button>
+                <core-icon-button id="moveRightIcon" icon="arrow-forward" on-tap="{{moveRight}}" title="move tile right" style="{{_arrowStyle}}"></core-icon-button>
+                <core-icon-button id="resizeIcon"  icon="device:signal-cellular-0-bar"  title="resize tile" ></core-icon-button>
+                <core-icon-button id="pinIcon" icon="{{_pinIcon}}" on-tap="{{togglePin}}" ></core-icon-button>
+            </template>
+
+        </div>
+        <content></content>
+    </template>
+    <script>
+        Polymer ('ti-tile-analoggauge',
+                {
+
+                    publish: {
+                        /**
+                         * the title text displayed at the top of the tile.
+                         *
+                         * @attribute titleText
+                         * @type String
+                         * @default ''
+                         */
+                        titleText: '',
+
+                        /**
+                         * the value displayed by the gauge.
+                         *
+                         * @attribute value
+                         * @type number
+                         * @default 0
+                         */
+                        value: 0,
+                        /**
+                         * the minimum value to display on the gauge.
+                         *
+                         * @attribute minValue
+                         * @type number
+                         * @default 0
+                         */
+                        minValue: 0,
+                        /**
+                         * the maximum value to display on the gauge.
+                         *
+                         * @attribute maxValue
+                         * @type number
+                         * @default 0
+                         */
+                        maxValue: 100,
+                        /**
+                         * the title text displayed on the gauge face.
+                         *
+                         * @attribute gaugeTitle
+                         * @type String
+                         * @default ''
+                         */
+                        gaugeTitle: '',
+                        /**
+                         * the units string displayed on the gauge face.
+                         *
+                         * @attribute units
+                         * @type String
+                         * @default 0
+                         */
+                        units: '',
+                        /**
+                         * the string displayed in the inset box on the gauge face.
+                         *
+                         * @attribute odometer
+                         * @type String
+                         * @default 0
+                         */
+                        odometer: '',
+                        /**
+                         * Controls whether the inset box on the gauge face is displayed or not
+                         *
+                         * @attribute showOdometer
+                         * @type Boolean
+                         * @default false
+                         */
+                        showOdometer: false,
+                        /**
+                         * Color for the frame surrounding the gauge face
+                         *
+                         * @attribute frameColor
+                         * @type String
+                         * @default "#f2f2f2"
+                         */
+                        frameColor: '#c0c0c0',
+                        /**
+                         * Color for the needleColor
+                         *
+                         * @attribute needleColor
+                         * @type String
+                         * @default "#ff0000"
+                         */
+                        needleColor: '#cc0000',
+                        /**
+                         * Font size for text on the gauge scale labels (in svg pixels, without the px suffix)
+                         *
+                         * @attribute gaugeFontSizeInPx
+                         * @type Number
+                         * @default 5
+                         */
+                        gaugeFontSizeInPx: 5,
+                        /**
+                         * Font size for the title text (in svg pixels, without the px suffix)
+                         *
+                         * @attribute gaugeTitleizeInPx
+                         * @type Number
+                         * @default 6
+                         */
+                        gaugeTitleFontSizeInPx: 6,
+                        /**
+                         * Font size for the odometer text (in svg pixels, without the px suffix)
+                         *
+                         * @attribute odometerFontSizeInPx
+                         * @type Number
+                         * @default 5
+                         */
+                        odometerFontSizeInPx: 5.5,
+                    },
+
+                    getCategory: function() {
+                        return 'Meter';
+                    },
+                    getComponentName: function() {
+                        return 'Analog Gauge';
+                    },
+                    getElement : function()
+                    {
+                        if (this.$) {
+                            return this.$.containerDiv;
+                        } else {
+                            return null;
+                        }
+                    },
+                    applyPropertyBinding: function (event, detail) {
+                        var designer = null;
+                        if ((window.parent)&&(window.parent.document)){
+                            designer = window.parent.document.querySelector('#designer');
+                        }
+                        if (designer) {
+                            this.designer.applyPropertyBinding(
+                                    detail.obj, detail.name, detail.path);
+                        }
+                    },
+                    domReady: function(){
+                        this.onResizedByDesigner();
+                        this.super();
+                    },
+                    onResizedByDesigner: function(){
+                        var rect = this.getBoundingClientRect();
+                        var instRect = this.$.instrument.getBoundingClientRect();
+                        var widthPadding = 30;
+                        var topPadding = instRect.top - rect.top;
+                        var newSize = Math.min(rect.width-widthPadding,rect.height-topPadding);
+                        if (newSize > 0) {
+                           this.$.instrument.style.width = newSize;
+                           this.$.instrument.style.height = newSize;
+                           this.$.instrument.size = newSize;
+                           // this.$.instrument.checkDivSize();
+                        }
+                    }
+
+                });
+    </script>
+</polymer-element>

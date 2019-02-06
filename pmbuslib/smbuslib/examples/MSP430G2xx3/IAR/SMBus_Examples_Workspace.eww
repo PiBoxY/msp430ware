@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\SMB_Master00_AllProtocols\SMB_Master00_AllProtocols.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SMB_Master01_ReadByte_Echo\SMB_Master01_ReadByte_Echo.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SMB_Master02_WriteWord_Dimmer\SMB_Master02_WriteWord_Dimmer.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SMB_Slave00_AllProtocols\SMB_Slave00_AllProtocols.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SMB_Slave01_ReadByte_Echo\SMB_Slave01_ReadByte_Echo.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SMB_Slave02_WriteWord_Dimmer\SMB_Slave02_WriteWord_Dimmer.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>Build_All</name>
+      <member>
+        <project>SMB_Master00_AllProtocols</project>
+        <configuration>MSP430G2553</configuration>
+      </member>
+      <member>
+        <project>SMB_Master01_ReadByte_Echo</project>
+        <configuration>MSP430G2553</configuration>
+      </member>
+      <member>
+        <project>SMB_Master02_WriteWord_Dimmer</project>
+        <configuration>MSP430G2553</configuration>
+      </member>
+      <member>
+        <project>SMB_Slave00_AllProtocols</project>
+        <configuration>MSP430G2553</configuration>
+      </member>
+      <member>
+        <project>SMB_Slave01_ReadByte_Echo</project>
+        <configuration>MSP430G2553</configuration>
+      </member>
+      <member>
+        <project>SMB_Slave02_WriteWord_Dimmer</project>
+        <configuration>MSP430G2553</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

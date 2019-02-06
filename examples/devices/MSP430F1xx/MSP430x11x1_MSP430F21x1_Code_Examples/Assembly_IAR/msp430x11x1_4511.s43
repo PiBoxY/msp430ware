@@ -1,0 +1,97 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;*****************************************************************************
+;   MSP430x11x1 Demo  - Software Interface to CD4511 7-Segment Decoder
+;
+;   Description: Increment BCD value directly on P1.0-P1.3
+;   ACLK = n/a, MCLK = SMCLK = default DCO ~800k
+;
+;		 MSP430F1121     ^    CD4511
+;             -----------------  |  ----------
+;            |                 | |-|LT,BL     |  8
+;            |             P1.0|-->|A      a-g|--\-> 7-Segment LED
+;            |             P1.1|-->|B         |
+;            |             P1.2|-->|C       LE|--|
+;            |             P1.3|-->|D         |  V
+;
+;
+;   M. Buccini
+;   Texas Instruments Inc.
+;   Feb 2005
+;   Built with IAR Embedded Workbench Version: 3.21A
+;*****************************************************************************
+#include <msp430.h>
+;-----------------------------------------------------------------------------
+            ORG     0F000h                  ; Program Start
+;-----------------------------------------------------------------------------
+RESET       mov.w   #0300h,SP               ; Initialize stackpointer
+StopWDT     mov.w   #WDTPW+WDTHOLD,&WDTCTL  ; Stop Watchdog Timer
+SetupP2     bic.b   #0Fh,&P1OUT             ; A,B,C,D = 0
+            bis.b   #0Fh,&P1DIR             ; A,B,C,D = outputs
+                                            ;
+Mainloop    push.b  &P1OUT                  ; Save current P1OUT
+            setc                            ;
+            dadc.b  0(SP)                   ; Decimal increment P1OUT
+            and.b   #0Fh,0(SP)              ; Lower nibble only
+            bic.b   #0Fh,&P1OUT             ; Lower nibble only cleared
+TX_4011     bis.b   @SP+,&P1OUT             ; Incremented nibble
+            call    #Delay                  ; Wait
+            jmp     Mainloop                ; Repeat
+                                            ;
+;-----------------------------------------------------------------------------
+Delay;      Software delay
+;-----------------------------------------------------------------------------
+            push.w  #0FFFFh                 ; Delay to TOS
+L1          dec.w   0(SP)                   ; Decrement TOS
+            jnz     L1                      ; Delay over?
+            incd.w  SP                      ; Clean TOS
+            ret                             ;
+                                            ;
+;-----------------------------------------------------------------------------
+;           Interrupt Vectors
+;-----------------------------------------------------------------------------
+            ORG     0FFFEh                  ; MSP430 RESET Vector
+            DW      RESET                   ;
+            END

@@ -1,0 +1,12 @@
+DRC Rules Export File for PCB: C:\Users\a0272918\Documents\Altium Design Projects\captivate_EVM\captivate_devkit_panelboard__proximity\design\captivate_proximity.PcbDoc
+RuleKind=Clearance|RuleName=Clearance_Poly_Components|Scope=Board|Minimum=20.00
+RuleKind=Clearance|RuleName=Clearance_General|Scope=Board|Minimum=6.00
+RuleKind=Clearance|RuleName=Clearance_Poly_Connectors|Scope=Board|Minimum=40.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge|Scope=Board|Minimum=7.87
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_Poly|Scope=Board|Minimum=7.87
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_MountingHoles|Scope=Board|Minimum=40.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=6.00
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=3.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing|Scope=Board|Minimum=9.00
+RuleKind=Clearance|RuleName=Clearance_Poly_Bottom_To_Track|Scope=Board|Minimum=10.00

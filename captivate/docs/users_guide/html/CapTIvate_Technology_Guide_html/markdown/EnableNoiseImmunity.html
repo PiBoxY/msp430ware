@@ -1,0 +1,21 @@
+<!-- Captivate Description HTML -->
+<!-- Noise Immunity Enable -->
+
+<html>
+    <body>
+	
+		<B>Enable Noise Immunity</B><BR>
+		The controller customizer has a compile-time option for noise immunity. Selecting this option sets the CAPT_CONDUCTED_NOISE_IMMUNITY_ENABLE compile-time definition in the CAPT_UserConfig.h file to true when source code is generated.  This definition modifies the behavior of the software library to run additional conversions and post-processing steps to improve tolerance to external noise.  Enabling this option will increase code size, measurement time, and software execution time.  When the compile-time option is set, the manager layer will make calls to EMC versions of certain functions rather than the standard versions. 
+        
+        <P>Below is a mapping of which functions are replaced:
+        
+        <P>1. CAPT_calibrateSensor() is replaced with CAPT_calibrateSensorWithEMC()
+        <BR>2. CAPT_updateSensor() is replaced with CAPT_updateSensorWithEMC()
+        <BR>3. CAPT_processFSMCycle() is replaced with CAPT_processCycleWithEMC()
+        <BR>4. CAPT_updateProx() and CAPT_updateTouchand are replaced with CAPT_updateSelfElementProxTouchWithEMC() and CAPT_updateProjElementProxTouchWithEMC()
+        
+        <P>The noise immunity (EMC) functionality is configurable through a software data structure (tEMCConfig).  This
+        data structure is described in the EMC section of the Software Library chapter of the CapTIvate Technology Guide.  With this data structure, it is possible to configure functions such as the frequency hopping, outlier removal, and oversampling.
+		
+    </body>
+</html>

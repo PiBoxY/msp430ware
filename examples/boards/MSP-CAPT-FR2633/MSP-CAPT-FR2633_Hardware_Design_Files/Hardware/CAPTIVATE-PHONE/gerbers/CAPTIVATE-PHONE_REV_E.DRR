@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: captivate_phone.PcbDoc   9/17/2015  5:23:05 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : CAPTIVATE-PHONE_REV_E.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        16mil (0.4064mm)         Round          102              50.51 Inch (1282.96 mm)
+T2        39.37mil (1mm)           Round          48               5.50 Inch (139.70 mm)
+T3        110.24mil (2.8001mm)     Round          2                1.90 Inch (48.26 mm)
+---------------------------------------------------------------------------
+Totals                                            152              57.91 Inch (1470.92 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

@@ -1,0 +1,189 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+Copyright (c) 2014, Texas Instruments Incorporated
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+*   Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+*   Neither the name of Texas Instruments Incorporated nor the names of
+its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <!--[if gte IE 6]>
+    <script type="text/javascript">
+        // this is IE greater than or equal to 6
+        var isInternetExplorer=true;
+    </script>
+    <![endif]-->
+
+    <script>
+        var isIE =   ((navigator.appName == 'Microsoft Internet Explorer') ||
+        ((navigator.appName == 'Netscape') &&
+        (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));
+        if (window.isInternetExplorer) {
+            isIE =  true;
+        }
+
+        if ( isIE ){
+            var object = document.createElement("object");
+            object.setAttribute("id", "ticloudagentlauncher");
+            object.setAttribute("type", "application/x-ticloudagentlauncher");
+            object.setAttribute("width", "0");
+            object.setAttribute("height", "0");
+            document.head.appendChild( object );
+            window.TICloudAgent_HACK = {};
+            window. TICloudAgent_HACK.plugin = document.getElementById("ticloudagentlauncher");
+        }
+    </script>
+    <link rel="import" href="../polymer/polymer.html">
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+            text-align:center;
+        }
+        .icons {
+            color: red;
+        }
+        .wide { display: block; padding-left: 5px; padding-top:5px; vertical-align:bottom; background-color: gray; }
+        .container {height: 28px; width:120px;}
+    </style>
+    <link rel="import" href="ti-widget-compass.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-slider.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-label.html">
+    <link rel="import" href="../ti-core-stylesheets/ti-core-stylesheets.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-checkbox.html">
+</head>
+
+<body >
+<template is="auto-binding" id="template">
+    <style>
+        #ti_widget_compass {
+            width: 340px;
+            height: 340px;
+        }
+        #ti_widget_compass2 {
+            width: 140px;
+            height: 140px;
+        }
+        #fontSize {
+            width: 130px;
+            position: absolute;
+            padding-top:17px;
+            padding-left:10px;
+            height: 20px;
+        }
+    </style>
+    <h1 align="center">Demo of ti-widget-compass</h1>
+    <p>&nbsp;</p>
+    <div>
+
+    </div>
+    <div >
+        <div>
+            <ti-widget-compass id="ti_widget_compass" fontSize="{{$.fontSize.selectedText}}" value="{{ $.slider_angle.value }}" ></ti-widget-compass>
+        </div>
+        <p>&nbsp;</p>
+        <div style="padding-left:200px;align:center;">
+            <table>
+                <tr>
+                    <td align="left"><span style="font-weight:bold">Angle: </span></td>
+                    <td align="left" ><span style="text-align:left;"><ti-widget-slider id="slider_angle" increment="0.1"  maxvalue="360" labels="0,360"  on-mousedown="{{pauseAuto}}" on-mouseup="{{onAngleChangedHdlr}}" style="width:255px;"></ti-widget-slider></span></td>
+                    <td align="left" width="100px"><span>{{ $.slider_angle.value }}</span></td>
+                    <td align="left"><span >
+            <ti-widget-checkbox id="autoAngle" label="auto rotate" on-changed="{{onAutoRotateChecked}}"></ti-widget-checkbox>
+           </span>
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+        </div>
+
+    </div>
+
+</template>
+<script>
+    var templateObj = document.querySelector('#template');
+    templateObj.ready = function(){
+        templateObj.async(function(){
+            var display = templateObj.$.ti_widget_compass;
+        },1);
+    }
+    var angleIncr = +0.5;
+    var timeoutHandle;
+    var updateAngle = function(angle){
+        templateObj.$.ti_widget_compass.value = angle;
+        Polymer.flush();
+        var nextAngle = angle+angleIncr;
+        if (nextAngle >= 360){
+            angleIncr = -0.5;
+            nextAngle = 360;
+        }
+        if (nextAngle < 0){
+            angleIncr = 0.5;
+            nextAngle = 0;
+        }
+        if (templateObj.$.autoAngle.checked) {
+            timeoutHandle = window.setTimeout(function () {
+                updateAngle(nextAngle);
+            }, 200);
+        }
+    };
+    templateObj.onAutoRotateChecked = function(e){
+        templateObj.$.ti_widget_compass.decimalPlaces = 1;
+        updateAngle(templateObj.$.slider_angle.value);
+    };
+    templateObj.onAngleChangedHdlr = function(e){
+        templateObj.async(function(){
+            if (templateObj.$.autoAngle.checked){
+                window.setTimeout(function () {
+                    updateAngle(templateObj.$.slider_angle.value);
+                }, 200);
+            }
+
+        },null,10);
+    }
+    templateObj.pauseAuto = function(e){
+        if (timeoutHandle){
+            window.clearTimeout(timeoutHandle);
+        }
+    }
+
+</script>
+</body>
+</html>

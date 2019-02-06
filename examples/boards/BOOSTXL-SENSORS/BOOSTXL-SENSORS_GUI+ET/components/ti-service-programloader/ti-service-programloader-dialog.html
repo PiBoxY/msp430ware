@@ -1,0 +1,239 @@
+<!--
+`ti-service-programloader-dialog`
+
+Paper-Dialog that provide status feedback to the user during flashing of the device's program memory.
+
+Example:
+
+    <ti-service-programloader-dialog></ti-service-programloader-dialog>
+
+@group TI Core
+@element ti-service-programloader-dialog
+@homepage ../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2014, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+    its contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../ti-widget-common/ti-widget-image.html">
+<link rel="import" href="../ti-widget-common/ti-widget-label.html">
+<link rel="import" href="../ti-widget-common/ti-widget-panel.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../core-icons/core-icons.html">
+<link rel="import" href="../core-icon/core-icon.html">
+<link rel="import" href="ti-service-programloader.html">
+
+<polymer-element name="ti-service-programloader-dialog">
+
+    <template>
+
+
+        <paper-dialog id="paper_dialog" heading="{{dialogTitle}}" transition="paper-dialog-transition" autoCloseDisabled="true" style="background-color: white; ">
+
+            <div align="center">
+                <core-icon id="warningIcon" icon="info" style="display:none;color:darkorange" ></core-icon>
+                <ti-widget-label id="statusLabel" style="color:black;" wrap label="status info here."></ti-widget-label>
+            </div>
+            <div  align="center" style="padding-left:80px;">
+                <paper-button id="btnDownloadProgram"  on-click="{{onBtnDownloadProgramClicked}}" >Download Program<core-icon icon="file-download" style="width:18px;" ></core-icon></paper-button>
+                <paper-button id="btnCancel" on-click="{{toggle}}" style="float:right">Cancel<core-icon icon="close" style="width:18px;" ></core-icon></paper-button>
+            </div>
+        </paper-dialog>
+    </template>
+
+
+    <!-- ------------------------------------------------------------------------------------- -->
+    <script>
+
+
+
+        Polymer ('ti-service-programloader-dialog', {
+            statusLabel: undefined,
+            warningIcon: undefined,
+             _myTimeout: undefined,
+            publish: {
+                /**
+                 * the title displayed at the top of the dialog
+                 *
+                 * @attribute dialogTitle
+                 * @type string
+                 * @default 'Serial Port Configuration'
+                 */
+                dialogTitle: "Program Loading Status"
+            },
+            /**
+             * causes the dialog to become visible if it is not displayed, or not displayed if it is visible
+             *
+             * @method toggle
+             */
+            toggle: function() {
+                if (this._myTimeout) {
+                    window.clearTimeout(this._myTimeout);
+                }
+                this._myTimeout = null;
+                var dialog = this.$.paper_dialog;
+                this.isWizardOpen = !this.isWizardOpen;
+                this.clearStatus();
+                if (this.isWizardOpen){
+                    this.configure();
+                } else {
+                    this.unconfigure();
+                }
+                dialog.toggle();
+            },
+            clearStatus: function(){
+                this.warningIcon.style.display = 'none';
+                this.warningIcon.style.color='blue';
+                this.warningIcon.icon=' ';
+                this.statusLabel.style.color = 'black';
+                this.statusLabel.label = '';
+                this.errorMsgReceived = false;
+                this.$.btnDownloadProgram.style.display = 'none';
+            },
+
+            _backplane: undefined,
+            _programLoader: undefined,
+            configure: function(){
+
+                this._programLoader = gc && gc.services && gc.services['ti-service-programloader'];
+                if ((this._programLoader !== undefined) && (this._programLoader !== null)) {
+                    this._programLoader.addEventListener("programDownloadUIVisibilityChanged", this.programDownloadBtnVisibilityChangedHdlr);
+                    this._programLoader.addEventListener("statusMsgUpdated", this.statusChangedHdlr);
+                    this._backplane = this._programLoader.backplane;
+                    if  ((this._backplane !== undefined) && (this._backplane !== null)) {
+                        this._backplane.addEventListener("statusMsgUpdated", this.statusChangedHdlr);
+                        if (!this._backplane.isConnectedToCloudAgent) {
+                            this.$.btnDownloadProgram.style.display = '';
+                        } else {
+                            this._programLoader.updateStateMachine('onProgramDownloadBtnClicked');
+                        }
+                    } else {
+                        this._notifyUser("error", "red", "Backplane not defined.", "red");
+                    }
+                } else {
+                    this._notifyUser("error","red","ProgramLoader not found in document.body.","red");
+                }
+            },
+            unconfigure: function(){
+                if ((this._backplane !== undefined) && (this._backplane !== null)){
+                    this._backplane.removeEventListener("statusMsgUpdated");
+                    this._backplane.removeEventListener("currentStateUpdated");
+                }
+                if ((this._programLoader !== undefined) && (this._programLoader !== null)) {
+                    this._programLoader.removeEventListener("programDownloadUIVisibilityChanged");
+                    this._programLoader.removeEventListener("statusMsgUpdated");
+                }
+            },
+            _statusChangedHdlr: function(e){
+                var msg = e.currentTarget.status;
+                if ((msg.toUpperCase().indexOf('PROGRAMMED') >= 0)||(msg.toUpperCase().indexOf('SUCCESS') >= 0) ){
+                    this.notifyUser("check-circle", "green", msg, "black");
+                    // close the dialog automatically in 1 second
+                    var _self = this;
+                    this._myTimeout = window.setTimeout(function(){
+                        _self.toggle();
+                    },1000);
+                } else {
+                    if (msg.toUpperCase().indexOf("ERROR") >= 0){
+                        this.errorMsgReceived = true;
+                        this.notifyUser("error", "red", msg, "red");
+                    }
+                    if (!this.errorMsgReceived) {
+                        this.notifyUser("info", "blue", msg, "black");
+                    }
+                }
+            },
+            statusChangedHdlr: undefined,
+            errorMsgReceived: false,
+            programDownloadBtnVisibilityChangedHdlr: function(){
+                if (this._programLoader) {
+                    console.log('myProgramDownloadBtnVisibilityChangedHdlr called: isProgramDownloadBtnVisible = '+this._programLoader.isProgramDownloadBtnVisible)
+                    if (this._programLoader.isProgramDownloadBtnVisible) {
+                        this.$.btnDownloadProgram.style.display = '';
+                        //} else {
+                        //    this.$.btnDownloadProgram.disabled = true;
+                    }
+                }
+            },
+
+            _notifyUser: function(iconName,iconColor, msgText, textColor){
+                var _self = this;
+                // don't display any messages after auto-close sequence initiated
+                if ((this._myTimeout === undefined) || (this._myTimeout === null)) {
+                    this.async(function () {
+                        if (_self.statusLabel) {
+                            if ((msgText !== undefined) && (msgText !== null)) {
+                                _self.statusLabel.style.color = textColor;
+                                _self.statusLabel.label = msgText;
+                                _self.statusLabel.style.display = '';
+                            } else {
+                                _self.statusLabel.style.display = 'none';
+                            }
+                            if (iconName) {
+                                _self.warningIcon.style.color = iconColor;
+                                _self.warningIcon.icon = iconName;
+                                _self.warningIcon.style.display = '';
+                            } else {
+                                _self.warningIcon.style.display = 'none';
+                            }
+                            if (_self.$.btnCancel.disabled) {
+                                if ((iconColor === 'red') || (iconColor === 'green')) {
+                                    _self.$.btnCancel.disabled = false;
+                                }
+                            }
+                        }
+
+                    });
+                }
+            },
+            notifyUser: undefined,
+            numTimesWaiting: 0,
+            ready: function () {
+
+                this.statusLabel = this.$.statusLabel;
+                this.warningIcon = this.$.warningIcon;
+                this.notifyUser = this._notifyUser.bind(this);
+                this.statusChangedHdlr = this._statusChangedHdlr.bind(this);
+                var _self = this;
+                // Workaround to ensure paper dialog is properly position: see https://github.com/Polymer/paper-dialog/issues/44
+                this.$.paper_dialog.addEventListener("core-overlay-open-completed", function (e) {
+                    setTimeout(function(){
+                        //_self.$.paper_dialog.resetTargetDimensions();
+                        _self.$.paper_dialog.updateTargetDimensions();
+                    },400);
+                });
+
+            },
+            domReady: function(){
+            }
+
+        });
+    </script>
+
+</polymer-element>

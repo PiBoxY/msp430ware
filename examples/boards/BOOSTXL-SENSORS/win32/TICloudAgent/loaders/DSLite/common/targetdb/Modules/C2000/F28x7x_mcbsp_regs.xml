@@ -1,0 +1,408 @@
+<module id="MCBSP_REGS" HW_revision="">
+  <register id="DRR2" width="16" page="1" offset="0x0" internal="0" description="Data receive register bits 31-16">
+    <bitfield id="HWLB" description="High word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="HWHB" description="High word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="DRR1" width="16" page="1" offset="0x1" internal="0" description="Data receive register bits 15-0">
+    <bitfield id="LWLB" description="Low word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="LWHB" description="Low word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="DXR2" width="16" page="1" offset="0x2" internal="0" description="Data transmit register bits 31-16">
+    <bitfield id="HWLB" description="High word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="HWHB" description="High word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="DXR1" width="16" page="1" offset="0x3" internal="0" description="Data transmit register bits 15-0">
+    <bitfield id="LWLB" description="Low word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="LWHB" description="Low word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="SPCR2" width="16" page="1" offset="0x4" internal="0" description="Control register 2">
+    <bitfield id="XRST" description="Transmitter reset" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="If you read a 0, the transmitter is in its reset state"/>
+      <bitenum id="__1" value="1" description="If you read a 1, the transmitter is enabled"/>
+    </bitfield>
+    <bitfield id="XRDY" description="Transmitter ready" begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmitter not ready[[br]]When DXR1 is loaded, XRDY is automat"/>
+      <bitenum id="__1" value="1" description="Transmitter ready: DXR[1,2] is ready to accept new data"/>
+    </bitfield>
+    <bitfield id="XEMPTY" description="Transmitter empty" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmitter-empty condition[[br]]Typically this indicates that "/>
+      <bitenum id="__1" value="1" description="No transmitter-empty condition"/>
+    </bitfield>
+    <bitfield id="XSYNCERR" description="Transmit sync error INT flag" begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No error"/>
+      <bitenum id="__1" value="1" description="Transmit frame-synchronization error"/>
+    </bitfield>
+    <bitfield id="XINTM" description="Transmit Interupt mode bits" begin="5" end="4" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The McBSP sends a transmit interrupt (XINT) request to the CPU "/>
+      <bitenum id="__1" value="1" description="In the multichannel selection mode, the McBSP sends an XINT req"/>
+      <bitenum id="__2" value="2" description="The McBSP sends an XINT request to the CPU when each transmit f"/>
+      <bitenum id="__3" value="3" description="The McBSP sends an XINT request to the CPU when the XSYNCERR bi"/>
+    </bitfield>
+    <bitfield id="GRST" description="Sample rate generator reset" begin="6" end="6" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="If you read a 0, the sample rate generator is in its reset stat"/>
+      <bitenum id="__1" value="1" description="If you read a 1, the sample rate generator is enabled"/>
+    </bitfield>
+    <bitfield id="FRST" description="Frame sync logic reset" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="If you read a 0, the frame-synchronization logic is in its rese"/>
+      <bitenum id="__1" value="1" description="If you read a 1, the frame-synchronization logic is enabled"/>
+    </bitfield>
+    <bitfield id="SOFT" description="SOFT bit" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="FREE" description="FREE bit" begin="9" end="9" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="SPCR1" width="16" page="1" offset="0x5" internal="0" description="Control register 1">
+    <bitfield id="RRST" description="Receiver reset" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="If you read a 0, the receiver is in its reset state"/>
+      <bitenum id="__1" value="1" description="If you read a 1, the receiver is enabled"/>
+    </bitfield>
+    <bitfield id="RRDY" description="Receiver ready" begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receiver not ready[[br]]When the content of DRR1 is read, RRDY "/>
+      <bitenum id="__1" value="1" description="Receiver ready: New data can be read from DRR[1,2]"/>
+    </bitfield>
+    <bitfield id="RFULL" description="Receiver full" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No receiver-full condition"/>
+      <bitenum id="__1" value="1" description="Receiver-full condition: RSR[1,2] and RBR[1,2] are full with ne"/>
+    </bitfield>
+    <bitfield id="RSYNCERR" description="Receive sync error INT flag" begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No error"/>
+      <bitenum id="__1" value="1" description="Receive frame-synchronization error."/>
+    </bitfield>
+    <bitfield id="RINTM" description="Receive Interupt mode bits" begin="5" end="4" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="The McBSP sends a receive interrupt (RINT) request to the CPU w"/>
+      <bitenum id="__1" value="1" description="In the multichannel selection mode, the McBSP sends a RINT requ"/>
+      <bitenum id="__2" value="2" description="The McBSP sends a RINT request to the CPU when each receive fra"/>
+      <bitenum id="__3" value="3" description="The McBSP sends a RINT request to the CPU when the RSYNCERR bit"/>
+    </bitfield>
+    <bitfield id="DXENA" description="DX delay enable" begin="7" end="7" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="DX delay enabler off"/>
+      <bitenum id="__1" value="1" description="DX delay enabler on"/>
+    </bitfield>
+    <bitfield id="CLKSTP" description="Clock stop mode" begin="12" end="11" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Clock stop mode is disabled."/>
+      <bitenum id="__1" value="1" description="Clock stop mode is disabled."/>
+      <bitenum id="__2" value="2" description="Clock stop mode, without clock delay"/>
+      <bitenum id="__3" value="3" description="Clock stop mode, with half-cycle clock delay"/>
+    </bitfield>
+    <bitfield id="RJUST" description="Rx sign extension and justification mode" begin="14" end="13" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Right justify the data and zero fill the MSBs"/>
+      <bitenum id="__1" value="1" description="Right justify the data and sign-extend the data into the MSBs"/>
+      <bitenum id="__2" value="2" description="Left justify the data and zero fill the LSBs"/>
+      <bitenum id="__3" value="3" description="Reserved (do not use)"/>
+    </bitfield>
+    <bitfield id="DLB" description="Digital loopback" begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disabled[[br]]Internal DR is supplied by the MDRx pin"/>
+      <bitenum id="__1" value="1" description="Enabled[[br]]Internal receive signals are supplied by internal "/>
+    </bitfield>
+  </register>
+  <register id="RCR2" width="16" page="1" offset="0x6" internal="0" description="Receive Control register 2">
+    <bitfield id="RDATDLY" description="Receive data delay" begin="1" end="0" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="0-bit data delay"/>
+      <bitenum id="__1" value="1" description="1-bit data delay"/>
+      <bitenum id="__2" value="2" description="2-bit data delay"/>
+      <bitenum id="__3" value="3" description="Reserved (do not use)"/>
+    </bitfield>
+    <bitfield id="RFIG" description="Receive frame sync ignore" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Frame-synchronization detect"/>
+      <bitenum id="__1" value="1" description="Frame-synchronization ignore"/>
+    </bitfield>
+    <bitfield id="RCOMPAND" description="Receive Companding Mode selects" begin="4" end="3" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No companding, any size data, MSB received first"/>
+      <bitenum id="__1" value="1" description="No companding, 8-bit data, LSB received first"/>
+      <bitenum id="__2" value="2" description="?-law companding, 8-bit data, MSB received first"/>
+      <bitenum id="__3" value="3" description="A-law companding, 8-bit data, MSB received first"/>
+    </bitfield>
+    <bitfield id="RWDLEN2" description="Receive word length 2" begin="7" end="5" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="8 bits"/>
+      <bitenum id="__1" value="1" description="12 bits"/>
+      <bitenum id="__2" value="2" description="16 bits"/>
+      <bitenum id="__3" value="3" description="20 bits"/>
+      <bitenum id="__4" value="4" description="24 bits"/>
+      <bitenum id="__5" value="5" description="32 bits"/>
+      <bitenum id="__6" value="6" description="Reserved (do not use)"/>
+      <bitenum id="__7" value="7" description="Reserved (do not use)"/>
+    </bitfield>
+    <bitfield id="RFRLEN2" description="Receive Frame length 2" begin="14" end="8" width="7" rwaccess="R/W"/>
+    <bitfield id="RPHASE" description="Receive Phase" begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Single-phase frame[[br]]The receive frame has only one phase, p"/>
+      <bitenum id="__1" value="1" description="Dual-phase frame[[br]]The receive frame has two phases, phase 1"/>
+    </bitfield>
+  </register>
+  <register id="RCR1" width="16" page="1" offset="0x7" internal="0" description="Receive Control register 1">
+    <bitfield id="RWDLEN1" description="Receive word length 1" begin="7" end="5" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="8 bits"/>
+      <bitenum id="__1" value="1" description="12 bits"/>
+      <bitenum id="__2" value="2" description="16 bits"/>
+      <bitenum id="__3" value="3" description="20 bits"/>
+      <bitenum id="__4" value="4" description="24 bits"/>
+      <bitenum id="__5" value="5" description="32 bits"/>
+      <bitenum id="__6" value="6" description="Reserved (do not use)"/>
+      <bitenum id="__7" value="7" description="Reserved (do not use)"/>
+    </bitfield>
+    <bitfield id="RFRLEN1" description="Receive Frame length 1" begin="14" end="8" width="7" rwaccess="R/W"/>
+  </register>
+  <register id="XCR2" width="16" page="1" offset="0x8" internal="0" description="Transmit Control register 2">
+    <bitfield id="XDATDLY" description="Transmit data delay" begin="1" end="0" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="0-bit data delay"/>
+      <bitenum id="__1" value="1" description="1-bit data delay"/>
+      <bitenum id="__2" value="2" description="2-bit data delay"/>
+      <bitenum id="__3" value="3" description="Reserved (do not use)"/>
+    </bitfield>
+    <bitfield id="XFIG" description="Transmit frame sync ignore" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Frame-synchronization detect"/>
+      <bitenum id="__1" value="1" description="Frame-synchronization ignore"/>
+    </bitfield>
+    <bitfield id="XCOMPAND" description="Transmit Companding Mode selects" begin="4" end="3" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No companding, any size data, MSB received first"/>
+      <bitenum id="__1" value="1" description="No companding, 8-bit data, LSB received first"/>
+      <bitenum id="__2" value="2" description="?-law companding, 8-bit data, MSB received first"/>
+      <bitenum id="__3" value="3" description="A-law companding, 8-bit data, MSB received first"/>
+    </bitfield>
+    <bitfield id="XWDLEN2" description="Transmit word length 2" begin="7" end="5" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="8 bits"/>
+      <bitenum id="__1" value="1" description="12 bits"/>
+      <bitenum id="__2" value="2" description="16 bits"/>
+      <bitenum id="__3" value="3" description="20 bits"/>
+      <bitenum id="__4" value="4" description="24 bits"/>
+      <bitenum id="__5" value="5" description="32 bits"/>
+      <bitenum id="__6" value="6" description="Reserved (do not use)"/>
+      <bitenum id="__7" value="7" description="Reserved (do not use)"/>
+    </bitfield>
+    <bitfield id="XFRLEN2" description="Transmit Frame length 2" begin="14" end="8" width="7" rwaccess="R/W"/>
+    <bitfield id="XPHASE" description="Transmit Phase" begin="15" end="15" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="XCR1" width="16" page="1" offset="0x9" internal="0" description="Transmit Control register 1">
+    <bitfield id="XWDLEN1" description="Transmit word length 1" begin="7" end="5" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="8 bits"/>
+      <bitenum id="__1" value="1" description="12 bits"/>
+      <bitenum id="__2" value="2" description="16 bits"/>
+      <bitenum id="__3" value="3" description="20 bits"/>
+      <bitenum id="__4" value="4" description="24 bits"/>
+      <bitenum id="__5" value="5" description="32 bits"/>
+      <bitenum id="__6" value="6" description="Reserved (do not use)"/>
+      <bitenum id="__7" value="7" description="Reserved (do not use)"/>
+    </bitfield>
+    <bitfield id="XFRLEN1" description="Transmit Frame length 1" begin="14" end="8" width="7" rwaccess="R/W"/>
+  </register>
+  <register id="SRGR2" width="16" page="1" offset="0xa" internal="0" description="Sample rate generator register 2">
+    <bitfield id="FPER" description="Frame-sync period" begin="11" end="0" width="12" rwaccess="R/W"/>
+    <bitfield id="FSGM" description="Frame sync generator mode" begin="12" end="12" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="If FSXM = 1, the McBSP generates a transmit frame-synchronizati"/>
+      <bitenum id="__1" value="1" description="If FSXM = 1, the transmitter uses frame-synchronization pulses "/>
+    </bitfield>
+    <bitfield id="CLKSM" description="Sample rate generator mode" begin="13" end="13" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Sample rate generator input clock mode bit"/>
+      <bitenum id="__1" value="1" description="The input clock for the sample rate generator is taken from the"/>
+    </bitfield>
+    <bitfield id="GSYNC" description="CLKG sync" begin="15" end="15" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No clock synchronization[[br]]CLKG oscillates without adjustmen"/>
+      <bitenum id="__1" value="1" description="Clock synchronization[[br]]- CLKG is adjusted as necessary so t"/>
+    </bitfield>
+  </register>
+  <register id="SRGR1" width="16" page="1" offset="0xb" internal="0" description="Sample rate generator register 1">
+    <bitfield id="CLKGDV" description="CLKG divider" begin="7" end="0" width="8" rwaccess="R/W"/>
+    <bitfield id="FWID" description="Frame width" begin="15" end="8" width="8" rwaccess="R/W"/>
+  </register>
+  <register id="MCR2" width="16" page="1" offset="0xc" internal="0" description="Multi-channel register 2">
+    <bitfield id="XMCM" description="Transmit data delay" begin="1" end="0" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="No transmit multichannel selection mode is on"/>
+      <bitenum id="__1" value="1" description="All channels are disabled unless they are selected in the appro"/>
+      <bitenum id="__2" value="2" description="All channels are enabled, but they are masked unless they are s"/>
+      <bitenum id="__3" value="3" description="This mode is used for symmetric transmission and reception"/>
+    </bitfield>
+    <bitfield id="XCBLK" description="Transmit frame sync ignore" begin="4" end="2" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Block 0: channels 0 through 15"/>
+      <bitenum id="__1" value="1" description="Block 1: channels 16 through 31"/>
+      <bitenum id="__2" value="2" description="Block 2: channels 32 through 47"/>
+      <bitenum id="__3" value="3" description="Block 3: channels 48 through 63"/>
+      <bitenum id="__4" value="4" description="Block 4: channels 64 through 79"/>
+      <bitenum id="__5" value="5" description="Block 5: channels 80 through 95"/>
+      <bitenum id="__6" value="6" description="Block 6: channels 96 through 111"/>
+      <bitenum id="__7" value="7" description="Block 7: channels 112 through 127"/>
+    </bitfield>
+    <bitfield id="XPABLK" description="Transmit Companding Mode selects" begin="6" end="5" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Block 0: channels 0 through 15"/>
+      <bitenum id="__1" value="1" description="Block 2: channels 32 through 47"/>
+      <bitenum id="__2" value="2" description="Block 4: channels 64 through 79"/>
+      <bitenum id="__3" value="3" description="Block 6: channels 96 through 111"/>
+    </bitfield>
+    <bitfield id="XPBBLK" description="Transmit word length 2" begin="8" end="7" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Block 1: channels 16 through 31"/>
+      <bitenum id="__1" value="1" description="Block 3: channels 48 through 63"/>
+      <bitenum id="__2" value="2" description="Block 5: channels 80 through 95"/>
+      <bitenum id="__3" value="3" description="Block 7: channels 112 through 127"/>
+    </bitfield>
+    <bitfield id="XMCME" description="Transmit Frame length 2" begin="9" end="9" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="MCR1" width="16" page="1" offset="0xd" internal="0" description="Multi-channel register 1">
+    <bitfield id="RMCM" description="Receive multichannel mode" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="All 128 channels are enabled."/>
+      <bitenum id="__1" value="1" description="Multichanneled selection mode"/>
+    </bitfield>
+    <bitfield id="RCBLK" description="eceive current block" begin="4" end="2" width="3" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Block 0: channels 0 through 15"/>
+      <bitenum id="__1" value="1" description="Block 1: channels 16 through 31"/>
+      <bitenum id="__2" value="2" description="Block 2: channels 32 through 47"/>
+      <bitenum id="__3" value="3" description="Block 3: channels 48 through 63"/>
+      <bitenum id="__4" value="4" description="Block 4: channels 64 through 79"/>
+      <bitenum id="__5" value="5" description="Block 5: channels 80 through 95"/>
+      <bitenum id="__6" value="6" description="Block 6: channels 96 through 111"/>
+      <bitenum id="__7" value="7" description="Block 7: channels 112 through 127"/>
+    </bitfield>
+    <bitfield id="RPABLK" description="Receive partition A Block" begin="6" end="5" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Block 0: channels 0 through 15"/>
+      <bitenum id="__1" value="1" description="Block 2: channels 32 through 47"/>
+      <bitenum id="__2" value="2" description="Block 4: channels 64 through 79"/>
+      <bitenum id="__3" value="3" description="Block 6: channels 96 through 111"/>
+    </bitfield>
+    <bitfield id="RPBBLK" description="Receive partition B Block" begin="8" end="7" width="2" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Block 1: channels 16 through 31"/>
+      <bitenum id="__1" value="1" description="Block 3: channels 48 through 63"/>
+      <bitenum id="__2" value="2" description="Block 5: channels 80 through 95"/>
+      <bitenum id="__3" value="3" description="Block 7: channels 112 through 127"/>
+    </bitfield>
+    <bitfield id="RMCME" description="Receive multi-channel enhance mode" begin="9" end="9" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="2-partition mode[[br]]Only partitions A and B are used"/>
+      <bitenum id="__1" value="1" description="8-partition mode[[br]]All partitions (A through H) are used"/>
+    </bitfield>
+  </register>
+  <register id="RCERA" width="16" page="1" offset="0xe" internal="0" description="Receive channel enable partition A">
+    <bitfield id="RCEA" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="RCERB" width="16" page="1" offset="0xf" internal="0" description="Receive channel enable partition B">
+    <bitfield id="RCEB" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="XCERA" width="16" page="1" offset="0x10" internal="0" description="Transmit channel enable partition A">
+    <bitfield id="XCERA" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="XCERB" width="16" page="1" offset="0x11" internal="0" description="Transmit channel enable partition B">
+    <bitfield id="XCERB" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="PCR" width="16" page="1" offset="0x12" internal="0" description="Pin Control register">
+    <bitfield id="CLKRP" description="Receive Clock polarity" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive data is sampled on the falling edge of MCLKR."/>
+      <bitenum id="__1" value="1" description="Receive data is sampled on the rising edge of MCLKR."/>
+    </bitfield>
+    <bitfield id="CLKXP" description="Transmit clock polarity" begin="1" end="1" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit data is sampled on the rising edge of CLKX."/>
+      <bitenum id="__1" value="1" description="Transmit data is sampled on the falling edge of CLKX."/>
+    </bitfield>
+    <bitfield id="FSRP" description="Receive Frame synchronization polarity" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive frame-synchronization pulses are active high."/>
+      <bitenum id="__1" value="1" description="Receive frame-synchronization pulses are active low."/>
+    </bitfield>
+    <bitfield id="FSXP" description="Transmit Frame synchronization polarity" begin="3" end="3" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit frame-synchronization pulses are active high."/>
+      <bitenum id="__1" value="1" description="Transmit frame-synchronization pulses are active low."/>
+    </bitfield>
+    <bitfield id="SCLKME" description="Sample clock mode selection" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="CLKRM" description="Receiver Clock Mode" begin="8" end="8" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Not in digital loopback mode (DLB = 0):[[br]]The MCLKR pin is a"/>
+      <bitenum id="__1" value="1" description="Not in digital loopback mode (DLB = 0):[[br]]Internal MCLKR is "/>
+    </bitfield>
+    <bitfield id="CLKXM" description="Transmit Clock Mode." begin="9" end="9" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Not in clock stop mode (CLKSTP ="/>
+      <bitenum id="__1" value="1" description="Not in clock stop mode (CLKSTP ="/>
+    </bitfield>
+    <bitfield id="FSRM" description="Receive Frame Synchronization Mode" begin="10" end="10" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive frame synchronization is supplied by an external source"/>
+      <bitenum id="__1" value="1" description="Receive frame synchronization is supplied by the sample rate ge"/>
+    </bitfield>
+    <bitfield id="FSXM" description="Transmit Frame Synchronization Mode" begin="11" end="11" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit frame synchronization is supplied by an external sourc"/>
+      <bitenum id="__1" value="1" description="Transmit frame synchronization is generated internally by the S"/>
+    </bitfield>
+  </register>
+  <register id="RCERC" width="16" page="1" offset="0x13" internal="0" description="Receive channel enable partition C">
+    <bitfield id="RCEC" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="RCERD" width="16" page="1" offset="0x14" internal="0" description="Receive channel enable partition D">
+    <bitfield id="RCED" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="XCERC" width="16" page="1" offset="0x15" internal="0" description="Transmit channel enable partition C">
+    <bitfield id="XCERC" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="XCERD" width="16" page="1" offset="0x16" internal="0" description="Transmit channel enable partition D">
+    <bitfield id="XCERD" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="RCERE" width="16" page="1" offset="0x17" internal="0" description="Receive channel enable partition E">
+    <bitfield id="RCEE" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="RCERF" width="16" page="1" offset="0x18" internal="0" description="Receive channel enable partition F">
+    <bitfield id="RCEF" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="XCERE" width="16" page="1" offset="0x19" internal="0" description="Transmit channel enable partition E">
+    <bitfield id="XCERE" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="XCERF" width="16" page="1" offset="0x1a" internal="0" description="Transmit channel enable partition F">
+    <bitfield id="XCERF" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="RCERG" width="16" page="1" offset="0x1b" internal="0" description="Receive channel enable partition G">
+    <bitfield id="RCEG" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="RCERH" width="16" page="1" offset="0x1c" internal="0" description="Receive channel enable partition H">
+    <bitfield id="RCEH" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Disable the channel that is mapped to RCEx."/>
+      <bitenum id="__1" value="1" description="Enable the channel that is mapped to RCEx."/>
+    </bitfield>
+  </register>
+  <register id="XCERG" width="16" page="1" offset="0x1d" internal="0" description="Transmit channel enable partition G">
+    <bitfield id="XCERG" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="XCERH" width="16" page="1" offset="0x1e" internal="0" description="Transmit channel enable partition H">
+    <bitfield id="XCERH" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="For multichannel selection when XMCM ="/>
+      <bitenum id="__1" value="1" description="For multichannel selection when XMCM ="/>
+    </bitfield>
+  </register>
+  <register id="MFFINT" width="16" page="1" offset="0x23" internal="0" description="Interrupt enable">
+    <bitfield id="XINT" description="Enable for Receive Interrupt" begin="0" end="0" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Receive interrupt on RRDY is disabled."/>
+      <bitenum id="__1" value="1" description="Receive interrupt on RRDY is enabled."/>
+    </bitfield>
+    <bitfield id="RINT" description="Enable for transmit Interrupt" begin="2" end="2" width="1" rwaccess="R/W">
+      <bitenum id="__0" value="0" description="Transmit interrupt on XRDY is disabled."/>
+      <bitenum id="__1" value="1" description="Transmit interrupt on XRDY is enabled."/>
+    </bitfield>
+  </register>
+</module>

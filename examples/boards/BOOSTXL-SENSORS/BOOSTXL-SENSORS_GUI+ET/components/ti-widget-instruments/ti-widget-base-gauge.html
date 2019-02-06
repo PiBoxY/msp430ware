@@ -1,0 +1,202 @@
+<!--
+`ti-widget-base-gauge` is a base component for gauge widgets.
+
+Example:
+
+    <ti-widget-base-gauge></ti-widget-base-gauge>
+
+See demo for a full working example of how to use this component.
+
+@group TI Instrument Widgets
+@element ti-widget-base-gauge
+@extends ti-widget-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base.html">
+
+<polymer-element name="ti-widget-base-gauge" extends="ti-widget-base" attributes="titleLabel minValue maxValue decimalPlaces">
+    <script>
+        Polymer ('ti-widget-base-gauge', 
+        {
+            value: 0,
+            _lastValue: 0,
+            
+            /**
+             * Controls the minimum value that can be presented by the gauge.
+             *
+             * @attribute minValue
+             * @type number 
+             * @default 0
+             */
+            minValue: 0,
+
+            /**
+             * Controls the maximum value that can be presented by the gauge.
+             *
+             * @attribute maxValue
+             * @type number 
+             * @default 0
+             */
+            maxValue: 100,
+            
+            _displayValue : "",
+            
+            /**
+             * Controls the number of decimal places to round the value represented in the gauge for display purposes.
+             *
+             * @attribute decimalPlaces
+             * @type number 
+             * @default 1
+             */
+            decimalPlaces : 1,
+            
+            /**
+             * Provides an optional title for the gauge.
+             *
+             * @attribute titleLabel
+             * @type string 
+             */
+            titleLabel : "",
+            decimalPlacesChanged : function()
+            {
+                var newValue = +this.value;
+                this._displayValue = newValue.toFixed(this.decimalPlaces);
+            },
+            valueChanged : function()
+            {
+                var newValue = +this.value;
+                if (this._lastValue != this.value)
+                {
+                    this._lastValue = +this.value;
+                    this.updateValue();
+                    
+                    this._displayValue = newValue.toFixed(this.decimalPlaces);
+                }
+            },
+            getFontColor: function(isDisabled,defaultColor){
+                var result = '#555';
+                if (defaultColor){
+                    result = defaultColor;
+                }
+                if (this.disabled){
+                    result = '#CCC';
+                }
+                return result;
+            },
+            updateValue : function()
+            {
+                var val = this._lastValue;
+                var min = +this.minValue;
+                var max = +this.maxValue;
+                if (min > max)
+                {
+                    val = Math.max(val, max);
+                    val = Math.min(val, min);
+                    val = (min - val) / (min - max);
+                }
+                else
+                {
+                    val = Math.max(val, min);
+                    val = Math.min(val, max);
+                    val = (val - min) / (max - min);
+                }
+                
+                this.updateGauge(val);
+            },
+            updateGauge : function()
+            {
+            },
+            minValueChanged : function()
+            {
+                this.updateValue();
+            },
+            maxValueChanged : function()
+            {
+                this.updateValue();
+            },
+            cutHex : function(str) 
+            {
+                return (str.charAt(0)=="#") ? str.substring(1,7):str;
+            },
+            _defaultPercentColors : ["#a9d70b", "#f9c802", "#ff0000"],
+            disabledChanged: function(){
+                this.updateValue();
+            },
+            getColorForPercentage : function(pct, percentColors) 
+            {
+                if (!this.disabled) {
+                    var col = percentColors || this._defaultPercentColors;
+                    var grad = true;
+                    var no = col.length;
+                    if (no === 1) return col[0];
+                    var inc = (grad) ? (1 / (no - 1)) : (1 / no);
+                    var colors = new Array();
+                    for (var i = 0; i < col.length; i++) {
+                        var percentage = (grad) ? (inc * i) : (inc * (i + 1));
+                        var rval = parseInt((this.cutHex(col[i])).substring(0, 2), 16);
+                        var gval = parseInt((this.cutHex(col[i])).substring(2, 4), 16);
+                        var bval = parseInt((this.cutHex(col[i])).substring(4, 6), 16);
+                        colors[i] = {pct: percentage, color: {r: rval, g: gval, b: bval}};
+                    }
+
+                    if (pct == 0) {
+                        return 'rgb(' + [colors[0].color.r, colors[0].color.g, colors[0].color.b].join(',') + ')';
+                    }
+
+                    for (var i = 0; i < colors.length; i++) {
+                        if (pct <= colors[i].pct) {
+                            if (grad == true) {
+                                var lower = colors[i - 1];
+                                var upper = colors[i];
+                                var range = upper.pct - lower.pct;
+                                var rangePct = (pct - lower.pct) / range;
+                                var pctLower = 1 - rangePct;
+                                var pctUpper = rangePct;
+                                var color = {
+                                    r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
+                                    g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
+                                    b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
+                                };
+                                return 'rgb(' + [color.r, color.g, color.b].join(',') + ')';
+                            }
+                            else {
+                                return 'rgb(' + [colors[i].color.r, colors[i].color.g, colors[i].color.b].join(',') + ')';
+                            }
+                        }
+                    }
+                } else {
+                    return ('rgb(220,220,220)');
+                }
+            }
+        });
+    </script>
+</polymer-element>

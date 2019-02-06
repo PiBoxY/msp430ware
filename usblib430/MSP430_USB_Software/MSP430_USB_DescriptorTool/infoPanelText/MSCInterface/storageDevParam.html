@@ -1,0 +1,21 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>CD-ROM Mode</h1>
+        <p>Associated constant in the API stacks:  <span class="attribute">CDROM_SUPPORT</span>. (Not reported in the USB descriptors.)</p>
+        <p><span class="suggestion">Suggested default:</span>  "Hard drive mode" (also known as "direct block access")</p>
+        <p>This checkbox causes the MSC interface to present itself as a CD-ROM, instead of a magnetic-media device.  Generally speaking, any device not intending to appear as a CD-ROM should select "hard drive mode". </p>
+        <p>This box changes some fields the MSC interface reports to the host, and it causes it to use a different SCSI command set.</p>
+        <p>If using CD-ROM mode, you can only have a single logical unit (LUN). </p>
+        <p>What makes this mode useful is that cross-platform autorun functionality can be implemented with it.  See USB example #M5 in the USB Developers Package, and its description in the Examples Guide. </p>    
+    </body>
+</html>

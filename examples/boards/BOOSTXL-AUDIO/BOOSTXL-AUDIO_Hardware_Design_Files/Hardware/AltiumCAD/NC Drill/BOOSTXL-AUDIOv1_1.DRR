@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: BOOSTXL-AUDIO_EVM.PcbDoc   2/23/2016  3:25:04 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : BOOSTXL-AUDIOv1_1.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        10mil (0.254mm)          Round          141              27.51 Inch (698.78 mm)
+T2        17.72mil (0.45009mm)     Round          2                0.26 Inch (6.49 mm)
+T3        30mil (0.762mm)          Round          2                0.20 Inch (5.00 mm)
+T4        31.5mil (0.8001mm)       Round          2                0.07 Inch (1.90 mm)
+T5        39.37mil (1mm)           Round          3                0.31 Inch (8.00 mm)
+T6        40mil (1.016mm)          Round          46               6.77 Inch (171.86 mm)
+T7        55.12mil (1.40005mm)     Round          2                0.39 Inch (10.00 mm)
+T8        66.93mil (1.70002mm)     Round          2         NPTH   0.28 Inch (7.00 mm)
+T9        86.61mil (2.19989mm)     Round          2         NPTH   1.26 Inch (32.02 mm)
+---------------------------------------------------------------------------
+Totals                                            202              37.05 Inch (941.05 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

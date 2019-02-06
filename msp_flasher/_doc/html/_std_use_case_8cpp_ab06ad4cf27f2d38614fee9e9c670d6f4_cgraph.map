@@ -1,0 +1,6 @@
+<map id="StdUseCase_GetUsbIfs" name="StdUseCase_GetUsbIfs">
+<area shape="rect" id="node2" href="$_std_use_case_8cpp.html#ac11bf111b9a4fa3f60bab37fe0f472d9" title="Exit the Flasher routine, close the logfile. " alt="" coords="212,56,337,83"/>
+<area shape="rect" id="node3" href="$_std_use_case_8h.html#a46d8d3f398f950c6d4c29fccee1e7070" title="This function logs messages and prints them to the console. " alt="" coords="584,81,677,108"/>
+<area shape="rect" id="node4" href="$_std_use_case_8cpp.html#a62cd59b5bab747a6574843a42e18e0d8" title="Trigger VCC on and/or apply hard reset via RST/NMI (if specified in sOpt) and disconnect from the dev..." alt="" coords="385,31,520,57"/>
+<area shape="rect" id="node5" href="$_std_use_case_8cpp.html#a3c7974343a33a0806e8fb53104550cc9" title="Start the program execution. " alt="" coords="568,5,693,32"/>
+</map>

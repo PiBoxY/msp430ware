@@ -1,0 +1,452 @@
+################################################################################
+#                                                                              #
+#      IAR Universal Linker V5.4.1.30                                          #
+#                                                                              #
+#           Link time     =  27/Apr/2015  11:28:06                             #
+#           Target CPU    =  MSP430                                            #
+#           List file     =  C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \List\HID4BSL.map                                 #
+#           Output file 1 =  C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Exe\HID4BSL.txt                                  #
+#                            Format: msp430_txt                                #
+#           Output file 2 =  C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Exe\HID4BSL.d43                                  #
+#                            Format: debug                                     #
+#                            UBROF version 10.0.6                              #
+#           Command line  =  C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\BSL430_API.r43                               #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\BSL430_Command_Interpreter.r43               #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\BSL430_Low_Level_Init.r43                    #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\BSL430_USB_PI.r43                            #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\UsbApi.r43                                   #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\UsbHidReq.r43                                #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\UsbIsr.r43                                   #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\cstartup.r43                                 #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\descriptors.r43                              #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\hal_UCS.r43                                  #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Obj\usb.r43                                      #
+#                            -o                                                #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \Exe\HID4BSL.d43                                  #
+#                            -l                                                #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\Debug #
+#                            \List\HID4BSL.map                                 #
+#                            -xesi                                             #
+#                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
+#                            rkbench 6.4\430\LIB\"                             #
+#                            -f                                                #
+#                            C:\git\MSP430_BSL\source\device\MSP430F6638\CONFI #
+#                            G\lnk430_BSL_AREA_RAM_2400-33FF.xcl               #
+#                            (-cmsp430                                         #
+#                            -Z(DATA)DATA16_I,DATA16_Z,DATA16_N,DATA16_HEAP+_D #
+#                            ATA16_HEAP_SIZE=2400-33FF                         #
+#                            -Z(DATA)DATA20_I,DATA20_Z,DATA20_N,DATA20_HEAP+_D #
+#                            ATA20_HEAP_SIZE                                   #
+#                            -Z(DATA)CSTACK+_STACK_SIZE#                       #
+#                            -Z(CONST)BSL430_VERSION_VENDOR=1008-1008          #
+#                            -Z(CONST)BSL430_VERSION_CI=1009-1009              #
+#                            -Z(CONST)BSL430_VERSION_API=100A-100A             #
+#                            -Z(CONST)BSL430_VERSION_PI=100B-100B              #
+#                            -Z(CONST)BSLSIG=0x17F0-17FB                       #
+#                            -Z(CONST)JTAGLOCK_KEY=0x17FC-17FF                 #
+#                            -Z(CODE)CSTART,ISR_CODE=1008-17EF                 #
+#                            -Z(CONST)DATA16_C,DATA16_ID,DIFUNCT=1008-17EF     #
+#                            -Z(CODE)ZAREA=1000-1007                           #
+#                            -Z(CODE)ZAREA_CODE=1008-17FF                      #
+#                            -Z(CODE)BSL0=1008-11FF -Z(CODE)BSL1=1200-13FF     #
+#                            -Z(CODE)BSL2=1400-15FF -Z(CODE)BSL3=1600-17EF     #
+#                            -P(CODE)CODE=1008-17EF                            #
+#                            -Z(CONST)DATA20_C,DATA20_ID=1008-17EF             #
+#                            -Z(CODE)INTVEC=FF80-FFFF                          #
+#                            -Z(CODE)RESET=FFAE-FFAF                           #
+#                            -Z(CONST)CHECKSUM=FF80-FF81 -Hffff                #
+#                            -J2,crc16,,bsl_checksum,,2,#0x0=1000-17FF) -f     #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 6.4\430\config\multiplier32_loc2.xcl"       #
+#                            (-e?Mul8HwLoc2=?Mul8 -e?Mul16HwLoc2=?Mul16        #
+#                            -e?Mul16to32uHwLoc2=?Mul16to32u                   #
+#                            -e?Mul16to32sHwLoc2=?Mul16to32s                   #
+#                            -e?Mul32Hw32Loc2=?Mul32                           #
+#                            -e?Mul64Hw32Loc2=_Mul64i                          #
+#                            -e?Mul32u32uto64iHw32Loc2=_Mul32u32uto64i         #
+#                            -e?Mul32fHwLoc2=_Mul32f                           #
+#                            -e_Mul64fHwPtrLoc2=_Mul64fPtr)                    #
+#                            -D_STACK_SIZE=190 -Fubrof                         #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 6.4\430\LIB\CLIB\cl430xsf.r43"              #
+#                            -e_small_write=_formatted_write                   #
+#                            -e_medium_read=_formatted_read                    #
+#                            -D_DATA16_HEAP_SIZE=0                             #
+#                            -Omsp430_txt=C:\git\MSP430_BSL\source\device\MSP4 #
+#                            30F6638\Debug\Exe\HID4BSL.txt                     #
+#                            -s __program_start -D_DATA20_HEAP_SIZE=50         #
+#                                                                              #
+#                           Copyright (C) 1987-2012 IAR Systems AB.            #
+################################################################################
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *           CROSS REFERENCE            *
+                *                                      *
+                ****************************************
+
+       Program entry at :           100C  Relocatable, from module : ?cstart
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  __SystemLibrary = CLib
+  __core          = 430X
+  __data_model    = small
+  __double_size   = 32
+  __pic           = no
+  __reg_r4        = free
+  __reg_r5        = free
+  __rt_version    = 3
+
+                ****************************************
+                *                                      *
+                *    AUTOMATIC SYMBOL REDIRECTIONS     *
+                *                                      *
+                ****************************************
+
+                  There are no automatic symbol redirections.
+
+                ****************************************
+                *                                      *
+                *              ENTRY LIST              *
+                *                                      *
+                ****************************************
+
+Module  Entry                              Address
+------  -----                              -------
+?ABS_ENTRY_MOD
+        _DATA20_HEAP_SIZE                   0050
+        _DATA16_HEAP_SIZE                   0000
+        _STACK_SIZE                         0190
+BSL430_API ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\BSL430_API.r43 )
+        _A_FCTL1_L                          0140
+        _A_FCTL3_L                          0144
+        _A_PDSEL_L                          026A
+        _A_PMMCTL0_L                        0120
+        _A_SVSMHCTL_L                       0124
+        _A_SVSMLCTL_L                       0126
+        _A_PMMIFG_L                         012C
+        _A_SFRIFG1_L                        0102
+        TA1CTL                              0380
+        TA1CCTL2                            0386
+        TA1CCR2                             0396
+        _A_USBKEYID_L                       0900
+        _A_USBCNF_L                         0902
+        _A_USBPHYCTL_L                      0904
+        _A_USBPWRCTL_L                      0908
+        _A_USBPLLCTL_L                      0910
+        _A_USBPLLDIVB_L                     0912
+        _A_USBPLLIR_L                       0914
+        USBIEPIE                            092E
+        USBOEPIE                            092F
+        USBIEPIFG                           0930
+        USBCTL                              093C
+        USBIFG                              093E
+        USBFUNADR                           093F
+        _A_UCSCTL0_L                        0160
+        _A_UCSCTL1_L                        0162
+        _A_UCSCTL2_L                        0164
+        _A_UCSCTL3_L                        0166
+        _A_UCSCTL4_L                        0168
+        _A_UCSCTL5_L                        016A
+        _A_UCSCTL6_L                        016C
+        _A_UCSCTL7_L                        016E
+        LockedStatus                        2456
+        FwRamKey                            2458
+        BSL430_API_Version                  100A
+        BSL430_unlock_BSL                   1626
+        BSL430_writeMemory                  15D4
+        BSL430_Vendor_Version               1008
+        BSL430_CI_Version                   1009
+        main                                1756
+        interpretCommand                    150A
+        sendMessage                         1782
+        BSL430_ReceiveBuffer                245A
+        BSL430_SendBuffer                   245C
+        BSL430_BufferSize                   245E
+        RAM_Buf                             2416
+        cSPEED_1_PLL                        106C
+        cSPEED_2_PLL                        106E
+        cSPEED_3_PLL                        1070
+        cSPEED_4_PLL                        1072
+        BSL430_PI_Version                   100B
+        PI_init                             12AA
+        PI_receivePacket                    16FA
+        UsbSendHID                          1728
+        UsbHandler                          13F0
+        SetupPacketInterruptHandler         16BA
+        abromDeviceDescriptor               1074
+        abromReportDescriptor               101E
+        abromConfigurationDescriptorGroup   1042
+        bConfigurationNumber                2400
+        bInterfaceNumber                    2401
+        wBytesRemainingOnIEP0               2402
+        wBytesRemainingOnOEP0               2404
+        pbIEP0Buffer                        2406
+        bHostAskMoreDataThanAvailable       240E
+        abUsbRequestReturnData              2460
+        bStatusAction                       2410
+        bFunctionSuspended                  2411
+        bEnumerationStatus                  2412
+        wUSBPLL                             2414
+        tSetupPacket                        2380
+        tEndPoint0DescriptorBlock           0920
+        tInputEndPointDescriptorBlock       23C8
+        tOutputEndPointDescriptorBlock      2388
+        abIEP0Buffer                        2378
+        USB_enable                          1678
+        USB_reset                           148C
+        usbSendNextPacketOnIEP0             1576
+        usbSendDataPacketOnEP0              17A6
+        usbGetEndpointStatus                10DC
+        usbSendZeroLengthPacketOnIEP0       1124
+        usbSetEndpointFeature               1132
+        usbDecodeAndProcessUsbRequest       1164
+        ?setjmp_save_r4                     NOT NEEDED
+        ?setjmp_save_r5                     NOT NEEDED
+        FCTL1                               0140
+        FCTL1_H                             0141
+        FCTL1_L                             0140
+        FCTL3                               0144
+        FCTL3_H                             0145
+        FCTL3_L                             0144
+        PDSEL                               026A
+        PDSEL_H                             026B
+        PDSEL_L                             026A
+        PMMCTL0                             0120
+        PMMCTL0_H                           0121
+        PMMCTL0_L                           0120
+        SVSMHCTL                            0124
+        SVSMHCTL_H                          0125
+        SVSMHCTL_L                          0124
+        SVSMLCTL                            0126
+        SVSMLCTL_H                          0127
+        SVSMLCTL_L                          0126
+        PMMIFG                              012C
+        PMMIFG_H                            012D
+        PMMIFG_L                            012C
+        SFRIFG1                             0102
+        SFRIFG1_H                           0103
+        SFRIFG1_L                           0102
+        USBKEYID                            0900
+        USBKEYID_H                          0901
+        USBKEYID_L                          0900
+        USBCNF                              0902
+        USBCNF_H                            0903
+        USBCNF_L                            0902
+        USBPHYCTL                           0904
+        USBPHYCTL_H                         0905
+        USBPHYCTL_L                         0904
+        USBPWRCTL                           0908
+        USBPWRCTL_H                         0909
+        USBPWRCTL_L                         0908
+        USBPLLCTL                           0910
+        USBPLLCTL_H                         0911
+        USBPLLCTL_L                         0910
+        USBPLLDIVB                          0912
+        USBPLLDIVB_H                        0913
+        USBPLLDIVB_L                        0912
+        USBPLLIR                            0914
+        USBPLLIR_H                          0915
+        USBPLLIR_L                          0914
+        UCSCTL0                             0160
+        UCSCTL0_H                           0161
+        UCSCTL0_L                           0160
+        UCSCTL1                             0162
+        UCSCTL1_H                           0163
+        UCSCTL1_L                           0162
+        UCSCTL2                             0164
+        UCSCTL2_H                           0165
+        UCSCTL2_L                           0164
+        UCSCTL3                             0166
+        UCSCTL3_H                           0167
+        UCSCTL3_L                           0166
+        UCSCTL4                             0168
+        UCSCTL4_H                           0169
+        UCSCTL4_L                           0168
+        UCSCTL5                             016A
+        UCSCTL5_H                           016B
+        UCSCTL5_L                           016A
+        UCSCTL6                             016C
+        UCSCTL6_H                           016D
+        UCSCTL6_L                           016C
+        UCSCTL7                             016E
+        UCSCTL7_H                           016F
+        UCSCTL7_L                           016E
+        ?Subroutine1                        17C8
+        ?Subroutine0                        111C
+        ?Subroutine2                        17E2
+        ?Subroutine3                        17D8
+BSL430_Command_Interpreter ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\BSL430_Command_Interpreter.r43 )
+BSL430_Low_Level_Init ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\BSL430_Low_Level_Init.r43 )
+        BSL_REQ_JTAG_OPEN                   0001
+        BSL_REQ_APP_CALL                    0002
+        BslEntryLoc                         17FA
+        BslProtectVecLoc                    17F2
+        PBSLSigLoc                          17F4
+        SBSLSigLoc                          17F6
+        PJTAGLOCK_KEY                       17FC
+        SJTAGLOCK_KEY                       17FE
+        BSL_Entry_JMP                       1000
+        BSL_ACTION0                         1086
+        RETURN_ERROR                        1094
+        RETURN_TO_BSL                       109A
+        BSL_Protect                         10A0
+        REQUEST_BSL                         10CE
+        JUST_RETA                           10D0
+        DELAY_LOOP                          10C4
+BSL430_USB_PI ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\BSL430_USB_PI.r43 )
+UsbApi ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\UsbApi.r43 )
+UsbHidReq ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\UsbHidReq.r43 )
+UsbIsr ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\UsbIsr.r43 )
+?reset_vector ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\cstartup.r43 )
+        ?reset_vector                       FFAE
+?cstart ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\cstartup.r43 )
+        __program_start                     100C
+        ?cstart_begin                       100C
+        ?cstart_call_low_level_init         NOT NEEDED
+        ?cstart_init_zero                   1018
+        ?cstart_init_copy                   NOT NEEDED
+        ?cstart_init_zero20                 NOT NEEDED
+        ?cstart_init_copy20                 NOT NEEDED
+        ?cstart_call_ctors                  NOT NEEDED
+        ?cstart_call_main                   1018
+        ?cstart_end                         101E
+lowinit ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\cstartup.r43 )
+        __low_level_init                    NOT NEEDED
+descriptors ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\descriptors.r43 )
+hal_UCS ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\hal_UCS.r43 )
+usb ( C:\git\MSP430_BSL\source\device\MSP430F6638\Debug\Obj\usb.r43 )
+?clibstubs ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\430\LIB\CLIB\cl430xsf.r43 )
+        __call_ctors                        NOT NEEDED
+        __call_dtors                        NOT NEEDED
+        _Close_all                          NOT NEEDED
+?memcpy ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\430\LIB\CLIB\cl430xsf.r43 )
+        memcpy                              NOT NEEDED
+?memmove ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\430\LIB\CLIB\cl430xsf.r43 )
+        memmove                             NOT NEEDED
+?memzero ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\430\LIB\CLIB\cl430xsf.r43 )
+        __data16_memzero                    NOT NEEDED
+        __data16_memcpy                     NOT NEEDED
+        __data16_memmove                    NOT NEEDED
+?setjmp ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\430\LIB\CLIB\cl430xsf.r43 )
+        setjmp                              NOT NEEDED
+        ?setjmp_r5                          NOT NEEDED
+        ?setjmp_r4                          NOT NEEDED
+        ?setjmp_end                         NOT NEEDED
+?longjmp ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\430\LIB\CLIB\cl430xsf.r43 )
+        longjmp                             NOT NEEDED
+        ?longjmp_r5                         NOT NEEDED
+        ?longjmp_r4                         NOT NEEDED
+        ?longjmp_end                        NOT NEEDED
+?IndCallR13 ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\430\LIB\CLIB\cl430xsf.r43 )
+        ?IndCallR13                         17EC
+?FILLER_BYTES
+?CHECKSUM
+        bsl_checksum                        NOT NEEDED
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+
+SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
+=======              =====    =============   ===========     ====  ====  =====
+DATA16_AN                              0102 - 0103               2   rel    0
+                                       0120 - 0121               2 
+                                       0124 - 0127               4 
+                                       012C - 012D               2 
+                                       0140 - 0141               2 
+                                       0144 - 0145               2 
+                                       0160 - 016F              10 
+                                       026A - 026B               2 
+                                       0380 - 0381               2 
+                                       0386 - 0387               2 
+                                       0396 - 0397               2 
+                                       0900 - 0905               6 
+                                       0908 - 0909               2 
+                                       0910 - 0915               6 
+                                       0920 - 0923               4 
+                                       092E - 0930               3 
+                                       093C - 093C               1 
+                                       093E - 093F               2 
+ZAREA                                  1000 - 1007               8   com    1
+BSL430_VERSION_VENDOR
+                                       1008 - 1008               1   rel    0
+BSL430_VERSION_CI                      1009 - 1009               1   rel    0
+BSL430_VERSION_API                     100A - 100A               1   rel    0
+BSL430_VERSION_PI                      100B - 100B               1   rel    0
+CSTART                                 100C - 101D              12   rel    1
+DATA16_C                               101E - 106A              4D   rel    0
+?FILL1                                 106B - 106B               1   rel    0
+DATA16_AC                              106C - 1085              1A   rel    0
+ZAREA_CODE                             1086 - 10DB              56   rel    1
+<CODE> 1                               10DC - 17EF             714   rel    1
+BSLSIG                                 17F0 - 17FB               C   com    1
+JTAGLOCK_KEY                           17FC - 17FF               4   com    1
+DATA16_AN                              2378 - 23BF              48   rel    0
+                                       23C8 - 2402              3B 
+DATA16_I                                  2403                       dse    0
+DATA16_AN                              2404 - 2404               1   rel    0
+                                       2406 - 2407               2 
+                                       240E - 240E               1 
+                                       2410 - 2412               3 
+                                       2414 - 2415               2 
+DATA16_Z                               2416 - 2454              3F   rel    0
+DATA16_N                               2456 - 2467              12   rel    1
+CSTACK                                 3270 - 33FF             190   rel    1
+RESET                                  FFAE - FFAF               2   rel    1
+
+
+                ****************************************
+                *                                      *
+                *              CHECKSUMS               *
+                *                                      *
+                ****************************************
+
+Symbol        Checksum  Memory  Start  End   Initial value
+------        --------  ------  -----  ---   -------------
+bsl_checksum    0x326a   CODE   1000 - 17FF  0x0000 (#0x0000)
+
+                ****************************************
+                *                                      *
+                *        END OF CROSS REFERENCE        *
+                *                                      *
+                ****************************************
+
+ 1 926 bytes of CODE  memory (+              1 range fill )
+   481 bytes of DATA  memory (+ 202 absolute )
+    97 bytes of CONST memory (+  26 absolute )
+
+Errors: none
+Warnings: none
+

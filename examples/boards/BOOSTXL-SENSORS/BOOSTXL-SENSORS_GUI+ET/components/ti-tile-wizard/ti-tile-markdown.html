@@ -1,0 +1,276 @@
+<!--
+`ti-tile-markdown` is a tile that displays markdown text.
+see the [Markdown Basics Guide] (https://help.github.com/articles/markdown-basics/) for more info.
+
+Example:
+
+    <ti-tile-markdown markdownText="This is some **Markdown** *text*"></ti-tile-markdown>
+
+See demo for a full working example of how to use this component.
+
+@group Instrument Tiles
+@element ti-tile-markdown
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="ti-tile-properties.html">
+<link rel="import" href="ti-tile-base.html">
+<link rel="import" href="../mark-down/mark-down.html">
+<link rel="stylesheet" href="../paper-shadow/paper-shadow.css"  shim-shadowdom>
+
+
+<polymer-element name="ti-tile-markdown" extends="ti-tile-base">
+
+    <template>
+        <style>
+            :host {
+            display : {{_getDisplayStyle(visible)}};
+            background-color: {{backgroundColor}};
+            text-decoration: inherit;
+            position : relative;
+            padding: 1em;
+            width:200px;
+            height: 200px;
+            }
+            core-icon-button /deep/ core-icon[role=img] {
+                height: 15px;
+                width: 15px;
+            }
+            #tileTitle {
+                word-wrap:break-word;
+                white-space:normal;
+                text-align: left;
+                transform: translate({{_getTitleLeftMargin(helpButtonMode)}},0);
+                margin-left: {{_getTitleLeftMargin(helpButtonMode)}};
+                z-index: 0;
+            color:{{_titleFontColor}};
+            font-size:{{titlefontSize}};
+            font-weight:{{_titleFontWeight}};
+            }
+            #infoIcon {
+                text-align: left;
+                z-index: 0;
+            color: {{_iconColor}};
+            }
+            core-icon-button[icon='info-outline'] /deep/ core-icon[role=img] {
+                height: 18px;
+                width: 18px;
+            }
+            #containerDiv {
+                top: 0px;
+                width: 100%;
+                height:100%;
+                margin: 0;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
+            #editIcon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+            color: {{_iconColor}};
+            }
+            #closeIcon {
+                position: absolute;
+                top: 5px;
+                right: 3px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+            color: {{_iconColor}};
+            }
+            #moveLeftIcon {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+            color: {{_iconColor}};
+            }
+
+            #moveRightIcon {
+                position: absolute;
+                top: 0px;
+                right: 20px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+            color: {{_iconColor}};
+            }
+            #resizeIcon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+            color: {{_resizeCornerColor}};
+            }
+            #pinIcon {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+            color: {{_iconColor}};
+            }
+            #mark_down {
+                top: 45px;
+                bottom: 15px;
+                left: 15px;
+                right: 5px;
+                position: absolute;
+                margin:0;
+                padding-right: 0;
+                padding-left: 0;
+                overflow-y: auto;
+                text-align: left;
+
+            }
+            #mark_down::shadow /deep/ a {
+                color: blue;
+                text-decoration: underline;
+            }
+        </style>
+        <ti-tile-properties id="propertiesDialog" style="width:200px;height:400px;right:30px;" layout></ti-tile-properties>
+        <div id="shadow-bottom" fit  class="paper-shadow-bottom-z-[[elevation]]"></div>
+        <div id="shadow-top" fit  class="paper-shadow-top-z-[[elevation]]"></div>
+        <div id="containerDiv" layout vertical >
+            <div id="tileTitle" flex>
+                <!--
+            <template if="{{helpButtonMode}}">
+                <core-icon-button id="infoIcon"  icon="info-outline" ></core-icon-button>
+            </template>
+            -->
+            <span>{{titleText}}</span></div>
+            <mark-down id="mark_down" text="{{markdownText}}"></mark-down>
+        </div>
+        <template if="{{_editIconsEnabled(helpButtonMode)}}">
+            <core-icon-button id="editIcon"  icon="create" on-tap="{{editProperties}}" title="edit tile properties" ></core-icon-button>
+            <core-icon-button id="moveLeftIcon"  icon="arrow-back" on-tap="{{moveLeft}}" title="move tile left" style="{{_arrowStyle}}" ></core-icon-button>
+            <core-icon-button id="moveRightIcon" icon="arrow-forward" on-tap="{{moveRight}}" title="move tile right" style="{{_arrowStyle}}"></core-icon-button>
+            <core-icon-button id="resizeIcon"  icon="device:signal-cellular-0-bar"  title="resize tile" ></core-icon-button>
+            <core-icon-button id="pinIcon" icon="{{_pinIcon}}" on-tap="{{togglePin}}" title="when locked, disables dragging"></core-icon-button>
+        </template>
+        <template if="{{_closeIconEnabled(helpButtonMode)}}">
+            <core-icon-button id="closeIcon"  icon="close" on-tap="{{hide}}" title="close" ></core-icon-button>
+        </template>
+        </div>
+        <content ></content>
+
+    </template>
+    <script>
+        Polymer ('ti-tile-markdown',
+                {
+                    publish: {
+                        /**
+                         * The title to display at the top of the tile
+                         *
+                         * @attribute titleText
+                         * @type string
+                         * @default ''
+                         */
+                        titleText: '',
+                        /**
+                         * The Markdown text to display in the body of the tile.
+                         * see the [Markdown Basics Guide](https://help.github.com/articles/markdown-basics/) for info on Markdown
+                         *
+                         * @attribute markdownText
+                         * @type string
+                         * @default ''
+                         */
+                        markdownText: '',
+                        /**
+                         * The background color of the tile.
+                         *
+                         * @attribute backgroundColor
+                         * @type color
+                         * @default '#ffffff'
+                         */
+                        backgroundColor: '#ffffff',
+                        /**
+                         * Turns off the icons that are normally displayed while the tile is running in the designer.
+                         * For use when the tile is used by ti-widget-helpbutton for providing help tips within the designer
+                         *
+                         * @attribute helpButtonMode
+                         * @type boolean
+                         * @default false
+                         */
+                        helpButtonMode: false
+                    },
+
+                    getCategory: function() {
+                        return 'Text and Images';
+                    },
+                    getComponentName: function() {
+                        return 'Markdown';
+                    },
+                    getElement : function()
+                    {
+                        if (this.$) {
+                            return this.$.containerDiv;
+                        } else {
+                            return null;
+                        }
+                    },
+                    hide: function(){
+                        this.visible = false;
+                    },
+                    _closeIconEnabled: function(helpButtonMode){
+                        var result = helpButtonMode;
+                        return result;
+                    },
+                    _editIconsEnabled: function(helpButtonMode){
+                        var result = !helpButtonMode;
+                        return result;
+                    },
+                    _getDisplayStyle: function(visible){
+                        var result = "block";
+                        if (!visible){
+                            result = "none";
+                        }
+                        return result;
+                    },
+                    _getTitleLeftMargin: function(helpButtonMode){
+                        var result = 0;
+                        //if (helpButtonMode){
+                        //    result = -5;
+                        //}
+                        return result +"px";
+                    }
+
+
+
+                });
+    </script>
+</polymer-element>

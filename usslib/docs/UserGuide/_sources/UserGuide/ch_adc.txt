@@ -1,0 +1,51 @@
+ADC Captures
+============
+
+ADC Controls
+------------
+
+**Control Information**
+
+.. figure:: images/adc_controls.PNG
+   :alt: ADC Controls
+
+   ADC Controls
+
+To initiate a single ADC capture, click the "Capture" button on the control panel. This will be automatically logged under the "ADC Data" folder of the selected logging location if "Automatic Logging" is selected under Options → Logging. You can also manually save this data via the "Save Capture" Button.
+
+To initiate Continuous ADC Capture, click the "Continuous Capture" button. This will prompt the user for a log file, then continuously fire the ADC and log the data to the file while refreshing the screen once per second.
+
+The Save Capture button prompts the user for a destination CSV file and saves the last capture to that location.
+
+The Clear button clears the screen of the last capture.
+
+**Zooming and Tooltips**
+
+To zoom in on an ADC capture, click and drag from top-left to right-bottom. To zoom out, click and drag from right-bottom to top-left.
+
+To view the index and amplitude of a specific point, hover over it to view the data tooltip.
+
+Continuous Capture Information
+------------------------------
+
+**GUI Involvement**
+
+Configuration is disabled during Continuous Capture; to change parameters, halt the continuous capture, reconfigure the target, and start a new capture.
+
+Waveform Data continues to be collected in the background, although the viewing of the Delta ToF and Volume Flow Rate graphs is disabled during continuous capture to improve performance. Frequency Sweep is disabled during Continuous Capture as the ADC functionality is already in use.
+
+**System Performance**
+
+The ADC Continuous Capture is heavily dependent upon system performance; for slow (<5 Hz) captures, HID performance should not be affected. The ADC continuous capture will run at up to 20 Hz if minimal UPS0 to UPS1 and UPS DNS gaps are selected on the target. However, continuity of data in time is *not* guaranteed, as the host computer does not guarantee continuous processor allocation to the program. Lower processor systems may also not be able to achieve max speeds with the continuous capture functionality.
+
+.. figure:: images/cont_adc_capture.PNG
+   :alt: Continuous Capture
+
+   Continuous Capture
+
+More Information
+----------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

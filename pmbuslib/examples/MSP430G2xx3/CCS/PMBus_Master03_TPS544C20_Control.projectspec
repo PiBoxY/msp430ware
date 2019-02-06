@@ -1,0 +1,29 @@
+<projectSpec>
+  <project 
+    compilerBuildOptions="
+      -I${PROJECT_ROOT} 
+      -I${PROJECT_ROOT}/pmbuslib
+      -I${PROJECT_ROOT}/smbuslib
+      -I${PROJECT_ROOT}/smbuslib/MSP430G2xx3
+      --define=MCLK_MHZ=8
+      -O3
+      --advice:power_severity=suppress
+      --advice:power=&quot;all&quot;" 
+   device="MSP430G2553"
+   name="PMBus_Master03_TPS544C20_Control"
+   configurations="MSP430G2553"
+  >
+    <file action="copy" path="../../../src/pmbuslib/pmbus.h" targetDirectory="pmbuslib" />
+    <file action="copy" path="../../../src/pmbuslib/pmbus.c" targetDirectory="pmbuslib" />
+    <file action="copy" path="../../../smbuslib/src/smbuslib/smbus.h" targetDirectory="smbuslib" />
+    <file action="copy" path="../../../smbuslib/src/smbuslib/smbus.c" targetDirectory="smbuslib" />
+    <file action="copy" path="../../../smbuslib/src/smbuslib/smbus_nwk.h" targetDirectory="smbuslib" />
+    <file action="copy" path="../../../smbuslib/src/smbuslib/smbus_nwk.c" targetDirectory="smbuslib" />
+    <file action="copy" path="../../../smbuslib/src/smbuslib/MSP430G2xx3/smbus_phy.h" targetDirectory="smbuslib/MSP430G2xx3" />
+    <file action="copy" path="../../../smbuslib/src/smbuslib/MSP430G2xx3/smbus_phy.c" targetDirectory="smbuslib/MSP430G2xx3" />
+    <file action="copy" path="../Src/PMBus_Master03_TPS544C20_Control/main.c" />
+    <file action="copy" path="../Src/PMBus_Master03_TPS544C20_Control/Master_HAL.h" />
+    <file action="copy" path="../Src/PMBus_Master03_TPS544C20_Control/Master_HAL.c" />
+  </project>
+</projectSpec>
+

@@ -1,0 +1,38 @@
+<!-- Captivate Description HTML -->
+<!-- System_Report_Rate Tuning Parameter -->
+
+<html>
+	<body>
+		<B>Active Mode Scan Rate (in milliseconds)</B>
+		<BR>
+		The active mode scan rate specifies the period (in milliseconds) to refresh the user interface at
+		when in active mode (as opposed to autonomous mode).
+		To convert to samples per second (SPS), simply take 1000 divided by the specified report rate period.
+		For example, a report rate (response time) of 50ms would equate to 20 samples per second (SPS).
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		This parameter specifies the desired period.  If a period is specified that is shorter than the amount
+		of time required to measure and process the panel, then the system will simply run at the fastest 
+		rate possible.
+		<P>
+		The period described here is closely tied to the overall response time of the
+		system to a touch or proximity.  Shorter values for Active_Mode_Scan_rate_ms lead
+		to more frequent scanning of the user interface.  This is the negative effect of increasing power consumption,
+		but the net positive effect of increasing count filter and de-bounce performance by allowing the filter coefficients 
+		and de-bounce thresholds to be increased without sacrificing the response of the system to a touch.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Active_Mode_Scan_rate_ms parameter corresponds to the
+		<i><b>ui16ActiveModeScanPeriod</b></i> 
+		member of the
+		<i><b>tCaptivateApplication</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

@@ -1,0 +1,44 @@
+Generating Interpolation Correction Look-up table
+=================================================
+
+The following Matlab function can be used to generate the look-up table coefficients.
+
+.. code:: matlab
+
+    function [ LUT_STRING ] = getLUT( adcSampleFreq, transducerFreq, resLUT ) 
+    %getLUT Generates Interpolation Look-up table 
+    samplesPerCycle = adcSampleFreq/transducerFreq;
+    % Generate lookup table
+    correctionLUT = zeros(resLUT*2,1);
+
+    for i=0:resLUT-1
+        delay = 2*pi/samplesPerCycle;
+        offset = i/resLUT - 0.5;
+        if(offset ~= 0)
+            x = -atan((offset*2*(cos(delay)-1))/sin(delay));
+            correctionLUT(1+i*2) = (x*samplesPerCycle/(2*pi))/offset - 1;
+        else
+            correctionLUT(1+i*2) = correctionLUT(i*2-1);
+        end
+        interpOffset = offset + offset*correctionLUT(2*mod(round(resLUT*(offset+0.5)),resLUT)+1);
+        correctionLUT(2+i*2) = (1 / cos(2*pi*interpOffset/samplesPerCycle)) - 1;
+    end
+
+    LUT_STRING = '';
+
+    sample_count = length(correctionLUT);
+
+    j = 1;
+    while j<=sample_count
+        if(j<sample_count)
+            LUT_STRING = [LUT_STRING sprintf('{_Q15(%.6f), _Q15(%.6f)},\n',correctionLUT(j),correctionLUT(j+1))];
+            j=j+2;
+        elseif j==sample_count
+            LUT_STRING = [LUT_STRING sprintf('{_Q15(%.6f), _Q15(%.6f)}\n',correctionLUT(j),correctionLUT(j+1))];
+            j=j+2;
+        else
+            break
+        end
+    end
+    end
+

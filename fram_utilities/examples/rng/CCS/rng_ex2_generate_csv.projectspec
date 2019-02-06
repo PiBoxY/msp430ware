@@ -1,0 +1,7 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/fram-utilities/rng --printf_support=full --diag_suppress=10420" device="MSP430FR5969" linkerBuildOptions="--stack_size=160 --heap_size=320" name="rng_ex2_generate_csv">
+	<file action="copy" path="../rng_ex2_generate_csv.c" targetDirectory="." />
+	<file action="copy" path="../../../src/rng/rng.c" targetDirectory="fram-utilities/rng" />
+	<file action="copy" path="../../../src/rng/rng.h" targetDirectory="fram-utilities/rng" />
+  </project>
+</projectSpec>

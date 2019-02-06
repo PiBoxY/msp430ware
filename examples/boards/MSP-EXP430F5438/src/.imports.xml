@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href=".imports.xsl"?>
+<tree-imports>
+ <tools-version TOOLS_SETTING="Build Host">
+     MINGW32_NT-5.1 LTAWILGOH 1.0.17(0.48/3/2) 2011-04-24 23:39 i686 Msys
+ </tools-version>
+ <location-prefix root="/c/gohak/MSP430_Tools/Experimenters_Board/mspexp430f5438">
+  <!--Location prefix is the absolute starting location for all the imports.-->
+ </location-prefix>
+  <import>
+   <name>
+    SLAA448a.zip
+   </name>
+   <location>
+    2.0/http://focus.ti.com/lit/an/slaa448a/slaa448a.zip
+   </location>
+   <package>
+    <!--Placeholder only. not yet used -->
+   </package>
+  </import>

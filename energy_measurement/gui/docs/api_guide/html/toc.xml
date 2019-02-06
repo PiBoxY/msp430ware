@@ -1,0 +1,610 @@
+<toc label="Doxygen generated documentation" topic="index.html">
+  <topic label="Modules" href="modules.html">
+    <topic label="Configuration_api" href="group__configuration__api.html">
+      <topic label="EM_configureEnergyMeasurement" href="group__configuration__api.html#gab9c9eec23e53ea8c10d4b0522c4061b4"/>
+      <topic label="EM_initDCFilters" href="group__configuration__api.html#gaba031abedf4854b747987c902e4a5619"/>
+    </topic>
+    <topic label="Calibration_api" href="group__calibration__api.html">
+      <topic label="EM_initalizeCalibrationValues" href="group__calibration__api.html#ga62b30c526e30f7985730b1bfcb746387"/>
+      <topic label="EM_updateFlashCalibrationValues" href="group__calibration__api.html#gab561097e2ad3bae1fa9641cf9e200245"/>
+    </topic>
+    <topic label="Result_api" href="group__result__api.html">
+      <topic label="EM_voltageDCFilter" href="group__result__api.html#ga1834214615fdf22f3c4b3cd6c6dc8b0c"/>
+      <topic label="EM_currentDCFilter" href="group__result__api.html#ga00a88a65cef272e566d228b833fb1637"/>
+      <topic label="EM_perSample" href="group__result__api.html#ga8f9c190a63d2e367c421c770c23a7d21"/>
+      <topic label="EM_perDataChunk" href="group__result__api.html#gad6628dae04ad34378c448fb2de928e6f"/>
+      <topic label="EM_delayCurrent90Degrees" href="group__result__api.html#gade3085e201967bbf7770ce88765ca5fb"/>
+      <topic label="EM_genPulseIndPhase" href="group__result__api.html#ga218995a1fda2a83454aaa7ae83db94ac"/>
+      <topic label="EM_genPulseTotalPhases" href="group__result__api.html#ga24aa9c669d32d27306a840ad9d196efe"/>
+      <topic label="EM_updateOneDivSC" href="group__result__api.html#ga147110de9d95fdf71c193ce2cd9baf05"/>
+      <topic label="EM_clearMetrology" href="group__result__api.html#gac7163797e2a70de44e78d47da27e7faf"/>
+      <topic label="EM_updateReactPowConst" href="group__result__api.html#ga21ffe9a979a07cf06d9b1ebb0442cca9"/>
+      <topic label="EM_processSample" href="group__result__api.html#gaa9d4ea4efa8e5b8317d2b2a4e2dd0403"/>
+      <topic label="EM_calcActivePowerMultAcc" href="group__result__api.html#gaa56ee9d70b0dc6fbc6fb26117e4eff4a"/>
+      <topic label="EM_calcActivePowerDiv" href="group__result__api.html#ga2fab4b120d32a9c122b8bdf74d83276a"/>
+      <topic label="EM_calcActiveEnergy" href="group__result__api.html#ga3c43e46165cf16d27fb854d331066ccd"/>
+      <topic label="EM_calcReactivePowerMultAcc" href="group__result__api.html#gae958917049f27a3a3eb4fccba9586d45"/>
+      <topic label="EM_calcReactivePowerDiv" href="group__result__api.html#ga8479a9975c6370e31638c460260eaa48"/>
+      <topic label="EM_calcReactiveEnergy" href="group__result__api.html#ga4da326b0f5b3e27e695253144a11cb64"/>
+      <topic label="EM_calcApparentPower" href="group__result__api.html#ga13adade3e66abf65c11c9535e712d9be"/>
+      <topic label="EM_calcApparentEnergy" href="group__result__api.html#gaa636506ae0691a1e990a8d7a034f5672"/>
+      <topic label="EM_calcPowerFactor" href="group__result__api.html#ga63a2a50263682af4c16b3d17e3ee25a8"/>
+      <topic label="EM_calcVRMSMultAcc" href="group__result__api.html#gaef08801742aee1da976354b529cc4e79"/>
+      <topic label="EM_calcVRMSDivSqrt" href="group__result__api.html#ga45943f5807719c16a8e126d55e86026a"/>
+      <topic label="EM_calcIRMSMultAcc" href="group__result__api.html#ga2613527572e71b8bb731a0f8ee879403"/>
+      <topic label="EM_calcIRMSDivSqrt" href="group__result__api.html#gabc726817689d2d52f85a5c3e1f33d665"/>
+      <topic label="EM_calcIPeak" href="group__result__api.html#ga451f1a661958c82469169ad1c5f61df0"/>
+      <topic label="EM_calcVPeak" href="group__result__api.html#ga812a9164fd5c89735851bb2f560198f0"/>
+      <topic label="EM_calcFreqPeriod" href="group__result__api.html#ga18bc64d00da3b5171c2233e66022c485"/>
+      <topic label="EM_calcFreq" href="group__result__api.html#gada1e8ae5ca1f6368ea8c908fbc5c4884"/>
+      <topic label="EM_calcTotalActivePower" href="group__result__api.html#ga68b768dc01c4625171d84cc70fee8cfd"/>
+      <topic label="EM_calcTotalReactivePower" href="group__result__api.html#gab0021c11695ba73c0db981903a26b530"/>
+      <topic label="EM_calcTotalApparentPower" href="group__result__api.html#gae746e43b3c2d267aff4a33e802ee00e1"/>
+      <topic label="EM_calcTotalActiveEnergy" href="group__result__api.html#ga2611108294f9145fbdf6c3fa17543c7f"/>
+      <topic label="EM_calcTotalReactiveEnergy" href="group__result__api.html#gae59cfd11082392f59ddada372a9629ac"/>
+      <topic label="EM_calcTotalApparentEnergy" href="group__result__api.html#gaa0367492a07c010cd1dc4abbc3d47423"/>
+    </topic>
+    <topic label="Hal_adc_api_sd24" href="group__hal__adc__api__sd24.html">
+      <topic label="HAL_ADC_init" href="group__hal__adc__api__sd24.html#ga9e35a98072ebaa09a57a68eb46ebbe84"/>
+      <topic label="HAL_ADC_startConversion" href="group__hal__adc__api__sd24.html#ga90d11c32398ee6017a3e62c62d0ba2a5"/>
+      <topic label="HAL_ADC_stopConversion" href="group__hal__adc__api__sd24.html#ga31a43de8c34a5e3d39c25adeacfd4eb9"/>
+      <topic label="HAL_ADC_enableInterrupt" href="group__hal__adc__api__sd24.html#ga4d6f4610d287be034c8df1a0f1a2db76"/>
+      <topic label="HAL_ADC_disableInterrupt" href="group__hal__adc__api__sd24.html#ga2dfe602418510546213edc14e75ff9a7"/>
+      <topic label="HAL_ADC_printResult" href="group__hal__adc__api__sd24.html#ga4c78316e262069ad3e16790d320c3e5d"/>
+      <topic label="HAL_ADC_clearVariables" href="group__hal__adc__api__sd24.html#gadd8a9505a3580df83946a796c662de2b"/>
+      <topic label="phaseDataReady" href="group__hal__adc__api__sd24.html#ga122922096ed92d3ca0f56f836d619e96"/>
+      <topic label="halAdcConfig" href="group__hal__adc__api__sd24.html#gaf88f8e731f4f507a87d20d99d494354f"/>
+    </topic>
+    <topic label="Hal_adc_api_sd24b" href="group__hal__adc__api__sd24b.html">
+      <topic label="HAL_ADC_init" href="group__hal__adc__api__sd24b.html#gad0765a742ce3475560bbf93bd4c8476a"/>
+      <topic label="HAL_ADC_startConversion" href="group__hal__adc__api__sd24b.html#gaa84f2d5c3cf0feb3edf5572c7c2c4e76"/>
+      <topic label="HAL_ADC_stopConversion" href="group__hal__adc__api__sd24b.html#ga372dfced0392abd69cc931c2a4f178ca"/>
+      <topic label="HAL_ADC_enableInterrupts" href="group__hal__adc__api__sd24b.html#ga7761f4fc638f793eb32851a211eb4768"/>
+      <topic label="HAL_ADC_disableInterrupts" href="group__hal__adc__api__sd24b.html#ga4ef40f9f86d4e82a8bf5e8b8d6576d63"/>
+      <topic label="HAL_ADC_clearVariables" href="group__hal__adc__api__sd24b.html#gadd8a9505a3580df83946a796c662de2b"/>
+      <topic label="phaseDataReady" href="group__hal__adc__api__sd24b.html#ga122922096ed92d3ca0f56f836d619e96"/>
+      <topic label="halAdcConfig" href="group__hal__adc__api__sd24b.html#ga952ecdb2fff6015531c9b267c63e24c5"/>
+    </topic>
+  </topic>
+  <topic label="Data Structures" href="annotated.html">
+    <topic label="Data Structures" href="annotated.html">
+      <topic label="_EM_Algorithm_Configuration_" href="struct___e_m___algorithm___configuration__.html">
+        <topic label="residualPowerCutoff" href="struct___e_m___algorithm___configuration__.html#a02beef5df24b78d3f958f1d87932a9e3"/>
+        <topic label="totalResidualPowerCutoff" href="struct___e_m___algorithm___configuration__.html#a4c78bcfb0db74f0ba172f139a6e4b128"/>
+        <topic label="mainNomFreq" href="struct___e_m___algorithm___configuration__.html#a60bbcc4e04b92b9bdc9c6eff98f82cbd"/>
+        <topic label="sqrtTwoConst" href="struct___e_m___algorithm___configuration__.html#af3beca57d7ca0c5e64e63146dce7d358"/>
+        <topic label="energyCalcConst" href="struct___e_m___algorithm___configuration__.html#aa5c2bb309253ff62acd4dda7929e6fde"/>
+        <topic label="freqSampling" href="struct___e_m___algorithm___configuration__.html#a909c11db9a2caa0819bb056bb8fcce3d"/>
+        <topic label="reactPowIIRMinFreq" href="struct___e_m___algorithm___configuration__.html#a9893b5b3e7b53540f85a3bd92fc7ebf4"/>
+        <topic label="reactPowIIRShift" href="struct___e_m___algorithm___configuration__.html#a8025cd03fdbb5f0d8709eab1d9f779aa"/>
+        <topic label="reactPowIIRLength" href="struct___e_m___algorithm___configuration__.html#a43596cad2fb2c73c3645e4573bc77792"/>
+        <topic label="reactPowIIRTable" href="struct___e_m___algorithm___configuration__.html#a68925fc73702e5629774e6a4214fcb32"/>
+      </topic>
+      <topic label="_EM_Meter_Configuration_" href="struct___e_m___meter___configuration__.html">
+        <topic label="phaseConfigPtr" href="struct___e_m___meter___configuration__.html#ad5dd06e51734aa4d6c9c07031e362cc0"/>
+        <topic label="phaseLength" href="struct___e_m___meter___configuration__.html#ae39029613b4ed616baef8dce6b5a5c46"/>
+        <topic label="meterName" href="struct___e_m___meter___configuration__.html#a4160bb5baf9d67fd75e857c2700a0e65"/>
+        <topic label="libVersionNumber" href="struct___e_m___meter___configuration__.html#aecd96492d982776f36d7b9a7e37a8748"/>
+        <topic label="meterPW" href="struct___e_m___meter___configuration__.html#a18c0530a1b7a7b40b3d3b529e741af11"/>
+      </topic>
+      <topic label="_EM_Metrology_" href="struct___e_m___metrology__.html">
+        <topic label="sampleCount" href="struct___e_m___metrology__.html#adba6929112de94cb36e7b1cd1c4fe218"/>
+        <topic label="actPowDotProd" href="struct___e_m___metrology__.html#a8d14ed6a78f46d7197e60494007b23fb"/>
+        <topic label="reactPowDotProd" href="struct___e_m___metrology__.html#aaaae6ca92ae7651f53a715b8ae23a654"/>
+        <topic label="vDotProd" href="struct___e_m___metrology__.html#a32cbd969040421e842d497fc9878c8c0"/>
+        <topic label="iDotProd" href="struct___e_m___metrology__.html#a38e9cbcb1acc43658ba144bb24258f1b"/>
+        <topic label="cycleSampleCount" href="struct___e_m___metrology__.html#accaf4d58ebcdb1c5b4d063c8f632647e"/>
+        <topic label="reactPowGConst" href="struct___e_m___metrology__.html#a887969a5219189e12e6448f120ac8448"/>
+        <topic label="mainPeriod" href="struct___e_m___metrology__.html#a3c7a61b1da89c4871522dccad8f0a354"/>
+        <topic label="prevMainPeriod" href="struct___e_m___metrology__.html#a49102d9125a0735ff27a5511cb6ce485"/>
+        <topic label="oneDivSC" href="struct___e_m___metrology__.html#a94f6637bdd21d0267e423c1deb97404f"/>
+        <topic label="prevSampleCount" href="struct___e_m___metrology__.html#a5ee91e29e9dd56389123fd06f16a7d8f"/>
+        <topic label="cycleCount" href="struct___e_m___metrology__.html#a0975931fbb9c3b04ae5994d36c02a745"/>
+      </topic>
+      <topic label="_EM_Phase_BG_Results_" href="struct___e_m___phase___b_g___results__.html">
+        <topic label="vDCEstimate" href="struct___e_m___phase___b_g___results__.html#a6ffb621b28f78932ac6a967aa1afcb7e"/>
+        <topic label="iDCEstimate" href="struct___e_m___phase___b_g___results__.html#a6e92422a4ad9b360cf47699c284e3f55"/>
+        <topic label="reactPowPrevV90" href="struct___e_m___phase___b_g___results__.html#a80d5ff174d41c0563e7284507e0606a4"/>
+        <topic label="vPrevSample" href="struct___e_m___phase___b_g___results__.html#a1485aaaa13f7326a6fcff7d86864ffb2"/>
+        <topic label="rogowskiPrevI90" href="struct___e_m___phase___b_g___results__.html#a44771d47492463fcfec5ab9f1c1dbb0a"/>
+        <topic label="iPrevSample" href="struct___e_m___phase___b_g___results__.html#aa91a54c6b8838a6a81d24ba9c75e2289"/>
+      </topic>
+      <topic label="_EM_Phase_Calibration_" href="struct___e_m___phase___calibration__.html">
+        <topic label="voltageSF" href="struct___e_m___phase___calibration__.html#a26e0884a1d4eb39a25669c53dee98082"/>
+        <topic label="currentSF" href="struct___e_m___phase___calibration__.html#ad4011284e0400b6bacc4946769787eab"/>
+        <topic label="activePowerSF" href="struct___e_m___phase___calibration__.html#a867756219073bb5a1f956274f685e303"/>
+        <topic label="reactivePowerSF" href="struct___e_m___phase___calibration__.html#a8d5410a2b6a43897c036e262eacc9da2"/>
+        <topic label="phaseCorrection" href="struct___e_m___phase___calibration__.html#aa718e500b78edd736ce358d719eeb0d2"/>
+      </topic>
+      <topic label="_EM_Phase_Configuration_" href="struct___e_m___phase___configuration__.html">
+        <topic label="currentSamplePtr" href="struct___e_m___phase___configuration__.html#acbf356da6f0b9f542f9eb471a69ffb10"/>
+        <topic label="voltageSamplePtr" href="struct___e_m___phase___configuration__.html#a75d5083d56d9a6274ecd0c5927e54bbb"/>
+        <topic label="currentSensor" href="struct___e_m___phase___configuration__.html#a80676fde04d739fda18ce7a452cae77f"/>
+        <topic label="phaseResultsSupported" href="struct___e_m___phase___configuration__.html#a27da28c4d9be7036fdaca1a6e0bb93cb"/>
+        <topic label="phaseCalibPtr" href="struct___e_m___phase___configuration__.html#a67acb552954a862b82f514600d9eed3b"/>
+      </topic>
+      <topic label="_EM_Phase_Results_" href="struct___e_m___phase___results__.html">
+        <topic label="VRMS" href="struct___e_m___phase___results__.html#aba1a2b24444063d54833927a2c3b5f55"/>
+        <topic label="IRMS" href="struct___e_m___phase___results__.html#aa4ed7ea3ec8bff515cfc3caf1e3a6ec9"/>
+        <topic label="vPeak" href="struct___e_m___phase___results__.html#ad97209dc2d691e5cbed558ebbaa5f505"/>
+        <topic label="iPeak" href="struct___e_m___phase___results__.html#a8facc59bc2e80b7362ad1536e3b6f2da"/>
+        <topic label="powerFactor" href="struct___e_m___phase___results__.html#a5263809be91f298b2e2752cd7603b1d3"/>
+        <topic label="frequency" href="struct___e_m___phase___results__.html#a678aec5646ac8162c09878ab94c26b7f"/>
+        <topic label="activePower" href="struct___e_m___phase___results__.html#a538327837b3863fec10ab8d9ff0c5693"/>
+        <topic label="reactivePower" href="struct___e_m___phase___results__.html#a844bcf5b2c6f1fd46922a74e46f45bf2"/>
+        <topic label="apparentPower" href="struct___e_m___phase___results__.html#a9adf2a6505a19281b3d008cc5b69cb9f"/>
+        <topic label="activeEnergy" href="struct___e_m___phase___results__.html#a390800d635be3a3132c2ca33f14e6248"/>
+        <topic label="reactiveEnergy" href="struct___e_m___phase___results__.html#a14c73d514e26af1e235a9a2ccd7119a5"/>
+        <topic label="apparentEnergy" href="struct___e_m___phase___results__.html#ac2c0de17f6d6fceba41ac4f881ee1717"/>
+        <topic label="phaseID" href="struct___e_m___phase___results__.html#ac740f6133ebbe6663e04ab399a14d74b"/>
+      </topic>
+      <topic label="_EM_Pulse_Settings_" href="struct___e_m___pulse___settings__.html">
+        <topic label="activePulseGpioPort" href="struct___e_m___pulse___settings__.html#ac3af66eb439aceda16fba6bb275771da"/>
+        <topic label="reactivePulseGpioPort" href="struct___e_m___pulse___settings__.html#a49d5b957dad0d1236aa666359e31b274"/>
+        <topic label="activePulseGpioPin" href="struct___e_m___pulse___settings__.html#af3712613757d2dec6b1a0e2440e4363e"/>
+        <topic label="reactivePulseGpioPin" href="struct___e_m___pulse___settings__.html#a8dff37f108a4e4aea16d3aeeddbf7097"/>
+        <topic label="activeEnergyCounter" href="struct___e_m___pulse___settings__.html#aeb6ec84610bffb529cb43c17720c6738"/>
+        <topic label="activeEnergyPulseRemaining" href="struct___e_m___pulse___settings__.html#ae136de368dfd9bc640ce87070c821c8e"/>
+        <topic label="reactiveEnergyCounter" href="struct___e_m___pulse___settings__.html#a3a893e7ff9556c7eaaf2eb6465ed71a0"/>
+        <topic label="reactiveEnergyPulseRemaining" href="struct___e_m___pulse___settings__.html#a7556b242fe87c903f0599e1fabfe0ea6"/>
+      </topic>
+      <topic label="_EM_SW_Lib_Config_Handle_" href="struct___e_m___s_w___lib___config___handle__.html">
+        <topic label="systemConfig" href="struct___e_m___s_w___lib___config___handle__.html#ae0089f569779d9b177ab02fe47bab3d5"/>
+        <topic label="algorithmConfig" href="struct___e_m___s_w___lib___config___handle__.html#a5663ba45578214cc5946072f90e8c0e5"/>
+        <topic label="meterConfig" href="struct___e_m___s_w___lib___config___handle__.html#a7cb78a55333a4544bf96b5b7e2464f8b"/>
+      </topic>
+      <topic label="_EM_SW_Lib_Result_Handle_" href="struct___e_m___s_w___lib___result___handle__.html">
+        <topic label="emTotalResult" href="struct___e_m___s_w___lib___result___handle__.html#a34034ab50a661e87d3c111bf28e000de"/>
+        <topic label="phaseResults" href="struct___e_m___s_w___lib___result___handle__.html#ae7325d4d38f2e1e9171f740946e6b817"/>
+        <topic label="phaseBGResults" href="struct___e_m___s_w___lib___result___handle__.html#a2846b414749602ef890cd29292b83677"/>
+        <topic label="phaseMetrologyPing" href="struct___e_m___s_w___lib___result___handle__.html#a09e0c6c6a475676964e3ebade3e4910c"/>
+        <topic label="phaseMetrologyPong" href="struct___e_m___s_w___lib___result___handle__.html#a2c02afcf328445ba76335daf9dfb4716"/>
+        <topic label="phaseResultsSupportedLen" href="struct___e_m___s_w___lib___result___handle__.html#a47b7ea784e9c057c6b74c974cf0af7d1"/>
+      </topic>
+      <topic label="_EM_System_Configuration_" href="struct___e_m___system___configuration__.html">
+        <topic label="pulseArray" href="struct___e_m___system___configuration__.html#a7e1b89bf8b5b4c68a4ec1ffbb45122a2"/>
+        <topic label="pulseArrayLength" href="struct___e_m___system___configuration__.html#a8026c1eab764498dc669a31d43286458"/>
+        <topic label="indPhaseMeterConstant" href="struct___e_m___system___configuration__.html#a7a8bdac3723b61674641e7a739c21a05"/>
+        <topic label="indPhasePulseDuration" href="struct___e_m___system___configuration__.html#a3e6d4615ff8d2912fec73382560715f8"/>
+        <topic label="totalPhaseMeterConstant" href="struct___e_m___system___configuration__.html#a5e556d4fb72e28a3f17e4d62297d765a"/>
+        <topic label="totalPhasePulseDuration" href="struct___e_m___system___configuration__.html#ac0c9f7ea51b1670590050a12fc673939"/>
+        <topic label="pulseGeneration" href="struct___e_m___system___configuration__.html#ae41e99f1b86464445780d60a5590a114"/>
+      </topic>
+      <topic label="_EM_Total_Results_" href="struct___e_m___total___results__.html">
+        <topic label="activePower" href="struct___e_m___total___results__.html#a165aa3a3e28d65bcdd6d4e6d1a981609"/>
+        <topic label="reactivePower" href="struct___e_m___total___results__.html#afcf0c811db2867c364b29bc04d267cd5"/>
+        <topic label="apparentPower" href="struct___e_m___total___results__.html#a249eaff9a6a6cb72eb9ff2832c7b777a"/>
+        <topic label="activeEnergy" href="struct___e_m___total___results__.html#a9cf71696f7c121efb9b32553bd3b5da9"/>
+        <topic label="reactiveEnergy" href="struct___e_m___total___results__.html#a7201318c2ed97004b4021a3f607a9c36"/>
+        <topic label="apparentEnergy" href="struct___e_m___total___results__.html#a56e988f3872bd533ecea6f9c588558ff"/>
+      </topic>
+      <topic label="_HAL_ADC_SD24_B_Channel_" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html">
+        <topic label="gain" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#a210ebd35f6e817fe77355e0d1dad1598"/>
+        <topic label="preload" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#ab89f348a7d8e7bf053acec1e8e9bf20e"/>
+        <topic label="converter" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#a461e1afb765d315ae16b56558bbd2277"/>
+        <topic label="alignment" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#adf9bff9ab25e27ef70a0f2773eccf021"/>
+      </topic>
+      <topic label="_HAL_ADC_SD24_B_Configuration_" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html">
+        <topic label="SMCLKFrequency" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a1610a4833aff0331215aab8bc91cbf8d"/>
+        <topic label="overSampleRatio" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#ad25b302035a6a83b6c51e5945ab4f470"/>
+        <topic label="sampleFreq" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a0ddc797dfb36a345083f1d70d01b4362"/>
+        <topic label="sd24Param" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#ac29be59d05bb22dd9d836981766b1150"/>
+        <topic label="masterConverter" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a10a638a89eb83c5780e54d389886d628"/>
+        <topic label="adcChannelPtr" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a85e6eaefeb8c80692a81a1c42e33fc2f"/>
+        <topic label="adcChannelLength" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a21a632bc5b0af7fd2a3044d47813802a"/>
+      </topic>
+      <topic label="_HAL_ADC_SD24_Channel_" href="struct___h_a_l___a_d_c___s_d24___channel__.html">
+        <topic label="gain" href="struct___h_a_l___a_d_c___s_d24___channel__.html#a6cad338a0cab99e5e1d3da49081846ea"/>
+        <topic label="preload" href="struct___h_a_l___a_d_c___s_d24___channel__.html#a08d38cf20883a5135247945fbaf9d4fa"/>
+        <topic label="samplePtr" href="struct___h_a_l___a_d_c___s_d24___channel__.html#ac9dc60e0b3258bfc430cd3180f37d742"/>
+        <topic label="converter" href="struct___h_a_l___a_d_c___s_d24___channel__.html#ad6ae8ae6901c14e96bd8cc1fff4da5d6"/>
+      </topic>
+      <topic label="_HAL_ADC_SD24_Configuration_" href="struct___h_a_l___a_d_c___s_d24___configuration__.html">
+        <topic label="overSampleRatio" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#ae062b026a50c4b88eb67f0bac5530685"/>
+        <topic label="sampleFreq" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#ae41cdbfe27b8f7c33b5bb1d0d579384a"/>
+        <topic label="referenceSelect" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#a5f84956dd62e175b9c58bdc31df080c9"/>
+        <topic label="masterConverter" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#a5cfddfa8e8c386d42ed8c08734a86225"/>
+        <topic label="adcChannelPtr" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#aa4f1ae83388d4ffdd742b26f52eea7a9"/>
+        <topic label="adcChannelLength" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#a454032007ae49a5989ffa64764caa903"/>
+      </topic>
+    </topic>
+    <topic label="Data Fields" href="functions.html">
+      <topic label="All" href="functions.html"/>
+      <topic label="Variables" href="functions_vars.html"/>
+    </topic>
+  </topic>
+  <topic label="Files">
+    <topic label="File List" href="files.html">
+      <topic label="emSwLib.h" href="em_sw_lib_8h.html">
+        <topic label="_EM_Pulse_Settings_" href="struct___e_m___pulse___settings__.html">
+          <topic label="activePulseGpioPort" href="struct___e_m___pulse___settings__.html#ac3af66eb439aceda16fba6bb275771da"/>
+          <topic label="reactivePulseGpioPort" href="struct___e_m___pulse___settings__.html#a49d5b957dad0d1236aa666359e31b274"/>
+          <topic label="activePulseGpioPin" href="struct___e_m___pulse___settings__.html#af3712613757d2dec6b1a0e2440e4363e"/>
+          <topic label="reactivePulseGpioPin" href="struct___e_m___pulse___settings__.html#a8dff37f108a4e4aea16d3aeeddbf7097"/>
+          <topic label="activeEnergyCounter" href="struct___e_m___pulse___settings__.html#aeb6ec84610bffb529cb43c17720c6738"/>
+          <topic label="activeEnergyPulseRemaining" href="struct___e_m___pulse___settings__.html#ae136de368dfd9bc640ce87070c821c8e"/>
+          <topic label="reactiveEnergyCounter" href="struct___e_m___pulse___settings__.html#a3a893e7ff9556c7eaaf2eb6465ed71a0"/>
+          <topic label="reactiveEnergyPulseRemaining" href="struct___e_m___pulse___settings__.html#a7556b242fe87c903f0599e1fabfe0ea6"/>
+        </topic>
+        <topic label="_EM_System_Configuration_" href="struct___e_m___system___configuration__.html">
+          <topic label="pulseArray" href="struct___e_m___system___configuration__.html#a7e1b89bf8b5b4c68a4ec1ffbb45122a2"/>
+          <topic label="pulseArrayLength" href="struct___e_m___system___configuration__.html#a8026c1eab764498dc669a31d43286458"/>
+          <topic label="indPhaseMeterConstant" href="struct___e_m___system___configuration__.html#a7a8bdac3723b61674641e7a739c21a05"/>
+          <topic label="indPhasePulseDuration" href="struct___e_m___system___configuration__.html#a3e6d4615ff8d2912fec73382560715f8"/>
+          <topic label="totalPhaseMeterConstant" href="struct___e_m___system___configuration__.html#a5e556d4fb72e28a3f17e4d62297d765a"/>
+          <topic label="totalPhasePulseDuration" href="struct___e_m___system___configuration__.html#ac0c9f7ea51b1670590050a12fc673939"/>
+          <topic label="pulseGeneration" href="struct___e_m___system___configuration__.html#ae41e99f1b86464445780d60a5590a114"/>
+        </topic>
+        <topic label="_EM_Phase_Calibration_" href="struct___e_m___phase___calibration__.html">
+          <topic label="voltageSF" href="struct___e_m___phase___calibration__.html#a26e0884a1d4eb39a25669c53dee98082"/>
+          <topic label="currentSF" href="struct___e_m___phase___calibration__.html#ad4011284e0400b6bacc4946769787eab"/>
+          <topic label="activePowerSF" href="struct___e_m___phase___calibration__.html#a867756219073bb5a1f956274f685e303"/>
+          <topic label="reactivePowerSF" href="struct___e_m___phase___calibration__.html#a8d5410a2b6a43897c036e262eacc9da2"/>
+          <topic label="phaseCorrection" href="struct___e_m___phase___calibration__.html#aa718e500b78edd736ce358d719eeb0d2"/>
+        </topic>
+        <topic label="_EM_Phase_Configuration_" href="struct___e_m___phase___configuration__.html">
+          <topic label="currentSamplePtr" href="struct___e_m___phase___configuration__.html#acbf356da6f0b9f542f9eb471a69ffb10"/>
+          <topic label="voltageSamplePtr" href="struct___e_m___phase___configuration__.html#a75d5083d56d9a6274ecd0c5927e54bbb"/>
+          <topic label="currentSensor" href="struct___e_m___phase___configuration__.html#a80676fde04d739fda18ce7a452cae77f"/>
+          <topic label="phaseResultsSupported" href="struct___e_m___phase___configuration__.html#a27da28c4d9be7036fdaca1a6e0bb93cb"/>
+          <topic label="phaseCalibPtr" href="struct___e_m___phase___configuration__.html#a67acb552954a862b82f514600d9eed3b"/>
+        </topic>
+        <topic label="_EM_Meter_Configuration_" href="struct___e_m___meter___configuration__.html">
+          <topic label="phaseConfigPtr" href="struct___e_m___meter___configuration__.html#ad5dd06e51734aa4d6c9c07031e362cc0"/>
+          <topic label="phaseLength" href="struct___e_m___meter___configuration__.html#ae39029613b4ed616baef8dce6b5a5c46"/>
+          <topic label="meterName" href="struct___e_m___meter___configuration__.html#a4160bb5baf9d67fd75e857c2700a0e65"/>
+          <topic label="libVersionNumber" href="struct___e_m___meter___configuration__.html#aecd96492d982776f36d7b9a7e37a8748"/>
+          <topic label="meterPW" href="struct___e_m___meter___configuration__.html#a18c0530a1b7a7b40b3d3b529e741af11"/>
+        </topic>
+        <topic label="_EM_Algorithm_Configuration_" href="struct___e_m___algorithm___configuration__.html">
+          <topic label="residualPowerCutoff" href="struct___e_m___algorithm___configuration__.html#a02beef5df24b78d3f958f1d87932a9e3"/>
+          <topic label="totalResidualPowerCutoff" href="struct___e_m___algorithm___configuration__.html#a4c78bcfb0db74f0ba172f139a6e4b128"/>
+          <topic label="mainNomFreq" href="struct___e_m___algorithm___configuration__.html#a60bbcc4e04b92b9bdc9c6eff98f82cbd"/>
+          <topic label="sqrtTwoConst" href="struct___e_m___algorithm___configuration__.html#af3beca57d7ca0c5e64e63146dce7d358"/>
+          <topic label="energyCalcConst" href="struct___e_m___algorithm___configuration__.html#aa5c2bb309253ff62acd4dda7929e6fde"/>
+          <topic label="freqSampling" href="struct___e_m___algorithm___configuration__.html#a909c11db9a2caa0819bb056bb8fcce3d"/>
+          <topic label="reactPowIIRMinFreq" href="struct___e_m___algorithm___configuration__.html#a9893b5b3e7b53540f85a3bd92fc7ebf4"/>
+          <topic label="reactPowIIRShift" href="struct___e_m___algorithm___configuration__.html#a8025cd03fdbb5f0d8709eab1d9f779aa"/>
+          <topic label="reactPowIIRLength" href="struct___e_m___algorithm___configuration__.html#a43596cad2fb2c73c3645e4573bc77792"/>
+          <topic label="reactPowIIRTable" href="struct___e_m___algorithm___configuration__.html#a68925fc73702e5629774e6a4214fcb32"/>
+        </topic>
+        <topic label="_EM_SW_Lib_Config_Handle_" href="struct___e_m___s_w___lib___config___handle__.html">
+          <topic label="systemConfig" href="struct___e_m___s_w___lib___config___handle__.html#ae0089f569779d9b177ab02fe47bab3d5"/>
+          <topic label="algorithmConfig" href="struct___e_m___s_w___lib___config___handle__.html#a5663ba45578214cc5946072f90e8c0e5"/>
+          <topic label="meterConfig" href="struct___e_m___s_w___lib___config___handle__.html#a7cb78a55333a4544bf96b5b7e2464f8b"/>
+        </topic>
+        <topic label="_EM_Metrology_" href="struct___e_m___metrology__.html">
+          <topic label="sampleCount" href="struct___e_m___metrology__.html#adba6929112de94cb36e7b1cd1c4fe218"/>
+          <topic label="actPowDotProd" href="struct___e_m___metrology__.html#a8d14ed6a78f46d7197e60494007b23fb"/>
+          <topic label="reactPowDotProd" href="struct___e_m___metrology__.html#aaaae6ca92ae7651f53a715b8ae23a654"/>
+          <topic label="vDotProd" href="struct___e_m___metrology__.html#a32cbd969040421e842d497fc9878c8c0"/>
+          <topic label="iDotProd" href="struct___e_m___metrology__.html#a38e9cbcb1acc43658ba144bb24258f1b"/>
+          <topic label="cycleSampleCount" href="struct___e_m___metrology__.html#accaf4d58ebcdb1c5b4d063c8f632647e"/>
+          <topic label="reactPowGConst" href="struct___e_m___metrology__.html#a887969a5219189e12e6448f120ac8448"/>
+          <topic label="mainPeriod" href="struct___e_m___metrology__.html#a3c7a61b1da89c4871522dccad8f0a354"/>
+          <topic label="prevMainPeriod" href="struct___e_m___metrology__.html#a49102d9125a0735ff27a5511cb6ce485"/>
+          <topic label="oneDivSC" href="struct___e_m___metrology__.html#a94f6637bdd21d0267e423c1deb97404f"/>
+          <topic label="prevSampleCount" href="struct___e_m___metrology__.html#a5ee91e29e9dd56389123fd06f16a7d8f"/>
+          <topic label="cycleCount" href="struct___e_m___metrology__.html#a0975931fbb9c3b04ae5994d36c02a745"/>
+        </topic>
+        <topic label="_EM_Phase_BG_Results_" href="struct___e_m___phase___b_g___results__.html">
+          <topic label="vDCEstimate" href="struct___e_m___phase___b_g___results__.html#a6ffb621b28f78932ac6a967aa1afcb7e"/>
+          <topic label="iDCEstimate" href="struct___e_m___phase___b_g___results__.html#a6e92422a4ad9b360cf47699c284e3f55"/>
+          <topic label="reactPowPrevV90" href="struct___e_m___phase___b_g___results__.html#a80d5ff174d41c0563e7284507e0606a4"/>
+          <topic label="vPrevSample" href="struct___e_m___phase___b_g___results__.html#a1485aaaa13f7326a6fcff7d86864ffb2"/>
+          <topic label="rogowskiPrevI90" href="struct___e_m___phase___b_g___results__.html#a44771d47492463fcfec5ab9f1c1dbb0a"/>
+          <topic label="iPrevSample" href="struct___e_m___phase___b_g___results__.html#aa91a54c6b8838a6a81d24ba9c75e2289"/>
+        </topic>
+        <topic label="_EM_Phase_Results_" href="struct___e_m___phase___results__.html">
+          <topic label="VRMS" href="struct___e_m___phase___results__.html#aba1a2b24444063d54833927a2c3b5f55"/>
+          <topic label="IRMS" href="struct___e_m___phase___results__.html#aa4ed7ea3ec8bff515cfc3caf1e3a6ec9"/>
+          <topic label="vPeak" href="struct___e_m___phase___results__.html#ad97209dc2d691e5cbed558ebbaa5f505"/>
+          <topic label="iPeak" href="struct___e_m___phase___results__.html#a8facc59bc2e80b7362ad1536e3b6f2da"/>
+          <topic label="powerFactor" href="struct___e_m___phase___results__.html#a5263809be91f298b2e2752cd7603b1d3"/>
+          <topic label="frequency" href="struct___e_m___phase___results__.html#a678aec5646ac8162c09878ab94c26b7f"/>
+          <topic label="activePower" href="struct___e_m___phase___results__.html#a538327837b3863fec10ab8d9ff0c5693"/>
+          <topic label="reactivePower" href="struct___e_m___phase___results__.html#a844bcf5b2c6f1fd46922a74e46f45bf2"/>
+          <topic label="apparentPower" href="struct___e_m___phase___results__.html#a9adf2a6505a19281b3d008cc5b69cb9f"/>
+          <topic label="activeEnergy" href="struct___e_m___phase___results__.html#a390800d635be3a3132c2ca33f14e6248"/>
+          <topic label="reactiveEnergy" href="struct___e_m___phase___results__.html#a14c73d514e26af1e235a9a2ccd7119a5"/>
+          <topic label="apparentEnergy" href="struct___e_m___phase___results__.html#ac2c0de17f6d6fceba41ac4f881ee1717"/>
+          <topic label="phaseID" href="struct___e_m___phase___results__.html#ac740f6133ebbe6663e04ab399a14d74b"/>
+        </topic>
+        <topic label="_EM_Total_Results_" href="struct___e_m___total___results__.html">
+          <topic label="activePower" href="struct___e_m___total___results__.html#a165aa3a3e28d65bcdd6d4e6d1a981609"/>
+          <topic label="reactivePower" href="struct___e_m___total___results__.html#afcf0c811db2867c364b29bc04d267cd5"/>
+          <topic label="apparentPower" href="struct___e_m___total___results__.html#a249eaff9a6a6cb72eb9ff2832c7b777a"/>
+          <topic label="activeEnergy" href="struct___e_m___total___results__.html#a9cf71696f7c121efb9b32553bd3b5da9"/>
+          <topic label="reactiveEnergy" href="struct___e_m___total___results__.html#a7201318c2ed97004b4021a3f607a9c36"/>
+          <topic label="apparentEnergy" href="struct___e_m___total___results__.html#a56e988f3872bd533ecea6f9c588558ff"/>
+        </topic>
+        <topic label="_EM_SW_Lib_Result_Handle_" href="struct___e_m___s_w___lib___result___handle__.html">
+          <topic label="emTotalResult" href="struct___e_m___s_w___lib___result___handle__.html#a34034ab50a661e87d3c111bf28e000de"/>
+          <topic label="phaseResults" href="struct___e_m___s_w___lib___result___handle__.html#ae7325d4d38f2e1e9171f740946e6b817"/>
+          <topic label="phaseBGResults" href="struct___e_m___s_w___lib___result___handle__.html#a2846b414749602ef890cd29292b83677"/>
+          <topic label="phaseMetrologyPing" href="struct___e_m___s_w___lib___result___handle__.html#a09e0c6c6a475676964e3ebade3e4910c"/>
+          <topic label="phaseMetrologyPong" href="struct___e_m___s_w___lib___result___handle__.html#a2c02afcf328445ba76335daf9dfb4716"/>
+          <topic label="phaseResultsSupportedLen" href="struct___e_m___s_w___lib___result___handle__.html#a47b7ea784e9c057c6b74c974cf0af7d1"/>
+        </topic>
+        <topic label="EM_PHASE_RESULT_CALC_VRMS" href="em_sw_lib_8h.html#aad92c887a744722ad5dab452cf3b1d22"/>
+        <topic label="EM_PHASE_RESULT_CALC_IRMS" href="em_sw_lib_8h.html#ab2be965ac25685ed16f5011547811872"/>
+        <topic label="EM_PHASE_RESULT_CALC_V_PEAK" href="em_sw_lib_8h.html#af98f420926e15833494cc68a9d378bfd"/>
+        <topic label="EM_PHASE_RESULT_CALC_I_PEAK" href="em_sw_lib_8h.html#a98ef3ca67379f2649b40592805eab52b"/>
+        <topic label="EM_PHASE_RESULT_CALC_POWER_FACTOR" href="em_sw_lib_8h.html#adb57e3cdedda168967062353b01a1471"/>
+        <topic label="EM_PHASE_RESULT_CALC_FREQ" href="em_sw_lib_8h.html#a9ce94082ca8c62489d85c1029a37432c"/>
+        <topic label="EM_PHASE_RESULT_CALC_ACTIVE_POWER" href="em_sw_lib_8h.html#ac2bb05a030c19f33c6508bb52146eb82"/>
+        <topic label="EM_PHASE_RESULT_CALC_REACTIVE_POWER" href="em_sw_lib_8h.html#a8d94d41fff3b9bb6c6768f58d35097ef"/>
+        <topic label="EM_PHASE_RESULT_CALC_APPARENT_POWER" href="em_sw_lib_8h.html#a3180035331fba85d2467f8bbec3959dc"/>
+        <topic label="EM_PHASE_RESULT_CALC_ACTIVE_ENERGY" href="em_sw_lib_8h.html#a88080987e1a40f05e6616025bd5de244"/>
+        <topic label="EM_PHASE_RESULT_CALC_REACTIVE_ENERGY" href="em_sw_lib_8h.html#ae17d03dab7c5a514ea3c15ae059c8179"/>
+        <topic label="EM_PHASE_RESULT_CALC_APPARENT_ENERGY" href="em_sw_lib_8h.html#aa6b585a92cf57c32652824f59499226b"/>
+        <topic label="EM_PULSE_GEN_PHASE_NONE" href="em_sw_lib_8h.html#a169bade41880fda8cbea04006146aa1a"/>
+        <topic label="EM_PULSE_GEN_PHASE_A" href="em_sw_lib_8h.html#a7b47dcda45571cdf6b07a042a00ce709"/>
+        <topic label="EM_PULSE_GEN_PHASE_B" href="em_sw_lib_8h.html#a035878288fcc89091977b32ad16e00a1"/>
+        <topic label="EM_PULSE_GEN_PHASE_C" href="em_sw_lib_8h.html#a5066e1c9e8880f36fc3ec513796e8487"/>
+        <topic label="EM_PULSE_GEN_PHASE_D" href="em_sw_lib_8h.html#aff081a6e3f748fc2160dc2a7537f7a8c"/>
+        <topic label="EM_PULSE_GEN_PHASE_E" href="em_sw_lib_8h.html#a7b68e96f20f071577b9293570d812869"/>
+        <topic label="EM_PULSE_GEN_PHASE_F" href="em_sw_lib_8h.html#ad50a214d7268daced083d8f4c21cc3c0"/>
+        <topic label="EM_PULSE_GEN_PHASE_NEUTRAL" href="em_sw_lib_8h.html#ac370d3efa495a06bde58f155d31f3f5e"/>
+        <topic label="EM_PULSE_GEN_PHASE_AGGREGATE" href="em_sw_lib_8h.html#a27f17b94aace70062312a4b8ffd55145"/>
+        <topic label="EM_message_code" href="em_sw_lib_8h.html#a49eed1476cbc4d90c0ef3708bf776f28"/>
+        <topic label="EM_Current_Sensor" href="em_sw_lib_8h.html#a8964c86faf42d35d4b4dc915f5ccb38c"/>
+        <topic label="EM_Power_t" href="em_sw_lib_8h.html#a749c5a1965a653b8765af560dde565bc"/>
+        <topic label="EM_Energy_t" href="em_sw_lib_8h.html#af19ef5d36782ea1911ba0a1f4b2726c3"/>
+        <topic label="EM_Phase" href="em_sw_lib_8h.html#aa896fdbe202cc68cd1ea20ca1f3295e5"/>
+        <topic label="EM_Pulse_Settings" href="em_sw_lib_8h.html#a5e7d7de3e9ae6ce0c56c199516333ef4"/>
+        <topic label="EM_System_Configuration" href="em_sw_lib_8h.html#a85eac103503a6527fda74bf2bbb2e225"/>
+        <topic label="EM_Phase_Calibration" href="em_sw_lib_8h.html#a623e372d150302e4e23639e08e207be6"/>
+        <topic label="EM_Phase_Configuration" href="em_sw_lib_8h.html#ac002052634f8b69b5bf8952ca6a3e803"/>
+        <topic label="EM_Meter_Configuration" href="em_sw_lib_8h.html#acfdf0a5c8cdfd854b9dc01be12996b83"/>
+        <topic label="EM_Algorithm_Configuration" href="em_sw_lib_8h.html#a7f8c1ced728b07b1b156560517dc7dd4"/>
+        <topic label="EM_SW_Lib_Config_Handle" href="em_sw_lib_8h.html#a837b6a11e53dcd5688fb2c05420e4ff9"/>
+        <topic label="EM_Metrology" href="em_sw_lib_8h.html#a2e883ea1cc7d80cdfc58bf722eb62dae"/>
+        <topic label="EM_Phase_BG_Results" href="em_sw_lib_8h.html#a7880bb724e609f02cb3d6a0413e2d5b1"/>
+        <topic label="EM_Phase_Results" href="em_sw_lib_8h.html#a8189d9c8ea9b05335cec20f66763ad17"/>
+        <topic label="EM_Total_Results" href="em_sw_lib_8h.html#ae3e8e409f282157e47284db0105b45cd"/>
+        <topic label="EM_SW_Lib_Result_Handle" href="em_sw_lib_8h.html#a22b592d72c252500653d07af953b9c53"/>
+        <topic label="_EM_message_code_" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebe">
+          <topic label="EM_message_code_no_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebeacc49681e49dc61bb6fbfebfbadc66512"/>
+          <topic label="EM_message_code_pulseArray_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea3eb66af96d389ce8d477a5f7a3082240"/>
+          <topic label="EM_message_code_indPhaseMeter_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea8b8120865692eb7f6a1e3b574186a659"/>
+          <topic label="EM_message_code_indPhasePulseDuration_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebeacd34bb4a47393b1310ff731c4a3d0918"/>
+          <topic label="EM_message_code_totalPhaseMeter_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea45bf36e7e89dc80316e1db6b8057e47e"/>
+          <topic label="EM_message_code_totalPhasePulseDuration_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea5a2ff85579dc8db160275040930384cf"/>
+          <topic label="EM_message_code_samplingFrequency_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebeadc5e1ba9a93a6ac309cf2fd29b8e6f6d"/>
+          <topic label="EM_message_code_reactPowLength_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea71210a4db48a8b5d0051fb2af69458d8"/>
+          <topic label="EM_message_code_reactPowIIRTable_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebead25d146540423f8e559dc6c98c0f5182"/>
+          <topic label="EM_message_code_phaseLength_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea1e607a3ded143567e9b54cebab478c8c"/>
+          <topic label="EM_message_code_phaseConfig_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea45f09f61c27bff00fd5ae76eae818e6d"/>
+          <topic label="EM_message_code_calibrate_invalidPhase_error" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea354da8cc3e4d70204f4e5f4ddbb45fda"/>
+          <topic label="EM_message_code_error_occurred" href="em_sw_lib_8h.html#aff52f49b10b1996a2aa797179739bebea543979652ecb5504069924aa60b97b63"/>
+        </topic>
+        <topic label="_EM_Current_Sensor_" href="em_sw_lib_8h.html#adcff2fee07d725ce8378ac5152cddf2b">
+          <topic label="EM_Phase_Sensor_CT" href="em_sw_lib_8h.html#adcff2fee07d725ce8378ac5152cddf2baa2f2042cfe2bc8f92fed0982e782433a"/>
+          <topic label="EM_Phase_Sensor_Shunt" href="em_sw_lib_8h.html#adcff2fee07d725ce8378ac5152cddf2ba8bd3a540dbbefe9f60ed36f002e88766"/>
+          <topic label="EM_Phase_Sensor_RC" href="em_sw_lib_8h.html#adcff2fee07d725ce8378ac5152cddf2baf97558fd101d89761eab5e7ce27cc007"/>
+        </topic>
+        <topic label="_EM_Phase_" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74ef">
+          <topic label="EM_Phase_A" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74efa9806807a36efc9b601687bd6e8b0e761"/>
+          <topic label="EM_Phase_B" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74efadb33f3c0fe4c1775836a0738fee4271d"/>
+          <topic label="EM_Phase_C" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74efa01128500a4016e54d2ba68708867e995"/>
+          <topic label="EM_Phase_D" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74efa6a31a497ea39f58ea50ac1799bcca9f6"/>
+          <topic label="EM_Phase_E" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74efa9505243297c9dfd839d1ea8447aa4544"/>
+          <topic label="EM_Phase_F" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74efaa0832c79fe15880971f62ea300970afe"/>
+          <topic label="EM_Phase_Neutral" href="em_sw_lib_8h.html#a627dd880b802aec1d6ffe835852b74efa64005bd99a0c9bacf23f26c00e786334"/>
+        </topic>
+        <topic label="EM_configureEnergyMeasurement" href="group__configuration__api.html#gab9c9eec23e53ea8c10d4b0522c4061b4"/>
+        <topic label="EM_initDCFilters" href="group__configuration__api.html#gaba031abedf4854b747987c902e4a5619"/>
+        <topic label="EM_initalizeCalibrationValues" href="group__calibration__api.html#ga62b30c526e30f7985730b1bfcb746387"/>
+        <topic label="EM_updateFlashCalibrationValues" href="group__calibration__api.html#gab561097e2ad3bae1fa9641cf9e200245"/>
+        <topic label="EM_voltageDCFilter" href="group__result__api.html#ga1834214615fdf22f3c4b3cd6c6dc8b0c"/>
+        <topic label="EM_currentDCFilter" href="group__result__api.html#ga00a88a65cef272e566d228b833fb1637"/>
+        <topic label="EM_perSample" href="group__result__api.html#ga8f9c190a63d2e367c421c770c23a7d21"/>
+        <topic label="EM_perDataChunk" href="group__result__api.html#gad6628dae04ad34378c448fb2de928e6f"/>
+        <topic label="EM_delayCurrent90Degrees" href="group__result__api.html#gade3085e201967bbf7770ce88765ca5fb"/>
+        <topic label="EM_genPulseIndPhase" href="group__result__api.html#ga218995a1fda2a83454aaa7ae83db94ac"/>
+        <topic label="EM_genPulseTotalPhases" href="group__result__api.html#ga24aa9c669d32d27306a840ad9d196efe"/>
+        <topic label="EM_updateOneDivSC" href="group__result__api.html#ga147110de9d95fdf71c193ce2cd9baf05"/>
+        <topic label="EM_clearMetrology" href="group__result__api.html#gac7163797e2a70de44e78d47da27e7faf"/>
+        <topic label="EM_updateReactPowConst" href="group__result__api.html#ga21ffe9a979a07cf06d9b1ebb0442cca9"/>
+        <topic label="EM_processSample" href="group__result__api.html#gaa9d4ea4efa8e5b8317d2b2a4e2dd0403"/>
+        <topic label="EM_calcActivePowerMultAcc" href="group__result__api.html#gaa56ee9d70b0dc6fbc6fb26117e4eff4a"/>
+        <topic label="EM_calcActivePowerDiv" href="group__result__api.html#ga2fab4b120d32a9c122b8bdf74d83276a"/>
+        <topic label="EM_calcActiveEnergy" href="group__result__api.html#ga3c43e46165cf16d27fb854d331066ccd"/>
+        <topic label="EM_calcReactivePowerMultAcc" href="group__result__api.html#gae958917049f27a3a3eb4fccba9586d45"/>
+        <topic label="EM_calcReactivePowerDiv" href="group__result__api.html#ga8479a9975c6370e31638c460260eaa48"/>
+        <topic label="EM_calcReactiveEnergy" href="group__result__api.html#ga4da326b0f5b3e27e695253144a11cb64"/>
+        <topic label="EM_calcApparentPower" href="group__result__api.html#ga13adade3e66abf65c11c9535e712d9be"/>
+        <topic label="EM_calcApparentEnergy" href="group__result__api.html#gaa636506ae0691a1e990a8d7a034f5672"/>
+        <topic label="EM_calcPowerFactor" href="group__result__api.html#ga63a2a50263682af4c16b3d17e3ee25a8"/>
+        <topic label="EM_calcVRMSMultAcc" href="group__result__api.html#gaef08801742aee1da976354b529cc4e79"/>
+        <topic label="EM_calcVRMSDivSqrt" href="group__result__api.html#ga45943f5807719c16a8e126d55e86026a"/>
+        <topic label="EM_calcIRMSMultAcc" href="group__result__api.html#ga2613527572e71b8bb731a0f8ee879403"/>
+        <topic label="EM_calcIRMSDivSqrt" href="group__result__api.html#gabc726817689d2d52f85a5c3e1f33d665"/>
+        <topic label="EM_calcIPeak" href="group__result__api.html#ga451f1a661958c82469169ad1c5f61df0"/>
+        <topic label="EM_calcVPeak" href="group__result__api.html#ga812a9164fd5c89735851bb2f560198f0"/>
+        <topic label="EM_calcFreqPeriod" href="group__result__api.html#ga18bc64d00da3b5171c2233e66022c485"/>
+        <topic label="EM_calcFreq" href="group__result__api.html#gada1e8ae5ca1f6368ea8c908fbc5c4884"/>
+        <topic label="EM_calcTotalActivePower" href="group__result__api.html#ga68b768dc01c4625171d84cc70fee8cfd"/>
+        <topic label="EM_calcTotalReactivePower" href="group__result__api.html#gab0021c11695ba73c0db981903a26b530"/>
+        <topic label="EM_calcTotalApparentPower" href="group__result__api.html#gae746e43b3c2d267aff4a33e802ee00e1"/>
+        <topic label="EM_calcTotalActiveEnergy" href="group__result__api.html#ga2611108294f9145fbdf6c3fa17543c7f"/>
+        <topic label="EM_calcTotalReactiveEnergy" href="group__result__api.html#gae59cfd11082392f59ddada372a9629ac"/>
+        <topic label="EM_calcTotalApparentEnergy" href="group__result__api.html#gaa0367492a07c010cd1dc4abbc3d47423"/>
+        <topic label="EMSWLIB_EM_HAL_ADC_maxFreqCount" href="em_sw_lib_8h.html#a20c2071980fc0cef70b3a7ddc78e8564"/>
+        <topic label="EMSWLIB_EM_HAL_ADC_minFreqCount" href="em_sw_lib_8h.html#aa9e446a2161d0119b2b88ea895c139dc"/>
+      </topic>
+      <topic label="hal_adc_sd24.h" href="hal__adc__sd24_8h.html">
+        <topic label="_HAL_ADC_SD24_Channel_" href="struct___h_a_l___a_d_c___s_d24___channel__.html">
+          <topic label="gain" href="struct___h_a_l___a_d_c___s_d24___channel__.html#a6cad338a0cab99e5e1d3da49081846ea"/>
+          <topic label="preload" href="struct___h_a_l___a_d_c___s_d24___channel__.html#a08d38cf20883a5135247945fbaf9d4fa"/>
+          <topic label="samplePtr" href="struct___h_a_l___a_d_c___s_d24___channel__.html#ac9dc60e0b3258bfc430cd3180f37d742"/>
+          <topic label="converter" href="struct___h_a_l___a_d_c___s_d24___channel__.html#ad6ae8ae6901c14e96bd8cc1fff4da5d6"/>
+        </topic>
+        <topic label="_HAL_ADC_SD24_Configuration_" href="struct___h_a_l___a_d_c___s_d24___configuration__.html">
+          <topic label="overSampleRatio" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#ae062b026a50c4b88eb67f0bac5530685"/>
+          <topic label="sampleFreq" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#ae41cdbfe27b8f7c33b5bb1d0d579384a"/>
+          <topic label="referenceSelect" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#a5f84956dd62e175b9c58bdc31df080c9"/>
+          <topic label="masterConverter" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#a5cfddfa8e8c386d42ed8c08734a86225"/>
+          <topic label="adcChannelPtr" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#aa4f1ae83388d4ffdd742b26f52eea7a9"/>
+          <topic label="adcChannelLength" href="struct___h_a_l___a_d_c___s_d24___configuration__.html#a454032007ae49a5989ffa64764caa903"/>
+        </topic>
+        <topic label="HAL_ADC_CONV_INVALID_INDEX" href="hal__adc__sd24_8h.html#aa03e2e77918f54f00b18955fb79397b9"/>
+        <topic label="HAL_ADC_MAX_MOD_FREQ" href="hal__adc__sd24_8h.html#a22355b09707d6ed3a93af9f8e15433b2"/>
+        <topic label="HAL_ADC_V_ARRAY_LENGTH" href="hal__adc__sd24_8h.html#ac42bd7ecb593111d3403aae0dc6dc96d"/>
+        <topic label="HAL_ADC_I_ARRAY_LENGTH" href="hal__adc__sd24_8h.html#a07ace53c6cc2f8f5d19f8939cff64fc0"/>
+        <topic label="HAL_ADC_V_MASK" href="hal__adc__sd24_8h.html#a272b3a698045b22f65b217dd2d4d58ef"/>
+        <topic label="HAL_ADC_I_MASK" href="hal__adc__sd24_8h.html#a603ebdf8ed82e1992392ef1a5e02e83d"/>
+        <topic label="HAL_ADC_CH0_READ" href="hal__adc__sd24_8h.html#aeaede6c31c49f54daa943a19c345fe43"/>
+        <topic label="HAL_ADC_CH1_READ" href="hal__adc__sd24_8h.html#a38ed59bceafe32187ae98754176c06c3"/>
+        <topic label="HAL_ADC_CH2_READ" href="hal__adc__sd24_8h.html#a2d90316967d3fcc2c3934fdd36d7510a"/>
+        <topic label="HAL_ADC_CH3_READ" href="hal__adc__sd24_8h.html#a3758100550b4b69c2ea143f5716fe8c9"/>
+        <topic label="HAL_ADC_FREQ_4000_HZ" href="hal__adc__sd24_8h.html#a9da894cac80489f8a7858becb9f74467"/>
+        <topic label="HAL_ADC_FREQ_8000_HZ" href="hal__adc__sd24_8h.html#a8025540a2ad8e43d4fdb8163f91eaeb9"/>
+        <topic label="HAL_ADC_FREQ_16000_HZ" href="hal__adc__sd24_8h.html#a87996c317a882d279a26ed7f74b9f876"/>
+        <topic label="HAL_ADC_PHASE_NO_DATA_READY" href="hal__adc__sd24_8h.html#ab0175c18e8082e41890f8770c2b9d55c"/>
+        <topic label="HAL_ADC_PHASE_A_DATA_READY" href="hal__adc__sd24_8h.html#ab1a9441dddd3a394be0531fdc93f5525"/>
+        <topic label="HAL_ADC_PHASE_B_DATA_READY" href="hal__adc__sd24_8h.html#ada8629cf1b400a58d60bbe6392275343"/>
+        <topic label="HAL_ADC_PHASE_C_DATA_READY" href="hal__adc__sd24_8h.html#a1cb84b7e9a28d7cc5f3d52ab35fe0d9f"/>
+        <topic label="HAL_ADC_PHASE_NEUTRAL_DATA_READY" href="hal__adc__sd24_8h.html#a07078f101b69d075d61e961380cc254a"/>
+        <topic label="HAL_ADC_PHASE_TOTAL_DATA_READY" href="hal__adc__sd24_8h.html#a1c94993e9a7bfa0e8b3e0ce67cc19430"/>
+        <topic label="HAL_ADC_OSR_32" href="hal__adc__sd24_8h.html#a867143276d121320608a55c05b8c42ca"/>
+        <topic label="HAL_ADC_OSR_64" href="hal__adc__sd24_8h.html#a6a93b02e231c48a602a2d0080bfba7cc"/>
+        <topic label="HAL_ADC_OSR_128" href="hal__adc__sd24_8h.html#a9ae01948cebcc3af61f7991438278e18"/>
+        <topic label="HAL_ADC_OSR_256" href="hal__adc__sd24_8h.html#a3481a6f89f4f812822baac061f929b8c"/>
+        <topic label="HAL_ADC_message_code" href="hal__adc__sd24_8h.html#a7b58f63393045e61ab7dc165d040a421"/>
+        <topic label="HAL_ADC_SD24_Channel" href="hal__adc__sd24_8h.html#aa95907de02669c2f51483319aff3a992"/>
+        <topic label="HAL_ADC_SD24_Configuration" href="hal__adc__sd24_8h.html#ae4e859d3c08868bc09c414d27398705c"/>
+        <topic label="_HAL_ADC_message_code_" href="hal__adc__sd24_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6">
+          <topic label="HAL_ADC_message_code_no_error" href="hal__adc__sd24_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a203afb151a9a6a8cfc07e5df0a143ca6"/>
+          <topic label="HAL_ADC_message_code_invalid_freq_error" href="hal__adc__sd24_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6aadfa67f5bc7284f867c6886c36061856"/>
+          <topic label="HAL_ADC_message_code_no_error" href="hal__adc__sd24b_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a203afb151a9a6a8cfc07e5df0a143ca6"/>
+          <topic label="HAL_ADC_message_code_invalid_mod_freq_error" href="hal__adc__sd24b_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a23e07819d7ca5e720ebb372e2df37ceb"/>
+          <topic label="HAL_ADC_message_code_invalid_clock_divider_error" href="hal__adc__sd24b_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a95ed34bb822d527056945e6a9012f965"/>
+        </topic>
+        <topic label="HAL_ADC_init" href="group__hal__adc__api__sd24.html#ga9e35a98072ebaa09a57a68eb46ebbe84"/>
+        <topic label="HAL_ADC_startConversion" href="group__hal__adc__api__sd24.html#ga90d11c32398ee6017a3e62c62d0ba2a5"/>
+        <topic label="HAL_ADC_stopConversion" href="group__hal__adc__api__sd24.html#ga31a43de8c34a5e3d39c25adeacfd4eb9"/>
+        <topic label="HAL_ADC_enableInterrupt" href="group__hal__adc__api__sd24.html#ga4d6f4610d287be034c8df1a0f1a2db76"/>
+        <topic label="HAL_ADC_disableInterrupt" href="group__hal__adc__api__sd24.html#ga2dfe602418510546213edc14e75ff9a7"/>
+        <topic label="HAL_ADC_printResult" href="group__hal__adc__api__sd24.html#ga4c78316e262069ad3e16790d320c3e5d"/>
+        <topic label="HAL_ADC_clearVariables" href="group__hal__adc__api__sd24.html#gadd8a9505a3580df83946a796c662de2b"/>
+        <topic label="phaseDataReady" href="group__hal__adc__api__sd24.html#ga122922096ed92d3ca0f56f836d619e96"/>
+        <topic label="halAdcConfig" href="group__hal__adc__api__sd24.html#gaf88f8e731f4f507a87d20d99d494354f"/>
+      </topic>
+      <topic label="hal_adc_sd24b.h" href="hal__adc__sd24b_8h.html">
+        <topic label="_HAL_ADC_SD24_B_Channel_" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html">
+          <topic label="gain" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#a210ebd35f6e817fe77355e0d1dad1598"/>
+          <topic label="preload" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#ab89f348a7d8e7bf053acec1e8e9bf20e"/>
+          <topic label="converter" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#a461e1afb765d315ae16b56558bbd2277"/>
+          <topic label="alignment" href="struct___h_a_l___a_d_c___s_d24___b___channel__.html#adf9bff9ab25e27ef70a0f2773eccf021"/>
+        </topic>
+        <topic label="_HAL_ADC_SD24_B_Configuration_" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html">
+          <topic label="SMCLKFrequency" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a1610a4833aff0331215aab8bc91cbf8d"/>
+          <topic label="overSampleRatio" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#ad25b302035a6a83b6c51e5945ab4f470"/>
+          <topic label="sampleFreq" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a0ddc797dfb36a345083f1d70d01b4362"/>
+          <topic label="sd24Param" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#ac29be59d05bb22dd9d836981766b1150"/>
+          <topic label="masterConverter" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a10a638a89eb83c5780e54d389886d628"/>
+          <topic label="adcChannelPtr" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a85e6eaefeb8c80692a81a1c42e33fc2f"/>
+          <topic label="adcChannelLength" href="struct___h_a_l___a_d_c___s_d24___b___configuration__.html#a21a632bc5b0af7fd2a3044d47813802a"/>
+        </topic>
+        <topic label="HAL_ADC_CONV_INVALID_INDEX" href="hal__adc__sd24b_8h.html#aa03e2e77918f54f00b18955fb79397b9"/>
+        <topic label="HAL_ADC_MAX_MOD_FREQ" href="hal__adc__sd24b_8h.html#a22355b09707d6ed3a93af9f8e15433b2"/>
+        <topic label="HAL_ADC_V_ARRAY_LENGTH" href="hal__adc__sd24b_8h.html#ac42bd7ecb593111d3403aae0dc6dc96d"/>
+        <topic label="HAL_ADC_I_ARRAY_LENGTH" href="hal__adc__sd24b_8h.html#a07ace53c6cc2f8f5d19f8939cff64fc0"/>
+        <topic label="HAL_ADC_V_MASK" href="hal__adc__sd24b_8h.html#a272b3a698045b22f65b217dd2d4d58ef"/>
+        <topic label="HAL_ADC_I_MASK" href="hal__adc__sd24b_8h.html#a603ebdf8ed82e1992392ef1a5e02e83d"/>
+        <topic label="HAL_ADC_CH0_READ" href="hal__adc__sd24b_8h.html#aeaede6c31c49f54daa943a19c345fe43"/>
+        <topic label="HAL_ADC_CH1_READ" href="hal__adc__sd24b_8h.html#a38ed59bceafe32187ae98754176c06c3"/>
+        <topic label="HAL_ADC_CH2_READ" href="hal__adc__sd24b_8h.html#a2d90316967d3fcc2c3934fdd36d7510a"/>
+        <topic label="HAL_ADC_CH3_READ" href="hal__adc__sd24b_8h.html#a3758100550b4b69c2ea143f5716fe8c9"/>
+        <topic label="HAL_ADC_CH4_READ" href="hal__adc__sd24b_8h.html#a060c329246f2f0fc9c30d4e37c8927bc"/>
+        <topic label="HAL_ADC_CH5_READ" href="hal__adc__sd24b_8h.html#a8ddd8f41c296da07b8765bd9396607b4"/>
+        <topic label="HAL_ADC_CH6_READ" href="hal__adc__sd24b_8h.html#a1074d2db44aa5122c5117ff7f1455e37"/>
+        <topic label="HAL_ADC_CH7_READ" href="hal__adc__sd24b_8h.html#a579174a1504834e1a1c7d2acd37126db"/>
+        <topic label="HAL_ADC_CLOCK_MULT_4" href="hal__adc__sd24b_8h.html#ab1f18c807ee904fd1ec8640873d3e511"/>
+        <topic label="HAL_ADC_CLOCK_MULT_8" href="hal__adc__sd24b_8h.html#a49ce9eb213c492b148ac5cb1ee1cf7a0"/>
+        <topic label="HAL_ADC_CLOCK_MULT_12" href="hal__adc__sd24b_8h.html#a056099aea1417bbea0ee2355519b006b"/>
+        <topic label="HAL_ADC_CLOCK_MULT_16" href="hal__adc__sd24b_8h.html#a7718d305d3005b2e88c699bd502fb0d5"/>
+        <topic label="HAL_ADC_CLOCK_MULT_24" href="hal__adc__sd24b_8h.html#a8c755f9b4c74089f82875785f74c6267"/>
+        <topic label="HAL_ADC_CLOCK_MULT_32" href="hal__adc__sd24b_8h.html#affa63d292670d5728a1898e5f34d3f1b"/>
+        <topic label="HAL_ADC_CLOCK_MULT_64" href="hal__adc__sd24b_8h.html#aba67952af9f16739f9300841f5b78ef9"/>
+        <topic label="HAL_ADC_CLOCK_MULT_96" href="hal__adc__sd24b_8h.html#a9385e01e86e656fa1edee99d4ee3f818"/>
+        <topic label="HAL_ADC_CLOCK_MULT_128" href="hal__adc__sd24b_8h.html#a7b99de6aa7b2c9377ac96505e6691f62"/>
+        <topic label="HAL_ADC_CLOCK_MULT_192" href="hal__adc__sd24b_8h.html#a745fdd79d8662c5fbbfbb999bf7ea552"/>
+        <topic label="HAL_ADC_CLOCK_MULT_384" href="hal__adc__sd24b_8h.html#a7739d0319d85e97bc1b98878909fec5b"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_4" href="hal__adc__sd24b_8h.html#a03beb20fce91d59de6ef12227f54dd29"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_8" href="hal__adc__sd24b_8h.html#a14861e9a0445e53599da4da2f09c89e1"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_12" href="hal__adc__sd24b_8h.html#a7cacb0d8275247feab63ab0cd9e980ce"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_16" href="hal__adc__sd24b_8h.html#abed3e55b2d6469a8f89a8c75dc0bafe0"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_24" href="hal__adc__sd24b_8h.html#adb0712a6a8550960037218cf825740cd"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_32" href="hal__adc__sd24b_8h.html#ab1d3f6f6b1e9f92a00b4040a590d456a"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_48" href="hal__adc__sd24b_8h.html#aff873fe87c82653bc195518d4eb2b764"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_64" href="hal__adc__sd24b_8h.html#a564e2794b612c25ac34e5310eff3eb99"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_96" href="hal__adc__sd24b_8h.html#a7a9343b51bd5aeb213f989a77c2d10b9"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_128" href="hal__adc__sd24b_8h.html#ab0a1c8ce552500d72920e0e6ffdac9d4"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_192" href="hal__adc__sd24b_8h.html#a810a3fdd9aae1812cf52b12010af07e0"/>
+        <topic label="HAL_ADC_SD24PDIV_MULT_384" href="hal__adc__sd24b_8h.html#aee03b2bd5fa9b94de20c0e4223be0c79"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_4" href="hal__adc__sd24b_8h.html#ab3f6a69be9be2fcc2039b417535d6a57"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_8" href="hal__adc__sd24b_8h.html#abd6a3b55ad28fe572c46069b05548098"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_12" href="hal__adc__sd24b_8h.html#ac7c2d3cde998991dd7d50035cb2c4549"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_16" href="hal__adc__sd24b_8h.html#a94b8ea216bf5ad4464f670ca9fd346f5"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_24" href="hal__adc__sd24b_8h.html#a83ece9a9d9f00a40339d99dc6c8ea558"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_32" href="hal__adc__sd24b_8h.html#a5dd7bb5ccab7ff867f67c94e3b046b8f"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_48" href="hal__adc__sd24b_8h.html#a6b057a7fc2922663c08124afba10088b"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_64" href="hal__adc__sd24b_8h.html#ab7e7f78b46664a16fbdd37674d2c041e"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_96" href="hal__adc__sd24b_8h.html#acb34867193b9988e5e443c3cbf4488a9"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_128" href="hal__adc__sd24b_8h.html#a703df4be97a1d2526545b0ea344606fb"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_192" href="hal__adc__sd24b_8h.html#a8d009358401bebc92dcc3800dc3f724e"/>
+        <topic label="HAL_ADC_SD24DIV_MULT_384" href="hal__adc__sd24b_8h.html#a60601f301a0fe3abbb3b37c6f288dfef"/>
+        <topic label="HAL_ADC_FREQ_2048_HZ" href="hal__adc__sd24b_8h.html#a5bb9ef880e3492ef19ea33a347b23fc1"/>
+        <topic label="HAL_ADC_FREQ_4096_HZ" href="hal__adc__sd24b_8h.html#a305d4e669f7eb90b883bdfa5f377bb74"/>
+        <topic label="HAL_ADC_FREQ_8192_HZ" href="hal__adc__sd24b_8h.html#add4c92c71ccfd4e2b5b6e14fb703c46c"/>
+        <topic label="HAL_ADC_FREQ_16384_HZ" href="hal__adc__sd24b_8h.html#a182d8d8c2c79e9a4485007687ce950fe"/>
+        <topic label="HAL_ADC_PHASE_NO_DATA_READY" href="hal__adc__sd24b_8h.html#ab0175c18e8082e41890f8770c2b9d55c"/>
+        <topic label="HAL_ADC_PHASE_A_DATA_READY" href="hal__adc__sd24b_8h.html#ab1a9441dddd3a394be0531fdc93f5525"/>
+        <topic label="HAL_ADC_PHASE_B_DATA_READY" href="hal__adc__sd24b_8h.html#ada8629cf1b400a58d60bbe6392275343"/>
+        <topic label="HAL_ADC_PHASE_C_DATA_READY" href="hal__adc__sd24b_8h.html#a1cb84b7e9a28d7cc5f3d52ab35fe0d9f"/>
+        <topic label="HAL_ADC_PHASE_D_DATA_READY" href="hal__adc__sd24b_8h.html#a7f55560bc7d04b95993d8b8e932c9923"/>
+        <topic label="HAL_ADC_PHASE_E_DATA_READY" href="hal__adc__sd24b_8h.html#af02cd25bdb9bce84e0243429bf0e53fc"/>
+        <topic label="HAL_ADC_PHASE_F_DATA_READY" href="hal__adc__sd24b_8h.html#a89c67ef3edd21f36bcb595be25db47ff"/>
+        <topic label="HAL_ADC_PHASE_NEUTRAL_DATA_READY" href="hal__adc__sd24b_8h.html#a07078f101b69d075d61e961380cc254a"/>
+        <topic label="HAL_ADC_PHASE_TOTAL_DATA_READY" href="hal__adc__sd24b_8h.html#a1c94993e9a7bfa0e8b3e0ce67cc19430"/>
+        <topic label="HAL_ADC_message_code" href="hal__adc__sd24b_8h.html#a7b58f63393045e61ab7dc165d040a421"/>
+        <topic label="HAL_ADC_SD24_B_Channel" href="hal__adc__sd24b_8h.html#a0d463b95190c351118165bbdb15c9632"/>
+        <topic label="HAL_ADC_SD24_B_Configuration" href="hal__adc__sd24b_8h.html#a32aed7b51ad0e2931bbcc5f0817e977a"/>
+        <topic label="_HAL_ADC_message_code_" href="hal__adc__sd24b_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6">
+          <topic label="HAL_ADC_message_code_no_error" href="hal__adc__sd24_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a203afb151a9a6a8cfc07e5df0a143ca6"/>
+          <topic label="HAL_ADC_message_code_invalid_freq_error" href="hal__adc__sd24_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6aadfa67f5bc7284f867c6886c36061856"/>
+          <topic label="HAL_ADC_message_code_no_error" href="hal__adc__sd24b_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a203afb151a9a6a8cfc07e5df0a143ca6"/>
+          <topic label="HAL_ADC_message_code_invalid_mod_freq_error" href="hal__adc__sd24b_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a23e07819d7ca5e720ebb372e2df37ceb"/>
+          <topic label="HAL_ADC_message_code_invalid_clock_divider_error" href="hal__adc__sd24b_8h.html#a9fe5406788a0c9a4cdf6a769933cb6f6a95ed34bb822d527056945e6a9012f965"/>
+        </topic>
+        <topic label="HAL_ADC_init" href="group__hal__adc__api__sd24b.html#gad0765a742ce3475560bbf93bd4c8476a"/>
+        <topic label="HAL_ADC_startConversion" href="group__hal__adc__api__sd24b.html#gaa84f2d5c3cf0feb3edf5572c7c2c4e76"/>
+        <topic label="HAL_ADC_stopConversion" href="group__hal__adc__api__sd24b.html#ga372dfced0392abd69cc931c2a4f178ca"/>
+        <topic label="HAL_ADC_enableInterrupts" href="group__hal__adc__api__sd24b.html#ga7761f4fc638f793eb32851a211eb4768"/>
+        <topic label="HAL_ADC_disableInterrupts" href="group__hal__adc__api__sd24b.html#ga4ef40f9f86d4e82a8bf5e8b8d6576d63"/>
+        <topic label="HAL_ADC_clearVariables" href="group__hal__adc__api__sd24b.html#gadd8a9505a3580df83946a796c662de2b"/>
+        <topic label="phaseDataReady" href="group__hal__adc__api__sd24b.html#ga122922096ed92d3ca0f56f836d619e96"/>
+        <topic label="halAdcConfig" href="group__hal__adc__api__sd24b.html#ga952ecdb2fff6015531c9b267c63e24c5"/>
+      </topic>
+    </topic>
+    <topic label="Globals" href="globals.html">
+      <topic label="All" href="globals.html">
+        <topic label="_" href="globals.html"/>
+        <topic label="e" href="globals_e.html"/>
+        <topic label="h" href="globals_h.html"/>
+        <topic label="p" href="globals_p.html"/>
+      </topic>
+      <topic label="Functions" href="globals_func.html"/>
+      <topic label="Variables" href="globals_vars.html"/>
+      <topic label="Typedefs" href="globals_type.html"/>
+      <topic label="Enumerations" href="globals_enum.html"/>
+      <topic label="Enumerator" href="globals_eval.html"/>
+      <topic label="Macros" href="globals_defs.html"/>
+    </topic>
+  </topic>
+  <topic label="Change Log" href="md_sw_changelog.html"/>
+  <topic label="Disclaimer" href="_disclaimer.html"/>
+</toc>

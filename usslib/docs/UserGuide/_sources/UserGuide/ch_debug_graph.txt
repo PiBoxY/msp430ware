@@ -1,0 +1,43 @@
+Debug Waveform
+==============
+
+Debug Usage
+-----------
+
+**How to use the debug graph**
+
+The debug waveform exists to provide the user the ability to implement a custom waveform on the USS library target side, then transmit it to the Design Center for graphing.
+
+There are two reserved user HID command for this purpose, 0xB6 (only debug plot 1) and 0xB7 (debug plots 1 - 4). Documentation as to how to use this command exists in the USS Software Library User's Guide.
+
+Debug Controls
+--------------
+
+**Control Information**
+
+.. figure:: images/debug_controls.PNG
+   :alt: Debug Controls
+
+   Debug Controls
+
+The debug graph provides the same utilities as the other graphs included in Design Center to the user, including logging, zooming, and tooltips.
+
+The data transmission to this graph is enabled via the "Waveforms" Start/Stop command. To clear the current data on the screen, click the Clear button. To save the overall waveform data, click the Save Waveforms button.
+
+The Debug waveform data is logged in the same file as the Absolute TOF, Delta ToF, and Volume Flow Rate data. If automatic data logging is enabled via Options → Logging, then the debug waveform data will also be logged in the waveform data .csv file.
+
+**Statistics**
+
+Each Debug Plot has a statistics bar below providing the mean, min, max and std deviation of the last N samples, where N is selectable on the control panel bar.
+
+.. figure:: images/debug_graphs.PNG
+   :alt: Debug Graphs
+
+   Debug Graphs
+
+More Information
+----------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

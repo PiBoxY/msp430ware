@@ -1,0 +1,5083 @@
+[
+  {
+    "arraymacro": "devices_msp430_arch",
+    "value": [
+      "CC430F5123",
+      "CC430F5125",
+      "CC430F5133",
+      "CC430F5135",
+      "CC430F5137",
+      "CC430F5143",
+      "CC430F5145",
+      "CC430F5147",
+      "CC430F6125",
+      "CC430F6126",
+      "CC430F6127",
+      "CC430F6135",
+      "CC430F6137",
+      "CC430F6143",
+      "CC430F6145",
+      "CC430F6147",
+      "MSP430AFE221",
+      "MSP430AFE222",
+      "MSP430AFE223",
+      "MSP430AFE231",
+      "MSP430AFE232",
+      "MSP430AFE233",
+      "MSP430AFE251",
+      "MSP430AFE252",
+      "MSP430AFE253",
+      "MSP430C091",
+      "MSP430C092",
+      "MSP430C1331",
+      "MSP430C1351",
+      "MSP430F1101A",
+      "MSP430F1111A",
+      "MSP430F1121A",
+      "MSP430F1122",
+      "MSP430F1132",
+      "MSP430F122",
+      "MSP430F1222",
+      "MSP430F123",
+      "MSP430F1232",
+      "MSP430F133",
+      "MSP430F135",
+      "MSP430F147",
+      "MSP430F1471",
+      "MSP430F148",
+      "MSP430F1481",
+      "MSP430F149",
+      "MSP430F1491",
+      "MSP430F155",
+      "MSP430F156",
+      "MSP430F157",
+      "MSP430F1610",
+      "MSP430F1611",
+      "MSP430F1612",
+      "MSP430F167",
+      "MSP430F168",
+      "MSP430F169",
+      "MSP430F2001",
+      "MSP430F2002",
+      "MSP430F2003",
+      "MSP430F2011",
+      "MSP430F2012",
+      "MSP430F2013",
+      "MSP430F2112",
+      "MSP430F2122",
+      "MSP430F2132",
+      "MSP430F2232",
+      "MSP430F2234",
+      "MSP430F2252",
+      "MSP430F2254",
+      "MSP430F2272",
+      "MSP430F2274",
+      "MSP430F233",
+      "MSP430F2330",
+      "MSP430F235",
+      "MSP430F2350",
+      "MSP430F2370",
+      "MSP430F2410",
+      "MSP430F2416",
+      "MSP430F2417",
+      "MSP430F2418",
+      "MSP430F2419",
+      "MSP430F247",
+      "MSP430F2471",
+      "MSP430F248",
+      "MSP430F2481",
+      "MSP430F249",
+      "MSP430F2491",
+      "MSP430F2616",
+      "MSP430F2617",
+      "MSP430F2618",
+      "MSP430F2619",
+      "MSP430F412",
+      "MSP430F413",
+      "MSP430F4132",
+      "MSP430F415",
+      "MSP430F4152",
+      "MSP430F417",
+      "MSP430F423",
+      "MSP430F423A",
+      "MSP430F425",
+      "MSP430F4250",
+      "MSP430F425A",
+      "MSP430F4260",
+      "MSP430F427",
+      "MSP430F4270",
+      "MSP430F427A",
+      "MSP430F435",
+      "MSP430F4351",
+      "MSP430F436",
+      "MSP430F4361",
+      "MSP430F437",
+      "MSP430F4371",
+      "MSP430F438",
+      "MSP430F439",
+      "MSP430F447",
+      "MSP430F448",
+      "MSP430F4481",
+      "MSP430F449",
+      "MSP430F4491",
+      "MSP430F4616",
+      "MSP430F46161",
+      "MSP430F4617",
+      "MSP430F46171",
+      "MSP430F4618",
+      "MSP430F46181",
+      "MSP430F4619",
+      "MSP430F46191",
+      "MSP430F47126",
+      "MSP430F47127",
+      "MSP430F47166",
+      "MSP430F47167",
+      "MSP430F47176",
+      "MSP430F47177",
+      "MSP430F47186",
+      "MSP430F47187",
+      "MSP430F47196",
+      "MSP430F47197",
+      "MSP430F477",
+      "MSP430F478",
+      "MSP430F4783",
+      "MSP430F4784",
+      "MSP430F479",
+      "MSP430F4793",
+      "MSP430F4794",
+      "MSP430F5131",
+      "MSP430F5132",
+      "MSP430F5151",
+      "MSP430F5152",
+      "MSP430F5171",
+      "MSP430F5172",
+      "MSP430F5212",
+      "MSP430F5213",
+      "MSP430F5214",
+      "MSP430F5217",
+      "MSP430F5218",
+      "MSP430F5219",
+      "MSP430F5222",
+      "MSP430F5223",
+      "MSP430F5224",
+      "MSP430F5227",
+      "MSP430F5228",
+      "MSP430F5229",
+      "MSP430F5232",
+      "MSP430F5234",
+      "MSP430F5237",
+      "MSP430F5239",
+      "MSP430F5242",
+      "MSP430F5244",
+      "MSP430F5247",
+      "MSP430F5249",
+      "MSP430F5252",
+      "MSP430F5253",
+      "MSP430F5254",
+      "MSP430F5255",
+      "MSP430F5256",
+      "MSP430F5257",
+      "MSP430F5258",
+      "MSP430F5259",
+      "MSP430F5304",
+      "MSP430F5308",
+      "MSP430F5309",
+      "MSP430F5310",
+      "MSP430F5324",
+      "MSP430F5325",
+      "MSP430F5326",
+      "MSP430F5327",
+      "MSP430F5328",
+      "MSP430F5329",
+      "MSP430F5333",
+      "MSP430F5335",
+      "MSP430F5336",
+      "MSP430F5338",
+      "MSP430F5340",
+      "MSP430F5341",
+      "MSP430F5342",
+      "MSP430F5358",
+      "MSP430F5359",
+      "MSP430F5418",
+      "MSP430F5418A",
+      "MSP430F5419",
+      "MSP430F5419A",
+      "MSP430F5435",
+      "MSP430F5435A",
+      "MSP430F5436",
+      "MSP430F5436A",
+      "MSP430F5437",
+      "MSP430F5437A",
+      "MSP430F5438",
+      "MSP430F5438A",
+      "MSP430F5500",
+      "MSP430F5501",
+      "MSP430F5502",
+      "MSP430F5503",
+      "MSP430F5504",
+      "MSP430F5505",
+      "MSP430F5506",
+      "MSP430F5507",
+      "MSP430F5508",
+      "MSP430F5509",
+      "MSP430F5510",
+      "MSP430F5513",
+      "MSP430F5514",
+      "MSP430F5515",
+      "MSP430F5517",
+      "MSP430F5519",
+      "MSP430F5521",
+      "MSP430F5522",
+      "MSP430F5524",
+      "MSP430F5525",
+      "MSP430F5526",
+      "MSP430F5527",
+      "MSP430F5528",
+      "MSP430F5529",
+      "MSP430F5630",
+      "MSP430F5631",
+      "MSP430F5632",
+      "MSP430F5633",
+      "MSP430F5634",
+      "MSP430F5635",
+      "MSP430F5636",
+      "MSP430F5637",
+      "MSP430F5638",
+      "MSP430F5658",
+      "MSP430F5659",
+      "MSP430F6433",
+      "MSP430F6435",
+      "MSP430F6436",
+      "MSP430F6438",
+      "MSP430F6458",
+      "MSP430F6459",
+      "MSP430F6630",
+      "MSP430F6631",
+      "MSP430F6632",
+      "MSP430F6633",
+      "MSP430F6634",
+      "MSP430F6635",
+      "MSP430F6636",
+      "MSP430F6637",
+      "MSP430F6638",
+      "MSP430F6658",
+      "MSP430F6659",
+      "MSP430F6720",
+      "MSP430F6720A",
+      "MSP430F6721",
+      "MSP430F6721A",
+      "MSP430F6723",
+      "MSP430F6723A",
+      "MSP430F6724",
+      "MSP430F6724A",
+      "MSP430F6725",
+      "MSP430F6725A",
+      "MSP430F6726",
+      "MSP430F6726A",
+      "MSP430F6730",
+      "MSP430F6730A",
+      "MSP430F6731",
+      "MSP430F6731A",
+      "MSP430F6733",
+      "MSP430F6733A",
+      "MSP430F6734",
+      "MSP430F6734A",
+      "MSP430F6735",
+      "MSP430F6735A",
+      "MSP430F6736",
+      "MSP430F6736A",
+      "MSP430F6745",
+      "MSP430F67451",
+      "MSP430F67451A",
+      "MSP430F6745A",
+      "MSP430F6746",
+      "MSP430F67461",
+      "MSP430F67461A",
+      "MSP430F6746A",
+      "MSP430F6747",
+      "MSP430F67471",
+      "MSP430F67471A",
+      "MSP430F6747A",
+      "MSP430F6748",
+      "MSP430F67481",
+      "MSP430F67481A",
+      "MSP430F6748A",
+      "MSP430F6749",
+      "MSP430F67491",
+      "MSP430F67491A",
+      "MSP430F6749A",
+      "MSP430F67621",
+      "MSP430F67621A",
+      "MSP430F67641",
+      "MSP430F67641A",
+      "MSP430F6765",
+      "MSP430F67651",
+      "MSP430F67651A",
+      "MSP430F6765A",
+      "MSP430F6766",
+      "MSP430F67661",
+      "MSP430F67661A",
+      "MSP430F6766A",
+      "MSP430F6767",
+      "MSP430F67671",
+      "MSP430F67671A",
+      "MSP430F6767A",
+      "MSP430F6768",
+      "MSP430F67681",
+      "MSP430F67681A",
+      "MSP430F6768A",
+      "MSP430F6769",
+      "MSP430F67691",
+      "MSP430F67691A",
+      "MSP430F6769A",
+      "MSP430F6775",
+      "MSP430F67751",
+      "MSP430F67751A",
+      "MSP430F6775A",
+      "MSP430F6776",
+      "MSP430F67761",
+      "MSP430F67761A",
+      "MSP430F6776A",
+      "MSP430F6777",
+      "MSP430F67771",
+      "MSP430F67771A",
+      "MSP430F6777A",
+      "MSP430F6778",
+      "MSP430F67781",
+      "MSP430F67781A",
+      "MSP430F6778A",
+      "MSP430F6779",
+      "MSP430F67791",
+      "MSP430F67791A",
+      "MSP430F6779A",
+      "MSP430FE4232",
+      "MSP430FE423A",
+      "MSP430FE4242",
+      "MSP430FE4252",
+      "MSP430FE425A",
+      "MSP430FE427",
+      "MSP430FE4272",
+      "MSP430FE427A",
+      "MSP430FG4250",
+      "MSP430FG4260",
+      "MSP430FG4270",
+      "MSP430FG437",
+      "MSP430FG438",
+      "MSP430FG439",
+      "MSP430FG4616",
+      "MSP430FG4617",
+      "MSP430FG4618",
+      "MSP430FG4619",
+      "MSP430FG477",
+      "MSP430FG478",
+      "MSP430FG479",
+      "MSP430FG6425",
+      "MSP430FG6426",
+      "MSP430FG6625",
+      "MSP430FG6626",
+      "MSP430FR2000",
+      "MSP430FR2032",
+      "MSP430FR2033",
+      "MSP430FR2100",
+      "MSP430FR2110",
+      "MSP430FR2111",
+      "MSP430FR2153",
+      "MSP430FR2155",
+      "MSP430FR2310",
+      "MSP430FR2311",
+      "MSP430FR2353",
+      "MSP430FR2355",
+      "MSP430FR2422",
+      "MSP430FR2433",
+      "MSP430FR2512",
+      "MSP430FR2522",
+      "MSP430FR2532",
+      "MSP430FR2533",
+      "MSP430FR2632",
+      "MSP430FR2633",
+      "MSP430FR4131",
+      "MSP430FR4132",
+      "MSP430FR4133",
+      "MSP430FR5041",
+      "MSP430FR5043",
+      "MSP430FR50431",
+      "MSP430FR5720",
+      "MSP430FR5721",
+      "MSP430FR5722",
+      "MSP430FR5723",
+      "MSP430FR5724",
+      "MSP430FR5725",
+      "MSP430FR5726",
+      "MSP430FR5727",
+      "MSP430FR5728",
+      "MSP430FR5729",
+      "MSP430FR5730",
+      "MSP430FR5731",
+      "MSP430FR5732",
+      "MSP430FR5733",
+      "MSP430FR5734",
+      "MSP430FR5735",
+      "MSP430FR5736",
+      "MSP430FR5737",
+      "MSP430FR5738",
+      "MSP430FR5739",
+      "MSP430FR5847",
+      "MSP430FR58471",
+      "MSP430FR5848",
+      "MSP430FR5849",
+      "MSP430FR5857",
+      "MSP430FR5858",
+      "MSP430FR5859",
+      "MSP430FR5867",
+      "MSP430FR58671",
+      "MSP430FR5868",
+      "MSP430FR5869",
+      "MSP430FR5870",
+      "MSP430FR5872",
+      "MSP430FR58721",
+      "MSP430FR5887",
+      "MSP430FR5888",
+      "MSP430FR5889",
+      "MSP430FR58891",
+      "MSP430FR5922",
+      "MSP430FR59221",
+      "MSP430FR5947",
+      "MSP430FR59471",
+      "MSP430FR5948",
+      "MSP430FR5949",
+      "MSP430FR5957",
+      "MSP430FR5958",
+      "MSP430FR5959",
+      "MSP430FR5962",
+      "MSP430FR5964",
+      "MSP430FR5967",
+      "MSP430FR5968",
+      "MSP430FR5969",
+      "MSP430FR59691",
+      "MSP430FR5970",
+      "MSP430FR5972",
+      "MSP430FR59721",
+      "MSP430FR5986",
+      "MSP430FR5987",
+      "MSP430FR5988",
+      "MSP430FR5989",
+      "MSP430FR59891",
+      "MSP430FR5992",
+      "MSP430FR5994",
+      "MSP430FR59941",
+      "MSP430FR6035",
+      "MSP430FR6037",
+      "MSP430FR60371",
+      "MSP430FR6043",
+      "MSP430FR60431",
+      "MSP430FR6045",
+      "MSP430FR6047",
+      "MSP430FR60471",
+      "MSP430FR6820",
+      "MSP430FR6822",
+      "MSP430FR68221",
+      "MSP430FR6870",
+      "MSP430FR6872",
+      "MSP430FR68721",
+      "MSP430FR6877",
+      "MSP430FR6879",
+      "MSP430FR68791",
+      "MSP430FR6887",
+      "MSP430FR6888",
+      "MSP430FR6889",
+      "MSP430FR68891",
+      "MSP430FR6920",
+      "MSP430FR6922",
+      "MSP430FR69221",
+      "MSP430FR6927",
+      "MSP430FR69271",
+      "MSP430FR6928",
+      "MSP430FR6970",
+      "MSP430FR6972",
+      "MSP430FR69721",
+      "MSP430FR6977",
+      "MSP430FR6979",
+      "MSP430FR69791",
+      "MSP430FR6987",
+      "MSP430FR6988",
+      "MSP430FR6989",
+      "MSP430FR69891",
+      "MSP430FW423",
+      "MSP430FW425",
+      "MSP430FW427",
+      "MSP430FW428",
+      "MSP430FW429",
+      "MSP430G2001",
+      "MSP430G2101",
+      "MSP430G2102",
+      "MSP430G2111",
+      "MSP430G2112",
+      "MSP430G2113",
+      "MSP430G2121",
+      "MSP430G2131",
+      "MSP430G2132",
+      "MSP430G2152",
+      "MSP430G2153",
+      "MSP430G2201",
+      "MSP430G2202",
+      "MSP430G2203",
+      "MSP430G2210",
+      "MSP430G2211",
+      "MSP430G2212",
+      "MSP430G2213",
+      "MSP430G2221",
+      "MSP430G2230",
+      "MSP430G2231",
+      "MSP430G2232",
+      "MSP430G2233",
+      "MSP430G2252",
+      "MSP430G2253",
+      "MSP430G2302",
+      "MSP430G2303",
+      "MSP430G2312",
+      "MSP430G2313",
+      "MSP430G2332",
+      "MSP430G2333",
+      "MSP430G2352",
+      "MSP430G2353",
+      "MSP430G2402",
+      "MSP430G2403",
+      "MSP430G2412",
+      "MSP430G2413",
+      "MSP430G2432",
+      "MSP430G2433",
+      "MSP430G2444",
+      "MSP430G2452",
+      "MSP430G2453",
+      "MSP430G2513",
+      "MSP430G2533",
+      "MSP430G2544",
+      "MSP430G2553",
+      "MSP430G2744",
+      "MSP430G2755",
+      "MSP430G2855",
+      "MSP430G2955",
+      "MSP430L092",
+      "MSP430i2020",
+      "MSP430i2021",
+      "MSP430i2030",
+      "MSP430i2031",
+      "MSP430i2040",
+      "MSP430i2041"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f1xx_family",
+    "value": [
+      "MSP430C1331",
+      "MSP430C1351",
+      "MSP430F1101A",
+      "MSP430F1111A",
+      "MSP430F1121A",
+      "MSP430F1122",
+      "MSP430F1132",
+      "MSP430F122",
+      "MSP430F1222",
+      "MSP430F123",
+      "MSP430F1232",
+      "MSP430F133",
+      "MSP430F135",
+      "MSP430F147",
+      "MSP430F1471",
+      "MSP430F148",
+      "MSP430F1481",
+      "MSP430F149",
+      "MSP430F1491",
+      "MSP430F155",
+      "MSP430F156",
+      "MSP430F157",
+      "MSP430F1610",
+      "MSP430F1611",
+      "MSP430F1612",
+      "MSP430F167",
+      "MSP430F168",
+      "MSP430F169"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1xx_family",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2xx_family",
+    "value": [
+      "MSP430AFE221",
+      "MSP430AFE222",
+      "MSP430AFE223",
+      "MSP430AFE231",
+      "MSP430AFE232",
+      "MSP430AFE233",
+      "MSP430AFE251",
+      "MSP430AFE252",
+      "MSP430AFE253",
+      "MSP430F2001",
+      "MSP430F2002",
+      "MSP430F2003",
+      "MSP430F2011",
+      "MSP430F2012",
+      "MSP430F2013",
+      "MSP430F2112",
+      "MSP430F2122",
+      "MSP430F2132",
+      "MSP430F2232",
+      "MSP430F2234",
+      "MSP430F2252",
+      "MSP430F2254",
+      "MSP430F2272",
+      "MSP430F2274",
+      "MSP430F233",
+      "MSP430F2330",
+      "MSP430F235",
+      "MSP430F2350",
+      "MSP430F2370",
+      "MSP430F2410",
+      "MSP430F2416",
+      "MSP430F2417",
+      "MSP430F2418",
+      "MSP430F2419",
+      "MSP430F247",
+      "MSP430F2471",
+      "MSP430F248",
+      "MSP430F2481",
+      "MSP430F249",
+      "MSP430F2491",
+      "MSP430F2616",
+      "MSP430F2617",
+      "MSP430F2618",
+      "MSP430F2619"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2xx_family",
+    "value": [
+      "eZ430-RF2500",
+      "eZ430-F2013"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f4xx_family",
+    "value": [
+      "MSP430F412",
+      "MSP430F413",
+      "MSP430F4132",
+      "MSP430F415",
+      "MSP430F4152",
+      "MSP430F417",
+      "MSP430F423",
+      "MSP430F423A",
+      "MSP430F425",
+      "MSP430F4250",
+      "MSP430F425A",
+      "MSP430F4260",
+      "MSP430F427",
+      "MSP430F4270",
+      "MSP430F427A",
+      "MSP430F435",
+      "MSP430F4351",
+      "MSP430F436",
+      "MSP430F4361",
+      "MSP430F437",
+      "MSP430F4371",
+      "MSP430F438",
+      "MSP430F439",
+      "MSP430F447",
+      "MSP430F448",
+      "MSP430F4481",
+      "MSP430F449",
+      "MSP430F4491",
+      "MSP430F4616",
+      "MSP430F46161",
+      "MSP430F4617",
+      "MSP430F46171",
+      "MSP430F4618",
+      "MSP430F46181",
+      "MSP430F4619",
+      "MSP430F46191",
+      "MSP430F47126",
+      "MSP430F47127",
+      "MSP430F47166",
+      "MSP430F47167",
+      "MSP430F47176",
+      "MSP430F47177",
+      "MSP430F47186",
+      "MSP430F47187",
+      "MSP430F47196",
+      "MSP430F47197",
+      "MSP430F477",
+      "MSP430F478",
+      "MSP430F4783",
+      "MSP430F4784",
+      "MSP430F479",
+      "MSP430F4793",
+      "MSP430F4794",
+      "MSP430FE4232",
+      "MSP430FE423A",
+      "MSP430FE4242",
+      "MSP430FE4252",
+      "MSP430FE425A",
+      "MSP430FE427",
+      "MSP430FE4272",
+      "MSP430FE427A",
+      "MSP430FG4250",
+      "MSP430FG4260",
+      "MSP430FG4270",
+      "MSP430FG437",
+      "MSP430FG438",
+      "MSP430FG439",
+      "MSP430FG4616",
+      "MSP430FG4617",
+      "MSP430FG4618",
+      "MSP430FG4619",
+      "MSP430FG477",
+      "MSP430FG478",
+      "MSP430FG479",
+      "MSP430FW423",
+      "MSP430FW425",
+      "MSP430FW427",
+      "MSP430FW428",
+      "MSP430FW429"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4xx_family",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2xx_family",
+    "value": [
+      "MSP430G2001",
+      "MSP430G2101",
+      "MSP430G2102",
+      "MSP430G2111",
+      "MSP430G2112",
+      "MSP430G2113",
+      "MSP430G2121",
+      "MSP430G2131",
+      "MSP430G2132",
+      "MSP430G2152",
+      "MSP430G2153",
+      "MSP430G2201",
+      "MSP430G2202",
+      "MSP430G2203",
+      "MSP430G2210",
+      "MSP430G2211",
+      "MSP430G2212",
+      "MSP430G2213",
+      "MSP430G2221",
+      "MSP430G2230",
+      "MSP430G2231",
+      "MSP430G2232",
+      "MSP430G2233",
+      "MSP430G2252",
+      "MSP430G2253",
+      "MSP430G2302",
+      "MSP430G2303",
+      "MSP430G2312",
+      "MSP430G2313",
+      "MSP430G2332",
+      "MSP430G2333",
+      "MSP430G2352",
+      "MSP430G2353",
+      "MSP430G2402",
+      "MSP430G2403",
+      "MSP430G2412",
+      "MSP430G2413",
+      "MSP430G2432",
+      "MSP430G2433",
+      "MSP430G2444",
+      "MSP430G2452",
+      "MSP430G2453",
+      "MSP430G2513",
+      "MSP430G2533",
+      "MSP430G2544",
+      "MSP430G2553",
+      "MSP430G2744",
+      "MSP430G2755",
+      "MSP430G2855",
+      "MSP430G2955"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2xx_family",
+    "value": [
+      "MSP-EXP430G2ET",
+      "MSP-EXP430G2"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f5xx_6xx_family",
+    "value": [
+      "MSP430F5131",
+      "MSP430F5132",
+      "MSP430F5151",
+      "MSP430F5152",
+      "MSP430F5171",
+      "MSP430F5172",
+      "MSP430F5212",
+      "MSP430F5213",
+      "MSP430F5214",
+      "MSP430F5217",
+      "MSP430F5218",
+      "MSP430F5219",
+      "MSP430F5222",
+      "MSP430F5223",
+      "MSP430F5224",
+      "MSP430F5227",
+      "MSP430F5228",
+      "MSP430F5229",
+      "MSP430F5232",
+      "MSP430F5234",
+      "MSP430F5237",
+      "MSP430F5239",
+      "MSP430F5242",
+      "MSP430F5244",
+      "MSP430F5247",
+      "MSP430F5249",
+      "MSP430F5252",
+      "MSP430F5253",
+      "MSP430F5254",
+      "MSP430F5255",
+      "MSP430F5256",
+      "MSP430F5257",
+      "MSP430F5258",
+      "MSP430F5259",
+      "MSP430F5304",
+      "MSP430F5308",
+      "MSP430F5309",
+      "MSP430F5310",
+      "MSP430F5324",
+      "MSP430F5325",
+      "MSP430F5326",
+      "MSP430F5327",
+      "MSP430F5328",
+      "MSP430F5329",
+      "MSP430F5333",
+      "MSP430F5335",
+      "MSP430F5336",
+      "MSP430F5338",
+      "MSP430F5340",
+      "MSP430F5341",
+      "MSP430F5342",
+      "MSP430F5358",
+      "MSP430F5359",
+      "MSP430F5418",
+      "MSP430F5418A",
+      "MSP430F5419",
+      "MSP430F5419A",
+      "MSP430F5435",
+      "MSP430F5435A",
+      "MSP430F5436",
+      "MSP430F5436A",
+      "MSP430F5437",
+      "MSP430F5437A",
+      "MSP430F5438",
+      "MSP430F5438A",
+      "MSP430F5500",
+      "MSP430F5501",
+      "MSP430F5502",
+      "MSP430F5503",
+      "MSP430F5504",
+      "MSP430F5505",
+      "MSP430F5506",
+      "MSP430F5507",
+      "MSP430F5508",
+      "MSP430F5509",
+      "MSP430F5510",
+      "MSP430F5513",
+      "MSP430F5514",
+      "MSP430F5515",
+      "MSP430F5517",
+      "MSP430F5519",
+      "MSP430F5521",
+      "MSP430F5522",
+      "MSP430F5524",
+      "MSP430F5525",
+      "MSP430F5526",
+      "MSP430F5527",
+      "MSP430F5528",
+      "MSP430F5529",
+      "MSP430F5630",
+      "MSP430F5631",
+      "MSP430F5632",
+      "MSP430F5633",
+      "MSP430F5634",
+      "MSP430F5635",
+      "MSP430F5636",
+      "MSP430F5637",
+      "MSP430F5638",
+      "MSP430F5658",
+      "MSP430F5659",
+      "MSP430F6433",
+      "MSP430F6435",
+      "MSP430F6436",
+      "MSP430F6438",
+      "MSP430F6458",
+      "MSP430F6459",
+      "MSP430F6630",
+      "MSP430F6631",
+      "MSP430F6632",
+      "MSP430F6633",
+      "MSP430F6634",
+      "MSP430F6635",
+      "MSP430F6636",
+      "MSP430F6637",
+      "MSP430F6638",
+      "MSP430F6658",
+      "MSP430F6659",
+      "MSP430F6720",
+      "MSP430F6720A",
+      "MSP430F6721",
+      "MSP430F6721A",
+      "MSP430F6723",
+      "MSP430F6723A",
+      "MSP430F6724",
+      "MSP430F6724A",
+      "MSP430F6725",
+      "MSP430F6725A",
+      "MSP430F6726",
+      "MSP430F6726A",
+      "MSP430F6730",
+      "MSP430F6730A",
+      "MSP430F6731",
+      "MSP430F6731A",
+      "MSP430F6733",
+      "MSP430F6733A",
+      "MSP430F6734",
+      "MSP430F6734A",
+      "MSP430F6735",
+      "MSP430F6735A",
+      "MSP430F6736",
+      "MSP430F6736A",
+      "MSP430F6745",
+      "MSP430F67451",
+      "MSP430F67451A",
+      "MSP430F6745A",
+      "MSP430F6746",
+      "MSP430F67461",
+      "MSP430F67461A",
+      "MSP430F6746A",
+      "MSP430F6747",
+      "MSP430F67471",
+      "MSP430F67471A",
+      "MSP430F6747A",
+      "MSP430F6748",
+      "MSP430F67481",
+      "MSP430F67481A",
+      "MSP430F6748A",
+      "MSP430F6749",
+      "MSP430F67491",
+      "MSP430F67491A",
+      "MSP430F6749A",
+      "MSP430F67621",
+      "MSP430F67621A",
+      "MSP430F67641",
+      "MSP430F67641A",
+      "MSP430F6765",
+      "MSP430F67651",
+      "MSP430F67651A",
+      "MSP430F6765A",
+      "MSP430F6766",
+      "MSP430F67661",
+      "MSP430F67661A",
+      "MSP430F6766A",
+      "MSP430F6767",
+      "MSP430F67671",
+      "MSP430F67671A",
+      "MSP430F6767A",
+      "MSP430F6768",
+      "MSP430F67681",
+      "MSP430F67681A",
+      "MSP430F6768A",
+      "MSP430F6769",
+      "MSP430F67691",
+      "MSP430F67691A",
+      "MSP430F6769A",
+      "MSP430F6775",
+      "MSP430F67751",
+      "MSP430F67751A",
+      "MSP430F6775A",
+      "MSP430F6776",
+      "MSP430F67761",
+      "MSP430F67761A",
+      "MSP430F6776A",
+      "MSP430F6777",
+      "MSP430F67771",
+      "MSP430F67771A",
+      "MSP430F6777A",
+      "MSP430F6778",
+      "MSP430F67781",
+      "MSP430F67781A",
+      "MSP430F6778A",
+      "MSP430F6779",
+      "MSP430F67791",
+      "MSP430F67791A",
+      "MSP430F6779A",
+      "MSP430FG6425",
+      "MSP430FG6426",
+      "MSP430FG6625",
+      "MSP430FG6626"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5xx_6xx_family",
+    "value": [
+      "MSP-EXP430F5529",
+      "MSP-EXP430F5529LP",
+      "MSP-EXP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430i2xx_family",
+    "value": [
+      "MSP430i2020",
+      "MSP430i2021",
+      "MSP430i2030",
+      "MSP430i2031",
+      "MSP430i2040",
+      "MSP430i2041"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430i2xx_family",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr57xx_family",
+    "value": [
+      "MSP430FR5720",
+      "MSP430FR5721",
+      "MSP430FR5722",
+      "MSP430FR5723",
+      "MSP430FR5724",
+      "MSP430FR5725",
+      "MSP430FR5726",
+      "MSP430FR5727",
+      "MSP430FR5728",
+      "MSP430FR5729",
+      "MSP430FR5730",
+      "MSP430FR5731",
+      "MSP430FR5732",
+      "MSP430FR5733",
+      "MSP430FR5734",
+      "MSP430FR5735",
+      "MSP430FR5736",
+      "MSP430FR5737",
+      "MSP430FR5738",
+      "MSP430FR5739"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr57xx_family",
+    "value": [
+      "MSP-EXP430FR5739"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr5xx_6xx_family",
+    "value": [
+      "MSP430FR5041",
+      "MSP430FR5043",
+      "MSP430FR50431",
+      "MSP430FR5847",
+      "MSP430FR58471",
+      "MSP430FR5848",
+      "MSP430FR5849",
+      "MSP430FR5857",
+      "MSP430FR5858",
+      "MSP430FR5859",
+      "MSP430FR5867",
+      "MSP430FR58671",
+      "MSP430FR5868",
+      "MSP430FR5869",
+      "MSP430FR5870",
+      "MSP430FR5872",
+      "MSP430FR58721",
+      "MSP430FR5887",
+      "MSP430FR5888",
+      "MSP430FR5889",
+      "MSP430FR58891",
+      "MSP430FR5922",
+      "MSP430FR59221",
+      "MSP430FR5947",
+      "MSP430FR59471",
+      "MSP430FR5948",
+      "MSP430FR5949",
+      "MSP430FR5957",
+      "MSP430FR5958",
+      "MSP430FR5959",
+      "MSP430FR5962",
+      "MSP430FR5964",
+      "MSP430FR5967",
+      "MSP430FR5968",
+      "MSP430FR5969",
+      "MSP430FR59691",
+      "MSP430FR5970",
+      "MSP430FR5972",
+      "MSP430FR59721",
+      "MSP430FR5986",
+      "MSP430FR5987",
+      "MSP430FR5988",
+      "MSP430FR5989",
+      "MSP430FR59891",
+      "MSP430FR5992",
+      "MSP430FR5994",
+      "MSP430FR59941",
+      "MSP430FR6035",
+      "MSP430FR6037",
+      "MSP430FR60371",
+      "MSP430FR6043",
+      "MSP430FR60431",
+      "MSP430FR6045",
+      "MSP430FR6047",
+      "MSP430FR60471",
+      "MSP430FR6820",
+      "MSP430FR6822",
+      "MSP430FR68221",
+      "MSP430FR6870",
+      "MSP430FR6872",
+      "MSP430FR68721",
+      "MSP430FR6877",
+      "MSP430FR6879",
+      "MSP430FR68791",
+      "MSP430FR6887",
+      "MSP430FR6888",
+      "MSP430FR6889",
+      "MSP430FR68891",
+      "MSP430FR6920",
+      "MSP430FR6922",
+      "MSP430FR69221",
+      "MSP430FR6927",
+      "MSP430FR69271",
+      "MSP430FR6928",
+      "MSP430FR6970",
+      "MSP430FR6972",
+      "MSP430FR69721",
+      "MSP430FR6977",
+      "MSP430FR6979",
+      "MSP430FR69791",
+      "MSP430FR6987",
+      "MSP430FR6988",
+      "MSP430FR6989",
+      "MSP430FR69891"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5xx_6xx_family",
+    "value": [
+      "EVM430-FR6989",
+      "MSP-EXP430FR6989",
+      "MSP-EXP430FR5969",
+      "MSP-EXP430FR5994"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2xx_4xx_family",
+    "value": [
+      "MSP430FR2000",
+      "MSP430FR2032",
+      "MSP430FR2033",
+      "MSP430FR2100",
+      "MSP430FR2110",
+      "MSP430FR2111",
+      "MSP430FR2153",
+      "MSP430FR2155",
+      "MSP430FR2310",
+      "MSP430FR2311",
+      "MSP430FR2353",
+      "MSP430FR2355",
+      "MSP430FR2422",
+      "MSP430FR2433",
+      "MSP430FR2512",
+      "MSP430FR2522",
+      "MSP430FR2532",
+      "MSP430FR2533",
+      "MSP430FR2632",
+      "MSP430FR2633",
+      "MSP430FR4131",
+      "MSP430FR4132",
+      "MSP430FR4133"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2xx_4xx_family",
+    "value": [
+      "MSP-EXP430FR2311",
+      "MSP-EXP430FR4133",
+      "MSP-EXP430FR2433",
+      "MSP-EXP430FR2355",
+      "MSP-CAPT-FR2633"
+    ]
+  },
+  {
+    "arraymacro": "devices_cc430fxx_family",
+    "value": [
+      "CC430F5123",
+      "CC430F5125",
+      "CC430F5133",
+      "CC430F5135",
+      "CC430F5137",
+      "CC430F5143",
+      "CC430F5145",
+      "CC430F5147",
+      "CC430F6125",
+      "CC430F6126",
+      "CC430F6127",
+      "CC430F6135",
+      "CC430F6137",
+      "CC430F6143",
+      "CC430F6145",
+      "CC430F6147"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430fxx_family",
+    "value": [
+      "eZ430-Chronos",
+      "MSP-EXPCC430RFx"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430l092_c09x_family",
+    "value": [
+      "MSP430C091",
+      "MSP430C092",
+      "MSP430L092"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430l092_c09x_family",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f1232_die",
+    "value": [
+      "MSP430F1122",
+      "MSP430F1132",
+      "MSP430F122",
+      "MSP430F123",
+      "MSP430F1222",
+      "MSP430F1232"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1232_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f1121a_die",
+    "value": [
+      "MSP430F1101A",
+      "MSP430F1111A",
+      "MSP430F1121A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1121a_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f169_die",
+    "value": [
+      "MSP430C1331",
+      "MSP430C1351",
+      "MSP430F133",
+      "MSP430F135",
+      "MSP430F147",
+      "MSP430F148",
+      "MSP430F149",
+      "MSP430F1471",
+      "MSP430F1481",
+      "MSP430F1491",
+      "MSP430F155",
+      "MSP430F156",
+      "MSP430F157",
+      "MSP430F167",
+      "MSP430F168",
+      "MSP430F169",
+      "MSP430F1610",
+      "MSP430F1611",
+      "MSP430F1612"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f169_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430afe253_die",
+    "value": [
+      "MSP430AFE221",
+      "MSP430AFE251",
+      "MSP430AFE231",
+      "MSP430AFE222",
+      "MSP430AFE232",
+      "MSP430AFE252",
+      "MSP430AFE223",
+      "MSP430AFE233",
+      "MSP430AFE253"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430afe253_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2013_die",
+    "value": [
+      "MSP430F2001",
+      "MSP430F2011",
+      "MSP430F2002",
+      "MSP430F2012",
+      "MSP430F2003",
+      "MSP430F2013"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2013_die",
+    "value": [
+      "eZ430-F2013"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f2132_die",
+    "value": [
+      "MSP430F2112",
+      "MSP430F2122",
+      "MSP430F2132"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2132_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2274_die",
+    "value": [
+      "MSP430F2232",
+      "MSP430F2252",
+      "MSP430F2272",
+      "MSP430F2234",
+      "MSP430F2254",
+      "MSP430F2274"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2274_die",
+    "value": [
+      "eZ430-RF2500"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f2491_die",
+    "value": [
+      "MSP430F233",
+      "MSP430F235",
+      "MSP430F247",
+      "MSP430F248",
+      "MSP430F249",
+      "MSP430F2471",
+      "MSP430F2481",
+      "MSP430F2491"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2491_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2370_die",
+    "value": [
+      "MSP430F2330",
+      "MSP430F2350",
+      "MSP430F2370"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2370_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2619_die",
+    "value": [
+      "MSP430F2410",
+      "MSP430F2416",
+      "MSP430F2417",
+      "MSP430F2418",
+      "MSP430F2419",
+      "MSP430F2616",
+      "MSP430F2617",
+      "MSP430F2618",
+      "MSP430F2619"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2619_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fw429_die",
+    "value": [
+      "MSP430F412",
+      "MSP430F413",
+      "MSP430F415",
+      "MSP430F417",
+      "MSP430F423",
+      "MSP430F425",
+      "MSP430F427",
+      "MSP430FE427",
+      "MSP430F423A",
+      "MSP430F425A",
+      "MSP430F427A",
+      "MSP430FE4232",
+      "MSP430FE4242",
+      "MSP430FE4252",
+      "MSP430FE4272",
+      "MSP430FE423A",
+      "MSP430FE425A",
+      "MSP430FE427A",
+      "MSP430FW423",
+      "MSP430FW425",
+      "MSP430FW427",
+      "MSP430FW428",
+      "MSP430FW429"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fw429_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4152_die",
+    "value": [
+      "MSP430F4132",
+      "MSP430F4152"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4152_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg4270_die",
+    "value": [
+      "MSP430F4250",
+      "MSP430F4260",
+      "MSP430F4270",
+      "MSP430FG4250",
+      "MSP430FG4260",
+      "MSP430FG4270"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg4270_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4491_die",
+    "value": [
+      "MSP430F435",
+      "MSP430F436",
+      "MSP430F437",
+      "MSP430F438",
+      "MSP430F439",
+      "MSP430F4351",
+      "MSP430F4361",
+      "MSP430F4371",
+      "MSP430F447",
+      "MSP430F448",
+      "MSP430F4481",
+      "MSP430F449",
+      "MSP430F4491"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4491_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg479_die",
+    "value": [
+      "MSP430F477",
+      "MSP430F478",
+      "MSP430F479",
+      "MSP430FG477",
+      "MSP430FG478",
+      "MSP430FG479"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg479_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4794_die",
+    "value": [
+      "MSP430F4783",
+      "MSP430F4793",
+      "MSP430F4784",
+      "MSP430F4794"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4794_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f46191_die",
+    "value": [
+      "MSP430F4616",
+      "MSP430F46161",
+      "MSP430F4617",
+      "MSP430F46171",
+      "MSP430F4618",
+      "MSP430F46181",
+      "MSP430F4619",
+      "MSP430F46191"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f46191_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f47197_die",
+    "value": [
+      "MSP430F47126",
+      "MSP430F47166",
+      "MSP430F47176",
+      "MSP430F47186",
+      "MSP430F47196",
+      "MSP430F47127",
+      "MSP430F47167",
+      "MSP430F47177",
+      "MSP430F47187",
+      "MSP430F47197"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f47197_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg439_die",
+    "value": [
+      "MSP430FG437",
+      "MSP430FG438",
+      "MSP430FG439"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg439_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg4619_die",
+    "value": [
+      "MSP430FG4616",
+      "MSP430FG4617",
+      "MSP430FG4618",
+      "MSP430FG4619"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg4619_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2231_die",
+    "value": [
+      "MSP430G2001",
+      "MSP430G2101",
+      "MSP430G2201",
+      "MSP430G2111",
+      "MSP430G2211",
+      "MSP430G2121",
+      "MSP430G2221",
+      "MSP430G2131",
+      "MSP430G2231"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2231_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2452_die",
+    "value": [
+      "MSP430G2102",
+      "MSP430G2202",
+      "MSP430G2302",
+      "MSP430G2402",
+      "MSP430G2112",
+      "MSP430G2212",
+      "MSP430G2312",
+      "MSP430G2412",
+      "MSP430G2132",
+      "MSP430G2232",
+      "MSP430G2332",
+      "MSP430G2432",
+      "MSP430G2152",
+      "MSP430G2252",
+      "MSP430G2352",
+      "MSP430G2452"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2452_die",
+    "value": [
+      "MSP-EXP430G2"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430g2553_die",
+    "value": [
+      "MSP430G2203",
+      "MSP430G2303",
+      "MSP430G2403",
+      "MSP430G2113",
+      "MSP430G2213",
+      "MSP430G2313",
+      "MSP430G2413",
+      "MSP430G2513",
+      "MSP430G2233",
+      "MSP430G2333",
+      "MSP430G2433",
+      "MSP430G2533",
+      "MSP430G2153",
+      "MSP430G2253",
+      "MSP430G2353",
+      "MSP430G2453",
+      "MSP430G2553"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2553_die",
+    "value": [
+      "MSP-EXP430G2ET",
+      "MSP-EXP430G2"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430g2744_die",
+    "value": [
+      "MSP430G2444",
+      "MSP430G2544",
+      "MSP430G2744"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2744_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2955_die",
+    "value": [
+      "MSP430G2755",
+      "MSP430G2855",
+      "MSP430G2955"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2955_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2230_die",
+    "value": [
+      "MSP430G2210",
+      "MSP430G2230"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2230_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5172_die",
+    "value": [
+      "MSP430F5131",
+      "MSP430F5151",
+      "MSP430F5171",
+      "MSP430F5132",
+      "MSP430F5152",
+      "MSP430F5172"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5172_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5229_die",
+    "value": [
+      "MSP430F5212",
+      "MSP430F5213",
+      "MSP430F5214",
+      "MSP430F5217",
+      "MSP430F5218",
+      "MSP430F5219",
+      "MSP430F5222",
+      "MSP430F5223",
+      "MSP430F5224",
+      "MSP430F5227",
+      "MSP430F5228",
+      "MSP430F5229"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5229_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5249_die",
+    "value": [
+      "MSP430F5232",
+      "MSP430F5234",
+      "MSP430F5237",
+      "MSP430F5239",
+      "MSP430F5242",
+      "MSP430F5244",
+      "MSP430F5247",
+      "MSP430F5249"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5249_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5259_die",
+    "value": [
+      "MSP430F5252",
+      "MSP430F5253",
+      "MSP430F5254",
+      "MSP430F5255",
+      "MSP430F5256",
+      "MSP430F5257",
+      "MSP430F5258",
+      "MSP430F5259"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5259_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5310_die",
+    "value": [
+      "MSP430F5304",
+      "MSP430F5308",
+      "MSP430F5309",
+      "MSP430F5310"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5310_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5329_die",
+    "value": [
+      "MSP430F5324",
+      "MSP430F5325",
+      "MSP430F5326",
+      "MSP430F5327",
+      "MSP430F5328",
+      "MSP430F5329"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5329_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6638_die",
+    "value": [
+      "MSP430F5333",
+      "MSP430F5335",
+      "MSP430F5336",
+      "MSP430F5338",
+      "MSP430F5630",
+      "MSP430F5631",
+      "MSP430F5632",
+      "MSP430F5633",
+      "MSP430F5634",
+      "MSP430F5635",
+      "MSP430F5636",
+      "MSP430F5637",
+      "MSP430F5638",
+      "MSP430F6433",
+      "MSP430F6435",
+      "MSP430F6436",
+      "MSP430F6438",
+      "MSP430F6630",
+      "MSP430F6631",
+      "MSP430F6632",
+      "MSP430F6633",
+      "MSP430F6634",
+      "MSP430F6635",
+      "MSP430F6636",
+      "MSP430F6637",
+      "MSP430F6638"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6638_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5342_die",
+    "value": [
+      "MSP430F5340",
+      "MSP430F5341",
+      "MSP430F5342"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5342_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5438_die",
+    "value": [
+      "MSP430F5418",
+      "MSP430F5419",
+      "MSP430F5435",
+      "MSP430F5436",
+      "MSP430F5437",
+      "MSP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5438_die",
+    "value": [
+      "MSP-EXP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f5438a_die",
+    "value": [
+      "MSP430F5418A",
+      "MSP430F5419A",
+      "MSP430F5435A",
+      "MSP430F5436A",
+      "MSP430F5437A",
+      "MSP430F5438A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5438a_die",
+    "value": [
+      "MSP-EXP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f5529_die",
+    "value": [
+      "MSP430F5500",
+      "MSP430F5501",
+      "MSP430F5502",
+      "MSP430F5503",
+      "MSP430F5504",
+      "MSP430F5505",
+      "MSP430F5506",
+      "MSP430F5507",
+      "MSP430F5508",
+      "MSP430F5509",
+      "MSP430F5510",
+      "MSP430F5513",
+      "MSP430F5514",
+      "MSP430F5515",
+      "MSP430F5517",
+      "MSP430F5519",
+      "MSP430F5521",
+      "MSP430F5522",
+      "MSP430F5524",
+      "MSP430F5525",
+      "MSP430F5526",
+      "MSP430F5527",
+      "MSP430F5528",
+      "MSP430F5529"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5529_die",
+    "value": [
+      "MSP-EXP430F5529",
+      "MSP-EXP430F5529LP"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f6659_die",
+    "value": [
+      "MSP430F5658",
+      "MSP430F5659",
+      "MSP430F6658",
+      "MSP430F6659",
+      "MSP430F5359",
+      "MSP430F5358",
+      "MSP430F6459",
+      "MSP430F6458"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6659_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6736_die",
+    "value": [
+      "MSP430F6720",
+      "MSP430F6721",
+      "MSP430F6723",
+      "MSP430F6724",
+      "MSP430F6725",
+      "MSP430F6726",
+      "MSP430F6730",
+      "MSP430F6731",
+      "MSP430F6733",
+      "MSP430F6734",
+      "MSP430F6735",
+      "MSP430F6736"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6736_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67791_die",
+    "value": [
+      "MSP430F6745",
+      "MSP430F6746",
+      "MSP430F6747",
+      "MSP430F6748",
+      "MSP430F6749",
+      "MSP430F67451",
+      "MSP430F67461",
+      "MSP430F67471",
+      "MSP430F67481",
+      "MSP430F67491",
+      "MSP430F6765",
+      "MSP430F6766",
+      "MSP430F6767",
+      "MSP430F6768",
+      "MSP430F6769",
+      "MSP430F67651",
+      "MSP430F67661",
+      "MSP430F67671",
+      "MSP430F67681",
+      "MSP430F67691",
+      "MSP430F6775",
+      "MSP430F6776",
+      "MSP430F6777",
+      "MSP430F6778",
+      "MSP430F6779",
+      "MSP430F67751",
+      "MSP430F67761",
+      "MSP430F67771",
+      "MSP430F67781",
+      "MSP430F67791"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67791_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6779a_die",
+    "value": [
+      "MSP430F6745A",
+      "MSP430F6746A",
+      "MSP430F6747A",
+      "MSP430F6748A",
+      "MSP430F6749A",
+      "MSP430F67451A",
+      "MSP430F67461A",
+      "MSP430F67471A",
+      "MSP430F67481A",
+      "MSP430F67491A",
+      "MSP430F6765A",
+      "MSP430F6766A",
+      "MSP430F6767A",
+      "MSP430F6768A",
+      "MSP430F6769A",
+      "MSP430F67651A",
+      "MSP430F67661A",
+      "MSP430F67671A",
+      "MSP430F67681A",
+      "MSP430F67691A",
+      "MSP430F6775A",
+      "MSP430F6776A",
+      "MSP430F6777A",
+      "MSP430F6778A",
+      "MSP430F6779A",
+      "MSP430F67751A",
+      "MSP430F67761A",
+      "MSP430F67771A",
+      "MSP430F67781A",
+      "MSP430F67791A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6779a_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6736a_die",
+    "value": [
+      "MSP430F6720A",
+      "MSP430F6721A",
+      "MSP430F6723A",
+      "MSP430F6724A",
+      "MSP430F6725A",
+      "MSP430F6726A",
+      "MSP430F6730A",
+      "MSP430F6731A",
+      "MSP430F6733A",
+      "MSP430F6734A",
+      "MSP430F6735A",
+      "MSP430F6736A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6736a_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg6626_die",
+    "value": [
+      "MSP430FG6425",
+      "MSP430FG6426",
+      "MSP430FG6625",
+      "MSP430FG6626"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg6626_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67641_die",
+    "value": [
+      "MSP430F67621",
+      "MSP430F67641"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67641_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67641a_die",
+    "value": [
+      "MSP430F67621A",
+      "MSP430F67641A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67641a_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430i2041_die",
+    "value": [
+      "MSP430i2041",
+      "MSP430i2040",
+      "MSP430i2031",
+      "MSP430i2030",
+      "MSP430i2021",
+      "MSP430i2020"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430i2041_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr5739_die",
+    "value": [
+      "MSP430FR5730",
+      "MSP430FR5731",
+      "MSP430FR5732",
+      "MSP430FR5733",
+      "MSP430FR5734",
+      "MSP430FR5735",
+      "MSP430FR5736",
+      "MSP430FR5737",
+      "MSP430FR5738",
+      "MSP430FR5739",
+      "MSP430FR5720",
+      "MSP430FR5721",
+      "MSP430FR5722",
+      "MSP430FR5723",
+      "MSP430FR5724",
+      "MSP430FR5725",
+      "MSP430FR5726",
+      "MSP430FR5727",
+      "MSP430FR5728",
+      "MSP430FR5729"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5739_die",
+    "value": [
+      "MSP-EXP430FR5739"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr68891_die",
+    "value": [
+      "MSP430FR5887",
+      "MSP430FR5888",
+      "MSP430FR5889",
+      "MSP430FR58891",
+      "MSP430FR6887",
+      "MSP430FR6888",
+      "MSP430FR6889",
+      "MSP430FR68891"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr68891_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr69891_die",
+    "value": [
+      "MSP430FR5986",
+      "MSP430FR5987",
+      "MSP430FR5988",
+      "MSP430FR5989",
+      "MSP430FR59891",
+      "MSP430FR6987",
+      "MSP430FR6988",
+      "MSP430FR6989",
+      "MSP430FR69891"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr69891_die",
+    "value": [
+      "EVM430-FR6989",
+      "MSP-EXP430FR6989"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr5869_die",
+    "value": [
+      "MSP430FR5847",
+      "MSP430FR58471",
+      "MSP430FR5848",
+      "MSP430FR5849",
+      "MSP430FR5857",
+      "MSP430FR5858",
+      "MSP430FR5859",
+      "MSP430FR5867",
+      "MSP430FR58671",
+      "MSP430FR5868",
+      "MSP430FR5869"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5869_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59721_die",
+    "value": [
+      "MSP430FR5870",
+      "MSP430FR5872",
+      "MSP430FR58721",
+      "MSP430FR5922",
+      "MSP430FR59221",
+      "MSP430FR5970",
+      "MSP430FR5972",
+      "MSP430FR59721"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59721_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59691_die",
+    "value": [
+      "MSP430FR5947",
+      "MSP430FR59471",
+      "MSP430FR5948",
+      "MSP430FR5949",
+      "MSP430FR5957",
+      "MSP430FR5958",
+      "MSP430FR5959",
+      "MSP430FR5967",
+      "MSP430FR5968",
+      "MSP430FR5969",
+      "MSP430FR59691"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59691_die",
+    "value": [
+      "MSP-EXP430FR5969"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr69721_die",
+    "value": [
+      "MSP430FR6820",
+      "MSP430FR68221",
+      "MSP430FR6822",
+      "MSP430FR6920",
+      "MSP430FR69221",
+      "MSP430FR6922",
+      "MSP430FR6870",
+      "MSP430FR68721",
+      "MSP430FR6872",
+      "MSP430FR6970",
+      "MSP430FR69721",
+      "MSP430FR6972"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr69721_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr68791_die",
+    "value": [
+      "MSP430FR6877",
+      "MSP430FR6879",
+      "MSP430FR68791"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr68791_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr69791_die",
+    "value": [
+      "MSP430FR6927",
+      "MSP430FR69271",
+      "MSP430FR6928",
+      "MSP430FR6977",
+      "MSP430FR6979",
+      "MSP430FR69791"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr69791_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59941_die",
+    "value": [
+      "MSP430FR5992",
+      "MSP430FR5994",
+      "MSP430FR59941",
+      "MSP430FR5962",
+      "MSP430FR5964"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59941_die",
+    "value": [
+      "MSP-EXP430FR5994"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr60471_die",
+    "value": [
+      "MSP430FR6037",
+      "MSP430FR60371",
+      "MSP430FR6035",
+      "MSP430FR6047",
+      "MSP430FR60471",
+      "MSP430FR6045"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr60471_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr60431_die",
+    "value": [
+      "MSP430FR6043",
+      "MSP430FR60431",
+      "MSP430FR50431",
+      "MSP430FR5043",
+      "MSP430FR5041"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr60431_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2111_die",
+    "value": [
+      "MSP430FR2111",
+      "MSP430FR2110",
+      "MSP430FR2000",
+      "MSP430FR2100"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2111_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2522_die",
+    "value": [
+      "MSP430FR2422",
+      "MSP430FR2512",
+      "MSP430FR2522"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2522_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr4133_die",
+    "value": [
+      "MSP430FR4131",
+      "MSP430FR4132",
+      "MSP430FR4133",
+      "MSP430FR2032",
+      "MSP430FR2033"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr4133_die",
+    "value": [
+      "MSP-EXP430FR4133"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2633_die",
+    "value": [
+      "MSP430FR2433",
+      "MSP430FR2532",
+      "MSP430FR2533",
+      "MSP430FR2632",
+      "MSP430FR2633"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2633_die",
+    "value": [
+      "MSP-EXP430FR2433",
+      "MSP-CAPT-FR2633"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2311_die",
+    "value": [
+      "MSP430FR2310",
+      "MSP430FR2311"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2311_die",
+    "value": [
+      "MSP-EXP430FR2311"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2355_die",
+    "value": [
+      "MSP430FR2355",
+      "MSP430FR2353",
+      "MSP430FR2155",
+      "MSP430FR2153"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2355_die",
+    "value": [
+      "MSP-EXP430FR2355"
+    ]
+  },
+  {
+    "arraymacro": "devices_cc430f5147_die",
+    "value": [
+      "CC430F5123",
+      "CC430F5125",
+      "CC430F5143",
+      "CC430F5145",
+      "CC430F5147"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f5147_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_cc430f5137_die",
+    "value": [
+      "CC430F5133",
+      "CC430F5135",
+      "CC430F5137"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f5137_die",
+    "value": [
+      "MSP-EXPCC430RFx"
+    ]
+  },
+  {
+    "arraymacro": "devices_cc430f6137_die",
+    "value": [
+      "CC430F6125",
+      "CC430F6126",
+      "CC430F6127",
+      "CC430F6135",
+      "CC430F6137"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f6137_die",
+    "value": [
+      "eZ430-Chronos",
+      "MSP-EXPCC430RFx"
+    ]
+  },
+  {
+    "arraymacro": "devices_cc430f6147_die",
+    "value": [
+      "CC430F6143",
+      "CC430F6145",
+      "CC430F6147"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f6147_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430l092_die",
+    "value": [
+      "MSP430C091",
+      "MSP430C092",
+      "MSP430L092"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430l092_die",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f1132_subset",
+    "value": [
+      "MSP430F1122",
+      "MSP430F1132"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1132_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f123_subset",
+    "value": [
+      "MSP430F122",
+      "MSP430F123"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f123_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f1232_subset",
+    "value": [
+      "MSP430F1222",
+      "MSP430F1232"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1232_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f1121a_subset",
+    "value": [
+      "MSP430F1101A",
+      "MSP430F1111A",
+      "MSP430F1121A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1121a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430c1351_subset",
+    "value": [
+      "MSP430C1331",
+      "MSP430C1351"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430c1351_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f135_subset",
+    "value": [
+      "MSP430F133",
+      "MSP430F135"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f135_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f149_subset",
+    "value": [
+      "MSP430F147",
+      "MSP430F148",
+      "MSP430F149"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f149_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f1491_subset",
+    "value": [
+      "MSP430F1471",
+      "MSP430F1481",
+      "MSP430F1491"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1491_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f157_subset",
+    "value": [
+      "MSP430F155",
+      "MSP430F156",
+      "MSP430F157"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f157_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f169_subset",
+    "value": [
+      "MSP430F167",
+      "MSP430F168",
+      "MSP430F169"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f169_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f1612_subset",
+    "value": [
+      "MSP430F1610",
+      "MSP430F1611",
+      "MSP430F1612"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f1612_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430afe251_subset",
+    "value": [
+      "MSP430AFE221",
+      "MSP430AFE251",
+      "MSP430AFE231"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430afe251_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430afe252_subset",
+    "value": [
+      "MSP430AFE222",
+      "MSP430AFE232",
+      "MSP430AFE252"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430afe252_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430afe253_subset",
+    "value": [
+      "MSP430AFE223",
+      "MSP430AFE233",
+      "MSP430AFE253"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430afe253_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2011_subset",
+    "value": [
+      "MSP430F2001",
+      "MSP430F2011"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2011_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2012_subset",
+    "value": [
+      "MSP430F2002",
+      "MSP430F2012"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2012_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2013_subset",
+    "value": [
+      "MSP430F2003",
+      "MSP430F2013"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2013_subset",
+    "value": [
+      "eZ430-F2013"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f2132_subset",
+    "value": [
+      "MSP430F2112",
+      "MSP430F2122",
+      "MSP430F2132"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2132_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2272_subset",
+    "value": [
+      "MSP430F2232",
+      "MSP430F2252",
+      "MSP430F2272"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2272_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2274_subset",
+    "value": [
+      "MSP430F2234",
+      "MSP430F2254",
+      "MSP430F2274"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2274_subset",
+    "value": [
+      "eZ430-RF2500"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f235_subset",
+    "value": [
+      "MSP430F233",
+      "MSP430F235"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f235_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f249_subset",
+    "value": [
+      "MSP430F247",
+      "MSP430F248",
+      "MSP430F249"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f249_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2491_subset",
+    "value": [
+      "MSP430F2471",
+      "MSP430F2481",
+      "MSP430F2491"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2491_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2370_subset",
+    "value": [
+      "MSP430F2330",
+      "MSP430F2350",
+      "MSP430F2370"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2370_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2419_subset",
+    "value": [
+      "MSP430F2410",
+      "MSP430F2416",
+      "MSP430F2417",
+      "MSP430F2418",
+      "MSP430F2419"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2419_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f2619_subset",
+    "value": [
+      "MSP430F2616",
+      "MSP430F2617",
+      "MSP430F2618",
+      "MSP430F2619"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2619_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f417_subset",
+    "value": [
+      "MSP430F412",
+      "MSP430F413",
+      "MSP430F415",
+      "MSP430F417"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f417_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fe427_subset",
+    "value": [
+      "MSP430F423",
+      "MSP430F425",
+      "MSP430F427",
+      "MSP430FE427"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fe427_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f427a_subset",
+    "value": [
+      "MSP430F423A",
+      "MSP430F425A",
+      "MSP430F427A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f427a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fe4272_subset",
+    "value": [
+      "MSP430FE4232",
+      "MSP430FE4242",
+      "MSP430FE4252",
+      "MSP430FE4272"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fe4272_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fe427a_subset",
+    "value": [
+      "MSP430FE423A",
+      "MSP430FE425A",
+      "MSP430FE427A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fe427a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fw429_subset",
+    "value": [
+      "MSP430FW423",
+      "MSP430FW425",
+      "MSP430FW427",
+      "MSP430FW428",
+      "MSP430FW429"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fw429_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4152_subset",
+    "value": [
+      "MSP430F4132",
+      "MSP430F4152"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4152_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4270_subset",
+    "value": [
+      "MSP430F4250",
+      "MSP430F4260",
+      "MSP430F4270"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4270_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg4270_subset",
+    "value": [
+      "MSP430FG4250",
+      "MSP430FG4260",
+      "MSP430FG4270"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg4270_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f439_subset",
+    "value": [
+      "MSP430F435",
+      "MSP430F436",
+      "MSP430F437",
+      "MSP430F438",
+      "MSP430F439"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f439_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4371_subset",
+    "value": [
+      "MSP430F4351",
+      "MSP430F4361",
+      "MSP430F4371"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4371_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4491_subset",
+    "value": [
+      "MSP430F447",
+      "MSP430F448",
+      "MSP430F4481",
+      "MSP430F449",
+      "MSP430F4491"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4491_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f479_subset",
+    "value": [
+      "MSP430F477",
+      "MSP430F478",
+      "MSP430F479"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f479_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg479_subset",
+    "value": [
+      "MSP430FG477",
+      "MSP430FG478",
+      "MSP430FG479"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg479_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4793_subset",
+    "value": [
+      "MSP430F4783",
+      "MSP430F4793"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4793_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f4794_subset",
+    "value": [
+      "MSP430F4784",
+      "MSP430F4794"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f4794_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f46191_subset",
+    "value": [
+      "MSP430F4616",
+      "MSP430F46161",
+      "MSP430F4617",
+      "MSP430F46171",
+      "MSP430F4618",
+      "MSP430F46181",
+      "MSP430F4619",
+      "MSP430F46191"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f46191_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f47196_subset",
+    "value": [
+      "MSP430F47126",
+      "MSP430F47166",
+      "MSP430F47176",
+      "MSP430F47186",
+      "MSP430F47196"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f47196_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f47197_subset",
+    "value": [
+      "MSP430F47127",
+      "MSP430F47167",
+      "MSP430F47177",
+      "MSP430F47187",
+      "MSP430F47197"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f47197_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg439_subset",
+    "value": [
+      "MSP430FG437",
+      "MSP430FG438",
+      "MSP430FG439"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg439_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg4619_subset",
+    "value": [
+      "MSP430FG4616",
+      "MSP430FG4617",
+      "MSP430FG4618",
+      "MSP430FG4619"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg4619_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2201_subset",
+    "value": [
+      "MSP430G2001",
+      "MSP430G2101",
+      "MSP430G2201"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2201_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2211_subset",
+    "value": [
+      "MSP430G2111",
+      "MSP430G2211"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2211_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2221_subset",
+    "value": [
+      "MSP430G2121",
+      "MSP430G2221"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2221_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2231_subset",
+    "value": [
+      "MSP430G2131",
+      "MSP430G2231"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2231_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2402_subset",
+    "value": [
+      "MSP430G2102",
+      "MSP430G2202",
+      "MSP430G2302",
+      "MSP430G2402"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2402_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2412_subset",
+    "value": [
+      "MSP430G2112",
+      "MSP430G2212",
+      "MSP430G2312",
+      "MSP430G2412"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2412_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2432_subset",
+    "value": [
+      "MSP430G2132",
+      "MSP430G2232",
+      "MSP430G2332",
+      "MSP430G2432"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2432_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2452_subset",
+    "value": [
+      "MSP430G2152",
+      "MSP430G2252",
+      "MSP430G2352",
+      "MSP430G2452"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2452_subset",
+    "value": [
+      "MSP-EXP430G2"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430g2403_subset",
+    "value": [
+      "MSP430G2203",
+      "MSP430G2303",
+      "MSP430G2403"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2403_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2513_subset",
+    "value": [
+      "MSP430G2113",
+      "MSP430G2213",
+      "MSP430G2313",
+      "MSP430G2413",
+      "MSP430G2513"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2513_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2533_subset",
+    "value": [
+      "MSP430G2233",
+      "MSP430G2333",
+      "MSP430G2433",
+      "MSP430G2533"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2533_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2553_subset",
+    "value": [
+      "MSP430G2153",
+      "MSP430G2253",
+      "MSP430G2353",
+      "MSP430G2453",
+      "MSP430G2553"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2553_subset",
+    "value": [
+      "MSP-EXP430G2ET",
+      "MSP-EXP430G2"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430g2744_subset",
+    "value": [
+      "MSP430G2444",
+      "MSP430G2544",
+      "MSP430G2744"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2744_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2955_subset",
+    "value": [
+      "MSP430G2755",
+      "MSP430G2855",
+      "MSP430G2955"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2955_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2210_subset",
+    "value": [
+      "MSP430G2210"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2210_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430g2230_subset",
+    "value": [
+      "MSP430G2230"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2230_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5171_subset",
+    "value": [
+      "MSP430F5131",
+      "MSP430F5151",
+      "MSP430F5171"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5171_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5172_subset",
+    "value": [
+      "MSP430F5132",
+      "MSP430F5152",
+      "MSP430F5172"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5172_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5219_subset",
+    "value": [
+      "MSP430F5212",
+      "MSP430F5213",
+      "MSP430F5214",
+      "MSP430F5217",
+      "MSP430F5218",
+      "MSP430F5219"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5219_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5229_subset",
+    "value": [
+      "MSP430F5222",
+      "MSP430F5223",
+      "MSP430F5224",
+      "MSP430F5227",
+      "MSP430F5228",
+      "MSP430F5229"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5229_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5239_subset",
+    "value": [
+      "MSP430F5232",
+      "MSP430F5234",
+      "MSP430F5237",
+      "MSP430F5239"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5239_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5249_subset",
+    "value": [
+      "MSP430F5242",
+      "MSP430F5244",
+      "MSP430F5247",
+      "MSP430F5249"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5249_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5259_subset",
+    "value": [
+      "MSP430F5252",
+      "MSP430F5253",
+      "MSP430F5254",
+      "MSP430F5255",
+      "MSP430F5256",
+      "MSP430F5257",
+      "MSP430F5258",
+      "MSP430F5259"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5259_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5310_subset",
+    "value": [
+      "MSP430F5304",
+      "MSP430F5308",
+      "MSP430F5309",
+      "MSP430F5310"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5310_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5329_subset",
+    "value": [
+      "MSP430F5324",
+      "MSP430F5325",
+      "MSP430F5326",
+      "MSP430F5327",
+      "MSP430F5328",
+      "MSP430F5329"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5329_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5338_subset",
+    "value": [
+      "MSP430F5333",
+      "MSP430F5335",
+      "MSP430F5336",
+      "MSP430F5338"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5338_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5638_subset",
+    "value": [
+      "MSP430F5630",
+      "MSP430F5631",
+      "MSP430F5632",
+      "MSP430F5633",
+      "MSP430F5634",
+      "MSP430F5635",
+      "MSP430F5636",
+      "MSP430F5637",
+      "MSP430F5638"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5638_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6438_subset",
+    "value": [
+      "MSP430F6433",
+      "MSP430F6435",
+      "MSP430F6436",
+      "MSP430F6438"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6438_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6638_subset",
+    "value": [
+      "MSP430F6630",
+      "MSP430F6631",
+      "MSP430F6632",
+      "MSP430F6633",
+      "MSP430F6634",
+      "MSP430F6635",
+      "MSP430F6636",
+      "MSP430F6637",
+      "MSP430F6638"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6638_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5342_subset",
+    "value": [
+      "MSP430F5340",
+      "MSP430F5341",
+      "MSP430F5342"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5342_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5419_subset",
+    "value": [
+      "MSP430F5418",
+      "MSP430F5419"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5419_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5438_subset",
+    "value": [
+      "MSP430F5435",
+      "MSP430F5436",
+      "MSP430F5437",
+      "MSP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5438_subset",
+    "value": [
+      "MSP-EXP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f5419a_subset",
+    "value": [
+      "MSP430F5418A",
+      "MSP430F5419A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5419a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5438a_subset",
+    "value": [
+      "MSP430F5435A",
+      "MSP430F5436A",
+      "MSP430F5437A",
+      "MSP430F5438A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5438a_subset",
+    "value": [
+      "MSP-EXP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f5510_subset",
+    "value": [
+      "MSP430F5500",
+      "MSP430F5501",
+      "MSP430F5502",
+      "MSP430F5503",
+      "MSP430F5504",
+      "MSP430F5505",
+      "MSP430F5506",
+      "MSP430F5507",
+      "MSP430F5508",
+      "MSP430F5509",
+      "MSP430F5510"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5510_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5519_subset",
+    "value": [
+      "MSP430F5513",
+      "MSP430F5514",
+      "MSP430F5515",
+      "MSP430F5517",
+      "MSP430F5519"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5519_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5529_subset",
+    "value": [
+      "MSP430F5521",
+      "MSP430F5522",
+      "MSP430F5524",
+      "MSP430F5525",
+      "MSP430F5526",
+      "MSP430F5527",
+      "MSP430F5528",
+      "MSP430F5529"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5529_subset",
+    "value": [
+      "MSP-EXP430F5529",
+      "MSP-EXP430F5529LP"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430f5659_subset",
+    "value": [
+      "MSP430F5658",
+      "MSP430F5659"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5659_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6659_subset",
+    "value": [
+      "MSP430F6658",
+      "MSP430F6659"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6659_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f5359_subset",
+    "value": [
+      "MSP430F5359",
+      "MSP430F5358"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5359_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6459_subset",
+    "value": [
+      "MSP430F6459",
+      "MSP430F6458"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6459_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6726_subset",
+    "value": [
+      "MSP430F6720",
+      "MSP430F6721",
+      "MSP430F6723",
+      "MSP430F6724",
+      "MSP430F6725",
+      "MSP430F6726"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6726_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6736_subset",
+    "value": [
+      "MSP430F6730",
+      "MSP430F6731",
+      "MSP430F6733",
+      "MSP430F6734",
+      "MSP430F6735",
+      "MSP430F6736"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6736_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67491_subset",
+    "value": [
+      "MSP430F6745",
+      "MSP430F6746",
+      "MSP430F6747",
+      "MSP430F6748",
+      "MSP430F6749",
+      "MSP430F67451",
+      "MSP430F67461",
+      "MSP430F67471",
+      "MSP430F67481",
+      "MSP430F67491"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67491_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67691_subset",
+    "value": [
+      "MSP430F6765",
+      "MSP430F6766",
+      "MSP430F6767",
+      "MSP430F6768",
+      "MSP430F6769",
+      "MSP430F67651",
+      "MSP430F67661",
+      "MSP430F67671",
+      "MSP430F67681",
+      "MSP430F67691"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67691_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67791_subset",
+    "value": [
+      "MSP430F6775",
+      "MSP430F6776",
+      "MSP430F6777",
+      "MSP430F6778",
+      "MSP430F6779",
+      "MSP430F67751",
+      "MSP430F67761",
+      "MSP430F67771",
+      "MSP430F67781",
+      "MSP430F67791"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67791_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6749a_subset",
+    "value": [
+      "MSP430F6745A",
+      "MSP430F6746A",
+      "MSP430F6747A",
+      "MSP430F6748A",
+      "MSP430F6749A",
+      "MSP430F67451A",
+      "MSP430F67461A",
+      "MSP430F67471A",
+      "MSP430F67481A",
+      "MSP430F67491A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6749a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6769a_subset",
+    "value": [
+      "MSP430F6765A",
+      "MSP430F6766A",
+      "MSP430F6767A",
+      "MSP430F6768A",
+      "MSP430F6769A",
+      "MSP430F67651A",
+      "MSP430F67661A",
+      "MSP430F67671A",
+      "MSP430F67681A",
+      "MSP430F67691A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6769a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6779a_subset",
+    "value": [
+      "MSP430F6775A",
+      "MSP430F6776A",
+      "MSP430F6777A",
+      "MSP430F6778A",
+      "MSP430F6779A",
+      "MSP430F67751A",
+      "MSP430F67761A",
+      "MSP430F67771A",
+      "MSP430F67781A",
+      "MSP430F67791A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6779a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6726a_subset",
+    "value": [
+      "MSP430F6720A",
+      "MSP430F6721A",
+      "MSP430F6723A",
+      "MSP430F6724A",
+      "MSP430F6725A",
+      "MSP430F6726A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6726a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f6736a_subset",
+    "value": [
+      "MSP430F6730A",
+      "MSP430F6731A",
+      "MSP430F6733A",
+      "MSP430F6734A",
+      "MSP430F6735A",
+      "MSP430F6736A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f6736a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg6426_subset",
+    "value": [
+      "MSP430FG6425",
+      "MSP430FG6426"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg6426_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fg6626_subset",
+    "value": [
+      "MSP430FG6625",
+      "MSP430FG6626"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fg6626_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67621_subset",
+    "value": [
+      "MSP430F67621"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67621_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67641_subset",
+    "value": [
+      "MSP430F67641"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67641_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67621a_subset",
+    "value": [
+      "MSP430F67621A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67621a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430f67641a_subset",
+    "value": [
+      "MSP430F67641A"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f67641a_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430i2041_subset",
+    "value": [
+      "MSP430i2041",
+      "MSP430i2040"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430i2041_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430i2031_subset",
+    "value": [
+      "MSP430i2031",
+      "MSP430i2030"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430i2031_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430i2021_subset",
+    "value": [
+      "MSP430i2021",
+      "MSP430i2020"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430i2021_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr5739_subset",
+    "value": [
+      "MSP430FR5730",
+      "MSP430FR5731",
+      "MSP430FR5732",
+      "MSP430FR5733",
+      "MSP430FR5734",
+      "MSP430FR5735",
+      "MSP430FR5736",
+      "MSP430FR5737",
+      "MSP430FR5738",
+      "MSP430FR5739"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5739_subset",
+    "value": [
+      "MSP-EXP430FR5739"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr5729_subset",
+    "value": [
+      "MSP430FR5720",
+      "MSP430FR5721",
+      "MSP430FR5722",
+      "MSP430FR5723",
+      "MSP430FR5724",
+      "MSP430FR5725",
+      "MSP430FR5726",
+      "MSP430FR5727",
+      "MSP430FR5728",
+      "MSP430FR5729"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5729_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr58891_subset",
+    "value": [
+      "MSP430FR5887",
+      "MSP430FR5888",
+      "MSP430FR5889",
+      "MSP430FR58891"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr58891_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr68891_subset",
+    "value": [
+      "MSP430FR6887",
+      "MSP430FR6888",
+      "MSP430FR6889",
+      "MSP430FR68891"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr68891_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59891_subset",
+    "value": [
+      "MSP430FR5986",
+      "MSP430FR5987",
+      "MSP430FR5988",
+      "MSP430FR5989",
+      "MSP430FR59891"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59891_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr69891_subset",
+    "value": [
+      "MSP430FR6987",
+      "MSP430FR6988",
+      "MSP430FR6989",
+      "MSP430FR69891"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr69891_subset",
+    "value": [
+      "EVM430-FR6989",
+      "MSP-EXP430FR6989"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr5849_subset",
+    "value": [
+      "MSP430FR5847",
+      "MSP430FR58471",
+      "MSP430FR5848",
+      "MSP430FR5849"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5849_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr5859_subset",
+    "value": [
+      "MSP430FR5857",
+      "MSP430FR5858",
+      "MSP430FR5859"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5859_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr5869_subset",
+    "value": [
+      "MSP430FR5867",
+      "MSP430FR58671",
+      "MSP430FR5868",
+      "MSP430FR5869"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5869_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr58721_subset",
+    "value": [
+      "MSP430FR5870",
+      "MSP430FR5872",
+      "MSP430FR58721"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr58721_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59221_subset",
+    "value": [
+      "MSP430FR5922",
+      "MSP430FR59221"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59221_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59721_subset",
+    "value": [
+      "MSP430FR5970",
+      "MSP430FR5972",
+      "MSP430FR59721"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59721_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr5949_subset",
+    "value": [
+      "MSP430FR5947",
+      "MSP430FR59471",
+      "MSP430FR5948",
+      "MSP430FR5949"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5949_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr5959_subset",
+    "value": [
+      "MSP430FR5957",
+      "MSP430FR5958",
+      "MSP430FR5959"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5959_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59691_subset",
+    "value": [
+      "MSP430FR5967",
+      "MSP430FR5968",
+      "MSP430FR5969",
+      "MSP430FR59691"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59691_subset",
+    "value": [
+      "MSP-EXP430FR5969"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr69221_subset",
+    "value": [
+      "MSP430FR6820",
+      "MSP430FR68221",
+      "MSP430FR6822",
+      "MSP430FR6920",
+      "MSP430FR69221",
+      "MSP430FR6922"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr69221_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr69721_subset",
+    "value": [
+      "MSP430FR6870",
+      "MSP430FR68721",
+      "MSP430FR6872",
+      "MSP430FR6970",
+      "MSP430FR69721",
+      "MSP430FR6972"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr69721_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr68791_subset",
+    "value": [
+      "MSP430FR6877",
+      "MSP430FR6879",
+      "MSP430FR68791"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr68791_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr6928_subset",
+    "value": [
+      "MSP430FR6927",
+      "MSP430FR69271",
+      "MSP430FR6928"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr6928_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr69791_subset",
+    "value": [
+      "MSP430FR6977",
+      "MSP430FR6979",
+      "MSP430FR69791"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr69791_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr59941_subset",
+    "value": [
+      "MSP430FR5992",
+      "MSP430FR5994",
+      "MSP430FR59941"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr59941_subset",
+    "value": [
+      "MSP-EXP430FR5994"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr5962_subset",
+    "value": [
+      "MSP430FR5962"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5962_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr5964_subset",
+    "value": [
+      "MSP430FR5964"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5964_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr60371_subset",
+    "value": [
+      "MSP430FR6037",
+      "MSP430FR60371",
+      "MSP430FR6035"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr60371_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr60471_subset",
+    "value": [
+      "MSP430FR6047",
+      "MSP430FR60471",
+      "MSP430FR6045"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr60471_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr60431_subset",
+    "value": [
+      "MSP430FR6043",
+      "MSP430FR60431"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr60431_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr50431_subset",
+    "value": [
+      "MSP430FR50431",
+      "MSP430FR5043",
+      "MSP430FR5041"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr50431_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2111_subset",
+    "value": [
+      "MSP430FR2111",
+      "MSP430FR2110"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2111_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2000_subset",
+    "value": [
+      "MSP430FR2000"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2000_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2100_subset",
+    "value": [
+      "MSP430FR2100"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2100_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2422_subset",
+    "value": [
+      "MSP430FR2422"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2422_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2512_subset",
+    "value": [
+      "MSP430FR2512"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2512_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2522_subset",
+    "value": [
+      "MSP430FR2522"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2522_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr4133_subset",
+    "value": [
+      "MSP430FR4131",
+      "MSP430FR4132",
+      "MSP430FR4133"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr4133_subset",
+    "value": [
+      "MSP-EXP430FR4133"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2033_subset",
+    "value": [
+      "MSP430FR2032",
+      "MSP430FR2033"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2033_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2433_subset",
+    "value": [
+      "MSP430FR2433"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2433_subset",
+    "value": [
+      "MSP-EXP430FR2433"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2533_subset",
+    "value": [
+      "MSP430FR2532",
+      "MSP430FR2533"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2533_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430fr2633_subset",
+    "value": [
+      "MSP430FR2632",
+      "MSP430FR2633"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2633_subset",
+    "value": [
+      "MSP-CAPT-FR2633"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2311_subset",
+    "value": [
+      "MSP430FR2310",
+      "MSP430FR2311"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2311_subset",
+    "value": [
+      "MSP-EXP430FR2311"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2355_subset",
+    "value": [
+      "MSP430FR2355",
+      "MSP430FR2353"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2355_subset",
+    "value": [
+      "MSP-EXP430FR2355"
+    ]
+  },
+  {
+    "arraymacro": "devices_msp430fr2155_subset",
+    "value": [
+      "MSP430FR2155",
+      "MSP430FR2153"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2155_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_cc430f5125_subset",
+    "value": [
+      "CC430F5123",
+      "CC430F5125"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f5125_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_cc430f5147_subset",
+    "value": [
+      "CC430F5143",
+      "CC430F5145",
+      "CC430F5147"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f5147_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_cc430f5137_subset",
+    "value": [
+      "CC430F5133",
+      "CC430F5135",
+      "CC430F5137"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f5137_subset",
+    "value": [
+      "MSP-EXPCC430RFx"
+    ]
+  },
+  {
+    "arraymacro": "devices_cc430f6127_subset",
+    "value": [
+      "CC430F6125",
+      "CC430F6126",
+      "CC430F6127"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f6127_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_cc430f6137_subset",
+    "value": [
+      "CC430F6135",
+      "CC430F6137"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f6137_subset",
+    "value": [
+      "eZ430-Chronos",
+      "MSP-EXPCC430RFx"
+    ]
+  },
+  {
+    "arraymacro": "devices_cc430f6147_subset",
+    "value": [
+      "CC430F6143",
+      "CC430F6145",
+      "CC430F6147"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f6147_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430c092_subset",
+    "value": [
+      "MSP430C091",
+      "MSP430C092"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430c092_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devices_msp430l092_subset",
+    "value": [
+      "MSP430L092"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430l092_subset",
+    "value": []
+  },
+  {
+    "arraymacro": "devtools_msp430fr2311",
+    "value": [
+      "MSP-EXP430FR2311"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5739",
+    "value": [
+      "MSP-EXP430FR5739"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2553",
+    "value": [
+      "MSP-EXP430G2",
+      "MSP-EXP430G2ET"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2355",
+    "value": [
+      "MSP-EXP430FR2355"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2433",
+    "value": [
+      "MSP-EXP430FR2433"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr6989",
+    "value": [
+      "MSP-EXP430FR6989",
+      "EVM430-FR6989"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f6137",
+    "value": [
+      "MSP-EXPCC430RFx",
+      "eZ430-Chronos"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr2633",
+    "value": [
+      "MSP-CAPT-FR2633"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5969",
+    "value": [
+      "MSP-EXP430FR5969"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5438a",
+    "value": [
+      "MSP-EXP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430g2452",
+    "value": [
+      "MSP-EXP430G2"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5438",
+    "value": [
+      "MSP-EXP430F5438"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr4133",
+    "value": [
+      "MSP-EXP430FR4133"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2013",
+    "value": [
+      "eZ430-F2013"
+    ]
+  },
+  {
+    "arraymacro": "devtools_cc430f5137",
+    "value": [
+      "MSP-EXPCC430RFx"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f5529",
+    "value": [
+      "MSP-EXP430F5529LP",
+      "MSP-EXP430F5529"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430fr5994",
+    "value": [
+      "MSP-EXP430FR5994"
+    ]
+  },
+  {
+    "arraymacro": "devtools_msp430f2274",
+    "value": [
+      "eZ430-RF2500"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430g2_devices",
+    "value": [
+      "MSP430G2553",
+      "MSP430G2452"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430g2_tags",
+    "value": [
+      "Value Line",
+      "G2"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430g2et_devices",
+    "value": [
+      "MSP430G2553"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430g2et_tags",
+    "value": [
+      "Value Line",
+      "G2"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430f5529lp_devices",
+    "value": [
+      "MSP430F5529"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430f5529lp_tags",
+    "value": [
+      "USB"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr5969_devices",
+    "value": [
+      "MSP430FR5969"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr5969_tags",
+    "value": [
+      "FRAM"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr4133_devices",
+    "value": [
+      "MSP430FR4133"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr4133_tags",
+    "value": [
+      "LED"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr6989_devices",
+    "value": [
+      "MSP430FR6989"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr6989_tags",
+    "value": []
+  },
+  {
+    "arraymacro": "msp-exp430fr2311_devices",
+    "value": [
+      "MSP430FR2311"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr2311_tags",
+    "value": [
+      "FRAM"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr2355_devices",
+    "value": [
+      "MSP430FR2355"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr2355_tags",
+    "value": [
+      "FRAM"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr2433_devices",
+    "value": [
+      "MSP430FR2433"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr2433_tags",
+    "value": [
+      "FRAM"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr5994_devices",
+    "value": [
+      "MSP430FR5994"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr5994_tags",
+    "value": [
+      "SD",
+      "Card",
+      "Storage",
+      "LEA"
+    ]
+  },
+  {
+    "arraymacro": "430boost-sharp96_tags",
+    "value": [
+      "SHARP96",
+      "LCD",
+      "Display",
+      "Graphics"
+    ]
+  },
+  {
+    "arraymacro": "boostxl-edumkii_tags",
+    "value": []
+  },
+  {
+    "arraymacro": "boostxl-k350qvg-s1_tags",
+    "value": [
+      "QVG",
+      "Display",
+      "LCD",
+      "Graphics"
+    ]
+  },
+  {
+    "arraymacro": "boost-ir_tags",
+    "value": [
+      "Infared",
+      "Transmitter",
+      "Receiver",
+      "Demodulator",
+      "Keypad",
+      "Matrix",
+      "LED"
+    ]
+  },
+  {
+    "arraymacro": "430boost-sense1_tags",
+    "value": [
+      "Sense1",
+      "Captouch",
+      "Capsense",
+      "Capacitive",
+      "Touch",
+      "Wheel",
+      "Slider"
+    ]
+  },
+  {
+    "arraymacro": "boostxl-audio_tags",
+    "value": [
+      "Audio",
+      "DSP"
+    ]
+  },
+  {
+    "arraymacro": "boostxl-sensors_tags",
+    "value": [
+      "Sensors",
+      "SensorHub"
+    ]
+  },
+  {
+    "arraymacro": "boostxl-batpakmkii_tags",
+    "value": [
+      "Battery",
+      "BQ"
+    ]
+  },
+  {
+    "arraymacro": "evm430-fr6989_devices",
+    "value": [
+      "MSP430FR6989"
+    ]
+  },
+  {
+    "arraymacro": "evm430-fr6989_tags",
+    "value": [
+      "Motor Control",
+      "LC Sensor",
+      "LC",
+      "ESI",
+      "Rotational",
+      "Flow"
+    ]
+  },
+  {
+    "arraymacro": "msp-capt-fr2633_devices",
+    "value": [
+      "MSP430FR2633"
+    ]
+  },
+  {
+    "arraymacro": "msp-capt-fr2633_tags",
+    "value": [
+      "CapTIvate"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430f5529_devices",
+    "value": [
+      "MSP430F5529"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430f5529_tags",
+    "value": [
+      "USB",
+      "SD Card",
+      "Storage"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430f5438_devices",
+    "value": [
+      "MSP430F5438",
+      "MSP430F5438A"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430f5438_tags",
+    "value": [
+      "LCD",
+      "JoyStick",
+      "Audio",
+      "LCD",
+      "Buttons"
+    ]
+  },
+  {
+    "arraymacro": "msp-expcc430rfx_devices",
+    "value": [
+      "CC430F5137",
+      "CC430F6137"
+    ]
+  },
+  {
+    "arraymacro": "msp-expcc430rfx_tags",
+    "value": [
+      "sub-GHz",
+      "Wireless"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr5739_devices",
+    "value": [
+      "MSP430FR5739"
+    ]
+  },
+  {
+    "arraymacro": "msp-exp430fr5739_tags",
+    "value": [
+      "FRAM"
+    ]
+  },
+  {
+    "arraymacro": "ez430-chronos_devices",
+    "value": [
+      "CC430F6137"
+    ]
+  },
+  {
+    "arraymacro": "ez430-chronos_tags",
+    "value": [
+      "Chronos",
+      "ez430",
+      "Watch",
+      "RF",
+      "Wireless"
+    ]
+  },
+  {
+    "arraymacro": "ez430-rf2500_devices",
+    "value": [
+      "MSP430F2274"
+    ]
+  },
+  {
+    "arraymacro": "ez430-rf2500_tags",
+    "value": []
+  },
+  {
+    "arraymacro": "ez430-f2013_devices",
+    "value": [
+      "MSP430F2013"
+    ]
+  },
+  {
+    "arraymacro": "ez430-f2013_tags",
+    "value": []
+  },
+  {
+    "arraymacro": "launchpad_list",
+    "value": [
+      "MSP-EXP430G2",
+      "MSP-EXP430G2ET",
+      "MSP-EXP430F5529LP",
+      "MSP-EXP430FR5969",
+      "MSP-EXP430FR4133",
+      "MSP-EXP430FR6989",
+      "MSP-EXP430FR2311",
+      "MSP-EXP430FR2355",
+      "MSP-EXP430FR2433",
+      "MSP-EXP430FR5994"
+    ]
+  },
+  {
+    "arraymacro": "boosterpack_list",
+    "value": [
+      "430BOOST-SHARP96",
+      "BOOSTXL-EDUMKII",
+      "BOOSTXL-K350QVG-S1",
+      "BOOST-IR",
+      "430BOOST-SENSE1",
+      "BOOSTXL-AUDIO",
+      "BOOSTXL-SENSORS",
+      "BOOSTXL-BATPAKMKII"
+    ]
+  },
+  {
+    "arraymacro": "specialized_boards_list",
+    "value": [
+      "EVM430-FR6989",
+      "MSP-CAPT-FR2633",
+      "MSP-EXP430F5529",
+      "MSP-EXP430F5438",
+      "MSP-EXPCC430RFx",
+      "MSP-EXP430FR5739",
+      "eZ430-Chronos",
+      "eZ430-RF2500",
+      "eZ430-F2013"
+    ]
+  },
+  {
+    "arraymacro": "target_boards_list",
+    "value": [
+      "MSP-TS430D8",
+      "MSP-TS430DA38",
+      "MSP-TS430DL48",
+      "MSP-TS430DW28",
+      "MSP-TS430L092",
+      "MSP-TS430PEU128",
+      "MSP-TS430PM64",
+      "MSP-TS430PM64A",
+      "MSP-TS430PM64D",
+      "MSP-TS430PM64F",
+      "MSP-TS430PN80",
+      "MSP-TS430PN80A",
+      "MSP-TS430PN80USB",
+      "MSP-TS430PW14",
+      "MSP-TS430PW20",
+      "MSP-TS430PW24",
+      "MSP-TS430PW28",
+      "MSP-TS430PW28A",
+      "MSP-TS430PZ100",
+      "MSP-TS430PZ100A",
+      "MSP-TS430PZ100AUSB",
+      "MSP-TS430PZ100B",
+      "MSP-TS430PZ100C",
+      "MSP-TS430PZ100D",
+      "MSP-TS430PZ100USB",
+      "MSP-TS430PZ5x100",
+      "MSP-TS430QFN23x0",
+      "MSP-TS430RGC64B",
+      "MSP-TS430RGC64C",
+      "MSP-TS430RGC64USB",
+      "MSP-TS430RGZ48B",
+      "MSP-TS430RGZ48C",
+      "MSP-TS430RHA40A",
+      "MSP-TS430RHB32A",
+      "MSP-TS430RSB40",
+      "MSP-TS432PZ100"
+    ]
+  },
+  {
+    "arraymacro": "msp-fet_devices",
+    "value": [
+      "$(devices_msp430_arch)"
+    ]
+  },
+  {
+    "arraymacro": "msp-fet_tags",
+    "value": [
+      "FET"
+    ]
+  },
+  {
+    "arraymacro": "msp-fet430uif_devices",
+    "value": [
+      "$(devices_msp430_arch)"
+    ]
+  },
+  {
+    "arraymacro": "msp-fet430uif_tags",
+    "value": [
+      "Energy Trace",
+      "Measurement",
+      "Energy",
+      "FET"
+    ]
+  },
+  {
+    "arraymacro": "msp-gang_devices",
+    "value": [
+      "$(devices_msp430_arch)"
+    ]
+  },
+  {
+    "arraymacro": "msp-gang_tags",
+    "value": [
+      "Gang",
+      "Multiple"
+    ]
+  },
+  {
+    "arraymacro": "programmers_list",
+    "value": [
+      "MSP-FET",
+      "MSP-FET430UIF",
+      "MSP-GANG"
+    ]
+  },
+  {
+    "arraymacro": "launchpad_tags",
+    "value": [
+      "LaunchPad",
+      "Development Board"
+    ]
+  },
+  {
+    "arraymacro": "boosterpack_tags",
+    "value": [
+      "BoosterPack"
+    ]
+  },
+  {
+    "arraymacro": "specialized_tags",
+    "value": [
+      "Development Board",
+      "Specialized",
+      "Application"
+    ]
+  },
+  {
+    "arraymacro": "target_boards_tags",
+    "value": [
+      "Target Socket",
+      "Target",
+      "Board"
+    ]
+  },
+  {
+    "arraymacro": "programmers_tags",
+    "value": [
+      "Programmers",
+      "Flashing",
+      "Programming"
+    ]
+  },
+  {
+    "arraymacro": "cc3100boost_tags",
+    "value": [
+      "wifi"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+<map id="_EM_SW_Lib_Config_Handle_" name="_EM_SW_Lib_Config_Handle_">
+<area shape="rect" id="node2" href="$struct___e_m___system___configuration__.html" title="Contains EM SW Lib System Configuration. " alt="" coords="5,187,197,213"/>
+<area shape="rect" id="node3" href="$struct___e_m___pulse___settings__.html" title="Contains EM SW Lib Phase Calibration. " alt="" coords="26,96,176,123"/>
+<area shape="rect" id="node4" href="$struct___e_m___meter___configuration__.html" title="Contains EM SW Lib Meter Configuration. " alt="" coords="222,187,401,213"/>
+<area shape="rect" id="node5" href="$struct___e_m___phase___configuration__.html" title="Contains EM SW Lib System Configuration. " alt="" coords="220,96,404,123"/>
+<area shape="rect" id="node6" href="$struct___e_m___phase___calibration__.html" title="Contains EM SW Lib Phase Calibration. " alt="" coords="227,5,396,32"/>
+<area shape="rect" id="node7" href="$struct___e_m___algorithm___configuration__.html" title="Contains EM SW Lib Algorithm Configuration. " alt="" coords="427,187,629,213"/>
+</map>

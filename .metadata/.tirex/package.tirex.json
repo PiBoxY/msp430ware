@@ -1,0 +1,21 @@
+[
+  {
+    "description": "Quicken your development time with MSP430Ware, a tool for navigating the available resources that support MSP430 and MSP432 devices. Using this GUI or clicking through the folder tree to the left, we offer code examples, software libraries, datasheets and other resources - all at the tip of your fingers.",
+    "name": "MSP430Ware",
+    "version": "3.80.06.03",
+    "id": "msp430ware",
+    "image": "photos/msp430ware.png",
+    "core": [
+      {
+        "require": "mandatory",
+        "name": "msp430ware_core",
+        "version": "3.80.06.03",
+        "files": [
+          "driverlib/eclipse",
+          "fram_utilities/eclipse"
+        ],
+        "message": "A one-time download of a core set of files"
+      }
+    ]
+  }
+]

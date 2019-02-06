@@ -1,0 +1,20 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Removable Media</h1>
+        <p>Affects the LUN's response to INQUIRY SCSI commands, to reflect removable media</p>
+        <p>For LUNs having media that will remain permanently attached, leave the box unchecked.  For LUNs having media the user can remove at any time -- like memory cards -- check the box.</p>
+        <p>Although technically any USB device can be "removed", this isn't what this box is referring to.  In that event, the USB device will de-enumerate.  In removable media, the USB device remains enumerated, but has no media. </p>
+        <p>For every LUN reporting removable media, the host frequently pings it with  TEST_UNIT_READY SCSI command, to see if the media is still there.  LUNs not reporting removable media don't experience this.  </p>
+        <p>If your device has more than one LUN, be sure to use the menu above to set this field for EACH logical unit. </p>
+    </body>
+</html>

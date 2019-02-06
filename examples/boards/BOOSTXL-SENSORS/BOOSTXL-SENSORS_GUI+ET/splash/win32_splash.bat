@@ -1,0 +1,3 @@
+echo Starting GUI Composer Designer...
+REM start %~dp0\\..\\..\\win32\\node-webkit\\nw.exe %~dp0
+start ..\\..\\win32\\node-webkit\\nw.exe splash

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><!-- /* * Copyright 2007 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ -->
+
+
+
+<title>MSP_TouchPro</title><!-- For now, we use the doxygen style sheet --><link href="docs/html/doxygen.css" rel="stylesheet" type="text/css"></head>
+<body>
+<table width="100%">
+<tbody>
+<tr>
+<td bgcolor="black" width="1"><a href="http://www.ti.com"><img src="tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+<td bgcolor="red"><img src="titagline.gif"></td>
+</tr>
+</tbody>
+</table>
+<h1>TouchPro GUI and Example Library &nbsp;1.50.00.00</h1>
+<h2>Release Notes&nbsp;</h2>
+Document Revision: 100215.1520<br>
+<br>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+
+<p>The
+TouchPro tool is a PC based tool to aid in the design and tuning of
+capacitive touch button(s), slider(s) and
+wheels(s).&nbsp;&nbsp;The
+tool receives and displays captouch sensor data to help the user
+quickly and easily evaluate, diagnose and tune button, slider and wheel
+designs.</p>
+<p>Features of the Touch Pro Tool include:<br>
+&#8226; Receive real-time data from a target board, including up to ten
+signals<br>
+&#8226; Points connected or bar chart display styles for viewing real-time
+data waveforms<br>
+&#8226; User configurable automatic ranging or manual ranging of the y-axis<br>
+&#8226; Data recording and recall<br>
+&#8226; Print waveforms<br>
+&#8226; User selectable individual signal or multiple signal waveform display<br>
+</p>
+This document is divided into the following sections:
+<ul>
+<li><a href="#Documentation">Documentation</a></li>
+<li><a href="#Whats_New">What's New</a></li>
+<li><a href="#Installation">Installation and Usage</a></li>
+<li><a href="#Host_Support">Host Support</a></li>
+<li><a href="#Dependencies">Dependencies</a></li>
+<li><a href="#Validation">Validation Information</a></li>
+<li><a href="#Peripheral_Support"><span style="text-decoration: underline;">Peripheral Support</span></a></li>
+<li><span style="text-decoration: underline;"><a href="#Known_Issues2">Known Issues</a><br>
+</span></li>
+<li><a href="#Versioning">Versioning</a></li>
+<li><a href="#Technical_Support">Technical Support
+and Product Updates</a></li>
+</ul>
+<h2><a name="Documentation" id="Documentation">Documentation<br>
+</a></h2><ul>
+<li style="margin-left: 40px;"><a href="SLAU486_TouchPro.pdf"><span style="text-decoration: underline;">TouchPro Users Guide</span></a></li>
+</ul>
+<h2><a name="Whats_New" id="Whats_New">What's
+New</a></h2><ul><li>v1.50.00.00</li><ul><li>Added demonstration project for MSP432</li></ul><li>v1.40.00.00</li><ul><li>Enahnced Windows version to display all COM ports</li><li>Fixed unistaller to completely clean installation files </li></ul><li>v1.30.00.00</li><ul><li>Add support for OS X 10.10.x and Linux.</li></ul></ul>
+<ul>
+</ul>
+<h2><a name="Installation" id="Installation">Installation
+and Usage</a></h2>
+<p class="MsoNormal" style="margin: 5pt 0in;">Run
+the installer and it will create TouchPro product and shortcuts under
+Texas Instruments.</p>See the <a href="SLAU486_TouchPro.pdf">Users Guide</a> for platform-specific instructions.<p>The TouchPro&nbsp; installed directory contains the
+following components. </p>
+<table border="1">
+<tbody>
+<tr>
+<td>Tool Executable</td>
+<td>An executable jar file named touchPro.jar and a batch file named touchPro.bat</td>
+</tr>
+<tr>
+<td>documents </td>
+<td>Quick Start User guide to get started with the tool<br>
+</td>
+</tr>
+<tr>
+<td>Com port driver </td>
+<td>Included in the installed directory is the
+RXTXSerial.dll&nbsp;<br>
+</td>
+</tr>
+<tr>
+<td>examples</td>
+<td>CCS and IAR project examples that transmit data from
+target to host using big banging and UART interface <br>
+</td>
+</tr>
+<tr>
+<td>Library </td>
+<td><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;;"> </span><span style="text-decoration: underline;">Included in the example
+projects are the CTS library files</span></td>
+</tr>
+<tr>
+<td>Source and header files</td>
+<td>Included in the example projects are application
+specific .c and .h source and header files<br>
+</td>
+</tr><tr><td>Java Runtime Environment</td><td>JRE6 evnvironment included</td></tr>
+</tbody>
+</table><p class="MsoNormal" style="margin: 5pt 0in;"> </p>
+<h2><a name="Host_Support" id="Host_Support">Host
+Support</a></h2>
+<p>This release supports installation and development on the following platforms:</p><ul><li>
+Microsoft Windows 7, 32 and 64 bit versions</li><li>Linux 32 and 64 bit versions&nbsp;</li><li>OS X 10.10.1+, 64 bit</li></ul>
+<h2><a name="Dependencies" id="Dependencies">Dependencies</a></h2>None
+<h2><a name="Validation" id="Validation">Validation
+Information</a></h2>
+<p>This has been tested on&nbsp;</p><ul><li>Windows7 x64 and x32
+versions</li><li>Linux Ubuntu 12.04 32 and 64 bit versions</li><li>OS X 10.10.1 64 bit</li></ul>
+<h2><a name="Examples" id="Examples">Examples</a></h2>
+The TouchPro
+tool's installed directory contains example CCS and IAR project files
+to use with the TouchPro tool. &nbsp;Both code examples were
+designed
+to work with the&nbsp;MSP430G2553 microcontroller. The
+example&nbsp;labeled<span style="font-style: italic; font-weight: bold;">
+TouchProTool_Demo_Bit_Banging</span> supports the MSP430G2xx2 and
+MSP430G2xx3 Value Line MSP microcontrollers. The example that is
+labeled <span style="font-style: italic; font-weight: bold;">TouchProTool_Demo_UART</span>
+supports only MSP430G2xx3 Value Line MSP microcontrollers, because
+it requires an UART interface. The UART module should be wired
+according to the instructions in the LaunchPad documentation.<br>
+<h2><a name="Known_Issues2"></a>Known Issues</h2>
+In some (rare)&nbsp; installations of the TouchPro tool, it has
+been noted that
+the tool&nbsp;exhibhits delays in graphing&nbsp;changes in
+capacitance
+due to touch. &nbsp; &nbsp;<br>
+<hr>
+<h2><a name="Versioning" id="Versioning">Versioning</a></h2>
+<p>This is build 1.50.00.00 of&nbsp; TouchPro GUI.</p>
+<h2><small><small><a name="Technical_Support" id="Technical_Support">Technical
+Support and Product Updates</a></small></small></h2>
+<h2><small><small>Support</small></small></h2>
+<ul>
+<li><small><small>For questions and support, please
+visit <a href="http://support.ti.com/">support.ti.com</a>.</small></small></li>
+<li><small><small>or e-mail us directly at&nbsp;<font face="Times New Roman" size="3"><span style="font-size: 12pt;"><a title="mailto:msp430ware@list.ti.com" href="mailto:msp430ware@list.ti.com">msp430ware@list.ti.com.</a><o:p></o:p></span></font></small></small></li>
+</ul>
+<h2><small><small>Additional Resources</small></small></h2>
+<small><small>For more information, visit <a href="http://www.ti.com">www.ti.com</a>.
+</small></small>
+</body></html>

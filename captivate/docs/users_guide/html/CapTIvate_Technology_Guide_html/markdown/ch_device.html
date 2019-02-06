@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Device Family &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="Software Library" href="ch_library.html"/>
+        <link rel="prev" title="Design Center GUI" href="ch_designcenter.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_basics.html">Capacitive Sensing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Device Family</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#selecting-a-device">Selecting a Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#number-of-captivate-ios">Number of CapTIvate IOs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#number-of-captivate-measurement-blocks">Number of CapTIvate Measurement Blocks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slider-and-wheel-linearity">Slider and Wheel Linearity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slider-measurement-time">Slider Measurement Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slider-and-wheel-transient-noise-immunity">Slider and Wheel Transient Noise Immunity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pin-selection-for-slider-and-wheel-sensors">Pin Selection for Slider and Wheel Sensors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#device-memory-configuration">Device Memory Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device-peripheral-package-and-pinout">Device Peripheral, Package, and Pinout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#devices">Devices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-devices">Standard Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#small-form-factor">Small Form Factor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#device-migration">Device Migration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-captivate-design-center-project">Part 1: CapTIvate Design Center Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-device-software-project">Part 2: Device Software Project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm.html">MSP-CAPT-FR2633 Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_boostxl_capkeypad.html">BOOSTXL-CAPKEYPAD Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_CAP_MINI.html">EVM430-CAPMINI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_workshop.html">Workshop (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Device Family</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="device-family">
+<h1>Device Family<a class="headerlink" href="#device-family" title="Permalink to this headline">¶</a></h1>
+<p>CapTIvate™ is a touch sensing peripheral that is attached to a microcontroller. This chapter introduces the devices with CapTIvate™ technology and discusses how to select the best device for a given application. Platform porting is also discussed.</p>
+<div class="section" id="selecting-a-device">
+<h2>Selecting a Device<a class="headerlink" href="#selecting-a-device" title="Permalink to this headline">¶</a></h2>
+<p>There are several factors to consider when selecting the correct CapTIvate™ MCU for an application:</p>
+<ul class="simple">
+<li><a class="reference external" href="ch_device.html#number-of-captivate-ios">Number of CapTIvate IOs</a> that are required (based on the number of sensors needed in the application)</li>
+<li><a class="reference external" href="ch_device.html#number-of-captivate-measurement-blocks">Number of CapTIvate measurement blocks</a> that are needed (based on the importance of parallel measurement to the application)</li>
+<li><a class="reference external" href="ch_device.html#device-memory-configuration">Device memory configuration</a> (FRAM and SRAM) to support the CapTIvate configuration and any other application functionality</li>
+<li><a class="reference external" href="ch_device.html#device-peripheral-package-and-pinout">Device peripheral configuration</a> (number of serial interfaces, timers, ect.)</li>
+<li><a class="reference external" href="ch_device.html#device-peripheral-package-and-pinout">Device package and pinout</a> (number of GPIOs that are available, and the size of the package itself)</li>
+</ul>
+<div class="section" id="number-of-captivate-ios">
+<h3>Number of CapTIvate IOs<a class="headerlink" href="#number-of-captivate-ios" title="Permalink to this headline">¶</a></h3>
+<p>When selecting a device, first consider the number of CapTIvate IO&#8217;s that are required to support the number of sensors that are needed for the given design. CapTIvate can operate in two modes: <a class="reference external" href="ch_basics.html#self-capacitance">self capacitance mode</a> and <a class="reference external" href="ch_basics.html#mutual-capacitance">mutual capacitance mode</a>. In <a class="reference external" href="ch_basics.html#self-capacitance">self capacitance mode</a>, the number of sensing electrodes that can be supported is equal to the number of CapTIvate IOs on a device. For example, the MSP430FR2532 has 8 CapTIvate IOs; thus, it can support 8 sensing electrodes in the self capacitance mode. This means that you could support 1-8 buttons with this device in that mode. It would also be possible to have 4 buttons and one 4-element slider, for a total of 8 sensing electrodes. In the <a class="reference external" href="ch_basics.html#mutual-capacitance">mutual capacitance mode</a>, it is possible to matrix CapTIvate IOs to increase the sensing electrode count. For example, the MSP430FR2532 has 8 CapTIvate
+IOs; this, it can support 16 sensing electrodes in mutual capacitance mode via the creation of a 4 by 4 matrix (4x4=16).</p>
+<p>The CapTIvate Design Center <a class="reference external" href="ch_designcenter.html#connect-sensors-to-msp430-capacitive-touch-i-o-ports">auto-assign</a> feature can be used to help determine which devices support a sensor configuration. Simply drop in the sensors that the design requires, and then select a device in the controller drop-down and attempt to assign pins. If the configuration is not possible on a given device, the tool will generate an error.</p>
+</div>
+<div class="section" id="number-of-captivate-measurement-blocks">
+<h3>Number of CapTIvate Measurement Blocks<a class="headerlink" href="#number-of-captivate-measurement-blocks" title="Permalink to this headline">¶</a></h3>
+<p>The number of CapTIvate measurement blocks on a device determines the number of sensing electrodes that can be measured simultaneously. Devices with more CapTIvate blocks bring the following benefits:</p>
+<ul class="simple">
+<li>Reduced measurement time, allowing for faster scanning and faster response to touches</li>
+<li>Reduced parasitic loading to neighboring electrodes when electrodes are grouped together (as is common in slider and wheel applications), allowing for improved slider linearity and positional resolution.</li>
+</ul>
+<p>TI has brought 4-channel parallel scanning to the market in the MSP430FR2633, MSP430FR2533, MSP430FR2632, and MSP430FR2532 devices to offer industry-leading slider and wheel performance, with best-in-class linearity, resolution, and response time. Devices with more CapTIvate blocks offer the best performance in applications with sliders or wheels (because of the improved linearity and resolution) as well as applications with many buttons (because of the improved response time).</p>
+<p>For example, in an application with a 4-element slider, the MSP430FR2532 offers better performance than the MSP430FR2522 because it has 4 parallel CapTIvate blocks, rather than just 2. This means that all elements in the slider can be measured together in one time instance- reducing parasitic loading, improving response time, and improving linearity. This is not to say that a slider can not be achieved with the MSP430FR2522 (using its 2 measurement blocks) or an MSP430FR2512 (with its single measurement block); rather, the MSP430FR2532 with its 4 measurement blocks provides better performance in the aforementioned areas (reduced parasitic loading, improved response time, and improved linearity).</p>
+<div class="section" id="slider-and-wheel-linearity">
+<h4>Slider and Wheel Linearity<a class="headerlink" href="#slider-and-wheel-linearity" title="Permalink to this headline">¶</a></h4>
+<p>The plot below captures the difference in linearity for the 4-element slider on the <a class="reference external" href="ch_evm.html#captivate-bswp">CAPTIVATE-BSWP</a> sensing panel when measuring the 4 elements sequentially vs. measuring them in parallel. Note that different hardware may provide different end results.</p>
+<div class="figure" id="id1">
+<img alt="Slider Linearity - Parallel vs. Sequential Measurement" src="../_images/sliderlinearity_par_vs_seq.png" />
+<p class="caption"><span class="caption-number">Fig. 163 </span><span class="caption-text">Slider Linearity - Parallel vs. Sequential Measurement</span></p>
+</div>
+<p><strong>Slider Linearity Test Conditions</strong></p>
+<ul class="simple">
+<li>Hardware: CAPTIVATE-BSWP slider sensor (4 elements) + CAPTIVATE-FR2633</li>
+<li>Test finger: Robotically controlled 0.5&#8221; flat-bottom finger probe</li>
+<li>Conversion frequency: 2 MHz</li>
+<li>IO idle state: Grounded</li>
+<li>Conversion Count (parallel scanning): 275 counts</li>
+<li>Conversion Count (sequential scanning): 500 counts</li>
+<li>Target peak touch delta: 75 counts</li>
+<li>Slider resolution: 1000 points</li>
+</ul>
+<p>Note that in the parallel scanning case, the slope of the finger position vs. measured position curve is constant throughout the positional range of the slider. In the sequential scanning case, the slope varies as the physical touch point varies. To achieve perfect linearity, the slope of this curve would be a constant linear slope throughout the positional range.</p>
+</div>
+<div class="section" id="slider-measurement-time">
+<h4>Slider Measurement Time<a class="headerlink" href="#slider-measurement-time" title="Permalink to this headline">¶</a></h4>
+<p>Slider and wheel layouts have highly inter-digitated electrode geometries to improve their linearity. When a slider or wheel is measured in parallel, all 3 or 4 of its electrodes are driven in phase with the same voltage waveform. Because there is little to no potential difference between electrodes during a parallel measurement, there is little to no electric field. This reduces any parasitic coupling to neighboring electrodes, improving sensitivity. This reduces the required measurement time versus the sequential scanning case.</p>
+<div class="figure" id="id2">
+<img alt="Slider Layout" src="../_images/evm_bswp_slider.png" />
+<p class="caption"><span class="caption-number">Fig. 164 </span><span class="caption-text">Slider Layout</span></p>
+</div>
+<p>For a frame of reference, consider the measurement resolution required to achieve a 50-70 count touch delta on each sensing electrode:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="31%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Scanning Mode</th>
+<th class="head">Required Conversion Count</th>
+<th class="head">Total Required Scan Time</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Sequential Scanning (MSP430FR2512)</td>
+<td>500</td>
+<td>1080us</td>
+</tr>
+<tr class="row-odd"><td>Parallel Scanning (MSP430FR2532)</td>
+<td>275</td>
+<td>158us</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the total required scan time is an estimate, computed based on a 2 MHz charge transfer frequency as used in the example linearity test above.</p>
+<p>Scanning with 4 parallel blocks allows the conversion count to be reduced by 45% when compared to sequential scanning. Overall, parallel scanning can reduce total measurement time by 85% in this case.</p>
+</div>
+<div class="section" id="slider-and-wheel-transient-noise-immunity">
+<h4>Slider and Wheel Transient Noise Immunity<a class="headerlink" href="#slider-and-wheel-transient-noise-immunity" title="Permalink to this headline">¶</a></h4>
+<p>Parallel scanning can inherently improve the transient noise immunity of slider and wheel sensors. If all electrodes in a slider or wheel sensor are measured simultaneously, then a transient noise event in the system will affect all electrodes in the slider proportionally. This means that while individual raw measurements may have been affected by noise, the overall slider position output computation can still be accurate in the presence of the disturbance, because it is calculated based on information from all electrodes. In a sequential scanning scenario, a transient that is present during only one electrode&#8217;s measurement can cause more positional jitter to appear than if parallel scanning were used. In the sequential case, it is possible to combat the effects of noise disturbances through the use of oversampling- however, oversampling does add additional measurement time. Oversampling is discussed in the <a class="reference external" href="ch_library.html#emc">EMC section</a> of the software library chapter.</p>
+</div>
+<div class="section" id="pin-selection-for-slider-and-wheel-sensors">
+<h4>Pin Selection for Slider and Wheel Sensors<a class="headerlink" href="#pin-selection-for-slider-and-wheel-sensors" title="Permalink to this headline">¶</a></h4>
+<p>When implementing a slider or wheel sensor on a device with parallel scanning capability, it is important to ensure that each electrode in the slider or wheel comes from a different CapTIvate measurement block. For example, on an MSP430FR2532, it would be best to take CAP0.0, CAP1.0, CAP2.0, and CAP3.0 for a slider than to take CAP0.0, CAP0.1, CAP0.2, and CAP0.3. This is discussed in the <a class="reference external" href="ch_design_guide.html#captivate-pin-selection">pin selection guide</a> in the design guide chapter.</p>
+</div>
+</div>
+<div class="section" id="device-memory-configuration">
+<h3>Device Memory Configuration<a class="headerlink" href="#device-memory-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="ch_library.html#memory-requirements">memory benchmarks</a> section of the <a class="reference external" href="ch_library.html">software</a> chapter lists memory estimate requirements for several application scenarios. In applications where the device will be used for more than just CapTIvate, it is important to take into account the application needs when selecting a device based on the available non-volatile memory and RAM.</p>
+<p>CapTIvate devices have CapTIvate Software Library functions in ROM. Not all devices have the same ROM. The device family tables below indicate the correct ROM header file and pre-compiled software library that should be used with each device. The correct ROM header file is pulled in automatically by the library when building an application- it is usually not necessary to be concerned with this when developing a project. The correct software library is automatically included by the CapTIvate Design Center when a new project is created. However, if you are migrating to a new device and the new device uses a different library, it is necessary to link the correct library for the new device.</p>
+</div>
+<div class="section" id="device-peripheral-package-and-pinout">
+<h3>Device Peripheral, Package, and Pinout<a class="headerlink" href="#device-peripheral-package-and-pinout" title="Permalink to this headline">¶</a></h3>
+<p>For information on available peripherals, packages, and pinouts, refer to the MSP production selection table.</p>
+</div>
+</div>
+<div class="section" id="devices">
+<h2>Devices<a class="headerlink" href="#devices" title="Permalink to this headline">¶</a></h2>
+<p>The following device types are available:</p>
+<ul class="simple">
+<li><a class="reference external" href="ch_device.html#standard-devices">Standard devices</a></li>
+<li><a class="reference external" href="ch_device.html#small-form-factor-die-size-devices">Small form factor devices (Die Size / Chip Scale)</a></li>
+</ul>
+<div class="figure" id="id3">
+<img alt="CapTIvate Block vs. Pin vs. Device" src="../_images/block_vs_pin_vs_device.png" />
+<p class="caption"><span class="caption-number">Fig. 165 </span><span class="caption-text">CapTIvate Block vs. Pin vs. Device</span></p>
+</div>
+<div class="section" id="standard-devices">
+<h3>Standard Devices<a class="headerlink" href="#standard-devices" title="Permalink to this headline">¶</a></h3>
+<p>Standard devices are listed in the table below. They are sorted by channel count and memory size in descending order.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="3%" />
+<col width="9%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="13%" />
+<col width="12%" />
+<col width="5%" />
+<col width="5%" />
+<col width="7%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Device</th>
+<th class="head">Packages</th>
+<th class="head">Pins</th>
+<th class="head">Blocks</th>
+<th class="head">Typ. Max Btns (Self/Mut)</th>
+<th class="head">FRAM (kB)</th>
+<th class="head">SRAM (kB)</th>
+<th class="head">ROM (kB)</th>
+<th class="head">ROM Header File</th>
+<th class="head">Software Object Library</th>
+<th class="head">Min. CCS Ver.</th>
+<th class="head">Min. IAR Ver.</th>
+<th class="head">Min. Design Center</th>
+<th class="head">Details</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>MSP430FR2633</td>
+<td>32-QFN(RHB), 32-TSSOP(DA)</td>
+<td>16</td>
+<td>4</td>
+<td>16/64</td>
+<td>15.5</td>
+<td>4</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2633_family.h</td>
+<td>captivate_fr2633_family.lib/.r43</td>
+<td>CCS v6.2</td>
+<td>IAR EW v6.3</td>
+<td>v1.00</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2633">Link</a></td>
+</tr>
+<tr class="row-odd"><td>MSP430FR2533</td>
+<td>32-QFN(RHB), 32-TSSOP(DA)</td>
+<td>16</td>
+<td>4</td>
+<td>16/16</td>
+<td>15.5</td>
+<td>2</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2633_family.h</td>
+<td>captivate_fr2633_family.lib/.r43</td>
+<td>CCS v6.2</td>
+<td>IAR EW v6.3</td>
+<td>v1.00</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2533">Link</a></td>
+</tr>
+<tr class="row-even"><td>MSP430FR2632</td>
+<td>24-QFN(RGE)</td>
+<td>8</td>
+<td>4</td>
+<td>8/16</td>
+<td>8.5</td>
+<td>2</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2633_family.h</td>
+<td>captivate_fr2633_family.lib/.r43</td>
+<td>CCS v6.2</td>
+<td>IAR EW v6.3</td>
+<td>v1.00</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2632">Link</a></td>
+</tr>
+<tr class="row-odd"><td>MSP430FR2532</td>
+<td>24-QFN(RGE)</td>
+<td>8</td>
+<td>4</td>
+<td>8/8</td>
+<td>8.5</td>
+<td>1</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2633_family.h</td>
+<td>captivate_fr2633_family.lib/.r43</td>
+<td>CCS v6.2</td>
+<td>IAR EW v6.3</td>
+<td>v1.00</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2532">Link</a></td>
+</tr>
+<tr class="row-even"><td>MSP430FR2522</td>
+<td>20-QFN(RHL)</td>
+<td>8</td>
+<td>2</td>
+<td>8/16</td>
+<td>7.25</td>
+<td>2</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2522_family.h</td>
+<td>captivate_fr2522_family.lib/.r43</td>
+<td>CCS v7.4</td>
+<td>IAR EW v7.11</td>
+<td>v1.60</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2522">Link</a></td>
+</tr>
+<tr class="row-odd"><td>MSP430FR2522</td>
+<td>16-TSSOP(PW16)</td>
+<td>8</td>
+<td>2</td>
+<td>8/16</td>
+<td>7.25</td>
+<td>2</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2522_family.h</td>
+<td>captivate_fr2522_family.lib/.r43</td>
+<td>CCS v7.4</td>
+<td>IAR EW v7.11</td>
+<td>v1.60</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2522">Link</a></td>
+</tr>
+<tr class="row-even"><td>MSP430FR2512</td>
+<td>20-QFN(RHL)</td>
+<td>4</td>
+<td>1</td>
+<td>4/4</td>
+<td>7.25</td>
+<td>2</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2522_family.h</td>
+<td>captivate_fr2522_family.lib/.r43</td>
+<td>CCS v7.4</td>
+<td>IAR EW v7.11</td>
+<td>v1.60</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2512">Link</a></td>
+</tr>
+<tr class="row-odd"><td>MSP430FR2512</td>
+<td>16-TSSOP(PW16)</td>
+<td>4</td>
+<td>1</td>
+<td>4/4</td>
+<td>7.25</td>
+<td>2</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2522_family.h</td>
+<td>captivate_fr2522_family.lib/.r43</td>
+<td>CCS v7.4</td>
+<td>IAR EW v7.11</td>
+<td>v1.60</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2512">Link</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="small-form-factor">
+<h3>Small Form Factor<a class="headerlink" href="#small-form-factor" title="Permalink to this headline">¶</a></h3>
+<p>Small form factor devices are listed in the table below. These are die size (chip scale) packages for space constrained designs.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
+<col width="9%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="14%" />
+<col width="12%" />
+<col width="6%" />
+<col width="6%" />
+<col width="7%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Device</th>
+<th class="head">Packages</th>
+<th class="head">Pins</th>
+<th class="head">Blocks</th>
+<th class="head">Typ. Max Btns (Self/Mut)</th>
+<th class="head">FRAM (kB)</th>
+<th class="head">SRAM (kB)</th>
+<th class="head">ROM (kB)</th>
+<th class="head">ROM Header File</th>
+<th class="head">Software Object Library</th>
+<th class="head">Min. CCS Ver.</th>
+<th class="head">Min. IAR Ver.</th>
+<th class="head">Min. Design Center</th>
+<th class="head">Details</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>MSP430FR2633</td>
+<td>24-DSBGA(YQW)</td>
+<td>8</td>
+<td>4</td>
+<td>8/16</td>
+<td>15.5</td>
+<td>4</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2633_family.h</td>
+<td>captivate_fr2633_family.lib/.r43</td>
+<td>CCS v6.2</td>
+<td>IAR EW v6.3</td>
+<td>v1.30</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2633">Link</a></td>
+</tr>
+<tr class="row-odd"><td>MSP430FR2632</td>
+<td>24-DSBGA(YQW)</td>
+<td>8</td>
+<td>4</td>
+<td>8/16</td>
+<td>8.5</td>
+<td>2</td>
+<td>16</td>
+<td>rom_captivate_msp430fr2633_family.h</td>
+<td>captivate_fr2633_family.lib/.r43</td>
+<td>CCS v6.2</td>
+<td>IAR EW v6.3</td>
+<td>v1.30</td>
+<td><a class="reference external" href="http://www.ti.com/product/msp430fr2632">Link</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="device-migration">
+<h2>Device Migration<a class="headerlink" href="#device-migration" title="Permalink to this headline">¶</a></h2>
+<p>The best way to migrate a CapTIvate project from one device to another device is to utilize the CapTIvate Design Center. Follow the steps below to migrate a CapTIvate design from one device to another. These instructions assume that the reader is familiar with the customizer windows in CapTIvate Design Center.</p>
+<div class="section" id="part-1-captivate-design-center-project">
+<h3>Part 1: CapTIvate Design Center Project<a class="headerlink" href="#part-1-captivate-design-center-project" title="Permalink to this headline">¶</a></h3>
+<p>Part 1 in porting a development project from one CapTIvate device to another is creating a CapTIvate Design Center project based on the original design, and updating the controller to the new device.</p>
+<ol class="arabic simple">
+<li>Open the CapTIvate Design Center project for the original design. Let us use a 4-button application on an MSP430FR2532 as a starting point, as shown below.</li>
+</ol>
+<div class="figure" id="id4">
+<img alt="MSP430FR2532 Starting Project Canvas" src="../_images/porting_fr2532_canvas.png" />
+<p class="caption"><span class="caption-number">Fig. 166 </span><span class="caption-text">MSP430FR2532 Starting Project Canvas</span></p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Select File-&gt;Save As, and create a new project folder with a new name. In this example, we will be porting to the MSP430FR2522, so we will name the new project folder &#8216;MigrationExample_MSP430FR2522_New.&#8217;</li>
+</ol>
+<div class="figure" id="id5">
+<img alt="Save As" src="../_images/porting_fr2532_saveas.png" />
+<p class="caption"><span class="caption-number">Fig. 167 </span><span class="caption-text">Save As</span></p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Now that we have a new project for the new device (MSP430FR2522), we need to change the controller. We can keep all of the existing sensor widgets and tunings; we just need to change the controller type and re-assign sensors to IO pins on the new device.</li>
+</ol>
+<div class="figure" id="id6">
+<img alt="Save As" src="../_images/porting_device_select.png" />
+<p class="caption"><span class="caption-number">Fig. 168 </span><span class="caption-text">Save As</span></p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Now that the new device is selected, the pin routing must be completed again. To achieve this, the CapTIvate Design Center auto-route feature can be used, or the pins may be assigned manually.</li>
+</ol>
+</div>
+<div class="section" id="part-2-device-software-project">
+<h3>Part 2: Device Software Project<a class="headerlink" href="#part-2-device-software-project" title="Permalink to this headline">¶</a></h3>
+<p>Part 2 in porting a development project is transitioning the device software to work with the new device in Code Composer Studio (CCS) or IAR Embedded Workbench.</p>
+<p>There are two general options for porting:</p>
+<ol class="arabic simple">
+<li>Use the CapTIvate Design Center project created in Part 1 above to generate a new CCS project for the new device, and port application code from the old CCS project into the new project. This option ensures that the new project is configured to work with the new device, and it is only necessary to integrate the application functionality from the original project into the new project. Instructions for <a class="reference external" href="ch_library.html#starting-from-scratch-with-the-starter-project">getting started with a new project</a> may be found in the <a class="reference external" href="ch_library.html">software library</a> chapter.</li>
+<li>Update the existing CCS project with the new user configuration files, latest CapTIvate Software Library files, and new compiler settings. This option is ideal in that the application code does not need to be transitioned. The complexity with this method is in updating the project and CapTIvate files to support the new device configuration. Instructions for <a class="reference external" href="ch_library.html#porting-an-existing-captivate-project-to-a-new-device">porting a CapTIvate project to a new device</a> may be found in the <a class="reference external" href="ch_library.html">software library</a> chapter.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_library.html" class="btn btn-neutral float-right" title="Software Library" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_designcenter.html" class="btn btn-neutral" title="Design Center GUI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

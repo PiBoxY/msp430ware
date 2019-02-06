@@ -1,0 +1,12 @@
+<projectSpec>
+    <project
+        compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP430FR5xx_6xx -I${PROJECT_ROOT}/driverlib/MSP430FR5xx_6xx/inc -I${PROJECT_ROOT}/application"
+        device="MSP430FR5994"
+        name="BOOSTXL-AUDIO_RecordPlayback_MSP430FR5994"
+        enableHexTool="true"
+        hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../application/" />
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+    </project>
+</projectSpec>

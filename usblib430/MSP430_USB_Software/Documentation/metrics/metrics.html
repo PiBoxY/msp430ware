@@ -1,0 +1,8028 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    
+    <title>MSP430 USB Developer's Package Code Metrics</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link type="text/css" rel="stylesheet" href="css/jquery.tocify.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui-1.9.2.custom.min.css"></head>
+<body>
+
+    <!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+          <div class="container" style="width: 100%;">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td bgcolor="black" width="222"><a href="http://www.ti.com"><img src="./img/tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+                    <td bgcolor="red"><img src="./img/titagline.gif"></td>
+                  </tr>
+                </tbody>
+              </table>  
+        </div>
+      </div>
+    <br>
+    <div class="container-fluid" style="padding-top: 70px;">
+      <div class="row-fluid">
+        <div class="span3">
+          <div id="nav"></div>
+        </div>
+        <div class="span9">
+          <h1>MSP430 USB Developer's Package Code Metrics</h1>
+          <br>
+          <p>
+The following code metrics was performed with the CCS 4.4.3 compiler,
+GCC compiler 5.3.0.105 and IAR 6.30 compiler with different optimization settings. Users may
+see different code sizes depending on their project settings so it is
+best to perform your benchmarks within your project. These sizes 
+contain all functions of the peripheral but only functions that are 
+used will be linked into the application and added to the total code 
+size. To see individual API code metrics see
+the specific API below. </p>
+          <br>
+          <br>          
+          <h2>UsbCdc.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>4366</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>2302</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>2532</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>3087</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>1671</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>1865</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>5374</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>2564</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>2982</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>CdcIsReceiveInProgress</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>30</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>CdcResetData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>58</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>64</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>58</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>86</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>CdcToBufferFromHost</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>518</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>318</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>346</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>362</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>200</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>232</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>698</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>326</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>410</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>CdcToHostFromBuffer</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>872</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>356</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>394</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>614</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>242</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>278</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>1102</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>424</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>454</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>CopyUsbToBuff</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>264</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>122</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>124</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>148</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>324</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>120</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>120</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Handler_SetLineCoding</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>120</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>128</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>146</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>216</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>98</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>110</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBCDC_abortReceive</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>156</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>88</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBCDC_abortSend</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>140</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>66</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>142</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>76</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>76</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBCDC_getBytesInUSBBuffer</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>214</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>124</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>136</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>154</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>102</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>256</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>136</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>142</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBCDC_getInterfaceStatus</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>284</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>192</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>198</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>198</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>140</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>310</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>186</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>214</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBCDC_receiveData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>1112</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>476</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>570</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>708</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>312</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>404</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>1314</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>576</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>770</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBCDC_rejectData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>198</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>112</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>116</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>82</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>222</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>136</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>142</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBCDC_sendData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>200</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>136</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>158</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>112</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>114</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>244</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>154</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>172</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetLineCoding</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>160</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>108</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>118</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>230</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>120</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>132</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetControlLineState</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>24</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetLineCoding</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>12</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>usb.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>4124</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>3102</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>3270</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>3935</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>2771</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>3351</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>5428</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>3262</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6810</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_InitSerialStringDescriptor</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>314</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>176</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>192</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>212</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>156</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>374</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>188</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>954</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_connect</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_determineFreq</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>332</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>188</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>220</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>400</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>200</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>258</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>374</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>236</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>472</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_determineXT2Freq</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>206</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>164</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>166</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>172</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>148</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>192</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>268</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>186</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>186</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_disable</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_disconnect</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_enable</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>330</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>250</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>292</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>308</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>230</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>252</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>418</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>304</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>362</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_forceRemoteWakeup</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_getConnectionInformation</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>64</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>66</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>72</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_getConnectionState</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>144</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>220</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>162</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>158</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_getEnabledEvents</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_getVersion</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_init</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>190</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>152</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>152</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>174</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>144</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>202</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>226</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>152</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>184</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_lookUpPll</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>98</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>68</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_reset</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>472</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>346</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>362</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>410</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>286</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>288</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>600</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>336</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>704</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_resume</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>24</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_setEnabledEvents</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>8</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_setup</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>58</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>64</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>168</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_suspend</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>48</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbClearDeviceFeature</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>38</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbClearEndpointFeature</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>246</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>204</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>114</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>352</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>148</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>148</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbClearOEP0ByteCount</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbDecodeAndProcessUsbRequest</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>234</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>134</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>140</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>174</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>124</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>156</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>298</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>144</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>270</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbDisableInEndpointInterrupt</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>84</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>30</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbDisableOutEndpointInterrupt</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>84</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>30</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetConfiguration</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>80</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetConfigurationDescriptor</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>268</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetDeviceDescriptor</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>268</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetDeviceStatus</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>58</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>144</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetEndpointStatus</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>166</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>106</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>152</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>78</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>222</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>248</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetInterface</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>114</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetInterfaceStatus</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>114</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetStringDescriptor</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>108</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>76</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>496</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbInvalidRequest</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbReceiveDataPacketOnEP0</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbReceiveNextPacketOnOEP0</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>68</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>136</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>172</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbRestoreInEndpointInterrupt</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbRestoreOutEndpointInterrupt</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSendDataPacketOnEP0</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>270</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSendNextPacketOnIEP0</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>112</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>112</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>112</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>176</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>122</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>238</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSendZeroLengthPacketOnIEP0</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>14</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetAddress</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>44</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetConfiguration</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>52</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetDeviceFeature</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>38</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetEndpointFeature</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>82</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>68</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>158</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>84</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>92</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetInterface</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>108</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>58</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbStallEndpoint0</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>14</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbStallOEP0</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>10</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>usbdma.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>270</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>208</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>208</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>242</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>236</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>280</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>312</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>202</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>222</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USB_initMemcpy</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>102</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>102</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>74</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>memcpyDMA</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>106</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>138</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>116</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>memcpyV</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>82</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>UsbHid.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>4728</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>2442</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>2748</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>3171</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>1849</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>2019</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>6190</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>2880</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>3438</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>HidCopyUsbToBuff</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>264</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>128</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>148</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>352</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>122</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>122</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>HidIsReceiveInProgress</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>HidResetData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>58</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>66</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>62</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>HidToBufferFromHost</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>634</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>322</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>392</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>452</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>250</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>278</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>922</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>388</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>548</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>HidToHostFromBuffer</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>514</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>248</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>278</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>340</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>218</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>218</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>708</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>308</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>328</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_abortReceive</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>146</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>168</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>90</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_abortSend</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>114</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>124</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>72</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_getBytesInUSBBuffer</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>364</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>210</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>218</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>278</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>166</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>176</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>462</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>248</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>254</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_getInterfaceStatus</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>262</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>186</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>192</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>178</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>134</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>142</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>300</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>180</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>210</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_receiveData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>1306</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>522</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>670</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>840</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>378</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>484</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>1718</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>714</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>1000</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_receiveReport</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>458</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>248</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>274</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>284</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>164</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>164</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>602</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>234</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>240</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_rejectData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>194</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>114</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>118</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>82</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>230</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>138</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>144</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_sendData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>176</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>134</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>108</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>108</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>228</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>168</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBHID_sendReport</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>210</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>134</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>134</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>102</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>102</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>268</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>164</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>168</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>UsbHidReq.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>314</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>272</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>288</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>270</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>178</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>202</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>422</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>272</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>286</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetHidDescriptor</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetIdle</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetProtocol</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetReport</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>34</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbGetReportDescriptor</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>28</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetIdle</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>54</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetProtocol</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>36</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbSetReport</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>46</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>UsbMscReq.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>78</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>82</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>80</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Get_MaxLUN</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>28</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBMSC_reset</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>52</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>UsbMscScsi.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>7296</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>5140</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6294</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>7501</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>4527</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>9511</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>9676</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6240</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>14794</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Check_CBW</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>306</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>212</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>212</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>286</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>174</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>222</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>394</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>232</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>308</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>MSCFromHostToBuffer</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>1120</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>742</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>996</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>1026</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>576</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>846</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>1500</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>1040</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>1244</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>MSCToHostFromBuffer</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>826</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>546</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>650</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>770</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>412</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>512</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>1010</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>600</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>858</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>MscCopyUsbToBuff</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>158</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>128</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>102</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>234</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>124</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>128</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>MscResetCtrlLun</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>64</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>MscResetData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>88</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>352</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>MscSendData</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>102</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>128</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>182</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>132</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>148</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Msc_ResetFlags</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Msc_ResetStruct</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>68</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>64</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>68</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>78</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>288</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Reset_RequestSenseResponse</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>148</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>98</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>166</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>184</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>144</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>SET_RequestsenseMediaNotPresent</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>162</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>SET_RequestsenseNotReady</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>124</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>44</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>162</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Cmd_Parser</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>604</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>446</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>750</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>596</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>382</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>1456</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>806</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>590</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>2522</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Inquiry</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>308</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>216</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>242</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>356</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>214</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>364</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>396</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>210</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>582</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Mode_Sense10</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>96</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>96</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>356</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>158</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>428</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Mode_Sense6</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>96</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>96</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>356</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>158</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>428</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Read10</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>364</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>240</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>254</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>338</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>136</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>434</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>456</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>268</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>494</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Read_Capacity10</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>308</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>78</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>366</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Report_Luns</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>296</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>66</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>352</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Request_Sense</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>268</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>176</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>212</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>268</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>538</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>392</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>206</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>1028</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Send_CSW</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>76</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>140</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>184</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Test_Unit_Ready</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>174</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>296</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Unknown_Request</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>136</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>120</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>120</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>128</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>68</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>202</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>162</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>124</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>244</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Verify_CBW</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>98</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>98</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>92</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>98</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>116</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>108</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>116</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Scsi_Write10</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>398</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>266</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>278</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>386</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>180</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>470</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>532</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>332</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>542</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBMSC_fetchInformationStructure</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>6</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBMSC_getState</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>66</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>58</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>58</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>68</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>62</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBMSC_processBuffer</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>976</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>664</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>976</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>978</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>530</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>822</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>1262</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>890</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>2340</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBMSC_registerBufferInformation</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>192</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>78</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>78</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>170</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>72</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>74</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>244</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>98</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>98</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBMSC_updateMediaInformation</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>390</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>288</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>298</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>356</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>246</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>430</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>592</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>358</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>768</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbClearOEPByteCount</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbStallEndpoint</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>30</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbStallInEndpoint</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>26</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>usbStallOutEndpoint</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>30</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>UsbMscStateMachine.c</h2>
+
+<h4>Compiler Totals</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>376</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>324</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>334</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>360</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>300</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>312</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>502</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>342</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>368</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>Msc_ResetStateMachine</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>54</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h4>USBMSC_pollCommand</h4>
+<table class="table table-hover" style="width: 536px;">
+<thead>
+  <tr>
+    <th>Compiler</th>
+    <th>Optimization</th>
+    <th>Code Size</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>None</td>
+    <td>324</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Size</td>
+    <td>276</td>
+  </tr>
+  <tr>
+    <td>CCS 4.4.3</td>
+    <td>Speed</td>
+    <td>286</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>None</td>
+    <td>304</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Size</td>
+    <td>250</td>
+  </tr>
+  <tr>
+    <td>IAR 6.30</td>
+    <td>Speed</td>
+    <td>262</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>None</td>
+    <td>446</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Size</td>
+    <td>288</td>
+  </tr>
+  <tr>
+    <td>MSPGCC 5.3.0.105</td>
+    <td>Speed</td>
+    <td>314</td>
+  </tr>
+</tbody>
+</table>
+
+        </div>
+    </div>
+   </div>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery.tocify.min.js"></script>
+    <script>
+        $(function() {
+            var toc = $("#nav").tocify({ selectors: "h2, h4" }).data("toc-tocify");
+        });
+    </script>
+  </body></html>

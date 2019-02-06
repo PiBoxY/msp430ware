@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the memory optimized libraries &mdash; MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="MSP Ultrasonic Sensing Library Users Guide 02_20_00_16 documentation" href="../index.html"/>
+        <link rel="next" title="USS SW Library best practices" href="BestPract.html"/>
+        <link rel="prev" title="Generating Interpolation Correction Look-up table" href="InterpLUT.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MSP Ultrasonic Sensing Library Users Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                02_20_00_16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Whats_supported.html">What is supported by the library?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Understanding.html">Understanding the Ultrasonic Sensing Solution Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CodeExamples.html">Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibrations.html">Library Calibrations Routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HighFlow.html">Enabling High Water Flow applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VFRCalib.html">Volume Flow Rate Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InterpLUT.html">Generating Interpolation Correction Look-up table</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the memory optimized libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linking-memory-optimized-library-to-template-example-project">Linking memory optimized library to template example project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-composer-studio">Code Composer Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iar">IAR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-footprint-comparison-between-optimized-libraries">Memory footprint comparison between optimized libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Code Composer Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">IAR</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BestPract.html">USS SW Library best practices</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MSP Ultrasonic Sensing Library Users Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Using the memory optimized libraries</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-the-memory-optimized-libraries">
+<h1>Using the memory optimized libraries<a class="headerlink" href="#using-the-memory-optimized-libraries" title="Permalink to this headline">¶</a></h1>
+<p>During evaluation of the library it is recommended to use the Full Version of the library (<code class="docutils literal"><span class="pre">[Library_INSTALL_DIR]/lib/USS_optimized/</span></code>). The full version of the library allows users to evaluated different algorithms performance. Once users have determined the optimal algorithm option for their application. Users can take advantage of the memory optimized library which are available under <code class="docutils literal"><span class="pre">[Library_INSTALL_DIR]/lib/USS_optimized/</span></code>.</p>
+<div class="figure" id="id3">
+<img alt="Mem\_opt\_libs" src="../_images/Mem_opt_libs.PNG" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Mem_opt_libs</span></p>
+</div>
+<div class="section" id="linking-memory-optimized-library-to-template-example-project">
+<h2>Linking memory optimized library to template example project<a class="headerlink" href="#linking-memory-optimized-library-to-template-example-project" title="Permalink to this headline">¶</a></h2>
+<p>The library template examples by default links to the full version of the library. the table below indicates the different algorithm options supported for AToF, DToF and VFR calculations by each library.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+<col width="12%" />
+<col width="11%" />
+<col width="12%" />
+<col width="14%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Library Option</th>
+<th class="head">USS_Alg_AbsToF_Calculation_Option_lobe</th>
+<th class="head">USS_Alg_AbsToF_Calculation_Option_hilbert</th>
+<th class="head">USS_Alg_AbsToF_Calculation_Option_lobeWide</th>
+<th class="head">USS_Alg_AbsToF_Calculation_Option_hilbertWide</th>
+<th class="head">USS_Alg_dToF_Calculation_Option_estimate</th>
+<th class="head">USS_Alg_dToF_Calculation_Option_water (Obsolete)</th>
+<th class="head">USS_Alg_volume_flow_Calculation_Option_water (Obsolete)</th>
+<th class="head">USS_Alg_volume_flow_Calculation_Option_generic</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Full Version</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Lobe</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Hilbert</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Lobe Wide</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>Hilbert Wide</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Lobe wide and Hilbert Wide</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="code-composer-studio">
+<h3>Code Composer Studio<a class="headerlink" href="#code-composer-studio" title="Permalink to this headline">¶</a></h3>
+<p>To use a memory optimized library</p>
+<ol class="arabic simple">
+<li>After importing the library template example, go to <code class="docutils literal"><span class="pre">&lt;LIB_INSTALL_DIR&gt;/lib/USS_optimized/*/CCS</span></code> and select the appropriate optimized library.</li>
+</ol>
+<div class="figure" id="id4">
+<img alt="CCS\_optimized\_libs" src="../_images/CCS_optimized_libs.png" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">CCS_optimized_libs</span></p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Drag and drop the optimized <code class="docutils literal"><span class="pre">USS_SW_CCS.a</span></code> into CCS project directory <code class="docutils literal"><span class="pre">ussSWLib/lib</span></code></li>
+</ol>
+<div class="figure" id="id5">
+<img alt="CCS\_optimized\_libs\_drag\_drop" src="../_images/CCS_optimized_libs_drag_drop.png" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">CCS_optimized_libs_drag_drop</span></p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Select Link to files and make link relative to PROJECT_LOC</li>
+</ol>
+<div class="figure" id="id6">
+<img alt="CCS\_optimized\_libs\_link" src="../_images/CCS_optimized_libs_link.png" />
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">CCS_optimized_libs_link</span></p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Click on <code class="docutils literal"><span class="pre">Overwrite</span></code></li>
+</ol>
+<div class="figure" id="id7">
+<img alt="CCS\_optimized\_libs\_overwrite" src="../_images/CCS_optimized_libs_overwrite.png" />
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">CCS_optimized_libs_overwrite</span></p>
+</div>
+<ol class="arabic simple" start="5">
+<li>Rebuild the project</li>
+</ol>
+<div class="figure" id="id8">
+<img alt="CCS\_optimized\_libs\_rebuild" src="../_images/CCS_optimized_libs_rebuild.png" />
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">CCS_optimized_libs_rebuild</span></p>
+</div>
+</div>
+<div class="section" id="iar">
+<h3>IAR<a class="headerlink" href="#iar" title="Permalink to this headline">¶</a></h3>
+<p>To use a memory optimized library</p>
+<ol class="arabic simple">
+<li>After importing the library template example, go to <code class="docutils literal"><span class="pre">&lt;LIB_INSTALL_DIR&gt;/lib/USS_optimized/*/IAR</span></code> and select the appropriate optimized library.</li>
+</ol>
+<div class="figure" id="id9">
+<img alt="IAR\_optimized\_libs" src="../_images/IAR_optimized_libs.png" />
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">IAR_optimized_libs</span></p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Remove existing USS_SW_IAR_small_code_large_data.lib</li>
+</ol>
+<div class="figure" id="id10">
+<img alt="IAR\_optimized\_libs\_remove" src="../_images/IAR_optimized_libs_remove.png" />
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">IAR_optimized_libs_remove</span></p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Drag and drop the appropriate *.lib file base on project configuration to <code class="docutils literal"><span class="pre">ussSWLib</span></code></li>
+</ol>
+<div class="figure" id="id11">
+<img alt="IAR\_optimized\_libs\_drag" src="../_images/IAR_optimized_libs_drag.png" />
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">IAR_optimized_libs_drag</span></p>
+</div>
+<p>To determine the correct code and data model go to the project properties window and click on <code class="docutils literal"><span class="pre">General</span> <span class="pre">Options</span></code></p>
+<div class="figure" id="id12">
+<img alt="IAR\_optimized\_libs\_code\_model" src="../_images/IAR_optimized_libs_code_model.png" />
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">IAR_optimized_libs_code_model</span></p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Rebuild project</li>
+</ol>
+<div class="figure" id="id13">
+<img alt="IAR\_optimized\_libs\_code\_rebuild" src="../_images/IAR_optimized_libs_rebuild.png" />
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">IAR_optimized_libs_code_rebuild</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="memory-footprint-comparison-between-optimized-libraries">
+<h2>Memory footprint comparison between optimized libraries<a class="headerlink" href="#memory-footprint-comparison-between-optimized-libraries" title="Permalink to this headline">¶</a></h2>
+<p>This section includes Code Composer Studio and IAR memory footprints for different library configurations for the following code examples:</p>
+<ul class="simple">
+<li>FR6043_USSSWLib_template_example - Compiled for gas applications using multi tone pulse mode.</li>
+<li>FR6047_USSSWLib_template_example - Compiled for water applications using single tone pulse mode.</li>
+</ul>
+<div class="section" id="id1">
+<h3>Code Composer Studio<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="18%" />
+<col width="14%" />
+<col width="16%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Project Name</th>
+<th class="head">Lib Configuration</th>
+<th class="head">FRAM (Bytes)</th>
+<th class="head">LEA RAM (Bytes)</th>
+<th class="head">RAM (Bytes)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FR6043_USSSWLib_template_example [Gas]</td>
+<td>HilbWide</td>
+<td>40581</td>
+<td>4656</td>
+<td>764</td>
+</tr>
+<tr class="row-odd"><td>FR6047_USSSWLib_template_example [Water]</td>
+<td>Full version</td>
+<td>39237</td>
+<td>3696</td>
+<td>764</td>
+</tr>
+<tr class="row-even"><td>FR6047_USSSWLib_template_example [Water]</td>
+<td>Lobe</td>
+<td>29391</td>
+<td>3696</td>
+<td>772</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h3>IAR<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="18%" />
+<col width="14%" />
+<col width="16%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Project Name</th>
+<th class="head">Lib Configuration</th>
+<th class="head">FRAM (Bytes)</th>
+<th class="head">LEA RAM (Bytes)</th>
+<th class="head">RAM (Bytes)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FR6043_USSSWLib_template_example [Gas]</td>
+<td>HilbWide</td>
+<td>34328</td>
+<td>4656</td>
+<td>774</td>
+</tr>
+<tr class="row-odd"><td>FR6047_USSSWLib_template_example [Water]</td>
+<td>Full version</td>
+<td>32516</td>
+<td>3696</td>
+<td>432</td>
+</tr>
+<tr class="row-even"><td>FR6047_USSSWLib_template_example [Water]</td>
+<td>Lobe</td>
+<td>23960</td>
+<td>3696</td>
+<td>418</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="BestPract.html" class="btn btn-neutral float-right" title="USS SW Library best practices" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="InterpLUT.html" class="btn btn-neutral" title="Generating Interpolation Correction Look-up table" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2019</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'02_20_00_16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

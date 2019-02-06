@@ -1,0 +1,53 @@
+<!-- Captivate Description HTML -->
+<!-- Error Threshold Tuning Parameter -->
+
+<html>
+    <body>
+		<B>Error Threshold</B>
+		<P>
+		The error threshold specifies the maximum conversion result allowed for any element within a sensor.
+		Error threshold crossings are detected in hardware.  If during the conversion process one or more elements
+		does not complete their conversion before the conversion result crosses the error threshold, the peripheral will
+		terminate the conversion and the error condition will be flagged in software at a sensor level.
+		This mechanism prevents a conversion from continuing forever in the event of an incorrect calibration or a hardware problem.
+		Hardware problems may include, but are not limited to, a disconnected electrode or a shorted electrode.  
+		The figure below illustrates an error threshold crossing.  Note that the conversion result never exceeds the error threshold, as the
+		CapTIvate peripheral stops the conversion upon crossing of the error threshold.  Unlike other thresholds, the error threshold is an absolute threshold,
+		and is not relative to the LTA.
+		
+		<BR>
+        <img src="visualizer_images/Error_Threshold_MutualCap.png">
+		
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		Conversion results are 13-bit values.  As such, the maximum conversion result as well as the maximum error threshold is 8191.  This is 
+		the default error threshold, and is fine for most applications.  However, the error threshold may be reduced here if desired.  
+		Lowering the error threshold limits how long the peripheral may continue trying to complete the conversion.  It is up to the application to determine
+		how to handle an error condition in software.  Several steps may be taken to determine why the error condition occurred, such as a re-calibration or a 
+		self-test.
+		
+		<P>
+		<B>Range of Valid Values for the Error Threshold Parameter</B>
+		<BR>
+		The error threshold may be set from 0 to 8191.  Conversions are limited in hardware to a maximum result of 8191.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		The Error_Threshold parameter corresponds to the
+		<i><b>ui16ErrorThreshold</b></i> 
+		member of the
+		<i><b>tSensor</b></i>
+		type in the CapTIvate Touch Library.
+		
+		<BR>
+		If an error condition occurs at runtime, the
+		<i><b>bMaxCountError</b></i> 
+		member of the affected
+		<i><b>tSensor</b></i>
+		instance will be set to alert the application that there was an error in the conversion.
+		
+		<BR>
+    </body>
+</html>

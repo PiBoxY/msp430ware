@@ -1,0 +1,56 @@
+Introduction
+============
+
+Each chapter in the CapTIvate™ Technology Guide is introduced briefly below. Check out the `getting started <ch_getting_started.html>`__ section if you are new to CapTIvate™.
+
+Capacitive Sensing Basics
+-------------------------
+
+The `Capacitive Sensing Basics <ch_basics.html#capacitive-sensing-basics>`__ chapter provides a fundamental overview of self and mutual capacitance.
+
+Technology
+----------
+
+The `Technology <ch_technology.html>`__ chapter describes the operating principles of the CapTIvate™ peripheral.
+
+Design Guide
+------------
+
+The `Design Guide <ch_design_guide.html>`__ chapter introduces the flow for beginning a new design, and walks through the trade-offs of designing for different requirements, such as low power, noise immunity, or moisture.
+
+CapTIvate™ Design Center
+------------------------
+
+Read the `Design Center GUI <ch_designcenter.html>`__ chapter to get started with the rapid development tool that accelerates capacitive touch designs for CapTIvate™ Technology enabled MSP devices. By helping guide the product developer through the capacitive touch development process, the CapTIvate™ Design Center can simplify and accelerate any touch design through the use of innovative user graphical interfaces, wizards and controls.
+
+Device Family
+-------------
+
+The `Device <ch_device.html#device-family>`__ chapter introduces the MSP MCUs that have the CapTIvate™ technology.
+
+Software Touch Library
+----------------------
+
+The `CapTIvate™ Capacitive Touch Software Library <ch_library.html>`__ is a comprehensive collection of functions providing touch, communications and sensor management features. Touch functions range from advanced sensor processing for buttons, sliders and wheels to "bare-metal" functions that provide direct access to the CapTIvate™ peripheral.
+
+MCU Development Kit
+-------------------
+
+The `MSP-CAPT-FR2633 MCU Development Kit <ch_evm.html#msp-capt-fr2633-development-kit>`__ is an easy to use evaluation platform for the MSP430FR2633 MCU. It contains everything needed to start developing on this MCU platform, including on-board emulation for programming, debugging and EnergyTrace™ measurements.
+
+Workshop
+--------
+
+The `workshop <ch_workshop.html>`__ is based around the `MSP-CAPT-FR2633 MCU Development Kit <ch_evm.html#msp-capt-fr2633-development-kit>`__, and contains the out-of-box experience as well as several labs to introduce the technology hands-on.
+
+FAQ
+---
+
+The `FAQ <ch_faq.html>`__ contains answers to the questions that get asked the most.
+
+For More Information
+--------------------
+
+For more information on the CapTIvate™ technology, software, and available evaluation kits, see the `CapTIvate™ Design Center download page <http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/CapTIvate_Design_Center/latest/index_FDS.html>`__.
+
+For technical support, E-mail us directly at captivate@list.ti.com

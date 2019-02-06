@@ -1,0 +1,11 @@
+[VBUS]
+value=2.0
+accuracy=10
+[LDO]
+value=1.65
+accuracy=10
+[XTAL]
+value=16000000
+accuracy=0
+
+

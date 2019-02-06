@@ -1,0 +1,75 @@
+{
+    "uart": {
+        "light": {
+            "lux": 207.6
+        },
+        "light.lux": 207.6,
+        "enviro": {
+            "humid": 38694,
+            "press": 98631,
+            "amb_temp": 2677
+        },
+        "enviro.press": 98631,
+        "enviro.humid": 38694,
+        "enviro.amb_temp": 2677,
+        "accel": {
+            "x": 2953,
+            "y": -4252,
+            "z": 20122
+        },
+        "accel.x": 2953,
+        "accel.y": -4252,
+        "accel.z": 20122,
+        "gyro": {
+            "x": 400,
+            "y": -98,
+            "z": -509
+        },
+        "gyro.x": 400,
+        "gyro.y": -98,
+        "gyro.z": -509,
+        "mag": {
+            "x": 147,
+            "y": 266,
+            "z": 818
+        },
+        "mag.x": 147,
+        "mag.y": 266,
+        "mag.z": 818,
+        "$rawData": {
+            "gyro": {
+                "x": 400,
+                "y": -98,
+                "z": -509
+            },
+            "accel": {
+                "x": 2953,
+                "y": -4252,
+                "z": 20122
+            },
+            "mag": {
+                "x": 147,
+                "y": 266,
+                "z": 818
+            },
+            "enviro": {
+                "humid": 38694,
+                "press": 98631,
+                "amb_temp": 2677
+            },
+            "ir_temp": {
+                "obj_temp": 23.72
+            },
+            "light": {
+                "lux": 207.6
+            },
+            "dominant": {
+                "code": 0
+            }
+        },
+        "ir_temp": {
+            "obj_temp": 23.72
+        },
+        "ir_temp.obj_temp": 23.72
+    }
+}

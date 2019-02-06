@@ -1,0 +1,22 @@
+<projectSpec>
+  <project compilerBuildOptions="-O3 -I${PROJECT_ROOT} -I${PROJECT_ROOT}\grlib -I${PROJECT_ROOT}\fonts -I${PROJECT_ROOT}\LcdDriver --advice:power=&quot;none&quot;"
+           device="MSP430G2553"
+           name="BOOSTXL-SHARP128_GrlibExample_MSP-EXP430G2ET"
+           enableHexTool="true"
+           hexBuildOptions="--ti_txt" >
+	<file action="copy" path="..\main.c" targetDirectory="." />
+	<file action="copy" path="..\LcdDriver\Sharp128x128.c" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\LcdDriver\Sharp128x128.h" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\LcdDriver\HAL_MSP-EXP430G2_Sharp128x128.c" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\LcdDriver\HAL_MSP-EXP430G2_Sharp128x128.h" targetDirectory="LcdDriver" />
+	<file action="copy" path="..\grlib\circle.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\context.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\grlib.h" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\image.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\line.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\rectangle.c" targetDirectory="grlib" />
+	<file action="copy" path="..\grlib\string.c" targetDirectory="grlib" />
+	<file action="copy" path="..\fonts\fontfixed6x8.c" targetDirectory="fonts" />
+    <buildVariable name="ORIGINAL_PROJECT_ROOT" scope="project" type="dir" value="." />
+  </project>
+</projectSpec>

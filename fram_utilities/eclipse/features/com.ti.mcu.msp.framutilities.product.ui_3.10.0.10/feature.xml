@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.ti.mcu.msp.framutilities.product.ui"
+      version="3.10.0.10"
+      label="FRAM Utilities (IDE Client)"
+      provider-name="Texas Instruments Inc.">
+
+   <description url="http://www.ti.com/tool/msp-fram-utilities">
+FRAM Utilities (IDE Client)
+
+FRAM Utilities IDE Client provides CCS IDE integration in the form of:
+    project templates,
+    install/update support, and
+    searchable help documenation.
+   </description>
+
+   <copyright>
+Copyright Texas Instruments 2015
+   </copyright>
+
+   <license>
+      Released under Released under the Eclipse Public License 1.0.
+Visit http://www.eclipse.org/legal/epl-v10.html for details of license.
+   </license>
+
+
+   <plugin
+        id="com.ti.mcu.msp.framutilities.product.ui"
+        version="3.10.0.10"
+        unpack="false" 
+   />  
+    
+
+</feature>

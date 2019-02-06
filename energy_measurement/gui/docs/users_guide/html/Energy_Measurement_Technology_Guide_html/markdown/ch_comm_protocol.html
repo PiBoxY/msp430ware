@@ -1,0 +1,1062 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Communication Protocol Spec &mdash; Energy Measurement Technology Guide 1.30.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Energy Measurement Technology Guide 1.30.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="Revision History" href="ch_revision.html"/>
+        <link rel="prev" title="Design Center GUI" href="ch_designcenter.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Energy Measurement Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.30.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Communication Protocol Spec</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#abstract">Abstract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands-overview">Commands Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands-from-emdc-to-target">Commands from EMDC to Target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-from-target-to-emdc">Commands from Target to EMDC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocol-overview">Protocol Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#msp430-em-design-center-packet-structure">MSP430 EM Design Center Packet Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-parameters-description">Configuration Parameters Description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x01-configure-mode">Command 0x01 (Configure Mode)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x02-application-version">Command 0x02 (Application Version)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x03-request-calibration-values">Command 0x03 (Request Calibration Values)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x04-adc-buffer-size">Command 0x04 (ADC Buffer Size)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#result-parameters-description">Result Parameters Description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x80-vrms-result">Command 0x80 (VRMS Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x82-v-peak-result">Command 0x82 (V Peak Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x83-i-peak-result">Command 0x83 (I Peak Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x85-frequency-result">Command 0x85 (Frequency Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x86-active-power-result">Command 0x86 (Active Power Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x87-reactive-power-result">Command 0x87 (Reactive Power Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x88-apparent-power-result">Command 0x88 (Apparent Power Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x89-active-energy-result">Command 0x89 (Active Energy Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x8a-reactive-energy-result">Command 0x8A (Reactive Energy Result)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0x8b-apparent-energy-result">Command 0x8B (Apparent Energy Result)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calibration-parameters-description">Calibration Parameters Description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-0xb0-calibration-values">Command 0xB0 (Calibration Values)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0xb1-calibration-phase-configuration">Command 0xB1 (Calibration Phase Configuration)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-0xb2-calibration-values-save">Command 0xB2 (Calibration Values Save)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#document-history">Document History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Energy Measurement Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Communication Protocol Spec</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="communication-protocol-spec">
+<h1>Communication Protocol Spec<a class="headerlink" href="#communication-protocol-spec" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>The MSP430 Energy Measurement Design Center (EMDC) communication protocol is a communications specification for sending Energy Measurement specific data. It enables MSP430 equipped with Sigma Deltas (SD24) to design, debug, and communicate with tuning tools on host PCs. In addition to this function, it can also provide a mechanism for interfacing a Energy Measurement MCU to another host MCU or SoC in the context of a larger system. This document discusses the details of the protocol: packet types, packet structure, and transmission. It does not discuss implementations, either for target or host.</p>
+</div>
+<div class="section" id="commands-overview">
+<h2>Commands Overview<a class="headerlink" href="#commands-overview" title="Permalink to this headline">¶</a></h2>
+<p>This section will describe the commands exchanged between Energy Measurement Design Center and the target.</p>
+<div class="section" id="commands-from-emdc-to-target">
+<h3>Commands from EMDC to Target<a class="headerlink" href="#commands-from-emdc-to-target" title="Permalink to this headline">¶</a></h3>
+<p>The following commands have API handlers on the target side:</p>
+<ul class="simple">
+<li>Configure Mode (0x01) - EMDC configures the application mode (IDLE, ACTIVE, CALIBRATION).</li>
+<li>Application Version (0x02) - EMDC reads device and firmware ID.</li>
+<li>Request Calibration Values (0x03) - EMDC requests the target to send all the calibration values. When the target is done it will send this command with the calibration request flag set to done.</li>
+<li>ADC Buffer Size (0x04) - EMDC reads the current and voltage buffer sizes to calculate the maximum and minimum preload allowed during calibration.</li>
+<li>Calibration Values (0xB0) - EMDC writes the calibration values to the working (RAM) calibration structure for Phase ID.</li>
+<li>Calibration Phase Configuration (0xB1) - EMDC configures the Phase ID being calibrated. After this command is received the target will send phase results. In CALIBRATION mode results will not be sent to the EMDC until this command is received. The Phase ID is cleared in the target when the application switches back to ACTIVE mode.</li>
+<li>Calibration Values Save (0xB2) - EMDC requests target to store calibration values for Phase ID in Flash. When the target is finished writing to Flash it will send this command with the Flash Write Flag set to true. Note The results commands do not have an API handler on the target. After EMDC configures the application mode to ACTIVE, then the target will send all the results for each phase to EMDC.</li>
+</ul>
+</div>
+<div class="section" id="commands-from-target-to-emdc">
+<h3>Commands from Target to EMDC<a class="headerlink" href="#commands-from-target-to-emdc" title="Permalink to this headline">¶</a></h3>
+<p>The following commands are handled by the EMDC HID interface:</p>
+<ul class="simple">
+<li>Application Version (0x02) - the target sends device and firmware ID after EMDC has sent this command in READ mode.</li>
+<li>Request Calibration Values (0x03) - the target sends calibration request flag after it finishes sending all the calibration values to EMDC. This allows the application to know when all the calibration values have been sent by the target.</li>
+<li>ADC Buffer Size (0x04) - the target sends the current and voltage buffer sizes.</li>
+<li>VRMS Result (0xB0) - the target sends the VRMS result (mV).</li>
+<li>IRMS Result (0xB1) - the target sends the IRMS result (uA).</li>
+<li>V Peak Result (0xB2) - the target sends the Voltage Peak result (mV).</li>
+<li>I Peak Result (0xB3) - the target sends the Current Peak result (uA).</li>
+<li>Power Factor Result (0xB4) - the target sends the Power Factor result.</li>
+<li>Frequency Result (0xB5) - the target sends the Frequency result (1x10-2 Hz).</li>
+<li>Active Power Result (0xB6) - the target sends the Active Power result (uW).</li>
+<li>Reactive Power Result (0xB7) - the target sends the Reactive Power result (uVAr).</li>
+<li>Apparent Power Result (0xB8) - the target sends the Apparent Power result (uVA).</li>
+<li>Active Energy Result (0xB9) - the target sends the Active Energy result (uWh).</li>
+<li>Reactive Energy Result (0xBA) - the target sends the Reactive Energy result (uVArh).</li>
+<li>Apparent Energy Result (0xBB) - the target sends the Apparent Energy result (uVAh).</li>
+<li>Calibration Values (0xB0) - the target sends the calibration values stored in working (RAM) memory for Phase ID to EMDC.</li>
+<li>Calibration Values Save (0xB2) - the target sends the Flash Write Flag set to true after it finishes writing calibration values.</li>
+</ul>
+</div>
+<div class="section" id="protocol-overview">
+<h3>Protocol Overview<a class="headerlink" href="#protocol-overview" title="Permalink to this headline">¶</a></h3>
+<p>This section will explain how the protocol used between the EMDC and target using the commands previously explained using sequence diagrams.</p>
+<p>The &#8220;Initial Commands Exchanged&#8221; figure shows the commands exchanged between EMDC and the target after the HID communication is established between EMDC and the hid bridge board. After these commands are sent the target will continue sending results for all the phases supported.</p>
+<div class="figure" id="id1">
+<img alt="Initial Commands Exchanged" src="../_images/comm_protocol_emdc_sequence_diagram_1.png" />
+<p class="caption"><span class="caption-number">Fig. 128 </span><span class="caption-text">Initial Commands Exchanged</span></p>
+</div>
+<p>The &#8220;Disconnect Commands Exchanged&#8221; figure shows the command sent from EMDC to the target at any time the Disconnect button is pressed on the GUI.</p>
+<div class="figure" id="id2">
+<img alt="Disconnect Commands Exchanged" src="../_images/comm_protocol_emdc_sequence_diagram_2.png" />
+<p class="caption"><span class="caption-number">Fig. 129 </span><span class="caption-text">Disconnect Commands Exchanged</span></p>
+</div>
+<p>The &#8220;Calibration Commands Exchanged&#8221; figure shows the commands exchanged between EMDC and the target when the user is initializing phase calibration mode on the GUI. Once the Calibration Phase Command is sent to the target, the target will continue sending results for the phase being calibrated. When the Apply Button is pressed the GUI will write the values to RAM and re-configure the SD24 (for phase calibration). The next set of results sent to EMDC will take into account the new calibration values. Once the phase has been calibrated and the user clicks the stop button, there will be an option to save the calibration results in Flash. If the user selects Yes, then the calibration values will be stored in Flash while all the global interrupts are disabled. Otherwise, the EMDC will configure the target in ACTIVE mode.</p>
+<div class="figure" id="id3">
+<img alt="Calibration Commands Exchanged" src="../_images/comm_protocol_emdc_sequence_diagram_3.png" />
+<p class="caption"><span class="caption-number">Fig. 130 </span><span class="caption-text">Calibration Commands Exchanged</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="msp430-em-design-center-packet-structure">
+<h2>MSP430 EM Design Center Packet Structure<a class="headerlink" href="#msp430-em-design-center-packet-structure" title="Permalink to this headline">¶</a></h2>
+<table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2"><tbody><tr align="center"><th style="background-color: red;" colspan="11" rowspan="1"><p>MSP EM Design Center generic Packet Structure</p>
+</th></tr><tr><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>[0]</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>[1]</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>[2]</p>
+</td><td style="text-align: center; background-color: white;"><p>[3]</p>
+</td><td style="text-align: center; background-color: white;"><p>[4]</p>
+</td><td style="text-align: center;"><p>[5]</p>
+</td><td style="text-align: center;"><p>[6]</p>
+</td><td style="text-align: center;"><p>...</p>
+</td><td style="text-align: center;"><p>[N +1]</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>[N+2]</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>[N+3]</p>
+</td></tr><tr><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>MSP Design Center ID Byte</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>Command ID Byte</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>Read/Write Command Byte</p>
+</td><td style="text-align: center; background-color: white;"><p>Payload Byte0</p>
+</td><td style="text-align: center; background-color: white;"><p>Payload Byte 1</p>
+</td><td style="text-align: center;"><p>Payload Byte2</p>
+</td><td style="text-align: center;"><p>Payload Byte3</p>
+</td><td style="text-align: center;"><p>...</p>
+</td><td style="text-align: center;"><p>Payload Byte N</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>Checksum (LSB)</p>
+</td><td style="text-align: center; background-color: rgb(204, 204, 204);"><p>Checksum (MSB)</p>
+</td></tr></tbody></table><table border="1" cellpadding="2" cellspacing="2"><tbody><tr><td><p>Byte Name</p>
+</td><td><p>Byte Description</p>
+</td></tr><tr><td><p>MSP430 Design Center ID Byte</p>
+</td><td><p>This byte identifies the package as a command for a specific Design Center GUI. In the case of MSP EM Design Center this byte is always 0x04.</p>
+</td></tr><tr><td><p>Command ID Byte</p>
+</td><td><p>This byte specifies the command type. Each command has a fixed predefined lenght</p>
+</td></tr><tr><td><p>Read/Write Command Byte</p>
+</td><td><p>This byte specifies is the command should be perform a read or write operation. 0x00 == Read 0x01 == Write</p>
+</td></tr><tr><td><p>Payload</p>
+</td><td><p>Contains package payload</p>
+</td></tr><tr><td><p>Checksum</p>
+</td><td><p>Checksum is a unsigned 16-bit value which contains the sum of Byte[0] - Byte[N+1]</p>
+</td></tr></tbody></table><div class="section" id="configuration-parameters-description">
+<h3>Configuration Parameters Description<a class="headerlink" href="#configuration-parameters-description" title="Permalink to this headline">¶</a></h3>
+<p>All Result Parameter (Commands 0x01-0x04) contains 1-2 payload bytes. This section will describe the packet structure for each Configuration Parameter command.</p>
+<div class="section" id="command-0x01-configure-mode">
+<h4>Command 0x01 (Configure Mode)<a class="headerlink" href="#command-0x01-configure-mode" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Application Mode</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == IDLE 0x01 == ACTIVE 0x02 == CALIBRATION 0x03-0xff (Reserved)</p>
+<td><p>IDLE = No results sent to EMDC ACTIVE = Results for all phases transmitted to EMDC CALIBRATION = Results from the phase being calibrated transmitted to EMDC</p>
+</td></td></tr><tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [4-5]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x02-application-version">
+<h4>Command 0x02 (Application Version)<a class="headerlink" href="#command-0x02-application-version" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x02</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Device ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == MSP430i2021 0x03 == MSP430i2031 0x05 == MSP430i2041 0x25 == MSP430F6736 0x2B == MSP430F6736A 0x74 == MSP430F6779 0x79 == MSP430F6779A 0x84 == MSP430F67791 0x89 == MSP430F67791A</p>
+</td><td></td></td></tr><tr><td><p>Byte 4</p>
+</td><td><p>Firmware ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>Firmware version</p>
+</td><td></td></td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [5-6]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x03-request-calibration-values">
+<h4>Command 0x03 (Request Calibration Values)<a class="headerlink" href="#command-0x03-request-calibration-values" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x03</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Calibration Request Flag</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Target has NOT received a request to send calibration values 0x01 == Target has received a request to send calibration values 0x02 == Target has transmitted all the phase calibration values to EMDC</p>
+<td></td></td></tr><tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [4-5]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x04-adc-buffer-size">
+<h4>Command 0x04 (ADC Buffer Size)<a class="headerlink" href="#command-0x04-adc-buffer-size" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase Voltage Array Size</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>Multiple of 2</p>
+</td><td><p>-1 x Size x OSR = minimum total preload used in calibration.</p>
+</td></tr><tr><td><p>Byte 4</p>
+</td><td><p>Phase Current Array Size</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>Multiple of 2</p>
+</td><td><p>Size x OSR = maximum total preload used in calibration</p>
+</td></tr><tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [5-6]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+</div>
+<div class="section" id="result-parameters-description">
+<h3>Result Parameters Description<a class="headerlink" href="#result-parameters-description" title="Permalink to this headline">¶</a></h3>
+<p>All Result Parameter (Commands 0x80-0xAF) contains 5-9 payload bytes. This section will describe the packet structure for each Result Parameter command.</p>
+<div class="section" id="command-0x80-vrms-result">
+<h4>Command 0x80 (VRMS Result)<a class="headerlink" href="#command-0x80-vrms-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x80</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-7]</p>
+</td><td><p>RMS Voltage (mV)</p>
+</td><td style="background-color: rgb(255, 223, 144)"><p>uint32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">7</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [8-9]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr>  </table>
+
+#### Command 0x81 (IRMS Result)<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x81</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-7]</p>
+</td><td><p>RMS Current (uA)</p>
+</td><td style="background-color: rgb(255, 223, 144)"><p>uint32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">7</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [8-9]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x82-v-peak-result">
+<h4>Command 0x82 (V Peak Result)<a class="headerlink" href="#command-0x82-v-peak-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x82</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-7]</p>
+</td><td><p>Voltage Peak (mV)</p>
+</td><td style="background-color: rgb(255, 223, 144)"><p>uint32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">7</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [8-9]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x83-i-peak-result">
+<h4>Command 0x83 (I Peak Result)<a class="headerlink" href="#command-0x83-i-peak-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x83</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-7]</p>
+</td><td><p>Peak Current (uA)</p>
+</td><td style="background-color: rgb(255, 223, 144)"><p>uint32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">7</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [8-9]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr>  </table>
+
+#### Command 0x84 (Power Factor)<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x84</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-7]</p>
+</td><td><p>Power Factor (ex 0.4251 = 4251)</p>
+</td><td style="background-color: rgb(255, 223, 144)"><p>uint32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">7</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [8-9]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x85-frequency-result">
+<h4>Command 0x85 (Frequency Result)<a class="headerlink" href="#command-0x85-frequency-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x85</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-5]</p>
+</td><td><p>Phase frequency (1x10-2 Hz)</p>
+</td><td style="background-color: rgb(224, 204, 255)"><p>uint16_t</p>
+</td><td><p>0x0000-0xFFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">5</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [6-7]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x86-active-power-result">
+<h4>Command 0x86 (Active Power Result)<a class="headerlink" href="#command-0x86-active-power-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x86</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-11]</p>
+</td><td><p>Active Power (uW)</p>
+</td><td style="background-color: rgb(255, 223, 1)"><p>int64_t</p>
+</td><td><p>0x0000-0xFFFF FFFF FFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">11</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [12-13]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x87-reactive-power-result">
+<h4>Command 0x87 (Reactive Power Result)<a class="headerlink" href="#command-0x87-reactive-power-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x87</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-11]</p>
+</td><td><p>Reactive Power (uVAr)</p>
+</td><td style="background-color: rgb(255, 223, 1)"><p>int64_t</p>
+</td><td><p>0x0000-0xFFFF FFFF FFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">11</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [12-13]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x88-apparent-power-result">
+<h4>Command 0x88 (Apparent Power Result)<a class="headerlink" href="#command-0x88-apparent-power-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x88</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-11]</p>
+</td><td><p>Apparent Power (uVA)</p>
+</td><td style="background-color: rgb(255, 223, 1)"><p>int64_t</p>
+</td><td><p>0x0000-0xFFFF FFFF FFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">11</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [12-13]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x89-active-energy-result">
+<h4>Command 0x89 (Active Energy Result)<a class="headerlink" href="#command-0x89-active-energy-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x89</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-11]</p>
+</td><td><p>Active Energy (uWh)</p>
+</td><td style="background-color: rgb(244,201,162)"><p>uint64_t</p>
+</td><td><p>0x0000-0xFFFF FFFF FFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">11</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [12-13]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x8a-reactive-energy-result">
+<h4>Command 0x8A (Reactive Energy Result)<a class="headerlink" href="#command-0x8a-reactive-energy-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x8A</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-11]</p>
+</td><td><p>Reactive Energy (uVArh)</p>
+</td><td style="background-color: rgb(244,201,162)"><p>uint64_t</p>
+</td><td><p>0x0000-0xFFFF FFFF FFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">11</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [12-13]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0x8b-apparent-energy-result">
+<h4>Command 0x8B (Apparent Energy Result)<a class="headerlink" href="#command-0x8b-apparent-energy-result" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x8B</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total</p>
+<td></td></td></tr><tr><td><p>Bytes [4-11]</p>
+</td><td><p>Apparent Energy (uVAh)</p>
+</td><td style="background-color: rgb(244,201,162)"><p>uint64_t</p>
+</td><td><p>0x0000-0xFFFF FFFF FFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">11</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [12-13]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+</div>
+<div class="section" id="calibration-parameters-description">
+<h3>Calibration Parameters Description<a class="headerlink" href="#calibration-parameters-description" title="Permalink to this headline">¶</a></h3>
+<p>All Calibration Parameter (Commands 0xB0-0xB2) contains 1-15 payload bytes. This section will describe the packet structure for each Configuration Parameter command.</p>
+<div class="section" id="command-0xb0-calibration-values">
+<h4>Command 0xB0 (Calibration Values)<a class="headerlink" href="#command-0xb0-calibration-values" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0xB0</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral</p>
+<td></td></td></tr><tr><td><p>Bytes [4-7]</p>
+</td><td><p>Voltage Scale Factor (IQ10)</p>
+</td><td style="background-color: rgb(212, 190, 144)"><p>int32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">4</a> Byte<a class="reference external" href="MSB">7</a></p>
+</td></tr></tr><tr><td><p>Bytes [8-11]</p>
+</td><td><p>Current Scale Factor (IQ26)</p>
+</td><td style="background-color: rgb(212, 190, 144)"><p>int32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">8</a> Byte<a class="reference external" href="MSB">11</a></p>
+</td></tr><tr><td><p>Bytes [12-15]</p>
+</td><td><p>Active Power Scale Factor (IQ30)</p>
+</td><td style="background-color: rgb(212, 190, 144)"><p>int32_t</p>
+</td><td><p>0x0000-0xFFFF FFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">12</a> Byte<a class="reference external" href="MSB">15</a></p>
+</td></tr><tr><td><p>Bytes [16-17]</p>
+</td><td><p>Phase Correction Bit 0 - Bit 9 : Preload Bit 10 - Bit 15 : Whole Sample (signed)</p>
+</td><td style="background-color: rgb(38, 222, 197)"><p>int16_t</p>
+</td><td><p>0x0000-0xFFFF</p>
+<td><p>Byte<a class="reference external" href="LSB">16</a> Byte<a class="reference external" href="MSB">17</a></p>
+</td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [18-19]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0xb1-calibration-phase-configuration">
+<h4>Command 0xB1 (Calibration Phase Configuration)<a class="headerlink" href="#command-0xb1-calibration-phase-configuration" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0xB1</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral</p>
+<td><p>The results for this phase will be sent to the host in calibration mode.</p>
+</td></td></tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [4-5]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+<div class="section" id="command-0xb2-calibration-values-save">
+<h4>Command 0xB2 (Calibration Values Save)<a class="headerlink" href="#command-0xb2-calibration-values-save" title="Permalink to this headline">¶</a></h4>
+<table border="1"><tr><td><p>Byte #</p>
+</td><td><p>Description</p>
+</td><td><p>Data Type</p>
+</td><td><p>Valid Value/Range</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>Byte 0</p>
+</td><td><p>Design Center ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x04</p>
+</td><td></td></tr><tr><td><p>Byte 1</p>
+</td><td><p>Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0xB2</p>
+</td><td></td></tr><tr><td><p>Byte 2</p>
+</td><td><p>Read/Write Command</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x00 == Read 0x01 == Write</p>
+<td></td></td></tr><tr><td><p>Byte 3</p>
+</td><td><p>Phase ID</p>
+</td><td style="background-color: rgb(51, 204, 51)"><p>uint8_t</p>
+</td><td><p>0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral</p>
+<td><p>The calibration values for this phase will be saved to flash.</p>
+</td></td></tr><td><p>Byte 4</p>
+</td><td><p>Flash Write Flag</p>
+</td><td style="background-color: rgb(204, 242, 255)"><p>bool</p>
+</td><td><p>true == Target finished writing calibration values to Flash. false == Target has NOT finished writing calibration values to Flash.</p>
+<td></td></td></tr><tr><tr style="text-align: center; background-color: rgb(204, 204, 204)"><td><p>Bytes [5-6]</p>
+</td><td><p>Don&#8217;t care</p>
+</td><td><p>N/A</p>
+</td><td><p>N/A</p>
+</td><td></td></tr></table></div>
+</div>
+</div>
+<div class="section" id="document-history">
+<h2>Document History<a class="headerlink" href="#document-history" title="Permalink to this headline">¶</a></h2>
+<table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td><p>Version</p>
+</td><td><p>Date</p>
+</td><td><p>Author</p>
+</td><td><p>Notes</p>
+</td></tr><tr><td><p>1.3</p>
+</td><td><p>April 12, 2018</p>
+</td><td><p>Erick Macias</p>
+</td><td><p>Added diagrams describing communication sequence diagrams</p>
+</td></tr><tr><td><p>1.2</p>
+</td><td><p>April 6, 2018</p>
+</td><td><p>Erick Macias</p>
+</td><td><p>Added calibration commands 0xB1, 0xB2</p>
+</td></tr><tr><td><p>1.1</p>
+</td><td><p>April 30, 2018</p>
+</td><td><p>Erick Macias</p>
+</td><td><p>Included all the result commands 0x80-0x8B</p>
+</td></tr><tr><td><p>1.0</p>
+</td><td><p>March 4, 2018</p>
+</td><td><p>Erick Macias</p>
+</td><td><p>First draft of document</p>
+</td></tr></tbody></table></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_revision.html" class="btn btn-neutral float-right" title="Revision History" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_designcenter.html" class="btn btn-neutral" title="Design Center GUI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.30.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!-- Captivate Description HTML -->
+<!-- Gesture Swipe Parameters -->
+
+<html>
+    <body>
+		<BR>
+		<img src="visualizer_images/trackpad_swipe.png">
+		<BR>
+		
+        <B>Swipe Time Maximum Threshold</B>
+		<P>
+        The swipe time threshold sets the maximum time (#samples) between the finger touch 
+		and finger release before it can be considered as a valid swipe. If the duration is too long
+		(finger stays in contact with surface beyond Swipe Duration Threshold) the gesture is considered
+		a tracking motion and is ignored.
+		<BR>
+        <BR>
+		
+		<B>Swipe Distance Minimum Threshold</B>
+        <P>
+        The swipe distance threshold sets the minimum distance (measured points) a finger must travel
+		before it can be considered for a valid swipe.  If the distance traveled is too short, the
+		gesture is ignored.  Note: if the sensor's resolution is changed, this Swipe Distance Threshold
+		should be re-scaled accordingly.
+        <BR>
+		<BR>
+
+        <B>Implementation Notes</B>
+        <P>
+        As an example, let's say we have a TrackPad with a resolution of 1000 points = 100 points per cm.
+		If we want a minimum swipe distance to be 2cm (anything smaller is ignored), then set the
+		Swipe Distance Threshold = 200 points.
+        <BR>
+		<BR>
+		Next, we want the swipe gesture to respond to quick swipe motions (a swipe less than 0.5 seconds)
+		and ignore swipe motions that are longer than 0.5 seconds.  In this example our sensor is measured
+		every 10ms (100Hz), so we set the Swipe Time Maximum Threshold = 500ms/10ms = 50.
+		In order for the swipe gesture to be valid, both Swipe Duration and Swipe Distance thresholds must be met.
+		You can experiment with different duration and distance values to get the best feel for the size of your sensor.
+        
+        <P>
+        <B>Range of Valid Threshold Parameters</B>
+        <BR>
+        The Swipe Duration threshold may be set from 1 to 65535.
+		<BR>
+		<BR>
+		The Swipe Distance threshold may be set from 1 to 65535.
+        
+        <P>
+        <B>Affected Software Parameters</B>
+        
+        <BR>
+        The Swipe Duation Threshold parameter corresponds to the
+		<BR>
+        <i><b>ui16SwipeTimeMax</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+        type in the CapTIvate Touch Library.
+        <BR>
+        <BR>
+        The Swipe Distance Threshold parameter corresponds to the
+        <i><b>ui16SwipeDistanceMin</b></i> 
+		<BR>
+        member of the
+		<BR>
+        <i><b>tTrackPadSensorParams</b></i> 
+		<BR>
+        type in the CapTIvate Touch Library.
+
+        <BR>
+    </body>
+</html>

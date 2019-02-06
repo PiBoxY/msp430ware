@@ -1,0 +1,8 @@
+<module id="ANALOG_SUBSYS_REGS" HW_revision="">
+  <register id="TSNSCTL" width="16" page="1" offset="0x26" internal="0" description="Temperature Sensor Control Register">
+    <bitfield id="ENABLE" description="Temperature Sensor Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="LOCK" width="32" page="1" offset="0x2e" internal="0" description="Lock Register">
+    <bitfield id="TSNSCTL" description="Temperature Sensor Control Register Lock" begin="3" end="3" width="1" rwaccess="R/W"/>
+  </register>
+</module>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<descTool>
+    <toolOptions>
+        <runGUI>1</runGUI>
+        <workspace>C:\Users\a0221162\Desktop\descriptors\OutOfBox_EmulStorageKeyboard_Desc.xml</workspace>
+        <projectName>n/a</projectName>
+    </toolOptions>
+    <toolConfig>
+        <treeConfig>
+            <MSP mcuFam="0">
+                <mspConfig>
+                    <disableXtalOnSus>1</disableXtalOnSus>
+                    <XT2OscFreq>14</XT2OscFreq>
+                    <DMAChannel>1</DMAChannel>
+                    <bypassXT2>0</bypassXT2>
+                    <useSYSBIOS>0</useSYSBIOS>
+                    <driveVBUSfromExtSupp>0</driveVBUSfromExtSupp>
+                </mspConfig>
+                <USBDevice>
+                    <deviceProp>
+                        <vid>0x2047</vid>
+                        <pid>0x0402</pid>
+                        <vndStr>Texas Instruments</vndStr>
+                        <prodStr>F5529LP emulStorageKeyboard</prodStr>
+                        <devRelNum>0x200</devRelNum>
+                        <useSerNum>1</useSerNum>
+                    </deviceProp>
+                    <config>
+                        <configParam>
+                            <selfPowered>0</selfPowered>
+                            <remWkupSup>0</remWkupSup>
+                            <maxPowDrain>0</maxPowDrain>
+                            <configStr>F5529LP emulStorageKeyboard</configStr>
+                        </configParam>
+                        <interfaces>
+                            <mscInterface intString="MSC Interface">
+                                <LUN cdRomMode="0" hdMode="1" numberOfLUN="1">
+                                    <LUNConfig>
+                                        <removableMedia>1</removableMedia>
+                                        <t10Str>
+                                            <vendor>TI MSC</vendor>
+                                            <product>LUN0</product>
+                                            <revision>0</revision>
+                                        </t10Str>
+                                        <useDevforT10>0</useDevforT10>
+                                    </LUNConfig>
+                                </LUN>
+                            </mscInterface>
+                            <hidInterface intString="HID Interface">
+                                <hidParams>
+                                    <pollIntv>1</pollIntv>
+                                    <hidRepType>1</hidRepType>
+                                </hidParams>
+                            </hidInterface>
+                        </interfaces>
+                    </config>
+                </USBDevice>
+            </MSP>
+        </treeConfig>
+    </toolConfig>
+    <codeGeneration generate="0" generateINF="0"/>
+</descTool>

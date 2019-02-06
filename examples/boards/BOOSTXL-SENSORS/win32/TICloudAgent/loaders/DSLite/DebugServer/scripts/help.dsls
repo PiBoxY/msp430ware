@@ -1,0 +1,11 @@
+{"command":"logMessage", "data":["DSLite [operation] [Args...]\n\n"]}
+{"command":"logMessage", "data":["\tload [ccxmlFile] [fileToLoad]\n"]}
+{"command":"logMessage", "data":["\t\tConfigures for the target defined in the ccxml file,\n"]}
+{"command":"logMessage", "data":["\t\tloads the specified file and then exits leaving the \n"]}
+{"command":"logMessage", "data":["\t\ttarget running\n\n"]}
+{"command":"logMessage", "data":["\trunWithCIO [ccxmlFile] [fileToLoad]\n"]}
+{"command":"logMessage", "data":["\t\tConfigures for the target defined in the ccxml file,\n"]}
+{"command":"logMessage", "data":["\t\tloads the specified file and runs the program until \n"]}
+{"command":"logMessage", "data":["\t\tend of the application, printing stdout to the console\n\n"]}
+{"command":"logMessage", "data":["\thelp\n"]}
+{"command":"logMessage", "data":["\t\tPrints this message\n"]}

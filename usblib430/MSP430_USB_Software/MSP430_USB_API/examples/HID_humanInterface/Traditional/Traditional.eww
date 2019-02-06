@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+<project>
+    <path>$WS_DIR$\H8_Keyboard/IAR/H8_Keyboard.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H9_Remote_Wakeup/IAR/H9_Remote_Wakeup.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\H7_Mouse/IAR/H7_Mouse.ewp</path>
+  </project>
+  
+  <batchBuild/>
+</workspace>
+

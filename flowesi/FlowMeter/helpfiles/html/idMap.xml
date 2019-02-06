@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map>
+
+<!-- This file creates a mapping id that can be used by the help broker to map topics to actual html locations -->
+
+<map version="1.0">
+
+<!--Online Help Intro -->
+<mapID target="top" url="index.html" />
+<mapID target="MSP" url="ch02_FlowESI_GUI_UG.html" />
+<mapID target="MSPCustomizer" url="ch02_FlowESI_GUI_UG.html" />
+<mapID target="SensorLC" url="index.html" />
+<mapID target="SensorLCCustomizer" url="index.html" />
+
+</map>

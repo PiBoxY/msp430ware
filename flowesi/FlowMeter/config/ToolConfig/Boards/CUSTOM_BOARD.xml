@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<board>
+	<name>CUSTOM_BOARD</name>
+	<image>images/CUSTOM_BOARD.png</image>
+	<!-- Valid values for available attribute "true" and "false" -->
+	<rotationLed available="false">
+		<!-- Valid GPIOPort values are GPIO_PORT_Px. Please consult 
+			device datasheet for available ports-->
+		<GPIOPort></GPIOPort>
+		<!-- Valid GPIOPin values are GPIO_PIN1-GPIO_PIN8. -->
+		<GPIOPin></GPIOPin>
+	</rotationLed>
+	<!-- Valid values for available attibute "true" and "false" -->
+	<reCalLed available="false">
+	<!-- Valid GPIOPort values are GPIO_PORT_Px. Please consult 
+			device datasheet for available ports-->
+		<GPIOPort></GPIOPort>
+		<!-- Valid GPIOPin values are GPIO_PIN1-GPIO_PIN8. -->
+		<GPIOPin></GPIOPin>
+	</reCalLed>
+	<!-- type "true" if cusotm board has same LCD interface as 
+		MSP430FR6989 EVM-->
+	<LCD available="false"/>
+	<!-- Type "true" if cusotm board has same Communication Bridge as  
+		MSP430FR6989 EVM. Please consult MSP430FR6989 EVM documentation 
+		for more information regarding Communication Bridge -->
+	<targetCOMM available="false">
+		<!-- Valid EUSCIBase values for MSP430FR6x8x devices "EUSCI_A0_BASE" and 
+		"EUSCI_A1_BASE". Please consult device datasheet to determiner 
+		module avalability on your device. -->
+		<EUSCIBase></EUSCIBase>
+		<!-- Valid GPIOPort values are GPIO_PORT_Px. Please consult 
+			device datasheet for available ports-->
+		<TXGPIOPort></TXGPIOPort>
+		<!-- Valid GPIOPin values are GPIO_PIN1-GPIO_PIN8. -->
+		<TXGPIOPin></TXGPIOPin>
+	</targetCOMM>
+</board>

@@ -1,0 +1,21 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Disable XT2 Oscillator on Suspend</h1>
+        <p>Associated constant in the API stacks:  <span class="attribute">USB_DISABLE_XT_SUSPEND</span>.  (Not reported in the USB descriptors.)</p>
+        <p><span class="suggestion">Suggested default:</span>  check the box</p>  
+        <p>The API enables the XT2 oscillator when USB is active, and optionally disables it during USB suspend.  It uses XT2 as a reference to the USB PLL.</p> 
+        <p>If this box is checked, the API will attempt to disable the XT2 oscillator when the USB host suspends this device.  If the box is not checked, then the oscillator will not be disabled.  When the device is resumed by the host, the oscillator will always become enabled, whether this box was checked or not.</p>
+        <p>This box only has effect if XT2 is not being used elsewhere on the MSP430.  If it's being used by other modules, their clock requests will keep it active whether this box was checked or not.</p>
+        <p>Shutting XT2 down saves some power, but when the host resumes the USB device after suspend, the device has only 10ms to become fully USB-enabled again.  The oscillator stabilization will use part of this budget.  With a well-tuned oscillator, this usually happens in less than 1ms.  For more information, see the USB API Programmer's Guide.</p>
+    </body>
+</html>

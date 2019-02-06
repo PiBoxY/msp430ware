@@ -1,0 +1,1728 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MSP-CAPT-FR2633 Development Kit &mdash; CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="CapTIvate &amp;trade; Technology Guide 1.70.00.03 documentation" href="../index.html"/>
+        <link rel="next" title="BOOSTXL-CAPKEYPAD Development Kit" href="ch_evm_boostxl_capkeypad.html"/>
+        <link rel="prev" title="Software Library" href="ch_library.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CapTIvate &trade; Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.03
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_basics.html">Capacitive Sensing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_designcenter.html">Design Center GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_device.html">Device Family</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_library.html">Software Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MSP-CAPT-FR2633 Development Kit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-included">What&#8217;s Included</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-captivate-demo-boards">Additional CapTIvate™ Demo Boards</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#software-examples">Software Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#design-files">Design Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-the-mcu-development-kit">Getting Started with the MCU Development Kit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-work">Pre-Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-box-experience">Out-of-Box Experience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-an-example-project">Running an Example Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-project-locations">Example Project Locations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sensor-panel-demonstrations">Sensor Panel Demonstrations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-bswp-demonstration-out-of-box-experience">CAPTIVATE-BSWP Demonstration (Out of Box Experience)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#captivate-bswp-bonus-software-projects">CAPTIVATE-BSWP Bonus Software Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-phone-demonstration">CAPTIVATE-PHONE Demonstration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#haptic-feedback">Haptic Feedback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guard-channel-integration">Guard Channel Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-proximity-demonstration">CAPTIVATE-PROXIMITY Demonstration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proximity-detection">Proximity Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swipe-detection">Swipe Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-metal-demonstration">CAPTIVATE-METAL Demonstration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-button-touch">Basic Button Touch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#button-touch-with-force-indication">Button Touch with Force Indication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#button-touch-with-force-measurement">Button Touch with Force Measurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-demonstration-mode">Changing the Demonstration Mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-fr2633-processor-pcb-overview">CAPTIVATE-FR2633 Processor PCB Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#msp430fr2633-mcu-with-captivate-capacitive-touch-technology">MSP430FR2633 MCU with CapTIvate™ Capacitive Touch Technology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-pcb-connector-48-pin-female">Sensor PCB Connector (48 pin Female)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-power-communications-connector-20-pin-female">Programming/Power/Communications Connector (20 pin Female)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-pgmr-programmer-pcb-overview">CAPTIVATE-PGMR Programmer PCB Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-power-communications-connector-20-pin-male">Programming/Power/Communications Connector (20 pin Male)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#target-communication-via-the-usb-hid-serial-bridge">Target Communication via the USB HID Serial Bridge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usb-hid-serial-bridge-firmware-download">USB HID Serial Bridge Firmware Download</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-iso-communications-isolation-pcb">CAPTIVATE-ISO (Communications Isolation PCB)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isolated-jtag-spy-bi-wire">Isolated JTAG Spy-Bi-Wire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typical-isolated-setup">Typical Isolated Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connectors">Connectors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-bswp">CAPTIVATE-BSWP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-design-and-organization">Sensor Design and Organization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-phone">CAPTIVATE-PHONE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Sensor Design and Organization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-proximity">CAPTIVATE-PROXIMITY</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Sensor Design and Organization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#captivate-metal">CAPTIVATE-METAL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Sensor Design and Organization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metal-stackup">Metal Stackup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pin-male-sensor-pcb-connector-information">48-pin Male Sensor PCB Connector Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-hid-bridge">Using the HID Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-modes-of-operation">Supported Modes of Operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hid-bridge-interfaces">HID Bridge Interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#host-interface-usb-hid-device-class-implementation">Host Interface: USB HID Device-Class Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#target-interface-uart-implementation">Target Interface: UART Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#target-interface-i2c-implementation">Target Interface: I2C Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hid-bridge-configuration-command-set">HID Bridge Configuration Command Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hid-bridge-modes-of-operation">HID Bridge Modes of Operation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#operating-mode-packet-mode">Operating Mode: Packet Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operating-mode-raw-mode">Operating Mode: Raw Mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_boostxl_capkeypad.html">BOOSTXL-CAPKEYPAD Development Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_evm_CAP_MINI.html">EVM430-CAPMINI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_workshop.html">Workshop (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">CapTIvate &trade; Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>MSP-CAPT-FR2633 Development Kit</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="msp-capt-fr2633-development-kit">
+<h1>MSP-CAPT-FR2633 Development Kit<a class="headerlink" href="#msp-capt-fr2633-development-kit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Capacitive touch evaluation and rapid prototyping has never been faster and easier. Using this modular kit with the CapTIvate™ Design Center, you can evaluate the performance of MSP430FR2633 MCU using the capacitive touch demo boards, or develop your own PCB and experience the power of the CapTIvate™ Design Center and the ease of real-time sensor tuning, all without writing a single line of code. Free software development tools are also available, including TI&#8217;s Eclipse-based Code Composer Studio™ (CCS) and IAR Embedded Workbench® IAR-KICKSTART. Both of these integrated development environments (IDEs) support EnergyTrace™ technology when paired with the MSP430FR2633 MCU Development Kit.</p>
+<p>Read through the <a class="reference external" href="ch_evm.html#ch_evm_overview">overview</a> section to become familiar with all of the hardware in the kit, or jump to the <a class="reference external" href="ch_evm.html#ch_evm_get_started">getting started</a> section to begin evaluation.</p>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>The MSP-CAPT-FR2633 MCU Development Kit is an easy to use evaluation platform for the MSP430FR2633 microcontroller featuring CapTIvate™ Capacitive Touch Technology. It contains everything needed to start developing on the MSP430™ ultra-low-power (ULP) FRAM-based microcontroller (MCU) platform, including on-board emulation for programming, debugging and energy measurements. The MSP430FR2633 MCU features a new CapTIvate™ Capacitive Touch Technology, supporting self and mutual capacitive sensors, and embedded FRAM (ferroelectric random access memory). FRAM is a non-volatile memory known for its ultra-low power, high endurance, and high-speed write access.</p>
+</div>
+<div class="section" id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Modular Design<ul>
+<li>Different sensing panels may be attached through a common connector.</li>
+<li>The programming/debug logic has been split from the target MCU, unlike a typical LaunchPad which has both components on one PCB. This allows for an isolation module to be inserted between the two for testing/tuning, or for the programming/debug module to be used for in-system product development.</li>
+<li>The target MCU PCB features BoosterPack headers, allowing it to be used as a BoosterPack for another LaunchPad, such as the MSP-EXP432P401R LaunchPad.</li>
+</ul>
+</li>
+<li>Application Oriented<ul>
+<li>The sensing panels included in the kit are designed to mimic real applications.</li>
+<li>Evaluating a new application simply involves laying out a basic 1 or 2 layer PCB with a footprint for the sensor connector, or simply laying out electrodes with copper tape and wiring them into the connector.</li>
+</ul>
+</li>
+<li>Easy Access to Data<ul>
+<li>EnergyTrace power profiling enables capturing of power profiles without any measurement equipment.</li>
+<li>The HID-Bridge communications interface allows easy debug data transfer between the target and a PC over UART or I2C.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="what-s-included">
+<h4>What&#8217;s Included<a class="headerlink" href="#what-s-included" title="Permalink to this headline">¶</a></h4>
+<p>The following PCBs are included in the kit:</p>
+<ul class="simple">
+<li><strong>CAPTIVATE-FR2633</strong> Target MCU Module</li>
+<li><strong>CAPTIVATE-PGMR</strong> eZ-FET with EnergyTrace and HID Communication Bridge</li>
+<li><strong>CAPTIVATE-ISO</strong> UART, I2C, and SBW Isolation Board</li>
+<li><strong>CAPTIVATE-BSWP</strong> Self Capacitance Demo (Out-of-Box Experience)</li>
+<li><strong>CAPTIVATE-PHONE</strong> Mutual Capacitance Demo with Haptics and Guard Channel</li>
+<li><strong>CAPTIVATE-PROXIMITY</strong> Proximity Detection and Gesturing Demo</li>
+</ul>
+<div class="figure" id="id6">
+<img alt="Kit Contents" src="../_images/evm_kit_contents.png" />
+<p class="caption"><span class="caption-number">Fig. 231 </span><span class="caption-text">Kit Contents</span></p>
+</div>
+</div>
+<div class="section" id="additional-captivate-demo-boards">
+<h4>Additional CapTIvate™ Demo Boards<a class="headerlink" href="#additional-captivate-demo-boards" title="Permalink to this headline">¶</a></h4>
+<p>The follwing PCBs will be available separately, but are compatible with this kit:</p>
+<!---
+#### COMING SOON
+*** COMMENTED OUT UNTIL METAL TOUCH PCB RELEASED
+-  **CAPTIVATE-METAL**
+    + Demonstrate metal touch capability
+    + Features:
+        * 8 self capacitive electrodes
+        * LED numeric display
+
+![Metal Touch - COMING SOON](images/evm/evm_metal_touch_pcb.png)
+---></div>
+</div>
+<div class="section" id="software-examples">
+<h3>Software Examples<a class="headerlink" href="#software-examples" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="ch_evm.html#example-project-locations">Complete CCS and IAR example projects</a> for each demo panel are provided with the CapTIvate™ Design Center installation. Example projects are also available with the installation of MSPWare.</p>
+</div>
+<div class="section" id="design-files">
+<h3>Design Files<a class="headerlink" href="#design-files" title="Permalink to this headline">¶</a></h3>
+<p>Schematic and layout design files for all of the PCBs in the kit are available below.</p>
+<div class="figure">
+<img alt="" src="../_images/evm_design_files.png" />
+</div>
+<ul class="simple">
+<li><a class="reference external" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP-CAPT-FR2633/latest/index_FDS.html">Download CapTIvate™ EVM Design Files Here:</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="getting-started-with-the-mcu-development-kit">
+<h2>Getting Started with the MCU Development Kit<a class="headerlink" href="#getting-started-with-the-mcu-development-kit" title="Permalink to this headline">¶</a></h2>
+<p>This section details how to get started with the development kit.</p>
+<div class="section" id="pre-work">
+<h3>Pre-Work<a class="headerlink" href="#pre-work" title="Permalink to this headline">¶</a></h3>
+<p>To get started with the kit, complete the following software and hardware steps:</p>
+<p><strong>Software Installation</strong></p>
+<ol class="arabic simple">
+<li>Install the CapTIvate™ Design Center GUI on your PC, Linux, or MAC computer (note the <a class="reference external" href="ch_designcenter.html#hardware-and-software-requirements">requirements</a>).</li>
+<li>Install a development environment (IDE). TI&#8217;s Code Composer Studio v6.1.0 and IAR Embedded Workbench v6.30 or greater are supported.</li>
+</ol>
+<p><strong>Hardware Setup</strong></p>
+<ol class="arabic simple">
+<li>Connect the CAPTIVATE-FR2633 MCU module and CAPTIVATE-PGMR module together.</li>
+<li>Connect the desired sensing panel to the CAPTIVATE-FR2633 module. The out-of-box experience uses the CAPTIVATE-BSWP panel.</li>
+<li>Connect the micro-USB cable between the CAPTIVATE-PGMR programmer PCB and your computer</li>
+<li>Verify that LED2 and LED5 (power good LED&#8217;s) on the CAPTIVATE-PGMR module are lit, and that LED4 (HID-Bridge enumeration) is blinking.</li>
+</ol>
+<p>Refer to the <a class="reference external" href="ch_faq.html#design-kit">FAQ</a> section for further troubleshooting tips. <img alt="Typical Setup" src="../_images/evm_demo_setup.png" /></p>
+</div>
+<div class="section" id="out-of-box-experience">
+<h3>Out-of-Box Experience<a class="headerlink" href="#out-of-box-experience" title="Permalink to this headline">¶</a></h3>
+<p>Be sure that you have completed the <a class="reference external" href="ch_evm.html#pre-work">pre work</a>. The CAPTIVATE-FR2633 module ships pre-programmed with the demo software for the CAPTIVATE-BSWP panel. It is not necessary to program the target device to begin evaluating with that panel. Check out the <a class="reference external" href="ch_workshop.html">workshop chapter</a> for the out-of-box experience to begin working with the kit!</p>
+</div>
+<div class="section" id="running-an-example-project">
+<h3>Running an Example Project<a class="headerlink" href="#running-an-example-project" title="Permalink to this headline">¶</a></h3>
+<p>Be sure that you have completed the <a class="reference external" href="ch_evm.html#pre-work">pre work</a>. To run an example project, it is necessary to do the following:</p>
+<ol class="arabic simple">
+<li>If it is not already connected, connect the desired sensing panel (CAPTIVATE-BSWP, CAPTIVATE-PHONE, CAPTIVATE-PROXIMITY, CAPTIVATE-METAL) to the CAPTIVATE-FR2633 module.</li>
+<li>Import, build, and program the example software for the specific board that you are using onto the MSP430FR2633 target MCU on the CAPTIVATE-FR2633 module. Follow these steps to <a class="reference external" href="ch_designcenter.html#loading-and-running-generated-projects">load and run generated firmware projects</a>. <a class="reference external" href="ch_evm.html#example-project-locations">Example project locations</a> are described below. <strong>Note</strong> that the CAPTIVATE-FR2633 module ships pre-programmed for the CAPTIVATE-BSWP sensing panel.</li>
+<li>Start the CapTIvate™ Design Center using the icon that was installed on your desktop.</li>
+<li>Click <em>File</em> -&gt; <em>Project Open</em> from the menu bar and select the desired project directory. <a class="reference external" href="ch_designcenter.html#menu-descriptions">Click here for help with CapTIvate™ Design Center</a>. The project&#8217;s <a class="reference external" href="ch_designcenter.html#introduction">main window</a> is the design canvas and is pre-populated with the microcontroller and selected sensors matching the hardware for this demo.</li>
+<li><a class="reference external" href="ch_designcenter.html#enable-target-communications-in-the-design-center">Enable Communications</a> in the CapTIvate™ Design Center to begin the demonstration.</li>
+<li>View the data for different sensors when you approach and touch the panel. Note: If the MCU is in wake-on-proximity mode, there may appear to be no activity. Bring your hand near or touch the board to activate the MCU.</li>
+</ol>
+</div>
+<div class="section" id="example-project-locations">
+<h3>Example Project Locations<a class="headerlink" href="#example-project-locations" title="Permalink to this headline">¶</a></h3>
+<p>During the CapTIvate™ Design Center installation process, example projects and MSP430FR2633 firmware projects are placed in their own directory in the user&#8217;s home directory under &#8220;CaptivateDesignCenter/CaptivateDesignCenterWorkspace&#8221;. On Windows 7, this would be C:/Users/&#8221;username&#8221;/CaptivateDesignCenter/CaptivateDesignCenterWorkspace.</p>
+</div>
+</div>
+<div class="section" id="sensor-panel-demonstrations">
+<h2>Sensor Panel Demonstrations<a class="headerlink" href="#sensor-panel-demonstrations" title="Permalink to this headline">¶</a></h2>
+<p>This section describes each of the sensor panel demonstrations. For details on the hardware for each panel, visit the <a class="reference external" href="ch_evm.html#hardware">hardware</a> section.</p>
+<div class="section" id="captivate-bswp-demonstration-out-of-box-experience">
+<h3>CAPTIVATE-BSWP Demonstration (Out of Box Experience)<a class="headerlink" href="#captivate-bswp-demonstration-out-of-box-experience" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-BSWP sensing panel demonstrates the low power and high sensitivity features of the CapTIvate™ technology. The wake-on-proximity state machine is utilized to measure the proximity sensor in LPM3 until a user is close to the panel. When a user is detected, all of the sensors begin scanning at a faster rate. Data is communicated to the CapTIvate™ Design Center via the bulk I2C interface.</p>
+<div class="figure" id="id7">
+<img alt="CAPTIVATE-BSWP Design Canvas" src="../_images/evm_bswp_canvas.png" />
+<p class="caption"><span class="caption-number">Fig. 232 </span><span class="caption-text">CAPTIVATE-BSWP Design Canvas</span></p>
+</div>
+<p>This panel is configured with the following settings:</p>
+<ul class="simple">
+<li><strong>A 33ms active mode scan period (30 Hz).</strong> This provides a balance between response time and power consumption when a user is interacting with the panel. Scanning faster (at 20ms/50Hz for example) would provide a faster response time and also has a perceived performance benefit when working with sliders and wheels. Scanning slower (at 50ms/20Hz for example) would provide lower power consumption, but a higher response time.</li>
+<li><strong>An inactivity timeout of 32 samples.</strong> This means that the system will transition from active mode into wake-on-proximity mode after 32 samples without any interaction have passed. This works out to about a 1 second delay. This aggressive transition improves battery life.</li>
+<li><strong>A 100ms wake-on-proximity mode scan period (10 Hz).</strong> This slower scan rate is designed to conserve power while still waking up the panel fast enough to be ready for an approaching user.</li>
+<li><strong>A wakeup interval of 512 samples.</strong> This means that the system will wake from the low-power wake-on-proximity state every 512 samples (about every 50 seconds) even if there is not a proximity detection. This provides a mechanism to periodically update the environmental filters for the other sensors on the PCB.</li>
+<li><strong>A 2 MHz conversion frequency</strong> for all sensors.</li>
+<li><strong>A total measurement time of 2ms</strong> for all sensors.</li>
+</ul>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm.html#running-an-example-project">running an example project</a> and open the CAPTIVATE-BSWP project.</p>
+<p>For an overview of the hardware design, visit the <a class="reference external" href="ch_evm.html#captivate-bswp">CAPTIVATE-BSWP hardware overview</a>.</p>
+<div class="section" id="captivate-bswp-bonus-software-projects">
+<h4>CAPTIVATE-BSWP Bonus Software Projects<a class="headerlink" href="#captivate-bswp-bonus-software-projects" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the out-of-box software project, the CAPTIVATE-BSWP panel is also used as the hardware platform for other examples that show off different features of the CapTIvate peripheral and MSP430FR2633 MCU.</p>
+<div class="section" id="ultra-low-power-four-buttons-demonstration">
+<h5>Ultra Low Power Four Buttons Demonstration<a class="headerlink" href="#ultra-low-power-four-buttons-demonstration" title="Permalink to this headline">¶</a></h5>
+<p>This supplementary example project uses the first 4 buttons on the CAPTIVATE-BSWP panel only. It demonstrates how to achieve extremely low power consumption for a design that only contains 4 buttons.</p>
+<p>This project is configured with the following settings:</p>
+<ul class="simple">
+<li><strong>An 83ms active mode scan period (12 Hz).</strong></li>
+<li><strong>An inactivity timeout of 32 samples.</strong> This means that the system will transition from active mode into wake-on-proximity mode after 32 samples without any interaction have passed.</li>
+<li><strong>A 125ms wake-on-proximity mode scan period (8 Hz).</strong> This slower scan rate is designed to optimize battery life.</li>
+<li><strong>A wakeup interval of 2048 samples.</strong></li>
+<li><strong>A 2 MHz conversion frequency</strong> for all sensors.</li>
+<li><strong>A total measurement time of 260us</strong> for all sensors.</li>
+<li><strong>An I-avg of 3uA when no one is touching the panel</strong></li>
+</ul>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm.html#running-an-example-project">running an example project</a> and open the UltraLowPower_FourButtons project.</p>
+<p>For a step-by-step workshop of how to reproduce this project from scratch, see the <a class="reference external" href="ch_design_guide.html#walking-through-the-optimization-process">low power design example</a> section of the design guide.</p>
+</div>
+<div class="section" id="code-size-optimized-one-button-demonstration">
+<h5>Code Size Optimized One Button Demonstration<a class="headerlink" href="#code-size-optimized-one-button-demonstration" title="Permalink to this headline">¶</a></h5>
+<p>This supplementary example project uses the first button on the CAPTIVATE-BSWP panel only. It demonstrates a bare-bones touch application that just controls the state of the two LEDs on the MCU module. When the button is pressed, LED1 will illuminate and stay lit the entire time the button is pressed. At the beginning of each new button press, LED2 will change its state.</p>
+<p>This example serves as a reference for how to get down to a basic set of function calls. It achieves this by removing the CAPT_App layer that comes with the other example projects, and replacing it with register-level initialization of the MCU and top-level API calls directly into the CapTIvate library. This organization does not have support for the wake-on-proximity features, but it does have considerably reduced complexity as well as reduced memory requirements. This project easily fits into a small 8kB FRAM / 1kB RAM device variant.</p>
+<p>Note: No communications module is included in the project build, so the only feedback will be visual via the LEDs!</p>
+<p>The CapTIvate setup code is very basic, as shown below:</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span>
+<span class="o">//</span> <span class="n">Set</span> <span class="n">up</span> <span class="n">the</span> <span class="n">CapTIvate</span> <span class="n">peripheral</span>
+<span class="o">//</span> <span class="ow">and</span> <span class="n">timer</span><span class="o">.</span> <span class="n">The</span> <span class="n">timer</span> <span class="n">will</span> <span class="n">periodically</span>
+<span class="o">//</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">g_bConvTimerFlag</span><span class="o">.</span>
+<span class="o">//</span>
+<span class="n">CAPT_initUI</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_uiApp</span><span class="p">);</span>
+<span class="n">CAPT_calibrateUI</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_uiApp</span><span class="p">);</span>
+<span class="n">MAP_CAPT_registerCallback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">button</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">buttonHandler</span><span class="p">);</span>
+<span class="n">MAP_CAPT_selectTimerSource</span><span class="p">(</span><span class="n">CAPT_TIMER_SRC_ACLK</span><span class="p">);</span>
+<span class="n">MAP_CAPT_writeTimerCompRegister</span><span class="p">(</span><span class="n">CAPT_MS_TO_CYCLES</span><span class="p">(</span><span class="n">g_uiApp</span><span class="o">.</span><span class="n">ui16ActiveModeScanPeriod</span><span class="p">));</span>
+<span class="n">MAP_CAPT_startTimer</span><span class="p">();</span>
+<span class="n">MAP_CAPT_enableISR</span><span class="p">(</span><span class="n">CAPT_TIMER_INTERRUPT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>A simple background loop calls CAPT_updateUI directly and manages the use of the conversion timer interrupt flag variable.</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span>
+<span class="o">//</span> <span class="n">Start</span> <span class="n">the</span> <span class="n">application</span>
+<span class="o">//</span>
+<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_bConvTimerFlag</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">//</span>
+        <span class="o">//</span> <span class="n">If</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">time</span> <span class="n">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">button</span><span class="p">,</span>
+        <span class="o">//</span> <span class="n">update</span> <span class="n">it</span> <span class="n">here</span> <span class="k">with</span> <span class="n">the</span> <span class="n">generic</span> <span class="n">library</span> <span class="n">call</span><span class="o">.</span>
+        <span class="o">//</span>
+        <span class="n">g_bConvTimerFlag</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+        <span class="n">CAPT_updateUI</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_uiApp</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span>
+    <span class="o">//</span> <span class="n">Go</span> <span class="n">to</span> <span class="n">sleep</span> <span class="n">when</span> <span class="n">finished</span><span class="o">.</span>
+    <span class="o">//</span> <span class="n">The</span> <span class="n">CapTIvate</span> <span class="n">timer</span> <span class="n">will</span> <span class="n">wake</span> <span class="n">the</span> <span class="n">application</span> <span class="kn">from</span> <span class="nn">sleep.</span>
+    <span class="o">//</span>
+    <span class="n">__bis_SR_register</span><span class="p">(</span><span class="n">g_uiApp</span><span class="o">.</span><span class="n">ui8AppLPM</span> <span class="o">|</span> <span class="n">GIE</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A basic callback sets the LED states whenever the button is updated:</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">buttonHandler</span><span class="p">(</span><span class="n">tSensor</span><span class="o">*</span> <span class="n">pSensor</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span>
+    <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">button</span> <span class="ow">is</span> <span class="n">currently</span> <span class="n">being</span> <span class="n">touched</span><span class="p">,</span>
+    <span class="o">//</span> <span class="n">illuminate</span> <span class="n">LED1</span><span class="o">.</span>
+    <span class="o">//</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorTouch</span><span class="o">==</span><span class="n">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">P1OUT</span> <span class="o">|=</span> <span class="n">LED1</span><span class="p">;</span>
+
+        <span class="o">//</span>
+        <span class="o">//</span> <span class="n">If</span> <span class="n">a</span> <span class="n">completely</span> <span class="n">new</span> <span class="n">touch</span> <span class="n">was</span> <span class="n">detected</span><span class="p">,</span>
+        <span class="o">//</span> <span class="n">toggle</span> <span class="n">the</span> <span class="n">state</span> <span class="n">of</span> <span class="n">LED2</span><span class="o">.</span>
+        <span class="o">//</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorPrevTouch</span><span class="o">==</span><span class="n">false</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">P1OUT</span> <span class="o">^=</span> <span class="n">LED2</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">P1OUT</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">LED1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This project is configured with the following settings:</p>
+<ul class="simple">
+<li><strong>An 50ms active mode scan period (20 Hz).</strong></li>
+<li><strong>A 2 MHz conversion frequency</strong> for all sensors.</li>
+<li><strong>A total measurement time of 260us</strong> for the button.</li>
+<li><strong>An I-avg of 10uA</strong></li>
+</ul>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm.html#running-an-example-project">running an example project</a> and open the CodeSizeOptimized_OneButton project.</p>
+</div>
+</div>
+</div>
+<div class="section" id="captivate-phone-demonstration">
+<h3>CAPTIVATE-PHONE Demonstration<a class="headerlink" href="#captivate-phone-demonstration" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-PHONE sensing panel demonstrates the use of mutual capacitance to realize a high-density panel with many different sensor types using just 12 of the 16 CapTIvate™ sensing pins. The panel is designed to mimic a typical office phone application that would have a 12-key numeric keypad, several mode buttons, and several selection sensors. The panel features haptic vibration feedback thanks to a TI DRV2605L haptic driver IC coupled with a Samsung linear resonant actuator (LRA). A guard channel technique is applied to reject palm/arm presses on buttons as well as minor liquid spills. Data is communicated back to the CapTIvate™ Design Center via a UART interface.</p>
+<div class="figure" id="id8">
+<img alt="CAPTIVATE-PHONE Design Canvas" src="../_images/evm_phone_canvas.png" />
+<p class="caption"><span class="caption-number">Fig. 233 </span><span class="caption-text">CAPTIVATE-PHONE Design Canvas</span></p>
+</div>
+<p>This panel is configured with the following settings:</p>
+<ul class="simple">
+<li><strong>A 33ms active mode scan period (30 Hz).</strong> This provides a balance between response time and power consumption when a user is interacting with the panel. Scanning faster (at 20ms/50Hz for example) would provide a faster response time and also has a perceived performance benefit when working with sliders and wheels. Scanning slower (at 50ms/20Hz for example) would provide lower power consumption, but a higher response time.</li>
+<li><strong>A 4 MHz conversion clock rate</strong> for the mutual capacitance matrix, as mutual capacitance sensors may be scanned at a higher frequency.</li>
+<li><strong>A 1 MHz conversion clock rate</strong> on the self-capacitance guard channel, as there is significant ground loading on this sensor, requiring a slower frequency.</li>
+<li><strong>A total measurement time of &lt;2.4ms</strong> for all sensors.</li>
+</ul>
+<div class="section" id="haptic-feedback">
+<h4>Haptic Feedback<a class="headerlink" href="#haptic-feedback" title="Permalink to this headline">¶</a></h4>
+<p>This demonstration includes haptics to provide users with mechanical feedback that they did in fact touch a key. The most common and cost-effective actuators are the ERM (eccentric rotating mass) and LRA (linear resonant actuator). The LRA was chosen for this application because it provides a higher quality vibration feel than the ERM. For this reason, LRA&#8217;s are more common with consumer products. However, there are some advantages to an ERM that are worth discussing here. LRAs have a limited lifetime of &#8220;clicks,&#8221; and thus are not as suitable for long life cycle products as an ERM. Therefore, and ERM makes more sense than an LRA for long-life products such as industrial control panels.</p>
+<p>With regard to the driver, The DRV2605L was selected as the driver IC for this demonstration for the following reasons:</p>
+<ul class="simple">
+<li>It has integrated ROM effect libraries that are pre-licensed from Immersion</li>
+<li>It supports both ERM and LRA haptic actuators</li>
+<li>It has a simple I2C register interface</li>
+</ul>
+<p>The demonstration firmware includes an I2C master driver and a DRV26x driver for communicating with the DRV2605L. Setting up the DRV2605L with these modules is accomplished in the Demo_init() function as follows:</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span>
+<span class="o">//</span> <span class="n">Open</span> <span class="n">the</span> <span class="n">I2C</span> <span class="n">Master</span> <span class="n">driver</span><span class="p">,</span> <span class="n">which</span> <span class="n">the</span> <span class="n">DRV26x</span> <span class="n">driver</span> <span class="n">will</span> <span class="n">use</span> <span class="n">to</span>
+<span class="o">//</span> <span class="n">communicate</span> <span class="k">with</span> <span class="n">the</span> <span class="n">DRV2605L</span> <span class="n">haptic</span> <span class="n">driver</span> <span class="n">IC</span> <span class="n">via</span> <span class="n">I2C</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">Enable</span> <span class="n">the</span> <span class="n">haptic</span> <span class="n">driver</span> <span class="n">by</span> <span class="n">setting</span> <span class="n">P1</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">connected</span>
+<span class="o">//</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DRV2605L</span> <span class="n">ENABLE</span> <span class="n">pin</span><span class="o">.</span> <span class="n">Then</span><span class="p">,</span> <span class="n">load</span> <span class="n">the</span> <span class="n">configuration</span> <span class="k">for</span> <span class="n">the</span>
+<span class="o">//</span> <span class="n">actuator</span><span class="p">,</span> <span class="n">run</span> <span class="n">an</span> <span class="n">auto</span><span class="o">-</span><span class="n">calibration</span> <span class="n">routine</span><span class="p">,</span> <span class="nb">set</span> <span class="n">up</span> <span class="k">for</span> <span class="n">internal</span> <span class="n">trigger</span>
+<span class="o">//</span> <span class="n">mode</span><span class="p">,</span> <span class="ow">and</span> <span class="n">select</span> <span class="n">the</span> <span class="n">linear</span> <span class="n">resonant</span> <span class="n">actuator</span> <span class="p">(</span><span class="n">LRA</span><span class="p">)</span> <span class="n">effect</span> <span class="n">library</span><span class="o">.</span>
+<span class="o">//</span>
+<span class="n">I2CMaster_open</span><span class="p">();</span>
+<span class="n">P1OUT</span> <span class="o">|=</span> <span class="n">BIT0</span><span class="p">;</span>
+<span class="n">DRV26x_reset</span><span class="p">();</span>
+<span class="n">DRV26x_exitStandby</span><span class="p">();</span>
+<span class="n">DRV26x_loadActuatorConfig</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DRV26x_actuator_DMJBRN1030</span><span class="p">);</span>
+<span class="n">DRV26x_runAutoCalibration</span><span class="p">();</span>
+<span class="n">DRV26x_setMode</span><span class="p">(</span><span class="n">DRV26x_mode_internalTrigger</span><span class="p">);</span>
+<span class="n">DRV26x_selectEffectLibrary</span><span class="p">(</span><span class="n">DRV26x_lib_ROM_LRA</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="ch_library.html#register-a-callback-function">callback</a> capability of the CapTIvate™ Software Library is utilized to trigger playback of haptic events directly from the library. A sample callback function is shown below. Effects are fired on a &#8220;new&#8221; touch- if &#8220;touch&#8221; is true and &#8220;previous touch&#8221; is false. Note that the callback exits if the guard mask is active. This would be the case if the guard channel was in detect, and the touch on this sensor must be masked.</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Demo_numericKeypadHandler</span><span class="p">(</span><span class="n">tSensor</span><span class="o">*</span> <span class="n">pSensor</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span>
+    <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">guard</span> <span class="n">mask</span> <span class="ow">is</span> <span class="n">activated</span><span class="p">,</span> <span class="n">abort</span> <span class="n">here</span> <span class="ow">and</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">process</span>
+    <span class="o">//</span> <span class="nb">any</span> <span class="n">events</span><span class="o">.</span>
+    <span class="o">//</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Demo_guardMaskActive</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span>
+    <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">sensor</span> <span class="n">has</span> <span class="n">a</span> <span class="n">new</span> <span class="n">touch</span><span class="p">,</span> <span class="n">fire</span> <span class="n">a</span> <span class="s2">&quot;strong click&quot;</span> <span class="n">effect</span><span class="o">.</span>
+    <span class="o">//</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorTouch</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
+            <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorPrevTouch</span> <span class="o">==</span> <span class="n">false</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">DRV26x_fireROMLibraryEffect</span><span class="p">(</span>
+                <span class="n">DRV26x_effect_strongClick_100P</span><span class="p">,</span>
+                <span class="n">true</span>
+            <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Below is a mapping of the various DRV2605L haptic effects that are mapped to the different sensors:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="20%" />
+<col width="27%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sensor</th>
+<th class="head">Element</th>
+<th class="head">Touchdown Effect</th>
+<th class="head">Continued Effect</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>numericKeypadSensor</td>
+<td>All</td>
+<td>Strong Click (100%)</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>modeKeypadSensor</td>
+<td>Mute Button</td>
+<td>Double Click (100%)</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>modeKeypadSensor</td>
+<td>Speaker Button</td>
+<td>Strong Click (100%)</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>modeKeypadSensor</td>
+<td>Headset Button</td>
+<td>Strong Click (100%)</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>modeKeypadSensor</td>
+<td>End Call Button</td>
+<td>Triple Click (100%)</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>wheelButtonSensor</td>
+<td>Button</td>
+<td>Pulsing Sharp 1 (100%)</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>scrollWheelSensor</td>
+<td>Button</td>
+<td>Buzz 1 (100%)</td>
+<td>Soft Bump (100%)</td>
+</tr>
+<tr class="row-odd"><td>generalPurposeSliderSensor</td>
+<td>Button</td>
+<td>Buzz 1 (100%)</td>
+<td>Soft Bump (100%)</td>
+</tr>
+<tr class="row-even"><td>volumeSliderSensor</td>
+<td>Button</td>
+<td>Buzz 1 (100%)</td>
+<td>Soft Bump (100%)</td>
+</tr>
+<tr class="row-odd"><td>proxAndGuardSensor</td>
+<td>Button</td>
+<td>Smooth Hum 3 (30%)</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="guard-channel-integration">
+<h4>Guard Channel Integration<a class="headerlink" href="#guard-channel-integration" title="Permalink to this headline">¶</a></h4>
+<p>The guard channel is used as a detection mask for all other sensors in the system to provide a level of palm/arm rejection and spill rejection. The guard electrode wraps around the panel between all of the other sensors, and when it is not being measured, it serves as a grounded shield. The data from the guard channel is used to discern the case where a user accidentally puts their whole hand against the sensing panel. In that case, it would be very undesirable for all of the sensors to go into detect. It is also helpful in the event that the panel surface is being wiped down with a cloth or a liquid is spilled onto the panel.</p>
+<p>Guard channel tuning requires the following considerations:</p>
+<ol class="arabic simple">
+<li>Tune the touch threshold to be sensitive enough to trigger a detect when a user is in between keys, but not when a user is correctly touching just one sensor.</li>
+<li>Set the touch <a class="reference external" href="ch_glossary.html#debounce">de-bounce</a> <strong>in</strong> parameter to &#8216;0&#8217;, and the <a class="reference external" href="ch_glossary.html#debounce">de-bounce</a> <strong>out</strong> parameter to the maximum of &#8216;15&#8217;. This causes the guard channel to engage immediately in a detect situation, and to remain in detect for 15 samples even after the user has cleared the threshold. This improves the robustness of the mask.</li>
+<li>Set the touch <a class="reference external" href="ch_glossary.html#debounce">de-bounce</a> <strong>in</strong> of all other sensors to at least a value of &#8216;1&#8217;, to ensure that the guard channel mask has one sample to kick in, preventing false touch detections.</li>
+<li>Test multiple use-cases and approach angles to the panel to ensure that the guard channel touch detection flag is being set before the other sensors. This is fairly easy to discern with this demonstration because of the haptic feedback.</li>
+</ol>
+<p>The two LEDs on the CAPTIVATE-FR2633 module indicate the status of the guard channel. When a valid touch is detected on an element, LED1 will illuminate. When the guard channel is active, LED2 will illuminate.</p>
+<p>The example callback handler for the guard channel is shown below.</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Demo_guardChannelHandler</span><span class="p">(</span><span class="n">tSensor</span> <span class="o">*</span><span class="n">pSensor</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span>
+    <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">guard</span> <span class="n">channel</span> <span class="ow">is</span> <span class="n">detecting</span> <span class="n">a</span> <span class="n">touch</span><span class="p">,</span>
+    <span class="o">//</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">guard</span> <span class="n">mask</span> <span class="n">active</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">mask</span> <span class="nb">all</span> <span class="n">other</span>
+    <span class="o">//</span> <span class="n">touch</span> <span class="n">processing</span><span class="o">.</span>
+    <span class="o">//</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span><span class="n">bSensorTouch</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Demo_guardMaskActive</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pSensor</span><span class="o">-&gt;</span> <span class="n">bSensorPrevTouch</span> <span class="o">==</span> <span class="n">false</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">DRV26x_fireROMLibraryEffect</span><span class="p">(</span>
+                    <span class="n">DRV26x_effect_smoothHum3_30P</span><span class="p">,</span>
+                    <span class="n">false</span>
+                <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span>
+    <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">guard</span> <span class="n">channel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">detecting</span> <span class="n">a</span> <span class="n">touch</span><span class="p">,</span>
+    <span class="o">//</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">guard</span> <span class="n">mask</span> <span class="n">active</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">standard</span>
+    <span class="o">//</span> <span class="n">touch</span> <span class="n">processing</span><span class="o">.</span>
+    <span class="o">//</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">Demo_guardMaskActive</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that the guard channel will not mask the reporting of touch and proximity events on other sensors to the CapTIvate™ Design Center. Rather, the mask is application-level and is used to control the haptic effect playback and LED illumination. The data flowing back to the design center provides the true state of each sensor at all times.</p>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm.html#running-an-example-project">running an example project</a> and open the CAPTIVATE-PHONE project.</p>
+<p>For an overview of the hardware design, view the <a class="reference external" href="ch_evm.html#captivate-phone">CAPTIVATE-PHONE hardware overview</a>.</p>
+</div>
+</div>
+<div class="section" id="captivate-proximity-demonstration">
+<h3>CAPTIVATE-PROXIMITY Demonstration<a class="headerlink" href="#captivate-proximity-demonstration" title="Permalink to this headline">¶</a></h3>
+<p>This example demonstrates standard distance-detection proximity as well as proximity gesturing. In addition, it demonstrates the use of a driven shield sensor to reduce the parasitic capacitance of large electrodes, improving their sensitivity. The module has 4 total electrodes- 3 on the top layer, and one large electrode around the 3 on the top layer and across the entire bottom layer. The large electrode acts as a shield for parasitic capacitance, while the 3 primary electrodes on the top layer perform the sensing. 6 LED indicators on the top of the module indicate the status of the panel.</p>
+<div class="figure" id="id9">
+<img alt="CAPTIVATE-PROXIMITY Design Canvas" src="../_images/evm_prox_canvas.png" />
+<p class="caption"><span class="caption-number">Fig. 234 </span><span class="caption-text">CAPTIVATE-PROXIMITY Design Canvas</span></p>
+</div>
+<p>This panel is configured with the following settings:</p>
+<ul class="simple">
+<li><strong>A 5ms active mode scan period (~200 Hz).</strong> This is a very high scan rate that is biased towards being able to detect quick gestures. Scanning slower (at 20ms/50Hz for example) would provide lower power consumption, but the algorithm would begin to miss states and would potentially miss valid swipe detections.</li>
+<li><strong>An inactivity timeout of 375 samples.</strong> This means that the system will transition from active mode into wake-on-proximity mode after 375 samples without any interaction have passed. This works out to about a 1.5-2 second delay.</li>
+<li><strong>A 33ms wake-on-proximity mode scan period (30 Hz).</strong> Note that this is significantly slower than the 5ms period used in active mode- but it is also faster than the 100ms period used in the CAPTIVATE-BSWP panel. 33ms provides a good balance between fast wake-up to detect gestures, and overall power consumption.</li>
+<li><strong>A wakeup interval of 512 samples.</strong> This means that the system will wake from the low-power wake-on-proximity state every 512 samples (about every 50 seconds) even if there is not a proximity detection. This provides a mechanism to periodically update the environmental filters for the other sensors on the PCB.</li>
+<li><strong>A 2 MHz conversion frequency</strong> for the proximity sensor.</li>
+<li><strong>A total measurement time of 760us</strong> for the proximity sensor.</li>
+</ul>
+<div class="section" id="proximity-detection">
+<h4>Proximity Detection<a class="headerlink" href="#proximity-detection" title="Permalink to this headline">¶</a></h4>
+<p>The 4 amber LEDs indicate prox detection on a given element (left, center, right, shield). Proximity is detected in the 5-10cm range, depending on the angle of approach.</p>
+</div>
+<div class="section" id="swipe-detection">
+<h4>Swipe Detection<a class="headerlink" href="#swipe-detection" title="Permalink to this headline">¶</a></h4>
+<p>The two green LEDs indicate whether or not a left or right swipe was detected above the panel. Waving your hand from left to right over the top of the panel triggers a right swipe, and waving from right to left triggers a left swipe. The LEDs are set after a valid swipe pattern is detected, and are cleared as soon as a new gesture is attempted by a new entry into the proximity field.</p>
+<p>Gestures are detected through the use of a software state machine. All steps of the software state machine must be satisfied in order for a swipe to be detected.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="44%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Step</th>
+<th class="head">Right Swipe Detection</th>
+<th class="head">Left Swipe Detection</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>No Detection</td>
+<td>No Detection</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Left</td>
+<td>Right</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Left Center</td>
+<td>Right Center</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Left Center Right</td>
+<td>Right Center Left</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Center Right</td>
+<td>Center Left</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Right</td>
+<td>Left</td>
+</tr>
+</tbody>
+</table>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm.html#running-an-example-project">running an example project</a> and open the CAPTIVATE-PROXIMITY project.</p>
+<p>For an overview of the hardware design, view the <a class="reference external" href="ch_evm.html#captivate-proximity">CAPTIVATE-PROXIMITY hardware overview</a>.</p>
+</div>
+</div>
+<div class="section" id="captivate-metal-demonstration">
+<h3>CAPTIVATE-METAL Demonstration<a class="headerlink" href="#captivate-metal-demonstration" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-METAL panel demonstrates an alternative use of capacitive touch by using the deflection in the grounded metal overlay to cause a change in the capacitance between the electrodes and the metal overlay. Compared to traditional capacitive sensing through plastics or glass, capacitive metal touch is only sensitive to an applied force. For this reason metal touch is an excellent choice for harsh or hostile environments where there are liquids, grease, mud or grime present and environments where a user may be wearing gloves. For an overview of the hardware design, view the <a class="reference external" href="ch_evm.html#captivate-metal">CAPTIVATE-METAL hardware overview</a>.</p>
+<div class="figure" id="id10">
+<img alt="CAPTIVATE-METAL CapTIvate Design Center" src="../_images/evm_metal_designcenter.png" />
+<p class="caption"><span class="caption-number">Fig. 235 </span><span class="caption-text">CAPTIVATE-METAL CapTIvate Design Center</span></p>
+</div>
+<p>This panel is configured with the following settings:</p>
+<ul class="simple">
+<li><strong>A 20ms active mode scan period (~50 Hz).</strong></li>
+<li><strong>A 2 MHz conversion frequency</strong> for the metal sensors.</li>
+<li><strong>A total measurement time of 920us</strong> for the CAPTIVATE-METAL Panel.</li>
+</ul>
+<p>To demonstrate the features of metal touch panel, the demonstration firmware for the CAPTIVATE-METAL panel must be programmed onto the CAPTIVATE-FR2633 processor PCB. This demonstration firmware features three different operating modes: Basic multiple button touch, Single button touch with force and Single button force sensitivity. During the demonstrations it is possible to view real-time sensor response in the CapTIvate Design Center using the *.ser project file included with the firmware download for the CAPTIVATE-FR2633 processor PCB.</p>
+<p>To begin working with this panel, go through the steps for <a class="reference external" href="ch_evm.html#running-an-example-project">running an example project</a> and open the CAPTIVATE-METAL project.</p>
+<div class="section" id="basic-button-touch">
+<h4>Basic Button Touch<a class="headerlink" href="#basic-button-touch" title="Permalink to this headline">¶</a></h4>
+<p>This is demonstration mode #1 and displays &#8220;1d&#8221; on the LEDs. In this mode,one or more fingers can be pressed at the same time. The number of buttons pressed is displayed in the left most position of the LED display. The value of button value is displayed in the right most position. If more than one button is pressed the LED display shows the number of buttons and the sum total of the button values.</p>
+<div class="figure" id="id11">
+<img alt="CAPTIVATE-METAL CapTIvate Design Center" src="../_images/evm_metal_mode1.png" />
+<p class="caption"><span class="caption-number">Fig. 236 </span><span class="caption-text">CAPTIVATE-METAL CapTIvate Design Center</span></p>
+</div>
+</div>
+<div class="section" id="button-touch-with-force-indication">
+<h4>Button Touch with Force Indication<a class="headerlink" href="#button-touch-with-force-indication" title="Permalink to this headline">¶</a></h4>
+<p>This demonstration is mode #2 and displays &#8220;2d&#8221; on the LEDs. In this mode, when a single button is pressed, the value of the button is displayed in the left most position of the LED display. Additionally, one to three bars representing the strength of the finger press on the button is displayed in the LED display. This is an example of how the button force information could be used by applications as advanced user input.</p>
+<div class="figure" id="id12">
+<img alt="CAPTIVATE-METAL CapTIvate Design Center" src="../_images/evm_metal_mode2.png" />
+<p class="caption"><span class="caption-number">Fig. 237 </span><span class="caption-text">CAPTIVATE-METAL CapTIvate Design Center</span></p>
+</div>
+</div>
+<div class="section" id="button-touch-with-force-measurement">
+<h4>Button Touch with Force Measurement<a class="headerlink" href="#button-touch-with-force-measurement" title="Permalink to this headline">¶</a></h4>
+<p>This demonstration is mode #3 and displays &#8220;3d&#8221; on the LEDs.</p>
+<p>In this mode, when a single button is pressed, the value of the button is displayed in the left most position of the LED display. Additionally, the measured change in capacitance, expressed as a delta measurement count, is displayed in the LED and represents the strength of the finger press.</p>
+<div class="figure" id="id13">
+<img alt="CAPTIVATE-METAL CapTIvate Design Center" src="../_images/evm_metal_mode3.png" />
+<p class="caption"><span class="caption-number">Fig. 238 </span><span class="caption-text">CAPTIVATE-METAL CapTIvate Design Center</span></p>
+</div>
+</div>
+<div class="section" id="changing-the-demonstration-mode">
+<h4>Changing the Demonstration Mode<a class="headerlink" href="#changing-the-demonstration-mode" title="Permalink to this headline">¶</a></h4>
+<p>After the initial programming of the demonstration firmware, no re-programming is required to switch demonstration modes. The demonstration modes can be easily changed using the steps outlined below. The operating mode is stored into the MSP430FR2633&#8217;s non-volatile FRAM memory and is not affected by reset or power cycle.</p>
+<div class="figure" id="id14">
+<img alt="CAPTIVATE-METAL CapTIvate Design Center" src="../_images/evm_metal_change_mode.png" />
+<p class="caption"><span class="caption-number">Fig. 239 </span><span class="caption-text">CAPTIVATE-METAL CapTIvate Design Center</span></p>
+</div>
+<p>For an overview of the hardware design, view the <a class="reference external" href="ch_evm.html#captivate-metal">CAPTIVATE-METAL hardware overview</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>This section provides detailed information about the hardware in the kit.</p>
+<div class="section" id="captivate-fr2633-processor-pcb-overview">
+<h3>CAPTIVATE-FR2633 Processor PCB Overview<a class="headerlink" href="#captivate-fr2633-processor-pcb-overview" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-FR2633 PCB contains the MSP430FR2633 target microcontroller. Signals are brought in and out of the PCB in several different ways:</p>
+<ol class="arabic simple">
+<li>There is a 20-pin female debug connector on the top of the PCB. This connector provides power, SBW, UART, and I2C connectivity with the CAPTIVATE-PGMR module.</li>
+<li>There is a 48-pin female sensor panel connector on the bottom of the PCB. All capacitive sensing IO are brought out to this connector, as well as power and I2C.</li>
+<li>There is a 40-pin BoosterPack ecosystem header provision in the PCB, to allow the CAPTIVATE-FR2633 PCB to be a BoosterPack to another LaunchPad.</li>
+<li>There is a 2-pin external power header on the right of the PCB, which provides a location to bring in battery power or some other external power source.</li>
+</ol>
+<p>The connection routing is shown below:</p>
+<div class="figure" id="id15">
+<img alt="CAPTIVATE-FR2633 PCB" src="../_images/evm_fr2633_pcb.png" />
+<p class="caption"><span class="caption-number">Fig. 240 </span><span class="caption-text">CAPTIVATE-FR2633 PCB</span></p>
+</div>
+<div class="figure" id="id16">
+<img alt="CAPTIVATE-FR2633 Signal Flow" src="../_images/evm_fr2633_block_diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 241 </span><span class="caption-text">CAPTIVATE-FR2633 Signal Flow</span></p>
+</div>
+<div class="figure" id="id17">
+<img alt="CAPTIVATE-FR2633 MCU Pinout" src="../_images/evm_fr2633_mcu_diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 242 </span><span class="caption-text">CAPTIVATE-FR2633 MCU Pinout</span></p>
+</div>
+<div class="section" id="features">
+<h4>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>MSP430FR2633 MCU with CapTIvate™ Capacitive Touch Technology<ul>
+<li>15.5KB FRAM, 4KB RAM</li>
+<li>12KB ROM (BSL, CapTIvate™ Software library, HID communications and MSP430-driverlib I2C and UART drivers)</li>
+<li>16 CapTIvate™ I/O</li>
+</ul>
+</li>
+<li>48-pin Sensor PCB connector<ul>
+<li>16 CapTIvate™ I/O</li>
+<li>5 GPIO</li>
+<li>I2C</li>
+<li>+3.3V LDO</li>
+<li>+5V (VBUS)</li>
+<li>Support for future CapTIvate™ devices with up to 32 CapTIvate™ I/O</li>
+</ul>
+</li>
+<li>20-pin programmer / power/ communications connector<ul>
+<li>Spy-Bi-Wire target MCU programming</li>
+<li>Serial Communication with HID bridge</li>
+<li>+5V USB</li>
+<li><ol class="first arabic" start="2">
+<li>+3.3V supply rails</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>40-pin BoosterPack footprint<ul>
+<li>Power, UART, I2C and 3 GPIO</li>
+</ul>
+</li>
+<li>Selectable VCC power jumper J3<ul>
+<li>Selectable VCC source from programmer PCB</li>
+<li>+3.3V EnergyTrace&amp;trade for energy measurements</li>
+<li>+3.3V LDO provides up to 250mA to target MCU and Sensor PCB connector</li>
+<li>External supply or battery</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="msp430fr2633-mcu-with-captivate-capacitive-touch-technology">
+<h4>MSP430FR2633 MCU with CapTIvate™ Capacitive Touch Technology<a class="headerlink" href="#msp430fr2633-mcu-with-captivate-capacitive-touch-technology" title="Permalink to this headline">¶</a></h4>
+<p>The MSP430FR2633 can operate from 1.8v to 3.6v, features up to 16-MHz system clock and 8-MHz FRAM access, 15.5KB of non-volatile FRAM and 4KB of data RAM. To help maximize the amount of FRAM code memory available to applications, the CapTIvate™ Software Touch Library, HID communications and MSP430-Driverlib I2C and UART drivers are provided in the 12KB of ROM and accessible through a simple API. Refer to the <a class="reference external" href="ch_library.html">Software Library API</a> for further details.</p>
+<p>The CapTIvate™ capacitive touch technology supports self and mutual capacitive measurements on 16 I/O pins, with parallel scanning and up to 64 electrodes. This flexibility allows designers the freedom to mix self and mutual type buttons, sliders, wheels and proximity sensors into a single design.</p>
+</div>
+<div class="section" id="sensor-pcb-connector-48-pin-female">
+<h4>Sensor PCB Connector (48 pin Female)<a class="headerlink" href="#sensor-pcb-connector-48-pin-female" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id18">
+<img alt="Sensor Connector Pinout" src="../_images/evm_female_48P_connector.png" />
+<p class="caption"><span class="caption-number">Fig. 243 </span><span class="caption-text">Sensor Connector Pinout</span></p>
+</div>
+<p>The female connector shown above makes available all of the MSP430FR2633 16 CapTIvate™ I/O channels, I2C, +3.3V, +5V and several general purpose I/O. The middle row of this connector is reserved for future devices that support up to 32 CapTIvate™ I/O channels. On this PCB, all of the pins on row-B are grounded.</p>
+<p>For information on the 48-pin Male version of this connector, refer to the <a class="reference external" href="ch_evm.html#48-pin-male-sensor-pcb-connector-information">Sensor PCB Connector.</a></p>
+</div>
+<div class="section" id="programming-power-communications-connector-20-pin-female">
+<h4>Programming/Power/Communications Connector (20 pin Female)<a class="headerlink" href="#programming-power-communications-connector-20-pin-female" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id19">
+<img alt="Programming and Communications Pinout" src="../_images/evm_female_20P_connector.png" />
+<p class="caption"><span class="caption-number">Fig. 244 </span><span class="caption-text">Programming and Communications Pinout</span></p>
+</div>
+<p>This female connector shown above is designed to connect with the CAPTIVATE-PGMR programmer PCB. This connector provides power, programming and communications between the two PCBs.</p>
+<p><strong>BoosterPack Connector Footprint</strong></p>
+<p>The CAPTIVATE-FR2633 provides a standard 40-pin BoosterPack connector footprint providing +3.3V, +5V, UART, I2C and 5 GPIO signals.</p>
+<div class="figure" id="id20">
+<img alt="Launch Pad Connector and Pinout" src="../_images/evm_boosterpack_connector.png" />
+<p class="caption"><span class="caption-number">Fig. 245 </span><span class="caption-text">Launch Pad Connector and Pinout</span></p>
+</div>
+<p>Suggested BoosterPack header/connector</p>
+<ul class="simple">
+<li>SAMTEC DW-10-15-F-D-210, header, male</li>
+<li>SAMTEC SSQ-110-23-G-D, connector, female</li>
+</ul>
+<p><strong>Power</strong></p>
+<p>The CAPTIVATE-FR2633 PCB has two power sources available through the 20-pin connector J2 when attached to the CAPTIVATE-PGMR PCB. One source is a +3.3V (VCC_LDO) that provides power to the 48-pin connector J10 for devices such as LED drivers or Haptics drivers on a sensor PCB. The second source is the eZFET™ with EnergyTrace™ Technology DC/DC +3.3V output (VCC_METERED).</p>
+<p><strong>Target MCU power</strong></p>
+<p>Position the jumper J3 to pins(1-2) to select +3.3v LDO power source for the target MCU.</p>
+<p><strong>Measuring target MCU power</strong></p>
+<p>EnergyTrace™ Technology makes it possible to measure the power consumed by the target MCU when using CCS or IAR IDE. Position the jumper J3 to pins(2-3) to select +3.3v METERED power source for the target MCU.</p>
+<p><strong>Programming/Debug</strong></p>
+<p>The MSP430FR2633 MCU on this CAPTIVATE-FR2633 PCB is designed to be programmed and debugged through its Spy-Bi-Wire Interface. The full JTAG connection is not available on this PCB.</p>
+<p><strong>Note</strong> The eZFET™ back-channel UART feature is not supported on the CAPTIVATE-FR2633 PCB.</p>
+<p><strong>Communication</strong></p>
+<p>The MSP430FR2633 MCU communicates with a dedicated USB HID Bridge MCU located on the CAPTIVATE-PGMR PCB using UART or I2C communication to send sensor data and status to the CapTIvate Design Center as part of the sensor design and tuning process. A compact communications protocol is provided as part of the CapTIvate™ software library along with UART and I2C drivers. Both are located in the MSP430FR2633 ROM to minimize the impact on the FRAM memory footprint. The communications protocol is described in the <a class="reference external" href="ch_evm.html#using-the-hid-bridge">HID Bridge Chapter</a>.</p>
+<p>When used with CapTIvate™ protocol, the UART operates in a full duplex mode using RX and TX pins, and the I2C operates as an I2C Slave using SDA and SCL pins with an additional pin P1.2/IRQ to generate interrupt requests.</p>
+<p>Jumpers are provided to allow isolation between the MSP430FR2633 and the 20-pin Programming and Communications connector, if one or more of the I/O pins need to be re-purposed. Pull up resistors for I2C SDA, SCL and IRQ signals are provided on the &#8220;isolated&#8221; side of jumpers.</p>
+<div class="figure" id="id21">
+<img alt="Communication Isolation Jumpers" src="../_images/evm_communication_jumpers.png" />
+<p class="caption"><span class="caption-number">Fig. 246 </span><span class="caption-text">Communication Isolation Jumpers</span></p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="60%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Jumper</th>
+<th class="head">Description</th>
+<th class="head">Alternate Use</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>TXD</td>
+<td>MSP430FR2633 UART data out</td>
+<td>P1.4</td>
+</tr>
+<tr class="row-odd"><td>RXD</td>
+<td>MSP430FR2633 UART data in</td>
+<td>P1.5</td>
+</tr>
+<tr class="row-even"><td>SDA</td>
+<td>MSP430FR2633 I2C data in/out</td>
+<td>P1.2</td>
+</tr>
+<tr class="row-odd"><td>SCL</td>
+<td>MSP430FR2633 I2C clock input</td>
+<td>P1.3</td>
+</tr>
+<tr class="row-even"><td>IRQ</td>
+<td>MSP430FR2633 I2C slave Interrupt out</td>
+<td>P1.1</td>
+</tr>
+<tr class="row-odd"><td>SYNC</td>
+<td>MSP430FR2633 CapTIvate™ Sync input</td>
+<td>P2.2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Extended I2C Bus</strong></p>
+<p>The I2C signals are also present on the 48-pin sensor PCB connector. The I2C allows the MSP430FR2633 to control I2C slave devices, such as LED or Haptics drivers that might be installed on the sensor PCB.</p>
+<p><strong>Power Selection</strong> Both VCC_LDO and VCC_METERED are routed to a selection jumper J3 which provides power to the MSP430FR2633 MCU. For most applications the VCC_LDO is recommended as it provides a very well-regulated output. When the VCC_METERED output is selected, power consumed by the MCU can be measured using the EnergyTrace™ Feature in the CCS IDE.</p>
+<div class="figure" id="id22">
+<img alt="MSP430 VCC selection" src="../_images/evm_power_jumpers.png" />
+<p class="caption"><span class="caption-number">Fig. 247 </span><span class="caption-text">MSP430 VCC selection</span></p>
+</div>
+<p><strong>External / Battery Power</strong></p>
+<p>For battery powered applications, the MSP430FR2633 can be powered from an external 1.8V to 3.6V power source at the external power pads provided on the PCB. This allows the CAPTIVATE-FR2633 PCB and sensor PCB to be evaluated in an environment that is floating from any system or earth ground.</p>
+<p><strong>Caution</strong></p>
+<p>When evaluating the CAPT-FR2633 with both an external power source and the CAPTIVATE-PGMR connected, jumper J3 on the CAPTIVATE-FR2633 PCB should be completely removed. This prevents any conflicts between VCC_LDO or VCC_METERED from the CAPTIVATE-PGMR PCB and the external power source. If the CAPTIVATE-ISO PCB is used between the CAPTIVATE-FR2633 and CAPTIVATE-PGMR, then jumper J3 on the CAPTIVATE-FR2633 PCB should remain populated across MCU VCC and 3.3V LDO so that the I2C pullup resistors are connected to MCU VCC.</p>
+</div>
+</div>
+<div class="section" id="captivate-pgmr-programmer-pcb-overview">
+<h3>CAPTIVATE-PGMR Programmer PCB Overview<a class="headerlink" href="#captivate-pgmr-programmer-pcb-overview" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-PGMR PCB provides debug services. It includes an eZ-FET with EnergyTrace and a HID Bridge for bringing UART and I2C into a host PC.</p>
+<div class="figure" id="id23">
+<img alt="pcb" src="../_images/evm_programmer_pcb.png" />
+<p class="caption"><span class="caption-number">Fig. 248 </span><span class="caption-text">pcb</span></p>
+</div>
+<div class="figure">
+<img alt="" src="../_images/evm_programmer_block_diagram.png" />
+</div>
+<div class="section" id="id1">
+<h4>Features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>eZFET™ with EnergyTrace™ Technology</li>
+<li>Simple Spy-Bi-Wire target MCU programming</li>
+<li>Can be used to program any MSP430</li>
+<li>Separate +3.3 V outputs available for MCU<ul>
+<li>EnergyTrace™</li>
+<li>Dedicated LDO</li>
+</ul>
+</li>
+<li>20-pin programmer / power/ communications connector<ul>
+<li>Spy-Bi-Wire Interface</li>
+<li>UART and I2C Serial Communication with target</li>
+<li>+5V USB</li>
+<li><ol class="first arabic" start="2">
+<li>+3.3V supply rails</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>USB HID Serial Bridge<ul>
+<li>Provides interface between CapTIvate™ Design Center and target MCU</li>
+<li>Supports UART and I2C</li>
+<li>HID - No drivers to install</li>
+<li>Supports up to 250k baud</li>
+<li>Easy update via BSL</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="programming-power-communications-connector-20-pin-male">
+<h4>Programming/Power/Communications Connector (20 pin Male)<a class="headerlink" href="#programming-power-communications-connector-20-pin-male" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id24">
+<img alt="Programmer Connector pinout" src="../_images/evm_male_20P_connector.png" />
+<p class="caption"><span class="caption-number">Fig. 249 </span><span class="caption-text">Programmer Connector pinout</span></p>
+</div>
+<p>The male connector shown above is designed to connect with the CAPTIVATE-FR2633 MCU PCB. This connector provides power, programming and communications between the two PCBs. The programmer can be used to program a user&#8217;s target PCB directly if the PCB has the mating connector or it is possible to connect only the required signals, power and ground using wires. Note, the wires should be kept as short as possible, typically less than 20cm. As an example of a typical &#8220;wired&#8221; connection scheme, the highlighted yellow boxes show typical connections such as:</p>
+<ul class="simple">
+<li>+3.3v</li>
+<li>Ground</li>
+<li>SBWTCK_TST</li>
+<li>SBWTDIO_RST</li>
+<li>UART-TXD</li>
+<li>UART-RXD</li>
+</ul>
+<p>By using only these few signals, a smaller connector can be used on the user&#8217;s PCB.</p>
+<p>The SBWTCK_TST and SBWTDIO_RST Spy-By-Wire signals are used for programming and debug, while the UART-TXD and UART-RXD are used to communicate with the CapTIvate Design Center during development and the sensor tuning process. Optionally, the I2C communication signals SDA, SCL and IRQ are provided on the connector and may be used instead of the UART signals.</p>
+<p><strong>Power</strong></p>
+<p>Power to the CAPTIVATE-PGMR PCB is provided through the USB connector at approximately 5VDC. A TI TPS73533 +3.3V, 500mA LDO provides power for all the devices on the CAPTIVATE-PGMR. This +3.3V output is referred to as VCC_LDO and is made available to the MSP430FR2633 target MCU on the CAPTIVATE-FR2633 PCB when attached. The eZFET™ with EnergyTrace™ Technology also provides a DC/DC +3.3V output. This output is referred to as VCC_METERED and is available only to the target MCU for energy measurements. A jumper on the CAPTIVATE-FR2633 PCB selects between the two sources for the MSP430FR2633.</p>
+<p><strong>Note:</strong> The CAPTIVATE-PGMR is considered a low-power USB device and therefore should draw at most 100mA. The CAPTIVATE-PGMR PCB draws a nominal 60mA. This allows any target to draw up to 40mA.</p>
+<p><strong>Programming/Debug</strong></p>
+<p>The eZFET™ provides programming and debugging through its Spy-Bi-Wire Interface.</p>
+<p>The eZFET™ back-channel UART feature is available on this PCB, however, the CAPTIVATE-FR2633 does not support this feature.</p>
+<p><strong>Using Spy-Bi-Wire (SBW) programming with CAPTIVATE-ISO PCB</strong></p>
+<p>Refer to <a class="reference external" href="ch_evm.html#id2">JTAG and SBW Limitations</a></p>
+</div>
+<div class="section" id="target-communication-via-the-usb-hid-serial-bridge">
+<h4>Target Communication via the USB HID Serial Bridge<a class="headerlink" href="#target-communication-via-the-usb-hid-serial-bridge" title="Permalink to this headline">¶</a></h4>
+<p>The CAPTIVATE-PGMR PCB features a HID-Bridge which enumerates as a USB HID device and does not require any drivers to be installed on the PC. It supports both I2C and UART interfaces and is factory programmed with a compact communications protocol for sending sensor data and status between the target MCU and the CapTIvate™; Design Center. For detailed information regarding the communications protocol, refer to <a class="reference external" href="ch_evm.html#using-the-hid-bridge">HID Bridge Chapter</a>.</p>
+<p>Key features include:</p>
+<ul class="simple">
+<li>Supports UART and I2C interfaces</li>
+<li>Factory programmed with CapTIvate™ Protocol</li>
+<li>No USB drivers needed</li>
+<li>Easy firmware updates using USB BSL</li>
+<li>For more information, see the <a class="reference external" href="ch_evm.html#using-the-hid-bridge">HID Bridge</a> section.</li>
+</ul>
+</div>
+<div class="section" id="usb-hid-serial-bridge-firmware-download">
+<h4>USB HID Serial Bridge Firmware Download<a class="headerlink" href="#usb-hid-serial-bridge-firmware-download" title="Permalink to this headline">¶</a></h4>
+<p>The MSP430F5528 HID Bridge MCU supports firmware updates using a USB bootloader. To update the existing firmware or load a user-defined firmware image, use the &#8220;Python Firmware Upgrade&#8221; utility provided with MSP430ware. Depending on where MSP430ware has been installed on your computer, navigate to the &#8221;...\MSP430ware...\usblib430\Host_USB_Software\Python_Firmware_Upgrader&#8221; directory.</p>
+<ul class="simple">
+<li>Place the MSP430F5528 into BSL mode<ul>
+<li>Press and hold RESET button (S300)</li>
+<li>Press BSL button (S301)</li>
+<li>Release RESET button</li>
+<li>Release BSL button</li>
+</ul>
+</li>
+<li>Launch the firmware upgrade utility<ul>
+<li>Double-click on the utility icon (the utility will scan the USB bus looking for a specific VID/PID combination of the MSP430F5528 in BSL mode).</li>
+<li>If no device is found, repeat the steps above to place the MSP430F5528 into BSL mode and select &#8220;File&gt;Rescan Bus&#8221; in the utility menu.</li>
+<li>When ready, select &#8220;File&gt;Open user firmware&#8221; from the utility menu to select the firmware image and begin the update process.</li>
+</ul>
+</li>
+</ul>
+<p>The default image for the HID-BRIDGE is available in the CapTIvate Design Center install, starting with CapTIvate Design Center version 1.60.00.00. The HID-BRIDGE binary image may be found by browsing to your CapTIvate Design Center installation directory and navigating to /DesignCenter/Firmware directory. If you installed the CapTIvate Design Center to the default location, the absolute file path to find the HID-BRIDGE factory image on a Microsoft Windows machine is as follows: <em>C:/ti/msp/CapTIvateDesignCenter_x.xx.xx.xx/CapTIvateDesignCenter/firmware</em> where <em>x.xx.xx.xx</em> is the version number you have installed locally.</p>
+</div>
+</div>
+<div class="section" id="captivate-iso-communications-isolation-pcb">
+<h3>CAPTIVATE-ISO (Communications Isolation PCB)<a class="headerlink" href="#captivate-iso-communications-isolation-pcb" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-ISO PCB provides a way to maintain SBW, I2C, and UART communication when the CAPTIVATE-FR2633 target is powered from an external power source such as a battery or another system.</p>
+<div class="figure" id="id25">
+<img alt="CAPTIVATE-ISO PCB" src="../_images/evm_iso_pcb.png" />
+<p class="caption"><span class="caption-number">Fig. 250 </span><span class="caption-text">CAPTIVATE-ISO PCB</span></p>
+</div>
+<div class="figure" id="id26">
+<img alt="Block Diagram" src="../_images/evm_iso_block_diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 251 </span><span class="caption-text">Block Diagram</span></p>
+</div>
+<div class="section" id="id2">
+<h4>Features<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Provides galvanic isolation for SBW programming/debug, I2C and UART communications<ul>
+<li>TI low power digital isolators<ul>
+<li>ISO1541 for Spy-by-Wire</li>
+<li>ISO7131 for UART</li>
+<li>ISO1540 for I2C</li>
+</ul>
+</li>
+<li>No shared power or grounds</li>
+</ul>
+</li>
+<li>Use when performing<ul>
+<li>Tuning battery powered applications</li>
+<li>Conducted noise testing</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="isolated-jtag-spy-bi-wire">
+<h4>Isolated JTAG Spy-Bi-Wire<a class="headerlink" href="#isolated-jtag-spy-bi-wire" title="Permalink to this headline">¶</a></h4>
+<p>The CAPTIVATE-ISO PCB provides isolated Spy-Bi-Wire programming and debugging. Due to the added delays in the SBW timing,, it is recommended to use the default medium JTAG/SBW speed or slower. JTAG/SBW speed = FAST is not supported at this time.</p>
+</div>
+<div class="section" id="typical-isolated-setup">
+<h4>Typical Isolated Setup<a class="headerlink" href="#typical-isolated-setup" title="Permalink to this headline">¶</a></h4>
+<p>The diagram below illustrates a typical setup using an isolated power supply or battery to power the CAPTIVATE-FR2633 MCU target PCB.</p>
+<div class="figure" id="id27">
+<img alt="Typical Setup" src="../_images/evm_iso_pcb_setup.png" />
+<p class="caption"><span class="caption-number">Fig. 252 </span><span class="caption-text">Typical Setup</span></p>
+</div>
+<p><strong>Important:</strong> To guarantee proper operation, power the &#8220;Target&#8221; side of the CAPTIVATE-ISO PCB with an external power source that meets the VCC minimum operating voltages shown in the table below. These values are provided for convenience only. Please consult the corresponding device&#8217;s datasheet for more information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Isolator</th>
+<th class="head">Min Operating VCC</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>TI ISO1540</td>
+<td>3.0</td>
+</tr>
+<tr class="row-odd"><td>TI ISO1541</td>
+<td>3.0</td>
+</tr>
+<tr class="row-even"><td>TI ISO7131</td>
+<td>2.7</td>
+</tr>
+</tbody>
+</table>
+<p>The maximum &#8220;Target&#8221; side voltage should not exceed the MSP430FR2633 VCC maximum operating voltage 3.6 VDC.</p>
+</div>
+<div class="section" id="connectors">
+<h4>Connectors<a class="headerlink" href="#connectors" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id28">
+<img alt="Connectors" src="../_images/evm_iso_pcb_connectors.png" />
+<p class="caption"><span class="caption-number">Fig. 253 </span><span class="caption-text">Connectors</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="captivate-bswp">
+<h3>CAPTIVATE-BSWP<a class="headerlink" href="#captivate-bswp" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-BSWP is a demonstration sensing panel with buttons, a slider, a wheel, and a proximity sensor. All of the sensors on this panel are self-capacitance sensors. The sensing panel serves the following purposes:</p>
+<ol class="arabic simple">
+<li>Demonstrates low power design principles for a battery powered application</li>
+<li>Demonstrates the slider and wheel resolution that is achievable through the use of self capacitance</li>
+<li>Serves as a reference layout for the recommended way to design a slider or wheel sensor</li>
+<li>Exercises all 16 CapTIvate™ sensing IOs on the MSP430FR2633</li>
+<li>Demonstrates use of the CapTIvate™ wake-on-proximity feature for low power consumption</li>
+<li>Demonstrates use of the CapTIvate™ Design Center Auto-Assign feature for automatic pin routing</li>
+</ol>
+<div class="figure" id="id29">
+<img alt="CAPTIVATE-BSWP" src="../_images/evm_bswp_pcb.png" />
+<p class="caption"><span class="caption-number">Fig. 254 </span><span class="caption-text">CAPTIVATE-BSWP</span></p>
+</div>
+<div class="section" id="sensor-design-and-organization">
+<h4>Sensor Design and Organization<a class="headerlink" href="#sensor-design-and-organization" title="Permalink to this headline">¶</a></h4>
+<p>The 16 CapTIvate™ IOs are fully utilized by this panel. They are organized as shown in the diagram below.</p>
+<div class="figure" id="id30">
+<img alt="Electrode Mapping" src="../_images/evm_bswp_electrodes.png" />
+<p class="caption"><span class="caption-number">Fig. 255 </span><span class="caption-text">Electrode Mapping</span></p>
+</div>
+<div class="section" id="button-group-sensor-with-8-buttons">
+<h5>Button Group Sensor with 8 Buttons<a class="headerlink" href="#button-group-sensor-with-8-buttons" title="Permalink to this headline">¶</a></h5>
+<p>The button group sensor has 8 buttons, or &#8220;elements.&#8221; They are connected to the following IO: CAP0.0, CAP1.0, CAP2.0, CAP3.0, CAP0.1, CAP1.1, CAP2.1, and CAP3.1. Note how the CapTIvate™ Design Center auto-assign feature selected two pins from each measurement block. This enables parallel scanning in 2 groups of 4 elements. Basic 10mm diameter circular electrodes were used for the buttons. A ground hatch was utilized underneath the electrodes, but was hollowed out underneath them to improve sensitivity and consequently power consumption, which was a design goal for this panel. For more information on button layouts, see the <a class="reference external" href="ch_design_guide.html#self-capacitive-buttons">design guide</a>.</p>
+<div class="figure" id="id31">
+<img alt="Button Layout" src="../_images/evm_bswp_buttons.png" />
+<p class="caption"><span class="caption-number">Fig. 256 </span><span class="caption-text">Button Layout</span></p>
+</div>
+</div>
+<div class="section" id="slider-sensor-with-4-elements">
+<h5>Slider Sensor with 4 Elements<a class="headerlink" href="#slider-sensor-with-4-elements" title="Permalink to this headline">¶</a></h5>
+<p>The slider sensor has 4 elements. They are connected to the following IO: CAP0.2, CAP1.2, CAP2.2, and CAP3.2. Again, one pin was routed from each block to enable parallel scanning of the entire slider. This is very important for achieving the best possible linearity from a slider.</p>
+<p>Linearity is defined as the linear accuracy of the reported position of a slider or wheel sensor. It&#8217;s a measure of how accurately the slider reports back position. For example, a touch in the center of a slider with 1000 points of resolution should return a value in the range of 490-510, not 400 or 600. Additionally, the slider should maintain that accuracy throughout the range of the slider. An example of poor slider performance would be what is called &#8220;stair stepping&#8221;, where the position reported moves quickly, then slowly, then quickly again, all while a touch is moving at a constant rate.</p>
+<p>By scanning all 4 slider elements in parallel, three performance improvements are attained. First, because each electrode is driven at the same voltage, there will minimal E-field between the electrodes. This reduces the parasitic capacitance of each electrode. If they had to be scanned sequentially, neighboring electrodes would have to be grounded during a scan- meaning they look like a large parasitic capacitance. By scanning them in parallel, it is possible to tightly pack the electrodes together, optimizing surface area coverage and sensitivity. Second, there is no latency in the scan. With sequential scanning, by the time the 4th electrode is scanned the touch may be in a different location then when the first scan was performed- distorting the raw data that is fed to the position algorithm and reducing the accuracy of the slider to time changing touches. Third, the slider has common mode noise rejection because of the fact that all electrodes are scanned together. If noise
+effects one channel, it will affect all channels evenly. This has the overall effect of ensuring that a stable position is reported even in the presence of noise.</p>
+<div class="figure" id="id32">
+<img alt="Slider Layout" src="../_images/evm_bswp_slider.png" />
+<p class="caption"><span class="caption-number">Fig. 257 </span><span class="caption-text">Slider Layout</span></p>
+</div>
+<p>From a layout perspective, the inter-digitation of each element must be as linear as possible to enable linear position tracking. The performance of the slider is only as good as the layout. One feature of this slider is that the outer element is actually split into two pieces, one on each end, connected together to the same pin. The easiest way to think about this configuration is to think of it as a wheel that was &#8220;chopped&#8221; at the top, and unrolled to be flat. This provides the most linear performance, because the algorithm is going to resolve the slider back to a unit circle.</p>
+<p>The proximity sensor that surrounds the slider is grounded during the scan of the slider. This serves to limit the interaction area to the slider, as fringing E-field lines from the edges of the sensor will be reduced because of the grounded sensor nearby.</p>
+</div>
+<div class="section" id="wheel-sensor-with-3-elements">
+<h5>Wheel Sensor with 3 Elements<a class="headerlink" href="#wheel-sensor-with-3-elements" title="Permalink to this headline">¶</a></h5>
+<p>The wheel has 3 elements. They are connected to the following IO: CAP0.3, CAP1.3, and CAP2.3. The design principles for the wheel are the same as for the slider.</p>
+<div class="figure" id="id33">
+<img alt="Wheel Layout" src="../_images/evm_bswp_wheel.png" />
+<p class="caption"><span class="caption-number">Fig. 258 </span><span class="caption-text">Wheel Layout</span></p>
+</div>
+</div>
+<div class="section" id="proximity-sensor-with-1-element">
+<h5>Proximity Sensor with 1 Element<a class="headerlink" href="#proximity-sensor-with-1-element" title="Permalink to this headline">¶</a></h5>
+<p>The proximity has 1 element connected to CAP3.3. The proximity sensor serves as a wake-up sensor for the rest of the panel. It was designed to wrap around the existing sensors already on the panel. By providing surface area around the existing sensors, it can detect when a user is close to any given sensor and use that information to wake the MCU from LPM3.</p>
+<div class="figure" id="id34">
+<img alt="Proximity Layout" src="../_images/evm_bswp_prox.png" />
+<p class="caption"><span class="caption-number">Fig. 259 </span><span class="caption-text">Proximity Layout</span></p>
+</div>
+<p>Note that there is no ground plane underneath of the proximity electrode. This was done intentionally to improve the sensitivity.</p>
+<p>To explore the demonstration for this panel, check out the <a class="reference external" href="ch_evm.html#out-of-box-experience">CAPTIVATE-BSWP demonstration</a> section.</p>
+</div>
+</div>
+</div>
+<div class="section" id="captivate-phone">
+<h3>CAPTIVATE-PHONE<a class="headerlink" href="#captivate-phone" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-PHONE is a demonstration sensing panel with 17 buttons, 2 sliders, a wheel, and a proximity/guard sensor. There is also a DRV2605L haptic driver IC with a Samsung linear resonant actuator (LRA) for vibrational feedback. The sensing panel serves the following purposes:</p>
+<ol class="arabic simple">
+<li>Demonstrates how to matrix mutual capacitance sensors for high density and low pin count</li>
+<li>Serves as a reference layout for the recommended way to design a mutual capacitance slider or wheel sensor</li>
+<li>Demonstrates a hybrid technology approach that has mutual and self capacitance in the same design</li>
+<li>Demonstrates the re-purposing of a proximity sensor as a guard channel</li>
+<li>Demonstrates a real-world application (desk phone interface)</li>
+</ol>
+<div class="figure" id="id35">
+<img alt="CAPTIVATE-PHONE" src="../_images/evm_phone_pcb.png" />
+<p class="caption"><span class="caption-number">Fig. 260 </span><span class="caption-text">CAPTIVATE-PHONE</span></p>
+</div>
+<div class="section" id="id3">
+<h4>Sensor Design and Organization<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Only 12 CapTIvate™ IOs are used for this demonstration, which has 29 elements! A mutual capacitance matrix made up of 4 Rx lines and 7 Tx lines (11 total pins) forms 28 elements. The 29th element is a self-capacitance guard channel and proximity combo sensor. The guard and proximity sensor is on CAP3.3. The 4 Rx lines are shared between all of the mutual capacitance sensors, and are connected to CAP0.0, CAP1.0, CAP2.0, and CAP3.0. Just like the CAPTIVATE-BSWP panel, selecting one receive line from each measurement block allows for efficient parallel scanning of 4 elements at a time.</p>
+<div class="figure" id="id36">
+<img alt="CAPTIVATE-PHONE" src="../_images/evm_phone_IO.png" />
+<p class="caption"><span class="caption-number">Fig. 261 </span><span class="caption-text">CAPTIVATE-PHONE</span></p>
+</div>
+<div class="section" id="numeric-keypad-and-mode-keypad">
+<h5>Numeric Keypad and Mode Keypad<a class="headerlink" href="#numeric-keypad-and-mode-keypad" title="Permalink to this headline">¶</a></h5>
+<p>The CAPTIVATE-PHONE demonstration utilizes the basic mutual capacitance button layout as shown in the <a class="reference external" href="ch_design_guide.html#mutual_capacitive_buttons">design guide</a>. This geometry is easy to lay out and provides more than adequate sensitivity for this application. Note that the guard channel is routed between the buttons. This will serve as a ground shield while the buttons are being measured.</p>
+<div class="figure" id="id37">
+<img alt="Keypad Buttons (Square)" src="../_images/evm_phone_buttons.png" />
+<p class="caption"><span class="caption-number">Fig. 262 </span><span class="caption-text">Keypad Buttons (Square)</span></p>
+</div>
+</div>
+<div class="section" id="wheel-button">
+<h5>Wheel Button<a class="headerlink" href="#wheel-button" title="Permalink to this headline">¶</a></h5>
+<p>The wheel selection button in the center of the wheel demonstrates how the geometry may also be radial with similar performance. Testing has revealed that E-field lines concentrate at the 90-degree corners of the square geometry, improving sensitivity. However, a radial geometry is still viable and is more applicable to the wheel button case because of the surrounding wheel sensor. Note that there is a ground fill between the wheel itself and the wheel button. This serves to provide shielding for the button, so that a touch on the edge of the wheel does not trigger the button.</p>
+<div class="figure" id="id38">
+<img alt="Wheel Button (Circular)" src="../_images/evm_phone_wheel_button.png" />
+<p class="caption"><span class="caption-number">Fig. 263 </span><span class="caption-text">Wheel Button (Circular)</span></p>
+</div>
+</div>
+<div class="section" id="scroll-wheel">
+<h5>Scroll Wheel<a class="headerlink" href="#scroll-wheel" title="Permalink to this headline">¶</a></h5>
+<p>The scroll wheel implementation on this PCB is effectively a condensed self-capacitance wheel for the Rx electrodes, with an inner and outer Tx ring forming the mutual coupling. This topology works quite well for creating a mutual capacitance wheel.</p>
+<div class="figure" id="id39">
+<img alt="Scroll Wheel" src="../_images/evm_phone_wheel.png" />
+<p class="caption"><span class="caption-number">Fig. 264 </span><span class="caption-text">Scroll Wheel</span></p>
+</div>
+<p>With slider and wheel design it is extremely important to match the parasitic capacitances as best as possible to ensure the best linearity. In the case of mutual capacitance, this means parasitic <em>mutual</em> capacitance. This type of parasitic shows up wherever Rx&#8217;s and Tx&#8217;s are brought close together. Usually it is straightforward to minimize trace parastics, but it can be difficult on larger PCBs such as this, or PCBs that have connectors. Drastic differences in parasitic capacitance lead to differences in sensitivity between electrodes in the slider or wheel, which will negatively impact the linearity. The CapTIvate™ technology calibration routine will reduce these effects to a certain extent, but it is always best to start with a good layout. Be aware of where your Rx&#8217;s and Tx&#8217;s come close together, and minimize these areas as much as possible by crossing them at 90-degree angles and placing ground between them if they run parallel to each other. This will serve to improve
+sensitivity as well as linearity.</p>
+</div>
+<div class="section" id="slider-sensors-general-purpose-and-volume-slider">
+<h5>Slider Sensors (General Purpose and Volume Slider)<a class="headerlink" href="#slider-sensors-general-purpose-and-volume-slider" title="Permalink to this headline">¶</a></h5>
+<p>The CAPTIVATE-PHONE sensing panel has two mutual capacitance sliders of different lengths. Both have 4 elements each based on the 4 shared Rx electrodes. The same layout technique is applied to both sliders, and it is quite easy to implement in most layout packages. Just like the scroll wheel, the Rx electrodes are encapsulated by two Tx tracks. Rather than the complex inter-digitation of the wheel layouts and the self-capacitance slider, a simple triangle design is implemented for this PCB.</p>
+<div class="figure" id="id40">
+<img alt="Slider Sensor" src="../_images/evm_phone_slider.png" />
+<p class="caption"><span class="caption-number">Fig. 265 </span><span class="caption-text">Slider Sensor</span></p>
+</div>
+<p>Note that just like the self-capacitance slider on the CAPTIVATE-BSWP panel, the end elements are &#8220;half&#8221; elements, and they are connected together as if they were one full size element. This technique provides the pest performance from the position algorithm. If a smaller slider is desired, it is acceptable to drop an inner element at implement a 3-element slider using the same approach.</p>
+</div>
+<div class="section" id="proximity-and-guard-sensor">
+<h5>Proximity and Guard Sensor<a class="headerlink" href="#proximity-and-guard-sensor" title="Permalink to this headline">¶</a></h5>
+<p>The proximity and guard sensor is simply a fill that flows in between all of the other sensor elements on the PCB. This is the only self-capacitance sensor on the panel.</p>
+<p>Proximity Functionality</p>
+<p>From a proximity perspective, the electrode does not offer large sensing distances because it is directly above the ground hatch on the bottom layer. This creates a large parasitic capacitance on the order of 200pF, and it also reduces the E-field penetration into the area above the panel. A distance of a few centimeters is attainable- but not 5-10cm.</p>
+<p>Guard Channel Functionality</p>
+<p>The guard channel functionality is essentially a re-purposing of the proximity sensor data. Because the proximity/guard electrode wraps around all of the sensors, it can be used as a detection mask for the other sensors. What this means is that when the guard channel reaches a certain level of interaction (the touch threshold), reporting of touches on other sensors is <em>masked</em> by the guard channel detection. This prevents other sensors from triggering if someone puts their whole palm down on the panel, or wants to wipe it down for cleaning purposes.</p>
+<p>To explore the demonstration for this panel, check out the <a class="reference external" href="ch_evm.html#captivate-phone-demonstration">CAPTIVATE-PHONE demonstration</a> section.</p>
+</div>
+</div>
+</div>
+<div class="section" id="captivate-proximity">
+<h3>CAPTIVATE-PROXIMITY<a class="headerlink" href="#captivate-proximity" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-PROXIMITY is a demonstration proximity sensing panel with 4 electrodes. There are also 6 status LED indicators on the PCB: 4 for proximity detection, and 2 for gesture detection. The sensing panel serves the following purposes:</p>
+<ol class="arabic simple">
+<li>Demonstrates how to implement proximity gesturing to improve the robustness of a proximity application such as a paper towel dispenser</li>
+<li>Serves as a reference layout for the implementation of a driven shield electrode with a CapTIvate™ IO to reduce parasitic capacitance</li>
+<li>Demonstrates the use of muxed CapTIvate™ IOs as active-low LED current sinks.</li>
+</ol>
+<div class="figure" id="id41">
+<img alt="CAPTIVATE-PROXIMITY" src="../_images/evm_proximity_pcb.png" />
+<p class="caption"><span class="caption-number">Fig. 266 </span><span class="caption-text">CAPTIVATE-PROXIMITY</span></p>
+</div>
+<div class="section" id="id4">
+<h4>Sensor Design and Organization<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The module&#8217;s 4 electrodes are connected to CAP0.3, CAP1.3, CAP2.3, and CAP3.3. CAP1.3 is used for the shield electrode, which is a solid plane across the bottom layer of the PCB and a ring around the 3 zones on the top layer of the PCB. CAP0.3, CAP2.3, and CAP3.3 are used to drive the left, center, and right zones, respectively. These three IO&#8217;s are all dedicated capacitive sensing IO&#8217;s- they are not muxed with GPIO functionality. As a result, they are not connected to the DVCC IO rail internally. While they have similar sensitivity when compared with muxed IO&#8217;s, in theory they will be less effected by any switching noise that may be present on that rail due to a PWM, I2C, or other digital signal. All 4 electrodes are measured in parallel (one per sensing block).</p>
+<div class="figure" id="id42">
+<img alt="Proximity Sensors" src="../_images/evm_prox_top.png" />
+<p class="caption"><span class="caption-number">Fig. 267 </span><span class="caption-text">Proximity Sensors</span></p>
+</div>
+<div class="section" id="shield-theory">
+<h5>Shield Theory<a class="headerlink" href="#shield-theory" title="Permalink to this headline">¶</a></h5>
+<p>Because all four electrodes are driven in parallel off of the same conversion clock, the potential difference between the various electrodes will be small. This means that the E-field between them (and thus, the result parasitic capacitance) will also appear quite small to the electrode. This parasitic reduction directly results in an improvement in overall sensitivity. It should be noted that the shield does not provide immunity to proximity interactions below the shield. If immunity to proximity on one side of an electrode is needed, a light (&lt;20%) ground hatch is a better structure.</p>
+</div>
+</div>
+</div>
+<div class="section" id="captivate-metal">
+<h3>CAPTIVATE-METAL<a class="headerlink" href="#captivate-metal" title="Permalink to this headline">¶</a></h3>
+<p>The CAPTIVATE-METAL panel uses the deflection in the grounded metal overlay to cause a change in the capacitance between the electrodes below and the metal overlay.</p>
+<div class="figure" id="id43">
+<img alt="pcb" src="../_images/evm_metal_how_it_works.png" />
+<p class="caption"><span class="caption-number">Fig. 268 </span><span class="caption-text">pcb</span></p>
+</div>
+<p>Compared to traditional capacitive sensing through plastics or glass, capacitive metal touch is only sensitive to an applied force and for this reason is an excellent choice for harsh or hostile environments where there are liquids, grease, mud or grime present and environments where a user may be wearing gloves. Since the change in capacitance is related to the amount of applied force, it is possible to measure, or sense, the amount of pressure applied. For some applications this may be a useful feature that can be used to create an advanced user input.</p>
+<ul class="simple">
+<li>Demonstrates metal touch capability<ul>
+<li>Basic Touch</li>
+<li>Button Touch with Force Indication</li>
+<li>Button Touch with Force Measurement</li>
+</ul>
+</li>
+<li>Features:<ul>
+<li>8 self capacitive electrodes</li>
+<li>LED numeric display</li>
+</ul>
+</li>
+</ul>
+<div class="figure" id="id44">
+<img alt="pcb" src="../_images/evm_metal_touch_pcb.png" />
+<p class="caption"><span class="caption-number">Fig. 269 </span><span class="caption-text">pcb</span></p>
+</div>
+<div class="section" id="id5">
+<h4>Sensor Design and Organization<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>The PCB&#8217;s 8 electrodes are connected to CAP0.0, CAP1.0, CAP2.0, CAP3.0, CAP0.2, CAP1.2, CAP2.2 and CAP3.2 surrounded by a solid ground plane on the sensor layer (top) and hatched ground on the backside (bottom) layer. The Altium design files for this project can be found at <a class="reference external" href="http://www.ti.com/tool/captivate-metal">http://www.ti.com/tool/captivate-metal</a></p>
+<div class="figure" id="id45">
+<img alt="pcb" src="../_images/evm_metal_pcb_gerber.png" />
+<p class="caption"><span class="caption-number">Fig. 270 </span><span class="caption-text">pcb</span></p>
+</div>
+</div>
+<div class="section" id="metal-stackup">
+<h4>Metal Stackup<a class="headerlink" href="#metal-stackup" title="Permalink to this headline">¶</a></h4>
+<p>This demonstration panel is constructed using a 301 SS Gauge 31 (0.25mm) metal overlay bonded to the PCB using 2 layers of thermal bonding adhesive TBF583 film by 3M (total thickness = 0.1mm).</p>
+<div class="figure" id="id46">
+<img alt="pcb" src="../_images/evm_metal_stackup.png" />
+<p class="caption"><span class="caption-number">Fig. 271 </span><span class="caption-text">pcb</span></p>
+</div>
+<p>The bonding adhesive is die cut with 22mm holes to accomdate the 20mm electrode pads on the PCB as shown in the diagram.</p>
+<div class="figure" id="id47">
+<img alt="pcb" src="../_images/evm_metal_stackup2.png" />
+<p class="caption"><span class="caption-number">Fig. 272 </span><span class="caption-text">pcb</span></p>
+</div>
+<p>Three pogo-posts located on the PCB ensure a grounded contact with the metal overlay when it is bonded to the PCB. The PCB and overlay assembly is bonded to a 5mm thick acrylic base. Vias in the middle of each sensor pad and holes in the acrylic base provide venting to the atmosphere.</p>
+<p>For more information about designing metal touch applications, refer to the Design Guide chapter, section on <a class="reference external" href="ch_design_guide.html#metal-touch">Metal Touch</a></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="pin-male-sensor-pcb-connector-information">
+<h3>48-pin Male Sensor PCB Connector Information<a class="headerlink" href="#pin-male-sensor-pcb-connector-information" title="Permalink to this headline">¶</a></h3>
+<p>All demo sensor PCBs use the same 48 pin male connector that is commonly available from various manufacturers and suppliers. The following mechanical information will be useful if designing your own PCB to connect to the CAPT-FR2633 PCB. Below is a list of manufacturer part numbers:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="40%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Manufacturer</th>
+<th class="head">Part No</th>
+<th class="head">Digikey No</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FCI</td>
+<td>86093487313H55ELF</td>
+<td>609-4951-ND</td>
+</tr>
+<tr class="row-odd"><td>Harting</td>
+<td>09 23 148 6921</td>
+<td>1195-1856-ND</td>
+</tr>
+<tr class="row-even"><td>Harting</td>
+<td>09 23 148 2921</td>
+<td>1195-1854-ND</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" id="id48">
+<img alt="Sensor Connector pinout" src="../_images/evm_sensor_male_connector_schematic.png" />
+<p class="caption"><span class="caption-number">Fig. 273 </span><span class="caption-text">Sensor Connector pinout</span></p>
+</div>
+<div class="figure" id="id49">
+<img alt="Sensor Connector pinout" src="../_images/evm_male_48P_connector.png" />
+<p class="caption"><span class="caption-number">Fig. 274 </span><span class="caption-text">Sensor Connector pinout</span></p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="using-the-hid-bridge">
+<h2>Using the HID Bridge<a class="headerlink" href="#using-the-hid-bridge" title="Permalink to this headline">¶</a></h2>
+<p>The HID Bridge is a multi-purpose development tool that provides a way to interface platform software (such as a PC GUI) with embedded systems containing basic serial interfaces (such as UART or I2C).</p>
+<p>The HID Bridge is a firmware product designed to run on an MSP430F5xx MCU with USB support. Typical implementations (such as the CAPTIVATE-PGMR) utilize an MSP430F5528 MCU.</p>
+<p>The HID Bridge enables bidirectional transfer of data from a serial interface to a host platform via the USB HID device class. HID provides a unique advantage over other competing interfaces. Unlike USB CDC devices, no COM port identification is necessary on the host and no drivers are required on most modern operating systems. In addition, HID devices are much better suited to hot-swapping (disconnection and re-connection). During embedded system development it is very common to disconnect and re-connect development tools; using HID makes this process seamless.</p>
+<div class="figure" id="id50">
+<img alt="HID Bridge Diagram" src="../_images/evm_bridge_diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 275 </span><span class="caption-text">HID Bridge Diagram</span></p>
+</div>
+<div class="section" id="supported-modes-of-operation">
+<h3>Supported Modes of Operation<a class="headerlink" href="#supported-modes-of-operation" title="Permalink to this headline">¶</a></h3>
+<p>The HID Bridge provides the following modes of operation:</p>
+<ul class="simple">
+<li>HID to Unformatted Raw UART (bi-directional full-duplex up to 250k baud)</li>
+<li>HID to Formatted UART (bi-directional full-duplex up to 250k baud, with intelligent packet identification and framing)</li>
+<li>HID to Unformatted Raw I2C Master (Up to 400kbps I2C master)</li>
+<li>HID to Formatted I2C Master (Up to 400kbps I2C master, with intelligent packet identification, framing and slave IRQ handling)</li>
+</ul>
+</div>
+<div class="section" id="hid-bridge-interfaces">
+<h3>HID Bridge Interfaces<a class="headerlink" href="#hid-bridge-interfaces" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="host-interface-usb-hid-device-class-implementation">
+<h4>Host Interface: USB HID Device-Class Implementation<a class="headerlink" href="#host-interface-usb-hid-device-class-implementation" title="Permalink to this headline">¶</a></h4>
+<p>The bridge enumerates on the USB host as a composite class human interface device (HID). Two HID devices enumerate:</p>
+<ul class="simple">
+<li>HID0, the data transfer interface<ul>
+<li>Used for transmission of data between the target and the host</li>
+<li>Data is binary formatted</li>
+</ul>
+</li>
+<li>HID1, the HID Bridge configuration console interface<ul>
+<li>Used for configuration of the HID Bridge itself via the <a class="reference external" href="ch_evm.html#hid-bridge-configuration-command-set">HID Bridge (HB) command set</a></li>
+<li>Commands are ASCII string formatted</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="target-interface-uart-implementation">
+<h4>Target Interface: UART Implementation<a class="headerlink" href="#target-interface-uart-implementation" title="Permalink to this headline">¶</a></h4>
+<p>The HID Bridge target UART interface is a bi-directional, full-duplex, two-wire UART interface that supports several common baud rates.</p>
+<p>The baud rates supported are: 250kBaud, 115.2kBaud, 38.4kBaud, 19.2kBaud, and 9.6kBaud. The HID Bridge, when configured in UART mode, is constantly listening to the target UART port and may receive data at any time, even while it is transmitting data to the target. The UART baud rate is configurable via the HB command set.</p>
+<p>The UART implementation also supports a &#8220;byte delay&#8221; feature for slow targets. This feature will insert a delay (in ms) between the start-of-transmission of each byte. This can allow a fast (250kBaud) rate to be used, but the bytes will be spaced out to allow the target to have time to service its UART interrupt service routine. When the target is sending data, it can still send at the full 250kBaud rate- but it doesn&#8217;t have to respond to a data stream at that rate, because bytes will be spaced. The UART delay is configurable via the HB command set.</p>
+</div>
+<div class="section" id="target-interface-i2c-implementation">
+<h4>Target Interface: I2C Implementation<a class="headerlink" href="#target-interface-i2c-implementation" title="Permalink to this headline">¶</a></h4>
+<p>When configured in I2C mode, the HID Bridge acts as an I2C bus master that communicates with an I2C slave device.</p>
+<p>The HID Bridge initiates writes to the target by initiating a start/write condition to the slave address that is selected, writing the data, and issuing an I2C stop condition.</p>
+<p>The slave can request a read by pulling the I2C IRQ line low until the HID Bridge reads out the data from the target. Once the HID Bridge issues a start/read condition to the slave, the slave must release the IRQ line. The first byte read by the master is expected to be a length field that indicates to the HID Bridge how many further bytes it should read from the slave. The master will then continue the read, reading out that many bytes, then issuing a stop condition.</p>
+</div>
+</div>
+<div class="section" id="hid-bridge-configuration-command-set">
+<h3>HID Bridge Configuration Command Set<a class="headerlink" href="#hid-bridge-configuration-command-set" title="Permalink to this headline">¶</a></h3>
+<p>The HID Bridge is configured by the host platform through the sending and receiving of HID Bridge &#8220;HB&#8221; commands over the configuration console HID interface. The available configuration commands are described below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="38%" />
+<col width="13%" />
+<col width="24%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Description</th>
+<th class="head">Arguments?</th>
+<th class="head">Valid Arguments (1)</th>
+<th class="head">ValidArguments (2)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HB VERSION</td>
+<td>Get the version string.</td>
+<td>None</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>HB PLATFORM</td>
+<td>Get the platform string.</td>
+<td>None</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>HB UPGRADE</td>
+<td>Enter the USB bootloader.</td>
+<td>None</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>HB REBOOT</td>
+<td>Reboot the HID Bridge.</td>
+<td>None</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>HB MODE</td>
+<td>Get/set the operating mode.</td>
+<td>Format, Interface</td>
+<td>RAW, PACKET</td>
+<td>UART, I2C</td>
+</tr>
+<tr class="row-odd"><td>HB SAVECONFIG</td>
+<td>Save the active or default configuration to boot memory.</td>
+<td>Config to save</td>
+<td>ACTIVE, DEFAULT</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>HB UARTBAUD</td>
+<td>Get/set the UART baud rate.</td>
+<td>New baud rate</td>
+<td>250000, 115200, 38400, 19200, 9600</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>HB UARTDELAY</td>
+<td>Get/set the UART byte delay period.</td>
+<td>New delay period</td>
+<td>0 to 1000</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>HB I2CADDRESS</td>
+<td>Get/set the target I2C slave address.</td>
+<td>New address</td>
+<td>0 to 127</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>HB I2CCLOCK</td>
+<td>Get/set the target I2C clock freq.</td>
+<td>New frequency</td>
+<td>100000, 400000</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For the commands that have no arguments, simply send &#8220;HB x&#8221; where x is the command. For commands with arguments, sending &#8220;HB x&#8221; where x is the command will echo back the current setting of that command, if supported. If valid parameters are passed (for example, &#8220;HB UARTBAUD 250000&#8221;), the parameter will be updated to the new value passed.</p>
+<p>Note that the Captivate Design Center will automatically send configuration commands on this interface based on the current Design Center project that is open.</p>
+</div>
+<div class="section" id="hid-bridge-modes-of-operation">
+<h3>HID Bridge Modes of Operation<a class="headerlink" href="#hid-bridge-modes-of-operation" title="Permalink to this headline">¶</a></h3>
+<p>The HID bridge supports several different modes of operation as introduced above. The details behind how each mode behaves are described in this section. The operating mode may be set via the HID Bridge command set.</p>
+<div class="section" id="operating-mode-packet-mode">
+<h4>Operating Mode: Packet Mode<a class="headerlink" href="#operating-mode-packet-mode" title="Permalink to this headline">¶</a></h4>
+<p>Packet mode requires that data sent over the target interface be formatted in packets according to the following set of transmission rules. The HID Bridge will buffer all data received from the target. It will then identify and frame packets to be sent to the host. When sending packets to the host, each packet will be transmitted in its own HID report. The HID Bridge buffers all packets coming from the host, and applies the relevant transmission rules before sending the packet on to the target.</p>
+<p>If any transactions are of the following type, they are subject to the transmission rules:</p>
+<ul class="simple">
+<li>Packets from the target to the HID Bridge in PACKET/UART Mode</li>
+<li>Packets from the HID Bridge to the target in PACKET/UART Mode</li>
+<li>Packets from the HID Bridge to the target in PACKET/I2C Mode</li>
+</ul>
+<p>The transmission rules for the serial interface in packet mode are as follows:</p>
+<ul class="simple">
+<li>All packets will begin with a 3-byte header, consisting of:<ul>
+<li>[0] A SYNC byte at position 0, equal to 55h</li>
+<li>[1] A BLANK byte at position 1, that is NOT equal to 55h. Typically , AAh is used.</li>
+<li>[2] A LENGTH byte at position 2, that indicates the size of the payload and checksum in bytes (payload length + 2)</li>
+</ul>
+</li>
+<li>All packets may contain a payload up to 60 bytes, which may contain any binary data<ul>
+<li>If the SYNC byte (55h) should occur in the payload section, it must be sent twice (byte stuffed) to distinguish it from a true SYNC byte. This repeated byte does NOT count towards the maximum payload size of 60 bytes.</li>
+</ul>
+</li>
+<li>All packets will end with a 2-byte checksum.<ul>
+<li>The checksum is calculated as the lower 16 bits of the summation of the payload section, less any stuffed bytes (repeated 55h bytes).</li>
+<li>The checksum is send lower byte first, upper byte second.</li>
+</ul>
+</li>
+</ul>
+<p>Per these rules, a packet would have the following format:</p>
+<div class="figure" id="id51">
+<img alt="Serial Interface Packet with Transmission Rules Applied" src="../_images/evm_bridge_serial_com_packet_format.png" />
+<p class="caption"><span class="caption-number">Fig. 276 </span><span class="caption-text">Serial Interface Packet with Transmission Rules Applied</span></p>
+</div>
+<p>All other packet types (the remaining types are listed below), only require that a checksum be appended to the payload.</p>
+<ul class="simple">
+<li>Packets from the target to the HID Bridge in PACKET/I2C Mode</li>
+<li>Packets from the HID Bridge to the host in any mode</li>
+</ul>
+<p>Note that the HID Bridge strips out the transmission rule overhead (if applied) when sending the payload and checksum on to the host. The SYNC, BLANK, and LENGTH bytes are removed, and any stuffed bytes in the payload section are removed. The checksum is preserved and is sent on.</p>
+<div class="figure" id="id52">
+<img alt="Base Packet without Transmission Rules" src="../_images/evm_bridge_usb_hid_packet_format.png" />
+<p class="caption"><span class="caption-number">Fig. 277 </span><span class="caption-text">Base Packet without Transmission Rules</span></p>
+</div>
+<p>In all cases, when the HID Bridge is in PACKET mode, the checksum field must be valid or data will not be sent on. For example, if a packet is sent from a target to the HID Bridge, and the checksum is invalid, that packet will not be sent on to the host. Likewise, if the host sends a packet to the HID Bridge, and the checksum is invalid, that packet will not be sent on to the target.</p>
+</div>
+<div class="section" id="operating-mode-raw-mode">
+<h4>Operating Mode: Raw Mode<a class="headerlink" href="#operating-mode-raw-mode" title="Permalink to this headline">¶</a></h4>
+<p>When operating in RAW mode, the HID Bridge basically acts as a communication buffer. No formatting is required. Any data received from the target is sent on to the host, and any data received from the host is sent on to the target. There is no HID frame alignment on the host side.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_evm_boostxl_capkeypad.html" class="btn btn-neutral float-right" title="BOOSTXL-CAPKEYPAD Development Kit" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_library.html" class="btn btn-neutral" title="Software Library" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.03',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

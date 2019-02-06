@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<board>
+	<name>EVM430-FR6989</name>
+	<image>images/EVM430-FR6989.png</image>
+	<rotationLed available="true">
+		<GPIOPort>GPIO_PORT_PJ</GPIOPort>
+		<GPIOPin>GPIO_PIN2</GPIOPin>
+	</rotationLed>
+	<reCalLed available="true">
+		<GPIOPort>GPIO_PORT_PJ</GPIOPort>
+		<GPIOPin>GPIO_PIN3</GPIOPin>
+	</reCalLed>
+	<LCD available="true"/>
+	<targetCOMM available="true">
+		<EUSCIBase>EUSCI_A1_BASE</EUSCIBase>
+		<TXGPIOPort>GPIO_PORT_P3</TXGPIOPort>
+		<TXGPIOPin>GPIO_PIN4</TXGPIOPin>
+		<RXGPIOPort>GPIO_PORT_P3</RXGPIOPort>
+		<RXGPIOPin>GPIO_PIN5</RXGPIOPin>
+	</targetCOMM>
+</board>

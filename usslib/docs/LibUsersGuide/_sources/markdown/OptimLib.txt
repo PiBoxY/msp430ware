@@ -1,0 +1,144 @@
+Using the memory optimized libraries
+====================================
+
+During evaluation of the library it is recommended to use the Full Version of the library (``[Library_INSTALL_DIR]/lib/USS_optimized/``). The full version of the library allows users to evaluated different algorithms performance. Once users have determined the optimal algorithm option for their application. Users can take advantage of the memory optimized library which are available under ``[Library_INSTALL_DIR]/lib/USS_optimized/``.
+
+.. figure:: images/Mem_opt_libs.PNG
+   :alt: Mem\_opt\_libs
+
+   Mem\_opt\_libs
+
+Linking memory optimized library to template example project
+------------------------------------------------------------
+
+The library template examples by default links to the full version of the library. the table below indicates the different algorithm options supported for AToF, DToF and VFR calculations by each library.
+
++------------------------------+-----------------------------------------------+--------------------------------------------------+---------------------------------------------------+------------------------------------------------------+-------------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------+--------------------------------------------------------+
+| Library Option               | USS\_Alg\_AbsToF\_Calculation\_Option\_lobe   | USS\_Alg\_AbsToF\_Calculation\_Option\_hilbert   | USS\_Alg\_AbsToF\_Calculation\_Option\_lobeWide   | USS\_Alg\_AbsToF\_Calculation\_Option\_hilbertWide   | USS\_Alg\_dToF\_Calculation\_Option\_estimate   | USS\_Alg\_dToF\_Calculation\_Option\_water (Obsolete)   | USS\_Alg\_volume\_flow\_Calculation\_Option\_water (Obsolete)   | USS\_Alg\_volume\_flow\_Calculation\_Option\_generic   |
++==============================+===============================================+==================================================+===================================================+======================================================+=================================================+=========================================================+=================================================================+========================================================+
+| Full Version                 | ✔                                             | ✔                                                | ✔                                                 | ✔                                                    | ✔                                               | ✔                                                       | ✔                                                               | ✔                                                      |
++------------------------------+-----------------------------------------------+--------------------------------------------------+---------------------------------------------------+------------------------------------------------------+-------------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------+--------------------------------------------------------+
+| Lobe                         | ✔                                             |                                                  |                                                   |                                                      | ✔                                               |                                                         | ✔                                                               |                                                        |
++------------------------------+-----------------------------------------------+--------------------------------------------------+---------------------------------------------------+------------------------------------------------------+-------------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------+--------------------------------------------------------+
+| Hilbert                      |                                               | ✔                                                |                                                   |                                                      | ✔                                               |                                                         | ✔                                                               |                                                        |
++------------------------------+-----------------------------------------------+--------------------------------------------------+---------------------------------------------------+------------------------------------------------------+-------------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------+--------------------------------------------------------+
+| Lobe Wide                    |                                               |                                                  | ✔                                                 |                                                      | ✔                                               |                                                         |                                                                 | ✔                                                      |
++------------------------------+-----------------------------------------------+--------------------------------------------------+---------------------------------------------------+------------------------------------------------------+-------------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------+--------------------------------------------------------+
+| Hilbert Wide                 |                                               |                                                  |                                                   | ✔                                                    | ✔                                               |                                                         |                                                                 | ✔                                                      |
++------------------------------+-----------------------------------------------+--------------------------------------------------+---------------------------------------------------+------------------------------------------------------+-------------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------+--------------------------------------------------------+
+| Lobe wide and Hilbert Wide   |                                               |                                                  | ✔                                                 | ✔                                                    | ✔                                               |                                                         |                                                                 | ✔                                                      |
++------------------------------+-----------------------------------------------+--------------------------------------------------+---------------------------------------------------+------------------------------------------------------+-------------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------+--------------------------------------------------------+
+
+Code Composer Studio
+~~~~~~~~~~~~~~~~~~~~
+
+To use a memory optimized library
+
+1. After importing the library template example, go to ``<LIB_INSTALL_DIR>/lib/USS_optimized/*/CCS`` and select the appropriate optimized library.
+
+.. figure:: images/CCS_optimized_libs.png
+   :alt: CCS\_optimized\_libs
+
+   CCS\_optimized\_libs
+
+2. Drag and drop the optimized ``USS_SW_CCS.a`` into CCS project directory ``ussSWLib/lib``
+
+.. figure:: images/CCS_optimized_libs_drag_drop.png
+   :alt: CCS\_optimized\_libs\_drag\_drop
+
+   CCS\_optimized\_libs\_drag\_drop
+
+3. Select Link to files and make link relative to PROJECT\_LOC
+
+.. figure:: images/CCS_optimized_libs_link.png
+   :alt: CCS\_optimized\_libs\_link
+
+   CCS\_optimized\_libs\_link
+
+4. Click on ``Overwrite``
+
+.. figure:: images/CCS_optimized_libs_overwrite.png
+   :alt: CCS\_optimized\_libs\_overwrite
+
+   CCS\_optimized\_libs\_overwrite
+
+5. Rebuild the project
+
+.. figure:: images/CCS_optimized_libs_rebuild.png
+   :alt: CCS\_optimized\_libs\_rebuild
+
+   CCS\_optimized\_libs\_rebuild
+
+IAR
+~~~
+
+To use a memory optimized library
+
+1. After importing the library template example, go to ``<LIB_INSTALL_DIR>/lib/USS_optimized/*/IAR`` and select the appropriate optimized library.
+
+.. figure:: images/IAR_optimized_libs.png
+   :alt: IAR\_optimized\_libs
+
+   IAR\_optimized\_libs
+
+2. Remove existing USS\_SW\_IAR\_small\_code\_large\_data.lib
+
+.. figure:: images/IAR_optimized_libs_remove.png
+   :alt: IAR\_optimized\_libs\_remove
+
+   IAR\_optimized\_libs\_remove
+
+3. Drag and drop the appropriate \*.lib file base on project configuration to ``ussSWLib``
+
+.. figure:: images/IAR_optimized_libs_drag.png
+   :alt: IAR\_optimized\_libs\_drag
+
+   IAR\_optimized\_libs\_drag
+
+To determine the correct code and data model go to the project properties window and click on ``General Options``
+
+.. figure:: images/IAR_optimized_libs_code_model.png
+   :alt: IAR\_optimized\_libs\_code\_model
+
+   IAR\_optimized\_libs\_code\_model
+
+4. Rebuild project
+
+.. figure:: images/IAR_optimized_libs_rebuild.png
+   :alt: IAR\_optimized\_libs\_code\_rebuild
+
+   IAR\_optimized\_libs\_code\_rebuild
+
+Memory footprint comparison between optimized libraries
+-------------------------------------------------------
+
+This section includes Code Composer Studio and IAR memory footprints for different library configurations for the following code examples:
+
+-  FR6043\_USSSWLib\_template\_example - Compiled for gas applications using multi tone pulse mode.
+-  FR6047\_USSSWLib\_template\_example - Compiled for water applications using single tone pulse mode.
+
+Code Composer Studio
+~~~~~~~~~~~~~~~~~~~~
+
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+
+| Project Name                                  | Lib Configuration   | FRAM (Bytes)   | LEA RAM (Bytes)   | RAM (Bytes)   |
++===============================================+=====================+================+===================+===============+
+| FR6043\_USSSWLib\_template\_example [Gas]     | HilbWide            | 40581          | 4656              | 764           |
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+
+| FR6047\_USSSWLib\_template\_example [Water]   | Full version        | 39237          | 3696              | 764           |
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+
+| FR6047\_USSSWLib\_template\_example [Water]   | Lobe                | 29391          | 3696              | 772           |
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+
+
+IAR
+~~~
+
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+
+| Project Name                                  | Lib Configuration   | FRAM (Bytes)   | LEA RAM (Bytes)   | RAM (Bytes)   |
++===============================================+=====================+================+===================+===============+
+| FR6043\_USSSWLib\_template\_example [Gas]     | HilbWide            | 34328          | 4656              | 774           |
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+
+| FR6047\_USSSWLib\_template\_example [Water]   | Full version        | 32516          | 3696              | 432           |
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+
+| FR6047\_USSSWLib\_template\_example [Water]   | Lobe                | 23960          | 3696              | 418           |
++-----------------------------------------------+---------------------+----------------+-------------------+---------------+

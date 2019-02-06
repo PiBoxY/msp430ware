@@ -1,0 +1,16 @@
+<projectSpec>
+  <project
+    compilerBuildOptions="-I${PROJECT_LOC}/driverlib/MSP430FR5xx_6xx -I${PROJECT_LOC}/driverlib/MSP430FR5xx_6xx/inc -I${PROJECT_LOC}/grlib -I${PROJECT_LOC}/grlib/LcdDriver -I${PROJECT_LOC}/grlib/images -I${PROJECT_LOC}/DSPLib/include -I${PROJECT_LOC}/application -I${PROJECT_LOC}/application/fir_coefficient --printf_support=full" 
+    device="MSP430FR5994" linkerBuildOptions="" 
+    name="BOOSTXL-AUDIO_430BOOST-SHARP96_FFT_FIR_LEA_MSP430FR5994"
+    description="Filtering and Signal Processing with LEA TI-Design"
+    enableHexTool="true"
+    hexBuildOptions="--ti_txt" >
+    <file action="copy" openOnCreation="true" path="./../src/main.c" />
+    <file action="copy" path="./../src/application/" />
+    <file action="copy" excludeFromBuild="true" path="./../src/application/FFT_430.s43" targetDirectory="application" />
+    <file action="copy" path="./../src/driverlib/" />
+    <file action="copy" path="./../src/DSPLib/" />
+    <file action="copy" path="./../src/grlib/" />
+  </project>
+</projectSpec>

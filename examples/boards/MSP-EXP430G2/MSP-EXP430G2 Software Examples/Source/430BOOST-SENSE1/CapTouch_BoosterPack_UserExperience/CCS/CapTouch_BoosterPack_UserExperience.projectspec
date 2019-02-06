@@ -1,0 +1,11 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_LOC}/CapacitiveTouchLibrary --advice:power=&quot;all&quot; -g"
+             device="MSP430G2452"
+             name="CapTouch_BoosterPack_UserExperience"
+             postBuildStep="&quot;${CG_TOOL_HEX}&quot; --ti_txt &quot;${BuildArtifactFileName}&quot; -o &quot;${BuildArtifactFileBaseName}.txt&quot; -order MS -romwidth 16" >
+        <file action="copy" path="../CapacitiveTouchLibrary/" />
+        <file action="copy" path="../CapTouchBoosterPack_UserExperience.c" />
+        <file action="copy" path="../uart.c" />
+        <file action="copy" path="../uart.h" />
+    </project>
+</projectSpec>

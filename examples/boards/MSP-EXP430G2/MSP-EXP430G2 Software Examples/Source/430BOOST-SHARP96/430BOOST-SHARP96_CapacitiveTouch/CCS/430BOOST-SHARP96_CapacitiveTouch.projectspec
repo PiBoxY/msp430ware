@@ -1,0 +1,10 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_ROOT}/CTS -I${PROJECT_ROOT}/TouchProGUI --gcc --advice:power=&quot;none&quot;"
+             device="MSP430G2553"
+             name="430BOOST-SHARP96_CapacitiveTouch"
+             postBuildStep="&quot;${CG_TOOL_HEX}&quot; --ti_txt &quot;${BuildArtifactFileName}&quot; -o &quot;${BuildArtifactFileBaseName}.txt&quot; -order MS -romwidth 16" >
+        <file action="copy" path="..\CTS\" />
+        <file action="copy" path="..\TouchProGUI\" />
+        <file action="copy" path="..\main.c" />
+    </project>
+</projectSpec>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<drivers id="TMS192C2006">
+    <isa id="TMS192C2006" ProcID="0x30008030">
+        <driver file="NONE">
+			<connectionType Type="TIXDS100v2"/>
+        </driver>
+    </isa>
+</drivers>

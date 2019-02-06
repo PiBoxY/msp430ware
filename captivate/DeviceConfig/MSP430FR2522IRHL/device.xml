@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MSP430FR2522IRHL>
+    <deviceName>MSP430FR2522</deviceName>
+    <sourceTemplate>MSP430FR2522_family</sourceTemplate>
+    <touchStepSize>128</touchStepSize>
+    <noiseFloor_Typical>0.07</noiseFloor_Typical>
+    <noiseFloor_Max>0.50</noiseFloor_Max>
+    <noiseFloor_SafetyFactor>0.60</noiseFloor_SafetyFactor>
+    <enableNoiseImmunity>false</enableNoiseImmunity>
+    <legalSensorTypes>
+        <options>Prox ButtonGroup Slider Wheel</options>
+    </legalSensorTypes>
+    <timeEstimatorConstants>
+        <caposc>16000000 14700000 13100000 11200000</caposc>
+        <stabletime>320</stabletime>
+    </timeEstimatorConstants>
+    <package>
+        <name>20rhl</name>
+        <left>20 1</left>
+        <bottom>2 3 4 5 6 7 8 9</bottom>
+        <right>10 11</right>
+        <top>12 13 14 15 16 17 18 19</top>
+    </package>
+    <ports>
+	    <DVSS>
+            <pkgPin>6</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </DVSS>
+        <DVCC>
+            <pkgPin>5</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </DVCC>
+		<VREG>
+            <pkgPin>18</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </VREG>
+        <RST-NMI-SBWTDIO>
+            <pkgPin>4</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </RST-NMI-SBWTDIO>
+        <TEST-SBWTCK>
+            <pkgPin>3</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </TEST-SBWTCK>
+		
+		<P2.0-UCA0TXD-UCA0SIMO-XOUT>
+            <pkgPin>8</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </P2.0-UCA0TXD-UCA0SIMO-XOUT>
+        <P2.1-UCA0RXD-UCA0SOMI-XIN>
+            <pkgPin>7</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </P2.1-UCA0RXD-UCA0SOMI-XIN>
+        <P2.2-TA1.1-SYNC-A4>
+            <pkgPin>13</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </P2.2-TA1.1-SYNC-A4>
+		<P2.3-TA1.2-UCB0STE-A5>
+            <pkgPin>12</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </P2.3-TA1.2-UCB0STE-A5>
+		<P2.4-TA1CLK-UCB0CLK-A6>
+            <pkgPin>11</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </P2.4-TA1CLK-UCB0CLK-A6>
+		<P2.5-UCB0SIMO-UCB0SDA-A7>
+            <pkgPin>10</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </P2.5-UCB0SIMO-UCB0SDA-A7>
+		<P2.6-UCB0SOMI-UCB0SCL>
+            <pkgPin>9</pkgPin>
+            <useMode>NOT_CAPTIVATE_PORT</useMode>
+        </P2.6-UCB0SOMI-UCB0SCL>
+		
+        <CAP0.0>
+            <pkgPin>17</pkgPin>
+            <sensBlock>B0</sensBlock>
+            <capBlock>0</capBlock>
+            <capPin>0</capPin>
+        </CAP0.0>
+        <CAP0.1>
+            <pkgPin>16</pkgPin>
+            <sensBlock>B1</sensBlock>
+            <capBlock>0</capBlock>
+            <capPin>1</capPin>
+        </CAP0.1>
+		<CAP0.2>
+            <pkgPin>15</pkgPin>
+            <sensBlock>B2</sensBlock>
+            <capBlock>0</capBlock>
+            <capPin>2</capPin>
+        </CAP0.2>
+		<CAP0.3>
+            <pkgPin>14</pkgPin>
+            <sensBlock>B3</sensBlock>
+            <capBlock>0</capBlock>
+            <capPin>3</capPin>
+        </CAP0.3>
+		
+		<CAP1.0>
+            <pkgPin>2</pkgPin>
+            <sensBlock>B0</sensBlock>
+            <capBlock>1</capBlock>
+            <capPin>0</capPin>
+        </CAP1.0>
+        <CAP1.1>
+            <pkgPin>1</pkgPin>
+            <sensBlock>B1</sensBlock>
+            <capBlock>1</capBlock>
+            <capPin>1</capPin>
+        </CAP1.1>
+		<CAP1.2>
+            <pkgPin>20</pkgPin>
+            <sensBlock>B2</sensBlock>
+            <capBlock>1</capBlock>
+            <capPin>2</capPin>
+        </CAP1.2>
+		<CAP1.3>
+            <pkgPin>19</pkgPin>
+            <sensBlock>B3</sensBlock>
+            <capBlock>1</capBlock>
+            <capPin>3</capPin>
+        </CAP1.3>
+		
+    </ports>
+</MSP430FR2522IRHL>

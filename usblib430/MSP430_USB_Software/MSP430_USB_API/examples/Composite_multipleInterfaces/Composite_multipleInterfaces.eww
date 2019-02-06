@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+<project>
+    <path>$WS_DIR$\CC1_term2term/IAR/CC1_term2term.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\HH1_hidDemo2hidDemo/IAR/HH1_hidDemo2hidDemo.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\CHM1_term2HidDemo_2LUN/IAR/CHM1_term2HidDemo_2LUN.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\CH1_term2hidDemo/IAR/CH1_term2hidDemo.ewp</path>
+  </project>
+  
+  <batchBuild/>
+</workspace>
+

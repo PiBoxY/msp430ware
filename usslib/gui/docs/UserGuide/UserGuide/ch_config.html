@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; Ultrasonic Sensing Design Center User Guide 1.70.00.02 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ultrasonic Sensing Design Center User Guide 1.70.00.02 documentation" href="../index.html"/>
+        <link rel="next" title="Waveform Plotting" href="ch_plotting.html"/>
+        <link rel="prev" title="Logging" href="ch_logging.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Ultrasonic Sensing Design Center User Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.70.00.02
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_sysreqs.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_logging.html">Logging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameter-configuration">Parameter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-the-target">Updating the Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timing-diagram">Timing Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_plotting.html">Waveform Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_adc.html">ADC Captures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_freqsweep.html">Frequency Sweep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_debug_graph.html">Debug Waveform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_errors.html">Error Handling</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Ultrasonic Sensing Design Center User Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>The configuration panel provides options to specify the values of a range of Ultrasonic Sensing Library parameters, then communicate those values to the target.</p>
+<p>Each parameter has a defined range to ensure that the values are in line with the library&#8217;s specifications. Attempts to change the fields to a value outside the range will be reverted back to the previous value.</p>
+<div class="section" id="parameter-configuration">
+<h2>Parameter Configuration<a class="headerlink" href="#parameter-configuration" title="Permalink to this headline">¶</a></h2>
+<p><strong>Selecting Parameters</strong></p>
+<p>Change between general parameters and advanced parameters by clicking on the respective tab at the top of the configuration panel.</p>
+<div class="figure" id="id1">
+<img alt="Parameter Options" src="../_images/adv_param_panel.PNG" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Parameter Options</span></p>
+</div>
+<p>The complete range of parameters, a description, and their ranges is shown below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="29%" />
+<col width="11%" />
+<col width="42%" />
+<col width="3%" />
+<col width="3%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">GUI Parameter</th>
+<th class="head">Description</th>
+<th class="head">Library Struct</th>
+<th class="head">Library Parameter(s)</th>
+<th class="head">Water Min</th>
+<th class="head">Water Max</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>F1</td>
+<td>Pulse Output Frequency 1</td>
+<td>meterConfig</td>
+<td>transducerFreq</td>
+<td>772</td>
+<td>2500</td>
+</tr>
+<tr class="row-odd"><td>F2</td>
+<td>Pulse Output Frequency 2 (not used for water metering)</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>Gap between Pulse Start and ADC Capture</td>
+<td>Time in microseconds from ADC start to PPG pulse</td>
+<td>measurementConfig</td>
+<td>startADCsamplingCount</td>
+<td>3</td>
+<td>9000</td>
+</tr>
+<tr class="row-odd"><td>Number of Pulses</td>
+<td>Number of excitation pulses</td>
+<td>measurementConfig</td>
+<td>numOfExcitationPulses</td>
+<td>0</td>
+<td>63</td>
+</tr>
+<tr class="row-even"><td>UPS and DNS Gap</td>
+<td>Time between between ADC captures in a sequence in microseconds</td>
+<td>measurementConfig</td>
+<td>restartCaptureCount</td>
+<td>100</td>
+<td>16000</td>
+</tr>
+<tr class="row-odd"><td>UPS0 to UPS1 Gap</td>
+<td>Time between ADC captures in a single channel in milliseconds</td>
+<td>measurementConfig</td>
+<td>restartCaptureCount</td>
+<td>20</td>
+<td>2000</td>
+</tr>
+<tr class="row-even"><td>GUI Based Gain Control</td>
+<td>PGA gain value to apply to register</td>
+<td>meterConfig</td>
+<td>gainRange</td>
+<td>-6.5 db</td>
+<td>30.8 db</td>
+</tr>
+<tr class="row-odd"><td>Meter Constant</td>
+<td>Volume scale factor &#8211; <strong>varies by meter, must be calculated</strong></td>
+<td>meterConfig</td>
+<td>volumeScaleFactor</td>
+<td>0</td>
+<td>22,742,000</td>
+</tr>
+<tr class="row-even"><td>Units</td>
+<td>Select units to be in Litres per Hour or Gallons per Minute</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-odd"><td>USSXT</td>
+<td>External crystal frequency in KHz; this should be fixed at 8 MHz. Texas Instruments does not guarantee performance at other frequencies.</td>
+<td>measurementConfig</td>
+<td>startADCsamplingCount, restartCaptureCount, restartLowPowerCaptureCount, pllXtalFreq_inKHz</td>
+<td>8000</td>
+<td>8000</td>
+</tr>
+<tr class="row-even"><td>ADC Sampling Frequency</td>
+<td>ADC Sampling Frequency in KHz; not used for water applications</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-odd"><td>Signal Sampling Frequency</td>
+<td>Signal Sampling Frequency in KHz</td>
+<td>measurementConfig, pllConfiguration, captureConfig</td>
+<td>pulseLowPhasePeriod, pulseHighPhasePeriod, startPPGCount, turnOnADCCount, startPGAandINBiasCount, startADCsamplingCount, restartCaptureCount, restartLowPowerCaptureCount, pllOutputFreq, samplesize</td>
+<td>3400</td>
+<td>8000</td>
+</tr>
+<tr class="row-even"><td>ADC Over Sampling Rate</td>
+<td>Over-sampling rate of the ADC</td>
+<td>measurementConfig, pllConfiguration, captureConfig</td>
+<td>pulseLowPhasePeriod, pulseHighPhasePeriod, startPPGCount, turnOnADCCount, startPGAandINBiasCount, startADCsamplingCount, restartCaptureCount, restartLowPowerCaptureCount, pllOutputFreq,overSampleRate</td>
+<td>10</td>
+<td>20</td>
+</tr>
+<tr class="row-odd"><td>Delta TOF Offset</td>
+<td>Amount to offset the Delta Time of Flight in Picoseconds</td>
+<td>algorithmsConfig</td>
+<td>DcOffset</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-even"><td>Abs TOF Additional Delay</td>
+<td>Amount to offset the Absolute Time of Flight in nanoseconds</td>
+<td>algorithmsConfig</td>
+<td>ADCAdditionalCaptureDelay</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-odd"><td>Capture Duration</td>
+<td>Duration of Samples</td>
+<td>captureConfig</td>
+<td>sampleSize</td>
+<td>4</td>
+<td>400</td>
+</tr>
+<tr class="row-even"><td>User Param #1 / Algorithm Option</td>
+<td>Custom User Parameter (Water), Algorithm Option (Gas)</td>
+<td>RFU</td>
+<td>RFU</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-odd"><td>User Param #2 / Envelope Crossing Threshold</td>
+<td>Custom User Parameter (Water), Envelope Crossing Threshold (Gas)</td>
+<td>RFU</td>
+<td>RFU</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-even"><td>Start PPG Count</td>
+<td>Time to start the PPG pulse trigger in nanoseconds</td>
+<td>measurementConfig</td>
+<td>startPPGCount</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-odd"><td>Turn on ADC count</td>
+<td>Time to turn on the ADC in nanoseconds</td>
+<td>measurementConfig</td>
+<td>turnOnADCCount</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-even"><td>Start PGA and IN Bias Count</td>
+<td>Time to turn the PGA and Input Biasing on in nanoseconds</td>
+<td>measurementConfig</td>
+<td>startPGAandINBiasCount</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-odd"><td>User Param #6 / USS XTAL Settling Count</td>
+<td>Custom User Parameter (Water), USS XTAL Settling Count (Gas)</td>
+<td>pllConfiguration (gas)</td>
+<td>RFU</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-even"><td>USS XTAL Settling Count / Negative Range Delta ToF</td>
+<td>External Crystal settling time (water), lower bound for Delta ToF (gas)</td>
+<td>pllConfiguration (water)</td>
+<td>ussXTALsettlingCount</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-odd"><td>User Param #8 / Negative Range Delta ToF</td>
+<td>Custom User Parameter (water), upper bound for Delta ToF (gas)</td>
+<td>RFU for Water</td>
+<td>RFU for Water</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-even"><td>User Param #9 / Negative Range Abs ToF</td>
+<td>Custom User Parameter (water), lower bound for Abs ToF (gas) Parameter</td>
+<td>RFU for Water</td>
+<td>RFU for Water</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+<tr class="row-odd"><td>User Param #10 / Positive Range Abs ToF</td>
+<td>Custom User Parameter (water), upper bound for Abs ToF (gas) Parameter</td>
+<td>RFU for Water</td>
+<td>RFU for Water</td>
+<td>-2000000000</td>
+<td>2000000000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Connecting</strong></p>
+<p>If not already connected to the target, connect via either the Communications - Connect dropdown, or press F1. The connection status at the bottom left corner of the GUI should display the current connection target and platform.</p>
+</div>
+<div class="section" id="updating-the-target">
+<h2>Updating the Target<a class="headerlink" href="#updating-the-target" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="Configuration Options" src="../_images/config_options.PNG" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Configuration Options</span></p>
+</div>
+<p><strong>Requesting an update</strong></p>
+<p>Update the target by clicking &#8220;Request Update&#8221;. This sets each enabled parameter on the target to the currently selected GUI value. A popup box will appear at the end of the transmission indicating either a successful or unsuccessful update.</p>
+<p>If the update was unsuccessful, please validate that the current parameter range is correct and check the error tab if present; the error tab will always appear if an error is reported from the target.</p>
+<p>Common reasons for a configuration to be rejected are that it would produce very low signal strength, an incorrect transmission frequency, or that it would produce an incorrect base algorithm configuration (incorrect settling time, etc).</p>
+<p><strong>Saving Configurations</strong></p>
+<p>Save the current configuration (values of each parameter) or load saved configurations by using the &#8220;Save Configuration&#8221; or &#8220;Load Configuration&#8221; buttons. Saving the configuration will also save the automatic logging state and location. Additionally, the GUI will automatically save the configuration upon exit and reload the exit configuration when launched.</p>
+<p><strong>Reset the configuration</strong></p>
+<p>Clicking the &#8220;Reset Values&#8221; button will reset all parameters to the default install values for that meter mode.</p>
+<p><strong>Header File Generation</strong></p>
+<p>USS GUI 1.70+ supports generation of header files for USS-enabled devices. USS_userConfig.h will be generated with the appropriate parameters contained in the current GUI configuration filled out for use importing to the user application. This allows for easy configuration of IDE projects with the same configurations used when tuning in the GUI.</p>
+<p><strong>User Parameters</strong></p>
+<p>The USS Design Center provides six user-reserved parameters on the GUI. These allow the user to implement a target-side handler for these commands and integrate their own configuration options to be controlled from the Design Center.</p>
+<p>More information on the structure of the HID packets exists in the USS Software Library documentation set.</p>
+</div>
+<div class="section" id="timing-diagram">
+<h2>Timing Diagram<a class="headerlink" href="#timing-diagram" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="Interactive Timing Diagram" src="../_images/timing_diagram.PNG" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Interactive Timing Diagram</span></p>
+</div>
+<p>The interactive timing diagram provides a way to visualize the number of excitation pulses, UPS0 to UPS1 gap, and UPS and DNS gap. Additionally, users can configure the number of pulses and UPS and DNS gap by clicking and dragging the white (pulses) and green (UPS and DNS gap) boxes to the left or right to increase or decrease the current value.</p>
+<p>Currently, the USS library implementation does not reflect the timing diagram perfectly. The current library implementation has the UPS0 to UPS1 gap implemented as the <strong>end of the last excitation pulse in Channel 1 to the beginning of the next excitation pulse series in Channel 0</strong>. Future implementations of the USS library will match the displayed timing diagram, where the UPS0 to UPS1 gap is from the beginning of an excitation series to the beginning of the next excitation series in the same channel.</p>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For more information on the application, and available evaluation kits, see the <a class="reference external" href="http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER">download page</a>.</li>
+<li>For technical support, email the <a class="reference external" href="mailto:msp-uss-gui-support&#37;&#52;&#48;list&#46;ti&#46;com">USS GUI support team</a> or visit the <a class="reference external" href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP430 E2E forum</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_plotting.html" class="btn btn-neutral float-right" title="Waveform Plotting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_logging.html" class="btn btn-neutral" title="Logging" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Texas Instruments.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.70.00.02',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

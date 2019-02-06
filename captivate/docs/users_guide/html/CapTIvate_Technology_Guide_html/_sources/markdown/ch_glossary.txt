@@ -1,0 +1,248 @@
+Glossary
+========
+
+Brief descriptions of key terms.
+
+Automatic Power Down
+--------------------
+
+`See here <Auto_Power_Down.html>`__
+
+Wake On Proximity Mode
+----------------------
+
+`See here <WakeOnProx_Mode.html>`__
+
+Bias Current
+------------
+
+`See here <Bias_Current.html>`__
+
+Button Group Sensor
+-------------------
+
+A button group sensor is a sensor with two or more buttons, such as a keypad.
+
+Target Communications Configuration
+-----------------------------------
+
+`See here <Communications.html>`__
+
+Channel
+-------
+
+A channel refers to the physical CapTIvate™ I/O pin assigned as a RX electrode in self-capacitive mode and RX/TX pair in mutual capacitive mode.
+
+Conversion Count
+----------------
+
+`See here <Conversion_Count_And_Gain.html>`__
+
+Conversion Gain
+---------------
+
+`See here <Conversion_Count_And_Gain.html>`__
+
+Count
+-----
+
+Count represents the measurement value for a given channel.
+
+Count Filter
+------------
+
+`See here <Count_Filter.html>`__
+
+Debounce
+--------
+
+`See here <Debounce.html>`__
+
+Delta
+-----
+
+Delta typically refers to the change in a measurement due to an electrode's change in capacitance caused by a proximity or touch condition. When viewing a sensors output the CapTIvate™ Design Center to view theThis is typically seen in the CapTIvate™ Design Center sensor view during the sensor tuning process.
+
+Desired Resolution
+------------------
+
+`See here <Desired_Resolution.html>`__
+
+Electrode
+---------
+
+An electrode is the physical conductive structure that a person interacts with. This structure is typically thought of as the copper on a printed circuit board (PCB), but can also be made of transparent materials such as indium tin oxide (ITO) or other conductive materials like silver.
+
+Element
+-------
+
+An element is associated with a sensor's electrodes. For example, if a slider has four electrodes, regardless if the sensor is a self-capacitive sensor or mutual capacitive, then each electrode is considered an element of the slider sensor. This is not as important for buttons however, for sliders and wheels software uses the element to electrode assignments to correctly process position and direction.
+
+Engineering Parameters
+----------------------
+
+`See here <Engineering_Parameters.html>`__
+
+Error Threshold
+---------------
+
+`See here <Error_Threshold.html>`__
+
+Frequency Divider
+-----------------
+
+`See here <Frequency_Divider.html>`__
+
+Idle State
+----------
+
+`See here <Idle_State.html>`__
+
+LTA Filter
+----------
+
+`See here <LTA_Filter.html>`__
+
+Modulation Enable
+-----------------
+
+`See here <Modulation_Enable.html>`__
+
+Mutual Capacitance
+------------------
+
+.. raw:: html
+
+   <!--- todo : need Mutual Capacitance HTML  --->
+
+Negative Touch Threshold
+------------------------
+
+`See here <Negative_Touch_Threshold.html>`__
+
+Noise Immunity
+--------------
+
+Noise immunity collectively refers to all aspects of a capacitive touch design that support improving immunity to noise. For an overview of noise immunity, see the `noise immunity <ch_design_guide.html#noise-immunity>`__ chapter of the design guide.
+
+Enabling the noise immunity feature in CapTIvate Design Center will throw a compile-time configuration switch in the CapTIvate Software Library during code generation. Selecting this option enables additional CapTIvate Software Library features to be used, such as:
+
+-  Oversampling
+-  Frequency hopping (MFP)
+-  Outlier removal
+-  Dynamic threshold adjustmnent (DTA)
+
+For a full description of these options and how to configure them, see the `software library section <ch_library.html#emc>`__ that describes them.
+
+Note that noise immunity is not intended to be used with the wake-on-proximity feature in most cases. This is because wake-on-proximity mode does not support frequency hopping.
+
+Parallel Sense Group
+--------------------
+
+.. raw:: html
+
+   <!--- todo : need Parallel Sense Group HTML --->
+
+CapTIvate™ devices with more than one sensing block can measure one input from each block in parallel. For example, the MSP430FR2633 implements four sensing blocks, each with four CapTIvate™ I/O pins. This allows up to 4 inputs to be measured at the same time in a single measurement cycle. Measuring the inputs in parallel reduces both the measurement time and power consumption.
+
+Phase Lengths
+-------------
+
+`See here <Phase_Lengths.html>`__
+
+Position Filter
+---------------
+
+`See here <Position_Filter.html>`__
+
+Proximity Sensor
+----------------
+
+Proximity sensors are typically self-capacitive electrodes with high sensitivity and can be any size or shape. Proximity sensors are used to detect the presence of an approaching finger or hand. A typical use of a proximity sensor is a "wake on proximity/touch", allowing the MCU to remain in a low power mode until a proximity event is detected. This is possible because the CapTIvate™ peripheral can perform the measurement, environmental tracking and proximity detection autonomously from the MCU.
+
+Proximity Threshold
+-------------------
+
+`See here <Prox_Threshold.html>`__
+
+Run Time Recalibration
+----------------------
+
+`See here <Runtime_ReCalibration.html>`__
+
+Sample Capacitor Discharge
+--------------------------
+
+`See here <Sample_Capacitor_Discharge.html>`__
+
+Self Capacitance
+----------------
+
+Self capacitance refers to capacitance that is created between a single CapTIvate™ I/O pin and any neighboring ground, such as circuit and earth grounds.
+
+Sensor Port
+-----------
+
+.. raw:: html
+
+   <!--- todo : need Sensor Port HTML  --->
+
+Sensor Timeout Threshold
+------------------------
+
+`See here <Sensor_Timeout_Threshold.html>`__
+
+Slider Sensor
+-------------
+
+.. raw:: html
+
+   <!--- todo : need Slider Sensor HTML  --->
+
+Slider sensors are created using three or more electrodes constructed in a linear design and are used to detect the position of a finger as it slides across the sensor. A typical application would be a volume control. Slider sensors can be self-capacitive as well as mutual capacitive.
+
+Slider Trim
+-----------
+
+`See here <Slider_Trim.html>`__
+
+Sync Parameters
+---------------
+
+`See here <Sync_Parameters.html>`__
+
+System Report Rate
+------------------
+
+`See here <System_Report_Rate.html>`__
+
+Time Cycle
+----------
+
+Time cycles refer to the measurement cycles performed by the CapTIvate&trade peripheral. Depending the number and type of sensors used, up to four electrodes can be measured in a single time cycle. For instance, a 12 button mutual capacitive key pad using three TX and four RX channels can be measured in only three time cycles.
+
+Time Estimation
+---------------
+
+`See here <Time_Estimation.html>`__
+
+Touch Threshold
+---------------
+
+`See here <Touch_Threshold.html>`__
+
+Trace
+-----
+
+A trace is the conductive connection between the MSP430™ microcontroller and the electrode. Similar to the electrode, the trace is typically a copper trace on a PCB, but it could also be made of materials like ITO and silver. Connectors and cables between the microcontroller and electrode also affect performance and are described along with trace routing in Section 5. Capacitance is the ability of the electrode to store an electrical charge. In the context of capacitive touch detection, there are two common categories of capacitance: mutual capacitance and self capacitance. As the names imply, self capacitance refers to the capacitance of one electrode, while mutual capacitance refers to the capacitance between two electrodes. Self capacitance is the topic of this document, and the concepts described here pertain primarily to self-capacitance solutions. An important concept within capacitive touch detection is baseline capacitance. This represents the steady-state no-interaction
+capacitance seen by the microcontroller. The baseline capacitance is the sum of the parasitic capacitances, which include the electrode, trace, and parasitic capacitances associated with the MSP430 pins, solder pads, and any discrete components associated with the circuit, for example, ESD current-limiting resistors. The baseline capacitance is important because sensitivity is a function of the relative change in capacitance. If the baseline capacitance is too large, then any change in capacitance caused by a touch or proximity event is very small and might not be distinguishable from the baseline.
+
+Wake on Proximity
+-----------------
+
+Wake-on-proximity, when enabled in the CapTIvate Design Center, allows a single time cycle from a single sensor to be measured autonomously without CPU involvement until a proximity event is detected, providing power consumption savings and reducing the CPU resources that are needed for CapTIvate. For details on how to configure this mode to save power, review the `low power section <ch_design_guide.html#ultra-low-power>`__ of the design guide chapter.
+
+Wheel Sensor
+------------
+
+A wheel sensor is essentially a slider sensor with the two ends wrapped together.

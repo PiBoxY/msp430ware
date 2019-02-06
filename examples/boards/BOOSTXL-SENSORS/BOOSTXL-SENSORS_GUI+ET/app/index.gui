@@ -1,0 +1,630 @@
+<link rel="import" href="../ti-core-stylesheets/ti-core-stylesheets.html">
+<link rel="import" href="../ti-widget-menubar/ti-widget-menubar.html">
+<link rel="import" href="../ti-widget-menubar/ti-widget-filemenu.html">
+<link rel="import" href="../ti-widget-menubar/ti-widget-optionsmenu.html">
+<link rel="import" href="../ti-widget-menubar/ti-widget-helpmenu.html">
+<link rel="import" href="../ti-widget-statusbar/ti-widget-statusbar.html">
+<link rel="import" href="../ti-widget-common/ti-widget-container.html">
+<link rel="import" href="../ti-widget-common/ti-widget-image.html">
+<link rel="import" href="../ti-widget-common/ti-widget-label.html">
+<link rel="import" href="../ti-service-programloader/ti-service-programloader.html">
+<link rel="import" href="../ti-tile-wizard/ti-tile-container.html">
+<link rel="import" href="../ti-widget-common/ti-widget-checkbox.html">
+<link rel="import" href="../ti-widget-common/ti-widget-button.html">
+<link rel="import" href="../ti-widget-common/ti-widget-bitfield-header.html">
+<link rel="import" href="../ti-widget-graphs/ti-widget-linegraph.html">
+<link rel="import" href="../ti-widget-common/ti-widget-spinner.html">
+<link rel="import" href="../ti-widget-helpbutton/ti-widget-helpbutton.html">
+<link rel="import" href="../ti-app-tri_axis_display/ti-app-tri_axis_display.html">
+<link rel="import" href="../ti-widget-common/ti-widget-droplist.html">
+<link rel="import" href="../ti-widget-svggauge/ti-widget-svggauge.html">
+<link rel="import" href="../ti-widget-instruments/ti-widget-gauge.html">
+<link rel="import" href="../ti-widget-instruments/ti-widget-thermometer.html">
+<link rel="import" href="../ti-core-databind/ti-serialio-model.html">
+
+<polymer-element name="my-element">
+
+  <template>
+    <style shim-shadowdom>    
+      #ti_widget_menubar {
+        top: 0px;
+        width: 100%;
+        margin: 0px;
+        left: 0px;
+      }
+      #viewport {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 28px;
+        top: 30px;
+        padding: 0px;
+        margin: 0px;
+        background-color: rgb(238, 238, 238);
+      }
+      #uart {
+        left: 0px;
+        top: -41px;
+        position: absolute;
+      }
+      #ti_widget_thermometer1 {
+        width: 80px;
+        height: 210px;
+        left: 70px;
+        top: 64px;
+        position: absolute;
+      }
+      #ti_widget_optionsmenu {
+        left: 80px;
+        top: 0px;
+      }
+      #ti_widget_bitfield_header {
+        left: 50px;
+        top: 100px;
+        position: absolute;
+        width: 350px;
+      }
+      #ti_widget_gauge11 {
+        width: 170px;
+        height: 170px;
+        left: 30px;
+        top: 20px;
+        position: absolute;
+        background-color: transparent;
+      }
+      #ti_widget_statusbar {
+        position: static;
+      }
+      #rxTextArea {
+        width: 1200px;
+        height: 63px;
+        left: 10px;
+        top: 805px;
+        position: absolute;
+        background-color: rgb(200, 226, 241);
+      }
+      #ti_widget_temperaturegraph {
+        width: 380px;
+        height: 180px;
+        left: 1570px;
+        top: 790px;
+      }
+      #ti_widget_analoggauge {
+        width: 200px;
+        height: 200px;
+        left: 25px;
+        top: 40px;
+        position: absolute;
+      }
+      #ti_widget_analoggauge1 {
+        width: 200px;
+        height: 200px;
+        left: 25px;
+        top: 270px;
+        position: absolute;
+      }
+      #ti_widget_label14 {
+        left: 34px;
+        top: 34px;
+        position: absolute;
+      }
+      #paper_tabs {
+        width: 480px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 2px;
+        left: 1650px;
+        top: 730px;
+      }
+      #ti_app_tri_axis_display {
+        width: 670px;
+        height: 230px;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      #ti_widget_droplist {
+        width: 70px;
+        left: 30px;
+        top: 300px;
+        position: absolute;
+        height: 20px;
+      }
+      #ti_widget_droplist1 {
+        width: 70px;
+        left: 30px;
+        top: 190px;
+        position: absolute;
+        height: 20px;
+      }
+      #ti_widget_droplist2 {
+        width: 70px;
+        left: 30px;
+        top: 740px;
+        position: absolute;
+        height: 20px;
+      }
+      #ti_widget_droplist3 {
+        width: 100px;
+        left: 40px;
+        top: 430px;
+        position: absolute;
+      }
+      #ti_widget_droplist4 {
+        width: 100px;
+        left: 40px;
+        top: 221px;
+        position: absolute;
+      }
+      #toggleTMP {
+        left: 130px;
+        top: 300px;
+        position: absolute;
+      }
+      #toggleOPT {
+        left: 130px;
+        top: 190px;
+        position: absolute;
+      }
+      #toggleBME {
+        left: 130px;
+        top: 740px;
+        position: absolute;
+      }
+      #toggleIMU {
+        left: 10px;
+        top: 740px;
+        position: absolute;
+        width: 60px;
+        height: 20px;
+      }
+      #ti_app_tri_axis_display1 {
+        width: 660px;
+        height: 210px;
+        left: 0px;
+        top: 219px;
+        position: absolute;
+        opacity: 1;
+      }
+      #ti_app_tri_axis_display2 {
+        width: 655px;
+        height: 250px;
+        left: 0px;
+        top: -3px;
+        position: absolute;
+      }
+      #light_label {
+        left: 50px;
+        top: 30px;
+        position: absolute;
+      }
+      #ti_widget_label2 {
+        left: 10px;
+        top: 220px;
+        position: absolute;
+      }
+      #ti_widget_label3 {
+        left: 10px;
+        top: 430px;
+        position: absolute;
+      }
+      #ti_widget_label4 {
+        left: 1020px;
+        top: 850px;
+        position: absolute;
+      }
+      #TMP007 {
+        left: 50px;
+        top: 510px;
+        border: 1px solid blue;
+        background-color: red;
+      }
+      #ti_widget_analoggauge2 {
+        width: 200px;
+        height: 200px;
+        left: 25px;
+        top: 500px;
+        position: absolute;
+      }
+      #ti_service_programloader {
+        width: 177px;
+        height: 177px;
+        left: 1330px;
+        top: 280px;
+        position: absolute;
+      }
+      #ti_tile_container {
+        width: 230px;
+        height: 230px;
+        border: 1px solid rgb(201, 187, 160);
+        left: 10px;
+        top: 225px;
+        position: absolute;
+        opacity: 1;
+        background-color: rgb(255, 255, 255);
+      }
+      #ti_tile_container1 {
+        width: 230px;
+        height: 340px;
+        border: 1px solid rgb(201, 187, 160);
+        left: 10px;
+        top: 460px;
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+      }
+      #ti_tile_container2 {
+        width: 250px;
+        height: 780px;
+        border: 1px solid rgb(160, 186, 201);
+        left: 250px;
+        top: 20px;
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+      }
+      #ti_tile_container3 {
+        width: 680px;
+        height: 460px;
+        border: 1px solid rgb(211, 211, 211);
+        left: 10px;
+        top: 10px;
+        position: absolute;
+        opacity: 1;
+        background-color: rgb(255, 255, 255);
+      }
+      #ti_tile_container4 {
+        width: 680px;
+        height: 250px;
+        border: 1px solid rgb(211, 211, 211);
+        left: 10px;
+        top: 485px;
+        position: absolute;
+      }
+      #ti_tile_container5 {
+        width: 700px;
+        height: 780px;
+        border: 1px solid rgb(160, 186, 201);
+        left: 510px;
+        top: 20px;
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+      }
+      #ti_widget_image {
+        left: 20px;
+        top: 92.5px;
+        position: absolute;
+        width: 215px;
+        height: 50px;
+      }
+      #ti_widget_magnitudeLabel {
+        left: 583px;
+        top: 235px;
+        position: absolute;
+        z-index: 1;
+      }
+      #ti_widget_label {
+        left: 40px;
+        top: 190px;
+        position: absolute;
+      }
+      #et_button {
+        left: 150px;
+        top: 20px;
+        position: absolute;
+        width: 150px;
+        height: 50px;
+      }
+      #et_label {
+        left: 67px;
+        top: 80px;
+        position: absolute;
+        width: 300px;
+        height: 30px;
+      }
+      #settings_bitfield {
+        left: 50px;
+        top: 121px;
+        position: absolute;
+        width: 350px;
+      }
+      #settings_bitfield1 {
+        left: 50px;
+        top: 201px;
+        position: absolute;
+        width: 350px;
+        height: 30px;
+      }
+      #et_label1 {
+        left: 100px;
+        top: 160px;
+        position: absolute;
+        width: 250px;
+        height: 20px;
+      }
+      #et_label2 {
+        left: 100px;
+        top: 240px;
+        position: absolute;
+        width: 250px;
+        height: 30px;
+      }
+      #settings_bitfield2 {
+        left: 50px;
+        top: 281px;
+        position: absolute;
+        width: 350px;
+        height: 30px;
+      }
+      #accell_image {
+        left: 250px;
+        top: 240px;
+        position: absolute;
+        width: 325.37px;
+        height: 265.1px;
+        opacity: 1;
+      }
+      #ti_widget_bitfield_header1 {
+        left: 50px;
+        top: 180px;
+        position: absolute;
+        width: 350px;
+      }
+      #ti_widget_bitfield_header2 {
+        left: 50px;
+        top: 260px;
+        position: absolute;
+        width: 350px;
+        height: 30px;
+      }
+      #gesture_image {
+        left: 20px;
+        top: 40px;
+        position: absolute;
+        opacity: 100;
+        margin: 0px;
+        padding: 0px;
+        width: 410px;
+        height: 210px;
+        border: 1px solid grey;
+        background-color: rgb(0, 0, 0);
+      }
+      #toggleGestures {
+        height: 20px;
+        z-index: 0;
+        top: 260px;
+        position: absolute;
+        background-color: rgb(0, 0, 0);
+      }
+      #ti_widget_linegraph {
+        left: 1px;
+        top: 310px;
+        position: absolute;
+        margin: 2px;
+        right: 1px;
+        bottom: 1px;
+      }
+      #etms_selector {
+        left: 320px;
+        top: 40px;
+        position: absolute;
+        width: 80px;
+        height: 20px;
+        z-index: 1;
+      }
+      #gesture_panel {
+        width: 455px;
+        height: 300px;
+        left: 1220px;
+        top: 570px;
+        position: absolute;
+        opacity: 1;
+        border: 1px solid rgb(211, 211, 211);
+        z-index: 0;
+        background-color: rgb(0, 0, 0);
+      }
+      #ti_widget_label1 {
+        left: 320px;
+        top: 20px;
+        position: absolute;
+      }
+      #toggleLightGesture {
+        top: 260px;
+        position: absolute;
+        height: 20px;
+        right: 80px;
+        background-color: rgb(0, 0, 0);
+      }
+      #mA_label {
+        left: 1645px;
+        top: 535px;
+        position: absolute;
+        z-index: 900;
+      }
+      #ti_widget_checkbox {
+        left: 1600px;
+        top: 600px;
+      }
+      #mS_label {
+        left: 1615px;
+        top: 545px;
+        position: absolute;
+        z-index: 900;
+      }
+      #et_container {
+        height: 543px;
+        width: 455px;
+        left: 1220px;
+        top: 20px;
+        position: absolute;
+        border: 1px solid rgb(211, 211, 211);
+        background-color: rgb(255, 255, 255);
+      }
+      #et_title {
+        left: 15px;
+        top: 5px;
+        position: absolute;
+      }
+      #ti_widget_helpbutton {
+        width: 23px;
+        height: 23px;
+        left: 10px;
+        top: 25px;
+        position: absolute;
+        z-index: 4;
+      }
+      #ti_widget_helpbutton1 {
+        width: 23px;
+        height: 23px;
+        top: 240px;
+        position: absolute;
+        right: 5px;
+        z-index: 3;
+        left: -50px;
+      }
+      #ti_widget_helpbutton3 {
+        width: 23px;
+        height: 23px;
+        right: 5px;
+        left: 650px;
+        top: 5px;
+        position: absolute;
+        z-index: 2;
+      }
+      #ti_widget_helpbutton4 {
+        width: 23px;
+        height: 23px;
+        top: 5px;
+        position: absolute;
+        right: 5px;
+      }
+      #ti_widget_helpbutton5 {
+        width: 23px;
+        height: 23px;
+        top: 5px;
+        position: absolute;
+        right: 5px;
+      }
+      #ti_widget_helpbutton6 {
+        width: 23px;
+        height: 23px;
+        top: 230px;
+        position: absolute;
+        z-index: 1;
+        left: 210px;
+      }
+      #ti_widget_helpbutton2 {
+        width: 23px;
+        height: 23px;
+        top: 5px;
+        position: absolute;
+        right: 5px;
+        z-index: 2;
+      }
+      :host {
+        z-index: 1000;
+      }
+      #ti_widget_label5 {
+        left: 170px;
+        top: 10px;
+        position: absolute;
+      }
+      #polymer_element {
+        z-index: 0;
+      }
+    </style>
+    <ti-core-stylesheets id="ti_core_stylesheets"></ti-core-stylesheets>
+    <ti-widget-menubar id="ti_widget_menubar" layout horizontal>
+      <ti-widget-filemenu id="ti_widget_filemenu" loadsavedisabled layout></ti-widget-filemenu>
+      <ti-widget-optionsmenu id="ti_widget_optionsmenu" layout>
+        </ti-widget-optionsmenu>
+      <ti-widget-helpmenu id="ti_widget_helpmenu" layout></ti-widget-helpmenu>
+    </ti-widget-menubar>
+    <ti-widget-statusbar id="ti_widget_statusbar">
+</ti-widget-statusbar>
+    <ti-widget-container id="viewport" autoscroll pin>
+      <ti-widget-image id="ti_widget_image" imagepath="images/ti_gui_icon.png" lockaspectratio hovereffect="none"></ti-widget-image>
+      <textarea id="rxTextArea" rows="2" cols="80"></textarea>
+      <div id="TMP007">
+        </div>
+      <ti-widget-label id="ti_widget_label4" label="Raw JSON from target UART"></ti-widget-label>
+      <ti-service-programloader id="ti_service_programloader"></ti-service-programloader>
+      <ti-widget-label id="ti_widget_magnitudeLabel" label="0"></ti-widget-label>
+      <ti-tile-container id="gesture_panel" elevation="0" layout fontcolor="white" pin>
+        <ti-widget-image id="gesture_image" lockaspectratio></ti-widget-image>
+        <ti-widget-checkbox id="toggleLightGesture" label="Light Sensing" checked fontcolor="#ffffff" center></ti-widget-checkbox>
+        <ti-widget-label id="ti_widget_label5" label="Board Movement" fontweight="bold" fontcolor="#ffffff" fontsize="medium"></ti-widget-label>
+        <ti-widget-checkbox id="toggleGestures" label="Motion Detection" textalign="center" fontcolor="#ffffff"></ti-widget-checkbox>
+      </ti-tile-container>
+      <ti-widget-label id="mA_label" label="mA" textalign="center" fontcolor="red" fontsize="xx-small"></ti-widget-label>
+      <ti-widget-label id="mS_label" label="* 0.5 mS" fontsize="x-small"></ti-widget-label>
+      <ti-widget-container id="et_container" fontcolor="black">
+        <ti-widget-button id="et_button" pressed buttontype="primary" raised active bindtrigger="12" start primary>Start EnergyTrace™</ti-widget-button>
+        <ti-widget-bitfield-header id="ti_widget_bitfield_header" bitvalues="OPT,TMP,BME,Acc,Gyr,Mag" maxcolwidth="60" bordercolor="#000000" backgroundcolor="#edf7f8"></ti-widget-bitfield-header>
+        <ti-widget-bitfield-header id="ti_widget_bitfield_header1" bitvalues="OPT,TMP,BME,Acc,Gyr,Mag" maxcolwidth="60" bordercolor="#000000" backgroundcolor="#edf7f8"></ti-widget-bitfield-header>
+        <ti-widget-bitfield-header id="ti_widget_bitfield_header2" bitvalues="OPT,TMP,BME,Acc,Gyr,Mag" maxcolwidth="60" bordercolor="#000000" backgroundcolor="#edf7f8"></ti-widget-bitfield-header>
+        <ti-widget-bitfield-header id="settings_bitfield" bitvalues="---,---,---,---,---,---" maxcolwidth="60" rowheight="20"></ti-widget-bitfield-header>
+        <ti-widget-label id="et_label" label="time(0) average current (mA)" wrap textalign="center" fontweight="bolder" fontcolor="#000000" fontsize="medium"></ti-widget-label>
+        <ti-widget-label id="et_label1" label="time(-1) average current (mA)" wrap textalign="center" fontweight="bolder" fontcolor="#000000" fontsize="medium"></ti-widget-label>
+        <ti-widget-label id="et_label2" label="time(-2) avg current (mA)" wrap textalign="center" fontweight="bolder" fontcolor="#000000" fontsize="medium"></ti-widget-label>
+        <ti-widget-bitfield-header id="settings_bitfield2" bitvalues="---,---,---,---,---,---" maxcolwidth="60" rowheight="20"></ti-widget-bitfield-header>
+        <ti-widget-bitfield-header id="settings_bitfield1" bitvalues="---,---,---,---,---,---" maxcolwidth="60" rowheight="20"></ti-widget-bitfield-header>
+        <ti-widget-linegraph id="ti_widget_linegraph" series_0_color="#ffffff" series_1_color="#ff0000" hideyaxis2 hideyaxis3 backgroundcolor="#FFFFFF" numchannels="2" series_2_min="0" series_0_min="0" series_0_max="1" series_1_min="0"></ti-widget-linegraph>
+        <ti-widget-label id="et_title" label="EnergyTrace™" fontweight="bold" fontcolor="black" fontsize="small"></ti-widget-label>
+        <ti-widget-label id="ti_widget_label1" label="Duration (mS)"></ti-widget-label>
+        <ti-widget-spinner id="etms_selector" value="4800" maxvalue="5000" increment="100"></ti-widget-spinner>
+        <ti-widget-helpbutton id="ti_widget_helpbutton" titletext="Energy Trace" markdowntext="![Energy Trace](app/images/et_hint.svg)" tileposition="below_left" tilewidthinpx="300" tileheightinpx="450"></ti-widget-helpbutton>
+        <ti-widget-helpbutton id="ti_widget_helpbutton1" titletext="Gyro" markdowntext="![Gyro](app/images/gyro_hint.gif)" tileposition="right" tilewidthinpx="430" tileheightinpx="530" adjusty="20" adjustx="5"></ti-widget-helpbutton>
+      </ti-widget-container>
+      <ti-tile-container id="ti_tile_container5" elevation="0" layout>
+        <ti-widget-checkbox id="toggleIMU" label="IMU ON/Pedometer Mode (accelerometer on only)" checked fontcolor="black"></ti-widget-checkbox>
+        <ti-tile-container id="ti_tile_container4" titletext="BMM150" layout>
+          <ti-widget-helpbutton id="ti_widget_helpbutton3" titletext="Magnetometer" markdowntext="![Magnetometer](app/images/mag_hint.gif) " tileposition="right" tilewidthinpx="450" tileheightinpx="550" adjustx="10"></ti-widget-helpbutton>
+          <ti-app-tri_axis_display id="ti_app_tri_axis_display2" minvalue="-300" maxvalue="300" titlelabel="Magnetometer (uT)"></ti-app-tri_axis_display>
+          <ti-widget-droplist id="ti_widget_droplist4" labels="1Hz|2Hz|4Hz|6Hz|8Hz|10Hz" selectedtext="10Hz" selectedvalue="5" initialindex="5" values="0|1|2|3|4|5" selectedindex="5"></ti-widget-droplist>
+          <ti-widget-label id="ti_widget_label2" label="Rate"></ti-widget-label>
+        </ti-tile-container>
+        <ti-tile-container id="ti_tile_container3" titletext="BMI160" layout>
+          <ti-widget-label id="ti_widget_label3" label="Rate"></ti-widget-label>
+          <ti-app-tri_axis_display id="ti_app_tri_axis_display1" minvalue="-1200" maxvalue="1200" titlelabel="Gyroscope (deg/s)"></ti-app-tri_axis_display>
+          <ti-widget-droplist id="ti_widget_droplist3" labels="1Hz|2Hz|4Hz|6Hz|8Hz|10Hz" selectedtext="4Hz" selectedvalue="2" initialindex="2" values="0|1|2|3|4|5" selectedindex="2"></ti-widget-droplist>
+          <ti-widget-label id="ti_widget_label" label="Magnitude:"></ti-widget-label>
+          <ti-app-tri_axis_display id="ti_app_tri_axis_display" minvalue="-3" maxvalue="3" titlelabel="Accelerometer (G)" graphpaddingleft="18px" graphwidth="558px"></ti-app-tri_axis_display>
+          <ti-widget-helpbutton id="ti_widget_helpbutton2" titletext="Accelerometer" markdowntext="![Accelerometer](app/images/accel_hint.gif)  " tilewidthinpx="430" tileheightinpx="530" adjustx="10"></ti-widget-helpbutton>
+        </ti-tile-container>
+      </ti-tile-container>
+      <ti-tile-container id="ti_tile_container2" titletext="BME280" layout>
+        <ti-widget-svggauge id="ti_widget_analoggauge" showodometer titletext="Atm. Pressure" units="mmHg" maxvalue="140" titlefontsizeinpx="5.75" gaugefontfamily="Arial" size="210"></ti-widget-svggauge>
+        <ti-widget-svggauge id="ti_widget_analoggauge1" showodometer titletext="Rel.Humidity" units="%" titlefontsizeinpx="5.75" gaugefontfamily="Arial" skin="carbon" size="210"></ti-widget-svggauge>
+        <ti-widget-svggauge id="ti_widget_analoggauge2" showodometer titletext="Amb.Temperature" units="*C" maxvalue="35" titlefontsizeinpx="5.75" numtickspernumberlabel="5" gaugefontfamily="Arial" size="210"></ti-widget-svggauge>
+        <ti-widget-droplist id="ti_widget_droplist2" labels="1Hz|2Hz|4Hz|6Hz|8Hz|10Hz" selectedtext="1Hz" selectedvalue="0" initialindex="0" values="0|1|2|3|4|5"></ti-widget-droplist>
+        <ti-widget-checkbox id="toggleBME" label="ON/OFF" checked></ti-widget-checkbox>
+        <ti-widget-helpbutton id="ti_widget_helpbutton4" titletext="Enviro" markdowntext="![enviro](app/images/enviro_hint2.gif)" tilewidthinpx="445" tileheightinpx="510"></ti-widget-helpbutton>
+      </ti-tile-container>
+      <ti-tile-container id="ti_tile_container" titletext="OPT3001" borderstyle="none">
+        <ti-widget-gauge id="ti_widget_gauge11" value="{{ $.uart.light.lux }}" maxvalue="83000" title></ti-widget-gauge>
+        <ti-widget-label id="ti_widget_label14" label="Ambient Light (Lux)" fontsize="large"></ti-widget-label>
+        <ti-widget-checkbox id="toggleOPT" label="ON/OFF" checked></ti-widget-checkbox>
+        <ti-widget-droplist id="ti_widget_droplist1" labels="1Hz|2Hz|4Hz|6Hz|8Hz|10Hz" selectedtext="1Hz" selectedvalue="0" initialindex="0" values="0|1|2|3|4|5"></ti-widget-droplist>
+      </ti-tile-container>
+      <ti-widget-helpbutton id="ti_widget_helpbutton6" titletext="How to use the Ambient Light Sensor" markdowntext="![Ambient Light Sensor](app/images/light_hint.gif)" tilewidthinpx="430" tileheightinpx="530"></ti-widget-helpbutton>
+      <ti-tile-container id="ti_tile_container1" titletext="TMP007" layout>
+        <ti-widget-checkbox id="toggleTMP" label="ON/OFF" checked></ti-widget-checkbox>
+        <ti-widget-droplist id="ti_widget_droplist" labels="1Hz|2Hz|4Hz|6Hz|8Hz|10Hz" selectedtext="1Hz" selectedvalue="0" initialindex="0" values="0|1|2|3|4|5"></ti-widget-droplist>
+        <ti-widget-label id="light_label" label="IR Object Temp (F)" textalign="center" fontsize="large"></ti-widget-label>
+        <ti-widget-thermometer id="ti_widget_thermometer1" value="{{ $.uart.ir_temp.obj_temp }}" minvalue="20" maxvalue="80" labels="80,60,40,20" minorticks="4" units="F"></ti-widget-thermometer>
+        <ti-widget-helpbutton id="ti_widget_helpbutton5" titletext="How to use the IR Object Temperature Sensor" markdowntext="![IR Object Temp Sensor](app/images/tmp_hint.gif)
+ 
+" tileposition="right" tilewidthinpx="440" tileheightinpx="510" adjusty="80"></ti-widget-helpbutton>
+      </ti-tile-container>
+    </ti-widget-container>
+    <ti-serialio-model id="uart"></ti-serialio-model>
+  </template>
+
+  <script>
+
+    Polymer({
+      secondaryProgress: 30,
+      gestureOpacity: 100,
+      value: ''
+    });
+
+  </script>
+
+</polymer-element>

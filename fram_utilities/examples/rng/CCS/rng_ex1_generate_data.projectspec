@@ -1,0 +1,7 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/fram-utilities/rng --diag_suppress=10420" device="MSP430FR5969" linkerBuildOptions="--stack_size=160" name="rng_ex1_generate_data">
+	<file action="copy" path="../rng_ex1_generate_data.c" targetDirectory="." />
+	<file action="copy" path="../../../src/rng/rng.c" targetDirectory="fram-utilities/rng" />
+	<file action="copy" path="../../../src/rng/rng.h" targetDirectory="fram-utilities/rng" />
+  </project>
+</projectSpec>

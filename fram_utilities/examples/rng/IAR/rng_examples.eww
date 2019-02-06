@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\rng_ex1_generate_data\rng_ex1_generate_data.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\rng_ex2_generate_csv\rng_ex2_generate_csv.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

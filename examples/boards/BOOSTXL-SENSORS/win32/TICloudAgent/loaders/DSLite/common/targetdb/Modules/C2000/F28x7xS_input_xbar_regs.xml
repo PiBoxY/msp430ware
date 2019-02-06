@@ -1,0 +1,232 @@
+<module id="INPUT_XBAR_REGS" HW_revision="">
+  <register id="INPUT1SELECT" width="16" page="1" offset="0x0" internal="0" description="INPUT1 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT1 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT2SELECT" width="16" page="1" offset="0x1" internal="0" description="INPUT2 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT2 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT3SELECT" width="16" page="1" offset="0x2" internal="0" description="INPUT3 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT3 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT4SELECT" width="16" page="1" offset="0x3" internal="0" description="INPUT4 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT4 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT5SELECT" width="16" page="1" offset="0x4" internal="0" description="INPUT5 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT5 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT6SELECT" width="16" page="1" offset="0x5" internal="0" description="INPUT6 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT6 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT7SELECT" width="16" page="1" offset="0x6" internal="0" description="INPUT7 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT7 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT8SELECT" width="16" page="1" offset="0x7" internal="0" description="INPUT8 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT8 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT9SELECT" width="16" page="1" offset="0x8" internal="0" description="INPUT9 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT9 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT10SELECT" width="16" page="1" offset="0x9" internal="0" description="INPUT10 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT10 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT11SELECT" width="16" page="1" offset="0xa" internal="0" description="INPUT11 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT11 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT12SELECT" width="16" page="1" offset="0xb" internal="0" description="INPUT12 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT12 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT13SELECT" width="16" page="1" offset="0xc" internal="0" description="INPUT13 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT13 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUT14SELECT" width="16" page="1" offset="0xd" internal="0" description="INPUT14 Input Select Register (GPIO0 to x)">
+    <bitfield id="SELECT" description="Select GPIO for INPUT14 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+  </register>
+  <register id="INPUTSELECTLOCK" width="32" page="1" offset="0x1e" internal="0" description="Input Select Lock Register">
+    <bitfield id="INPUT1SELECT" description="Lock bit for INPUT1SEL Register" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT2SELECT" description="Lock bit for INPUT2SEL Register" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT3SELECT" description="Lock bit for INPUT3SEL Register" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT4SELECT" description="Lock bit for INPUT4SEL Register" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT5SELECT" description="Lock bit for INPUT5SEL Register" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT6SELECT" description="Lock bit for INPUT7SEL Register" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT7SELECT" description="Lock bit for INPUT8SEL Register" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT8SELECT" description="Lock bit for INPUT9SEL Register" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT9SELECT" description="Lock bit for INPUT10SEL Register" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT10SELECT" description="Lock bit for INPUT11SEL Register" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT11SELECT" description="Lock bit for INPUT11SEL Register" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT12SELECT" description="Lock bit for INPUT12SEL Register" begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT13SELECT" description="Lock bit for INPUT13SEL Register" begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT14SELECT" description="Lock bit for INPUT14SEL Register" begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT15SELECT" description="Lock bit for INPUT15SEL Register" begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT16SELECT" description="Lock bit for INPUT16SEL Register" begin="15" end="15" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="TRIGLATCH1" width="32" page="1" offset="0x20" internal="0" description="X-Bar Input Latch Register 1">
+    <bitfield id="CMPSS1_CTRIPL" description="Input Latch for CMPSS1.CTRIPL Signal" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS1_CTRIPH" description="Input Latch for CMPSS1.CTRIPH Signal" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPL" description="Input Latch for CMPSS2.CTRIPL Signal" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPH" description="Input Latch for CMPSS2.CTRIPH Signal" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPL" description="Input Latch for CMPSS3.CTRIPL Signal" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPH" description="Input Latch for CMPSS3.CTRIPH Signal" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPL" description="Input Latch for CMPSS4.CTRIPL Signal" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPH" description="Input Latch for CMPSS4.CTRIPH Signal" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPL" description="Input Latch for CMPSS5.CTRIPL Signal" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPH" description="Input Latch for CMPSS5.CTRIPH Signal" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPL" description="Input Latch for CMPSS6.CTRIPL Signal" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPH" description="Input Latch for CMPSS6.CTRIPH Signal" begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPL" description="Input Latch for CMPSS7.CTRIPL Signal" begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPH" description="Input Latch for CMPSS7.CTRIPH Signal" begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPL" description="Input Latch for CMPSS8.CTRIPL Signal" begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPH" description="Input Latch for CMPSS8.CTRIPH Signal" begin="15" end="15" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS1_CTRIPOUTL" description="Input Latch for CMPSS1.CTRIPOUTL Signal" begin="16" end="16" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS1_CTRIPOUTH" description="Input Latch for CMPSS1.CTRIPOUTH Signal" begin="17" end="17" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPOUTL" description="Input Latch for CMPSS2.CTRIPOUTL Signal" begin="18" end="18" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPOUTH" description="Input Latch for CMPSS2.CTRIPOUTH Signal" begin="19" end="19" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPOUTL" description="Input Latch for CMPSS3.CTRIPOUTL Signal" begin="20" end="20" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPOUTH" description="Input Latch for CMPSS3.CTRIPOUTH Signal" begin="21" end="21" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPOUTL" description="Input Latch for CMPSS4.CTRIPOUTL Signal" begin="22" end="22" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPOUTH" description="Input Latch for CMPSS4.CTRIPOUTH Signal" begin="23" end="23" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPOUTL" description="Input Latch for CMPSS5.CTRIPOUTL Signal" begin="24" end="24" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPOUTH" description="Input Latch for CMPSS5.CTRIPOUTH Signal" begin="25" end="25" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPOUTL" description="Input Latch for CMPSS6.CTRIPOUTL Signal" begin="26" end="26" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPOUTH" description="Input Latch for CMPSS6.CTRIPOUTH Signal" begin="27" end="27" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPOUTL" description="Input Latch for CMPSS7.CTRIPOUTL Signal" begin="28" end="28" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPOUTH" description="Input Latch for CMPSS7.CTRIPOUTH Signal" begin="29" end="29" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPOUTL" description="Input Latch for CMPSS8.CTRIPOUTL Signal" begin="30" end="30" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPOUTH" description="Input Latch for CMPSS8.CTRIPOUTH Signal" begin="31" end="31" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="TRIGLATCH2" width="32" page="1" offset="0x22" internal="0" description="X-Bar Input Latch Register 2">
+    <bitfield id="INPUT1" description="Input Latch for INPUT1 Signal" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT2" description="Input Latch for INPUT2 Signal" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT3" description="Input Latch for INPUT3 Signal" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT4" description="Input Latch for INPUT4 Signal" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT5" description="Input Latch for INPUT5 Signal" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT7" description="Input Latch for INPUT7 Signal" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCSOCA" description="Input Latch for ADCSOCA Signal" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCSOCB" description="Input Latch for ADCSOCB Signal" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP1_OUT" description="Input Latch for ECAP1.OUT Signal" begin="16" end="16" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP2_OUT" description="Input Latch for ECAP2.OUT Signal" begin="17" end="17" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP3_OUT" description="Input Latch for ECAP3.OUT Signal" begin="18" end="18" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP4_OUT" description="Input Latch for ECAP4.OUT Signal" begin="19" end="19" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP5_OUT" description="Input Latch for ECAP5.OUT Signal" begin="20" end="20" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP6_OUT" description="Input Latch for ECAP6.OUT Signal" begin="21" end="21" width="1" rwaccess="R/W"/>
+    <bitfield id="EXTSYNCOUT" description="Input Latch for EXTSYNCOUT Signal" begin="22" end="22" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT1" description="Input Latch for ADCAEVT1 Signal" begin="23" end="23" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT2" description="Input Latch for ADCAEVT2 Signal" begin="24" end="24" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT3" description="Input Latch for ADCAEVT3 Signal" begin="25" end="25" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT4" description="Input Latch for ADCAEVT4 Signal" begin="26" end="26" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT1" description="Input Latch for ADCBEVT1 Signal" begin="27" end="27" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT2" description="Input Latch for ADCBEVT2 Signal" begin="28" end="28" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT3" description="Input Latch for ADCBEVT3 Signal" begin="29" end="29" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT4" description="Input Latch for ADCBEVT4 Signal" begin="30" end="30" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCCEVT1" description="Input Latch for ADCCEVT1 Signal" begin="31" end="31" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="TRIGLATCH3" width="32" page="1" offset="0x24" internal="0" description="X-Bar Input Latch Register 3">
+    <bitfield id="ADCCEVT2" description="Input Latch for ADCCEVT2 Signal" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCCEVT3" description="Input Latch for ADCCEVT3 Signal" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCCEVT4" description="Input Latch for ADCCEVT4 Signal" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT1" description="Input Latch for ADCDEVT1 Signal" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT2" description="Input Latch for ADCDEVT2 Signal" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT3" description="Input Latch for ADCDEVT3 Signal" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT4" description="Input Latch for ADCDEVT4 Signal" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT1_COMPL" description="Input Latch for SD1FLT1.COMPL Signal" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT1_COMPH" description="Input Latch for SD1FLT1.COMPH Signal" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT2_COMPL" description="Input Latch for SD1FLT2.COMPL Signal" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT2_COMPH" description="Input Latch for SD1FLT2.COMPH Signal" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT3_COMPL" description="Input Latch for SD1FLT3.COMPL Signal" begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT3_COMPH" description="Input Latch for SD1FLT3.COMPH Signal" begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT4_COMPL" description="Input Latch for SD1FLT4.COMPL Signal" begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT4_COMPH" description="Input Latch for SD1FLT4.COMPH Signal" begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT1_COMPL" description="Input Latch for SD2FLT1.COMPL Signal" begin="15" end="15" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT1_COMPH" description="Input Latch for SD2FLT1.COMPH Signal" begin="16" end="16" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT2_COMPL" description="Input Latch for SD2FLT2.COMPL Signal" begin="17" end="17" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT2_COMPH" description="Input Latch for SD2FLT2.COMPH Signal" begin="18" end="18" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT3_COMPL" description="Input Latch for SD2FLT3.COMPL Signal" begin="19" end="19" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT3_COMPH" description="Input Latch for SD2FLT3.COMPH Signal" begin="20" end="20" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT4_COMPL" description="Input Latch for SD2FLT4.COMPL Signal" begin="21" end="21" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT4_COMPH" description="Input Latch for SD2FLT4.COMPH Signal" begin="22" end="22" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="TRIGLATCHCLR1" width="32" page="1" offset="0x28" internal="0" description="X-Bar Input Latch Clear Register 1">
+    <bitfield id="CMPSS1_CTRIPL" description="Input Latch Clear for CMPSS1.CTRIPL Signal" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS1_CTRIPH" description="Input Latch Clear for CMPSS1.CTRIPH Signal" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPL" description="Input Latch Clear for CMPSS2.CTRIPL Signal" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPH" description="Input Latch Clear for CMPSS2.CTRIPH Signal" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPL" description="Input Latch Clear for CMPSS3.CTRIPL Signal" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPH" description="Input Latch Clear for CMPSS3.CTRIPH Signal" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPL" description="Input Latch Clear for CMPSS4.CTRIPL Signal" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPH" description="Input Latch Clear for CMPSS4.CTRIPH Signal" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPL" description="Input Latch Clear for CMPSS5.CTRIPL Signal" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPH" description="Input Latch Clear for CMPSS5.CTRIPH Signal" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPL" description="Input Latch Clear for CMPSS6.CTRIPL Signal" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPH" description="Input Latch Clear for CMPSS6.CTRIPH Signal" begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPL" description="Input Latch Clear for CMPSS7.CTRIPL Signal" begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPH" description="Input Latch Clear for CMPSS7.CTRIPH Signal" begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPL" description="Input Latch Clear for CMPSS8.CTRIPL Signal" begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPH" description="Input Latch Clear for CMPSS8.CTRIPH Signal" begin="15" end="15" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS1_CTRIPOUTL" description="Input Latch Clear for CMPSS1.CTRIPOUTL Signal" begin="16" end="16" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS1_CTRIPOUTH" description="Input Latch Clear for CMPSS1.CTRIPOUTH Signal" begin="17" end="17" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPOUTL" description="Input Latch Clear for CMPSS2.CTRIPOUTL Signal" begin="18" end="18" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS2_CTRIPOUTH" description="Input Latch Clear for CMPSS2.CTRIPOUTH Signal" begin="19" end="19" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPOUTL" description="Input Latch Clear for CMPSS3.CTRIPOUTL Signal" begin="20" end="20" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS3_CTRIPOUTH" description="Input Latch Clear for CMPSS3.CTRIPOUTH Signal" begin="21" end="21" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPOUTL" description="Input Latch Clear for CMPSS4.CTRIPOUTL Signal" begin="22" end="22" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS4_CTRIPOUTH" description="Input Latch Clear for CMPSS4.CTRIPOUTH Signal" begin="23" end="23" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPOUTL" description="Input Latch Clear for CMPSS5.CTRIPOUTL Signal" begin="24" end="24" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS5_CTRIPOUTH" description="Input Latch Clear for CMPSS5.CTRIPOUTH Signal" begin="25" end="25" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPOUTL" description="Input Latch Clear for CMPSS6.CTRIPOUTL Signal" begin="26" end="26" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS6_CTRIPOUTH" description="Input Latch Clear for CMPSS6.CTRIPOUTH Signal" begin="27" end="27" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPOUTL" description="Input Latch Clear for CMPSS7.CTRIPOUTL Signal" begin="28" end="28" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS7_CTRIPOUTH" description="Input Latch Clear for CMPSS7.CTRIPOUTH Signal" begin="29" end="29" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPOUTL" description="Input Latch Clear for CMPSS8.CTRIPOUTL Signal" begin="30" end="30" width="1" rwaccess="R/W"/>
+    <bitfield id="CMPSS8_CTRIPOUTH" description="Input Latch Clear for CMPSS8.CTRIPOUTH Signal" begin="31" end="31" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="TRIGLATCHCLR2" width="32" page="1" offset="0x2a" internal="0" description="X-Bar Input Latch Clear Register 2">
+    <bitfield id="INPUT1" description="Input Latch Clear for INPUT1 Signal" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT2" description="Input Latch Clear for INPUT2 Signal" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT3" description="Input Latch Clear for INPUT3 Signal" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT4" description="Input Latch Clear for INPUT4 Signal" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT5" description="Input Latch Clear for INPUT5 Signal" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="INPUT7" description="Input Latch Clear for INPUT7 Signal" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCSOCA" description="Input Latch Clear for ADCSOCA Signal" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCSOCB" description="Input Latch Clear for ADCSOCB Signal" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP1_OUT" description="Input Latch Clear for ECAP1.OUT Signal" begin="16" end="16" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP2_OUT" description="Input Latch Clear for ECAP2.OUT Signal" begin="17" end="17" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP3_OUT" description="Input Latch Clear for ECAP3.OUT Signal" begin="18" end="18" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP4_OUT" description="Input Latch Clear for ECAP4.OUT Signal" begin="19" end="19" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP5_OUT" description="Input Latch Clear for ECAP5.OUT Signal" begin="20" end="20" width="1" rwaccess="R/W"/>
+    <bitfield id="ECAP6_OUT" description="Input Latch Clear for ECAP6.OUT Signal" begin="21" end="21" width="1" rwaccess="R/W"/>
+    <bitfield id="EXTSYNCOUT" description="Input Latch Clear for EXTSYNCOUT Signal" begin="22" end="22" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT1" description="Input Latch Clear for ADCAEVT1 Signal" begin="23" end="23" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT2" description="Input Latch Clear for ADCAEVT2 Signal" begin="24" end="24" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT3" description="Input Latch Clear for ADCAEVT3 Signal" begin="25" end="25" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCAEVT4" description="Input Latch Clear for ADCAEVT4 Signal" begin="26" end="26" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT1" description="Input Latch Clear for ADCBEVT1 Signal" begin="27" end="27" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT2" description="Input Latch Clear for ADCBEVT2 Signal" begin="28" end="28" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT3" description="Input Latch Clear for ADCBEVT3 Signal" begin="29" end="29" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCBEVT4" description="Input Latch Clear for ADCBEVT4 Signal" begin="30" end="30" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCCEVT1" description="Input Latch Clear for ADCCEVT1 Signal" begin="31" end="31" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="TRIGLATCHCLR3" width="32" page="1" offset="0x2c" internal="0" description="X-Bar Input Latch Clear Register 3">
+    <bitfield id="ADCCEVT2" description="Input Latch Clear for ADCCEVT2 Signal" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCCEVT3" description="Input Latch Clear for ADCCEVT3 Signal" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCCEVT4" description="Input Latch Clear for ADCCEVT4 Signal" begin="2" end="2" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT1" description="Input Latch Clear for ADCDEVT1 Signal" begin="3" end="3" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT2" description="Input Latch Clear for ADCDEVT2 Signal" begin="4" end="4" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT3" description="Input Latch Clear for ADCDEVT3 Signal" begin="5" end="5" width="1" rwaccess="R/W"/>
+    <bitfield id="ADCDEVT4" description="Input Latch Clear for ADCDEVT4 Signal" begin="6" end="6" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT1_COMPL" description="Input Latch Clear for SD1FLT1.COMPL Signal" begin="7" end="7" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT1_COMPH" description="Input Latch Clear for SD1FLT1.COMPH Signal" begin="8" end="8" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT2_COMPL" description="Input Latch Clear for SD1FLT2.COMPL Signal" begin="9" end="9" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT2_COMPH" description="Input Latch Clear for SD1FLT2.COMPH Signal" begin="10" end="10" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT3_COMPL" description="Input Latch Clear for SD1FLT3.COMPL Signal" begin="11" end="11" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT3_COMPH" description="Input Latch Clear for SD1FLT3.COMPH Signal" begin="12" end="12" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT4_COMPL" description="Input Latch Clear for SD1FLT4.COMPL Signal" begin="13" end="13" width="1" rwaccess="R/W"/>
+    <bitfield id="SD1FLT4_COMPH" description="Input Latch Clear for SD1FLT4.COMPH Signal" begin="14" end="14" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT1_COMPL" description="Input Latch Clear for SD2FLT1.COMPL Signal" begin="15" end="15" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT1_COMPH" description="Input Latch Clear for SD2FLT1.COMPH Signal" begin="16" end="16" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT2_COMPL" description="Input Latch Clear for SD2FLT2.COMPL Signal" begin="17" end="17" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT2_COMPH" description="Input Latch Clear for SD2FLT2.COMPH Signal" begin="18" end="18" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT3_COMPL" description="Input Latch Clear for SD2FLT3.COMPL Signal" begin="19" end="19" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT3_COMPH" description="Input Latch Clear for SD2FLT3.COMPH Signal" begin="20" end="20" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT4_COMPL" description="Input Latch Clear for SD2FLT4.COMPL Signal" begin="21" end="21" width="1" rwaccess="R/W"/>
+    <bitfield id="SD2FLT4_COMPH" description="Input Latch Clear for SD2FLT4.COMPH Signal" begin="22" end="22" width="1" rwaccess="R/W"/>
+  </register>
+</module>

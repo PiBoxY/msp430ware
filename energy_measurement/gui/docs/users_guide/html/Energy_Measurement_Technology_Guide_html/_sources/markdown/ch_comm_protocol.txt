@@ -1,0 +1,8502 @@
+Communication Protocol Spec
+===========================
+
+Abstract 
+---------
+
+The MSP430 Energy Measurement Design Center (EMDC) communication protocol is a communications specification for sending Energy Measurement specific data. It enables MSP430 equipped with Sigma Deltas (SD24) to design, debug, and communicate with tuning tools on host PCs. In addition to this function, it can also provide a mechanism for interfacing a Energy Measurement MCU to another host MCU or SoC in the context of a larger system. This document discusses the details of the protocol: packet types, packet structure, and transmission. It does not discuss implementations, either for target or host.
+
+Commands Overview 
+------------------
+
+This section will describe the commands exchanged between Energy Measurement Design Center and the target.
+
+Commands from EMDC to Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following commands have API handlers on the target side:
+
+-   Configure Mode (0x01) - EMDC configures the application mode (IDLE, ACTIVE, CALIBRATION).
+-  Application Version (0x02) - EMDC reads device and firmware ID.
+-  Request Calibration Values (0x03) - EMDC requests the target to send all the calibration values. When the target is done it will send this command with the calibration request flag set to done.
+-  ADC Buffer Size (0x04) - EMDC reads the current and voltage buffer sizes to calculate the maximum and minimum preload allowed during calibration.
+-   Calibration Values (0xB0) - EMDC writes the calibration values to the working (RAM) calibration structure for Phase ID.
+-   Calibration Phase Configuration (0xB1) - EMDC configures the Phase ID being calibrated. After this command is received the target will send phase results. In CALIBRATION mode results will not be sent to the EMDC until this command is received. The Phase ID is cleared in the target when the application switches back to ACTIVE mode.
+-  Calibration Values Save (0xB2) - EMDC requests target to store calibration values for Phase ID in Flash. When the target is finished writing to Flash it will send this command with the Flash Write Flag set to true. Note The results commands do not have an API handler on the target. After EMDC configures the application mode to ACTIVE, then the target will send all the results for each phase to EMDC.
+
+Commands from Target to EMDC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following commands are handled by the EMDC HID interface:
+
+-  Application Version (0x02) - the target sends device and firmware ID after EMDC has sent this command in READ mode.
+-  Request Calibration Values (0x03) - the target sends calibration request flag after it finishes sending all the calibration values to EMDC. This allows the application to know when all the calibration values have been sent by the target.
+-  ADC Buffer Size (0x04) - the target sends the current and voltage buffer sizes.
+-   VRMS Result (0xB0) - the target sends the VRMS result (mV).
+-   IRMS Result (0xB1) - the target sends the IRMS result (uA).
+-   V Peak Result (0xB2) - the target sends the Voltage Peak result (mV).
+-   I Peak Result (0xB3) - the target sends the Current Peak result (uA).
+-   Power Factor Result (0xB4) - the target sends the Power Factor result.
+-   Frequency Result (0xB5) - the target sends the Frequency result (1x10-2 Hz).
+-   Active Power Result (0xB6) - the target sends the Active Power result (uW).
+-   Reactive Power Result (0xB7) - the target sends the Reactive Power result (uVAr).
+-   Apparent Power Result (0xB8) - the target sends the Apparent Power result (uVA).
+-   Active Energy Result (0xB9) - the target sends the Active Energy result (uWh).
+-   Reactive Energy Result (0xBA) - the target sends the Reactive Energy result (uVArh).
+-   Apparent Energy Result (0xBB) - the target sends the Apparent Energy result (uVAh).
+-   Calibration Values (0xB0) - the target sends the calibration values stored in working (RAM) memory for Phase ID to EMDC.
+-  Calibration Values Save (0xB2) - the target sends the Flash Write Flag set to true after it finishes writing calibration values.
+
+Protocol Overview
+~~~~~~~~~~~~~~~~~
+
+This section will explain how the protocol used between the EMDC and target using the commands previously explained using sequence diagrams.
+
+The "Initial Commands Exchanged" figure shows the commands exchanged between EMDC and the target after the HID communication is established between EMDC and the hid bridge board. After these commands are sent the target will continue sending results for all the phases supported.
+
+.. figure:: images/comm_protocol/comm_protocol_emdc_sequence_diagram_1.png
+   :alt: Initial Commands Exchanged
+
+   Initial Commands Exchanged
+
+The "Disconnect Commands Exchanged" figure shows the command sent from EMDC to the target at any time the Disconnect button is pressed on the GUI.
+
+.. figure:: images/comm_protocol/comm_protocol_emdc_sequence_diagram_2.png
+   :alt: Disconnect Commands Exchanged
+
+   Disconnect Commands Exchanged
+
+The "Calibration Commands Exchanged" figure shows the commands exchanged between EMDC and the target when the user is initializing phase calibration mode on the GUI. Once the Calibration Phase Command is sent to the target, the target will continue sending results for the phase being calibrated. When the Apply Button is pressed the GUI will write the values to RAM and re-configure the SD24 (for phase calibration). The next set of results sent to EMDC will take into account the new calibration values. Once the phase has been calibrated and the user clicks the stop button, there will be an option to save the calibration results in Flash. If the user selects Yes, then the calibration values will be stored in Flash while all the global interrupts are disabled. Otherwise, the EMDC will configure the target in ACTIVE mode.
+
+.. figure:: images/comm_protocol/comm_protocol_emdc_sequence_diagram_3.png
+   :alt: Calibration Commands Exchanged
+
+   Calibration Commands Exchanged
+
+MSP430 EM Design Center Packet Structure 
+-----------------------------------------
+
+.. raw:: html
+
+   <table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2">
+
+.. raw:: html
+
+   <tbody>
+
+.. raw:: html
+
+   <tr align="center">
+
+.. raw:: html
+
+   <th style="background-color: red;" colspan="11" rowspan="1">
+
+MSP EM Design Center generic Packet Structure
+
+.. raw:: html
+
+   </th>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+[0]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+[1]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+[2]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: white;">
+
+[3]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: white;">
+
+[4]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+[5]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+[6]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+...
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+[N +1]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+[N+2]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+[N+3]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+MSP Design Center ID Byte
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+Command ID Byte
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+Read/Write Command Byte
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: white;">
+
+Payload Byte0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: white;">
+
+Payload Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+Payload Byte2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+Payload Byte3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+...
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center;">
+
+Payload Byte N
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+Checksum (LSB)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">
+
+Checksum (MSB)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </tbody>
+
+.. raw:: html
+
+   </table>
+
+.. raw:: html
+
+   <table border="1" cellpadding="2" cellspacing="2">
+
+.. raw:: html
+
+   <tbody>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte Name
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Byte Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+MSP430 Design Center ID Byte
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+This byte identifies the package as a command for a specific Design Center GUI. In the case of MSP EM Design Center this byte is always 0x04.
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Command ID Byte
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+This byte specifies the command type. Each command has a fixed predefined lenght
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command Byte
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+This byte specifies is the command should be perform a read or write operation. 0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Payload
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Contains package payload
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Checksum
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Checksum is a unsigned 16-bit value which contains the sum of Byte[0] - Byte[N+1]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </tbody>
+
+.. raw:: html
+
+   </table>
+
+Configuration Parameters Description 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All Result Parameter (Commands 0x01-0x04) contains 1-2 payload bytes. This section will describe the packet structure for each Configuration Parameter command.
+
+Command 0x01 (Configure Mode) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Application Mode
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == IDLE 0x01 == ACTIVE 0x02 == CALIBRATION 0x03-0xff (Reserved)
+
+.. raw:: html
+
+   <td>
+
+IDLE = No results sent to EMDC ACTIVE = Results for all phases transmitted to EMDC CALIBRATION = Results from the phase being calibrated transmitted to EMDC
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-5]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x02 (Application Version) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x02
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Device ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == MSP430i2021 0x03 == MSP430i2031 0x05 == MSP430i2041 0x25 == MSP430F6736 0x2B == MSP430F6736A 0x74 == MSP430F6779 0x79 == MSP430F6779A 0x84 == MSP430F67791 0x89 == MSP430F67791A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 4
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Firmware ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Firmware version
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [5-6]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x03 (Request Calibration Values) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x03
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Calibration Request Flag
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Target has NOT received a request to send calibration values 0x01 == Target has received a request to send calibration values 0x02 == Target has transmitted all the phase calibration values to EMDC
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-5]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x04 (ADC Buffer Size) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase Voltage Array Size
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Multiple of 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+-1 x Size x OSR = minimum total preload used in calibration.
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 4
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase Current Array Size
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Multiple of 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Size x OSR = maximum total preload used in calibration
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [5-6]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Result Parameters Description 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All Result Parameter (Commands 0x80-0xAF) contains 5-9 payload bytes. This section will describe the packet structure for each Result Parameter command.
+
+Command 0x80 (VRMS Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x80
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-7]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+RMS Voltage (mV)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 144)">
+
+uint32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `7 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [8-9]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+ #### Command 0x81 (IRMS Result)
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x81
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-7]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+RMS Current (uA)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 144)">
+
+uint32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `7 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [8-9]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x82 (V Peak Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x82
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-7]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Voltage Peak (mV)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 144)">
+
+uint32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `7 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [8-9]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x83 (I Peak Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x83
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-7]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Peak Current (uA)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 144)">
+
+uint32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `7 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [8-9]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+ #### Command 0x84 (Power Factor)
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x84
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-7]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Power Factor (ex 0.4251 = 4251)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 144)">
+
+uint32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `7 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [8-9]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x85 (Frequency Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x85
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-5]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase frequency (1x10-2 Hz)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(224, 204, 255)">
+
+uint16\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `5 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [6-7]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x86 (Active Power Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x86
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-11]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Active Power (uW)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 1)">
+
+int64\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF FFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `11 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [12-13]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x87 (Reactive Power Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x87
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-11]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Reactive Power (uVAr)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 1)">
+
+int64\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF FFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `11 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [12-13]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x88 (Apparent Power Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x88
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-11]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Apparent Power (uVA)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(255, 223, 1)">
+
+int64\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF FFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `11 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [12-13]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x89 (Active Energy Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x89
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-11]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Active Energy (uWh)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(244,201,162)">
+
+uint64\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF FFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `11 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [12-13]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x8A (Reactive Energy Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x8A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-11]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Reactive Energy (uVArh)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(244,201,162)">
+
+uint64\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF FFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `11 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [12-13]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0x8B (Apparent Energy Result) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x8B
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral 0x80 == Total
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-11]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Apparent Energy (uVAh)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(244,201,162)">
+
+uint64\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF FFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `11 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [12-13]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Calibration Parameters Description 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All Calibration Parameter (Commands 0xB0-0xB2) contains 1-15 payload bytes. This section will describe the packet structure for each Configuration Parameter command.
+
+Command 0xB0 (Calibration Values) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0xB0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-7]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Voltage Scale Factor (IQ10)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(212, 190, 144)">
+
+int32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `4 <LSB>`__\  Byte\ `7 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [8-11]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Current Scale Factor (IQ26)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(212, 190, 144)">
+
+int32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `8 <LSB>`__\  Byte\ `11 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [12-15]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Active Power Scale Factor (IQ30)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(212, 190, 144)">
+
+int32\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF FFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `12 <LSB>`__\  Byte\ `15 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Bytes [16-17]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase Correction Bit 0 - Bit 9 : Preload Bit 10 - Bit 15 : Whole Sample (signed)
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(38, 222, 197)">
+
+int16\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x0000-0xFFFF
+
+.. raw:: html
+
+   <td>
+
+Byte\ `16 <LSB>`__\  Byte\ `17 <MSB>`__\ 
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [18-19]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0xB1 (Calibration Phase Configuration) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0xB1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral
+
+.. raw:: html
+
+   <td>
+
+The results for this phase will be sent to the host in calibration mode.
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [4-5]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Command 0xB2 (Calibration Values Save) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte #
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Description
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Data Type
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Valid Value/Range
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Design Center ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x04
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0xB2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Read/Write Command
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x00 == Read 0x01 == Write
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Phase ID
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(51, 204, 51)">
+
+uint8\_t
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+0x01 == Phase A 0x02 == Phase B 0x04 == Phase C 0x08 == Phase D 0x10 == Phase E 0x20 == Phase F 0x40 == Neutral
+
+.. raw:: html
+
+   <td>
+
+The calibration values for this phase will be saved to flash.
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <td>
+
+Byte 4
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Flash Write Flag
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td style="background-color: rgb(204, 242, 255)">
+
+bool
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+true == Target finished writing calibration values to Flash. false == Target has NOT finished writing calibration values to Flash.
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+
+.. raw:: html
+
+   <td>
+
+Bytes [5-6]
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Don't care
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+N/A
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+Document History 
+-----------------
+
+.. raw:: html
+
+   <table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2">
+
+.. raw:: html
+
+   <tbody>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+Version
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Date
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Author
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Notes
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+1.3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+April 12, 2018
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Erick Macias
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Added diagrams describing communication sequence diagrams
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+1.2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+April 6, 2018
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Erick Macias
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Added calibration commands 0xB1, 0xB2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+1.1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+April 30, 2018
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Erick Macias
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Included all the result commands 0x80-0x8B
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+1.0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+March 4, 2018
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+Erick Macias
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+First draft of document
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </tbody>
+
+.. raw:: html
+
+   </table>
+
+

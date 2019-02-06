@@ -1,0 +1,5 @@
+Sensor, Electrode, MCU Pin, Package Pin
+proximityGroupSensor,RX00,CAP0.3,15
+proximityGroupSensor,RX01,CAP1.3,19
+proximityGroupSensor,RX02,CAP2.3,24
+proximityGroupSensor,RX03,CAP3.3,28

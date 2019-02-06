@@ -1,0 +1,57 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP430F5xx_6xx -I${PROJECT_ROOT}/ -I${PROJECT_ROOT}/USB_config --advice:power=&quot;none&quot; --code_model=large --data_model=large" 
+             device="MSP430F5529"
+             name="OutOfBox_EmulStorageKeyboard_16KB"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../USB_API/USB_CDC_API/UsbCdc.c" targetDirectory="USB_API/USB_CDC_API" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_CDC_API/UsbCdc.h" targetDirectory="USB_API/USB_CDC_API" />
+        <file action="copy" path="../USB_API/USB_Common/defMSP430USB.h" targetDirectory="USB_API/USB_Common" />
+        <file action="copy" path="../USB_API/USB_Common/device.h" targetDirectory="USB_API/USB_Common" />
+        <file action="copy" path="../USB_API/USB_Common/types.h" targetDirectory="USB_API/USB_Common" />
+        <file action="copy" path="../USB_API/USB_Common/usb.h" targetDirectory="USB_API/USB_Common" />
+        <file action="copy" path="../USB_API/USB_Common/UsbIsr.h" targetDirectory="USB_API/USB_Common" />
+        <file action="copy" path="../USB_API/USB_Common/usb.c" targetDirectory="USB_API/USB_Common" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_Common/usbdma.c" targetDirectory="USB_API/USB_Common" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_HID_API/UsbHid.h" targetDirectory="USB_API/USB_HID_API" />
+        <file action="copy" path="../USB_API/USB_HID_API/UsbHidReq.h" targetDirectory="USB_API/USB_HID_API" />
+        <file action="copy" path="../USB_API/USB_HID_API/UsbHid.c" targetDirectory="USB_API/USB_HID_API" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_HID_API/UsbHidReq.c" targetDirectory="USB_API/USB_HID_API" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_MSC_API/UsbMsc.h" targetDirectory="USB_API/USB_MSC_API" />
+        <file action="copy" path="../USB_API/USB_MSC_API/UsbMscReq.h" targetDirectory="USB_API/USB_MSC_API" />
+        <file action="copy" path="../USB_API/USB_MSC_API/UsbMscScsi.h" targetDirectory="USB_API/USB_MSC_API" />
+        <file action="copy" path="../USB_API/USB_MSC_API/UsbMscStateMachine.h" targetDirectory="USB_API/USB_MSC_API" />
+        <file action="copy" path="../USB_API/USB_MSC_API/UsbMscReq.c" targetDirectory="USB_API/USB_MSC_API" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_MSC_API/UsbMscScsi.c" targetDirectory="USB_API/USB_MSC_API" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_MSC_API/UsbMscStateMachine.c" targetDirectory="USB_API/USB_MSC_API" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/USB_PHDC_API/UsbPHDC.h" targetDirectory="USB_API/USB_PHDC_API" />
+        <file action="copy" path="../USB_API/USB_PHDC_API/UsbPHDC.c" targetDirectory="USB_API/USB_PHDC_API" excludeFromBuild="true" />
+        <file action="copy" path="../USB_API/msp430USB.cmd" targetDirectory="USB_API" />
+        <file action="copy" path="../USB_app/FatFs/diskio.h" targetDirectory="USB_app/FatFs" />
+        <file action="copy" path="../USB_app/FatFs/ff.h" targetDirectory="USB_app/FatFs" />
+        <file action="copy" path="../USB_app/FatFs/ffconf.h" targetDirectory="USB_app/FatFs" />
+        <file action="copy" path="../USB_app/FatFs/mmc.h" targetDirectory="USB_app/FatFs" />
+        <file action="copy" path="../USB_app/FatFs/00readme.txt" targetDirectory="USB_app/FatFs" />
+        <file action="copy" path="../USB_app/FatFs/ff.c" targetDirectory="USB_app/FatFs" excludeFromBuild="true" />
+        <file action="copy" path="../USB_app/FatFs/mmc.c" targetDirectory="USB_app/FatFs" excludeFromBuild="true" />
+        <file action="copy" path="../USB_app/keyboard.h" targetDirectory="USB_app" />
+        <file action="copy" path="../USB_app/mscIntf.h" targetDirectory="USB_app" />
+        <file action="copy" path="../USB_app/OutOfBox_EmulStorageKeyboard.cmd" targetDirectory="USB_app" />
+        <file action="copy" path="../USB_app/storageVolume.h" targetDirectory="USB_app" />
+        <file action="copy" path="../USB_app/keyboard.c" targetDirectory="USB_app" excludeFromBuild="true" />
+        <file action="copy" path="../USB_app/mscIntf.c" targetDirectory="USB_app" excludeFromBuild="true" />
+        <file action="copy" path="../USB_app/storageVolume.c" targetDirectory="USB_app" excludeFromBuild="true" />
+        <file action="copy" path="../USB_app/usbEventHandling.c" targetDirectory="USB_app" excludeFromBuild="true" />
+        <file action="copy" path="../USB_config/descriptors.h" targetDirectory="USB_config" />
+        <file action="copy" path="../USB_config/descriptors.c" targetDirectory="USB_config" excludeFromBuild="true" />
+        <file action="copy" path="../USB_config/OutOfBox_EmulStorageKeyboard_Desc.xml" targetDirectory="USB_config" />
+        <file action="copy" path="../USB_config/UsbIsr.c" targetDirectory="USB_config" excludeFromBuild="true" />
+        <file action="copy" path="../hal.c" />
+        <file action="copy" path="../hal.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+        <file action="copy" path="../system_pre_init.c" />
+        <file action="copy" path="OutOfBox_EmulStorageKeyboard_usblib.lib" />
+        <buildVariable name="ORIGINAL_PROJECT_ROOT" scope="project" type="dir" value="." />
+    </project>
+</projectSpec>

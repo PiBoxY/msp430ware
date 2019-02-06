@@ -1,0 +1,1465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Design Center GUI &mdash; Energy Measurement Technology Guide 1.30.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Energy Measurement Technology Guide 1.30.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="Communication Protocol Spec" href="ch_comm_protocol.html"/>
+        <link rel="prev" title="Introduction" href="ch_intro.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Energy Measurement Technology Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.30.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch_intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design Center GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-and-software-requirements">Hardware and Software Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-linux-requirements">Additional Linux Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#licensing">Licensing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#out-of-box-experience">Out-of-Box Experience</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#program-the-msp-exp430f5529lp-hid-bridge">Program the MSP-EXP430F5529LP (HID Bridge)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#program-the-evm">Program the EVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-the-hardware-connections">Make the Hardware Connections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#communication">Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#high-voltage">High Voltage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#view-the-results">View the Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start-guide">Quick Start Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-design-center">Start the Design Center</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-an-existing-project">Open an existing project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-project">Create a new project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#place-the-msp430-controller">Place the MSP430 controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#place-the-voltage-sensors">Place the voltage sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#place-the-current-sensors">Place the current sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-voltage-sensors">Configure the voltage sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-current-sensors">Configure the current sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-msp430-controller">Configure the MSP430 controller</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#library-configuration">Library Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-for-errors">Check for errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-the-source-code">Generate the source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-existing-project">Update existing project</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#load-and-run-the-generated-firmware-using-the-ccs-ide">Load and run the generated firmware using the CCS IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-and-run-the-generated-firmware-using-the-iar-ide">Load and run the generated firmware using the IAR IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-communicating-with-controller">Start communicating with Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calibration">Calibration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gain-calibration">Gain Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-calibration">Phase Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#saving-calibration-values-to-flash-memory">Saving Calibration Values to Flash Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#view-results">View Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-s-guide">User&#8217;s Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#design-center-gui-panels">Design Center GUI Panels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#menu-bar">Menu Bar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-selection-tabs">Object Selection Tabs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design-canvas">Design Canvas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#menu-descriptions">Menu Descriptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#file-menu">File Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-menu">Edit Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options-menu">Options Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#communications-menu">Communications Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#help-menu">Help Menu</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#object-properties">Object Properties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller-properties">Controller Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch_comm_protocol.html">Communication Protocol Spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch_revision.html">Revision History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Energy Measurement Technology Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Design Center GUI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="design-center-gui">
+<h1>Design Center GUI<a class="headerlink" href="#design-center-gui" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="Energy Measurement Design Center" src="../_images/design_center_workspace.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Energy Measurement Design Center</span></p>
+</div>
+<p>The Energy Measurement Design Center (EMDC) is a rapid development tool that can simplify development and accelerate designs in a wide range of power monitoring and energy measurement applications, including smart grid and building automation. Using the Design Center you can configure, calibrate, and view results without writing a single line of code.</p>
+<p>Set up a design in less than five minutes:</p>
+<ul class="simple">
+<li>Drag and drop an MCU, voltage sensors, and current sensors into the GUI workspace</li>
+<li>Configure each sensor and the MCU according to your system configuration</li>
+<li>The GUI will check for errors before generating the source code</li>
+<li>Import the code into an IDE and program the MCU</li>
+<li>Easily calibrate the MCU using the GUI and view the results</li>
+</ul>
+<div class="section" id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Intuitive GUI for connecting, configuring, and calibrating controller and sensors</li>
+<li>Support for Shunt, Current Transformer (CT), and Rogowski Coil (RC) current sensors</li>
+<li>Support for 1-phase, 2-phase, and 3-phase system configurations plus neutral monitoring</li>
+<li>Support for voltage, current, power, energy, power factor, and frequency measurement</li>
+<li>Estimated CPU bandwidth (library only) for supported system configurations</li>
+<li>Automated generation of complete source code projects for <a class="reference external" href="ch_designcenter.html#hardware-and-software-requirements">supported IDEs</a></li>
+<li>Real-time target communication through a USB HID communication bridge featuring:<ul>
+<li>Perform single-point calibration for gain and phase</li>
+<li>View or log real-time results</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="hardware-and-software-requirements">
+<h3>Hardware and Software Requirements<a class="headerlink" href="#hardware-and-software-requirements" title="Permalink to this headline">¶</a></h3>
+<p>The Energy Measurement Design Center can be used on a PC with the following minimum requirements:</p>
+<ul class="simple">
+<li>Windows 7+ operating system with Java version 1.7+</li>
+<li>Apple OS X 10.10.1+ with Java version 1.7+</li>
+<li>Linux OS with Java version 1.7+</li>
+</ul>
+<p>The source code projects generated by the GUI supports the following IDEs:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ti.com/tool/CCSTUDIO-MSP">Texas Instruments Code Composer Studio (CCS)</a> version 7.1.0 or later</li>
+<li><a class="reference external" href="https://www.iar.com/iar-embedded-workbench/#!?architecture=MSP430">IAR Systems Embedded Workbench for MSP430</a> version 7.10 or later</li>
+</ul>
+</div>
+<div class="section" id="additional-linux-requirements">
+<h3>Additional Linux Requirements<a class="headerlink" href="#additional-linux-requirements" title="Permalink to this headline">¶</a></h3>
+<p>If you are not running the application using a root account, you may not have permissions to the HID device mounted by the MSP microcontroller.</p>
+<p>To enable access perform the one-time setup step:</p>
+<ul class="simple">
+<li>Create the file /etc/udev/rules.d/ti_hid.rules.</li>
+<li>Add the lines below to the file and save the file</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## Allow open access to any usb device with the default Texas Instruments MSP</span>
+<span class="c1">## Vendor Id of 0x2047</span>
+<span class="n">ATTRS</span><span class="p">{</span><span class="n">idVendor</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;2047&quot;</span><span class="p">,</span> <span class="n">MODE</span><span class="o">=</span><span class="s2">&quot;0666&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="licensing">
+<h3>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline">¶</a></h3>
+<p>The Energy Measurement Design Center is released under the BSD 3-clause license. See the license manifest in the installation directory for details.</p>
+</div>
+</div>
+<div class="section" id="out-of-box-experience">
+<h2>Out-of-Box Experience<a class="headerlink" href="#out-of-box-experience" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how to program the required tools, make the connections, and quickly view results using the provided EMDC example projects and example firmware images. These examples allow users to start measuring results without configuring the library or generating code through the Design Center GUI. For more detailed instructions about how to start a new EMDC project, please refer to the <a class="reference external" href="ch_designcenter.html#quick-start-guide">Quick Start Guide</a> section.</p>
+<div class="section" id="program-the-msp-exp430f5529lp-hid-bridge">
+<h3>Program the MSP-EXP430F5529LP (HID Bridge)<a class="headerlink" href="#program-the-msp-exp430f5529lp-hid-bridge" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="http://www.ti.com/tool/MSP-EXP430F5529LP">MSP-EXP430F5529LP</a> is used as the HID bridge, which is necessary for the target to communicate with EMDC running on the PC. This section describes how to program the LaunchPad with the provided HID bridge firmware image.</p>
+<p>First, verify that all jumpers are populated on the LaunchPad.</p>
+<p>Next, plug the LaunchPad into the PC using the provided micro USB cable. If the LaunchPad has never been connected to the host PC, then a message will pop up as shown below.</p>
+<div class="figure" id="id3">
+<img alt="Device Ready to Use" src="../_images/design_center_connect_f5529_lp.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Device Ready to Use</span></p>
+</div>
+<p>Open <a class="reference external" href="http://www.ti.com/tool/UNIFLASH">UniFlash</a>.</p>
+<div class="figure" id="id4">
+<img alt="UniFlash" src="../_images/design_center_uniflash_open.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">UniFlash</span></p>
+</div>
+<p>Enter &#8220;MSP-EXP430F5529LP&#8221; in the search box under &#8220;New Configuration&#8221;.</p>
+<div class="figure" id="id5">
+<img alt="MSP-EXP430F5529LP Selection" src="../_images/design_center_uniflash_new_config_enter_lp_pn.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">MSP-EXP430F5529LP Selection</span></p>
+</div>
+<p>Select USB connection and click the &#8220;Start&#8221; button.</p>
+<div class="figure" id="id6">
+<img alt="USB Selection" src="../_images/design_center_uniflash_new_config_click_start_button.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">USB Selection</span></p>
+</div>
+<p>Click &#8220;Browse&#8221; to select the HID Bridge firmware image. If the default installation location was used, the image can be found in the following location.</p>
+<p><code class="docutils literal"><span class="pre">C:\ti\msp\EnergyMeasurementDesignCenter_&lt;version&gt;\EnergyMeasurementDesignCenter\hidbridge</span></code></p>
+<div class="figure" id="id7">
+<img alt="Select HID Bridge Image" src="../_images/design_center_uniflash_hid_bridge_image_loaded.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Select HID Bridge Image</span></p>
+</div>
+<p>Open the <code class="docutils literal"><span class="pre">TI_MSP_HIDBRIDGE__1_00_04_00__MSP-EXP430F5529LP.txt</span></code> firmware image. Then, under &#8220;Available Actions&#8221;, click the &#8220;Load Image&#8221; button to program the LaunchPad.</p>
+<div class="figure" id="id8">
+<img alt="Download HID Bridge Firmware Image" src="../_images/design_center_uniflash_hid_bridge_image_loaded.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Download HID Bridge Firmware Image</span></p>
+</div>
+<p>If &#8220;Update Firmware&#8221; message appears, click &#8220;Update&#8221; and proceed.</p>
+<div class="figure" id="id9">
+<img alt="Firmware Update" src="../_images/design_center_uniflash_update_debug_firmware.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Firmware Update</span></p>
+</div>
+<p>In the UniFlash &#8220;Console&#8221; window, &#8220;SUCCESS&#8221; should be shown when the program was loaded successfully.</p>
+<div class="figure" id="id10">
+<img alt="Successful Image Load" src="../_images/design_center_uniflash_program_load_success.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Successful Image Load</span></p>
+</div>
+<p>The green LED2 on the LaunchPad should now be blicking slowly.</p>
+<p>Unplug the LaunchPad from the PC, but don&#8217;t close UniFlash yet.</p>
+</div>
+<div class="section" id="program-the-evm">
+<h3>Program the EVM<a class="headerlink" href="#program-the-evm" title="Permalink to this headline">¶</a></h3>
+<p>This section describes how to program the supported EVM with a provided EMDC example firmware image, since the EVM may not have been programmed with the latest version.</p>
+<p>First, plug the <a class="reference external" href="http://www.ti.com/tool/msp-fet">MSP-FET</a> into the PC and then connect the 14-pin ribbon cable to the JTAG connector on the EVM. Please refer to the EVM&#8217;s User&#8217;s Guide for properly configuring the on-board jumpers, so the MSP-FET can power and program the EVM.</p>
+<ul class="simple">
+<li>For the <a class="reference external" href="http://www.ti.com/tool/EVM430-i2040S">EVM430-i2040S</a>, refer to <strong>Section 4.3</strong> in <a class="reference external" href="http://www.ti.com/lit/slaa638">Single Phase and DC Embedded Metering (Power Monitor) Using MSP430i2040</a>.</li>
+<li>For the <a class="reference external" href="http://www.ti.com/tool/EVM430-F6736">EVM430-F6736</a>, refer to <strong>Section 5.1.2</strong> in <a class="reference external" href="http://www.ti.com/lit/slaa517">Implementation of a Single-Phase Electronic Watt-Hour Meter Using the MSP430F6736(A)</a>.</li>
+<li>For the <a class="reference external" href="http://www.ti.com/tool/EVM430-F6779">EVM430-F6779</a>, refer to <strong>Section 5.1.2</strong> in <a class="reference external" href="http://www.ti.com/lit/slaa577">Implementation of a Three-Phase Electronic Watt-Hour Meter Using MSP430F677x(A)</a>.</li>
+</ul>
+<p>In UniFlash, click &#8220;Session&#8221; &gt; &#8220;New Session&#8221; to reset the previous session used for programming the LaunchPad.</p>
+<div class="figure" id="id11">
+<img alt="Start New UniFlash Session" src="../_images/design_center_uniflash_start_new_session.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Start New UniFlash Session</span></p>
+</div>
+<p>In the confirmation window, click &#8220;Yes&#8221; to continue.</p>
+<div class="figure" id="id12">
+<img alt="Confirm New UniFlash Session" src="../_images/design_center_uniflash_confirm_new_session.png" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Confirm New UniFlash Session</span></p>
+</div>
+<p>Next, enter the device&#8217;s part number (not the EVM&#8217;s part number) in the search box under &#8220;New Configuration&#8221;.</p>
+<div class="figure" id="id13">
+<img alt="Device Selection" src="../_images/design_center_uniflash_new_config_enter_evm_pn.png" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Device Selection</span></p>
+</div>
+<p>Select USB connection and click the &#8220;Start&#8221; button.</p>
+<div class="figure" id="id14">
+<img alt="USB Selection" src="../_images/design_center_uniflash_new_config_click_start_button_again.png" />
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">USB Selection</span></p>
+</div>
+<p>Click &#8220;Browse&#8221; to select an EMDC example firmware image, located in one of the EMDC example project folders, for your specific EVM. For example, the <code class="docutils literal"><span class="pre">EVM430-F6779_CT_3V_3C_60Hz.txt</span></code> image can be found in the <code class="docutils literal"><span class="pre">EVM430-F6779_CT_3V_3C_60Hz</span></code> folder. If the default installation location was used, these folders can be found in the following location.</p>
+<p><code class="docutils literal"><span class="pre">C:\Users\&lt;profile&gt;\EnergyMeasurementDesignCenter_&lt;version&gt;\EnergyMeasurementDesignCenterWorkspace</span></code></p>
+<p>NOTE The naming convention for each example project folder and firmware image indicates the supported EVM part number, current sensor type, number of voltage channels, number of current channels, and the nominal AC mains input frequency.</p>
+<div class="figure" id="id15">
+<img alt="Select Example Firmware Image" src="../_images/design_center_uniflash_example_fw_image_loaded.png" />
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Select Example Firmware Image</span></p>
+</div>
+<p>Under &#8220;Available Actions&#8221;, click the &#8220;Load Image&#8221; button to program the EVM. In the UniFlash &#8220;Console&#8221; window, &#8220;SUCCESS&#8221; should be shown when the program was loaded successfully.</p>
+<div class="figure" id="id16">
+<img alt="Successful Program Load" src="../_images/design_center_uniflash_example_fw_load_success.png" />
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Successful Program Load</span></p>
+</div>
+<p>Close UniFlash and disconnect the <a class="reference external" href="http://www.ti.com/tool/msp-fet">MSP-FET</a> from the PC and EVM. NOTE The <a class="reference external" href="http://www.ti.com/tool/msp-fet">MSP-FET</a> and JTAG interface on the EVMs are NOT isolated.</p>
+</div>
+<div class="section" id="make-the-hardware-connections">
+<h3>Make the Hardware Connections<a class="headerlink" href="#make-the-hardware-connections" title="Permalink to this headline">¶</a></h3>
+<p>This section describes how to properly make the communication connections and then the high voltage connections to the EVM.</p>
+<div class="section" id="communication">
+<h4>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h4>
+<p>Please refer to the high-level diagram below illustrating the communication connections between the PC and the EVM. These connections are for illustrative purposes only and do not indicate the connection locations. NOTE The RS232 connector cannot be used for communication with Energy Measurement Design Center at this time.</p>
+<div class="figure" id="id17">
+<img alt="Communication Connections Overview" src="../_images/design_center_hw_comm_connections_overview.png" />
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Communication Connections Overview</span></p>
+</div>
+<p>First, plug the LaunchPad into the PC.</p>
+<p>Next, the <a class="reference external" href="http://www.ti.com/tool/MSP-ISO">MSP-ISO</a> Isolation board is a module that offers galvanic isolation between the HID bridge and the High Voltage EVM. The <a class="reference external" href="http://www.ti.com/tool/MSP-ISO">MSP-ISO</a> must NOT be placed on the LaunchPad&#8217;s isolation jumper block but must be connected manually to the EVM and LaunchPad with jumper wires. The following pin map from the <a class="reference external" href="http://www.ti.com/lit/slau667">MSP-ISO Quick Start Guide</a> can be used as a reference when connecting the jumper wires.</p>
+<div class="figure" id="id18">
+<img alt="MSP-ISO Pin Map" src="../_images/design_center_msp_iso_pin_map.png" />
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">MSP-ISO Pin Map</span></p>
+</div>
+<p>The table below shows how to connect the <a class="reference external" href="http://www.ti.com/tool/MSP-EXP430F5529LP">MSP-EXP430F5529LP</a> (HID bridge) to the <a class="reference external" href="http://www.ti.com/tool/MSP-ISO">MSP-ISO</a> (Isolation board). Information about the headers on the LaunchPad can be found in the <a class="reference external" href="http://www.ti.com/lit/slau533">MSP-EXP430F5529LP User&#8217;s Guide</a>.</p>
+<div class="figure" id="id19">
+<img alt="Connections between HID Bridge and MSP-ISO" src="../_images/design_center_hw_connections_1.png" />
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Connections between HID Bridge and MSP-ISO</span></p>
+</div>
+<p>Next, the table below shows how to connect the pins of J101 on the MSP-ISO. NOTE Jumper J3 must be removed.</p>
+<div class="figure" id="id20">
+<img alt="Connections between MSP-ISO J101 Connector" src="../_images/design_center_hw_connections_2.png" />
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Connections between MSP-ISO J101 Connector</span></p>
+</div>
+<p>Next, the table below shows how to connect the <a class="reference external" href="http://www.ti.com/tool/MSP-ISO">MSP-ISO</a> to the supported EVMs. Information about these headers can be found in the EVM&#8217;s schematic and User&#8217;s Guide.</p>
+<div class="figure" id="id21">
+<img alt="Connections between MSP-ISO and EVM" src="../_images/design_center_hw_connections_3.png" />
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Connections between MSP-ISO and EVM</span></p>
+</div>
+</div>
+<div class="section" id="high-voltage">
+<h4>High Voltage<a class="headerlink" href="#high-voltage" title="Permalink to this headline">¶</a></h4>
+<p>Please refer to the EVM&#8217;s User&#8217;s Guide for properly configuring the on-board jumpers and connecting the EVM to a high voltage source.</p>
+<ul class="simple">
+<li>For the <a class="reference external" href="http://www.ti.com/tool/EVM430-i2040S">EVM430-i2040S</a>, refer to <strong>Section 4.3</strong> in <a class="reference external" href="http://www.ti.com/lit/slaa638">Single Phase and DC Embedded Metering (Power Monitor) Using MSP430i2040</a>.</li>
+<li>For the <a class="reference external" href="http://www.ti.com/tool/EVM430-F6736">EVM430-F6736</a>, refer to <strong>Section 5.1</strong> in <a class="reference external" href="http://www.ti.com/lit/slaa517">Implementation of a Single-Phase Electronic Watt-Hour Meter Using the MSP430F6736(A)</a>.</li>
+<li>For the <a class="reference external" href="http://www.ti.com/tool/EVM430-F6779">EVM430-F6779</a>, refer to <strong>Section 5.1</strong> in <a class="reference external" href="http://www.ti.com/lit/slaa577">Implementation of a Three-Phase Electronic Watt-Hour Meter Using MSP430F677x(A)</a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="view-the-results">
+<h3>View the Results<a class="headerlink" href="#view-the-results" title="Permalink to this headline">¶</a></h3>
+<p>This section describes how to view results from the EVM. NOTE Assuming the instructions above have been followed, turn on the high voltage source at this point.</p>
+<p>First, start the EMDC GUI by double-clicking on the desktop shortcut called &#8220;EnergyMeasurementDesignCenter&#8221;.</p>
+<div class="figure" id="id22">
+<img alt="Energy Measurement Design Center Shortcut" src="../_images/design_center_shortcut.png" />
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Energy Measurement Design Center Shortcut</span></p>
+</div>
+<p>The GUI will open a blank design canvas.</p>
+<div class="figure" id="id23">
+<img alt="Blank Design Center Canvas" src="../_images/design_center_blank_workspace.png" />
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Blank Design Center Canvas</span></p>
+</div>
+<p>Next, click &#8220;File&#8221; &gt; &#8220;Project Open&#8221; in the Design Center menu bar to open an EMDC example project. Select the example project that matches the example firmware image you selected earlier.</p>
+<div class="figure" id="id24">
+<img alt="Open Project Window" src="../_images/design_center_open_new_example_project.png" />
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Open Project Window</span></p>
+</div>
+<p>Next, double-click the MSP430 controller to display its properties window.</p>
+<div class="figure" id="id25">
+<img alt="Open Controller Properties Window" src="../_images/design_center_open_controller_properties_window.png" />
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Open Controller Properties Window</span></p>
+</div>
+<p>In the Controller properties window, enable the communication by clicking the &#8220;Connected&#8221; checkbox under &#8220;Target Communications&#8221;.</p>
+<div class="figure" id="id26">
+<img alt="Controller Properties Window" src="../_images/design_center_controller_properties_window.png" />
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Controller Properties Window</span></p>
+</div>
+<p>When the connection handshake is complete, the EMDC status bar will display the device name and firmware ID.</p>
+<div class="figure" id="id27">
+<img alt="Status Bar with Device Name and FW ID" src="../_images/design_center_target_connect_2.png" />
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Status Bar with Device Name and FW ID</span></p>
+</div>
+<p>Finally, click the &#8220;Results&#8221; tab (next to the &#8220;Calibration&#8221; tab) in the Controller properties window to view the results.</p>
+<div class="figure" id="id28">
+<img alt="3 Phase Results" src="../_images/design_center_results_1.png" />
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">3 Phase Results</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="quick-start-guide">
+<h2>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h2>
+<p>This section is intended to provide a very basic and quick overview of how to use the Energy Measurement Design Center (EMDC) to configure a typical energy measurement design (based on the three-phase EVM430-F6779), generate the source code, communicate with the target, and calibrate the system. For additional detailed information about the features of the Energy Measurement Design Center, please refer to the Energy Measurement Design Center <a class="reference external" href="ch_designcenter.html#user-s-guide">User&#8217;s Guide</a>.</p>
+<div class="section" id="start-the-design-center">
+<h3>Start the Design Center<a class="headerlink" href="#start-the-design-center" title="Permalink to this headline">¶</a></h3>
+<p>The following sections will describe how to open an existing project or create a new project for the <a class="reference external" href="http://www.ti.com/tool/EVM430-F6779">EVM430-F6779</a>. The process to create a new project also applies to the other supported EVMs.</p>
+<p>Double-click on the desktop shortcut called &#8220;EnergyMeasurementDesignCenter&#8221; to start the Design Center GUI.</p>
+<div class="figure" id="id29">
+<img alt="Energy Measurement Design Center Shortcut" src="../_images/design_center_shortcut.png" />
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Energy Measurement Design Center Shortcut</span></p>
+</div>
+<p>The GUI will open a blank design canvas.</p>
+<div class="figure" id="id30">
+<img alt="Blank Design Center Canvas" src="../_images/design_center_blank_workspace.png" />
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Blank Design Center Canvas</span></p>
+</div>
+</div>
+<div class="section" id="open-an-existing-project">
+<h3>Open an existing project<a class="headerlink" href="#open-an-existing-project" title="Permalink to this headline">¶</a></h3>
+<p>Click &#8220;File&#8221; &gt; &#8220;Project Open&#8221; in the Design Center menu bar to open an existing project. For example, the EMDC example projects are shown below. If no changes are required to the opened project, then skip to <a class="reference external" href="ch_designcenter.html#generate-the-source-code">Generate the Source Code</a> section to generate the code.</p>
+<div class="figure" id="id31">
+<img alt="Open Project Window" src="../_images/design_center_open_new_project.png" />
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Open Project Window</span></p>
+</div>
+<p>NOTE If the EVM has the default voltage and current sensors, the user can skip to <a class="reference external" href="ch_designcenter.html#configure-the-msp430-controller">Configure the MSP430 Controller</a>. If the sensors have been changed, then skip to <a class="reference external" href="ch_designcenter.html#configure-the-voltage-sensors">Configure the voltage sensors</a> or <a class="reference external" href="ch_designcenter.html#configure-the-current-sensors">Configure the current sensors</a> and update the sensor / system parameters.</p>
+</div>
+<div class="section" id="create-a-new-project">
+<h3>Create a new project<a class="headerlink" href="#create-a-new-project" title="Permalink to this headline">¶</a></h3>
+<p>Click &#8220;File&#8221; &gt; &#8220;Project New&#8221; in the Design Center menu bar to create a new project called &#8220;EVM430-F6779&#8221; and click &#8220;OK&#8221;.</p>
+<div class="figure" id="id32">
+<img alt="Create New Project Window" src="../_images/design_center_new_project.png" />
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Create New Project Window</span></p>
+</div>
+</div>
+<div class="section" id="place-the-msp430-controller">
+<h3>Place the MSP430 controller<a class="headerlink" href="#place-the-msp430-controller" title="Permalink to this headline">¶</a></h3>
+<p>Start by clicking the MSP430 controller icon. Select &#8220;MSP430F6779&#8221; in the Device Selection window and click &#8220;OK&#8221;. Place the controller by clicking on the design canvas.</p>
+<div class="figure" id="id33">
+<img alt="Select and Place MSP430 Controller on Design Canvas" src="../_images/design_center_place_controller.png" />
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Select and Place MSP430 Controller on Design Canvas</span></p>
+</div>
+</div>
+<div class="section" id="place-the-voltage-sensors">
+<h3>Place the voltage sensors<a class="headerlink" href="#place-the-voltage-sensors" title="Permalink to this headline">¶</a></h3>
+<p>Start by clicking the voltage sensor icon. Place the voltage sensor by clicking on the design canvas. Repeat this process twice to place a total of three voltage sensors.</p>
+<div class="figure" id="id34">
+<img alt="Select and Place Voltage Sensors on Design Canvas" src="../_images/design_center_place_voltage_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Select and Place Voltage Sensors on Design Canvas</span></p>
+</div>
+</div>
+<div class="section" id="place-the-current-sensors">
+<h3>Place the current sensors<a class="headerlink" href="#place-the-current-sensors" title="Permalink to this headline">¶</a></h3>
+<p>Since the EMV430-F6779 features CTs, start by clicking the CT icon. Place the current sensor by clicking on the design canvas below the voltage sensors. Repeat this process twice to place a total of three CTs.</p>
+<div class="figure" id="id35">
+<img alt="Select and Place Current Sensors on Design Canvas" src="../_images/design_center_place_current_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Select and Place Current Sensors on Design Canvas</span></p>
+</div>
+</div>
+<div class="section" id="configure-the-voltage-sensors">
+<h3>Configure the voltage sensors<a class="headerlink" href="#configure-the-voltage-sensors" title="Permalink to this headline">¶</a></h3>
+<p>Start by double-clicking a voltage sensor to display its properties window. Enter the parameters based on the user&#8217;s guide and schematic for the EVM430-F6779 and click &#8220;OK&#8221;. Repeat this process for the other voltage sensors.</p>
+<div class="figure" id="id36">
+<img alt="Configure Voltage Sensor Parameters" src="../_images/design_center_config_voltage_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Configure Voltage Sensor Parameters</span></p>
+</div>
+</div>
+<div class="section" id="configure-the-current-sensors">
+<h3>Configure the current sensors<a class="headerlink" href="#configure-the-current-sensors" title="Permalink to this headline">¶</a></h3>
+<p>Start by double-clicking a CT to display its properties window. Enter the parameters based on the user&#8217;s guide and schematic for the EVM430-F6779 and click &#8220;OK&#8221;. Repeat this process for the other CTs.</p>
+<div class="figure" id="id37">
+<img alt="Configure Current Sensor Parameters" src="../_images/design_center_config_current_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Configure Current Sensor Parameters</span></p>
+</div>
+</div>
+<div class="section" id="configure-the-msp430-controller">
+<h3>Configure the MSP430 controller<a class="headerlink" href="#configure-the-msp430-controller" title="Permalink to this headline">¶</a></h3>
+<p>Start by double-clicking the MSP430 controller to display its properties window.</p>
+<div class="section" id="library-configuration">
+<h4>Library Configuration<a class="headerlink" href="#library-configuration" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="hardware-connections">
+<h5>Hardware Connections<a class="headerlink" href="#hardware-connections" title="Permalink to this headline">¶</a></h5>
+<p>Note that the initial connections for the CTs do not match the EVM430-F6779 connections and were made automatically according to the placement order of the voltage and current sensors.</p>
+<div class="figure" id="id38">
+<img alt="Initial Connections between Controller and Sensors" src="../_images/design_center_initial_connections.png" />
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Initial Connections between Controller and Sensors</span></p>
+</div>
+<p>Disconnect each current sensor by clicking each CT cell under the &#8220;Sensor&#8221; column and selecting &#8220;DISCONNECT&#8221; from the drop-down menu.</p>
+<div class="figure" id="id39">
+<img alt="Disconnect CTs" src="../_images/design_center_disconnect_cts.png" />
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Disconnect CTs</span></p>
+</div>
+<p>Reconnect the current sensors by clicking the cells in the &#8220;Sensor&#8221; and &#8220;Polarity&#8221; columns to correctly match the EVM430-F6779 connections. Note that the green &#8220;OK&#8221; button indicates that all sensor pins have been connected to controller pins.</p>
+<div class="figure" id="id40">
+<img alt="Correct Connections between Controller and Sensors" src="../_images/design_center_correct_connections.png" />
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Correct Connections between Controller and Sensors</span></p>
+</div>
+</div>
+<div class="section" id="basic-parameters">
+<h5>Basic Parameters<a class="headerlink" href="#basic-parameters" title="Permalink to this headline">¶</a></h5>
+<p>Click the &#8220;Basic Parameters&#8221; tab and change the meter name to &#8220;EVM430-F6779&#8221;. Using the drop-down menus, increase the sampling frequency to 4096 Hz, increase the OSR to 256, and increase the SMCLK frequency to 25,165,824 Hz. Change the default AC mains frequency to 60 Hz, but keep the default number of voltage and current sensors.</p>
+<div class="figure" id="id41">
+<img alt="Change Default Basic Parameters" src="../_images/design_center_change_basic_params.png" />
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Change Default Basic Parameters</span></p>
+</div>
+</div>
+<div class="section" id="phases">
+<h5>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h5>
+<p>Click the &#8220;Phases&#8221; tab and choose three different phase names. Assign a pair of ADC voltage and current channels to each phase name. Note that these phase names are used during calibration and communication. Check each box under &#8220;Total&#8221; to aggregate all phases.</p>
+<div class="figure" id="id42">
+<img alt="Configure the Phases" src="../_images/design_center_config_phases.png" />
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Configure the Phases</span></p>
+</div>
+</div>
+<div class="section" id="results">
+<h5>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h5>
+<p>Click the &#8220;Results&#8221; tab and click the &#8220;Select All&#8221; button to choose all results. Click the &#8220;Save&#8221; button to validate any dependencies across selected results before saving the configuration. Note that the estimated CPU bandwidth is for the software library only. The estimation depends on these results and the parameters selected in the &#8220;Basic Parameters&#8221; tab.</p>
+<div class="figure" id="id43">
+<img alt="Select Results and View Estimated CPU Bandwidth" src="../_images/design_center_results_and_bw.png" />
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Select Results and View Estimated CPU Bandwidth</span></p>
+</div>
+</div>
+<div class="section" id="pulses">
+<h5>Pulses<a class="headerlink" href="#pulses" title="Permalink to this headline">¶</a></h5>
+<p>Click the &#8220;Pulses&#8221; tab. Note that the phase names are automatically populated with those selected in the &#8220;Phases&#8221; tab. The EVM430-F6779 features several LEDs and headers that are used to output active and reactive energy pulses used for measuring accuracy during calibration and indicating power consumption for individual phases and total (aggregate). Start by checking each box under &#8220;Enable&#8221;. Select the Active/Reactive Ports/Pins for each phase according to the user&#8217;s guide and schematic for the EVM430-F6779.</p>
+<p>NOTE The pulses are disabled automatically when Active Energy or Reactive Energy are not selected in the Results tab, since they&#8217;re not needed.</p>
+<div class="figure" id="id44">
+<img alt="Select GPIOs for Active and Reactive Energy Pulses" src="../_images/design_center_config_pulses.png" />
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Select GPIOs for Active and Reactive Energy Pulses</span></p>
+</div>
+</div>
+<div class="section" id="adc-channels">
+<h5>ADC Channels<a class="headerlink" href="#adc-channels" title="Permalink to this headline">¶</a></h5>
+<p>Click the &#8220;ADC Channels&#8221; tab to view the automatic gain selections for each ADC channel. The selections depend on the device selected and the sensor output voltages. Also, the DC filters are enabled by default, but they can be disabled.</p>
+<div class="figure" id="id45">
+<img alt="View Pre-Selected ADC Gains" src="../_images/design_center_adc_channel_gains.png" />
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">View Pre-Selected ADC Gains</span></p>
+</div>
+</div>
+<div class="section" id="advanced-parameters">
+<h5>Advanced Parameters<a class="headerlink" href="#advanced-parameters" title="Permalink to this headline">¶</a></h5>
+<p>Click the &#8220;Advanced Parameters&#8221; tab and keep the default values.</p>
+<div class="figure" id="id46">
+<img alt="Keep Default Advanced Parameters" src="../_images/design_center_default_adv_params.png" />
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Keep Default Advanced Parameters</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="check-for-errors">
+<h4>Check for errors<a class="headerlink" href="#check-for-errors" title="Permalink to this headline">¶</a></h4>
+<p>Click the &#8220;Error Status&#8221; button to check for configuration errors.</p>
+<div class="figure" id="id47">
+<img alt="Error Status Button" src="../_images/design_center_error_status_button.png" />
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Error Status Button</span></p>
+</div>
+<p>The Configuration Error Status window will pop up. Note that each section matches a tab under the Library Configuration tab in the MSP430 controller properties window. Errors will be shown as a red X instead of the green checkmark. If there are no errors, click &#8220;OK&#8221; to continue.</p>
+<div class="figure" id="id48">
+<img alt="Error Status Window" src="../_images/design_center_error_status_window.png" />
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Error Status Window</span></p>
+</div>
+</div>
+<div class="section" id="generate-the-source-code">
+<h4>Generate the source code<a class="headerlink" href="#generate-the-source-code" title="Permalink to this headline">¶</a></h4>
+<p>Start by selecting where the source code project will be generated by clicking the &#8220;Browse&#8221; button or keep the default location. Copy this file path to use later when importing the source code project into the IDE.</p>
+<div class="figure" id="id49">
+<img alt="Browse Button" src="../_images/design_center_browse_button.png" />
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Browse Button</span></p>
+</div>
+<p>Click the &#8220;Generate Code&#8221; button to create the source code project.</p>
+<div class="figure" id="id50">
+<img alt="Generate Code Button" src="../_images/design_center_generate_code_button.png" />
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Generate Code Button</span></p>
+</div>
+<p>An information window will pop up confirming that code has been generated successfully. Click &#8220;OK&#8221; to continue.</p>
+<div class="figure" id="id51">
+<img alt="Code Generation Confirmation Window" src="../_images/design_center_code_gen_success_window.png" />
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">Code Generation Confirmation Window</span></p>
+</div>
+</div>
+<div class="section" id="update-existing-project">
+<h4>Update existing project<a class="headerlink" href="#update-existing-project" title="Permalink to this headline">¶</a></h4>
+<p>For existing CCS projects in the CCS workspace, follow these instructions:</p>
+<ul class="simple">
+<li>Copy the CCS project&#8217;s path</li>
+<li>Select &#8220;Update existing project configuration files&#8221; under &#8220;Select Configuration&#8221;</li>
+<li>Click on Browse button</li>
+<li>Paste CCS project&#8217;s path into the Folder name text box</li>
+<li>Hit Enter</li>
+<li>Click the &#8220;Generate Code&#8221; button</li>
+</ul>
+<p>For existing IAR projects, follow these instructions:</p>
+<ul class="simple">
+<li>Select &#8220;Update existing project configuration files&#8221; under &#8220;Select Configuration&#8221;</li>
+<li>Click the &#8220;Generate Code&#8221; button</li>
+</ul>
+<p>An information window will pop up confirming that code has been generated successfully. Click &#8220;OK&#8221; to continue.</p>
+<p>This will update the configuration in the following files:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">EM_Config\EM_config.c</span></code></li>
+<li><code class="docutils literal"><span class="pre">EM_Config\EM_config.h</span></code></li>
+<li><code class="docutils literal"><span class="pre">EM_Config\emReactivePowerIIRCoeff.h</span></code></li>
+<li><code class="docutils literal"><span class="pre">hal\hal_adc.c</span></code></li>
+<li><code class="docutils literal"><span class="pre">hal\hal_adc.h</span></code></li>
+<li><code class="docutils literal"><span class="pre">DesignCenter\guiApp\hmiDC\hmi.c</span></code></li>
+<li><code class="docutils literal"><span class="pre">DesignCenter\guiApp\hmiDC\hmi.h</span></code></li>
+</ul>
+</div>
+</div>
+<div class="section" id="load-and-run-the-generated-firmware-using-the-ccs-ide">
+<h3>Load and run the generated firmware using the CCS IDE<a class="headerlink" href="#load-and-run-the-generated-firmware-using-the-ccs-ide" title="Permalink to this headline">¶</a></h3>
+<p>Open Code Composer Studio IDE, right click on the Project Explorer window and select &#8220;Import&#8221; &gt; &#8220;CCS Project&#8221;.</p>
+<div class="figure" id="id52">
+<img alt="Code Composer Studio Workspace" src="../_images/design_center_ccs_import_project_1.png" />
+<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">Code Composer Studio Workspace</span></p>
+</div>
+<p>Click on &#8220;Browse&#8221; and select the CCS folder inside of the EMDC project as shown below.</p>
+<div class="figure" id="id53">
+<img alt="Code Composer Studio Importing Project" src="../_images/design_center_ccs_import_project_2.png" />
+<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">Code Composer Studio Importing Project</span></p>
+</div>
+<p>Click on &#8220;Finish&#8221; to complete the project import.</p>
+<div class="figure" id="id54">
+<img alt="Code Composer Studio Imported Project" src="../_images/design_center_ccs_import_project_3.png" />
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">Code Composer Studio Imported Project</span></p>
+</div>
+<p>After importing the project, click the debugger icon to build and download the code to the target. Then start the code by clicking the run button. Then click stop debugging and power cycle the target.</p>
+</div>
+<div class="section" id="load-and-run-the-generated-firmware-using-the-iar-ide">
+<h3>Load and run the generated firmware using the IAR IDE<a class="headerlink" href="#load-and-run-the-generated-firmware-using-the-iar-ide" title="Permalink to this headline">¶</a></h3>
+<p>Open IAR Embedded Workbench IDE, select &#8220;File&#8221; &gt; &#8220;Open Workspace...&#8221;</p>
+<div class="figure" id="id55">
+<img alt="Open IAR Workspace" src="../_images/design_center_iar_import_project_1.png" />
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Open IAR Workspace</span></p>
+</div>
+<p>Select the IAR workspace project (*.eww) located in the IAR folder inside of the EMDC project as shown below.</p>
+<div class="figure" id="id56">
+<img alt="Open IAR Project" src="../_images/design_center_iar_import_project_2.png" />
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Open IAR Project</span></p>
+</div>
+<p>If the following prompt appears to convert the project to the new format, select &#8220;Yes&#8221;</p>
+<div class="figure" id="id57">
+<img alt="Convert IAR Project to New Format" src="../_images/design_center_iar_import_project_3.png" />
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Convert IAR Project to New Format</span></p>
+</div>
+<p>After importing the project, select &#8220;Project&#8221; &gt; &#8220;Download and Debug&#8221;. Then start the code by clicking the run button. Then click stop debugging and power cycle the target.</p>
+<div class="figure" id="id58">
+<img alt="Energy Measurement IAR Project" src="../_images/design_center_iar_import_project_4.png" />
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Energy Measurement IAR Project</span></p>
+</div>
+</div>
+<div class="section" id="start-communicating-with-controller">
+<h3>Start communicating with Controller<a class="headerlink" href="#start-communicating-with-controller" title="Permalink to this headline">¶</a></h3>
+<p>In the controller properties window, click on the Connected button as shown below.</p>
+<div class="figure" id="id59">
+<img alt="EMDC Connection Window" src="../_images/design_center_target_connect_1.png" />
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">EMDC Connection Window</span></p>
+</div>
+<p>When the connection handshake is complete, the EMDC status bar will display the device name and firmware ID.</p>
+<p>NOTE Communication with the controller is required for calibration and viewing results.</p>
+<div class="figure" id="id60">
+<img alt="Status Bar with Device Name and FW ID" src="../_images/design_center_target_connect_2.png" />
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Status Bar with Device Name and FW ID</span></p>
+</div>
+</div>
+<div class="section" id="calibration">
+<h3>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h3>
+<p>Configure the high voltage setup at desired VRMS, IRMS, phase angle and frequency.</p>
+<p>Open the controller properties window and click on the &#8220;Calibration&#8221; tab.</p>
+<p>Select Phase A in the &#8220;Phase Selection&#8221; panel and click on Gain calibration checkbox as shown below. Note that the phase angle will default to 0 degrees when clicking this checkbox.</p>
+<div class="figure" id="id61">
+<img alt="Starting Calibration" src="../_images/design_center_calib_1.png" />
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Starting Calibration</span></p>
+</div>
+<div class="section" id="gain-calibration">
+<h4>Gain Calibration<a class="headerlink" href="#gain-calibration" title="Permalink to this headline">¶</a></h4>
+<p>Enter the test setup configuration parameters in Step 2 and click the &#8220;Start&#8221; button to initiate calibration for Phase A.</p>
+<div class="figure" id="id62">
+<img alt="Phase A Gain Calibration" src="../_images/design_center_calib_2.png" />
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Phase A Gain Calibration</span></p>
+</div>
+<p>If the high voltage test equipment supports energy measurement error, the error can be entered in the &#8220;Active Energy Error&#8221; field. Otherwise, EMDC can automatically calculate the energy measurement error based on the expected energy result. This is calculated using the VRMS, IRMS, and phase angle parameters entered in Step 2.</p>
+<p>Click on Apply to calibrate the voltage, current and active power scaling factors. When the calibration values have been sent to the target a Gain Calibration Window message will appear.</p>
+<div class="figure" id="id63">
+<img alt="Phase A Gain Calibration Complete" src="../_images/design_center_calib_3.png" />
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Phase A Gain Calibration Complete</span></p>
+</div>
+</div>
+<div class="section" id="phase-calibration">
+<h4>Phase Calibration<a class="headerlink" href="#phase-calibration" title="Permalink to this headline">¶</a></h4>
+<p>Select the &#8220;Phase&#8221; checkbox for the Calibration Type. Note that the phase angle will default to 60 degrees when clicking this checkbox. Remember to change the phase angle on the high voltage test equipment</p>
+<div class="figure" id="id64">
+<img alt="Phase A Phase Calibration Complete" src="../_images/design_center_calib_4.png" />
+<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Phase A Phase Calibration Complete</span></p>
+</div>
+<p>Enter the test equipment error. (optional)</p>
+<p>Click on Apply to calibrate the target&#8217;s current ADC channel preload values. When the calibration values have been sent to the target a Phase Calibration Window message will appear.</p>
+<div class="figure" id="id65">
+<img alt="Phase A Phase Calibration Complete" src="../_images/design_center_calib_5.png" />
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Phase A Phase Calibration Complete</span></p>
+</div>
+</div>
+<div class="section" id="saving-calibration-values-to-flash-memory">
+<h4>Saving Calibration Values to Flash Memory<a class="headerlink" href="#saving-calibration-values-to-flash-memory" title="Permalink to this headline">¶</a></h4>
+<p>Once calibration is complete click on the &#8220;Stop&#8221; button. A message will appear as shown below to store the calibration values in Flash. If &#8220;Yes&#8221; is selected, the values will be saved to INFO A and will remain on the target after a power reset. Otherwise, the previously used calibration values will remain the same.</p>
+<div class="figure" id="id66">
+<img alt="Save Calibration Values" src="../_images/design_center_calib_6.png" />
+<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">Save Calibration Values</span></p>
+</div>
+<p>Repeat the previous calibration process for the remaining phases.</p>
+</div>
+</div>
+<div class="section" id="view-results">
+<h3>View Results<a class="headerlink" href="#view-results" title="Permalink to this headline">¶</a></h3>
+<p>Click the &#8220;Results&#8221; tab on the Controller window to view the calibrated results.</p>
+<div class="figure" id="id67">
+<img alt="Three Phase Results" src="../_images/design_center_results_1.png" />
+<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">Three Phase Results</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="user-s-guide">
+<h2>User&#8217;s Guide<a class="headerlink" href="#user-s-guide" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="design-center-gui-panels">
+<h3>Design Center GUI Panels<a class="headerlink" href="#design-center-gui-panels" title="Permalink to this headline">¶</a></h3>
+<p>The Design Center GUI consists of three main panels:</p>
+<ul class="simple">
+<li>Menu bar</li>
+<li>Object selection tabs</li>
+<li>Design canvas</li>
+</ul>
+<div class="figure" id="id68">
+<img alt="Design Center GUI" src="../_images/design_center_blank_workspace.png" />
+<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">Design Center GUI</span></p>
+</div>
+<div class="section" id="menu-bar">
+<h4>Menu Bar<a class="headerlink" href="#menu-bar" title="Permalink to this headline">¶</a></h4>
+<p>The menu bar provides access to the GUI’s features and controls.</p>
+<div class="figure" id="id69">
+<img alt="Menu Bar" src="../_images/design_center_menu_bar.png" />
+<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Menu Bar</span></p>
+</div>
+</div>
+<div class="section" id="object-selection-tabs">
+<h4>Object Selection Tabs<a class="headerlink" href="#object-selection-tabs" title="Permalink to this headline">¶</a></h4>
+<p>The object selection tabs display objects that can be selected for placement in the design canvas and include:</p>
+<ul class="simple">
+<li>Sensors and controller tab</li>
+<li>Miscellaneous tab</li>
+</ul>
+<div class="section" id="sensors-and-controller-selection-tab">
+<h5>Sensors and Controller Selection Tab<a class="headerlink" href="#sensors-and-controller-selection-tab" title="Permalink to this headline">¶</a></h5>
+<p>The sensors and controller selection tab includes two object types:</p>
+<ul class="simple">
+<li>Sensor Objects<ul>
+<li>Voltage Sensor</li>
+<li>Current Sensors<ul>
+<li>Current Transformer (CT)</li>
+<li>Rogowski Coil (RC)</li>
+<li>Shunt</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MSP430 Controller Object</li>
+</ul>
+<div class="figure" id="id70">
+<img alt="Sensors and Controller Selection Tab" src="../_images/design_center_sensor_selection_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">Sensors and Controller Selection Tab</span></p>
+</div>
+</div>
+<div class="section" id="miscellaneous-selection-tab">
+<h5>Miscellaneous Selection Tab<a class="headerlink" href="#miscellaneous-selection-tab" title="Permalink to this headline">¶</a></h5>
+<p>The Miscellaneous selection tab includes only the Comment object type.</p>
+<div class="figure" id="id71">
+<img alt="Miscellaneous Selection Tab" src="../_images/design_center_misc_object_selection_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">Miscellaneous Selection Tab</span></p>
+</div>
+<p>Comments can be added by clicking the &#8220;/*&#8221; icon. Place the comment object by clicking on the design canvas. Double-click the comment object to open the Comment properties window. Enter text and click &#8220;OK&#8221; to continue.</p>
+<div class="figure" id="id72">
+<img alt="Add a Comment to Design Canvas (optional)" src="../_images/design_center_add_comment.png" />
+<p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">Add a Comment to Design Canvas (optional)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="design-canvas">
+<h4>Design Canvas<a class="headerlink" href="#design-canvas" title="Permalink to this headline">¶</a></h4>
+<p>To place an object in the design canvas:</p>
+<ul class="simple">
+<li>Select an object from the object tab with the left mouse button</li>
+<li>Position the cursor in the design canvas area and place the object by clicking the left mouse button</li>
+</ul>
+<p>Objects may be selected and moved anywhere on the canvas. Additional object operations can be displayed by right-clicking the mouse button on the object. To display the properties and configure the object, double-click using the left mouse button.</p>
+<div class="figure" id="id73">
+<img alt="Design Canvas" src="../_images/design_center_design_canvas.png" />
+<p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">Design Canvas</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="menu-descriptions">
+<h3>Menu Descriptions<a class="headerlink" href="#menu-descriptions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="file-menu">
+<h4>File Menu<a class="headerlink" href="#file-menu" title="Permalink to this headline">¶</a></h4>
+<p>This menu provides selections for projects, workspaces, printing, and exiting.</p>
+<div class="figure" id="id74">
+<img alt="File Menu" src="../_images/design_center_file_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">File Menu</span></p>
+</div>
+<div class="section" id="print">
+<h5>Print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h5>
+<p>Allows the user to print window.</p>
+</div>
+<div class="section" id="project-open-save-save-as">
+<h5>Project Open / Save / Save As<a class="headerlink" href="#project-open-save-save-as" title="Permalink to this headline">¶</a></h5>
+<p>Allows the user to:</p>
+<ul class="simple">
+<li>Open a new or existing project in the current workspace</li>
+<li>Save the current project</li>
+<li>Save the current project as a different name</li>
+</ul>
+<div class="figure" id="id75">
+<img alt="Select Project Name Window" src="../_images/design_center_open_new_project.png" />
+<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">Select Project Name Window</span></p>
+</div>
+</div>
+<div class="section" id="switch-workspace">
+<h5>Switch Workspace<a class="headerlink" href="#switch-workspace" title="Permalink to this headline">¶</a></h5>
+<p>Design Center stores projects within a workspace directory. This menu allows the user to open a different workspace. This behavior is similar to the way TI Code Composer Studio uses workspaces and projects.</p>
+<p>The default workspace path is %USERPROFILE%/EnergyMeasurementDesignCenter/EnergyMeasurementDesignCenterWorkspace.</p>
+<div class="figure" id="id76">
+<img alt="Select Workspace Window" src="../_images/design_center_project_switch_workspace_window.png" />
+<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">Select Workspace Window</span></p>
+</div>
+</div>
+<div class="section" id="exit">
+<h5>Exit<a class="headerlink" href="#exit" title="Permalink to this headline">¶</a></h5>
+<p>Exit the Energy Measurement Design Center application.</p>
+</div>
+</div>
+<div class="section" id="edit-menu">
+<h4>Edit Menu<a class="headerlink" href="#edit-menu" title="Permalink to this headline">¶</a></h4>
+<p>This menu provides options for deleting or restoring one or more selected objects. For example, if the canvas is populated with multiple sensors, to clear the canvas simply select all, then cut (delete).</p>
+<div class="figure" id="id77">
+<img alt="Edit Menu" src="../_images/design_center_project_edit_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">Edit Menu</span></p>
+</div>
+<div class="section" id="undo-redo">
+<h5>Undo / Redo<a class="headerlink" href="#undo-redo" title="Permalink to this headline">¶</a></h5>
+<p>Undo or redo a previous edit menu operation.</p>
+</div>
+<div class="section" id="cut">
+<h5>Cut<a class="headerlink" href="#cut" title="Permalink to this headline">¶</a></h5>
+<p>Remove the selected object from the design canvas.</p>
+</div>
+<div class="section" id="select-all">
+<h5>Select All<a class="headerlink" href="#select-all" title="Permalink to this headline">¶</a></h5>
+<p>Select all the objects in the design canvas.</p>
+</div>
+</div>
+<div class="section" id="options-menu">
+<h4>Options Menu<a class="headerlink" href="#options-menu" title="Permalink to this headline">¶</a></h4>
+<p>Allows the user to customize the display of the design canvas.</p>
+<div class="figure" id="id78">
+<img alt="Options Menu" src="../_images/design_center_project_options_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Options Menu</span></p>
+</div>
+<div class="section" id="display">
+<h5>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h5>
+<p>Customize the design canvas by displaying the connection fly lines between the MSP430 controller and sensors or changing the colors of the grid and background.</p>
+<div class="figure" id="id79">
+<img alt="Display Settings" src="../_images/design_center_project_display_settings.png" />
+<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Display Settings</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="communications-menu">
+<h4>Communications Menu<a class="headerlink" href="#communications-menu" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id80">
+<img alt="Communications Menu" src="../_images/design_center_comm_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Communications Menu</span></p>
+</div>
+<div class="section" id="connect-disconnect">
+<h5>Connect / Disconnect<a class="headerlink" href="#connect-disconnect" title="Permalink to this headline">¶</a></h5>
+<p>Controls whether the Design Center communicates with the target over HID.</p>
+</div>
+<div class="section" id="settings">
+<h5>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h5>
+<div class="figure" id="id81">
+<img alt="Settings Window" src="../_images/design_center_settings_window.png" />
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Settings Window</span></p>
+</div>
+<p>HID Connection IDs</p>
+<p>Enables the user to change the HID connection parameters.</p>
+<p>NOTE The parameters default to the correct values for the supported EVMs.</p>
+<p>Options</p>
+<p>Clicking the &#8220;Log Data&#8221; checkbox will enable data logging and will allow the selected results to be logged to *.csv files automatically and generated in the project’s directory.</p>
+<div class="figure" id="id82">
+<img alt="CSV Log Files" src="../_images/design_center_csv_log_files.png" />
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">CSV Log Files</span></p>
+</div>
+<p>After &#8220;Log Data&#8221; has been enabled under &#8220;Options&#8221;, use &#8220;Connect&#8221; and &#8220;Disconnect&#8221; under the &#8220;Communications&#8221; menu to collect and append data to the log files.</p>
+<p>NOTE Disabling then re-enabling &#8220;Log Data&#8221; will create new log files.</p>
+</div>
+</div>
+<div class="section" id="help-menu">
+<h4>Help Menu<a class="headerlink" href="#help-menu" title="Permalink to this headline">¶</a></h4>
+<p>This menu provides access to the Energy Measurement Design Center documentation and software version.</p>
+<div class="figure" id="id83">
+<img alt="Help Menu" src="../_images/design_center_help_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Help Menu</span></p>
+</div>
+<div class="section" id="about">
+<h5>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h5>
+<p>Displays the software version information.</p>
+<div class="figure" id="id84">
+<img alt="Design Center Version Information Tab" src="../_images/design_center_version_info.png" />
+<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">Design Center Version Information Tab</span></p>
+</div>
+<p>Displays your system information.</p>
+<div class="figure" id="id85">
+<img alt="System Information Tab" src="../_images/design_center_system_info.png" />
+<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">System Information Tab</span></p>
+</div>
+</div>
+<div class="section" id="id1">
+<h5>User&#8217;s Guide<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h5>
+<p>Opens the Energy Measurement Design Center User&#8217;s Guide.</p>
+</div>
+</div>
+</div>
+<div class="section" id="object-properties">
+<h3>Object Properties<a class="headerlink" href="#object-properties" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="controller-properties">
+<h4>Controller Properties<a class="headerlink" href="#controller-properties" title="Permalink to this headline">¶</a></h4>
+<p>This section discusses how to configure the controller. Double-clicking on the controller object will open its properties window.</p>
+<div class="figure" id="id86">
+<img alt="Controller Object" src="../_images/design_center_controller_object.png" />
+<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Controller Object</span></p>
+</div>
+<p>The properties window allows the user to:</p>
+<ul class="simple">
+<li>Select a supported device</li>
+<li>Configure basic and advanced library parameters</li>
+<li>Check for configuration errors</li>
+<li>Generate source code</li>
+<li>Enable target communication</li>
+<li>Perform calibration</li>
+<li>View results</li>
+</ul>
+<div class="figure" id="id87">
+<img alt="Controller Properties Window" src="../_images/design_center_controller_properties.png" />
+<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Controller Properties Window</span></p>
+</div>
+<div class="section" id="select-a-supported-device">
+<h5>Select a supported device<a class="headerlink" href="#select-a-supported-device" title="Permalink to this headline">¶</a></h5>
+<p>If the MSP430 controller has been placed on the design canvas, you have already selected a device from the &#8220;Device Selection&#8221; window. To choose a different device, select one from the &#8220;Device&#8221; drop-down menu. Click the &#8220;Show Device Documentation&#8221; link to open the selected device&#8217;s Product page on <a class="reference external" href="http://www.ti.com/">TI.com</a>.</p>
+<div class="figure" id="id88">
+<img alt="Select a Device" src="../_images/design_center_controller_device_selection.png" />
+<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Select a Device</span></p>
+</div>
+</div>
+<div class="section" id="configure-basic-and-advanced-library-parameters">
+<h5>Configure Basic and Advanced Library parameters<a class="headerlink" href="#configure-basic-and-advanced-library-parameters" title="Permalink to this headline">¶</a></h5>
+<p>Hardware Connections</p>
+<p>There are three ways to map the ADC channel pins of the controller to the sensor pins:</p>
+<ul class="simple">
+<li>Automatically map all the connections using the “Auto-Assign” button</li>
+<li>Manually map the connections using the &#8220;Connections&#8221; table</li>
+<li>Graphically connect the sensor and controller pins on the objects in the design canvas</li>
+</ul>
+<p>After selecting and placing the controller in the design canvas, each sensor is connected automatically according to the placement order. In this case, the connections most likely will not match the connections on the EVM or your design. Easily disconnect all the sensors by clicking the &#8220;Clear&#8221; button.</p>
+<div class="figure" id="id89">
+<img alt="Clear Button" src="../_images/design_center_controller_clear_button.png" />
+<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">Clear Button</span></p>
+</div>
+<p>Automatic Connections</p>
+<p>If the &#8220;Auto-Assign&#8221; button is clicked, the Design Center will automatically (randomly) connect all of the unconnected sensor pins to the controller pins. This is a good option if there are no pre-existing restrictions on the connections. For example, if the connections are already defined by the EVM or your design, map the connections manually or graphically.</p>
+<p>Note that any existing connections will not be changed. In this case, it is possible to make one of the two polarity connections per sensor manually and then auto-assign the rest.</p>
+<div class="figure" id="id90">
+<img alt="Auto-Assign Button" src="../_images/design_center_controller_auto_assign_button.png" />
+<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">Auto-Assign Button</span></p>
+</div>
+<p>The red “Errors” button indicates that the assignments did not complete successfully.</p>
+<div class="figure" id="id91">
+<img alt="Errors Button" src="../_images/design_center_controller_errors_button.png" />
+<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">Errors Button</span></p>
+</div>
+<p>Clicking on the button will open the connections &#8220;Error&#8221; window listing the remaining errors.</p>
+<div class="figure" id="id92">
+<img alt="Connection Error Window" src="../_images/design_center_controller_conn_error_window.png" />
+<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">Connection Error Window</span></p>
+</div>
+<p>If the assignments complete successfully, the red &#8220;Errors&#8221; button will turn into a green &#8220;OK&#8221; button indicating no assignment errors. Note that this also applies to manual and graphical connections.</p>
+<div class="figure" id="id93">
+<img alt="OK Button" src="../_images/design_center_controller_conn_ok_button.png" />
+<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">OK Button</span></p>
+</div>
+<p>Manual Connections</p>
+<p>The &#8220;Connections&#8221; table enables detailed manual control for mapping the sensor pins to the controller pins. There are three columns:</p>
+<ul class="simple">
+<li>Pin Name column</li>
+<li>Sensor column</li>
+<li>Polarity</li>
+</ul>
+<p>Pin Name column</p>
+<p>This column lists the selected controller&#8217;s Sigma Delta ADC channels. Note that a channel is a pair of positive and negative pins. The pin names match the selected controller&#8217;s datasheet. Note that the data in this column is read-only.</p>
+<div class="figure" id="id94">
+<img alt="Pin Name Column" src="../_images/design_center_controller_pin_name_column.png" />
+<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">Pin Name Column</span></p>
+</div>
+<p>Sensor column</p>
+<p>This column lists any placed sensors that have been connected.</p>
+<div class="figure" id="id95">
+<img alt="Sensor Column" src="../_images/design_center_controller_sensor_column.png" />
+<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">Sensor Column</span></p>
+</div>
+<p>Start by clicking a cell in the Sensor column and selecting a voltage or current sensor from the drop-down menu. Before moving to another cell in the Sensor column, click the neighboring cell in the Polarity column and select the polarity. Select only one sensor per channel.</p>
+<div class="figure" id="id96">
+<img alt="Drop-down Menu in Sensor Column" src="../_images/design_center_controller_sensor_column_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">Drop-down Menu in Sensor Column</span></p>
+</div>
+<p>Polarity column</p>
+<p>This column lists the polarities of the connected sensors.</p>
+<div class="figure" id="id97">
+<img alt="Polarity Column" src="../_images/design_center_controller_polarity_column.png" />
+<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Polarity Column</span></p>
+</div>
+<p>After selecting a sensor in the Sensor column, click the neighboring cell in the Polarity column and select &#8220;V NEG&#8221; or &#8220;V POS&#8221; from the drop-down menu. Note that the sensor polarities should match the ADC channel polarities.</p>
+<div class="figure" id="id98">
+<img alt="Drop-down Menu in Polarity Column" src="../_images/design_center_controller_polarity_column_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">Drop-down Menu in Polarity Column</span></p>
+</div>
+<p>Graphical Connections</p>
+<p>Connections between the controller and sensors can be made by clicking a sensor pin and dragging the connection to the desired controller pin.</p>
+<p>NOTE Be sure to display the connection fly lines first using the &#8220;Options&#8221; &gt; &#8220;Display&#8221; menu.</p>
+<div class="figure" id="id99">
+<img alt="Graphical Connections on Design Canvas" src="../_images/design_center_graphical_conn.png" />
+<p class="caption"><span class="caption-number">Fig. 98 </span><span class="caption-text">Graphical Connections on Design Canvas</span></p>
+</div>
+<p>The graphical connections are still shown in the &#8220;Connections&#8221; table.</p>
+<div class="figure" id="id100">
+<img alt="Graphical Connections in Connections Table" src="../_images/design_center_graphical_conn_in_table.png" />
+<p class="caption"><span class="caption-number">Fig. 99 </span><span class="caption-text">Graphical Connections in Connections Table</span></p>
+</div>
+<p>Basic Parameters</p>
+<p>Configure the basic library parameters in the Basic Parameters tab:</p>
+<ul class="simple">
+<li>Meter Name</li>
+<li>Sampling Frequency</li>
+<li>Oversampling Rate</li>
+<li>SMCLK Frequency</li>
+<li>AC Mains Frequency</li>
+<li>Number of Voltage Sensors</li>
+<li>Number of Current Sensors</li>
+</ul>
+<div class="figure" id="id101">
+<img alt="Graphical Connections in Connections Table" src="../_images/design_center_controller_basic_params_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 100 </span><span class="caption-text">Graphical Connections in Connections Table</span></p>
+</div>
+<p>Meter Name</p>
+<p>If desired, change the default meter name by entering a new name (such as &#8220;EVM430-F6779&#8221;) in the text box.</p>
+<div class="figure" id="id102">
+<img alt="Updated Meter Name" src="../_images/design_center_controller_updated_meter_name.png" />
+<p class="caption"><span class="caption-number">Fig. 101 </span><span class="caption-text">Updated Meter Name</span></p>
+</div>
+<p>Sampling Frequency</p>
+<p>Select a supported sampling frequency from the drop-down menu. Note that the sampling frequency is equal to the ADC modulation frequency (not shown but configured automatically) divided by the Oversampling Rate (OSR).</p>
+<div class="figure" id="id103">
+<img alt="Select a Sampling Frequency" src="../_images/design_center_controller_select_sampling_freq.png" />
+<p class="caption"><span class="caption-number">Fig. 102 </span><span class="caption-text">Select a Sampling Frequency</span></p>
+</div>
+<p>The supported sampling frequencies depend on the selected controller. For example, MSP430F67xx controllers feature a variable modulation frequency that supports multiple OSRs for each sampling frequency. MSP430i20xx controllers feature a fixed modulation frequency that supports a single OSR for each sampling frequency. When this parameter is updated, the OSR will also be updated.</p>
+<p>NOTE Increasing the sampling frequency reduces the available CPU bandwidth.</p>
+<p>Oversampling Rate (OSR)</p>
+<p>Select a supported OSR from the drop-down menu. Note that the OSR is equal to the ADC modulation frequency (not shown but configured automatically) divided by the sampling frequency.</p>
+<div class="figure" id="id104">
+<img alt="Select an OSR" src="../_images/design_center_controller_select_osr.png" />
+<p class="caption"><span class="caption-number">Fig. 103 </span><span class="caption-text">Select an OSR</span></p>
+</div>
+<p>The supported OSRs depend on the selected controller. For example, MSP430F67xx controllers feature a variable modulation frequency that supports multiple OSRs for each sampling frequency. MSP430i20xx controllers feature a fixed modulation frequency that supports a single OSR for each sampling frequency.</p>
+<p>NOTE Increasing the OSR increases the ADC sample resolution but may decrease the sampling frequency for some devices.</p>
+<p>SMCLK Frequency</p>
+<p>Select a supported SMCLK (Sub-Main Clock) frequency using the drop-down menu. OSR is equal to the ADC modulation frequency (not shown but configured automatically) divided by the sampling frequency.</p>
+<div class="figure" id="id105">
+<img alt="Select an SMCLK Frequency" src="../_images/design_center_controller_select_smclk.png" />
+<p class="caption"><span class="caption-number">Fig. 104 </span><span class="caption-text">Select an SMCLK Frequency</span></p>
+</div>
+<p>The supported SMCLK frequencies depend on the selected controller. For example, MSP430F67xx controllers feature a variable SMCLK frequency whereas the MSP430i20xx controllers feature a fixed SMCLK frequency.</p>
+<p>NOTE Both SMCLK and MCLK are configured according to the selected frequency. MCLK can be manually changed in the code but must be equal or greater than the SMCLK frequency.</p>
+<p>AC Mains Frequency</p>
+<p>Choose a nominal AC mains frequency between 40 and 70 Hertz (Hz) by entering a value in the text box or using the up and down arrows. Note that this frequency influences some default parameters in the Advanced Parameters tab.</p>
+<div class="figure" id="id106">
+<img alt="Select an AC Mains Frequency" src="../_images/design_center_controller_select_ac_mains_freq.png" />
+<p class="caption"><span class="caption-number">Fig. 105 </span><span class="caption-text">Select an AC Mains Frequency</span></p>
+</div>
+<p>Number of Voltage Sensors</p>
+<p>The default selection equals the total number of connected voltage sensors. If desired, select a sub-set. This feature allows users to easily debug individual phases in a poly-phase system configuration.</p>
+<div class="figure" id="id107">
+<img alt="Select the Number of Voltage Sensors" src="../_images/design_center_controller_select_voltage_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 106 </span><span class="caption-text">Select the Number of Voltage Sensors</span></p>
+</div>
+<p>Number of Current Sensors</p>
+<p>The default selection equals the total number of connected current sensors. If desired, select a sub-set. This feature allows users to easily debug individual phases in a poly-phase system configuration.</p>
+<div class="figure" id="id108">
+<img alt="Select the Number of Current Sensors" src="../_images/design_center_controller_select_current_sensors.png" />
+<p class="caption"><span class="caption-number">Fig. 107 </span><span class="caption-text">Select the Number of Current Sensors</span></p>
+</div>
+<p>Phases</p>
+<p>Configure the phase parameters in the Phases tab:</p>
+<ul class="simple">
+<li>Phase Name column</li>
+<li>ADC Voltage Channel column</li>
+<li>ADC Current Channel column</li>
+<li>Total column</li>
+</ul>
+<p>Phase Name column</p>
+<p>Select a different phase name from the drop-down menu for each pair of voltage and current ADC channels. These names allow the phases to be easily distinguished when calibrating, communicating, and viewing results. If the system configuration requires neutral monitoring, choose &#8220;NEUTRAL&#8221; as one of the phase names from the drop-down menu. Note that the number of available phase names depends on the number of voltage and current sensors selected in the &#8220;Basic Parameters&#8221; tab.</p>
+<div class="figure" id="id109">
+<img alt="Select Phase Names" src="../_images/design_center_controller_phase_name_column.png" />
+<p class="caption"><span class="caption-number">Fig. 108 </span><span class="caption-text">Select Phase Names</span></p>
+</div>
+<p>ADC Voltage Channel column</p>
+<p>Select a voltage channel from the drop-down menu. If the system configuration requires a single voltage channel with multiple current channels, select the same voltage channel (voltage sensor) for the current channels. Note that the available voltage channels depend on the connected sensors in the &#8220;Hardware Connections&#8221; tab.</p>
+<div class="figure" id="id110">
+<img alt="Select ADC Voltage Channels" src="../_images/design_center_controller_phase_voltage_column.png" />
+<p class="caption"><span class="caption-number">Fig. 109 </span><span class="caption-text">Select ADC Voltage Channels</span></p>
+</div>
+<p>ADC Current Channel column</p>
+<p>Select a current channel from the drop-down menu. Note that the available current channels depend on the connected sensors in the &#8220;Hardware Connections&#8221; tab.</p>
+<div class="figure" id="id111">
+<img alt="Select ADC Current Channels" src="../_images/design_center_controller_phase_current_column.png" />
+<p class="caption"><span class="caption-number">Fig. 110 </span><span class="caption-text">Select ADC Current Channels</span></p>
+</div>
+<p>Total column</p>
+<p>Add each phase to the total (aggregate) by selecting its checkbox under the &#8220;Total&#8221; column.</p>
+<div class="figure" id="id112">
+<img alt="Select Totals" src="../_images/design_center_controller_phase_total_column.png" />
+<p class="caption"><span class="caption-number">Fig. 111 </span><span class="caption-text">Select Totals</span></p>
+</div>
+<p>Results</p>
+<p>Select the supported results according to your system requirements and view the estimated CPU bandwidth in the &#8220;Results&#8221; tab.</p>
+<ul class="simple">
+<li>VRMS</li>
+<li>IRMS</li>
+<li>V Peak</li>
+<li>I Peak</li>
+<li>Power Factor</li>
+<li>Frequency</li>
+<li>Active Power</li>
+<li>Reactive Power</li>
+<li>Apparent Power</li>
+<li>Active Energy</li>
+<li>Reactive Energy</li>
+<li>Apparent Energy</li>
+</ul>
+<div class="figure" id="id113">
+<img alt="Results Configuration Section" src="../_images/design_center_controller_results_configuration.png" />
+<p class="caption"><span class="caption-number">Fig. 112 </span><span class="caption-text">Results Configuration Section</span></p>
+</div>
+<p>Easily select or deselect all the results by clicking the &#8220;Select All&#8221; or &#8220;Deselect All&#8221; buttons in the &#8220;Result Configuration&#8221; section.</p>
+<div class="figure" id="id114">
+<img alt="Select All and Deselect All Results Buttons" src="../_images/design_center_controller_all_buttons.png" />
+<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Select All and Deselect All Results Buttons</span></p>
+</div>
+<p>Manually select or deselect results using the checkboxes. Hover the cursor over a checkbox to quickly see its result.</p>
+<p>NOTE The user must click the &#8220;Save&#8221; button to both validate dependencies (some results depend on others) and save the selections.</p>
+<div class="figure" id="id115">
+<img alt="Save Result Configuration Button" src="../_images/design_center_controller_save_button.png" />
+<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Save Result Configuration Button</span></p>
+</div>
+<p>Clicking the &#8220;Save&#8221; button when the dependencies are not met will display an Error window listing all the dependencies. Click &#8220;OK&#8221; and enable the other results accordingly.</p>
+<div class="figure" id="id116">
+<img alt="Dependencies shown in Error Window" src="../_images/design_center_controller_dependencies_errors.png" />
+<p class="caption"><span class="caption-number">Fig. 115 </span><span class="caption-text">Dependencies shown in Error Window</span></p>
+</div>
+<p>Clicking the &#8220;Save&#8221; button when all dependencies are met will display an Info window confirming the result configuration has been saved successfully.</p>
+<div class="figure" id="id117">
+<img alt="Result Configuration Saved Window" src="../_images/design_center_controller_saved_result_config.png" />
+<p class="caption"><span class="caption-number">Fig. 116 </span><span class="caption-text">Result Configuration Saved Window</span></p>
+</div>
+<p>The bar graph in the &#8220;Estimated CPU Bandwidth&#8221; section represents the CPU load percentage and changes dynamically based on the selected results. Note that certain results such as reactive power impact the CPU load more than others. Green indicates that the CPU load is less than 100%.</p>
+<div class="figure" id="id118">
+<img alt="Estimated CPU Bandwidth below 100%" src="../_images/design_center_controller_bw_below_100.png" />
+<p class="caption"><span class="caption-number">Fig. 117 </span><span class="caption-text">Estimated CPU Bandwidth below 100%</span></p>
+</div>
+<p>Red indicates the CPU load exceeds 100%. See the CPU load percentage for the specific amount.</p>
+<div class="figure" id="id119">
+<img alt="Estimated CPU Bandwidth above 100%" src="../_images/design_center_controller_bw_above_100.png" />
+<p class="caption"><span class="caption-number">Fig. 118 </span><span class="caption-text">Estimated CPU Bandwidth above 100%</span></p>
+</div>
+<p>NOTE MCLK is assumed to be the same frequency as SMCLK.</p>
+<p>Parameters that impact the estimated CPU load (and strategies to reduce it) include:</p>
+<ul class="simple">
+<li>Device selection<ul>
+<li>Controller (select higher performance device)</li>
+</ul>
+</li>
+<li>Basic Parameters tab<ul>
+<li>SMCLK Frequency (increase frequency)</li>
+<li>Sampling Frequency (lower frequency)</li>
+<li>Number of Voltage and Current Sensors (reduce number of phases)</li>
+</ul>
+</li>
+<li>Results tab<ul>
+<li>Result Configuration (reduce result selections)</li>
+</ul>
+</li>
+</ul>
+<p>Depending on the device and your system configuration, some of these strategies above may not be possible.</p>
+<p>NOTE This estimation is based on the cycle count for the selected result APIs and does not include the CPU bandwidth consumed by the application code. Source code will not be generated for CPU loads higher than 100%.</p>
+<p>Pulses</p>
+<p>If your application does not measure active and reactive energy, this tab can be skipped. These GPIOs can drive LEDs and header pins to output pulses. These pulses are used for measuring accuracy during calibration and indicating active and reactive energy consumption for individual phases and total (aggregate).</p>
+<div class="figure" id="id120">
+<img alt="Pulse Configuration" src="../_images/design_center_controller_pulses_tab.png" />
+<p class="caption"><span class="caption-number">Fig. 119 </span><span class="caption-text">Pulse Configuration</span></p>
+</div>
+<p>Enable column</p>
+<p>Enable pulses for each phase by clicking the checkbox under the &#8220;Enable&#8221; column. The pulses can be disabled by deselecting the checkbox even after pins and ports have been selected for that phase.</p>
+<div class="figure" id="id121">
+<img alt="Enable Pulses per Phase" src="../_images/design_center_controller_pulses_enable.png" />
+<p class="caption"><span class="caption-number">Fig. 120 </span><span class="caption-text">Enable Pulses per Phase</span></p>
+</div>
+<p>Active and Reactive Port/Pin columns</p>
+<p>The ports are selected using the left drop-down menus, and the pins are selected using the right drop-down menus in each column.</p>
+<div class="figure" id="id122">
+<img alt="Select Ports/Pins for Reactive Energy Pulses" src="../_images/design_center_controller_pulses_reactive.png" />
+<p class="caption"><span class="caption-number">Fig. 121 </span><span class="caption-text">Select Ports/Pins for Reactive Energy Pulses</span></p>
+</div>
+<div class="figure" id="id123">
+<img alt="Select Ports/Pins for Active Energy Pulses" src="../_images/design_center_controller_pulses_active.png" />
+<p class="caption"><span class="caption-number">Fig. 122 </span><span class="caption-text">Select Ports/Pins for Active Energy Pulses</span></p>
+</div>
+<p>NOTE Duplicate port pins will get detected later, but the user must confirm that the selected GPIOs are supported by the selected device (and its package).</p>
+<p>Phase Name column</p>
+<p>The phase names are automatically populated with those (including Total if enabled) selected in the &#8220;Phases&#8221; tab.</p>
+<div class="figure" id="id124">
+<img alt="Phase Names (read-only)" src="../_images/design_center_controller_pulses_names.png" />
+<p class="caption"><span class="caption-number">Fig. 123 </span><span class="caption-text">Phase Names (read-only)</span></p>
+</div>
+<p>ADC Channels</p>
+<p>This tab allows the user to decrease the default ADC gain per channel if the gain is higher than one.</p>
+<p>ADC Channels column</p>
+<p>The ADC channels and connected sensors are shown in the ADC Channels column and are automatically populated based on the connections in the &#8220;Hardware Connections&#8221; tab.</p>
+<div class="figure" id="id125">
+<img alt="ADC Channels Column (read-only)" src="../_images/design_center_controller_adc_channels.png" />
+<p class="caption"><span class="caption-number">Fig. 124 </span><span class="caption-text">ADC Channels Column (read-only)</span></p>
+</div>
+<p>Gain column</p>
+<p>The maximum output voltages from each sensor (automatically calculated in the Sensor Properties window) and the typical FSR values (specified in the datasheet for the selected controller) are used to automatically select the default ADC channel gains in this column.</p>
+<div class="figure" id="id126">
+<img alt="ADC Gain Column" src="../_images/design_center_controller_adc_gain.png" />
+<p class="caption"><span class="caption-number">Fig. 125 </span><span class="caption-text">ADC Gain Column</span></p>
+</div>
+<p>If the gain is higher than one, the drop-down menus allow users to easily decrease the gain. Lower gains help reject more noise, but some current sensors such as Shunts have very low output voltages that require higher gains to amplify the signal (and unfortunately some noise).</p>
+<p>NOTE Some devices support higher gains than others. Refer to the datasheet for more details.</p>
+<p>DC Filter column</p>
+<p>The DC filters are enabled by default and can be turned off by deselecting the checkbox for each channel. These filters remove any DC offset voltage at the ADC channel inputs.</p>
+<div class="figure" id="id127">
+<img alt="DC Filter Column" src="../_images/design_center_controller_adc_dc_filters.png" />
+<p class="caption"><span class="caption-number">Fig. 126 </span><span class="caption-text">DC Filter Column</span></p>
+</div>
+<p>Advanced Parameters</p>
+<p>This tab allows user to configure the following advanced library parameters by entering values in the text box or using the up and down arrows:</p>
+<ul class="simple">
+<li>Per Phase Startup Current</li>
+<li>Total Phases Startup Current</li>
+<li>Impulses Per kWH</li>
+<li>Pulse Duration</li>
+<li>IIR Minimum Frequency</li>
+<li>IIR Maximum Frequency</li>
+<li>IIR Step Size</li>
+</ul>
+<div class="figure" id="id128">
+<img alt="Advanced Parameter Tab" src="../_images/design_center_controller_adv_parameter.png" />
+<p class="caption"><span class="caption-number">Fig. 127 </span><span class="caption-text">Advanced Parameter Tab</span></p>
+</div>
+<p>Per Phase Startup Current</p>
+<p>This parameter helps define when energy starts or continues accumulating. This energy threshold is based on both the startup current and the maximum input voltage. The default value equals 0 mA and ensures that energy accumulates at very low currents.</p>
+<p>Total Phases Startup Current</p>
+<p>This parameter is very similar to the Per Phase Startup Current but configures the total energy threshold instead. The default value equals 0 mA and ensures that energy accumulates at very low currents.</p>
+<p>Impulses Per kWH</p>
+<p>This parameter defines how many pulses are output after 1 kilowatt hour (kWH) of energy has been measured. Inverting this parameter reveals the kWH per pulse. The default value equals 6400 pulses per kWH, but can be changed.</p>
+<p>NOTE If your test equipment accepts energy measurement pulses, configure it with the same number of impulses per kWH. Otherwise, the number of pulses per kWH won&#8217;t match affecting the accuracy measurements during calibration and testing.</p>
+<p>Pulse Duration</p>
+<p>This parameter determines how many ADC samples are used for the pulse duration. The ADC interrupt service routine (ISR) is used to output the pulses rather than using a timer.</p>
+<p>The maximum pulse duration can be calculated by using the following parameters: - Maximum Active Power (e.g. 23000 Watt) - Impulses Per kWH (e.g. 6400 impulses per kWH) - Sampling Rate (e.g. 4096 Hz or samples per second)</p>
+<p>First, find the maximum possible number of impulses per second based on the maximum active power expected after 1 hour. Take the number of impulses per kWH and divide this value by 3600 seconds to get the number of impulses per kilowatt seconds (kWs). Divide this value by 1000 Watts (W) to get the number of impulses per watt second (Ws). Multiply this value by the maximum active power to get the maximum number of impulses per second. Divide the sampling frequency by this value to get the maximum pulse duration.</p>
+<p>For example, if you use the values in the parenthesis above, the maximum pulse duration equals around 100 ADC samples. The default pulse duration equals 20 ADC samples and is five times less than the maximum pulse duration.</p>
+<p>IIR Minimum Frequency</p>
+<p>This parameter defines the minimum AC mains frequency supported by the IIR filter that calculates reactive power and energy. The default value equals 98% of the AC mains frequency entered in the &#8220;Basic Parameters&#8221; tab. Note that the minimum frequency must be less than the IIR maximum frequency and greater than or equal to 40 Hz.</p>
+<p>IIR Maximum Frequency</p>
+<p>This parameter defines the maximum AC mains frequency supported by the IIR filter that calculates reactive power and energy. The default value equals 102% of the AC mains frequency entered in the &#8220;Basic Parameters&#8221; tab. Note that the maximum frequency must be greater the IIR minimum frequency and less than or equal to 70 Hz.</p>
+<p>IIR Step Size</p>
+<p>This parameter defines number of steps between the IIR minimum and maximum frequencies. The IIR filter is used to calculate reactive power. The resolution of the IIR constant look-up table is ((IIR Maximum Freq - IIR Minimum Freq )/ (IIR Step-1)). Each step size requires 4 bytes in Flash memory. This value must be greater than 1 and less than or equal to 250. The default values is odd (101) to ensure the AC Mains Frequency is included in the look-up table, which provides the best accuracy for stable high voltage systems. The look-up table will also include the minimum and maximum frequencies.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ch_comm_protocol.html" class="btn btn-neutral float-right" title="Communication Protocol Spec" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ch_intro.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.30.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!--
+`ti-widget-base-text` is a base class for widgets displaying text.
+
+@element ti-widget-base-text
+@extends ti-widget-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="ti-widget-base.html">
+<polymer-element name="ti-widget-base-text" extends="ti-widget-base" >
+
+    <script>
+        Polymer ('ti-widget-base-text', 
+        {
+            publish: {
+                /**
+                 * Controls the horizontal alignment of the text that is displayed.
+                 *
+                 * @attribute textAlign
+                 * @type left|right|center
+                 * @default left
+                 */
+                textAlign: "left",
+                /**
+                 * Controls the decoration of the text that is displayed.
+                 *
+                 * @attribute textDecoration
+                 * @type none|underline|overline|line-through
+                 * @default none
+                 */
+                textDecoration: "none",
+                /**
+                 * Controls the boldness of the font for the text that is displayed.  Use inherit if
+                 * you wish to inherit the font weight value from the parent container.
+                 *
+                 * @attribute fontWeight
+                 * @type normal|bold|inherit
+                 * @default normal
+                 */
+                fontWeight: "normal",
+                /**
+                 * Controls the style of the text that is displayed.
+                 *
+                 * @attribute fontStyle
+                 * @type normal,italic,inherit
+                 * @default normal
+                 */
+                fontStyle: "normal",
+                /**
+                 * Controls the color of the text that is displayed.  Use inherit if
+                 * you wish to inherit the color from the parent container.  The color can either
+                 * a name of a color, like 'orange', or a hex color value like #FFFFFF.
+                 *
+                 * @attribute fontColor
+                 * @type string
+                 * @default inherit
+                 */
+                fontColor: "",
+                /**
+                 * <p>Controls the size of the text that is displayed.  Use inherit if
+                 * you wish to inherit the size from the parent container.  The size can
+                 * be one of the following:</p>
+                 * <ul><li>xx-small</li>
+                 * <li>x-small</li><li>small</li><li>medium</li><li>large</li>
+                 * <li>x-large</li><li>xx-large</li><li>smaller</li><li>larger</li><li>inherit</li></ul>
+                 *
+                 * @attribute fontSize
+                 * @type string
+                 * @default inherit
+                 */
+                fontSize: "inherit"
+            },
+            
+            textAlignChanged : function()
+            {
+                // avoid problems when called from Polymer.wrapChanged change watcher by
+                // calling getTextElement asynchronously.
+                var _self = this;
+                this.async( function() {
+                    if (_self.getTextElement() !== null) {
+                        _self.getTextElement().style['textAlign'] = _self.textAlign;
+                    }
+                },1);
+            },
+            textDecorationChanged : function()
+            {
+                // avoid problems when called from Polymer.wrapChanged change watcher by
+                // calling getTextElement asynchronously.
+                var _self = this;
+                this.async( function() {
+                    if (_self.getTextElement() !== null) {
+                        _self.getTextElement().style['text-decoration'] = _self.textDecoration;
+                    }
+                },1);
+            },
+            fontWeightChanged : function()
+            {
+                // avoid problems when called from Polymer.wrapChanged change watcher by
+                // calling getTextElement asynchronously.
+                var _self = this;
+                this.async( function() {
+                    if (_self.getTextElement() !== null) {
+                        _self.getTextElement().style['font-weight'] = _self.fontWeight;
+                    }
+                },1);
+            },
+            fontStyleChanged : function()
+            {
+                // avoid problems when called from Polymer.wrapChanged change watcher by
+                // calling getTextElement asynchronously.
+                var _self = this;
+                this.async( function() {
+                   if (_self.getTextElement() !== null) {
+                       _self.getTextElement().style['font-style'] = _self.fontStyle;
+                   }
+                },1);
+            },
+            fontColorChanged : function()
+            {
+                // avoid problems when called from Polymer.wrapChanged change watcher by
+                // calling getTextElement asynchronously.
+                var _self = this;
+                this.async( function() {
+                     if (_self.getTextElement() !== null) {
+                         _self.getTextElement().style['color'] = _self.fontColor;
+                         _self.style['color'] = _self.fontColor;
+                     }
+                },1);
+            },
+            fontSizeChanged : function()
+            {
+                // avoid problems when called from Polymer.wrapChanged change watcher by
+                // calling getTextElement asynchronously.
+                var _self = this;
+                this.async( function() {
+                    if (_self.getTextElement() !== null) {
+                        _self.getTextElement().style['font-size'] = _self.fontSize;
+                    }
+                },1);
+            },
+            focusHandler : function()
+            {
+                this._hasFocus = true;
+                if (this.selectOnClick)
+                {
+                    if (this.getTextElement() !== null) {
+                        this.getTextElement().select();
+                    }
+                }
+            },
+            blurHandler : function()
+            {
+                this._hasFocus = false;
+            },
+            hasFocus : function()
+            {
+                return this._hasFocus;
+            },
+            getTextElement : function()
+            {
+            	return this.getElement();
+            }
+        });
+    </script>
+</polymer-element>

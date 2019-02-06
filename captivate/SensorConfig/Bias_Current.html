@@ -1,0 +1,51 @@
+<!-- Captivate Description HTML -->
+<!-- Bias_Current Tuning Parameter -->
+
+<html>
+	<body>
+		<B>Bias Current</B>
+		<P>
+		
+		Bias current is only applicable to mutual capacitance sensors.  When measuring
+		mutual capacitance sensors, a sample and hold amplifier drives the receive electrode
+		to remove any contributions of the parasitic capacitance to ground.  This ensures that only
+		the charge associated with the mutual capacitance is accumulated on the sample capacitor during
+		the measurement.  The bias current parameter provides the ability to optimize a design for
+		power consumption if the system allows for it.  
+		
+		<P>
+		If power consumption is not a concern, the 
+		bias current may be defaulted to the highest value and left alone.  
+		
+		<P>
+		If power must be optimized,
+		it is possible to begin reducing the bias current one level at a time while observing the impact
+		on the measurement when touched.  If there is too much parasitic capacitance to ground,
+		the achievable deltas may be reduced and the measurement may dip below the LTA due to a touch,
+		rather than rise above it.  In this case, the parasitic capacitance is overwhelming the drive
+		capability of the sample and hold amplifier and the bias current needs to be increased.
+		
+		<!--<P>
+		<img src="visualizer_images/Idle_State.png">
+		<P>-->
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		For some systems with little parasitic capacitance to ground, varying the bias current may not 
+		have a large effect on performance.  When adjusting the bias current, be sure to test all
+		touch use-cases to verify functionality.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Bias_Current parameter corresponds to the
+		<i><b>ui8BiasControl</b></i> 
+		member of the
+		<i><b>tSensor</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

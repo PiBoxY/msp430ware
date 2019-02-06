@@ -1,0 +1,12 @@
+Introduction
+============
+
+The MSP430™ microcontroller (MCU) ultrasonic sensing solution (USS) software library provides the means to configure the ultrasonic module in MSP430FR604x devices for ultrasonic captures and help to integrate it with the application software for development of ultrasonic flow meters.
+
+The library also takes advantage of the Low Energy Accelerator (LEA) module in MSP430FR604x and MSP430FR504x devices to compute Delta Time of Flight (DToF), Absolute Time Of Flight (AToF) and Volume Flow Rate (VFR) measurements.
+
+For more information regarding the USS and LEA module please refer to `Device Family User's Guide <https://www.ti.com/lit/pdf/slau367>`__. Additional FRAM and LEA document are listed below:
+
+-  `MSP430™ FRAM Technology– How To and Best Practices <https://www.ti.com/litv/pdf/slaa628>`__
+
+-  `Low-Energy Accelerator (LEA) Frequently Asked Questions (FAQ) <https://www.ti.com/litv/pdf/slaa628>`__

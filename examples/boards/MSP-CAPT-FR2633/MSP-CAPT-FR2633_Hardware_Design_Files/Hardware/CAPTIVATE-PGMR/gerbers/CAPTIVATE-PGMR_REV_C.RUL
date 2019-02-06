@@ -1,0 +1,15 @@
+DRC Rules Export File for PCB: C:\Users\a0272918\Documents\Altium Design Projects\captivate_EVM\captivate_pgmr\captivate_pgmr.PcbDoc
+RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing|Scope=Board|Minimum=7.00
+RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing_ThermalPadVias|Scope=Board|Minimum=5.91
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=1.97
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=6.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.87
+RuleKind=Clearance|RuleName=Clearance_Poly|Scope=Board|Minimum=12.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge|Scope=Board|Minimum=60.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_Poly|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_MountingHoles|Scope=Board|Minimum=40.00
+RuleKind=Clearance|RuleName=Clearance_Keepouts|Scope=Board|Minimum=0.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_USB_connector|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance_BoardEdge_USB_connector_vias|Scope=Board|Minimum=20.00
+RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing_50mil_connectors|Scope=Board|Minimum=5.90

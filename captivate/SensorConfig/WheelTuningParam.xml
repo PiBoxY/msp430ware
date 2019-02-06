@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TuningParams>
+    <Filter_Enable>
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>Position_Filter.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x90</cmd>
+    </Filter_Enable>
+    <Filter_Beta>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Position_Filter.html</description_file>
+        <default>100</default>
+        <min>0</min>
+        <max>255</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x91</cmd>
+    </Filter_Beta>
+    <Desired_Resolution>
+        <classification>sensor</classification>
+        <type>int</type>
+        <description_file>Desired_Resolution.html</description_file>
+        <default>1000</default>
+        <min>0</min>
+        <max>65535</max>
+        <cmd>0x92</cmd>
+    </Desired_Resolution>
+</TuningParams>
+

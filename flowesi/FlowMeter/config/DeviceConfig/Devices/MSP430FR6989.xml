@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<device>
+	<deviceName>MSP430FR6989</deviceName>
+	<maxMCLK>25</maxMCLK>
+	<image src="images/MSP430FR6989_PN_80.png"/>
+	<packages>
+		<package name="100-pin PZ package">
+			<ESICI0 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN4">ESICI0</ESICI0>
+			<ESICI1 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN5">ESICI1</ESICI1>
+			<ESICI2 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN6">ESICI2</ESICI2>
+			<ESICI3 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN7">ESICI3</ESICI3>
+			<ESICH0 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN0">ESICH0</ESICH0>
+			<ESICH1 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN1">ESICH1</ESICH1>
+			<ESICH2 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN2">ESICH2</ESICH2>
+			<ESICH3 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN3">ESICH3</ESICH3>
+			<ESITEST4  pintype="OUTPUT" port="GPIO_PORT_P1" pin="GPIO_PIN3">ESITEST4</ESITEST4>
+			<ESIC1OUT  pintype="OUTPUT" port="GPIO_PORT_P2" pin="GPIO_PIN6">ESIC1OUT</ESIC1OUT>
+			<ESIC2OUT  pintype="OUTPUT" port="GPIO_PORT_P2" pin="GPIO_PIN7">ESIC2OUT</ESIC2OUT>
+		</package>
+		<package name="80-pin PN package">
+			<ESICI0 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN4">ESICI0</ESICI0>
+			<ESICI1 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN5">ESICI1</ESICI1>
+			<ESICI2 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN6">ESICI2</ESICI2>
+			<ESICI3 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN7">ESICI3</ESICI3>
+			<ESICH0 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN0">ESICH0</ESICH0>
+			<ESICH1 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN1">ESICH1</ESICH1>
+			<ESICH2 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN2">ESICH2</ESICH2>
+			<ESICH3 pintype="INPUT" port="GPIO_PORT_P9" pin="GPIO_PIN3">ESICH3</ESICH3>
+			<ESITEST4  pintype="OUTPUT" port="GPIO_PORT_P1" pin="GPIO_PIN3">ESITEST4</ESITEST4>
+			<ESIC1OUT  pintype="OUTPUT" port="GPIO_PORT_P2" pin="GPIO_PIN6">ESIC1OUT</ESIC1OUT>
+			<ESIC2OUT  pintype="OUTPUT" port="GPIO_PORT_P2" pin="GPIO_PIN7">ESIC2OUT</ESIC2OUT>
+		</package>
+	</packages>
+	<interrupts>
+		<interrupt>ADC12</interrupt>
+		<interrupt>AES256</interrupt>
+		<interrupt>COMP_E</interrupt>
+		<interrupt>ESCAN_IF</interrupt>
+		<interrupt>DMA</interrupt>
+		<interrupt>LCD_C</interrupt>
+		<interrupt>PORT1</interrupt>
+		<interrupt>PORT2</interrupt>
+		<interrupt>PORT3</interrupt>
+		<interrupt>PORT4</interrupt>
+		<interrupt>RTC</interrupt>
+		<interrupt>SYSNMI</interrupt>
+		<interrupt>TIMER0_A0</interrupt>
+		<interrupt>TIMER0_A1</interrupt>
+		<interrupt>TIMER0_B0</interrupt>
+		<interrupt>TIMER0_B1</interrupt>
+		<interrupt>TIMER1_A0</interrupt>
+		<interrupt>TIMER1_A1</interrupt>
+		<interrupt>TIMER2_A0</interrupt>
+		<interrupt>TIMER2_A1</interrupt>
+		<interrupt>TIMER3_A0</interrupt>
+		<interrupt>TIMER3_A1</interrupt>
+		<interrupt>UNMI</interrupt>
+		<interrupt>USCI_A0</interrupt>
+		<interrupt>USCI_A1</interrupt>
+		<interrupt>USCI_B0</interrupt>
+		<interrupt>WDT</interrupt>
+	</interrupts>
+</device>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TuningParams>
+    <Count_Filter_Enable>
+        <!-- This overrides the description in SensorTuningPanel.xml -->
+        <classification>sensor</classification>
+        <type>boolean</type>
+        <description_file>Count_Filter.html</description_file>
+        <default>1</default>
+        <min>0</min>
+        <max>1</max>
+		<mode>ADVANCED</mode>
+        <cmd>0x89</cmd>
+    </Count_Filter_Enable>
+</TuningParams>
+

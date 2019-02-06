@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><!-- /* * Copyright 2017 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ -->
+
+
+
+<title>MSP430 Peripheral Driver Library</title><!-- For now, we use the doxygen style sheet --><link href="docs/html/doxygen.css" rel="stylesheet" type="text/css"></head>
+<body>
+<table width="100%">
+<tbody>
+<tr>
+<td bgcolor="black" width="1"><a href="http://www.ti.com"><img style="border: 0px solid ;" src="images/tilogo.gif" alt="Texas Instruments"></a></td>
+<td bgcolor="red"><img alt="Texas Instruments" src="images/titagline.gif"></td>
+</tr>
+</tbody>
+</table>
+<h1><strong>How to use MSP430 DriverLib ROM&nbsp;</strong></h1>
+<hr>
+<ol>
+<strong>Steps to utilize DriverLib in ROM from a user
+application</strong><br>
+<li>Please locate rom_driverlib.h. A copy can be found inside
+driverlib/{FAMILY}</li>
+<br>
+<li><em>Optional but recommended step:</em> Please
+locate rom_map_driverlib.h. A copy can be found inside
+driverlib/{FAMILY}
+</li>
+<br>
+<li>Please locate rom_headers/ directory. A copy can be found
+inside driverlib/{FAMILY}</li>
+<br>
+<li>By default, the rom_driverlib.h you use must be at same
+directory level as rom_headers/</li>
+<br>
+<li>#include "{PATH}/rom_driverlib.h"</li>
+<ul>
+<li>rom_driverlib.h will automatically map you to the
+specific ROM
+header file for the
+device you are using inside rom_headers/.
+</li>
+<li>The device specific ROM header file defines ROM_
+functions and allows them for use.</li>
+<li>The source code is in the device's ROM whether used or
+not, but using ROM_ functions will tell your application where in
+memory to find the function.</li>
+</ul>
+<br>
+<li>#include "{PATH}/rom_map_driverlib.h"</li>
+<ul>
+<li>This step is <span style="font-style: italic;">technically</span>
+optional, but <span style="font-style: italic;">highly</span>
+recommended. Without this file, MAP_ functions will not be available.
+</li>
+<li>Using MAP_{API_NAME} will use ROM_{API_NAME} when
+possible, and {API_NAME} from a linked source/library out of flash/FRAM
+when not.
+</li>
+<li>This will create a seamless functional experience for the
+user application.
+</li>
+<li>You may use ROM_ functions directly to force a call into
+ROM for the function, but keep in mind not every DriverLib API has a
+ROM equivalent.
+</li>
+<li>MAP_ functions provide all the benefits of ROM_ functions
+while abstracting the need to know which specific ROM_ functions exist.</li>
+<li>Using MAP_ functions also keeps your application code
+portable across devices in the same family.</li>
+</ul>
+</ol>
+<hr>
+<ul>
+<strong>Details about MSP430 DriverLib ROM feature</strong>
+<li>Not every device has MSP430 DriverLib in ROM. Please
+consult device's datasheet to see if it is available.</li>
+<br>
+<li>Not every device's ROM holds the same subset of DriverLib.</li>
+<br>
+<li>DriverLib in ROM is tested to work with both CCS and IAR
+compilers.
+</li>
+<ul>
+<li>Because the calling conventions between the two compilers
+are slightly different, the ROM image must adhere to a certain <strong><em>__cc_rom</em></strong>
+convention that
+both compilers can agree upon. As such, there are certain limitations
+on a user application using ROM.
+<ul>
+<li>#include "rom_driverlib.h" will continue to provide
+helpful hints at build time until the user application adheres to <strong><em>__cc_rom</em></strong>
+</li>
+<li>For more information, please consult the MSP430 IAR
+or
+CCS compiler User's Guide on the <strong><em>__cc_rom</em></strong>
+calling convention.
+</li>
+<li>For example, IAR has options to reserve R4/R5 for
+global variables. CCS has no such option. Therefore on common ground,
+an IAR user
+application must declare R4/R5 to be free and not reserved in order to
+utilize ROM.
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<li>There may also be certain limitations to user application
+based off device-specific ROM designs.
+<ul>
+<li>For example, if the DriverLib ROM image lives above 64k
+memory addresses, it would make sense that the user application must be
+large code model (20-bit address pointer rather than 16-bit).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<strong>Benefits of using MSP430 DriverLib ROM</strong>
+<li>Code execution is faster out of ROM than flash/FRAM.
+Without flash/FRAM wait states, code execution performance is only
+limited by your processor clock, which is generally faster than other
+subsystems. Executing your code out of RAM would give comparable
+performance, but the available RAM size is typically more limited.<br>
+</li>
+<li>Leaves more nonvolatile storage (flash/FRAM) available in
+your device for application code rather than software libraries.<br>
+</li>
+</ul>
+<hr>
+<ul>
+<strong>Code example using ROM</strong>
+<br>Taken from MSP430FR2xx_4xx DriverLib example: adc_ex1_avccRef.c.<br>
+</ul>
+<code>
+#include "driverlib.h"<br>
+#include "rom_driverlib.h"<br>
+#include "rom_map_driverlib.h"<br>
+#include "Board.h"<br>
+<br>
+void main (void)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Stop Watchdog Timer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: Example of what to do if you need to execute from ROM; use ROM_ prefix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: You may get a build error if particular function is not in ROM<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ROM_WDT_A_hold(WDT_A_BASE);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Set A7 as an input pin.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Set appropriate module function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: Example of what to do if you need to execute from FRAM; leave out ROM_ and MAP_ prefix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: You will need to provide DriverLib source for this function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GPIO_setAsPeripheralModuleFunctionInputPin(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO_PORT_ADC7,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO_PIN_ADC7,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO_FUNCTION_ADC7);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Set LED1 as an output pin.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: Using MAP_ will execute from ROM if available, FRAM if not available<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_GPIO_setAsOutputPin(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO_PORT_LED1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO_PIN_LED1);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Set LED2 as an output pin.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_GPIO_setAsOutputPin(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO_PORT_LED2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO_PIN_LED2);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/*<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Disable the GPIO power-on default high-impedance mode to activate<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * previously configured port settings<br>
+&nbsp;&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_PMM_unlockLPM5();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Initialize the ADC Module<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/*<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Base Address for the ADC Module<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Use internal ADC bit as sample/hold signal to start conversion<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * USE MODOSC 5MHZ Digital Oscillator as clock source<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Use default clock divider of 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_ADC_init(ADC_BASE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_SAMPLEHOLDSOURCE_SC,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_CLOCKSOURCE_ADCOSC,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_CLOCKDIVIDER_1);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_ADC_enable(ADC_BASE);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/*<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Base Address for the ADC Module<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Sample/hold for 16 clock cycles<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Do not enable Multiple Sampling<br>
+&nbsp;&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_ADC_setupSamplingTimer(ADC_BASE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_CYCLEHOLD_16_CYCLES,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_MULTIPLESAMPLESDISABLE);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Configure Memory Buffer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/*<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Base Address for the ADC Module<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Use input A7<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Use positive reference of AVcc<br>
+&nbsp;&nbsp;&nbsp;&nbsp; * Use negative reference of AVss<br>
+&nbsp;&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_ADC_configureMemory(ADC_BASE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_INPUT_A7,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_VREFPOS_AVCC,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_VREFNEG_AVSS);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_ADC_clearInterrupt(ADC_BASE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_COMPLETED_INTERRUPT);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//Enable Memory Buffer interrupt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAP_ADC_enableInterrupt(ADC_BASE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_COMPLETED_INTERRUPT);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (;;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Delay between conversions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__delay_cycles(5000);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Enable and Start the conversion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//in Single-Channel, Single Conversion Mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAP_ADC_startConversion(ADC_BASE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADC_SINGLECHANNEL);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//LPM0, ADC10_ISR will force exit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__bis_SR_register(CPUOFF + GIE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//For debug only<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__no_operation();<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+//ADC10 interrupt service routine<br>
+#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)<br>
+#pragma vector=ADC_VECTOR<br>
+__interrupt<br>
+#elif defined(__GNUC__)<br>
+__attribute__((interrupt(ADC_VECTOR)))<br>
+#endif<br>
+void ADC_ISR (void)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;switch (__even_in_range(ADCIV,12)){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case  0: break; //No interrupt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case  2: break; //conversion result overflow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case  4: break; //conversion time overflow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case  6: break; //ADC10HI<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case  8: break; //ADC10LO<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 10: break; //ADC10IN<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 12:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//ADC10IFG0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //(Automatically clears ADC10IFG0 by reading memory buffer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (MAP_ADC_getResults(ADC_BASE) &lt; 0x1FF){<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Turn LED1 off<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAP_GPIO_setOutputLowOnPin(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PORT_LED1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PIN_LED1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Turn LED2 off<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAP_GPIO_setOutputLowOnPin(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PORT_LED2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PIN_LED2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Turn LED1 on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAP_GPIO_setOutputHighOnPin(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PORT_LED1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PIN_LED1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Turn LED2 on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAP_GPIO_setOutputHighOnPin(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PORT_LED2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GPIO_PIN_LED2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Clear CPUOFF bit from 0(SR)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Breakpoint here and watch ADC_Result<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __bic_SR_register_on_exit(CPUOFF);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+</code>
+</body></html>

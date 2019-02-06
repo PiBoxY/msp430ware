@@ -1,0 +1,208 @@
+<!--
+`ti-widget-filterbox` is a drop down selection widget.
+
+Example:
+
+    <ti-widget-filterbox></ti-widget-filterbox>
+
+See demo for a full working example of how to use this component.
+
+@group TI Widgets
+@element ti-widget-filterbox
+@extends ti-widget-base-text
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="ti-widget-base-selector.html">
+<link rel="stylesheet" href="../ti-core-stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="../ti-core-stylesheets/rex.css">
+<link rel="stylesheet" href="../ti-core-stylesheets/custom.css">
+<link rel="import" href="../core-icon/core-icon.html">
+<polymer-element name="ti-widget-filterbox" extends="ti-widget-base-text">
+
+    <template>
+        <!--<link rel="import" type="css" href="app-bar.css">-->
+        <style>
+            :host * {
+                box-sizing: border-box;
+            }
+            :host(.search-on) {
+                left: 0;
+                background: inherit;
+                z-index: 1001;
+            }
+            :host ::content core-icon {
+                margin-right: 10px;
+                padding-left:10px;
+                cursor: pointer;
+            }
+            #search {
+                position: relative;
+                border: 1px solid lightgray;
+                background-color: transparent;
+                z-index:20;
+                right:0px;
+            }
+            #search core-icon {
+                margin-right: 0;
+
+            }
+            #search[show] {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 0;
+                padding-left: 4px;
+                min-width: 200px;
+
+
+            /*    padding: 0 16px; */
+                background: #fff;
+            }
+            #search input {
+                display: none;
+                font-size: medium;
+                height: 100%;
+                vertical-align: middle;
+                width: 100%;
+                border: 0;
+                border-radius: 2px;
+                -webkit-appearance: none;
+            }
+            #search[show] input {
+                display: block;
+            }
+            #search input:focus {
+                outline: 0;
+            }
+            #searchIcon {
+                left:0;
+                padding:5px;
+                z-index:99999;
+            }
+            #query {
+                z-index:99999;
+            }
+        </style>
+
+        <content></content>
+        <div id="search" horizontal flex layout   show>
+        <core-icon id="searchIcon" icon="search"  style="height:15px;" ></core-icon>
+            <form on-submit="{{performSearch}}"  flex>
+                <input id="query" style="font-size:small;" type="search" value="{{query}}" on-keyup="{{hotkeys}}" autocomplete="off" placeholder="{{placeholderText}}" on-blur="clearSearch">
+            </form>
+
+        </div>
+    </template>
+    </dom-module>
+
+    <script>
+
+        Polymer ('ti-widget-filterbox',{
+            /**
+             * Fired when the search term entered by the user has been changed
+             *
+             * @event filter_update
+             */
+            publish: {
+                /**
+                 * the search term entered by the user
+                 *
+                 * @attribute query
+                 * @type string
+                 * @default ''
+                 */
+                query: {value: '', reflect: true},
+                /**
+                 * true when the user has entered in a search term
+                 *
+                 * @attribute showingSearch
+                 * @type boolean
+                 * @default false
+                 */
+                _showingSearch: false,
+                /**
+                 * The text to display when nothing has been entered into the filter box by the user
+                 *
+                 * @attribute noSearch
+                 * @type string
+                 * @default Search
+                 */
+                placeholderText: "Search"
+
+            },
+
+            toggleSearch: function(e) {
+                if (!this.$) return;
+
+                if (e) {
+                    e.stopPropagation();
+                }
+                if (e.target === this.$.query) {
+                    return;
+                }
+                this._showingSearch = !this._showingSearch;
+
+            },
+            clearSearch: function() {
+                this._showingSearch = false;
+            },
+            showingSearchChanged: function(){
+                this.updateSearchDisplay(this._showingSearch);
+            },
+            updateSearchDisplay: function(showingSearch) {
+                if (showingSearch) {
+                    this.classList.add('search-on');
+                    this.async(function() {
+                        this.$.query.focus();
+                    });
+                } else {
+                    this.classList.remove('search-on');
+                    this.query = '';
+                    this.fire('filter_update', {filter: '' + this.query});
+                }
+            },
+            hotkeys: function(e) {
+                // ESC
+                if ((e.keyCode === 27) && (e.target === this.$.query)) {
+                    this._showingSearch = false;
+                }
+            },
+            queryChanged: function(){
+                this.fire('filter_update', {filter: '' + this.query});
+            },
+            performSearch: function(e) {
+                e.preventDefault();
+                this.fire('filter_update', {filter: '' + this.query});
+            }
+        });
+    </script>
+</polymer-element>

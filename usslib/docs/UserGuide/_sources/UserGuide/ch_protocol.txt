@@ -1,0 +1,3170 @@
+Communication Protocol Spec
+===========================
+
+Table of contents
+-----------------
+
+-  `Abstract <#abstract>`__
+-  `MSP430 USS Design Center Packet Structure <#msp430-uss-design-center-packet-structure>`__
+-  `Configuration Parameters Description <#configuration-parameters-description>`__
+
+   -  `Command 0x80 <#command-0x80-gap-between-pulse-start-and-adc-capture>`__
+   -  `Command 0x81 <#command-0x81-number-of-pulses>`__
+   -  `Command 0x82 <#command-0x82-gap-between-up-stream-and-down-stream>`__
+   -  `Command 0x83 <#command-0x83-gap-between-down-stream-and-up-stream>`__
+   -  `Command 0x84 <#command-0x84-gain-control>`__
+   -  `Command 0x85 <#command-0x85-meter-constant>`__
+   -  `Command 0x86 <#command-0x86-xt2-frequency-in-khz>`__
+   -  `Command 0x87 <#command-0x87-adc-sampling-frequency-in-khz>`__
+   -  `Command 0x88 <#command-0x88-signal-sampling-frequency>`__
+   -  `Command 0x89 <#command-0x89-oversampling-rate>`__
+   -  `Command 0x8A <#command-0x8a-delta-tof-offset-in-ps>`__
+   -  `Command 0x8B <#command-0x8b-absolute-tof-additional-delay-in-ns>`__
+   -  `Command 0x8C <#command-0x8c-capture-duration-in-usec>`__
+   -  `Command 0x8D <#command-0x8d-param1>`__
+   -  `Command 0x8E <#command-0x8e-param2>`__
+   -  `Command 0x8F <#command-0x8f-param3>`__
+   -  `Command 0x90 <#command-0x90-param4>`__
+   -  `Command 0x91 <#command-0x91-param7>`__
+   -  `Command 0x92 <#command-0x92-param8>`__
+   -  `Command 0x93 <#command-0x93-param9>`__
+   -  `Command 0x94 <#command-0x94-param10>`__
+   -  `Command 0x95 <#command-0x95-lea-enabled>`__
+   -  `Command 0x96 <#command-0x96-request-application-configuration-update>`__
+   -  `Command 0x97 <#command-0x97-request-delta-tof-abs-tof-and-volume-flow-data>`__
+   -  `Command 0x98 <#command-0x98-request-ups-and-dns-captures>`__
+   -  `Command 0x99 <#command-0x99-application-version>`__
+   -  `Command 0x9A <#command-0x9a-error-package>`__
+   -  `Command 0x9B <#command-0x9b-f1-and-f2-package>`__
+   -  `Command 0x9C <#command-0x9c-pattern-option>`__
+   -  `Command 0x9D <#command-0x9d-user-message-display>`__
+   -  `Command 0x9E <#command-0x9e-param5>`__
+   -  `Command 0x9F <#command-0x9f-param6>`__
+   -  `Command 0xA0 <#command-0xa0-advanced-calibration-table>`__
+
+-  `Plotting Parameters Description <#plotting-parameters-description>`__
+
+   -  `Command 0xB0 <#command-0xb0-payload-contains-delta-tof-computation>`__
+   -  `Command 0xB1 <#command-0xb1-payload-contains-absolute-tof-up-stream-computation>`__
+   -  `Command 0xB2 <#command-0xb2-payload-contains-absolute-tof-down-stream-computation>`__
+   -  `Command 0xB3 <#command-0xb3-payload-contains-volume-flow-rate-computation>`__
+   -  `Command 0xB4 <#command-0xb4-payload-contains-adc-ups-capture-start-stop-flags-and-number-of-expected-packages>`__
+   -  `Command 0xB5 <#command-0xb5-payload-contains-adc-dns-capture-start-stop-flags-and-number-of-expected-packages>`__
+   -  `Command 0xB6 <#command-0xb6-generic-plotter-command>`__
+   -  `Command 0xB7 <#command-0xb7-advanced-generic-plotter-command>`__
+
+-  `Variable Length Plotting Parameters Description <#variable-length-plotting-parameters-description>`__
+
+   -  `Command 0xC0 <#command-0xc0-payload-contains-ups-adc-capture>`__
+   -  `Command 0xC1 <#command-0xc1-payload-contains-dns-adc-capture>`__
+
+-  `Calibration Parameters Description <#calibration-parameters-description>`__
+
+   -  `Command 0xD0 <#command-0xd0-request-calibration-config>`__
+   -  `Command 0xD1 <#command-0xd1-maximum-volume-flow-rate>`__
+   -  `Command 0xD2 <#command-0xd2-calibration-linear-constants>`__
+   -  `Command 0xD3 <#command-0xd3-device-ack>`__
+
+ABSTRACT 
+---------
+
+The MSP USS Design Center communication protocol is a communications specification for sending ultrasonic specific data. It enables MSP430 USS-equipped microcontrollers to communicate with design, debug, and tuning tools on host PCs. In addition to this function, it can also provide a mechanism for interfacing a USS MCU to another host MCU or SoC in the context of a larger system. This document discusses the details of the protocol: packet types, packet structure, and transmission. It does not discuss implementations, either for target or host.
+
+MSP430 USS Design Center Packet Structure 
+------------------------------------------
+
+.. raw:: html
+
+   <table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2">
+   <tbody>
+   <tr align="center">
+   <th style="background-color: red;" colspan="11" rowspan="1">MSP
+   USS Design Center generic Packet Structure</th>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[0]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[1]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[2]</td>
+   <td style="text-align: center; background-color: white;">[3]</td>
+   <td style="text-align: center; background-color: white;">[4]</td>
+   <td style="text-align: center;">[5]</td>
+   <td style="text-align: center;">[6]</td>
+   <td style="text-align: center;">...</td>
+   <td style="text-align: center;">[N +1]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[N+2]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[N+3]</td>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">MSP
+   Design <br>
+   Center ID <br>
+   Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Command ID Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Read/Write Command Byte</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte0</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte 1</td>
+   <td style="text-align: center;">Payload <br>
+   Byte2</td>
+   <td style="text-align: center;">Payload <br>
+   Byte3</td>
+   <td style="text-align: center;">...</td>
+   <td style="text-align: center;">Payload<br>
+   Byte N</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (LSB)</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (MSB)</td>
+   </tr>
+   </tbody>
+   </table>
+
+ Byte Name Byte Description MSP430 Design Center ID Byte This byte identifies the package as a command for a specific Design Center GUI. In the case of MSP USS Desing Center this byte is always 0x04. Command ID Byte This byte specifies the command type. Each command has a fixed predefined lenght Read/Write Command Byte This byte specifies is the command should be perform a read or write operation. 0x00 == Read 0x01 == Write Payload Contains package payload Checksum Checksum is a unsigned 16-bit value which contains the sum of Byte[0] - Byte[N+1]
+
+Configuration Parameters Description 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All Configuration Parameter (Commands 0x80-0xAF) contains 4 payload bytes. The table below represents the packet structure of a configuration parameter.
+
+.. raw:: html
+
+   <table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2">
+   <tbody>
+   <tr align="center">
+   <th style="background-color: red;" colspan="9" rowspan="1">MSP
+   USS Design Center generic Packet Structure</th>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[0]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[1]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[2]</td>
+   <td style="text-align: center; background-color: white;">[3]</td>
+   <td style="text-align: center; background-color: white;">[4]</td>
+   <td style="text-align: center;">[5]</td>
+   <td style="text-align: center;">[6]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[7]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[8]</td>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">MSP
+   Design <br>
+   Center ID <br>
+   Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Command ID Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Read/Write Command Byte</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte0</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte 1</td>
+   <td style="text-align: center;">Payload <br>
+   Byte2</td>
+   <td style="text-align: center;">Payload <br>
+   Byte3</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (LSB)</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (MSB)</td>
+   </tr>
+   </tbody>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x80 (Gap Between Pulse Start and ADC Capture) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x80</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Gap between pulse start and ADC capture</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x81 (Number of Pulses) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x81</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Number of Pulses</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x82 (Gap Between Up stream and Down stream) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x82</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Gap Between Up stream and Down stream</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x83 (Gap Between Down stream and Up stream) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x83</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Gap Between Down stream and Up stream</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x84 (Gain Control) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x84</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>Gain Control Selection</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>-6.5 db ==17 <br/>
+   -5.5 db ==18 <br/>
+   -4.6 db ==19 <br/>
+   -4.1 db ==20 <br/>
+   -3.3 db ==21 <br/>
+   -2.3 db ==22<br/>
+   -1.4 db ==23 <br/>
+   -0.8 db ==24 <br/>
+   0.1  db ==25<br/>
+   1.0  db ==26 <br/>
+   1.9  db ==27 <br/>
+   2.6  db ==28 <br/>
+   3.5  db ==29 <br/>
+   4.4  db ==30 <br/>
+   5.2  db ==31 <br/>
+   6.0  db ==32<br/>
+   6.8  db ==33 <br/>
+   7.7  db ==34 <br/>
+   8.7  db ==35<br/>
+   9.0  db ==36 <br/>
+   9.8  db ==37 <br/>
+   10.7 db ==38 <br/>
+   11.7 db ==39 <br/>
+   12.2 db ==40 <br/>
+   13.0 db ==41 <br/>
+   13.9 db ==42<br/>
+   14.9 db ==43 <br/>
+   15.5 db ==44 <br/>
+   16.3 db ==45<br/>
+   17.2 db ==46 <br/>
+   18.2 db ==47 <br/>
+   18.8 db ==48 <br/>
+   19.6 db ==49 <br/>
+   20.5 db ==50 <br/>
+   21.5 db ==51 <br/>
+   22.0 db ==52<br/>
+   22.8 db ==53 <br/>
+   23.6 db ==54 <br/>
+   24.6 db ==55<br/>
+   25.0 db ==56 <br/>
+   25.8 db ==57 <br/>
+   26.7 db ==58 <br/>
+   27.7 db ==59 <br/>
+   28.1 db ==60 <br/>
+   28.9 db ==61 <br/>
+   29.8 db ==62<br/>
+   30.8 db ==63 <br/></td>
+   <td></td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x85 (Meter Constant) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x85</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Meter Constant</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>+/-3.40 282 346e+38
+   <td>
+   Byte[3](LSB)<br>
+   Byte[6](MSB)<br>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x86 (XT2 Frequency in KHz) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x86</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>XT2 Frequency in KHz</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x87 (ADC Sampling Frequency in KHz) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x87</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>ADC Sampling Frequency in KHz</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x00-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x88 (Signal Sampling Frequency) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x88</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Signal Sampling Frequency</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x89 (Oversampling Rate) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x89</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>ADC Oversampling Rate</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00-0xff</td>
+   <td>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x8A (Delta ToF Offset in ps) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x8A</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Delta ToF Offset in ps</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[6](MSB)<br>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x8B (Absolute ToF additional delay in ns) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x8B</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Absolute ToF additional delay in ns</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xFFFFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[6](MSB)<br>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x8C (Capture Duration in usec) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x8C</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Capture Duration in usec</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000-0xFFFF<br/>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[4](MSB)<br>
+   </td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x8D ([Param1]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x8D</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #1</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0-0xffffffff<br/>
+   <td></td>
+   </td>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x8E ([Param2]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x8E</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #2</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x8F ([Param3]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x8F</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #3</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x90 ([Param4]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x90</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #4</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x91 ([Param7]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x91</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #7</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x92 ([Param8]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x92</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #8</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x93 ([Param9]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x93</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #9</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x94 ([Param10]) 
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x94</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #10</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x95 (LEA enabled) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x95</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>LEA enabled</td>
+   <td style="background-color: rgb(204, 242, 255)">bool</td>
+   <td>true == Computation with LEA is enabled<br/>
+   false == Computation with LEA is <b>NOT</b> enabled<br/>
+   <td></td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x96 (Request Application Configuration Update) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x96</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>Request configuration update</td>
+   <td style="background-color: rgb(204, 242, 255)">bool</td>
+   <td>true == Design Center is requesting a configuration update
+   <br/>
+   false == Design Center is <b>NOT</b> requesting a configuration update
+   <br/>
+   <td></td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x97 (Request Delta ToF, Abs ToF and Volume Flow data) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x97</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>Request configuration update</td>
+   <td style="background-color: rgb(204, 242, 255)">bool</td>
+   <td>true == Design Center is requesting  Delta ToF, Abs ToF and Volume Flow data
+   <br/>
+   false == Design Center is <b>NOT</b> requesting  Delta ToF, Abs ToF and Volume Flow data
+   <br/>
+   <td></td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x98 (Request UPS and DNS captures) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x98</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>Request configuration update</td>
+   <td style="background-color: rgb(204, 242, 255)">bool</td>
+   <td>true == Design Center is requesting  UPS and DNS captures
+   <br/>
+   false == Design Center is <b>NOT</b> requesting  UPS and DNS captures<br/>
+   <td></td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x99 (Application version) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x99</td>
+   <td>Requests USS DC application version</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>Application Type</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Gas Meter<br/>
+   0x01 == Water Meter<br/>
+   0x02-0xff (Reserved)<br/></td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes [4]</td>
+   <td>Device ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == MSPFR6047<br/>
+   0x01 == MSP430FR5994<br/>
+   0x02 == MSP430FR6043<br/>
+   0x03-0xff (Reserved)</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes [5]</td>
+   <td>Hardware ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == EVM<br/>
+   0x01 == Launchpad<br/>
+   0x02-0xff (Reserved)</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes [5]</td>
+   <td>Firmware ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 - 0xff </td>
+   <td>Indicates the version of comm protocol supported</td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x9A (Error package) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x9A</td>
+   <td>Reports Error occurred on application code</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>Error Type</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>
+   See the [Application Error Messages](ch_errors.html#full-library-error-list)
+   <br/></td>
+   <td></td>
+   </tr>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x9B (F1 and f2 package) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x9B</td>
+   <td>Provides f1 and f2 application values</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Frequency 1 value</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>1-65,535</td>
+   <td>Frequency is in KHz</td>
+   </tr>
+   <tr>
+   <td>Bytes [5-6]</td>
+   <td>Frequency 2 value</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>1-65,535</td>
+   <td>Note 1: Frequency is in KHz<br/>
+   Note 2: Currently only used for Gas Meter applications<br/></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x9C (Pattern option) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x9C</td>
+   <td>Provides pattern option</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3]</td>
+   <td>Pattern option</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Single Tone<br/>
+   0x01 == Dual Tone<br/>
+   0x02 == f1 to f2 sweep Tone<br/>
+   0x03-0xff (reserved)</td>
+   <td></td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x9D (User message display) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x9D</td>
+   <td>Provides messages to be displayed in pop-up message form in Design Center</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-4]</td>
+   <td>Message Code</td>
+   <td style="background-color: rgb(224, 204, 255)">uint16_t</td>
+   <td>0x0000 == Configuration update successful<br/>
+   0x0001 == Configuration update error<br/>
+   0x0003-0xffff (reserved)</td>
+   <td></td>
+   </tr>
+   <tr style="text-align: center; background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x9E ([Param5]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x9E</td>
+   <td>Provides start PGAandINBias count</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #5</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0x9F ([Param6]) 
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x9F</td>
+   <td>Provides start PGAandINBias count</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>General Purpose Param #6</td>
+   <td style="background-color: rgb(212, 190, 144)">int32_t</td>
+   <td>0x0000-0xffffffff<br/>
+   <td></td>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xA0 (Advanced Calibration Table) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td><b>Byte #</b></td>
+   <td><b>Description</b></td>
+   <td><b>Data Type</b></td>
+   <td><b>Valid Value/Range</b></td>
+   <td><b>Notes</b></td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xA0</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+
+   <td>Byte 3</td>
+   <td>Advanced Calibration Table Status</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>
+   0x00 == The MCU has the calibration table disabled. (requested by GUI)
+   <br/>
+   0x01 == The MCU has the calibration table enabled. 
+   <br/>
+   0xFF == The MCU has the calibration table disabled (invalid calibration table in MCU)
+   <br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-6]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xA1-0xAF (Reserved Commands)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Plotting Parameters Description 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All plotting parameter (Commands 0xB0-0xCF) contains 8 payload bytes. The table below represents the packet structure of a plotting parameter.
+
+.. raw:: html
+
+   <table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2">
+   <tbody>
+   <tr align="center">
+   <th style="background-color: red;" colspan="13" rowspan="1">MSP
+   USS Design Center generic Packet Structure</th>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[0]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[1]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[2]</td>
+   <td style="text-align: center;">[3]</td>
+   <td style="text-align: center;">[4]</td>
+   <td style="text-align: center;">[5]</td>
+   <td style="text-align: center;">[6]</td>
+   <td style="text-align: center;">[7]</td>
+   <td style="text-align: center;">[8]</td>
+   <td style="text-align: center;">[9]</td>
+   <td style="text-align: center;">[10]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[11]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[12]</td>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">MSP
+   Design <br>
+   Center ID <br>
+   Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Command ID Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Read/Write Command Byte</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte0</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte 1</td>
+   <td style="text-align: center;">Payload <br>
+   Byte2</td>
+   <td style="text-align: center;">Payload <br>
+   Byte3</td>
+   <td style="text-align: center;">Payload <br>
+   Byte4</td>
+   <td style="text-align: center;">Payload <br>
+   Byte5</td>
+   <td style="text-align: center;">Payload <br>
+   Byte6</td>
+   <td style="text-align: center;">Payload <br>
+   Byte7</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (LSB)</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (MSB)</td>
+   </tr>
+   </tbody>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB0 (Payload contains Delta ToF computation) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB0</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-10]</td>
+   <td>Payload contains Delta ToF computation</td>
+   <td style="background-color:rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[6](MSB)<br>
+   </td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB1 (Payload contains Absolute ToF Up stream computation) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB1</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Payload contains Absolute ToF Up stream computation</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[6](MSB)<br>
+   </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [7-10]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB2 (Payload contains Absolute ToF Down stream computation) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB2</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Payload contains Absolute ToF Down stream computation</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td>
+   Byte[3](LSB)<br>
+   Byte[6](MSB)<br>
+   </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [7-10]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB3 (Payload contains Volume Flow Rate computation) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB3</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Payload contains Absolute ToF Down stream computation</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range
+   <td>
+   Byte[3](LSB)<br>
+   Byte[6](MSB)<br>
+   </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [7-10]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB4 (Payload contains ADC UPS capture start/stop flags and number of expected packages) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB4</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes 3</td>
+   <td>Contains ADC UPS start/stop condition</td>
+   <td style="background-color: rgb(204, 242, 255)">bool</td>
+   <td>true == Transmission of ADC UPS capture data will start
+   false == Transmission of ADC UPS capture data is done
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes 4</td>
+   <td>Payload contains ADC UPS number of packets to be transmitted</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>Valid number of packages (1-255)
+   <td></td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-10]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB5 (Payload contains ADC DNS capture start/stop flags and number of expected packages) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB5</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes 3</td>
+   <td>Contains ADC DNS start/stop condition</td>
+   <td style="background-color: rgb(204, 242, 255)">bool</td>
+   <td>true == Transmission of ADC UPS capture data will start
+   false == Transmission of ADC UPS capture data is done
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes 4</td>
+   <td>Payload contains ADC DNS number of packets to be transmitted</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>Valid number of packages (1-255)
+   <td></td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [5-10]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB6 (Generic Plotter command) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB6</td>
+   <td>Allows user to send data to generic ploter</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   </td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Generic Plotter command</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td></td>
+   </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [7-10]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB7 (Advanced Generic Plotter command) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xB7</td>
+   <td>Allows user to send data to generic plotter defined in cmd</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   </td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Generic Plotter command</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 7</td>
+   <td>Plotter Number</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>1 to 4<br/>
+   </td>
+   <td></td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [8-10]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xB8-0xBF (Reserved plotting commands)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Variable Length Plotting Parameters Description 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All plotting parameter (Commands 0xC0-0xCF) contains 60 payload bytes.
+
+.. raw:: html
+
+   <table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2">
+   <tbody>
+   <tr align="center">
+   <th style="background-color: red;" colspan="13" rowspan="1">MSP
+   USS Design UPS/DNS Capture Packet Structure</th>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[0]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[1]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[2]</td>
+   <td style="text-align: center;">[3]</td>
+   <td style="text-align: center;">[4]</td>
+   <td style="text-align: center;">[5]</td>
+   <td style="text-align: center;">[6]</td>
+   <td style="text-align: center;">[...]</td>
+   <td style="text-align: center;">[58]</td>
+   <td style="text-align: center;">[59]</td>
+   <td style="text-align: center;">[60]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[61]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[62]</td>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">MSP
+   Design <br>
+   Center ID <br>
+   Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Command ID Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Read/Write Command Byte</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte0</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte 1</td>
+   <td style="text-align: center;">Payload <br>
+   Byte2</td>
+   <td style="text-align: center;">Payload <br>
+   Byte </td>
+   <td style="text-align: center;">...</td>
+   <td style="text-align: center;">Payload <br>
+   Byte 55</td>
+   <td style="text-align: center;">Payload <br>
+   Byte 56</td>
+   <td style="text-align: center;">Payload <br>
+   Byte 57</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (LSB)</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (MSB)</td>
+   </tr>
+   </tbody>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xC0 (Payload contains UPS ADC capture) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xC0</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 3</td>
+   <td>Specifies UPS package number</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>(1-255)
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 4</td>
+   <td>Specifies number of captures (CAP_SIZE) contained in the package</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>(1-255)
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes [5-((2*CAP_SIZE) + 4)]</td>
+   <td>Contains UPS captures</td>
+   <td style="background-color: rgb(212, 190, 144)">int16_t</td>
+   <td>(-32768,32767)
+   <td></td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [(2*CAP_SIZE) + 5) - 59]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td><b>IMPORTANT:</b> This is only valid when (CAP_SIZE < 27) </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Byte 60</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xC1 (Payload contains DNS ADC capture) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xC0</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 3</td>
+   <td>Specifies DNS package number</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>(1-255)
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 4</td>
+   <td>Specifies number of captures (CAP_SIZE) contained in the package</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>(1-255)
+   <td></td>
+   </tr>
+   <tr>
+   <td>Bytes [5-((2*CAP_SIZE) + 4)]</td>
+   <td>Contains UPS captures</td>
+   <td style="background-color: rgb(212, 190, 144)">int16_t</td>
+   <td>(-32768,32767)
+   <td></td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [(2*CAP_SIZE) + 5) - 59]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td><b>IMPORTANT:</b> This is only valid when (CAP_SIZE < 27) </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Byte 60</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xC2-0xCF (Reserved variable length plotting commands)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Calibration Parameters Description 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All calibration parameter (Commands 0xD0-0xDF) contains 20 payload bytes.
+
+.. raw:: html
+
+   <table style="text-align: left; width: 100%; font-family: Helvetica,Arial,sans-serif;" border="1" cellpadding="2" cellspacing="2">
+   <tbody>
+   <tr align="center">
+   <th style="background-color: red;" colspan="13" rowspan="1">MSP
+   USS Design Calibration Packet Structure</th>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[0]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[1]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[2]</td>
+   <td style="text-align: center;">[3]</td>
+   <td style="text-align: center;">[4]</td>
+   <td style="text-align: center;">[5]</td>
+   <td style="text-align: center;">[6]</td>
+   <td style="text-align: center;">[...]</td>
+   <td style="text-align: center;">[18]</td>
+   <td style="text-align: center;">[19]</td>
+   <td style="text-align: center;">[20]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[31]</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">[32]</td>
+   </tr>
+   <tr>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">MSP
+   Design <br>
+   Center ID <br>
+   Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Command ID Byte</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Read/Write Command Byte</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte0</td>
+   <td style="text-align: center; background-color: white;">Payload<br>
+   Byte 1</td>
+   <td style="text-align: center;">Payload <br>
+   Byte2</td>
+   <td style="text-align: center;">Payload <br>
+   Byte </td>
+   <td style="text-align: center;">...</td>
+   <td style="text-align: center;">Payload <br>
+   Byte 25</td>
+   <td style="text-align: center;">Payload <br>
+   Byte 26</td>
+   <td style="text-align: center;">Payload <br>
+   Byte 27</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (LSB)</td>
+   <td style="text-align: center; background-color: rgb(204, 204, 204);">Checksum (MSB)</td>
+   </tr>
+   </tbody>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xD0 (Request Calibration Config) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xD0</td>
+   <td>Request target calibration configuration</td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 3</td>
+   <td>Number of Calibration Ranges</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>1 to 16</td>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 4</td>
+   <td>Calibration Mode</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x01 == Linear Regression</td>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 5</td>
+   <td>Calibration Update</td>
+   <td style="background-color: rgb(204, 242, 255)">bool</td>
+   <td>true == Calibration Parameters update in progress<br/>
+   false == Calibration Parameters update completed<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [6-20]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xD1 (Maximum Volume Flow Rate) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xD1</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [3-6]</td>
+   <td>Maximum Volume Flow Rate</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td>
+   Byte[4](LSB)<br>
+   Byte[7](MSB)<br>
+   </td>
+   </tr>
+
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [7-20]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xD2 (Calibration Linear Constants) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xD2</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 3</td>
+   <td>Range Number</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>1 to 16
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [4-7]</td>
+   <td>Minimum Alpha (VFR/meter constant)</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td>
+   Byte[4](LSB)<br>
+   Byte[7](MSB)<br>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [8-11]</td>
+   <td>Slope Meter Constant</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td>
+   Byte[8](LSB)<br>
+   Byte[11](MSB)<br>
+   </td>
+   </tr>
+   <tr>
+   <td>Bytes [12-15]</td>
+   <td>Offset Meter Constant</td>
+   <td style="background-color: rgb(255, 235, 204)">float</td>
+   <td>float date type valid range</td>
+   <td>
+   Byte[12](LSB)<br>
+   Byte[15](MSB)<br>
+   </td>
+   </tr>
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [16-20]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xD3 (Device ACK) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1">
+   <tr>
+   <td>Byte #</td>
+   <td>Description</td>
+   <td>Data Type</td>
+   <td>Valid Value/Range</td>
+   <td>Notes</td>
+   </tr>
+   <tr>
+   <td>Byte 0</td>
+   <td>Design Center ID</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x04</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 1</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0xD3</td>
+   <td></td>
+   </tr>
+   <tr>
+   <td>Byte 2</td>
+   <td>Read/Write Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>0x00 == Read<br/>
+   0x01 == Write<br/>
+   <td></td>
+   </td>
+   </tr>
+   <tr>
+   <td>Byte 3</td>
+   <td>Command</td>
+   <td style="background-color: rgb(51, 204, 51)">uint8_t</td>
+   <td>Acknowledged Command ID 
+   <td></td>
+   </td>
+   </tr>
+
+   <tr style="background-color: rgb(204, 204, 204)">
+   <td>Bytes [4-20]</td>
+   <td>Don't care</td>
+   <td>N/A</td>
+   <td>N/A</td>
+   <td></td>
+   </tr>
+   </table>
+
+.. raw:: html
+
+   <html><br></html>
+
+Command 0xD4-0xDF (Reserved calibration commands)a
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

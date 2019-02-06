@@ -1,0 +1,22 @@
+<!-- Captivate Description HTML -->
+<!-- Comm Interface Selection -->
+
+<html>
+    <body>
+	
+		<B>Communication Interface Selection</B><BR>
+		
+        <P>The communications module is designed to operate in one of four different modes: UART, BULK_I2C, REGISTER_I2C, and NONE.
+
+        <P>When <B>NONE</B> is selected, the communications interface is compiled out of the working project.        
+        
+        <P>When <B>UART</B> is selected, the UART serial driver is compiled into the target project and is used
+        by the target MCU for streaming out sensor data to the CapTIvate Design Center on the UART TX pin and accepting parameter adjustments from the CapTIvate Design Center on the UART RX pin.  If UART mode is used, the application low power mode (LPM) must be set to LPM0 or NONE.  The UART receive functionality is not supported in LPM3.
+        
+        <P>When <B>BULK_I2C</B> is selected, the I2C Slave serial driver is compiled into the target project and is used
+        by the target MCU for streaming out sensor data to the CapTIvate Design Center and accepting parameter adjustments from the CapTIvate Design Center on the I2C SDA and I2C SCL pins.  An IRQ pin is used to alert the CAPTIVATE-PGMR and CapTIvate Design Center that there is new data available to be read from the target device.
+        
+        <P>When <B>REGISTER_I2C</B> is selected, the I2C Slave serial driver is compiled into the target project and is used by the target MCU to act as a traditional I2C slave device with a register map that can be read from and written to by a host processor.  REGISTER_I2C mode is intended to be used for communicating with a host processor in system. It does not support communication with the CapTIvate Design Center.
+        
+    </body>
+</html>

@@ -1,0 +1,28 @@
+var jsonObjASM = [
+	{"SourcePreview" : "MSP430F673X_ADC10_01.asm",           "Description" : "ADC10, Sample A0, AVcc Ref, Set P1.0 if A0 > 0.5*AVcc"},
+	{"SourcePreview" : "MSP430F673X_DMA_01.asm",             "Description" : "DMA0, Repeated Block to-from RAM, Software Trigger"},
+	{"SourcePreview" : "MSP430F673X_FLASHWRITE_02.asm",      "Description" : "Flash In-System Programming, Long-Word write at 0x1800"},
+	{"SourcePreview" : "MSP430F673X_LPM3_01.asm",            "Description" : "Enters LPM3 with ACLK = LFXT1, REF0 disabled, SVS disabled"},
+	{"SourcePreview" : "MSP430F673X_LPM3_03.asm",            "Description" : "Enters LPM3 with ACLK = VLO;  LFXT1, REF0 disabled, SVS default state"},
+	{"SourcePreview" : "MSP430F673X_MPY_1.asm",              "Description" : "MPY32, 16x16 Unsigned Multiply"},
+	{"SourcePreview" : "MSP430F673X_MPY_10.asm",             "Description" : "MPY32, 32x32 Signed Multiply"},
+	{"SourcePreview" : "MSP430F673X_MPY_15.asm",             "Description" : "MPY32, Fractional mode, Q15 multiplication"},
+	{"SourcePreview" : "MSP430F673X_MPY_8.asm",              "Description" : "MPY32, 8x8 Signed Multiply Accumulate"},
+	{"SourcePreview" : "MSP430F673X_OF_LFXT1_NMI.asm",       "Description" : "LFXT1 Oscillator Fault Detection"},
+	{"SourcePreview" : "MSP430F673X_P1_01.asm",              "Description" : "Software Poll P1.4, Set P1.0 if P1.4 = 1"},
+	{"SourcePreview" : "MSP430F673X_P1_02.asm",              "Description" : "Software Port Interrupt Service on P1.4 from LPM4 with Internal Pull-up Resistance Enabled"},
+	{"SourcePreview" : "MSP430F673X_PA_05.asm",              "Description" : "Write a Word to Port A (Port1+Port2)"},
+	{"SourcePreview" : "MSP430F673x_RTC_01.asm",             "Description" : "RTC_C, Calendar Mode with Time Event and Alarm Interrupts"},
+	{"SourcePreview" : "MSP430F673x_RTC_02.asm",             "Description" : "RTC_C, LPM3.5, & alarm"},
+	{"SourcePreview" : "MSP430F673X_TA0_01.asm",             "Description" : "Timer0_A0, Toggle P1.0, CCR0 Cont. Mode ISR, DCO SMCLK"},
+	{"SourcePreview" : "MSP430F673x_TA1_11.asm",             "Description" : "Timer1_A1, Toggle P8.4/TA1.0, Up Mode, ACLK = REFO"},
+	{"SourcePreview" : "MSP430F673x_TA2_16.asm",             "Description" : "Timer2_A2, PWM TA2.1, Up Mode, DCO SMCLK"},
+	{"SourcePreview" : "MSP430F673X_UCS_2.asm",              "Description" : "Software Toggle P1.0 with 8MHz DCO"},
+	{"SourcePreview" : "MSP430F673X_UCS_4.asm",              "Description" : "FLL+, Runs Internal DCO at 2.45MHz with LFXT1 as Ref"},
+	{"SourcePreview" : "MSP430F673x_USCIB0_I2C_06.asm",      "Description" : "USCI_B0 I2C Slave RX single bytes from MSP430 Master"},
+	{"SourcePreview" : "MSP430F673x_USCIB0_I2C_07.asm",      "Description" : "USCI_B0 I2C Master TX single bytes to MSP430 Slave"},
+	{"SourcePreview" : "MSP430F673X_WDT_01.asm",             "Description" : "WDT, Toggle P1.0, Interval Overflow ISR, DCO SMCLK"},
+	{"SourcePreview" : "MSP430F673x_WDT_02.asm",             "Description" : "WDT, Toggle P1.0, Interval Overflow ISR, 32kHz ACLK"},
+	{"SourcePreview" : "MSP430F673X_WDT_04.asm",             "Description" : "WDT+ Failsafe Clock, WDT mode, DCO SMCLK"}
+];
+

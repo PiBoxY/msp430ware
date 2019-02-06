@@ -1,0 +1,29 @@
+<!-- Captivate Description HTML -->
+<!-- Force LPM4 Selection -->
+
+<html>
+    <body>
+	
+		<B>Force Low Power Mode 4 (LPM4) in Wake-on-Prox Mode</B><BR>
+		
+        <P>Select this option to use the very low power oscillator
+        (VLO) as the conversion timer in wake-on-proximity mode in LPM4.  This option may 
+        be used to reduce the average current in wake-on-proximity mode for designs 
+        that do not have a crystal oscillator.
+        
+        <P>If this option is defined, LPM4 will 
+        be selected as the power mode during wake-on-proximity operation, disabling ACLK and along with it XT1 or the 
+        REFO, whichever was sourcing ACLK previously, while the system is in WOP mode.  
+        When WOP mode is exited and active mode is entered, ACLK will again be 
+        utilized to source the conversion timer and the application-selected low 
+        power mode (g_uiApp.ui8AppLPM) will be used until WOP mode is again entered.
+        
+        <P><I>Notes</I>
+        <P>If this mode is selected and the VLO is used, the tolerance
+        on the measured scan period will be poor.  For example, if 10 Hz (100ms)
+        is the selected WOP scan rate, this value may vary by as much as +/- 5 Hz
+        across temperature and voltage.  If this variance is too great for the
+        application requirements, a 32kHz crystal or the REFO should be used instead.
+        
+    </body>
+</html>

@@ -1,0 +1,38 @@
+Error Handling
+==============
+
+Error Information
+-----------------
+
+**Error Tab**
+
+The error tab will appear when the target notifies Design Center that errors were detected. Once errors stop coming in, the user can elect to close the error tab; it will reappear if more errors are detected.
+
+The source of these errors is divided into eight different categories: are SAPH, HSPLL, SDHS, UUPS, Stop Error, Algorithm, ISTOP, Calibration, and Generic. Each of these corresponds to an existing USS Software Library category of errors.
+
+Errors may be cleared from the screen one at a time by right-clicking on an error row and selecting Delete, or all cleared at once by right clicking on an error and selecting Delete All.
+
+Error Management
+----------------
+
+.. figure:: images/example_errors.PNG
+   :alt: Example Errors
+
+   Example Errors
+
+The errors created in the tab will contain a category and an error description. Each of these will correspond to an existing enum in the USS Software library.
+
+The most common error is "No signal detected in up and downstream channel". This error usually has one of two root causes:
+
+-  The strength of the signal being read into the USS algorithm with the current configuration is too low to use
+
+-  The meter is currently disconnected
+
+Other errors may appear that correspond directly to one parameter. For example, in the above error screen, an incorrect settling time was entered into the USS XTAL Settling Count parameter and an invalid Start PPG Count value was entered into the Start PPG Count parameter.
+
+More Information
+----------------
+
+-  For more information on the application, and available evaluation kits, see the `download page <http://www.ti.com/tool/MSP-ULTRASONIC-DESIGN-CENTER>`__.
+
+-  For technical support, email the `USS GUI support team <msp-uss-gui-support@list.ti.com>`__ or visit the `MSP430 E2E forum <http://e2e.ti.com/support/microcontrollers/msp430/default.aspx>`__

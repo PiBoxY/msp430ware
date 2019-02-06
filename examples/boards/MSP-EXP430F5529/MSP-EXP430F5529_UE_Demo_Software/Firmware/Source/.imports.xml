@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href=".imports.xsl"?>
+<tree-imports>
+ <tools-version TOOLS_SETTING="Build Host">
+     MINGW32_NT-6.1 LTA0221162 1.0.12(0.46/3/2) 2011-07-20 17:52 i686 unknown
+ </tools-version>
+ <location-prefix root="c:/Users/a0221162/Downloads/Projects/MSP-EXP430F5529/mspexp430f5529">
+  <!--Location prefix is the absolute starting location for all the imports.-->
+ </location-prefix>
+  <import>
+   <name>
+    SLAA448c.zip
+   </name>
+   <location>
+    2.1/http://focus.ti.com/lit/an/slaa448c/slaa448c.zip
+   </location>
+   <package>
+    <!--Placeholder only. not yet used -->
+   </package>
+  </import>
+  <import>
+   <name>
+    MSP430USBDevleopersPackage_3_20_02.zip
+   </name>
+   <location>
+    3_20_02/http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430_USB_Developers_Package/latest/exports/MSP430USBDevleopersPackage_3_20_02.zip
+   </location>
+   <package>
+    <!--Placeholder only. not yet used -->
+   </package>
+  </import>
+  <import>
+   <name>
+    slac489.zip
+   </name>
+   <location>
+    1.0/http://focus.ti.com/lit/sw/slac489/slac489.zip
+   </location>
+   <package>
+    <!--Placeholder only. not yet used -->
+   </package>
+  </import>
+</tree-imports>

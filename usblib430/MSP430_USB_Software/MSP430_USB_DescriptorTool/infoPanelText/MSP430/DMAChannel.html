@@ -1,0 +1,20 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>DMA Channel</h1>
+        <p>Associated constant in the API stacks:  <span class="attribute">USB_DMA_CHAN</span>.  (Not reported in the USB descriptors.)  </p>
+        <p>Selects the DMA channel the API will use during transmit/receive operations, in moving data between the application's user buffer and the USB endpoint buffers.  </p>
+        <p>You must choose a channel number that is implemented in the chosen MSP430 derivative -- this varies from device to device (see the device datasheet for how many channels are available).  Even though the menu above shows channels 0-7, not all devices have eight channels. </p>
+        <p>Alternatively, "No DMA" can be selected, which means the API will rely on CPU transfers.  The only reason not to use DMA is if all the DMA channels are needed elsewhere in the application. </p>
+        <p>The application must take care not to use this DMA channel for other purposes.  Aside from the USB module itself and memory, this channel is the only system resource belonging exclusively to the API stack. </p>
+    </body>
+</html>

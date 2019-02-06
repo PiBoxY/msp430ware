@@ -1,0 +1,8 @@
+G04:AMPARAMS|DCode=10|XSize=88.58mil|YSize=76.77mil|CornerRadius=0mil|HoleSize=0mil|Usage=FLASHONLY|Rotation=225.000|XOffset=0mil|YOffset=0mil|HoleType=Round|Shape=Rectangle|*
+%AMROTATEDRECTD10*
+4,1,4,0.00418,0.05846,0.05846,0.00418,-0.00418,-0.05846,-0.05846,-0.00418,0.00418,0.05846,0.0*
+%
+G04:AMPARAMS|DCode=43|XSize=94.58mil|YSize=82.77mil|CornerRadius=0mil|HoleSize=0mil|Usage=FLASHONLY|Rotation=225.000|XOffset=0mil|YOffset=0mil|HoleType=Round|Shape=Rectangle|*
+%AMROTATEDRECTD43*
+4,1,4,0.00418,0.06270,0.06270,0.00418,-0.00418,-0.06270,-0.06270,-0.00418,0.00418,0.06270,0.0*
+%

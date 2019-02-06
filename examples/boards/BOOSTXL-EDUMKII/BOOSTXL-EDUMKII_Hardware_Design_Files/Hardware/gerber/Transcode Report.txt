@@ -1,0 +1,600 @@
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.LayerBottom.ger' ----   Tue Dec 30 16:45:41 2014
+
+D10   --> D100
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.LayerTop.ger' ----   Tue Dec 30 16:45:42 2014
+
+D10   --> D101
+D12   --> D102
+D13   --> D103
+D14   --> D104
+D15   --> D105
+D16   --> D106
+D17   --> D107
+D18   --> D108
+D19   --> D109
+D20   --> D110
+D21   --> D111
+D22   --> D112
+D23   --> D113
+D24   --> D114
+D25   --> D115
+D26   --> D116
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SilkscreenBottom.ger' ----   Tue Dec 30 16:45:42 2014
+
+D10   --> D117
+D11   --> D118
+D12   --> D119
+D13   --> D120
+D14   --> D121
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SilkscreenTop.ger' ----   Tue Dec 30 16:45:43 2014
+
+D10   --> D122
+D11   --> D123
+D12   --> D124
+D13   --> D125
+D14   --> D126
+D15   --> D127
+D16   --> D128
+D17   --> D129
+D18   --> D130
+D19   --> D131
+D20   --> D132
+D21   --> D133
+D22   --> D134
+D23   --> D135
+D24   --> D136
+D25   --> D137
+D26   --> D138
+D27   --> D139
+D28   --> D140
+D29   --> D141
+D30   --> D142
+D31   --> D143
+D32   --> D144
+D33   --> D145
+D34   --> D146
+D35   --> D147
+D36   --> D148
+D37   --> D149
+D38   --> D150
+D39   --> D151
+D40   --> D152
+D41   --> D153
+D42   --> D154
+D43   --> D155
+D44   --> D156
+D45   --> D157
+D46   --> D158
+D47   --> D159
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SolderStencilTop.ger' ----   Tue Dec 30 16:45:44 2014
+
+D10   --> D160
+D11   --> D161
+D12   --> D162
+D13   --> D163
+D14   --> D164
+D15   --> D165
+D16   --> D166
+D17   --> D167
+D18   --> D168
+D19   --> D169
+D20   --> D170
+D21   --> D171
+D22   --> D172
+D23   --> D173
+D24   --> D174
+D25   --> D175
+D26   --> D176
+D27   --> D177
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SolderStopMaskBottom.ger' ----   Tue Dec 30 16:45:44 2014
+
+D10   --> D178
+D11   --> D179
+D12   --> D180
+D13   --> D181
+D14   --> D182
+D15   --> D183
+D16   --> D184
+D17   --> D185
+D18   --> D186
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SolderStopMaskTop.ger' ----   Tue Dec 30 16:45:45 2014
+
+D10   --> D187
+D11   --> D188
+D12   --> D189
+D13   --> D190
+D14   --> D191
+D15   --> D192
+D16   --> D193
+D17   --> D194
+D18   --> D195
+D19   --> D196
+D20   --> D197
+D21   --> D198
+D22   --> D199
+D23   --> D200
+D24   --> D201
+D25   --> D202
+D26   --> D203
+D27   --> D204
+D28   --> D205
+D29   --> D206
+D30   --> D207
+D31   --> D208
+D32   --> D209
+D33   --> D210
+D34   --> D211
+D35   --> D212
+D36   --> D213
+D37   --> D214
+D38   --> D215
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.LayerBottom.ger' ----   Tue Dec 30 16:45:45 2014
+
+D10   --> D216
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.LayerTop.ger' ----   Tue Dec 30 16:45:46 2014
+
+D10   --> D217
+D12   --> D218
+D13   --> D219
+D14   --> D220
+D15   --> D221
+D16   --> D222
+D17   --> D223
+D18   --> D224
+D19   --> D225
+D20   --> D226
+D21   --> D227
+D22   --> D228
+D23   --> D229
+D24   --> D230
+D25   --> D231
+D26   --> D232
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SilkscreenBottom.ger' ----   Tue Dec 30 16:45:47 2014
+
+D10   --> D233
+D11   --> D234
+D12   --> D235
+D13   --> D236
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SilkscreenTop.ger' ----   Tue Dec 30 16:45:48 2014
+
+D10   --> D237
+D11   --> D238
+D12   --> D239
+D13   --> D240
+D14   --> D241
+D15   --> D242
+D16   --> D243
+D17   --> D244
+D18   --> D245
+D19   --> D246
+D20   --> D247
+D21   --> D248
+D22   --> D249
+D23   --> D250
+D24   --> D251
+D25   --> D252
+D26   --> D253
+D27   --> D254
+D28   --> D255
+D29   --> D256
+D30   --> D257
+D31   --> D258
+D32   --> D259
+D33   --> D260
+D34   --> D261
+D35   --> D262
+D36   --> D263
+D37   --> D264
+D38   --> D265
+D39   --> D266
+D40   --> D267
+D41   --> D268
+D42   --> D269
+D43   --> D270
+D44   --> D271
+D45   --> D272
+D46   --> D273
+D47   --> D274
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SolderStencilTop.ger' ----   Tue Dec 30 16:45:50 2014
+
+D10   --> D275
+D11   --> D276
+D12   --> D277
+D13   --> D278
+D14   --> D279
+D15   --> D280
+D16   --> D281
+D17   --> D282
+D18   --> D283
+D19   --> D284
+D20   --> D285
+D21   --> D286
+D22   --> D287
+D23   --> D288
+D24   --> D289
+D25   --> D290
+D26   --> D291
+D27   --> D292
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SolderStopMaskBottom.ger' ----   Tue Dec 30 16:45:50 2014
+
+D10   --> D293
+D11   --> D294
+D12   --> D295
+D13   --> D296
+D14   --> D297
+D15   --> D298
+D16   --> D299
+D17   --> D300
+D18   --> D301
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SolderStopMaskTop.ger' ----   Tue Dec 30 16:45:51 2014
+
+D10   --> D302
+D11   --> D303
+D12   --> D304
+D13   --> D305
+D14   --> D306
+D15   --> D307
+D16   --> D308
+D17   --> D309
+D18   --> D310
+D19   --> D311
+D20   --> D312
+D21   --> D313
+D22   --> D314
+D23   --> D315
+D24   --> D316
+D25   --> D317
+D26   --> D318
+D27   --> D319
+D28   --> D320
+D29   --> D321
+D30   --> D322
+D31   --> D323
+D32   --> D324
+D33   --> D325
+D34   --> D326
+D35   --> D327
+D36   --> D328
+D37   --> D329
+D38   --> D330
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.LayerBottom.ger' ----   Tue Dec 30 17:01:59 2014
+
+D10   --> D100
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.LayerTop.ger' ----   Tue Dec 30 17:01:59 2014
+
+D10   --> D101
+D12   --> D102
+D13   --> D103
+D14   --> D104
+D15   --> D105
+D16   --> D106
+D17   --> D107
+D18   --> D108
+D19   --> D109
+D20   --> D110
+D21   --> D111
+D22   --> D112
+D23   --> D113
+D24   --> D114
+D25   --> D115
+D26   --> D116
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SilkscreenBottom.ger' ----   Tue Dec 30 17:02:00 2014
+
+D10   --> D117
+D11   --> D118
+D12   --> D119
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SilkscreenTop.ger' ----   Tue Dec 30 17:02:00 2014
+
+D10   --> D120
+D11   --> D121
+D12   --> D122
+D13   --> D123
+D14   --> D124
+D15   --> D125
+D16   --> D126
+D17   --> D127
+D18   --> D128
+D19   --> D129
+D20   --> D130
+D21   --> D131
+D22   --> D132
+D23   --> D133
+D24   --> D134
+D25   --> D135
+D26   --> D136
+D27   --> D137
+D28   --> D138
+D29   --> D139
+D30   --> D140
+D31   --> D141
+D32   --> D142
+D33   --> D143
+D34   --> D144
+D35   --> D145
+D36   --> D146
+D37   --> D147
+D38   --> D148
+D39   --> D149
+D40   --> D150
+D41   --> D151
+D42   --> D152
+D43   --> D153
+D44   --> D154
+D45   --> D155
+D46   --> D156
+D47   --> D157
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SolderStencilTop.ger' ----   Tue Dec 30 17:02:00 2014
+
+D10   --> D158
+D11   --> D159
+D12   --> D160
+D13   --> D161
+D14   --> D162
+D15   --> D163
+D16   --> D164
+D17   --> D165
+D18   --> D166
+D19   --> D167
+D20   --> D168
+D21   --> D169
+D22   --> D170
+D23   --> D171
+D24   --> D172
+D25   --> D173
+D26   --> D174
+D27   --> D175
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SolderStopMaskBottom.ger' ----   Tue Dec 30 17:02:01 2014
+
+D10   --> D176
+D11   --> D177
+D12   --> D178
+D13   --> D179
+D14   --> D180
+D15   --> D181
+D16   --> D182
+D17   --> D183
+D18   --> D184
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\BOOSTXL-EDUMKII.SolderStopMaskTop.ger' ----   Tue Dec 30 17:02:01 2014
+
+D10   --> D185
+D11   --> D186
+D12   --> D187
+D13   --> D188
+D14   --> D189
+D15   --> D190
+D16   --> D191
+D17   --> D192
+D18   --> D193
+D19   --> D194
+D20   --> D195
+D21   --> D196
+D22   --> D197
+D23   --> D198
+D24   --> D199
+D25   --> D200
+D26   --> D201
+D27   --> D202
+D28   --> D203
+D29   --> D204
+D30   --> D205
+D31   --> D206
+D32   --> D207
+D33   --> D208
+D34   --> D209
+D35   --> D210
+D36   --> D211
+D37   --> D212
+D38   --> D213
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.LayerBottom.ger' ----   Tue Dec 30 17:02:02 2014
+
+D10   --> D214
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.LayerTop.ger' ----   Tue Dec 30 17:02:02 2014
+
+D10   --> D215
+D12   --> D216
+D13   --> D217
+D14   --> D218
+D15   --> D219
+D16   --> D220
+D17   --> D221
+D18   --> D222
+D19   --> D223
+D20   --> D224
+D21   --> D225
+D22   --> D226
+D23   --> D227
+D24   --> D228
+D25   --> D229
+D26   --> D230
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SilkscreenBottom.ger' ----   Tue Dec 30 17:02:03 2014
+
+D10   --> D231
+D11   --> D232
+D12   --> D233
+D13   --> D234
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SilkscreenTop.ger' ----   Tue Dec 30 17:02:04 2014
+
+D10   --> D235
+D11   --> D236
+D12   --> D237
+D13   --> D238
+D14   --> D239
+D15   --> D240
+D16   --> D241
+D17   --> D242
+D18   --> D243
+D19   --> D244
+D20   --> D245
+D21   --> D246
+D22   --> D247
+D23   --> D248
+D24   --> D249
+D25   --> D250
+D26   --> D251
+D27   --> D252
+D28   --> D253
+D29   --> D254
+D30   --> D255
+D31   --> D256
+D32   --> D257
+D33   --> D258
+D34   --> D259
+D35   --> D260
+D36   --> D261
+D37   --> D262
+D38   --> D263
+D39   --> D264
+D40   --> D265
+D41   --> D266
+D42   --> D267
+D43   --> D268
+D44   --> D269
+D45   --> D270
+D46   --> D271
+D47   --> D272
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SolderStencilTop.ger' ----   Tue Dec 30 17:02:04 2014
+
+D10   --> D273
+D11   --> D274
+D12   --> D275
+D13   --> D276
+D14   --> D277
+D15   --> D278
+D16   --> D279
+D17   --> D280
+D18   --> D281
+D19   --> D282
+D20   --> D283
+D21   --> D284
+D22   --> D285
+D23   --> D286
+D24   --> D287
+D25   --> D288
+D26   --> D289
+D27   --> D290
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SolderStopMaskBottom.ger' ----   Tue Dec 30 17:02:05 2014
+
+D10   --> D291
+D11   --> D292
+D12   --> D293
+D13   --> D294
+D14   --> D295
+D15   --> D296
+D16   --> D297
+D17   --> D298
+D18   --> D299
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\space\BOOST-EDUMKII\pcb\gerber\Educational_BoosterPack_MKII_1.1.SolderStopMaskTop.ger' ----   Tue Dec 30 17:02:05 2014
+
+D10   --> D300
+D11   --> D301
+D12   --> D302
+D13   --> D303
+D14   --> D304
+D15   --> D305
+D16   --> D306
+D17   --> D307
+D18   --> D308
+D19   --> D309
+D20   --> D310
+D21   --> D311
+D22   --> D312
+D23   --> D313
+D24   --> D314
+D25   --> D315
+D26   --> D316
+D27   --> D317
+D28   --> D318
+D29   --> D319
+D30   --> D320
+D31   --> D321
+D32   --> D322
+D33   --> D323
+D34   --> D324
+D35   --> D325
+D36   --> D326
+D37   --> D327
+D38   --> D328
+-----------------------------------------------------------------

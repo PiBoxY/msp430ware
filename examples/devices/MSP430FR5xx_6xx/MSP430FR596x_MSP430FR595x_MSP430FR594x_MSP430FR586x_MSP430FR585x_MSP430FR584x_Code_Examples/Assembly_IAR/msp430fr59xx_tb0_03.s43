@@ -1,0 +1,118 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;******************************************************************************
+;  MSP430FR59x Demo - TimerB, Toggle P1.0, Overflow ISR, DCO SMCLK
+;
+;  Description: Toggle P1.0 using software and the TimerB overflow ISR.
+;  In this example an ISR triggers when TB overflows. Inside the ISR P1.0
+;  is toggled.Proper use of the TBIV interrupt
+;  vector generator is demonstrated.
+;
+;  ACLK = n/a, MCLK = SMCLK = 1MHz
+;
+;
+;           MSP430FR5969
+;         ---------------
+;     /|\|               |
+;      | |               |
+;      --|RST            |
+;        |               |
+;        |           P1.0|-->LED
+;
+;   E. Chen
+;   Texas Instruments Inc.
+;   October 2013
+;   Built with IAR Embedded Workbench 5.50
+;******************************************************************************
+#include <msp430.h>
+
+;-------------------------------------------------------------------------------
+            RSEG    CSTACK                  ; Define stack segment
+;-------------------------------------------------------------------------------
+            RSEG    CODE
+;-------------------------------------------------------------------------------
+RESET       mov.w   #SFE(CSTACK),SP         ; Initialize stackpointer
+StopWDT     mov.w   #WDTPW+WDTHOLD,&WDTCTL  ; Stop WDT
+SetupGPIO   bis.b   #BIT0,&P1DIR
+            bis.b   #BIT0,&P1OUT
+            bis.w   #BIT4+BIT5,&PJSEL0
+
+UnlockGPIO  bic.w   #LOCKLPM5,&PM5CTL0      ; Disable the GPIO power-on default
+                                            ; high-impedance mode to activate
+                                            ; previously configured port settings
+
+SetupCS     mov.b   #CSKEY_H,&CSCTL0_H      ; Unlock CS registers
+            mov.w   #DCOFSEL_3,&CSCTL1      ; Set DCO to 4MHz
+            mov.w   #SELA__VLOCLK+SELS__DCOCLK+SELM__DCOCLK,&CSCTL2 ; Set ACLK = VLO; MCLK = DCO
+            mov.w   #DIVA__1+DIVS__8+DIVM__8,&CSCTL3  ; Set all dividers
+            clr.b   &CSCTL0_H               ; Lock CS registers
+
+            mov.w   #TBSSEL__SMCLK+MC__CONTINUOUS+TBCLR+TBIE,&TB0CTL ; SMCLK, contmode, clear TBR
+                                            ; enable interrupt
+
+Mainloop    bis.w   #LPM0+GIE,SR            ; Enter LPM0, enable interrupts
+            nop                             ; For debugger
+;-------------------------------------------------------------------------------
+TIMER0_B1_ISR;    Timer0_B7 CC1-6 Interrupt Service Routine
+;-------------------------------------------------------------------------------
+            add.w   &TB0IV,PC               ; add offset to PC
+            reti                            ; Vector  0:  No interrupt
+            reti                            ; Vector  2:  CCR1 not used
+            reti                            ; Vector  4:  CCR2 not used
+            reti                            ; Vector  6:  CCR3 not used
+            reti                            ; Vector  8:  CCR4 not used
+            reti                            ; Vector 10:  CCR5 not used
+            reti                            ; Vector 12:  CCR6 not used
+            jmp     MEM0                    ; Vector 14:  overflow
+MEM0        xor.b   #BIT0,&P1OUT            ; Toggle LED
+            reti
+;-------------------------------------------------------------------------------
+            COMMON  INTVEC                  ; Interrupt Vectors
+;-------------------------------------------------------------------------------
+            ORG     RESET_VECTOR            ; Reset Vector
+            DW      RESET
+            ORG     TIMER0_B1_VECTOR        ; Timer0_B7 CC1-6 Interrupt Vector
+            DW      TIMER0_B1_ISR
+            END

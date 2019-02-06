@@ -1,0 +1,35 @@
+<!-- Captivate Description HTML -->
+<!-- Sample_Capacitor_Discharge Tuning Parameter -->
+
+<html>
+	<body>
+		<B>Sample Capacitor Discharge</B>
+		<P>
+		
+		The sample capacitor discharge parameter controls whether the sample capacitor is discharged to 0V (empty) or 0.5V (half full).
+		A measurement, or "conversion," is achieved by charging the external capacitor being measured and transferring that charge into an
+		internal sample capacitor multiple times until the internal sample capacitor is full.  Having the sample capacitor on-chip reduces
+		the overall system cost.  However, on-chip capacitors are not linear when close to empty.  By filling the sample capacitor from
+		half full to full, rather than empty to full, a more stable measurement is achievable.  The trade-off is that the effective size of the
+		sample capacitor is divided in half.  In the case of a very large electrode with a large amount of parasitic capacitance, it is possible
+		to configure the sample capacitor to discharge to 0V rather than 0.5V to increase the sensing range of the system.
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		Sample capacitor discharge should be set to 0.5V (half full) for the majority of applications.  Only when the extra range is needed
+		for handling large external capacitors should the sample capacitor be discharged fully to 0V.
+		
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Sample_Capacitor_Discharge parameter corresponds to the
+		<i><b>bCsDischarge</b></i> 
+		member of the
+		<i><b>tSensor</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

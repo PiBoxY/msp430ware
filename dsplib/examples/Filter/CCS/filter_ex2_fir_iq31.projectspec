@@ -1,0 +1,7 @@
+<projectSpec>
+  <project compilerBuildOptions="-I${PROJECT_ROOT}/dsplib/include" device="MSP430FR5994" linkerBuildOptions="" name="filter_ex2_fir_iq31" description="DSPLib example project demonstrating how to use 32-bit real FIR function.">
+    <file action="copy" path="../filter_ex2_fir_iq31.c" targetDirectory="" />
+	<file action="copy" path="../../../include" targetDirectory="dsplib" />
+	<file action="copy" path="../../../source" targetDirectory="dsplib" />
+  </project>
+</projectSpec>

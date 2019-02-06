@@ -1,0 +1,107 @@
+What is supported by the library?
+=================================
+
+The following section describes all the functionality supported by the library. Most of the functionality described in this section is provided in source code which allows users to tailor the library for their application. The only portion of the library which is provided in pre-compiled form is the algorithmic portion. For more information regarding the library architecture please refer `to the following section. <#library-arch>`__
+
+Algorithms
+----------
+
+The algorithms provided in the library are targeted for metering application and supports the following methods to calculate AToF, DToF and volume flow rate.
+
+AToF
+~~~~
+
+The following methods are supported:
+
+-  Lobe tracking method
+-  Hilbert tracking method
+-  Lobe wide tracking method
+-  Hilbert wide tracking method
+
+DToF
+~~~~
+
+The following method is supported:
+
+-  Estimation method
+
+Legacy computation methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The library still supports the following legacy computation methods
+
+-  Water method
+-  Gas method (This method has been renamed to "Estimation")
+
+Measurement Configuration
+-------------------------
+
+The library allows to configure multiple firing and capture sequence parameters. Some of these parameters are:
+
+-  Excitation pulses
+-  Excitation frequency:
+
+   -  Minimum : 133.33 KHz
+   -  Maximum: 4.5 MHz
+
+-  Number of pulses
+
+   -  Up to 127
+
+-  Number of stop pulses
+
+   -  Up to 15
+
+-  Excitation modes:
+
+   -  Single tone
+   -  Dual tone (only supported on devices with USS\_A module)
+   -  Multi tone (only supported on devices with USS\_A module)
+
+-  Multiple event configurations
+-  Gap between pulse generation and start of signal capture with minimum resolution of ~235 ns and maximum resolution of 200 ns
+-  Capture duration
+
+   -  Devices with USS module
+   -  max capture duration: 40usec @ 8MSPS up to 752 usec @ 425 KSPS
+   -  Devices with USS\_A module
+   -  max capture duration: 62.5usec @ 8MSPS up to 1176 usec @ 425 KSPS
+
+-  If running the library is running on EVMs which have external Analog Front End (AFE) circuitry (e.g. EVM430-FR6043), users can configure the delay to turn on external gain amplifier.
+
+Calibration
+-----------
+
+Provides routines to
+
+-  Calibrate:
+-  Ultrasonic signal gain
+-  DtoF and AToF under zero flow
+-  Calculate:
+-  USS module PLL frequency
+-  Signal DC offset
+
+Measurement Update
+------------------
+
+Provides quick update APIs to update:
+
+-  PLL configuration
+-  Capture
+-  Measurement
+-  Interrupt
+
+Interrupt callback registration
+-------------------------------
+
+Allows user to register callback function on all interrupts supported by the USS/USS\_A module.
+
+Debug
+-----
+
+Provides various APIs to help users debug the library configuration during development phase.The debug capabilities provided by these APIs are:
+
+-  Test excitation pulse configuration
+-  Test Sigma Delta sampling configuration
+-  Test pulse frequency generation
+-  Get Pointers to upstream and downstream buffers

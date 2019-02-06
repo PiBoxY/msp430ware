@@ -1,0 +1,30 @@
+<x-meta id="ti-widget-svggauge" label="Gauge (SVG)" group="Dials & Gauges">
+
+    <template>
+        <ti-widget-svggauge style="width:180px;height:180px;" showOdometer="true" gaugeFontSizeInPx="4.75" frameColor="#f2f2f2"></ti-widget-svggauge>
+
+    </template>
+    <property name="value"          kind="number" important order="17"></property>
+    <property name="showOdometer"   kind="boolean" important order="16"></property>
+    <property name="odometer"       kind="number" important order="15"></property>
+    <property name="titleText"      kind="string" important order="14"></property>
+    <property name="units"          kind="string" important order="13"></property>
+    <property name="minValue"       kind="number" important order="12"></property>
+    <property name="maxValue"       kind="number" important order="11"></property>
+    <property name="frameColor"     kind="color"  important order="10"></property>
+    <property name="faceColor"      kind="color"  important order="9"></property>
+    <property name="needleColor"    kind="color"  important order="8"></property>
+    <property name="fontColor"      kind="color"  important order="7"></property>
+    <property name="majorTickStyle" kind="select" options="LongTick,BoldTick" important order="6"></property>
+    <property name="majorTickColor" kind="color"  important order="5"></property>
+    <property name="tickColor"      kind="color"  important order="4"></property>
+    <property name="odometerColor"  kind="color"  important order="3"></property>
+    <property name="gaugeFontSizeInPx" kind="range" min="4.0" max="6.0" step="0.25"  important order="2"></property>
+    <property name="titleFontSizeInPx" kind="range" min="4.5" max="7.5" step="0.25" important order="1"></property>
+    <property name="odometerFontSizeInPx" kind="range" min="4.0" max="8.0" step="0.25" important order="0"></property>
+
+
+<template id="imports">
+    <link rel="import" href="ti-widget-svggauge.html">
+</template>
+</x-meta>

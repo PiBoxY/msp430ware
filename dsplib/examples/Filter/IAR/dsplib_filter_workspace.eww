@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\filter_ex1_fir_q15\filter_ex1_fir_q15.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\filter_ex2_fir_iq31\filter_ex2_fir_iq31.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\filter_ex3_biquad_cascade_df1_q15\filter_ex3_biquad_cascade_df1_q15.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\filter_ex4_biquad_cascade_df2_q15\filter_ex4_biquad_cascade_df2_q15.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\filter_ex5_biquad_cascade_df2_ext_q15\filter_ex5_biquad_cascade_df2_ext_q15.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

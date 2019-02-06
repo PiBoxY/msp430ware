@@ -1,0 +1,22 @@
+<projectSpec>
+  <project compilerBuildOptions="-O3 -I${PROJECT_ROOT} -I${PROJECT_ROOT}/iec60730/include --advice:power=&quot;none&quot;" device="MSP430G2553" name="IEC60730_msp430g2553_example" linkerCommandFile="lnk_msp430g2553.cmd">
+	<file action="copy" path="../main.c" targetDirectory="." />
+	<file action="copy" path="../../../../iec60730/source/IEC60730_adc_test.c" targetDirectory="IEC60730/source" />
+	<file action="copy" path="../../../../iec60730/source/IEC60730_clock_fail_test.c" targetDirectory="IEC60730/source" />
+	<file action="copy" path="../../../../iec60730/source/IEC60730_cpu_test.c" targetDirectory="IEC60730/source" />
+	<file action="copy" path="../../../../iec60730/source/IEC60730_crc_test.c" targetDirectory="IEC60730/source" />
+	<file action="copy" path="../../../../iec60730/source/IEC60730_gpio_test.c" targetDirectory="IEC60730/source" />
+	<file action="copy" path="../../../../iec60730/source/IEC60730_march_test.c" targetDirectory="IEC60730/source" />
+	<file action="copy" path="../../../../iec60730/source/IEC60730_pc_test.c" targetDirectory="IEC60730/source" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_adc_test.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_clock_fail_test.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_cpu_test.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_crc_test.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_gpio_test.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_march_test.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_pc_test.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_system_config.h" targetDirectory="IEC60730/include" />
+	<file action="copy" path="../../../../iec60730/include/IEC60730_user_config.h" targetDirectory="IEC60730/include" />
+    <buildVariable name="ORIGINAL_PROJECT_ROOT" scope="project" type="dir" value="." />
+  </project>
+</projectSpec>

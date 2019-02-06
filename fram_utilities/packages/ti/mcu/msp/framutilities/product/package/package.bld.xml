@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mcu.msp.framutilities.product" version="1, 0, 0" producerId="/vagrant/imports/rtsc/">
+    <units>
+        <module name="ProductView"/>
+        <module name="FRAMUtilities"/>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mcu_msp_framutilities_product.zip.dep" src="package/rel/ti_mcu_msp_framutilities_product.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mcu_msp_framutilities_product"
+        pname="ti_mcu_msp_framutilities_product.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="icons"/>
+        <file name="FRAMUtilities.xml"/>
+        <file name="FRAMUtilities.xdt"/>
+        <file name="makefile.xdt"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

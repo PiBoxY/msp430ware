@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><!-- /* * Copyright 2007 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ -->
+
+
+
+<title>MSP430 Java HID Demo App -- Release Notes</title><!-- For now, we use the doxygen style sheet --><link href="docs/html/doxygen.css" rel="stylesheet" type="text/css"></head>
+<body>
+<table width="100%">
+<tbody>
+<tr>
+<td bgcolor="black" width="1"><a href="http://www.ti.com"><img src="doc/tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+<td bgcolor="red"><img src="doc/titagline.gif"></td>
+</tr>
+</tbody>
+</table>
+<h1>MSP430 Java HID Demo App -- Release Notes</h1>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+<p>Welcome to the MSP430 Java HID USB Demo App! This is an
+example of a host-side HID application. It's designed to use the
+HID-Datapipe format (see the Programmer's Guide for more information).
+However, it could also be used for any custom HID device -- that is, an
+HID device not driven directly by the OS, like a mouse/keyboard.<br>
+</p>
+<p>The project is composed
+of a Java GUI and C drivers. The communication between Java
+and the C
+drivers is Java Native Interface (JNI) based. &nbsp; This means
+there
+is an accompanying dylib in the same path as the *.jar file that contains
+the native calls. &nbsp;&nbsp; </p>
+This document is divided into the following sections:
+<ul>
+<li><a href="#Prerequisites">Prerequisites</a></li>
+<li><a href="#Running">Running the HID Demo App</a></li>
+<li><a href="#Rebuilding">Rebuilding the HID Demo
+App</a></li>
+<li><a href="#Validation">Validation Information</a></li>
+<li><a href="#Known_Issues">Known Issues</a></li>
+<li><a href="#Versioning">Versioning</a></li>
+<li><a href="#Support">Support</a></li>
+</ul>
+<br>
+<hr><br>
+<h2><a name="Prerequisites" id="Prerequisites">Prerequisites</a></h2>
+<h3><a name="Prerequisites" id="Prerequisites">To
+run the app:</a></h3>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">OS<br></a></li>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">MAC OS with 64-bit Java&nbsp;JDK&nbsp;1.7+</a></li>
+</ul></ul>
+<h3><a name="Prerequisites" id="Prerequisites">To
+re-build the app:</a></h3>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">OS<br></a></li>
+<ul>
+<li><a name="Prerequisites" id="Prerequisites">MAC OS with&nbsp;64-bit Java&nbsp;JDK 1.7+ </a></li>
+</ul><li><a name="Prerequisites" id="Prerequisites"></a>Terminal Window<a name="Prerequisites" id="Prerequisites">
+</a><br></li>
+<ul></ul>
+</ul>
+<br>
+<a name="Prerequisites" id="Prerequisites"></a>
+<hr><a name="Prerequisites" id="Prerequisites"></a><h2><a name="Running" id="Running">Running
+the HID Demo App</a></h2>
+
+<a name="Running" id="Running"> </a>
+<p><a name="Running" id="Running">The HID
+Demo App can be run with any of the HID-Datapipe examples included in
+the USB Developers Package. Please refer to the Examples Guide in the
+Developers Package for usage information.</a></p><p><a name="Running" id="Running">The Hid
+Demo App may be executed from a command line, by navigating to the
+directory in
+which the *.jar file is located, and typing &nbsp;the following command:</a></p><p><a name="Running" id="Running">&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">java
+-jar -Djava.library.path=/&lt;path_to_.dylib_file&gt;/ &nbsp; &nbsp;HidDemo.jar</span> &nbsp;</a><a name="Running" id="Running"> </a></p><a name="Running" id="Running"></a><a name="Running" id="Running">This should
+bring up the HID Demo App. If it does not, check to ensure that a
+Java Virtual Machine (JVM) is listed in your PC's path.</a>
+<span style="font-weight: bold;"></span><br><a name="Running" id="Running">
+</a>
+<hr><a name="Running" id="Running"><br>
+</a>
+<h2><a name="Rebuilding" id="Rebuilding">Rebuilding&nbsp;
+the HID Demo App</a></h2>
+<p><a name="Rebuilding" id="Rebuilding">The project contains: </a></p>
+<table style="width: 666px; height: 160px;" border="1">
+<tbody>
+<tr>
+<td>com </td>
+<td>Top Level Java and Class files</td>
+</tr>
+<tr>
+<td>doc</td>
+<td>Release Notes image files</td>
+</tr>
+<tr>
+<td>icons </td>
+<td>User interface resources</td>
+</tr>
+<tr>
+<td>jni</td>
+<td>C sources and library</td>
+</tr>
+</tbody>
+</table>
+<a name="Rebuilding" id="Rebuilding"><br>
+There is also a Makefile, at top level, for rebuilding the application
+(*.jar
+file and SO). &nbsp;To rebuild, please see pre-requisites. <br>
+The HID Demo App was
+developed only as an example, so you're encouraged to modify and update
+it.
+&nbsp;In order to do this, you will need the following software
+installed:</a>
+<ul></ul>
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html"></a>
+
+<br><ul><li><a name="Rebuilding" id="Rebuilding">Java JDK 1.7+ &nbsp;(64 bit)</a></li></ul><a href="http://openjdk.java.net/install/" target="_blank"></a><br><br><a name="Rebuilding" id="Rebuilding"></a><br>
+Modify the Makefile (in
+hidDemo-mac/Makefile) to add
+the location of the JDK. &nbsp;
+If the compilers were installed correctly, the only changes that should
+be needed is the JDK&nbsp;path.&nbsp;
+<br>
+<br>
+The JDK paths should point to where your system's JDK is installed (the
+JDK
+directory right above bin/ that contains javah.exe).<br>
+<br>
+The
+final step is to open a terminal window and&nbsp; run "make" in the HidDemo-mac directory.<br>
+<br>
+<br>
+<hr><br>
+<h2><a name="Validation" id="Validation">Validation</a></h2>
+The version has been tested on a 64-bit Mac OS 10.10.1&nbsp; machine.<br>
+<br>
+<hr><br>
+<h2><a name="Known_Issues" id="Known_Issues">Known
+Issues</a></h2>If
+the HID port connected to the device does not have read and write
+permissions, the Java Hid Demo App&nbsp;will disapper upon connection
+to the device. &nbsp; <br>
+<br>
+<hr><br>
+<h2><a name="Versioning" id="Versioning">Versioning</a></h2>
+<p>This is demo code, and therefore there is no versioning.</p>
+<hr>
+<h2><a name="Support" id="Support">Support</a></h2>
+<a name="Support" id="Support">First check the
+Examples Guide and MSP430 USB API Programmer's Guide in the USB
+Developers Package for more information. If you still need support,
+please
+visit the </a><a href="http://e2e.ti.com/support/microcontrollers/msp430/default.aspx">MSP430
+E2E forum</a>.
+or e-mail us directly at&nbsp;<font face="Times New Roman" size="3"><span style="font-size: 12pt;"><a title="mailto:msp430ware@list.ti.com" href="mailto:msp430ware@list.ti.com">msp430ware@list.ti.com.</a><o:p></o:p></span></font>
+<br>
+<br>
+</body></html>

@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['phasebgresults',['phaseBGResults',['../struct___e_m___s_w___lib___result___handle__.html#a2846b414749602ef890cd29292b83677',1,'_EM_SW_Lib_Result_Handle_']]],
+  ['phasecalibptr',['phaseCalibPtr',['../struct___e_m___phase___configuration__.html#a67acb552954a862b82f514600d9eed3b',1,'_EM_Phase_Configuration_']]],
+  ['phaseconfigptr',['phaseConfigPtr',['../struct___e_m___meter___configuration__.html#ad5dd06e51734aa4d6c9c07031e362cc0',1,'_EM_Meter_Configuration_']]],
+  ['phasecorrection',['phaseCorrection',['../struct___e_m___phase___calibration__.html#aa718e500b78edd736ce358d719eeb0d2',1,'_EM_Phase_Calibration_']]],
+  ['phasedataready',['phaseDataReady',['../group__hal__adc__api__sd24.html#ga122922096ed92d3ca0f56f836d619e96',1,'phaseDataReady():&#160;hal_adc_sd24.h'],['../group__hal__adc__api__sd24b.html#ga122922096ed92d3ca0f56f836d619e96',1,'phaseDataReady():&#160;hal_adc_sd24b.h']]],
+  ['phaseid',['phaseID',['../struct___e_m___phase___results__.html#ac740f6133ebbe6663e04ab399a14d74b',1,'_EM_Phase_Results_']]],
+  ['phaselength',['phaseLength',['../struct___e_m___meter___configuration__.html#ae39029613b4ed616baef8dce6b5a5c46',1,'_EM_Meter_Configuration_']]],
+  ['phasemetrologyping',['phaseMetrologyPing',['../struct___e_m___s_w___lib___result___handle__.html#a09e0c6c6a475676964e3ebade3e4910c',1,'_EM_SW_Lib_Result_Handle_']]],
+  ['phasemetrologypong',['phaseMetrologyPong',['../struct___e_m___s_w___lib___result___handle__.html#a2c02afcf328445ba76335daf9dfb4716',1,'_EM_SW_Lib_Result_Handle_']]],
+  ['phaseresults',['phaseResults',['../struct___e_m___s_w___lib___result___handle__.html#ae7325d4d38f2e1e9171f740946e6b817',1,'_EM_SW_Lib_Result_Handle_']]],
+  ['phaseresultssupported',['phaseResultsSupported',['../struct___e_m___phase___configuration__.html#a27da28c4d9be7036fdaca1a6e0bb93cb',1,'_EM_Phase_Configuration_']]],
+  ['phaseresultssupportedlen',['phaseResultsSupportedLen',['../struct___e_m___s_w___lib___result___handle__.html#a47b7ea784e9c057c6b74c974cf0af7d1',1,'_EM_SW_Lib_Result_Handle_']]],
+  ['powerfactor',['powerFactor',['../struct___e_m___phase___results__.html#a5263809be91f298b2e2752cd7603b1d3',1,'_EM_Phase_Results_']]],
+  ['preload',['preload',['../struct___h_a_l___a_d_c___s_d24___channel__.html#a08d38cf20883a5135247945fbaf9d4fa',1,'_HAL_ADC_SD24_Channel_::preload()'],['../struct___h_a_l___a_d_c___s_d24___b___channel__.html#ab89f348a7d8e7bf053acec1e8e9bf20e',1,'_HAL_ADC_SD24_B_Channel_::preload()']]],
+  ['prevmainperiod',['prevMainPeriod',['../struct___e_m___metrology__.html#a49102d9125a0735ff27a5511cb6ce485',1,'_EM_Metrology_']]],
+  ['prevsamplecount',['prevSampleCount',['../struct___e_m___metrology__.html#a5ee91e29e9dd56389123fd06f16a7d8f',1,'_EM_Metrology_']]],
+  ['pulsearray',['pulseArray',['../struct___e_m___system___configuration__.html#a7e1b89bf8b5b4c68a4ec1ffbb45122a2',1,'_EM_System_Configuration_']]],
+  ['pulsearraylength',['pulseArrayLength',['../struct___e_m___system___configuration__.html#a8026c1eab764498dc669a31d43286458',1,'_EM_System_Configuration_']]],
+  ['pulsegeneration',['pulseGeneration',['../struct___e_m___system___configuration__.html#ae41e99f1b86464445780d60a5590a114',1,'_EM_System_Configuration_']]]
+];

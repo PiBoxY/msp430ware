@@ -1,0 +1,17 @@
+<projectSpec>
+    <project compilerBuildOptions="-I${PROJECT_LOC}/driverlib/MSP430FR2xx_4xx --advice:power=&quot;all&quot; -g"
+             device="MSP430FR4133"
+             name="OutOfBox_MSP430FR4133"
+             enableHexTool="true"
+             hexBuildOptions="--ti_txt" >
+        <file action="copy" path="../driverlib/" />
+        <file action="copy" path="../hal_LCD.c" />
+        <file action="copy" path="../hal_LCD.h" />
+        <file action="copy" path="../main.c" openOnCreation="true" />
+        <file action="copy" path="../main.h" />
+        <file action="copy" path="../StopWatchMode.c" />
+        <file action="copy" path="../StopWatchMode.h" />
+        <file action="copy" path="../TempSensorMode.c" />
+        <file action="copy" path="../TempSensorMode.h" />
+    </project>
+</projectSpec>

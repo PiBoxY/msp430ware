@@ -1,0 +1,15 @@
+<projectSpec>
+  <project compilerBuildOptions="-O3 -I${PROJECT_ROOT}/driverlib/MSP430FR57xx -I${PROJECT_ROOT} -I${PROJECT_ROOT}/GrLib/grlib -I${PROJECT_ROOT}/GrLib/fonts --advice:power=&quot;none&quot; --gcc --large_memory_model" device="MSP430FR5969" name="Empty_Project_MSP430FR57xx_Grlib_Example">
+	<file action="copy" path="../main.c" targetDirectory="." />
+	<file action="copy" path="../system_pre_init.c" targetDirectory="." />
+	<file action="copy" path="../Lcd_Driver/Template_Driver.c" targetDirectory="Lcd_Driver" />
+	<file action="copy" path="../Lcd_Driver/Template_Driver.h" targetDirectory="Lcd_Driver" />
+	<file action="copy" path="../images/images.h" targetDirectory="Images" />
+	<file action="copy" path="../../../src/grlib/" targetDirectory="GrLib/" />
+	<file action="copy" path="../../../src/fonts/" targetDirectory="GrLib/" />
+	<file action="copy" path="../../../driverlib/MSP430FR57xx/" targetDirectory="driverlib/" />
+    <file action="copy" path="../../../driverlib/MSP430FR57xx/deprecated/" targetDirectory="driverlib/MSP430FR57xx/" />
+    <file action="copy" path="../../../driverlib/MSP430FR57xx/deprecated/CCS/" targetDirectory="driverlib/MSP430FR57xx/deprecated/" />
+    <file action="copy" path="../../../driverlib/MSP430FR57xx/inc/" targetDirectory="driverlib/MSP430FR57xx/" />
+  </project>
+</projectSpec>

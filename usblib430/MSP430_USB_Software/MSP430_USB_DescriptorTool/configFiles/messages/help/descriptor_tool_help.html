@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>MSP430 USB Descriptor Tool</title><link rel="stylesheet" type="text/css" href="descriptor_tool_help_files/main.css" /></head>
+<body>
+
+   <!-- Begin Wrapper -->
+   <div id="wrapper">
+   
+         <!-- Begin Header -->
+         <div id="header">
+		 
+		       <!-- Header text here -->		 
+			   
+		 </div>
+		 <!-- End Header -->
+		 
+		 <!-- Begin Content -->
+		 <div id="content">
+		       
+			   <font face="verdana"> <br />
+</font>
+<h1 style="text-align: center; text-decoration: underline;"><font face="verdana">MSP430
+USB Descriptor Tool</font></h1>
+<font face="verdana"><br />
+</font>
+<h3 style="text-decoration: underline;"><font face="verdana">Welcome to the Descriptor
+Tool!</font></h3>
+<font face="verdana">
+This is a quick overview of the Tool. For complete documentation, see
+the USB API Programmer's Guide
+in the MSP430 USB Developers Package.<br /><br />
+Also see the Help Pane, which shows specific help information for each of the Tool's input fields!
+</font>
+			   
+<br /><br />
+<h3 style="text-align: center;"><font face="verdana">&nbsp;<img src="descriptor_tool_help_files/toolFrontPage.png" alt="Descriptor Tool" style="width: 853px; height: 585px;" align="middle" /></font></h3>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><br /><br />What
+is the Tool?</font></font></h3>
+<font face="verdana"><font face="verdana">The
+Descriptor Tool generates a set of USB descriptors for your project. In
+so doing, it also builds the <span style="font-style: italic;">USB interfaces</span>
+your application can use to interface with the host. <br /><br />After it runs,
+write your application to send/receive data over these
+interfaces. The USB examples and API Programmer's Guide show you how to do
+this.&nbsp; </font>
+</font>
+<h3 style="text-align: center;"><font face="verdana">&nbsp;<img style="width: 875px; height: 480px;" alt="Overall Picture" src="descriptor_tool_help_files/bigPicture.png" /></font></h3>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><br /><br />What
+is a "USB Interface"?</font></font></h3>
+<font face="verdana"><font face="verdana">It's essentially a partitioned stream of data between the USB
+device and the host.&nbsp; An interface is of a
+particular device class, each with its own
+protocol. &nbsp;The host responds differently for each device class:<br /><span style="font-weight: bold;">
+CDC (Comms Device Class):</span> Presents a virtual COM port<br /><span style="font-weight: bold;">
+HID (Human Interface Device):</span> Subtypes include mice, keyboards,
+other PC peripherals, or simply "generic". <br /><span style="font-weight: bold;">
+MSC (Mass Storage Class):</span> Causes the host to
+mount a storage volume over this interface<br />
+</font></font><font face="verdana"><font face="verdana"><span style="font-weight: bold;">
+PHDC (Personal Healthcare Device Class):</span> &nbsp;Only used with Continua medical devices<br />&nbsp;</font></font><br /><font face="verdana"><font face="verdana">
+The device tells the host what interfaces it contains by reporting the
+information in the <span style="font-style: italic;">USB descriptors</span>. Most devices
+contain only a single interface, but some contain more; these are
+called <span style="font-style: italic;">composite</span> USB devices.&nbsp; <br />
+<br />
+The Descriptor Tool can quickly build descriptors for <span style="text-decoration: underline;">any</span> <span style="text-decoration: underline;">combination</span>
+of CDC, HID, and MSC interfaces,
+according to whatever your application needs. <br />
+</font>
+</font>
+<h3><font face="verdana"><font face="verdana"><br />
+</font></font></h3>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><br /><br />What
+are USB Descriptors?</font></font></h3>
+<font face="verdana"><font face="verdana">When a USB device is enumerated on the host, the host polls for its <span style="font-style: italic;">USB descriptors. &nbsp;</span>These communicate the
+device's "identity", including which USB interfaces are supported, unique ID's, and
+capabilities.&nbsp; In the MSP430 USB API, the descriptors are defined in the
+files
+descriptors.c/h.<br />
+<br />
+Besides the USB interfaces, the descriptors also define:<br />
+* ID codes called a <span style="font-style: italic;">"Vendor ID" (VID)</span> and <span style="font-style: italic;">"Product ID" (PID)</span>. The host uses this to tell one kind of USB product from another. <br />
+* Text strings that describe the device, which might be presented to the user<br />
+* Power requirements (how much current the USB device will draw from the host)<br />
+<br />The VID/PID pair is especially important. Once the host has seen a
+new VID/PID, it may cache information from the descriptors, so that it
+can
+recall it more quickly the next time. It indexes this information
+by&nbsp; VID/PID. &nbsp;</font></font><font face="verdana"><font face="verdana"><br /><br />For
+this reason, every time you change the USB descriptors, it's
+a good idea to change the PID, or do an "uninstall"/"re-install" of the
+device on the host (for example, with the Windows Device Manager).
+&nbsp;</font></font><br /><font face="verdana"><font face="verdana"></font></font><h3><font face="verdana"><font face="verdana"><br />
+</font></font></h3>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><br /><br />When
+to Use the Tool?</font></font></h3>
+<font face="verdana"><font face="verdana">Before you can write USB
+code, you need to create your USB interfaces with the Tool. &nbsp;So, run
+the Tool&nbsp;at the beginning of development. &nbsp;Later, you can modify and re-generate your output,</font></font><font face="verdana"><font face="verdana"> provided you save your Tool inputs
+to a *.dat file before you exit</font></font><font face="verdana"><font face="verdana">. &nbsp;&nbsp;<br /><br />
+</font></font><br /><h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><br /><br />Quick Steps to Use
+the Tool</font></font></h3><span style="font-family: verdana;">Ultimately, when
+you're wrapping up development of your product and finalizing the descriptors, you will want to pay attention
+to every field in the Tool. &nbsp;But if you just want to get started quickly, here
+are the minimum steps you need to do. &nbsp;</span><br /><br />
+<font face="verdana"><font face="verdana"><font face="verdana">
+<font face="verdana">
+1) &nbsp;Select your interfaces, by pressing the buttons at the top.<br /><br /></font></font></font></font><div style="text-align: center;"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/buttonBar.png"  alt="Button Bar" /></font></font><br /></div><font face="verdana"><font face="verdana">
+</font></font><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br />
+2)&nbsp;</font></font></font></font><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">Click
+on each node in the Navigation View's tree, filling out relevant
+information in each node. (Ignoring the items not listed below usually
+won't hurt basic functionality.)<br />
+</font></font></font></font><blockquote><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">a) <b>MSP430 View --&gt; XT2 Oscillator Frequency:</b>  The XT2 frequencies of 4MHz, 8MHz, 12MHz, 16MHz and 24MHz are detected automatically by the USB stack.  Frequencies other than the once listed above need to be manually set (see Programmer's guide, Programmers_Guide_MSP430_USB_API.pdf for detailed steps) </font></font></font></font><br /><br /><div style="text-align: center;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/XT2.png" style="width: 358px; height: 26px;" alt="XT2" border="1" /></font></font></font></font><br /></div><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br /> </font></font></font></font></blockquote>
+<blockquote><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">b) <b>USB Device View --&gt; PID:</b> </font></font></font></font><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">The
+VID field is already filled out with TI-MSP430's VID, but you must
+enter a PID. The Help Pane text includes an"experimenter's range" of
+PIDs you can use.</font></font></font></font><br /><br /><div style="text-align: center;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/PID.png" style="width: 357px; height: 237px;" alt="PID" border="1" /></font></font></font></font><br /></div><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br /><br /></font></font></font></font><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"></font></font></font></font></blockquote>
+<blockquote><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">c) <b>HID interfaces:</b> choose your device type (datapipe, mouse, keyboard, or custom)<br /><br /></font></font></font></font></blockquote>
+<blockquote><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">d) <b>MSC interfaces:</b> choose the number of LUNs and whether the media is removable<br /></font></font></font></font><br /><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"></font></font></font></font></blockquote>
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">3) &nbsp;Save your *.dat input file. &nbsp;(File --&gt; Save As...)<br /></font></font></font></font><div style="text-align: center;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/saveAs.png" style="width: 187px; height: 123px;" alt="Save As..." border="1" /></font></font></font></font><br /><br /></div><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+4)
+&nbsp;Generate your output, by pressing the "Generate" button. Direct the output to your target
+project. In the typical project structure for the USB API, these files
+are usually stored in \USB_config. But they can go anywhere, as long as
+the project's #include
+settings are adjusted accordingly.<br /><br /></font></font></font></font><div style="text-align: center;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/gearButton.png" style="width: 148px; height: 56px;" alt="Generate Button" /></font></font></font></font><br /></div><br /><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">For each field, detailed instruction is provided in the Help Pane.
+&nbsp;(Float over the field or click on it to see the field's help
+text.) &nbsp;<br /></font></font></font></font><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br /></font></font></font></font><span style="font-family: verdana;"><br /><br /></span><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+</font></font></font></font></font></font></font></font></font>
+</font>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br /><br />The Tool's
+Generated Output</font></font></font></font></font></font></font></font></font></font></font></h3>
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+<font face="verdana">The
+Tool outputs four files:<br />
+<font face="verdana">-&nbsp;<span style="font-style: italic;">descriptors.c</span><br />
+- <span style="font-style: italic;">descriptors.h</span><br />
+- <span style="font-style: italic;">usbisr.c</span> (contains the USB interrupt service routine, and related functions)<br />
+<font face="verdana">- an INF file* (if one of the USB interfaces was CDC)<br /><br /><blockquote>* Windows
+hosts need the user to provide an INF file (*.inf) for CDC interfaces.
+&nbsp;Windows uses INF files to associate devices with particular
+drivers, and for HID/MSC interfaces, the INF is included in Windows.
+&nbsp;For CDC it isn't. &nbsp;The INF contains specific information
+about the device, including its VID/PID and some strings. &nbsp;Since
+the Tool already has this information, it generates an INF file for
+you. Also note that if the device is composite, having
+more than one USB interface, the INF file is specific to that interface
+set. &nbsp;The Tool handles this for you. &nbsp; </blockquote><br /><br />
+
+<font face="verdana">The relationship between these output files and the rest of the MSP430 USB API is shown below. &nbsp;<br />
+<font face="verdana"><br />
+<br />
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><div style="text-align: center;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/fileInteraction.png" style="width: 750px; height: 400px;" alt="output" /></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><br /></div><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+<font face="verdana"><br />
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font>
+</font>
+
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br />
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">How to Access These
+Interfaces from your Application</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></h3>
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+<font face="verdana"><font face="verdana">Every USB interface you define has an <span style="font-style: italic;">intfNum</span> parameter. &nbsp;This is seen on each interface's view in the Tool:<br /><br /></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><div style="text-align: center;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/intfNum.png" style="width: 365px; height: 131px;" alt="intfNum" border="1" /></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><br /></div><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">&nbsp;<br />This is relevant to composite devices involving CDC or HID interfaces. &nbsp;In these cases, it's
+important that the host and MSP430 application each understand how a
+device's interfaces are mapped, for proper
+communication.&nbsp; <span style="font-style: italic;">intfNum</span>
+is the index you provide to function calls in the MSP430-side USB API,
+to help it understand which interface you're accessing. &nbsp;<br /><br />For single-interface (non-composite) devices, the sole interface's <span style="font-style: italic;">intfNum </span>is always zero. &nbsp;<br /><br />There can only be one MSC interface in a USB device, so there is no <span style="font-style: italic;">intfNum</span>
+parameter in the MSP430's MSC API calls. &nbsp;If MSC is used in composite, it's
+always reported as the first interface in the device, per USB
+requirements. &nbsp;<br /><br />For every interface you define, the Tool places a constant in the <span style="font-style: italic;">descriptors.h</span> file, like CDC0_INTFNUM or HID0_INTFNUM. &nbsp;You can use these as the <span style="font-style: italic;">intfNum</span> parameter in your application code: &nbsp;<br /><br /><font face="courier">cdcSendDataInBackground(buf,
+size, CDC1_INTFNUM); // Sends data to the CDC interface with intfNum=1,
+the second CDC interface defined in this device</font><br /><br /></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br />
+<font face="verdana"><br />
+</font>
+</font></font></font></font>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">What is the USB
+Configuration?</font></font></font></font></font></h3>
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+<font face="verdana"><font face="verdana">The USB specification provides for a device to contain more than one <span style="font-style: italic;">USB</span> <span style="font-style: italic;">configuration.</span>
+&nbsp;Each configuration contains its own set of defined USB
+interfaces. &nbsp;The host can tell the device to change between its
+configurations. &nbsp;<br /><br />In practice, this feature is rarely used.
+&nbsp;As a result, the USB API and Descriptor Tool support only a
+single USB configuration. &nbsp;<br /><br />
+Before sending a product to market, you need to report accurate
+information for this single configuration, in the USB Configuration
+view. But for evaluation/development purposes, it usually won't hurt to
+ignore these.<br />
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><div style="text-align: center;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><img src="descriptor_tool_help_files/usbConfigView.png" style="width: 642px; height: 174px;" alt="USB  Configuration View" border="1" /></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><br /><br /><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></div><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+</font></font></font></font>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br /><br />Trouble
+Opening the Tool?</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></h3>
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">The
+Tool requires Java Runtime Engine v1.6+ to run properly.&nbsp; As a
+result, you may need to download the most recent version of the
+JRE.&nbsp; The Tool is designed to automatically sense the JRE
+version
+on your machine upon being opened, and guide you to http://www.java.com
+if
+necessary.<br />
+<br />
+Due to Java limitations, the Tool may give an error
+upon being opened if there is a semicolon or space in the pathname, or if the
+pathname is very long.&nbsp; If the Tool fails to open, with an
+unclear
+error, please move the entire directory for the tool into a different
+path that addresses these two problems.<br /><br /><br />
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font>
+</font></font></font></font>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br />Can't open this help file from the Tool's Help --&gt; Open Help... menu?</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></h3>
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">Java
+can get confused by spaces or semicolons in the Tool's path. The
+default path suggested by TI when installing the Tool doesn't have
+spaces or semicolons in it, but if you installed it in such a path, it
+may prevent the Tool from locating this help file. <br /><br /><br />
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font>
+</font></font></font></font>
+<h3 style="text-decoration: underline;"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><br />For
+More Information</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></h3>
+<font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana"><font face="verdana">
+The
+Tool is an integral part of using the MSP430 USB API Stack, and so it
+is recommended to reference the MSP430 USB API Stack
+Programmer's Guide for more information.&nbsp; The
+Programmer's Guide has more information about the API and
+includes practical information about USB.&nbsp; It is located within the USB Developers Package. &nbsp;<br />
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font>
+</font></font></font></font>
+
+			   
+			   
+		 </div>
+		 <!-- End Content -->
+		 
+		 <!-- Begin Footer -->
+		 <div style="width: 898px;" id="footer">&nbsp;<!-- End Footer --></div>
+		 
+   </div>
+   <!-- End Wrapper -->
+   
+</body></html>

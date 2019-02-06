@@ -1,0 +1,1018 @@
+<project>
+    <shortName>gcapplication</shortName>
+    <fullName>GUIComposerApp</fullName>
+    <version>2.0.0</version>
+    <installerFilename>${product_fullname}-${product_version}.setup-win.${platform_exec_suffix}</installerFilename>
+    <debugLevel>4</debugLevel>
+
+    <!-- license information -->
+    <licenseFile>${builddir}/license.txt</licenseFile>
+    <componentList>
+        <component>
+            <name>default</name>
+            <description>Default Component</description>
+            <canBeEdited>1</canBeEdited>
+            <selected>1</selected>
+            <show>1</show>
+            <folderList>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}/${product_fullname_with_underscores}</destination>
+                    <name>programfiles</name>
+                    <platforms>all</platforms>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>Uninstall</comment>
+                            <exec>${realinstalldir}/${uninstallerName}</exec>
+                            <icon></icon>
+                            <name>Uninstall ${product_fullname}</name>
+                            <path>${realinstalldir}</path>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec>${realinstalldir}/${uninstallerName}.exe</windowsExec>
+                            <windowsExecArgs></windowsExecArgs>
+                            <windowsIcon></windowsIcon>
+                            <windowsPath>${realinstalldir}</windowsPath>
+                        </shortcut>
+                    </shortcutList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}/${product_fullname_with_underscores}</destination>
+                    <name>programfileslinux</name>
+                    <platforms>linux</platforms>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}/${product_fullname_with_underscores}</destination>
+                    <name>programfilesosx</name>
+                    <platforms>osx</platforms>
+                </folder>
+            </folderList>
+        </component>
+    </componentList>
+    <initializationActionList>
+        <setInstallerVariableFromRegEx>
+            <name>app_version</name>
+            <pattern>^.*-(.*)\.setup-.*$</pattern>
+            <substitution>\1</substitution>
+            <text>${installer_pathname}</text>
+        </setInstallerVariableFromRegEx>
+        <setInstallerVariable>
+            <name>app_version</name>
+            <persist>1</persist>
+            <value>${app_version}</value>
+        </setInstallerVariable>
+
+        <!-- get cgversion required from the installer's name -->
+        <setInstallerVariableFromRegEx>
+            <name>gcversion_required</name>
+            <pattern>^(.*)[_](\d+\.\d+\.\d+).*$</pattern>
+            <substitution>\2</substitution>
+            <text>${installer_pathname}</text>
+        </setInstallerVariableFromRegEx>
+        <setInstallerVariableFromRegEx>
+            <name>gc_major_required</name>
+            <pattern>(\d+)\..*</pattern>
+            <substitution>\1</substitution>
+            <text>${gcversion_required}</text>
+        </setInstallerVariableFromRegEx>
+        <logMessage>
+            <text>gc_major = ${gc_major_required}</text>
+        </logMessage>
+        <logMessage>
+            <text>run time version required: ${gcversion_required}</text>
+        </logMessage>
+        <setInstallerVariable>
+            <name>test</name>
+            <value>1</value>
+        </setInstallerVariable>
+        <setInstallerVariable>
+            <name>desktop_directory</name>
+            <persist>1</persist>
+            <value>~/Desktop</value>
+            <ruleList>
+                <platformTest>
+                    <negate>1</negate>
+                    <type>windows</type>
+                </platformTest>
+            </ruleList>
+        </setInstallerVariable>
+        <setInstallerVariable>
+            <name>desktop_directory</name>
+            <persist>1</persist>
+            <value>~${env(SUDO_USER)}/Desktop</value>
+            <ruleList>
+                <platformTest>
+                    <negate>1</negate>
+                    <type>windows</type>
+                </platformTest>
+                <compareTextLength>
+                    <length>0</length>
+                    <logic>greater</logic>
+                    <text>${env(SUDO_USER)}</text>
+                </compareTextLength>
+            </ruleList>
+        </setInstallerVariable>
+        <setInstallerVariable>
+            <name>desktop_directory</name>
+            <persist>1</persist>
+            <value>${windows_folder_common_desktopdirectory}</value>
+            <ruleList>
+                <platformTest type="windows"/>
+            </ruleList>
+        </setInstallerVariable>
+
+        <!-- figure out the zip file name - it's a combination of install_image_${product_fullname_with_underscores} where ${product_fullname_with_underscores} is the ${product_fullName} and spaces changed to underscores -->
+        <setInstallerVariableFromRegEx>
+            <name>product_fullname_with_underscores</name>
+            <pattern>\s+</pattern>
+            <substitution>_</substitution>
+            <text>${product_fullName}</text>
+        </setInstallerVariableFromRegEx>
+        <setInstallerVariable>
+            <name>product_fullname_with_underscores</name>
+            <persist>1</persist>
+            <value>${product_fullname_with_underscores}</value>
+        </setInstallerVariable>
+        <setInstallerVariable>
+            <name>zipfile</name>
+            <value>install_image_${product_fullname_with_underscores}.zip</value>
+        </setInstallerVariable>
+        <logMessage>
+            <text>zipfile name is now ${zipfile}</text>
+        </logMessage>
+        <findFile>
+            <baseDirectory>${installer_directory.unix}</baseDirectory>
+            <pattern>${zipfile}</pattern>
+            <variable>zipfilex</variable>
+            <onErrorActionList>
+                <throwError>
+                    <text>Unable to find ${zipfile}. Please unzip the install folder before running the installer.</text>
+                </throwError>
+            </onErrorActionList>
+        </findFile>
+        <logMessage>
+            <text>Installing ${zipfile}</text>
+        </logMessage>
+    </initializationActionList>
+    <postInstallationActionList>
+        <!-- unzip the file -->
+        <deleteFile>
+            <path>${realinstalldir}/_tmp</path>
+            <ruleList>
+                <fileExists path="${realinstalldir}/_tmp"/>
+            </ruleList>
+        </deleteFile>
+        <createDirectory>
+            <path>${realinstalldir}/_tmp</path>
+        </createDirectory>
+        <unzip>
+            <destinationDirectory>${realinstalldir}/_tmp</destinationDirectory>
+            <explanation>Installing ${product_fullName}</explanation>
+            <progressText>Installing ${product_fullName} ...</progressText>
+            <zipFile>${zipfile}</zipFile>
+        </unzip>
+
+        <!-- get application directory: this is the temporary folder name - will be moved later to product_fullname_with_underscores -->
+        <findFile>
+            <baseDirectory>${realinstalldir}/_tmp</baseDirectory>
+            <pattern>*</pattern>
+            <variable>applicationsuffix</variable>
+        </findFile>
+        <setInstallerVariable>
+            <name>applicationdir</name>
+            <value></value>
+        </setInstallerVariable>
+        <setInstallerVariableFromRegEx>
+            <name>applicationdir</name>
+            <pattern>^(.*)[/\\](.*?)$</pattern>
+            <substitution>\2</substitution>
+            <text>${applicationsuffix}</text>
+            <ruleList>
+                <regExMatch>
+                    <logic>matches</logic>
+                    <pattern>^(.*)[/\\](.*?)$</pattern>
+                    <text>${applicationsuffix}</text>
+                </regExMatch>
+            </ruleList>
+        </setInstallerVariableFromRegEx>
+        <logMessage>
+            <text>product_fullname_with_underscores = ${product_fullname_with_underscores}</text>
+        </logMessage>
+        <setInstallerVariable>
+            <name>failure</name>
+            <value>0</value>
+        </setInstallerVariable>
+
+        <!-- now move the zip file contents from _tmp to ${realinstalldir} -->
+        <renameFile>
+            <abortOnError>0</abortOnError>
+            <destination>${realinstalldir}/${product_fullname_with_underscores}</destination>
+            <origin>${realinstalldir}/_tmp/${applicationdir}</origin>
+            <showMessageOnError>0</showMessageOnError>
+            <onErrorActionList>
+                <deleteFile>
+                    <path>${realinstalldir}/_tmp</path>
+                    <ruleList>
+                        <fileExists path="${realinstalldir}/_tmp"/>
+                    </ruleList>
+                </deleteFile>
+                <setInstallerVariable>
+                    <name>failure</name>
+                    <value>1</value>
+                </setInstallerVariable>
+            </onErrorActionList>
+        </renameFile>
+        <actionGroup>
+            <actionList>
+                <showWarning>
+                    <text>Unable to install ${product_fullname} in ${product_fullname_with_underscores}. Please view the log ${installer_installation_log} for more details.</text>
+                </showWarning>
+                <exit/>
+            </actionList>
+            <ruleList>
+                <isTrue value="${failure}"/>
+            </ruleList>
+        </actionGroup>
+		<addFilesToUninstaller files="${realinstalldir}/${product_fullname_with_underscores}"/>
+        <!-- clean up stuff -->
+        <deleteFile>
+            <path>${realinstalldir}/_tmp</path>
+            <ruleList>
+                <fileExists path="${realinstalldir}/_tmp"/>
+            </ruleList>
+        </deleteFile>
+        <deleteFile>
+            <path>${system_temp_directory}/gcruntime.properties</path>
+            <ruleList>
+                <fileExists path="${system_temp_directory}/gcruntime.properties"/>
+            </ruleList>
+        </deleteFile>
+        <deleteFile>
+            <abortOnError>0</abortOnError>
+            <path>${system_temp_directory}/bitrock_installer*.log</path>
+            <showMessageOnError>0</showMessageOnError>
+            <onErrorActionList>
+                <logMessage>
+                    <text>Unable to delete previously generated bitrock files.</text>
+                </logMessage>
+            </onErrorActionList>
+            <ruleList>
+                <platformTest>
+                    <type>windows</type>
+                </platformTest>
+            </ruleList>
+        </deleteFile>
+
+        <!-- find the installer.xml file -->
+        <findFile>
+            <abortOnError>0</abortOnError>
+            <baseDirectory>${realinstalldir}/${product_fullname_with_underscores}/installer</baseDirectory>
+            <pattern>installer.xml</pattern>
+            <showMessageOnError>0</showMessageOnError>
+            <variable>installerxml</variable>
+            <onErrorActionList>
+                <setInstallerVariable>
+                    <name>failure</name>
+                    <value>1</value>
+                </setInstallerVariable>
+            </onErrorActionList>
+        </findFile>
+        <logMessage>
+            <text>product_fullname_with_underscores ${product_fullname_with_underscores} failure ${failure}</text>
+        </logMessage>
+        <setInstallerVariable>
+            <name>product_fullname_with_underscores</name>
+            <persist>1</persist>
+            <value>${product_fullname_with_underscores}</value>
+        </setInstallerVariable>
+        <exit>
+            <exitCode>1</exitCode>
+            <ruleList>
+                <isTrue value="${failure}"/>
+            </ruleList>
+        </exit>
+        <actionGroup>
+            <actionList>
+                <showWarning>
+                    <text>Unable to find installer customizations, exiting now.</text>
+                </showWarning>
+                <exit/>
+            </actionList>
+            <ruleList>
+                <isTrue value="${failure}"/>
+            </ruleList>
+        </actionGroup>
+
+        <!-- read the installer.xml file -->
+        <foreach>
+            <values>executablename application icon banner licensefile readme releasenotes</values>
+            <variables>variablename</variables>
+            <actionList>
+                <setInstallerVariable>
+                    <name>${variablename}</name>
+                    <value></value>
+                </setInstallerVariable>
+                <xmlFileGet>
+                    <abortOnError>0</abortOnError>
+                    <attribute></attribute>
+                    <element>/properties/${variablename}</element>
+                    <file>${installerxml}</file>
+                    <showMessageOnError>0</showMessageOnError>
+                    <variable>${variablename}</variable>
+                </xmlFileGet>
+            </actionList>
+        </foreach>
+        <logMessage>
+            <text>install.xml variables: ${icon} ${banner} ${licensefile} ${readme} ${releasenotes}</text>
+        </logMessage>
+        <createShortcuts>
+            <destination>${installdir}/${product_fullname_with_underscores}</destination>
+            <shortcutList>
+                <shortcut>
+                    <comment>${product_fullname}</comment>
+                    <exec></exec>
+                    <icon></icon>
+                    <name>${product_fullname}</name>
+                    <path></path>
+                    <platforms>windows</platforms>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${realinstalldir}/win32/node-webkit/nw.exe</windowsExec>
+                    <windowsExecArgs>${realinstalldir}/${product_fullname_with_underscores}/splash</windowsExecArgs>
+                    <windowsIcon>${realinstalldir}/${icon}</windowsIcon>
+                    <windowsPath>${realinstalldir}/</windowsPath>
+                </shortcut>
+            </shortcutList>
+        </createShortcuts>
+    </postInstallationActionList>
+    <preUninstallationActionList>
+        <logMessage>
+            <text>uninstalling ${product_fullname_with_underscores}</text>
+        </logMessage>
+        <deleteFile>
+            <path>${realinstalldir}/${product_fullname_with_underscores}</path>
+        </deleteFile>
+    </preUninstallationActionList>
+    <postUninstallationActionList>
+        <deleteFile>
+            <path>${desktop_directory}/${product_fullname} ${app_version}.lnk</path>
+        </deleteFile>
+        <deleteFile>
+            <path>${installdir}/${product_fullname_with_underscores}/${product_fullname} ${app_version}.lnk</path>
+        </deleteFile>
+        <deleteFile>
+            <path>${installdir}/${product_fullname_with_underscores}/Uninstall ${product_fullname} ${app_version}.lnk</path>
+        </deleteFile>
+        <deleteFile>
+            <path>${windows_folder_common_programs}/${project.vendor}/GUI Composer/${product_fullname} ${app_version}.lnk</path>
+        </deleteFile>
+        <deleteFile>
+            <path>${windows_folder_common_programs}/${project.vendor}/GUI Composer/${product_fullname} ${app_version} Release Notes.lnk</path>
+        </deleteFile>
+        <setInstallerVariable>
+            <name>links</name>
+            <value></value>
+        </setInstallerVariable>
+        <findFile>
+            <baseDirectory>${windows_folder_common_programs}/${project.vendor}/GUI Composer</baseDirectory>
+            <findAll>1</findAll>
+            <pattern>*</pattern>
+            <variable>links</variable>
+        </findFile>
+        <deleteFile>
+            <path>${windows_folder_common_programs}/${project.vendor}/GUI Composer</path>
+            <ruleList>
+                <compareText logic="equals" text="${links}" value=""/>
+            </ruleList>
+        </deleteFile>
+
+        <!-- if runtime is the only uninstaller left, ask the user if they want to uninstall it -->
+        <setInstallerVariable name="number" value="0"/>
+        <findFile>
+            <baseDirectory>${realinstalldir.unix}</baseDirectory>
+            <findAll>1</findAll>
+            <pattern>uninstall_*.exe</pattern>
+            <variable>uninstallers</variable>
+        </findFile>
+        <foreach>
+            <values>${uninstallers}</values>
+            <variables>uninstaller</variables>
+            <actionList>
+                <mathExpression>
+                    <text>${number} + 1</text>
+                    <variable>number</variable>
+                </mathExpression>
+            </actionList>
+        </foreach>
+        <logMessage>
+            <text>Uninstallers found ${number}: ${uninstallers}</text>
+        </logMessage>
+        <showQuestion>
+            <default>no</default>
+            <text>You have no more applications dependent on the GUI Composer Runtime. Do you want to uninstall it?</text>
+            <variable>remove_gcr</variable>
+            <ruleList>
+                <compareValues>
+                    <logic>less_or_equal</logic>
+                    <value1>${number}</value1>
+                    <value2>1</value2>
+                </compareValues>
+            </ruleList>
+        </showQuestion>
+        <runProgram>
+            <abortOnError>0</abortOnError>
+            <program>${realinstalldir}/uninstall_GUIComposerRuntime.exe</program>
+            <programArguments>--mode unattended</programArguments>
+            <showMessageOnError>0</showMessageOnError>
+            <ruleList>
+                <compareText logic="equals" text="${remove_gcr}" value="yes"/>
+                <fileExists path="${realinstalldir}/uninstall_GUIComposerRuntime.exe"/>
+            </ruleList>
+        </runProgram>
+    </postUninstallationActionList>
+    <compressionAlgorithm>lzma-ultra</compressionAlgorithm>
+    <enableDebugger>1</enableDebugger>
+    <enableRollback>0</enableRollback>
+    <enableSslSupport>1</enableSslSupport>
+    <enableTimestamp>1</enableTimestamp>
+    <startMenuGroupName></startMenuGroupName>
+    <uninstallerDirectory>${realinstalldir}/</uninstallerDirectory>
+    <uninstallerName>uninstall_${product_fullname_with_underscores}</uninstallerName>
+    <vendor>Texas Instruments</vendor>
+    <width>560</width>
+    <finalPageActionList>
+        <actionGroup progressText="Create Start Menu Shortcuts">
+            <actionList>
+                <createDirectory>
+                    <path>${windows_folder_common_programs}/${project.vendor}/GUI Composer</path>
+                </createDirectory>
+                <createShortcuts>
+                    <customErrorMessage>Unable to create start Menu shortcuts</customErrorMessage>
+                    <destination>${windows_folder_common_programs}/${project.vendor}/GUI Composer</destination>
+                    <ruleList>
+                        <platformTest type="windows"/>
+                    </ruleList>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>${product_fullname} ${app_version}</comment>
+                            <exec></exec>
+                            <icon></icon>
+                            <name>${product_fullname} ${app_version}</name>
+                            <path></path>
+                            <platforms>windows</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec>${realinstalldir}/win32/node-webkit/nw.exe</windowsExec>
+                            <windowsExecArgs>${realinstalldir}/${product_fullname_with_underscores}/splash</windowsExecArgs>
+                            <windowsIcon>${realinstalldir}/${icon}</windowsIcon>
+                            <windowsPath>${realinstalldir}/</windowsPath>
+                        </shortcut>
+
+                        <!-- display release notes -->
+                        <fileShortcut>
+                            <comment>View release notes</comment>
+                            <filePath>${realinstalldir}/${releasenotes}</filePath>
+                            <icon></icon>
+                            <name>${product_fullname} ${app_version} Release Notes</name>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsIcon></windowsIcon>
+                            <ruleList>
+                                <compareText logic="does_not_equal" text="${releasenotes}" value=""/>
+                            </ruleList>
+                        </fileShortcut>
+                    </shortcutList>
+                </createShortcuts>
+            </actionList>
+        </actionGroup>
+
+        <!-- on desktop -->
+        <actionGroup progressText="Create Desktop Shortcut" run="0">
+            <actionList>
+                <createShortcuts>
+                    <customErrorMessage>Unable to create desktop shortcut</customErrorMessage>
+                    <destination>${desktop_directory}/</destination>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>${product_fullname} ${app_version}</comment>
+                            <exec>${realinstalldir}/${executablename}</exec>
+                            <icon>${realinstalldir}/${icon}</icon>
+                            <name>${product_fullname} ${app_version}</name>
+                            <path>${realinstalldir}</path>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec>${realinstalldir}/win32/node-webkit/nw.exe</windowsExec>
+                            <windowsExecArgs>${realinstalldir}/${product_fullname_with_underscores}/splash</windowsExecArgs>
+                            <windowsIcon>${realinstalldir}/${icon}</windowsIcon>
+                            <windowsPath>${realinstalldir}</windowsPath>
+                        </shortcut>
+                    </shortcutList>
+                </createShortcuts>
+            </actionList>
+        </actionGroup>
+
+        <!-- display readme file -->
+        <actionGroup progressText="View readme file">
+            <actionList>
+                <readFile>
+                    <name>text</name>
+                    <path>${realinstalldir}/${readme}</path>
+                </readFile>
+                <showText>
+                    <height>500</height>
+                    <text>${text}</text>
+                    <title>README</title>
+                    <width>800</width>
+                </showText>
+            </actionList>
+            <ruleList>
+                <compareText logic="does_not_equal" text="${readme}" value=""/>
+            </ruleList>
+        </actionGroup>
+
+        <!-- launch application -->
+        <runProgram>
+            <program>${realinstalldir}/win32/node-webkit/nw.exe</program>
+            <programArguments>${realinstalldir}/${product_fullname_with_underscores}/splash &amp;</programArguments>
+            <progressText>Launch ${product_fullname}</progressText>
+            <ruleList>
+                <fileExists path="${realinstalldir}/win32/node-webkit/nw.exe"/>
+            </ruleList>
+        </runProgram>
+    </finalPageActionList>
+    <installationAbortedActionList>
+        <!-- clean up stuff -->
+        <deleteFile>
+            <path>${system_temp_directory}/gcruntime.properties</path>
+            <ruleList>
+                <fileExists path="${system_temp_directory}/gcruntime.properties"/>
+            </ruleList>
+        </deleteFile>
+        <deleteFile>
+            <abortOnError>0</abortOnError>
+            <path>${system_temp_directory}/bitrock_installer*.log</path>
+            <showMessageOnError>0</showMessageOnError>
+            <onErrorActionList>
+                <logMessage>
+                    <text>Unable to delete previously generated bitrock files.</text>
+                </logMessage>
+            </onErrorActionList>
+            <ruleList>
+                <platformTest>
+                    <type>windows</type>
+                </platformTest>
+            </ruleList>
+        </deleteFile>
+    </installationAbortedActionList>
+    <parameterList>
+        <parameterGroup>
+            <name>directories</name>
+            <title>Select Installation Folders</title>
+            <explanation></explanation>
+            <value></value>
+            <default></default>
+            <parameterList>
+                <directoryParameter>
+                    <name>installdir</name>
+                    <description></description>
+                    <explanation>Application Directory</explanation>
+                    <value></value>
+                    <default>${platform_install_prefix}/${project.vendor}</default>
+                    <allowEmptyValue>0</allowEmptyValue>
+                    <ask>yes</ask>
+                    <cliOptionName>prefix</cliOptionName>
+                    <mustBeWritable>yes</mustBeWritable>
+                    <mustExist>0</mustExist>
+                    <width>60</width>
+                </directoryParameter>
+                <directoryParameter>
+                    <name>realinstalldir</name>
+                    <description></description>
+                    <explanation>Runtime Directory</explanation>
+                    <value></value>
+                    <default>${user_home_directory}/guicomposer/runtime</default>
+                    <allowEmptyValue>0</allowEmptyValue>
+                    <ask>yes</ask>
+                    <cliOptionName>prefix</cliOptionName>
+                    <mustBeWritable>yes</mustBeWritable>
+                    <mustExist>0</mustExist>
+                    <width>60</width>
+                    <validationActionList>
+                        <!-- make sure the user is not writing to program files -->
+                        <throwError>
+                            <text>Installing in ${realinstalldir} may cause write issues. Please select another folder.</text>
+                            <ruleList>
+                                <regExMatch>
+                                    <logic>matches</logic>
+                                    <pattern>(?i)^.:.program files.*$</pattern>
+                                    <text>${realinstalldir}</text>
+                                </regExMatch>
+                            </ruleList>
+                        </throwError>
+                        <setInstallerVariable>
+                            <name>realinstalldir</name>
+                            <persist>1</persist>
+                            <value>${realinstalldir}/gcruntime.v${gc_major_required}</value>
+                        </setInstallerVariable>
+                        <logMessage>
+                            <text>realinstalldir = ${realinstalldir}</text>
+                        </logMessage>
+
+                        <!-- see if the application has already been installed in this runtime -->
+                        <setInstallerVariable>
+                            <name>found_product</name>
+                            <value>false</value>
+                        </setInstallerVariable>
+                        <setInstallerVariable>
+                            <name>found_product</name>
+                            <value>true</value>
+                            <ruleList>
+                                <ruleGroup ruleEvaluationLogic="or">
+                                    <ruleList>
+                                        <fileExists path="${realinstalldir}/${uninstallerName}.exe"/>
+                                        <fileExists path="${realinstalldir}/${product_fullname_with_underscores}"/>
+                                    </ruleList>
+                                </ruleGroup>
+                            </ruleList>
+                        </setInstallerVariable>
+                        <actionGroup>
+                            <actionList>
+                                <setInstallerVariable>
+                                    <name>app_version_installed</name>
+                                    <value></value>
+                                </setInstallerVariable>
+                                <xmlFileGet>
+                                    <abortOnError>0</abortOnError>
+                                    <attribute></attribute>
+                                    <element>/properties/app_version</element>
+                                    <file>${realinstalldir}/${product_fullname_with_underscores}/installer/installer.xml</file>
+                                    <showMessageOnError>0</showMessageOnError>
+                                    <variable>app_version_installed</variable>
+                                    <ruleList>
+                                        <fileExists path="${realinstalldir}/${product_fullname_with_underscores}/installer/installer.xml"/>
+                                    </ruleList>
+                                </xmlFileGet>
+                                <setInstallerVariable>
+                                    <name>uninstall_app</name>
+                                    <value>no</value>
+                                </setInstallerVariable>
+                                <showQuestion>
+                                    <default>yes</default>
+                                    <text>Your already have ${product_fullName} ${app_version_installed} installed. Do you want to upgrade it to ${app_version}? </text>
+                                    <variable>uninstall_app</variable>
+                                </showQuestion>
+                                <dirName>
+                                    <path>${realinstalldir}</path>
+                                    <variable>realinstalldir</variable>
+                                    <ruleList>
+                                        <compareText logic="equals" text="${uninstall_app}" value="no"/>
+                                    </ruleList>
+                                </dirName>
+                                <throwError>
+                                    <text>Please select another runtime directory for side-by-side install.</text>
+                                    <ruleList>
+                                        <compareText logic="equals" text="${uninstall_app}" value="no"/>
+                                    </ruleList>
+                                </throwError>
+                                <showProgressDialog>
+                                    <title>Uninstalling ${product_fullName}</title>
+                                    <actionList>
+                                        <runProgram>
+                                            <abortOnError>0</abortOnError>
+                                            <program>${realinstalldir}/${uninstallerName}.exe</program>
+                                            <programArguments>--mode unattended</programArguments>
+                                            <progressText>Uninstalling ${product_fullName}</progressText>
+                                            <showMessageOnError>0</showMessageOnError>
+                                            <ruleList>
+                                                <compareText logic="equals" text="${uninstall_app}" value="yes"/>
+                                                <fileExists path="${realinstalldir}/${uninstallerName}.exe"/>
+                                            </ruleList>
+                                        </runProgram>
+                                    </actionList>
+                                </showProgressDialog>
+                                <showProgressDialog>
+                                    <title>Uninstalling ${product_fullName}</title>
+                                    <actionList>
+                                        <runProgram>
+                                            <abortOnError>0</abortOnError>
+                                            <program>cmd</program>
+                                            <programArguments>/C "rd /Q/S ${realinstalldir.dos}\${product_fullname_with_underscores}"</programArguments>
+                                            <progressText>Uninstalling ${product_fullName}</progressText>
+                                            <showMessageOnError>0</showMessageOnError>
+                                            <ruleList>
+                                                <compareText logic="equals" text="${uninstall_app}" value="yes"/>
+                                                <fileExists negate="1" path="${realinstalldir}/${uninstallerName}.exe"/>
+                                            </ruleList>
+                                        </runProgram>
+                                    </actionList>
+                                </showProgressDialog>
+                            </actionList>
+                            <ruleList>
+                                <fileExists path="${realinstalldir}/${uninstallerName}.exe"/>
+                            </ruleList>
+                        </actionGroup>
+
+                        <!-- compare installed version of the runtime if it exists -->
+                        <setInstallerVariable>
+                            <name>installed_gcversion</name>
+                            <value>0.0.0.0</value>
+                        </setInstallerVariable>
+                        <xmlFileGet>
+                            <abortOnError>0</abortOnError>
+                            <attribute></attribute>
+                            <element>/guicomposer_runtime/version</element>
+                            <file>${realinstalldir}/version.xml</file>
+                            <showMessageOnError>0</showMessageOnError>
+                            <variable>installed_gcversion</variable>
+                            <ruleList>
+                                <fileExists path="${realinstalldir}/version.xml"/>
+                            </ruleList>
+                        </xmlFileGet>
+                        <setInstallerVariable>
+                            <name>install_gcruntime</name>
+                            <value>false</value>
+                        </setInstallerVariable>
+                        <logMessage>
+                            <text>installed gc runtime version ${installed_gcversion}</text>
+                        </logMessage>
+
+                        <!-- if installed version is 0.0.0.0 - install the runtime -->
+                        <setInstallerVariable>
+                            <name>install_gcruntime</name>
+                            <value>true</value>
+                            <ruleList>
+                                <compareText>
+                                    <logic>equals</logic>
+                                    <text>${installed_gcversion}</text>
+                                    <value>0.0.0.0</value>
+                                </compareText>
+                            </ruleList>
+                        </setInstallerVariable>
+
+                        <!-- if installed version < - ask to update or choose another folder -->
+                        <actionGroup>
+                            <actionList>
+                                <showQuestion>
+                                    <default>yes</default>
+                                    <text>Your application requires GUI Composer Runtime version ${gcversion_required}. You currently have version ${installed_gcversion} installed in ${realinstalldir.unix}. Do you want to upgrade it?</text>
+                                    <variable>uninstall_first</variable>
+                                </showQuestion>
+                                <dirName>
+                                    <path>${realinstalldir}</path>
+                                    <variable>realinstalldir</variable>
+                                    <ruleList>
+                                        <compareText logic="equals" text="${uninstall_first}" value="no"/>
+                                    </ruleList>
+                                </dirName>
+                                <throwError>
+                                    <text>Please select another runtime directory for side-by-side install.</text>
+                                    <ruleList>
+                                        <compareText logic="equals" text="${uninstall_first}" value="no"/>
+                                    </ruleList>
+                                </throwError>
+                                <setInstallerVariable>
+                                    <name>install_gcruntime</name>
+                                    <value>true</value>
+                                    <ruleList>
+                                        <compareText logic="equals" text="${uninstall_first}" value="yes"/>
+                                    </ruleList>
+                                </setInstallerVariable>
+
+                                <!-- uninstall the gc runtime here -->
+                                <showProgressDialog>
+                                    <title>Uninstalling runtime</title>
+                                    <actionList>
+                                        <runProgram>
+                                            <abortOnError>0</abortOnError>
+                                            <program>${realinstalldir}/uninstall_GUIComposerRuntime.exe</program>
+                                            <programArguments>--mode unattended</programArguments>
+                                            <progressText>Uninstalling GUI Composer Runtime</progressText>
+                                            <showMessageOnError>0</showMessageOnError>
+                                            <ruleList>
+                                                <compareText logic="equals" text="${uninstall_first}" value="yes"/>
+                                                <fileExists path="${realinstalldir}/uninstall_GUIComposerRuntime.exe"/>
+                                            </ruleList>
+                                        </runProgram>
+                                    </actionList>
+                                </showProgressDialog>
+                            </actionList>
+                            <ruleList>
+                                <compareVersions>
+                                    <logic>less</logic>
+                                    <version1>${installed_gcversion}</version1>
+                                    <version2>${gcversion_required}</version2>
+                                </compareVersions>
+                                <compareVersions>
+                                    <logic>does_not_equal</logic>
+                                    <version1>${installed_gcversion}</version1>
+                                    <version2>0.0.0.0</version2>
+                                </compareVersions>
+                            </ruleList>
+                        </actionGroup>
+
+                        <!-- if installed version == or greater than - skip -->
+                    </validationActionList>
+                </directoryParameter>
+            </parameterList>
+        </parameterGroup>
+
+        <!-- <stringParameter name="realinstalldir" ask="0">
+            <description></description>
+            <explanation></explanation>
+            <value>${user_home_directory}/guicomposer</value>
+            <default>${user_home_directory}/guicomposer</default>
+            <allowEmptyValue>1</allowEmptyValue>
+            <width>40</width>
+        </stringParameter> -->
+        <directoryParameter>
+            <name>builddir</name>
+            <description>Installer.Parameter.builddir.description</description>
+            <explanation>Installer.Parameter.builddir.explanation</explanation>
+            <value></value>
+            <default>C:\git\ti-guicomposer-designer\designer\installer</default>
+            <allowEmptyValue>0</allowEmptyValue>
+            <ask>no</ask>
+            <cliOptionName>prefix</cliOptionName>
+            <mustBeWritable>yes</mustBeWritable>
+            <mustExist>0</mustExist>
+            <width>40</width>
+        </directoryParameter>
+        <choiceParameterGroup>
+            <name>choice</name>
+            <description>GUI Composer Runtime</description>
+            <explanation>
+There is no valid GUI Composer Runtime available on your machine.
+You can either provide a location for the downloaded installer, or choose to download from the web.			
+			</explanation>
+            <value>download_gcr</value>
+            <default></default>
+            <parameterList>
+                <labelParameter name="download_gcr" description="Download from web">
+                    <explanation></explanation>
+                    <image></image>
+                    <validationActionList>
+                        <setInstallerVariable>
+                            <name>failure</name>
+                            <value>0</value>
+                        </setInstallerVariable>
+
+                        <!-- download -->
+                        <logMessage>
+                            <text>download selected [${project.parameter(choice).value}] ${test}</text>
+                        </logMessage>
+                        <actionGroup>
+                            <actionList>
+                                <httpGet>
+                                    <filename>${system_temp_directory}/gcruntime.properties</filename>
+                                    <url>http://software-dl.ti.com/ccs/non-esd/gui_composer/runtime/gcruntime.properties</url>
+                                </httpGet>
+
+                                <!-- <logMessage><text>${installer_http_code}</text></logMessage>
+                                <throwError>
+                                    <ruleEvaluationLogic>or</ruleEvaluationLogic>
+                                    <text>HTTP request failed. Please download the file yourself and continue.</text>
+                                    <ruleList>
+                                        <compareValues>
+                                            <logic>less</logic>
+                                            <value1>${installer_http_code}</value1>
+                                            <value2>200</value2>
+                                        </compareValues>
+                                        <compareValues>
+                                            <logic>greater_or_equal</logic>
+                                            <value1>${installer_http_code}</value1>
+                                            <value2>400</value2>
+                                        </compareValues>
+                                    </ruleList>
+                                </throwError> 
+ read the xml file -->
+                                <propertiesFileGet>
+                                    <customErrorMessage>HTTP request failed. Please download the file yourself and continue.</customErrorMessage>
+                                    <file>${system_temp_directory}/gcruntime.properties</file>
+                                    <key>gcruntime.v${gc_major_required}</key>
+                                    <variable>gc_to_download</variable>
+                                </propertiesFileGet>
+                                <showProgressDialog>
+                                    <title>GUI Composer Runtime</title>
+                                    <width>400</width>
+                                    <actionList>
+                                        <httpGet>
+                                            <filename>${system_temp_directory}/gcruntime-${gc_to_download}-windows-installer.exe</filename>
+                                            <url>http://software-dl.ti.com/ccs/non-esd/gui_composer/runtime/gcruntime-${gc_to_download}-windows-installer.exe</url>
+                                        </httpGet>
+                                    </actionList>
+                                </showProgressDialog>
+                                <runProgram>
+                                    <abortOnError>0</abortOnError>
+                                    <program>${system_temp_directory}/gcruntime-${gc_to_download}-windows-installer.exe</program>
+                                    <programArguments>--mode unattended --unattendedmodeui minimal --prefix "${installdir}" --workspace "${realinstalldir}"</programArguments>
+                                    <progressText>Installing GUI Composer Runtime</progressText>
+                                    <showMessageOnError>0</showMessageOnError>
+                                </runProgram>
+                                <xmlFileGet>
+                                    <abortOnError>0</abortOnError>
+                                    <attribute></attribute>
+                                    <element>/guicomposer_runtime/version</element>
+                                    <file>${realinstalldir}/version.xml</file>
+                                    <showMessageOnError>0</showMessageOnError>
+                                    <variable>installed_gcversion</variable>
+                                    <ruleList>
+                                        <fileExists path="${realinstalldir}/version.xml"/>
+                                    </ruleList>
+                                </xmlFileGet>
+                                <logMessage>
+                                    <text>runtime version found ${installed_gcversion}</text>
+                                </logMessage>
+                                <throwError>
+                                    <text>Unable to download and install GUI Composer Runtime. Please install before continuing.</text>
+                                    <ruleList>
+                                        <compareText logic="equals" text="${installed_gcversion}" value=""/>
+                                    </ruleList>
+                                </throwError>
+                                <setInstallerVariable>
+                                    <name>next_page</name>
+                                    <value>installation</value>
+                                </setInstallerVariable>
+                            </actionList>
+                            <ruleList>
+                                <compareText>
+                                    <logic>equals</logic>
+                                    <text>download_gcr</text>
+                                    <value>${project.parameter(choice).value}</value>
+                                </compareText>
+                            </ruleList>
+                        </actionGroup>
+                    </validationActionList>
+                </labelParameter>
+                <fileParameter>
+                    <name>local_gcr</name>
+                    <description>Install from file</description>
+                    <explanation></explanation>
+                    <value></value>
+                    <default></default>
+                    <allowEmptyValue>0</allowEmptyValue>
+                    <mustBeWritable>0</mustBeWritable>
+                    <mustExist>0</mustExist>
+                    <width>40</width>
+                    <validationActionList>
+                        <actionGroup>
+                            <actionList>
+                                <logMessage>
+                                    <text>file selected [${project.parameter(choice).value}] ${project.parameter(choice).parameter(local_gcr).value} ${local_gcr}</text>
+                                </logMessage>
+                                <runProgram>
+                                    <abortOnError>0</abortOnError>
+                                    <program>${local_gcr}</program>
+                                    <programArguments>--mode unattended --unattendedmodeui minimal --prefix "${installdir}" --workspace "${realinstalldir}"</programArguments>
+                                    <progressText>Installing GUI Composer Runtime</progressText>
+                                    <showMessageOnError>0</showMessageOnError>
+                                </runProgram>
+                                <xmlFileGet>
+                                    <abortOnError>0</abortOnError>
+
+                                    <!-- Specify the attribute -->
+                                    <attribute></attribute>
+                                    <element>/guicomposer_runtime/version</element>
+                                    <file>${realinstalldir}/version.xml</file>
+                                    <showMessageOnError>0</showMessageOnError>
+                                    <variable>installed_gcversion</variable>
+                                    <ruleList>
+                                        <fileExists path="${realinstalldir}/version.xml"/>
+                                    </ruleList>
+                                </xmlFileGet>
+                                <logMessage>
+                                    <text>gcversion = ${installed_gcversion} </text>
+                                </logMessage>
+                                <throwError>
+                                    <text>Unable to install GUI Composer Runtime from ${local_gcr}. Please install before continuing.</text>
+                                    <ruleList>
+                                        <compareText logic="equals" text="${installed_gcversion}" value=""/>
+                                    </ruleList>
+                                </throwError>
+                                <setInstallerVariable>
+                                    <name>next_page</name>
+                                    <value>installation</value>
+                                </setInstallerVariable>
+                            </actionList>
+                            <ruleList>
+                                <compareText>
+                                    <logic>equals</logic>
+                                    <text>local_gcr</text>
+                                    <value>${project.parameter(choice).value}</value>
+                                </compareText>
+                            </ruleList>
+                        </actionGroup>
+                    </validationActionList>
+                </fileParameter>
+            </parameterList>
+            <ruleList>
+                <isTrue value="${install_gcruntime}"/>
+            </ruleList>
+        </choiceParameterGroup>
+    </parameterList>
+</project>
+

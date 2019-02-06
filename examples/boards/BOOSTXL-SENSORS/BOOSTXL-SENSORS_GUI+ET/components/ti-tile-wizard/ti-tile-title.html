@@ -1,0 +1,156 @@
+<!--
+`ti-tile-title` is an empty container widget to host child widgets.  
+
+Example:
+
+    <ti-tile-title></ti-tile-title>
+
+See demo for a full working example of how to use this component.
+
+@group Instrument Tiles
+@element ti-tile-title
+@extends ti-tile-base
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-common/ti-widget-base-text.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-icons/device-icons.html">
+<link rel="import" href="ti-tile-properties.html">
+<link rel="import" href="ti-tile-base.html">
+<link rel="stylesheet" href="../paper-shadow/paper-shadow.css"  shim-shadowdom>
+
+<polymer-element name="ti-tile-title"  extends="ti-tile-base" >
+
+    <template>
+        <style>
+            :host {
+                display : inline-block;
+                text-decoration: inherit;
+                position : relative;
+                width: 150px;
+                height: 40px;
+            }
+            core-icon-button /deep/ core-icon[role=img] {
+                height: 15px;
+                width: 15px;
+            }
+            #titleDiv {
+                position: absolute;
+                display:block;
+                left: 50%;
+                top: 2px;
+                margin-right: -50%;
+                transform: translate(-50%, 0);
+              /*  color:{{titleFontColor}}; */
+                text-decoration:{{titleTextDecoration}};
+                font-size:{{titleFontSize}};
+                font-weight:{{titleFontWeight}};
+                word-wrap: break-word;
+                white-space:normal;
+            }
+            #editIcon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 1px;
+                padding: 0 1px 1px 1px;
+            }
+            #containerDiv {
+                position: relative;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                height:100%;
+            /*    background-color: {{backgroundColor}}; */
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
+
+
+
+        </style>
+        <ti-tile-properties id="propertiesDialog"  layout></ti-tile-properties>
+        <div id="shadow-bottom" fit  class="paper-shadow-bottom-z-[[elevation]]"></div>
+        <div id="shadow-top" fit  class="paper-shadow-top-z-[[elevation]]"></div>
+        <div id="containerDiv" horizontal layout center >
+            <div id="titleDiv" flex >{{titleText}}</div>
+            <template if="{{_inDesigner()}}">
+                <core-icon-button id="editIcon"  icon="create" on-tap="{{editProperties}}" title="edit tile properties" ></core-icon-button>
+            </template>
+
+        </div>
+        <content></content>
+    </template>
+    <script>
+        Polymer ('ti-tile-title',
+                {
+
+                    publish: {
+                        titleText: '',
+
+                        titleFontSize: "xx-large",
+                        titleFontWeight: "bold",
+                        titleTextDecoration: "none"
+                        // titleFontColor: '#444444',
+                        // backgroundColor: '#ffffff'
+                    },
+                    getCategory: function() {
+                        return 'Meter';
+                    },
+                    getComponentName: function() {
+                        return 'Multipurpose';
+                    },
+					getElement : function()
+                    {
+                        if (this.$) {
+                            return this.$.containerDiv;
+                        } else {
+                            return null;
+                        }
+                    },
+                    domReady: function(){
+
+                        var menuItem = this.querySelector('#ti_tile_title_menuitem');
+                        if (menuItem){
+                            var serialIoModel = this.parentNode.querySelector('ti-serialio-model');
+                            var programModel = this.parentNode.querySelector('ti-program-model');
+                            if ((!serialIoModel) && (!programModel)){
+                                menuItem.setAttribute('hidden',true);
+                            } else {
+                                menuItem.removeAttribute('hidden');
+                            }
+                        }
+
+                    }
+                });
+    </script>
+</polymer-element>

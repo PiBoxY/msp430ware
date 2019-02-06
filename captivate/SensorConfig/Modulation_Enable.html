@@ -1,0 +1,41 @@
+<!-- Captivate Description HTML -->
+<!-- Modulation_Enable Tuning Parameter -->
+
+<html>
+	<body>
+		<B>Oscillator Modulation Enable</B>
+		<P>
+		
+		The CapTIvate peripheral oscillator incorporates a spread-spectrum clocking feature for reducing
+		electromagnetic radiation.  When modulation is enabled, the CapTIvate oscillator will dither clock edges,
+		spreading out clock energy across a wider frequency band.  This has an effect on emissions as well
+		as susceptibility.
+		
+		
+		<!--<P>
+		<img src="visualizer_images/Idle_State.png">
+		<P>-->
+	
+		<P>
+		<B>Implementation Notes</B>
+		<BR>
+		If nearby systems are effected by the capacitive touch signals being driven by the CapTIvate peripheral,
+		enabling modulation will reduce the peak radiated energy by spreading out the energy any may help improve
+		electromagnetic compatibility.
+		
+		For self-capacitance designs the require noise immunity, modulation should be enabled.
+		For mutual-capacitance designs that require noise immunity, modulation should be disabled.
+
+		<P>
+		<B>Affected Software Parameters</B>
+		<BR>
+		
+		The Modulation_Enable parameter corresponds to the
+		<i><b>bModEnable</b></i> 
+		member of the
+		<i><b>tSensor</b></i> 
+		type in the CapTIvate Touch Library.
+		<BR>
+		
+	</body>
+</html>

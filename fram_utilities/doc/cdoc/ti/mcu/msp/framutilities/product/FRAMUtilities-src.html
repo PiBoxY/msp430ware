@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module ti.mcu.msp.framutilities.product.FRAMUtilities</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    @Template(<span class="string">"./FRAMUtilities.xdt"</span>)
+     2    <span class=key>metaonly</span> <span class=key>module</span> FRAMUtilities
+     3    {
+     4        <span class="xdoc">/*!
+</span>     5    <span class="xdoc">     *  ======== BASENAME ========
+</span>     6    <span class="xdoc">     *  The base name of the pre-built DriverLib library
+</span>     7    <span class="xdoc">     *  
+</span>     8    <span class="xdoc">     *  This name controls the name of a pre-built DriverLib library.  For
+</span>     9    <span class="xdoc">     *  example, if BASENAME is set to "driverlib" the name of the library
+</span>    10    <span class="xdoc">     *  will be driverlib.lib in the ./src/driverlib folder of your project.
+</span>    11    <span class="xdoc">     *  
+</span>    12    <span class="xdoc">     *  <b>@_nodoc</b>
+</span>    13    <span class="xdoc">     */</span>
+    14        <span class=key>const</span> String BASENAME = <span class="string">"framutilities"</span>;
+    15    
+    16        <span class="xdoc">/*!
+</span>    17    <span class="xdoc">     *  ======== getFamilyPath ========
+</span>    18    <span class="xdoc">     *  Given a device name, return the path to the device family's sources
+</span>    19    <span class="xdoc">     *
+</span>    20    <span class="xdoc">     *  This function returns a path relative to the DriverLib source
+</span>    21    <span class="xdoc">     *  repository containing the DriverLib sources.  For example,
+</span>    22    <span class="xdoc">     *  if `deviceName` is `"MSP430FR5969"`, this function returns
+</span>    23    <span class="xdoc">     *  `"driverlib/MSP430FR5xx_6xx"`.
+</span>    24    <span class="xdoc">     *
+</span>    25    <span class="xdoc">     *  The string returned by this function can be used with `getSrcRepo`
+</span>    26    <span class="xdoc">     *  to obtain the absolute path to the sources for the DriverLib family
+</span>    27    <span class="xdoc">     *  that supports the device `deviceName`.
+</span>    28    <span class="xdoc">     *  
+</span>    29    <span class="xdoc">     *  <b>@see</b> #getSrcRepo
+</span>    30    <span class="xdoc">     */</span>
+    31        String getFamilyPath(String deviceName);
+    32    
+    33        <span class="xdoc">/*!
+</span>    34    <span class="xdoc">     *  ======== getLibPath ========
+</span>    35    <span class="xdoc">     *  Returns the path to a pre-built DriverLib library
+</span>    36    <span class="xdoc">     *  
+</span>    37    <span class="xdoc">     *  This function is called by the `getLibs()` method provided by the
+</span>    38    <span class="xdoc">     *  package containing the DriverLib module.  This `getLibs()` method
+</span>    39    <span class="xdoc">     *  is implemented in the `package.xs` file and is used to provide the
+</span>    40    <span class="xdoc">     *  path to a pre-built DriverLib library for any project that uses
+</span>    41    <span class="xdoc">     *  DriverLib.
+</span>    42    <span class="xdoc">     *  
+</span>    43    <span class="xdoc">     *  <b>@_nodoc</b>
+</span>    44    <span class="xdoc">     */</span>
+    45        String getLibPath();
+    46    
+    47        <span class="xdoc">/*!
+</span>    48    <span class="xdoc">     *  ======== getSrcRepo ========
+</span>    49    <span class="xdoc">     *  Given a family path, return the path to it's source repository
+</span>    50    <span class="xdoc">     *
+</span>    51    <span class="xdoc">     *  This function returns an absolute path to the repository
+</span>    52    <span class="xdoc">     *  containing the DriverLib sources for the specified device family.
+</span>    53    <span class="xdoc">     *
+</span>    54    <span class="xdoc">     *  <b>@see</b> #getFamilyPath
+</span>    55    <span class="xdoc">     */</span>
+    56        String getSrcRepo(String familyPath);
+    57    
+    58        <span class="xdoc">/*!
+</span>    59    <span class="xdoc">     *  ======== outputDir ========
+</span>    60    <span class="xdoc">     *  The output directory for all generated sources
+</span>    61    <span class="xdoc">     *
+</span>    62    <span class="xdoc">     *  The default output directory is the `src/` sub-directory of the
+</span>    63    <span class="xdoc">     *  directory containing the configuration script used to specify
+</span>    64    <span class="xdoc">     *  the peripherals for which to generate code.
+</span>    65    <span class="xdoc">     *
+</span>    66    <span class="xdoc">     *  This parameter should only be changed when running the
+</span>    67    <span class="xdoc">     *  configuration tool in a command line environment.  Integrated
+</span>    68    <span class="xdoc">     *  Development Environments (IDEs) often require that generated sources
+</span>    69    <span class="xdoc">     *  be placed in specific directories.  Changes to this parameter often
+</span>    70    <span class="xdoc">     *  require corresponding changes to the IDE.
+</span>    71    <span class="xdoc">     *
+</span>    72    <span class="xdoc">     *  <b>@_nodoc</b>
+</span>    73    <span class="xdoc">     */</span>
+    74        <span class=key>config</span> String outputDir;
+    75    }
+</pre>
+</body></html>

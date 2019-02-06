@@ -1,0 +1,221 @@
+<!--
+`ti-widget-gauge` is an analog meter for display values in a semi circular fashion.
+
+Example:
+
+    <ti-widget-gauge titleLabel="Gauge"></ti-widget-gauge>
+
+See demo for a full working example of how to use this component.
+
+@group TI Instrument Widgets
+@element ti-widget-gauge
+@extends ti-widget-base-gauge
+@homepage ../../../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+        its contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ti-widget-instruments/ti-widget-base-gauge.html">
+
+<polymer-element name="ti-widget-gauge" extends="ti-widget-base-gauge" attributes="value gaugeThickness units valueFontSize">
+    <template>
+        <style>
+            :host 
+            {
+                display: inline-block;
+            }
+            svg {
+                width: 100%;
+                height: auto;
+                overflow: visible;
+            }
+            #minLabel, #maxLabel, #valueUnits {
+                transform: translateX(-50%);
+                color: {{getFontColor(disabled)}};
+                padding: 0.3em;
+                position: absolute;
+                font-size: small;
+            }
+            #valueUnits {
+                font-weight: bold;
+            }
+            #minLabelDiv {
+                position: relative;
+                left: 10%;
+                width: 0px;
+            }
+            #maxLabelDiv {
+                position: relative;
+                left: 90%;
+                width: 0px;
+            }
+            #valueLabelDiv {
+                position: relative;
+                left: 50%;
+                width: 0px;
+                bottom: 1.3em;
+                padding: 0px;
+                margin: 0px;
+            }
+            #valueLabel {
+                transform: translateX(-50%);
+                color: {{getFontColor(disabled)}};
+                position: absolute;
+                font-size: xx-large;
+                font-weight: bold;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+            #title {
+                font-size: large;
+                color: {{getFontColor(disabled)}};
+                padding: 0.3em;
+            }
+            #labelsContainer {
+                height: 1.3em;
+            }
+            #top {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+
+        <div id="top" layout vertical around-justified>
+            <label id="title">{{titleLabel}}</label>
+            <div>
+            <svg id="gauge" width="100%" height="100%" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet">
+                <path class="innerShadow" stroke="none" fill="#edebeb" id="underlay" d="M0,100A100,100,0,0,1,200,100L160,100A60,60,0,0,0,40,100Z"></path>
+                <path class="innerShadow" stroke="none" fill="orange" id="level" d="M0,100A100,100,0,0,1,100,0L100,40A60,60,0,0,0,40,100Z"></path>
+            </svg>
+            <div id="labelsContainer" layout horizontal>
+                <div id="minLabelDiv"><label id="minLabel">{{minValue}}</label></div>
+                <div id="valueLabelDiv" >
+                    <label id="valueLabel" style="font-size:{{valueFontSize}};">{{_displayValue}}</label>
+                    <p id="valueUnits">{{_displayUnits}}<sup>{{_displayUnitsSuperscript}}</sup></p>
+                </div>
+                <div id="maxLabelDiv"><label id="maxLabel">{{maxValue}}</label></div>
+            </div>
+            </div>
+        </div>  
+    </template>
+    
+    <script>
+        Polymer ('ti-widget-gauge', 
+        {
+            /**
+             * Controls the value to displayed in this gauge.
+             *
+             * @attribute value
+             * @type number 
+             */
+             
+             /**
+              * Controls the width of the semi-circular arc used to represent the value in this gauge.
+              *
+              * @attribute gaugeThickness
+              * @type number 
+              */
+            gaugeThickness: 40,
+            units: "",
+            valueFontSize: "xx-large",
+            updateGauge : function(val)
+            {
+                if (!this.$) return;
+                var path = this.$.level;
+                path.setAttribute('d', this.createPath(val));
+                var color = this.getColorForPercentage(val, this._percentColors);
+                
+                path.setAttribute('fill', color);
+            },
+            gaugeThicknessChanged : function()
+            {
+                if (!this.$) return;
+                var thickness = +this.gaugeThickness;
+                if (isNaN(thickness)) 
+                {
+                    this.gaugeThickness = 40;    
+                }
+                else if (thickness < 5)
+                {
+                    this.gaugeThickness = 5;
+                }
+                else if (thickness > 95)
+                {
+                    this.gaugeThickness = 95;
+                }
+                
+                this.updateValue();
+                var path = this.$.underlay;
+                path.setAttribute('d', this.createPath(1));
+                var width = +this.gaugeThickness/4;
+                
+                this.$.minLabelDiv.style.left = width + '%';
+                this.$.maxLabelDiv.style.left = (100-width) + '%';
+            },
+            createPath : function(val) 
+            {
+                var Ro = 100;
+                var Ri = 100 - this.gaugeThickness;
+                
+                Ri = Math.max(Ri, 5);
+                Ri = Math.min(Ri, 95);
+                
+                var alpha = (1 - val) * Math.PI;
+                
+                var Xo = Ro * Math.cos(alpha);
+                var Yo = Ro * Math.sin(alpha);
+                var Xi = Ri * Math.cos(alpha);
+                var Yi = Ri * Math.sin(alpha);
+
+                return 'M0,100A100,100,0,0,1,' + (100+Xo) + ',' + (100-Yo) + 
+                           'L' + (100+Xi) + ',' + (100-Yi) + 
+                           'A' + Ri + ',' + Ri + ',0,0,0,' + (100-Ri) + ',100Z'; 
+            },
+            unitsChanged: function() 
+            {
+                var units = this.units;
+                var pos = units.indexOf('^');
+                if (pos > 0)
+                {
+                    this._displayUnits = units.substring(0, pos);
+                    this._displayUnitsSuperscript = units.substring(pos+1);
+                }
+                else
+                {
+                    this._displayUnits = units;
+                    this._displayUnitsSuperscript = "";
+                }
+            },
+            domReady: function(){
+                this.gaugeThicknessChanged();
+            }
+        });
+    </script>
+</polymer-element>

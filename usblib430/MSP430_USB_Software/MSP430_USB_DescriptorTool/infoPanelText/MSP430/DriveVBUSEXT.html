@@ -1,0 +1,20 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    </head>
+    <body>
+        <h1>Drive VUSB from External Supply</h1>
+        <p>Associated constant in the API stacks:  <span class="attribute">USB_USE_INTERNAL_3V3LDO</span>.  (Not reported in the USB descriptors.)</p>
+        <p><span class="suggestion">Suggested default:</span>  leave it unchecked, and allow the internal USB LDO to source VUSB, unless there's a specific reason not to.</p>  
+        <p>The MSP430 USB module has an integrated LDO that reduces 5V VBUS to a 3.3V rail, used internally by the USB module and which can also be sourced externally to the system.  It does not source the MSP430's DVCC rail, nor are the two connected internally in any way.  The name of the pin through which the LDO sources this 3.3V rail to the system is called VUSB.</p> 
+        <p>However, it's possible to source power the other direction:  disabling the internal 3.3V USB LDO, and sourcing into VUSB from an external 3.3V source.  This is usually only advantageous if using an extremely low-quiescent external LDO, to reduce power consumption.</p>
+        <p>Checking this box disables the 3.3V USB LDO, so that power can be sourced into the VUSB pin.  The USB module's 1.8V LDO, which derives its power from VUSB, operates in the same manner either way.</p>
+    </body>
+</html>

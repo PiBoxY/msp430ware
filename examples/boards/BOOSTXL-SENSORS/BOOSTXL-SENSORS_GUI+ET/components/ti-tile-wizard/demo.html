@@ -1,0 +1,254 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+Copyright (c) 2014, Texas Instruments Incorporated
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+*   Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+*   Neither the name of Texas Instruments Incorporated nor the names of
+its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <!--[if gte IE 6]>
+    <script type="text/javascript">
+        // this is IE greater than or equal to 6
+        var isInternetExplorer=true;
+    </script>
+    <![endif]-->
+
+    <script>
+        var isIE =   ((navigator.appName == 'Microsoft Internet Explorer') ||
+        ((navigator.appName == 'Netscape') &&
+        (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));
+        if (window.isInternetExplorer) {
+            isIE =  true;
+        }
+
+        if ( isIE ){
+            var object = document.createElement("object");
+            object.setAttribute("id", "ticloudagentlauncher");
+            object.setAttribute("type", "application/x-ticloudagentlauncher");
+            object.setAttribute("width", "0");
+            object.setAttribute("height", "0");
+            document.head.appendChild( object );
+            window.TICloudAgent_HACK = {};
+            window. TICloudAgent_HACK.plugin = document.getElementById("ticloudagentlauncher");
+        }
+    </script>
+    <link rel="import" href="../polymer/polymer.html">
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+            text-align:center;
+        }
+        .icons {
+            color: red;
+        }
+        .wide { display: block; padding-left: 5px; padding-top:5px; vertical-align:bottom; background-color: gray; }
+        .container {height: 28px; width:120px;}
+    </style>
+    <link rel="import" href="../ti-tile-wizard/ti-tile-container.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-label.html">
+    <link rel="import" href="../ti-core-stylesheets/ti-core-stylesheets.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-title.html">
+    <link rel="import" href="../ti-widget-common/ti-widget-container.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-markdown.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-analoggauge.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-led.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-textbox.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-meter.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-thermometer.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-watermeter.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-scalargraph.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-temperaturegraph.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-slider.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-toggleswitch.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-dial.html">
+    <link rel="import" href="../ti-tile-wizard/ti-tile-string.html">
+    <link rel="import" href="../ti-widget-statusbar/ti-widget-statusbar.html">
+
+</head>
+
+<body  id="ti-theme">
+<ti-tile-wizard id="tileWizard"></ti-tile-wizard>
+<template is="auto-binding" id="templateObj">
+    <style>
+        #viewport {
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            top: 40px;
+            position: absolute;
+            border: none;
+            padding: 1em;
+            color: rgb(85, 85, 85);
+            overflow: auto;
+            background-color: rgb(250, 250, 250);
+        }
+        #viewport > * {
+            padding: 1em;
+            margin: 0.5em;
+            border: none;
+            background-color: rgb(255, 255, 255);
+        }
+        #ti_tile_title_container {
+            width: 100%;
+            height: 40px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            border: none;
+            position: absolute;
+            font-size: xx-large;
+            padding-left: 0px;
+        }
+        #ti_tile_analoggauge {
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_led {
+            width: 100px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_textbox {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_meter {
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_thermometer {
+            width: 150px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_watermeter {
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_scalargraph {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_temperaturegraph {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_slider {
+            width: 250px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_toggleswitch {
+            width: 100px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_dial {
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_string {
+            width: 100px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+        #ti_tile_markdown {
+            width: 350px;
+            height: 200px;
+            border: 1px solid rgb(211, 211, 211);
+        }
+    </style>
+    <ti-core-stylesheets id="ti_core_stylesheets"></ti-core-stylesheets>
+    <ti-tile-title id="ti_tile_title_container" titletext="ti-tile-wizard Demo" titleFontColor="#ffffff" titleFontSize="xx-large" backgroundColor="#204056" pin>
+    </ti-tile-title>
+    <ti-widget-container id="viewport" autoscroll horizontal layout wrap pin start-justified start>
+        <ti-tile-markdown id="ti_tile_markdown"  markdownText="* The Dial is bound to the following tiles:
+   * Analog Gauge
+   * Meter
+   * Thermometer
+   * Water Meter
+   * XYZ Graph
+   * Temperature Graph
+   * Slider, and
+   * String.
+* The Toggle switch is bound to the LED.
+* The Rx Text Box displays what is typed into the Tx Text Box."  pin></ti-tile-markdown>
+        <ti-tile-dial id="ti_tile_dial" minValue="1" maxValue="20" titletext="Dial" size="140px" pin></ti-tile-dial>
+        <ti-tile-analoggauge id="ti_tile_analoggauge"   value="{{$.ti_tile_dial.value}}" titletext="Analog Gauge" pin></ti-tile-analoggauge>
+        <ti-tile-led id="ti_tile_led"  value="{{$.ti_tile_toggleswitch.value}}" pin glow="true" color="#FF0000"></ti-tile-led>
+        <ti-tile-toggleswitch id="ti_tile_toggleswitch" value="false" color="red" pin></ti-tile-toggleswitch>
+        <ti-tile-textbox id="ti_tile_textbox" rxValueFromDevice="{{$.ti_tile_textbox.txValueToDevice}}" pin></ti-tile-textbox>
+        <ti-tile-meter id="ti_tile_meter" value="{{$.ti_tile_dial.value}}" minvalue="10" maxvalue="50" pin></ti-tile-meter>
+        <ti-tile-thermometer id="ti_tile_thermometer" value="{{$.ti_tile_dial.value}}" minvalue="5" maxvalue="20"  titletext="Thermometer" numTicks="4" pin></ti-tile-thermometer>
+        <ti-tile-watermeter id="ti_tile_watermeter" value="{{$.ti_tile_dial.value}}" minvalue="5" maxvalue="20" titletext="Water Meter" meterColors="#ff0000,#ffe000,#20e000,#00e000,#008080,#0000ff" pin></ti-tile-watermeter>
+        <ti-tile-scalargraph id="ti_tile_scalargraph" maxvalue="10" titletext="XYZ Graph" value_y="2.2" value_z="3.3" value_x="{{$.ti_tile_dial.value}}" pin></ti-tile-scalargraph>
+        <ti-tile-temperaturegraph id="ti_tile_temperaturegraph" value="{{$.ti_tile_dial.value}}" pin></ti-tile-temperaturegraph>
+        <ti-tile-slider id="ti_tile_slider" value="{{$.ti_tile_dial.value}}"  minvalue="5" maxvalue="30" units="V" labels="5,10,15,20,25,30" increment="1" pin></ti-tile-slider>
+        <ti-tile-string id="ti_tile_string" value="{{$.ti_tile_dial.value}}"  pin fontsize="medium"></ti-tile-string>
+
+    </ti-widget-container>
+<ti-widget-statusbar></ti-widget-statusbar>
+</template>
+<script>
+    var templateObj = document.querySelector('#templateObj');
+    var tileWizard = document.querySelector('#tileWizard');
+    document.addEventListener('polymer-ready',function(){
+
+
+        templateObj.ready = function(){
+            templateObj.async(function(){
+
+            },1);
+        }
+        templateObj.openAddTileDialog = function(e){
+            tileWizard.toggle();
+        }
+    });
+
+
+</script>
+</body>
+</html>

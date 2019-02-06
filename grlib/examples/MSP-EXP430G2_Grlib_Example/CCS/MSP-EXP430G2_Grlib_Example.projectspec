@@ -1,0 +1,9 @@
+<projectSpec>
+  <project compilerBuildOptions="-O3 -I${PROJECT_ROOT} -I${PROJECT_ROOT}/GrLib/grlib -I${PROJECT_ROOT}/GrLib/fonts -I${PROJECT_ROOT}/LcdDriver --advice:power=&quot;none&quot; --gcc" device="MSP430G2553" name="MSP-EXP430G2_Grlib_Example">
+	<file action="copy" path="../main.c" targetDirectory="." />
+	<file action="copy" path="../system_pre_init.c" targetDirectory="." />
+	<file action="copy" path="../LcdDriver/" />
+	<file action="copy" path="../../../src/grlib/" targetDirectory="GrLib/" />
+	<file action="copy" path="../../../src/fonts/" targetDirectory="GrLib/" />
+  </project>
+</projectSpec>

@@ -1,0 +1,372 @@
+<!--
+`ti-widget-attitudedisplay`
+
+The Attitude Display widget graphically displays the amount of the rotation (value) and tilt
+
+Example:
+
+    <ti-widget-attitudedisplay rotation="180" tilt="10"></ti-widget-attitudedisplay>
+
+@group TI Instrument Widgets
+@element ti-widget-attitudedisplay
+@homepage ../ti-guicomposer-helpindex/demo.html
+-->
+<!--
+    Copyright (c) 2015, Texas Instruments Incorporated
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    *   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    *   Neither the name of Texas Instruments Incorporated nor the names of
+    its contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+    EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-resizable/core-resizable.html">
+
+<polymer-element name="ti-widget-attitudedisplay">
+
+    <template id="ti-widget-attitudedisplay">
+
+        <style>
+            :host
+            {
+                display: inline-block;
+            }
+            svg {
+
+                overflow: visible;
+            }
+            #top {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+
+        <div id="top" layout vertical around-justified>
+            <div style="top:0px;left:0px;">
+                <svg id="gauge" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" style="transform-origin: 50% 50%;transform:rotate({{rotation}}deg);">
+                    <g
+                            id="layer1"
+                            transform="translate(-0.07081568,-879.6805)">
+                        <ellipse
+                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.58958369;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                                id="circle4169"
+                                cx="426.19031"
+                                cy="830.08936"
+                                rx="49.557762"
+                                ry="49.829575"
+                                transform="matrix(0.91453727,0.40450164,-0.40897908,0.91254376,0,0)" />
+                        <path
+                                style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.58958369;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                                d="m 0.64744642,929.95419 0.064394,0.3818 C 0.25295226,996.6045 100.76804,996.03544 99.988162,929.6848 c 0,0 {{_tilt_vector}} z"
+                                id="path4201"
+                                />
+                        <g
+                                transform="translate(0.14614462,0)"
+                                id="g6404">
+                            <path
+                                    style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                    d="m 50.131605,880.9066 -3.007944,4.51191 6.015888,0 z"
+                                    id="path4149" />
+                            <g
+                                    transform="matrix(4.9036505,0,0,1,-196.41287,2.6553636)"
+                                    id="g4315">
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,927.42979 -3.6525,0 0,0 0,0"
+                                        id="path4260" />
+                                <path
+                                        id="path4262"
+                                        d="m 52.10399,922.21996 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,917.01013 -3.6525,0 0,0 0,0"
+                                        id="path4264" />
+                                <path
+                                        id="path4266"
+                                        d="m 52.10399,911.8003 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,901.38065 -3.6525,0 0,0 0,0"
+                                        id="path4268" />
+                                <path
+                                        id="path4270"
+                                        d="m 52.10399,890.96098 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,896.17082 -3.6525,0 0,0 0,0"
+                                        id="path4272" />
+                                <path
+                                        id="path4274"
+                                        d="m 52.10399,885.75116 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        id="path4293"
+                                        d="m 52.10399,906.59047 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,974.31824 -3.6525,0 0,0 0,0"
+                                        id="path4295" />
+                                <path
+                                        id="path4297"
+                                        d="m 52.10399,969.10841 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,963.89858 -3.6525,0 0,0 0,0"
+                                        id="path4299" />
+                                <path
+                                        id="path4301"
+                                        d="m 52.10399,953.47893 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,943.05927 -3.6525,0 0,0 0,0"
+                                        id="path4303" />
+                                <path
+                                        id="path4305"
+                                        d="m 52.10399,948.2691 -3.6525,0 0,0 0,0"
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,937.84944 -3.6525,0 0,0 0,0"
+                                        id="path4307" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,932.63962 -3.6525,0 0,0 0,0"
+                                        id="path4309" />
+                                <path
+                                        style="fill:none;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                        d="m 52.10399,958.68876 -3.6525,0 0,0 0,0"
+                                        id="path4311" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <div style="z-index:999;"  onresize="{{onResize}}">
+                <svg id="markings" width="100%" height="100%" viewBox="0 0 100 100" style="transform: translateY({{getOffsetY(_initialized,_resizeCtr)}});"  >
+                    <g
+                            transform="translate(-4.0192849,-4.0)"
+                            id="layer2">
+                        <path
+                                id="path4145"
+                                d="m 28.240863,929.75256 17.03978,-0.0247 5.090095,7.32975 6.015888,-7.51986 17.832813,-0.0247"
+                                style="fill:none;fill-rule:evenodd;stroke:#ffbe00;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <g
+                                transform="matrix(-1.8611947e-8,1,-1,-1.8611947e-8,984.26638,4.1012276)"
+                                id="g4418">
+                            <path
+                                    id="path4420"
+                                    d="m 50.27774,875.89863 0,3.6525 0,0 0,0"
+                                    style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                            <path
+                                    style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                    d="m 50.27774,979.88759 0,3.6525 0,0 0,0"
+                                    id="path4422" />
+                        </g>
+                        <path
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                d="m 40.888461,876.72008 0.63425,3.59701 0,0 0,0"
+                                id="path4163"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                id="path4169"
+                                d="m 31.784472,879.15949 1.249229,3.43223 0,0 0,0"
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                d="m 23.242394,883.14273 1.82625,3.16316 0,0 0,0"
+                                id="path4175"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                d="m 59.667025,876.72008 -0.63425,3.59701 0,0 0,0"
+                                id="path4199"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                id="path4206"
+                                d="m 68.77102,879.15949 -1.249228,3.43223 0,0 0,0"
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                d="m 77.313106,883.14273 -1.82625,3.16316 0,0 0,0"
+                                id="path4212"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                id="path4230"
+                                d="m 88.511522,891.73558 -2.582708,2.58271 0,0 0,0"
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                d="m 12.043962,891.73558 2.582708,2.58271 0,0 0,0"
+                                id="path4450"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                                d="m 50.467848,879.97966 3.007944,-4.51191 -6.015888,0 z"
+                                id="path4458"
+                                transform="translate(4.0192849,-875.5904)" />
+                        <path
+                                id="path6426"
+                                d="m 53.726702,108.75843 2.817836,-1.08997 -5.635672,0 z"
+                                style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+                    </g>
+
+                </svg>
+            </div>
+
+        </div>
+    </template>
+    <script>
+        Polymer(Polymer.mixin({
+
+            _lastValue: 0,
+
+            publish: {
+                /**
+                 * The rotation to display (in degrees).
+                 *
+                 * @attribute rotation
+                 * @type number
+                 * @default 0
+                 */
+                rotation: 0,
+
+                /**
+                 * The tilt to display (in degrees, min = -90, max = 90).
+                 *
+                 * @attribute tilt
+                 * @type number
+                 * @default 0
+                 */
+                tilt: 0,
+
+
+                /**
+                 * Provides an optional title for the gauge.
+                 *
+                 * @attribute titleLabel
+                 * @type string
+                 */
+                titleLabel : ""
+
+
+            },
+            _tilt_vector: "-3.215765,0.28581 -52.539594,0.21388 -48.778146,-0.0711 -46.80112158,0.0682 -46.80112158,0.0682",
+            rotationChanged : function()
+            {
+                var newValue = +(this.value % 360);
+                if (this.value != newValue) {
+                    this.value = newValue;
+                }
+                this._lastValue = +this.value;
+                this.$.gauge.className = this.$.gauge.className;
+
+            },
+            tiltChanged: function(){
+                var val1 = -1*this.tilt*48/90;
+                var rhs = "0,"+val1 + " -50,"+val1;
+                if (this.tilt < 0){
+                    var rhs2 = 929.95;
+                    var rhs1 = (rhs2-this.tilt*0.5);
+                    //rhs = rhs + " C 1.0774908, "+(925+val3*60/90)+", 0.64744642,927.6035 0.64744642,927.6035";
+                    rhs = rhs + " C 1, "+rhs1+", 1.0,"+rhs2+" 1.0,"+rhs2;
+                } else {
+                    //        rhs = rhs + " -48.7781466,-0.0711 -50, "+(-1*val1)+" -50,"+(-1*val1);
+                    rhs = rhs + " -50,0 -50, "+(-1*val1)+" -50,"+(-1*val1);
+                }
+                this._tilt_vector = rhs;
+                this.$.path4201.className = this.$.path4201.className; // force redraw with new CSS parameters
+            },
+            _prevOffsetY: 0,
+            _getOffsetY: function(_initialized,_resizeCtr) {
+                var result = 0;
+                if ((this.$)&&(_initialized)) {
+                    var rect = this.getBoundingClientRect();//this.$.gauge.getBoundingClientRect();
+                    var rect2 = this.$.markings.getBoundingClientRect();
+                    result = -1*(rect2.top - rect.top);
+
+
+                }
+                if (result === 0){
+                    result = this._prevOffsetY;
+                } else {
+                    result = result + this._prevOffsetY;
+                    this._prevOffsetY = result;
+                }
+
+                return result+"px";
+
+            },
+            getOffsetY: undefined,
+            created: function(){
+                this.getOffsetY = this._getOffsetY.bind(this);
+                this.onResize = this._onResize.bind(this);
+                this.onResizedByDesigner = this._onResizedByDesigner.bind(this);
+            },
+            attached: function () {
+                this.resizableAttachedHandler();
+                this.addEventListener("transitionend",function(e){
+                    //console.log("transition handler");
+                    this.onResize();
+                })
+            },
+            detached:function(){
+                this.resizableDetachedHandler();
+            },
+            _resizeCtr: 0,
+            _onResize: function() {
+                this.async(function(){
+                    this._resizeCtr++;
+                    this.$.markings.className = this.$.markings.className; // ensure css style is updated
+                }.bind(this),null,1);
+                console.log('ti-widget-attitudedisplay: _resizeCtr = '+this._resizeCtr);
+            },
+            onResize: undefined,
+            eventDelegates: {
+                'core-resize': 'onResize'
+            },
+            _initialized: false,
+            _onResizedByDesigner: function(){
+                this.async(function(){
+                    this._resizeCtr++;
+                    this.$.markings.className = this.$.markings.className; // ensure css style is updated
+                }.bind(this),null,5);
+            },
+            onResizedByDesigner: undefined,
+            domReady: function(){
+                this._initialized = true;
+                this.async('onResize');
+            }
+        }, Polymer.CoreResizable));
+    </script>
+</polymer-element>

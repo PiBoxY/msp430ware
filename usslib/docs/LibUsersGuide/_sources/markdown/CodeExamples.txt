@@ -1,0 +1,400 @@
+Code Examples
+=============
+
+The code examples in this library shows basic usage of the library API's. The example project implements the typical SW Flow in ultrasonic application as described in section Flow Diagram
+
+Software Prerequisites
+----------------------
+
+-  Code Composer Studio version 7.2.0 or later
+
+   -  Compiler version or TI v16.9.3.LTS
+
+-  IAR Embedded Workbench for MSP v 7.10 or later
+
+Hardware Prerequisites
+----------------------
+
+-  `EVM430-FR6047 <http://www.ti.com/tool/evm430-fr6047>`__ (recommended to evaluate single tone ultrasonic applications)
+-  `EVM430-FR6043 <http://www.ti.com/tool/evm430-fr6043>`__ (recommended to evaluate multi tone ultrasonic applications)
+-  `EVM430-FR6043-02 <http://www.ti.com/tool/evm430-fr6043-02>`__ (recommended to evaluate single tone ultrasonic applications)
+-  `MSP-TS430PZ100E <http://www.ti.com/tool/msp-ts430pz100e>`__
+
+Device Resource Usage
+~~~~~~~~~~~~~~~~~~~~~
+
+The USS library requires access to different MSP430 modules based on the excitation type selected user selection to to control the external AFE.
+
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Module                              | Default selection   | File containing module defintion    | Notes                                                                                                                  |
++=====================================+=====================+=====================================+========================================================================================================================+
+| Timer\_A                            | Timer\_A2           | ussSWLib/USS\_HAL/USS\_Lib\_HAL.h   | Used to generated USS crystal/resonator settling times. Use to enable transitions to LPM3 during low power captures.   |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| LEA                                 |                     | Not configurable                    | Internally used by Algorithms API to accelerate vector based operations                                                |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Timer\_A                            | Timer\_A0           | ussSWLib/USS\_HAL/USS\_Lib\_HAL.h   | Use to generate AFE events.                                                                                            |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| GPIO USSSWLIB\_HAL\_AFE\_RXEN       | P6.7                | ussSWLib/USS\_HAL/USS\_Lib\_HAL.h   | Only use when controlling external AFE                                                                                 |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| GPIO USSSWLIB\_HAL\_AFE\_RX\_SEL1   | P3.6                | ussSWLib/USS\_HAL/USS\_Lib\_HAL.h   | Only use when controlling external AFE                                                                                 |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| GPIO USSSWLIB\_HAL\_AFE\_RX\_SEL2   | P3.7                | ussSWLib/USS\_HAL/USS\_Lib\_HAL.h   | Only use when controlling external AFE                                                                                 |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| GPIO USSSWLIB\_HAL\_AFE\_RXPWR      | P2.2                | ussSWLib/USS\_HAL/USS\_Lib\_HAL.h   | Only use when controlling external AFE                                                                                 |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| GPIO USSSWLIB\_HAL\_AFE\_TXPWR      | P1.0                | ussSWLib/USS\_HAL/USS\_Lib\_HAL.h   | Only use when controlling external AFE                                                                                 |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| DMA                                 | DMA\_Channel 2      | Not configurable                    | Only needed when using multitoned excitation pulses and running on device with USS\_A module                           |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+|                                     | DMA\_Channel 3      | Not configurable                    | Only needed when using multitoned excitation pulses and running on device with USS\_A module                           |
++-------------------------------------+---------------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+
+Library configuration assumptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following modules are automatically configured by the library and don't need to be initialized as part of the application:
+
+-  USS module
+-  Timer\_A
+-  GPIOs use to control external circuitry
+-  DMA channel when multitoned generation is selected
+
+In order to achieve the lowest power consumption and achieve the expected timing configuration, it is recommended that users configure the following modules.
+
+-  Clock System (CS)
+
+   -  It is highly recommended that ACLK is sourced externally by a 32.768 KHz crystal
+
+      -  Please refer to `MSP430™ 32-KHz Crystal Oscillators <http://www.ti.com/lit/pdf/slaa322>`__ Application Report for further information for crystal selection
+
+-  Digital I/O
+
+   -  It is highly recommended to terminate unused pins.
+
+For further recommendations to achieve the lowest power consumption please refer to `How to achieve the specified power consumption values as in the datasheet? <http://processors.wiki.ti.com/index.php/MSP430_FAQ#How_to_achieve_the_specified_power_consumption_values_as_in_the_datasheet.3F>`__
+
+In addition, the clock module configuration must match LIBRARY CLOCK DEFINITION configuration defines in ``<USS_SW_LIB_ROOT>/examples/USSSWLib_template_example/USS_Config/USS_userConfig.h``.
+
+Code section :
+
+.. code:: c
+
+    /*******************************************************************************
+     * LIBRARY CLOCK DEFINITION
+     *
+     * IMPORTANT: The following defines only specify MCLK and LFXT frequencies at
+     * which the application is configured to run. The library DOES NOT configure
+     * MCLK, SMCLK or LFXT.
+     *
+     * This parameter are also using in the derived parameter section to calculate
+     * HSPLL counts and LFXT counts.
+     *
+     * USS_MCLK_FREQ_IN_HZ valid options:
+     * - Valid device specific MCLK frequency options
+     *
+     * USS_LFXT_FREQ_IN_HZ valid options:
+     * - Valid device specific MCLK frequency options
+     *
+    *******************************************************************************/
+    #if (USS_PULSE_MODE == USS_PULSE_MODE_MULTI_TONE)
+    #define USS_MCLK_FREQ_IN_HZ               16000000
+    #else
+    #define USS_MCLK_FREQ_IN_HZ               8000000
+    #endif
+    #define USS_SMCLK_FREQ_IN_HZ               8000000
+    #define USS_LFXT_FREQ_IN_HZ                  32768
+
+Code Example Directory Structure
+--------------------------------
+
+The USS SW Library contains a basic template example project. The intention of the example is showcase the typical ultrasonic
+
+-  **CCS** - Code composer specific project files this directory contains project configuration files (\*\_USSSWLib\_template\_example.projectspec) and linker command files.
+-  **IAR** - IAR specific project files and IAR linker command files.
+-  **USS\_Config** - Default library configuration files. For more information regarding modifying the library configuration file please refer to `Modifying USS SW Library Configuration files <#modify>`__
+
+Code Composer Studio
+~~~~~~~~~~~~~~~~~~~~
+
+Importing the Project
+^^^^^^^^^^^^^^^^^^^^^
+
+-  In CCS, select *File -> Import...*
+-  In the Import window, select *C/C++ -> CCS Projects* and select the *Next* button
+-  In the Import CCS Eclipse Projects window, hit the *Browse* button to browse to ``<USS_SW_LIB_EXAMPLES_DIR>`` and then select *Refresh* to update the window. Select the checkbox next to the project and click *Finish*. This will load the project into CCS workspace.
+
+.. figure:: images/CCSImport.png
+   :alt: Importing in CCS
+
+   Importing in CCS
+
+Building the Project
+^^^^^^^^^^^^^^^^^^^^
+
+To build the project, right-click on the project name in the Project Explorer and select *Build Project* OR click on the Build icon in the top toolbar.
+
+.. figure:: images/BuildProjectCCS.png
+   :alt: Building in CCS
+
+   Building in CCS
+
+IAR Embedded Workbench for MSP430
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Importing the Project
+^^^^^^^^^^^^^^^^^^^^^
+
+All code examples that are shipped with the USS SW Library come with a .eww IAR workspace file. To import a project into IAR, navigate to the project’s IAR directory ``<USS_SW_LIBRARY_INSTALL_DIR>\examples\USSSWLib_template_example>`` and double-click on the .eww workspace file for that project.
+
+.. figure:: images/IARImport3.png
+   :alt: Importing in IAR
+
+   Importing in IAR
+
+Building the Project
+^^^^^^^^^^^^^^^^^^^^
+
+Make / Build the project by right-clicking on the project in your Workspace and selecting Make or by clicking Shortcut F7 on your keyboard.
+
+.. figure:: images/IARBuild.png
+   :alt: Building in IAR
+
+   Building in IAR
+
+Recommended USS SW Library usage
+--------------------------------
+
+Recommended measurement and algorithms initialization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users can decide to use to use the provided Absolute Time Of Flight, Delta Time of Flight and Volume Flow as part of the USS SW Library or implement custom algorithms using the sampled waveforms.
+
+The following diagrams shows the recommended measurement configuration sequence.
+
+.. figure:: images/reccomendedMeasConfig.png
+   :alt: Measurement Configuration
+
+   Measurement Configuration
+
+Before invoking USS\_runAlgorithms or USS\_runAlgorithmsFixedPoint it is highly recommended to follow the configuration sequence below.
+
+.. figure:: images/reccomendedAlgInit.png
+   :alt: Measurement Configuration
+
+   Measurement Configuration
+
+Most API supported by the library will return an error code back to the application which the user can use to determine if the there was an error detected when invoking an API. All measurement configurations and algorithm initialization APIs will return ``USS_message_code_no_error`` if the API ran successfully.
+
+Modifying Library Configuration Files
+-------------------------------------
+
+All modifications to USS SW Library are done via ``<USS_userConfig.h>`` file. This header file in four main sections:
+
+-  **Library memory optimization configuration**
+-  **Library basic configuration parameters**
+
+   -  Clock Definition
+   -  Diagnostic Configuration
+   -  Meter Configuration
+   -  Ultrasonic Firing/Capture Configuration
+   -  Calibration Configuration
+   -  Algorithm Configuration
+
+-  **Library advanced configuration parameters**
+
+   -  Advanced Algorithm Configuration
+   -  Advanced Ultrasonic Firing/Capture Configuration
+
+-  **Library Derived parameter**
+
+Library memory optimization configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This section allows user to optimize LEA RAM, RAM and FRAM library memory usage by allowing users to modify various temporary buffers sizes during compilation time.
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+       <tr>
+           <th>USS SW Library Macro Name</th>
+       </tr>
+       <tr>
+           <td>USS_SW_LIB_APP_MAX_CAPTURE_SIZE</td>
+       </tr>
+       <tr>
+           <td>USS_SW_LIB_APP_MAX_FILTER_LENGTH</td>
+       </tr>
+       <tr>
+           <td>USS_SW_LIB_APP_MAX_FILTER_OPTIONS</td>
+       </tr>
+       <tr>
+           <td>USS_SW_LIB_APP_MAX_HILBERT_FILTER_OPTIONS</td>
+       </tr>
+       <tr>
+           <td>USS_SW_LIB_APP_MAX_HILBERT_FILTER_LENGTH</td>
+       </tr>
+       <tr>
+           <td>USS_BINARY_ARRAY_MAX_SIZE</td>
+       </tr>
+       <tr>
+           <td>USS_NUM_OF_MAX_TRILL_PULSES</td>
+       </tr>
+       <tr>
+           <td>USS_NUM_OF_MAX_ADDTL_TRILL_PULSES</td>
+       </tr>
+   </table>
+
+The sections below list all temporary buffer used by the library and the. The buffers listed below are defined in ``<USS_userConfig.c>``
+
+LEA RAM Buffers
+^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+       <tr>
+           <th>LEA RAM Buffer Name</th>
+           <th>Data type</th>
+           <th>Default Configuration Buffer size</th>
+           <th>Comment</th>
+       </tr>
+       <tr>
+           <td>gUSSLEATempMemBlock</td>
+           <td>int16_t</td>
+           <td>[2*(USS_SW_LIB_APP_MAX_CAPTURE_SIZE +USS_SW_LIB_APP_MAX_FILTER_LENGTH)]</td>
+           <td>Required for Firing/Capture Process</td>
+       </tr>
+       <tr>
+           <td>gUSSLEARAMReservedBlock1</td>
+           <td>int16_t</td>
+           <td>[USS_SW_LIB_APP_MAX_CAPTURE_SIZE + USS_SW_LIB_APP_MAX_FILTER_LENGTH]</td>
+           <td>Used by algorithm dtoFCalcOption:
+               <ul>
+                   <li>USS_Alg_dToF_Calculation_Option_water</li>
+               </ul>
+           </td>
+       </tr>
+       <tr>
+           <td>gUSSLEARAMReservedBlock2</td>
+           <td>int16_t</td>
+           <td>[USS_SW_LIB_APP_MAX_CAPTURE_SIZE + USS_SW_LIB_APP_MAX_FILTER_LENGTH]</td>
+           <td>Used by algorithm absToFOption:
+               <ul>
+                   <li>USS_Alg_AbsToF_Calculation_Option_hilbert</li>
+                   <li>USS_Alg_AbsToF_Calculation_Option_hilbertWide</li>
+               </ul>
+           </td>
+       </tr>
+       <tr>
+           <td>gUSSBinaryPattern</td>
+           <td>int16_t</td>
+           <td>USS_BINARY_ARRAY_MAX_SIZE</td>
+           <td>Used by algorithm absToFOption:
+               <ul>
+                   <li>USS_Alg_AbsToF_Calculation_Option_hilbertWide</li>
+               </ul>
+           </td>
+       </tr>
+   </table>
+
+FRAM Buffers
+^^^^^^^^^^^^
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+       <tr>
+           <th>FRAM Buffer Name</th>
+           <th>Data type</th>
+           <th>Default Configuration Buffer size</th>
+           <th>Comment</th>
+       </tr>
+       <tr>
+           <td>gNVMemBlock</td>
+           <td>int16_t</td>
+           <td>[USS_SW_LIB_APP_MAX_CAPTURE_SIZE * 2]</td>
+           <td>Used by all absToFOption computation options</td>
+       </tr>
+       <tr>
+           <td>gUSSFilterCoeffs</td>
+           <td>int16_t</td>
+           <td>[USS_SW_LIB_APP_MAX_FILTER_OPTIONS] * [USS_SW_LIB_APP_MAX_FILTER_LENGTH]</td>
+           <td>Used by USS_runAlgortihms APIs when signal filtering is enabled</td>
+       </tr>
+       <tr>
+           <td>gUSSHilbertCoeffs</td>
+           <td>int16_t</td>
+           <td>[USS_SW_LIB_APP_MAX_HILBERT_FILTER_OPTIONS] * [USS_SW_LIB_APP_MAX_HILBERT_FILTER_LENGTH]</td>
+           <td>Used by algorithm absToFOption:
+               <ul>
+                   <li>USS_Alg_AbsToF_Calculation_Option_hilbert</li>
+                   <li>USS_Alg_AbsToF_Calculation_Option_hilbertWide</li>
+               </ul>
+           </td>
+       </tr>
+       <tr>
+           <td>            
+               <ul>
+                   <li>epulse</li>
+                   <li>hper</li>
+                   <li>lper</li>
+                   <li>xpulse</li>
+                   <li>xhper</li>
+                   <li>xlper</li>
+               </ul>
+           </td>
+           <td>uint16_t</td>
+           <td>[USS_NUM_OF_MAX_TRILL_PULSES]</td>
+           <td>Required when using multitone generation functionality on devices with SAPH_A module. <br /><br /> To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.
+           </td>
+       </tr>
+       <tr>
+           <td>            
+               <ul>
+                   <li>xtraepulse</li>
+                   <li>xtraxpulse</li>
+                   <li>xtraxhper</li>
+                   <li>xtraxlper</li>
+                   <li>xtrahper</li>
+                   <li>xtralper</li>
+               </ul>
+           </td>
+           <td>uint16_t</td>
+           <td>[USS_NUM_OF_ADDTL_TRILL_PULSES]</td>
+           <td>Required when using multitone generation functionality on devices with SAPH_A module and (USS_NUM_OF_ADDTL_TRILL_PULSES > 0). <br /><br />To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.
+           </td>
+       </tr>
+       <tr>
+           <td>additionalBinarySequence</td>
+           <td>int16_t</td>
+           <td>[USS_NUM_OF_ADDTL_TRILL_PULSES]</td>
+           <td>Required when (USS_NUM_OF_ADDTL_TRILL_PULSES > 0)</td>
+       </tr>
+   </table>
+
+RAM Buffers
+^^^^^^^^^^^
+
+.. raw:: html
+
+   <table>
+       <tr>
+           <th>RAM Buffer Name</th>
+           <th>Data type</th>
+           <th>Default Configuration Buffer size</th>
+           <th>Comment</th>
+       </tr>
+       <tr>
+           <td>RAM_XE</td>
+           <td>uint16_t</td>
+           <td>[(USS_NUM_OF_MAX_TRILL_PULSES + USS_NUM_OF_ADDTL_TRILL_PULSES) * 6]</td>
+           <td>Required when using multitone generation functionality on devices with SAPH_A module. <br /><br /> To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.
+           </td>
+       </tr>
+       <tr>
+           <td>RAM_DMA_CONFIG</td>
+           <td>uint16_t</td>
+           <td>[(USS_NUM_OF_MAX_TRILL_PULSES + USS_NUM_OF_ADDTL_TRILL_PULSES) * 18]</td>
+           <td>Required when using multitone generation functionality on devices with SAPH_A module. <br /><br /> To determine is your device has SAPH or SAPH_A module please refer to the device datasheet.</td>
+       </tr>
+   </table>

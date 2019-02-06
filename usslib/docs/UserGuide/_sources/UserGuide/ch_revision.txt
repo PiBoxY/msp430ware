@@ -1,0 +1,99 @@
+Revision History
+================
+
+This chapter tracks changes in the Ultrasonic Technology Guide and Ultrasonic Software Library.
+
+Revision History of Ultrasonic Technology Guide Releases
+--------------------------------------------------------
+
+Release 02.20.00.16
+~~~~~~~~~~~~~~~~~~~
+
+-  **Design Guide**
+
+   -  Minor gas meter configuration documentation update.
+
+-  **Design Center**
+
+   -  No updates
+
+Release 02.20.00.15
+~~~~~~~~~~~~~~~~~~~
+
+-  **Design Guide**
+
+   -  Added documentation for Calibration tab
+   -  Updated Configuration documentation to include Water and Gas parameter generation, Hardware Configuration and which parameters require the target code to be recompiled
+   -  Minor updates to installation path links.
+   -  Updated Error Handling application and library error codes
+   -  Added communication protocol spec with command codes
+   -  Added revision history section
+
+-  **Design Center**
+
+   -  Added Calibration tab for Volume Flow Rate calibration
+   -  Removed link to Quick User's Guide
+   -  Enabled Parameter and Advanced Parameter modification without being connected to a target
+   -  Increased Sweep Parameter Captures to 200
+   -  Added Hardware Configuration functionality to select target board.
+   -  Added Interpolation Correction Table Size to improve accuracy of the Lobe Algorithm.
+   -  Updated ADC Over Sampling Rate selection based on Signal Sampling Frequency input.
+   -  Removed Negative and Positive Search Ranges parameters and replaced them with Search Range parameter
+   -  Updated Algorithm Option with a drop down menu
+   -  Fixed Frequency Sweep minor issues:
+
+      -  Displaying valid sweep ranges
+      -  Updating both capture and step size, trigger the sweep ranges label to be updated
+      -  Updated message displayed if an error occurs during frequency sweep
+      -  Updated X-axis title to Excitation Frequency
+
+   -  Added Pulse Mode to Frequency Sweep
+   -  Increased Debug Waveforms to 4 debug plots
+
+Release 01.71.01.05
+~~~~~~~~~~~~~~~~~~~
+
+-  Implemented detailed Configuration Update Failed messages
+-  Re-enabled all waveform graphs during continuous capture
+-  Auto-selecting gas/water at connect time based on application ID
+-  Dropped minimum number of pulses to 0 for gas mode
+-  Restricted number of pulses to even number for gas in dual-, multi-tone mode
+-  Modified frequency sweep to increment + display F2 in gas mode
+-  Update to new application version of generated user configuration headers
+
+Release 01.70.01.02
+~~~~~~~~~~~~~~~~~~~
+
+-  Adds additional #defines for USS\_MISMATCH\_DELTA\_VALUES, USS\_DELTA\_1, and USS\_DELTA\_2 to header file generation
+
+Release 01.70.00.04
+~~~~~~~~~~~~~~~~~~~
+
+Release of USS Design Center -- this version contains updates for:
+
+-  Gas parameter support
+-  Header file generation
+-  Graphing plot averages
+-  Variable frequency sweep size
+-  Bug fixes
+
+Release 01.60.01.17
+~~~~~~~~~~~~~~~~~~~
+
+**Initial release of Design Center revision of USS GUI -- this version adds:**
+
+-  Increased water metering support on MSPFR6047 platform
+-  I2C Communication Protocol
+-  Speeds up to 40 Hz for waveform captures
+-  Speeds up to 20 Hz for ADC continuous capture
+-  Frequency Sweep feature ascertaining best transmitter frequency for application
+-  Better error handling capability
+
+Revision History of Ultrasonic Software Library Releases
+--------------------------------------------------------
+
+Although Ultrasonic Software Library and Ultrasonic Design Center GUI are delivered together, the Ultrasonic Software Library has its own version tracking and change control. Every major library release comes with change control data in the Software Library API guide that describes any new features that have been added and any changes to existing functionality.
+
+-  `Access the software library change control document <../../API_Guide/html/md_changelog.html>`__
+
+-  `Access the software library API guide <../../api_guide.html>`__

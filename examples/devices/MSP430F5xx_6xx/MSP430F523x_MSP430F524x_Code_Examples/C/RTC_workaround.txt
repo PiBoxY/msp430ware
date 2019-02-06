@@ -1,0 +1,4 @@
+The RTC_Workaround.zip for RTC3 bug is located in MSP430F5438 Code Example.
+
+Direct link to download the ZIP file:
+http://www.ti.com/lit/zip/slac166

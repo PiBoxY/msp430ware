@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: BOOSTXL-K350QVG-S1_02.PcbDoc   2014/12/12  14:47:05
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : BOOSTXL-K350QVG-S1_02.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        11.81mil (0.29997mm)     Round          42               10.11 Inch (256.73 mm)
+T2        13.78mil (0.35001mm)     Round          2                0.79 Inch (20.14 mm)
+T3        35.43mil (0.89992mm)     Round          42               6.95 Inch (176.41 mm)
+---------------------------------------------------------------------------
+Totals                                            86               17.85 Inch (453.28 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:03
